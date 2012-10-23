@@ -1,0 +1,6 @@
+#include "macros.edc"
+
+collections {
+#include "edc/background.edc"
+#include "edc/shelf.edc"
+}
