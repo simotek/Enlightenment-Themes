@@ -3,4 +3,5 @@
 collections {
 #include "edc/background.edc"
 #include "edc/shelf.edc"
+#include "edc/start.edc"
 }
