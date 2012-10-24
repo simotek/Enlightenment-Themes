@@ -230,7 +230,7 @@ group { name: "e/shelf/invisible/base";
             visible: 0;
          }
       }
-      part { name: "dots_start"; mouse_events: 0;
+      part { name: "dots_start";
          description { state: "default" 0.0;
             rel1.offset: 0 0;
             rel2.offset: -1 -1;
@@ -246,7 +246,7 @@ group { name: "e/shelf/invisible/base";
             visible: 0;
          }
       }
-      part { name: "dots_end"; mouse_events: 0;
+      part { name: "dots_end";
          description { state: "default" 0.0;
             rel1.offset: 0 0;
             rel2.offset: -1 -1;

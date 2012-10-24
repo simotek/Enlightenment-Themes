@@ -651,12 +651,12 @@ group { name: "e/widgets/border/dialog/border";
             visible: 0;
          }
       }
-      part { name: "e.event.titlebar"; type: RECT;
+      part { name: "e.event.titlebar";
          description { state: "default" 0.0;
             rel2.to_x: "e.event.close";
          }
       }
-      part { name: "e.event.maximize"; type: RECT;
+      part { name: "e.event.maximize";
          description { state: "default" 0.0;
             max: 0 0;
             aspect: 0.0 0.0;
@@ -664,7 +664,7 @@ group { name: "e/widgets/border/dialog/border";
             fixed: 1 1;
          }
       }
-      part { name: "e.event.minimize"; type: RECT;
+      part { name: "e.event.minimize";
          description { state: "default" 0.0;
             max: 0 0;
             aspect: 0.0 0.0;
@@ -699,19 +699,19 @@ group { name: "e/widgets/border/noresize/border";
             visible: 0;
          }
       }
-      part { name: "e.event.resize.bl"; type: RECT;
+      part { name: "e.event.resize.bl";
          description { state: "default" 0.0;
             min: 0 0;
             visible: 0;
          }
       }
-      part { name: "e.event.resize.b"; type: RECT;
+      part { name: "e.event.resize.b";
          description { state: "default" 0.0;
             min: 0 0;
             visible: 0;
          }
       }
-      part { name: "e.event.resize.br"; type: RECT;
+      part { name: "e.event.resize.br";
          description { state: "default" 0.0;
             min: 0 0;
             visible: 0;
@@ -744,19 +744,19 @@ group { name: "e/widgets/border/noresize_dialog/border";
             visible: 0;
          }
       }
-      part { name: "e.event.resize.bl"; type: RECT;
+      part { name: "e.event.resize.bl";
          description { state: "default" 0.0;
             min: 0 0;
             visible: 0;
          }
       }
-      part { name: "e.event.resize.b"; type: RECT;
+      part { name: "e.event.resize.b";
          description { state: "default" 0.0;
             min: 0 0;
             visible: 0;
          }
       }
-      part { name: "e.event.resize.br"; type: RECT;
+      part { name: "e.event.resize.br";
          description { state: "default" 0.0;
             min: 0 0;
             visible: 0;
