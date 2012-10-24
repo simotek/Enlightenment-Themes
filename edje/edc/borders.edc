@@ -1,10 +1,5 @@
 group { name: "e/widgets/border/default/border";
    alias: "e/widgets/border/shaped/border";
-   // XXX: make these borders a bit different. inherit for most but pixel?
-   alias: "e/widgets/border/noresize/border";
-   alias: "e/widgets/border/dialog/border";
-   alias: "e/widgets/border/noresize_dialog/border";
-   alias: "e/widgets/border/pixel/border";
    
    images.image: "vgrad_med_lighter.png" COMP;
    images.image: "vgrad_med_dark.png" COMP;
@@ -601,6 +596,210 @@ group { name: "e/widgets/border/default/border";
          action: STATE_SET "default" 0.0;
          target: "min1";
          target: "min2";
+      }
+   }
+}
+
+group { name: "e/widgets/border/dialog/border";
+   inherit: "e/widgets/border/default/border";
+   parts {
+      part { name: "max1";
+         description { state: "default" 0.0;
+            min: 0 0;
+            max: 0 0;
+            visible: 0;
+         }
+         description { state: "selected" 0.0;
+            min: 0 0;
+            max: 0 0;
+            visible: 0;
+         }
+      }
+      part { name: "min1";
+         description { state: "default" 0.0;
+            min: 0 0;
+            max: 0 0;
+            visible: 0;
+         }
+         description { state: "selected" 0.0;
+            min: 0 0;
+            max: 0 0;
+            visible: 0;
+         }
+      }
+      part { name: "max2";
+         description { state: "default" 0.0;
+            min: 0 0;
+            max: 0 0;
+            visible: 0;
+         }
+         description { state: "selected" 0.0;
+            min: 0 0;
+            max: 0 0;
+            visible: 0;
+         }
+      }
+      part { name: "min2";
+         description { state: "default" 0.0;
+            min: 0 0;
+            max: 0 0;
+            visible: 0;
+         }
+         description { state: "selected" 0.0;
+            min: 0 0;
+            max: 0 0;
+            visible: 0;
+         }
+      }
+      part { name: "e.event.titlebar"; type: RECT;
+         description { state: "default" 0.0;
+            rel2.to_x: "e.event.close";
+         }
+      }
+      part { name: "e.event.maximize"; type: RECT;
+         description { state: "default" 0.0;
+            max: 0 0;
+            aspect: 0.0 0.0;
+            visible: 0;
+            fixed: 1 1;
+         }
+      }
+      part { name: "e.event.minimize"; type: RECT;
+         description { state: "default" 0.0;
+            max: 0 0;
+            aspect: 0.0 0.0;
+            visible: 0;
+            fixed: 1 1;
+         }
+      }
+   }
+}
+
+group { name: "e/widgets/border/noresize/border";
+   inherit: "e/widgets/border/default/border";
+   parts {
+      part { name: "e.swallow.client"; type: SWALLOW;
+         description { state: "default" 0.0;
+            rel2.relative: 1.0 1.0;
+         }
+      }
+      part { name: "bottom"; type: RECT;
+         description { state: "default" 0.0;
+            color_class: "border_bottom";
+            rel1.relative: 0.0 1.0;
+            rel1.offset: 0 -1;
+            rel2.relative: 1.0 1.0;
+            min: 0 0;
+            fixed: 0 1;
+            visible: 0;
+         }
+      }
+      part { name: "bevel2";
+         description { state: "default" 0.0;
+            visible: 0;
+         }
+      }
+      part { name: "e.event.resize.bl"; type: RECT;
+         description { state: "default" 0.0;
+            min: 0 0;
+            visible: 0;
+         }
+      }
+      part { name: "e.event.resize.b"; type: RECT;
+         description { state: "default" 0.0;
+            min: 0 0;
+            visible: 0;
+         }
+      }
+      part { name: "e.event.resize.br"; type: RECT;
+         description { state: "default" 0.0;
+            min: 0 0;
+            visible: 0;
+         }
+      }
+   }
+}
+
+group { name: "e/widgets/border/noresize_dialog/border";
+   inherit: "e/widgets/border/dialog/border";
+   parts {
+      part { name: "e.swallow.client"; type: SWALLOW;
+         description { state: "default" 0.0;
+            rel2.relative: 1.0 1.0;
+         }
+      }
+      part { name: "bottom"; type: RECT;
+         description { state: "default" 0.0;
+            color_class: "border_bottom";
+            rel1.relative: 0.0 1.0;
+            rel1.offset: 0 -1;
+            rel2.relative: 1.0 1.0;
+            min: 0 0;
+            fixed: 0 1;
+            visible: 0;
+         }
+      }
+      part { name: "bevel2";
+         description { state: "default" 0.0;
+            visible: 0;
+         }
+      }
+      part { name: "e.event.resize.bl"; type: RECT;
+         description { state: "default" 0.0;
+            min: 0 0;
+            visible: 0;
+         }
+      }
+      part { name: "e.event.resize.b"; type: RECT;
+         description { state: "default" 0.0;
+            min: 0 0;
+            visible: 0;
+         }
+      }
+      part { name: "e.event.resize.br"; type: RECT;
+         description { state: "default" 0.0;
+            min: 0 0;
+            visible: 0;
+         }
+      }
+   }
+}
+
+group { name: "e/widgets/border/pixel/border";
+   parts {
+      part { name: "e.swallow.client"; type: SWALLOW;
+         description { state: "default" 0.0;
+            rel1.offset: -2 -2;
+            rel2.offset: -2 -2;
+         }
+      }
+      part { name: "top"; type: RECT;
+         description { state: "default" 0.0;
+            color: 0 0 0 255;
+            align: 0.0 0.0;
+            max: 99999 1;
+         }
+      }
+      part { name: "bottom"; type: RECT;
+         description { state: "default" 0.0;
+            color: 0 0 0 255;
+            align: 0.0 1.0;
+            max: 99999 1;
+         }
+      }
+      part { name: "left"; type: RECT;
+         description { state: "default" 0.0;
+            color: 0 0 0 255;
+            align: 0.0 0.0;
+            max: 1 99999;
+         }
+      }
+      part { name: "right"; type: RECT;
+         description { state: "default" 0.0;
+            color: 0 0 0 255;
+            align: 1.0 0.0;
+            max: 1 99999;
+         }
       }
    }
 }
