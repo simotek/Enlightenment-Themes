@@ -1,7 +1,10 @@
 #include "macros.edc"
 
 collections {
+// desktop in general
 #include "edc/background.edc"
 #include "edc/shelf.edc"
+// modules
 #include "edc/start.edc"
+#include "edc/pager.edc"
 }
