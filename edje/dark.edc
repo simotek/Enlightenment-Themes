@@ -4,6 +4,7 @@ collections {
 // desktop in general
 #include "edc/background.edc"
 #include "edc/shelf.edc"
+#include "edc/borders.edc"
 // modules
 #include "edc/start.edc"
 #include "edc/pager.edc"
