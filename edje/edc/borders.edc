@@ -504,7 +504,6 @@ group { name: "e/widgets/border/default/border";
       program {
          signal: "e,state,shaded"; source: "e";
          action: STATE_SET "shaded" 0.0;
-         target: "top";
          target: "e.swallow.client";
          target: "bottom";
          target: "bevel2";
@@ -521,7 +520,6 @@ group { name: "e/widgets/border/default/border";
       program {
          signal: "e,state,unshading"; source: "e";
          action: STATE_SET "default" 0.0;
-         target: "top";
          target: "e.swallow.client";
          target: "bottom";
          target: "bevel2";
