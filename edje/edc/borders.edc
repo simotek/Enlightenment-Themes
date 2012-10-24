@@ -145,6 +145,7 @@ group { name: "e/widgets/border/default/border";
             rel1.relative: 0.15 0.15;
             rel2.to: "icon";
             rel2.relative: 0.85 0.85;
+            rel2.offset: 0 0;
          }
       }
       part { name: "clip1"; type: RECT;
