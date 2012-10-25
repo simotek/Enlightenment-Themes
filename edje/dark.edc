@@ -9,6 +9,7 @@ collections {
 #include "edc/dialog.edc"
 // widgets
 #include "edc/menu.edc"
+#include "edc/button.edc"
 // modules
 #include "edc/start.edc"
 #include "edc/pager.edc"
