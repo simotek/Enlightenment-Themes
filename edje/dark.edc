@@ -2,10 +2,11 @@
 
 collections {
 // desktop in general
+#include "edc/comp.edc"
 #include "edc/background.edc"
 #include "edc/shelf.edc"
 #include "edc/border.edc"
-#include "edc/comp.edc"
+#include "edc/dialog.edc"
 // widgets
 #include "edc/menu.edc"
 // modules
