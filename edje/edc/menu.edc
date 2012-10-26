@@ -3,14 +3,14 @@ group { name: "e/widgets/menu/default/background";
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    parts {
-      part { name: "base"; type: RECT;
+      part { name: "base"; type: RECT; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.relative: 0.0 1.0;
             rel1.to_y: "top";
             color: 64 64 64 255;
          }
       }
-      part { name: "top";
+      part { name: "top"; mouse_events: 0;
          description { state: "default" 0.0;
             image.normal: "vgrad_med_lighter.png";
             rel2.to_y: "e.text.title";
@@ -27,7 +27,7 @@ group { name: "e/widgets/menu/default/background";
             rel2.offset: -1 1;
          }
       }
-      part { name: "e.text.title"; type: TEXT;
+      part { name: "e.text.title"; type: TEXT; mouse_events: 0;
          scale: 1;
          effect: SHADOW BOTTOM;
          description { state: "default" 0.0;
@@ -113,7 +113,7 @@ group { name: "e/widgets/menu/default/separator";
    images.image: "separator_horiz.png" COMP;
    images.image: "shine.png" COMP;
    parts {
-      part { name: "base"; mouse_events: 0;
+      part { name: "base";
          description { state: "default" 0.0;
             image.normal: "separator_horiz.png";
             rel1.offset: 0 2;
@@ -426,7 +426,7 @@ group { name: "e/widgets/menu/default/check";
    images.image: "bevel_in.png" COMP;
    images.image: "sym_check_alum.png" COMP;
    parts {
-      part { name: "base"; type: RECT;
+      part { name: "base"; type: RECT; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.offset: 1 1;
             rel1.to: "inset";
@@ -445,7 +445,6 @@ group { name: "e/widgets/menu/default/check";
       part { name: "inset"; mouse_events: 0;
          description { state: "default" 0.0;
             image.normal: "bevel_in.png";
-            image.scale_hint: STATIC;
             image.border: 1 1 1 1;
             image.middle: 0;
             fill.smooth: 0;

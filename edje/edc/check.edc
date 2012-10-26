@@ -33,7 +33,6 @@ group { name: "e/widgets/check";
             rel2.relative: 0.0 1.0;
             rel2.offset: 2 -3;
             image.normal: "bevel_in.png";
-            image.scale_hint: STATIC;
             image.border: 1 1 1 1;
             image.middle: 0;
             fill.smooth: 0;

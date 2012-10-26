@@ -25,7 +25,6 @@ group { name: "e/modules/start/main";
          clip_to: "arrow_base";
          description { state: "default" 0.0;
             image.normal: "big_arrow_up_shadow.png";
-            image.scale_hint: STATIC;
             rel1.to: "arrow_base";
             rel2.to: "arrow_base";
             aspect: (17/14) (17/14);
@@ -53,7 +52,6 @@ group { name: "e/modules/start/main";
       part { name: "arrow";
          description { state: "default" 0.0;
             image.normal: "big_arrow_up.png";
-            image.scale_hint: STATIC;
             aspect: (17/14) (17/14);
             max: 17 14;
          }
