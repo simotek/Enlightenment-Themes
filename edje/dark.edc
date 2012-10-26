@@ -14,6 +14,7 @@ collections {
 #include "edc/radio.edc"
 #include "edc/label.edc"
 #include "edc/frame.edc"
+#include "edc/slider.edc"
 // modules
 #include "edc/start.edc"
 #include "edc/pager.edc"
