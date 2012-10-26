@@ -10,6 +10,8 @@ collections {
 // widgets
 #include "edc/menu.edc"
 #include "edc/button.edc"
+#include "edc/check.edc"
+#include "edc/radio.edc"
 // modules
 #include "edc/start.edc"
 #include "edc/pager.edc"
