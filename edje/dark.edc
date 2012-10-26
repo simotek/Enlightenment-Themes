@@ -12,6 +12,8 @@ collections {
 #include "edc/button.edc"
 #include "edc/check.edc"
 #include "edc/radio.edc"
+#include "edc/label.edc"
+#include "edc/frame.edc"
 // modules
 #include "edc/start.edc"
 #include "edc/pager.edc"
