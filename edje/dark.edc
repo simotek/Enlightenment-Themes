@@ -7,6 +7,7 @@ collections {
 #include "edc/shelf.edc"
 #include "edc/border.edc"
 #include "edc/dialog.edc"
+#include "edc/conf.edc"
 // widgets
 #include "edc/menu.edc"
 #include "edc/button.edc"
@@ -19,6 +20,8 @@ collections {
 #include "edc/textblock.edc"
 #include "edc/ilist.edc"
 #include "edc/toolbar.edc"
+#include "edc/preview.edc"
+#include "edc/deskpreview.edc"
 // modules
 #include "edc/start.edc"
 #include "edc/pager.edc"
