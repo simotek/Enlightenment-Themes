@@ -16,6 +16,8 @@ collections {
 #include "edc/frame.edc"
 #include "edc/slider.edc"
 #include "edc/scrollframe.edc"
+#include "edc/textblock.edc"
+#include "edc/ilist.edc"
 // modules
 #include "edc/start.edc"
 #include "edc/pager.edc"

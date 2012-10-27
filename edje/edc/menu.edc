@@ -111,7 +111,6 @@ group { name: "e/widgets/menu/default/background";
 
 group { name: "e/widgets/menu/default/separator";
    images.image: "separator_horiz.png" COMP;
-   images.image: "shine.png" COMP;
    parts {
       part { name: "base";
          description { state: "default" 0.0;
@@ -120,18 +119,6 @@ group { name: "e/widgets/menu/default/separator";
             rel2.offset: -1 -3;
             min: 0 2;
             fill.smooth: 0;
-         }
-      }
-      part { name: "shine"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "shine.png";
-            rel1.offset: 0 -1;
-            rel1.to: "base";
-            rel2.relative: 1.0 0.0;
-            rel2.offset: -1 3;
-            rel2.to: "base";
-            FIXED_SIZE(69, 5)
-            color: 255 255 255 128;
          }
       }
    }
@@ -266,8 +253,8 @@ group { name: "e/widgets/menu/default/label";
          effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
-            rel1.offset: 3 -2;
-            rel2.offset: -2 1;
+            rel1.offset: 5 -1;
+            rel2.offset: -4 -1;
             color: 255 255 255 255;
             color3: 0 0 0 128;
             color_class: "menu_item";
@@ -290,13 +277,13 @@ group { name: "e/widgets/menu/default/label";
          effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
-            rel1.offset: 3 -3;
-            rel2.offset: -2 1;
+            rel1.to: "e.text.label";
+            rel2.to: "e.text.label";
             color: 21 21 21 255;
             color3: 255 255 255 25;
             color_class: "menu_item_disabled";
             text { font: "Sans"; size: 10;
-               min: 1 1;
+               text_source: "e.text.label";
                align: 0.0 0.5;
                text_class: "menu_item";
             }
@@ -315,15 +302,16 @@ group { name: "e/widgets/menu/default/label";
          effect: GLOW;
          scale: 1;
          description { state: "default" 0.0;
-            rel1.offset: 1 -4;
-            rel2.offset: 0 2;
+            rel1.offset: -2 -3;
+            rel1.to: "e.text.label";
+            rel2.offset: 2 1;
+            rel2.to: "e.text.label";
             color: 51 153 255 255;
             color2: 51 153 255 24;
             color3: 51 153 255 18;
             color_class: "menu_item_active";
             text { font: "Sans"; size: 10;
                text_source: "e.text.label";
-               min: 1 1;
                align: 0.0 0.5;
                text_class: "menu_item";
             }
@@ -331,7 +319,6 @@ group { name: "e/widgets/menu/default/label";
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
-            color_class: "menu_item_active";
             visible: 1;
          }
          description { state: "disabled" 0.0;
