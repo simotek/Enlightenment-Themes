@@ -22,6 +22,7 @@ collections {
 #include "edc/toolbar.edc"
 #include "edc/preview.edc"
 #include "edc/deskpreview.edc"
+#include "edc/entry.edc"
 // modules
 #include "edc/start.edc"
 #include "edc/pager.edc"

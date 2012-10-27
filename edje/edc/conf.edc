@@ -47,7 +47,7 @@ group { name: "e/widgets/configure/main";
             rel1.offset: 0 -5;
             rel2.relative: 0.5 1.0;
             rel2.offset: -1 -5;
-            fixed: 0 1;
+            fixed: 1 1;
          }
       }
    }
