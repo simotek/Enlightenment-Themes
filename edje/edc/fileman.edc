@@ -172,9 +172,9 @@ group { name: "e/fileman/default/list/variable";
       part { name: "shadow"; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.offset: -3 -2;
-            rel1.to: "icon";
+            rel1.to: "e.swallow.icon";
             rel2.offset: 2 4;
-            rel2.to: "icon";
+            rel2.to: "e.swallow.icon";
             image.normal: "shadow_square_tiny.png";
             image.border: 6 6 6 6;
             fill.smooth: 0;
@@ -187,9 +187,9 @@ group { name: "e/fileman/default/list/variable";
       }
       part { name: "icon_base"; type: RECT; mouse_events: 0;
          description { state: "default" 0.0;
-            color: 64 64 64 255;
-            rel1.to: "icon";
-            rel2.to: "icon";
+            color: 48 48 48 255;
+            rel1.to: "e.swallow.icon";
+            rel2.to: "e.swallow.icon";
             visible: 0;
          }
          description { state: "start" 0.0;
@@ -292,7 +292,7 @@ group { name: "e/fileman/default/list/variable";
       }
       program {
          signal: "e,action,thumb,gen,alpha"; source: "e";
-         action: STATE_SET "visible" 0.0;
+         action: STATE_SET "start" 0.0;
          target: "icon";
          target: "icon_base";
          target: "shadow";
