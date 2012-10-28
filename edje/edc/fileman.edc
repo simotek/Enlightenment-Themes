@@ -166,15 +166,14 @@ group { name: "e/fileman/default/list/variable";
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
-            max: 99999 99999;
          }
       }
       part { name: "shadow"; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.offset: -3 -2;
-            rel1.to: "e.swallow.icon";
+            rel1.to: "icon_base";
             rel2.offset: 2 4;
-            rel2.to: "e.swallow.icon";
+            rel2.to: "icon_base";
             image.normal: "shadow_square_tiny.png";
             image.border: 6 6 6 6;
             fill.smooth: 0;
@@ -299,9 +298,8 @@ group { name: "e/fileman/default/list/variable";
          after: "gen";
       }
       program { name: "gen";
-         signal: "e,action,thumb,gen"; source: "e";
          action: STATE_SET "visible" 0.0;
-         transition: SPRING 1.0 3 5;
+         transition: SPRING 0.7 2.0 4;
          target: "icon";
       }
 
@@ -705,15 +703,27 @@ group { name: "e/fileman/default/overlay";
             color: 255 255 255 255;
          }
       }
+      part { name: "busy_bevel"; mouse_events: 0;
+         clip_to: "busy_clip";
+         description { state: "default" 0.0;
+            rel1.offset: -12 0;
+            rel1.to: "e.text.busy_label";
+            rel2.offset: 11 -1;
+            rel2.to: "e.text.busy_label";
+            image.normal: "darken_rounded_square.png";
+            image.border: 15 15 15 15;
+            fill.smooth: 0;
+         }
+      }
       part { name: "e.text.busy_label"; type: TEXT; mouse_events: 0;
          clip_to: "busy_clip";
          effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
             rel1.relative: 1.0 0.0;
-            rel1.offset: 7 0;
+            rel1.offset: 12 0;
             rel1.to: "knob";
-            rel2.offset: 7 -1;
+            rel2.offset: 12 -1;
             rel2.to: "knob";
             align: 0.0 0.5;
             color: 255 255 255 255;
