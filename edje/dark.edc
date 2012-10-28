@@ -23,6 +23,7 @@ collections {
 #include "edc/preview.edc"
 #include "edc/deskpreview.edc"
 #include "edc/entry.edc"
+#include "edc/fileman.edc"
 // modules
 #include "edc/start.edc"
 #include "edc/pager.edc"
