@@ -383,145 +383,132 @@ group { name: "e/modules/connman/main";
          }
       }
    }
-   script {
-       public message(Msg_Type:type, id, ...) {
-          if ((type == MSG_INT_SET) && (id == 1)) { /* state + strength */
-             new state = getarg(2);
-             new signl = getarg(3);
-             
-             /* Connecting if in association or configuration */
-             if ((state == 2)) {
-                set_state(PART:"led", "default", 0.0);
-                run_program(PROGRAM:"connecting");
-                return;
-             }
-             else if ((state == 3)) { /* ??? ignore */
-                return;
-             }
-             else if ((state == 4)) { /* connected to network */
-                set_state(PART:"led", "connected", 0.0);
-             }
-             else if ((state == 5)) { /* internet all working and happy */
-                set_state(PART:"led", "online", 0.0);
-             }
-             else { /* ??? */
-               set_state(PART:"led", "default", 0.0);
-             }
-             //////////////////////////
-             if (signl <= 14) {
-               set_state(PART:"wifi_1", "default", 0.0);
-               set_state(PART:"wifi_2", "default", 0.0);
-               set_state(PART:"wifi_3", "default", 0.0);
-             }
-             else if (signl <= 28) {
-               set_state(PART:"wifi_1", "partly", 0.0);
-               set_state(PART:"wifi_2", "default", 0.0);
-               set_state(PART:"wifi_3", "default", 0.0);
-             }
-             else if (signl <= 42) {
-               set_state(PART:"wifi_1", "visible", 0.0);
-               set_state(PART:"wifi_2", "default", 0.0);
-               set_state(PART:"wifi_3", "default", 0.0);
-             }
-             else if (signl <= 57) {
-               set_state(PART:"wifi_1", "visible", 0.0);
-               set_state(PART:"wifi_2", "partly", 0.0);
-               set_state(PART:"wifi_3", "default", 0.0);
-             }
-             else if (signl <= 71) {
-               set_state(PART:"wifi_1", "visible", 0.0);
-               set_state(PART:"wifi_2", "visible", 0.0);
-               set_state(PART:"wifi_3", "default", 0.0);
-             }
-             else if (signl <= 85) {
-               set_state(PART:"wifi_1", "visible", 0.0);
-               set_state(PART:"wifi_2", "visible", 0.0);
-               set_state(PART:"wifi_3", "partly", 0.0);
-             }
-             else {
-               set_state(PART:"wifi_1", "visible", 0.0);
-               set_state(PART:"wifi_2", "visible", 0.0);
-               set_state(PART:"wifi_3", "visible", 0.0);
-             }
-             //////////////////////////
-             if (signl <= 20) {
-               set_state(PART:"bt_1", "default", 0.0);
-               set_state(PART:"bt_2", "default", 0.0);
-             }
-             else if (signl <= 40) {
-               set_state(PART:"bt_1", "partly", 0.0);
-               set_state(PART:"bt_2", "default", 0.0);
-             }
-             else if (signl <= 60) {
-               set_state(PART:"bt_1", "visible", 0.0);
-               set_state(PART:"bt_2", "default", 0.0);
-             }
-             else if (signl <= 80) {
-               set_state(PART:"bt_1", "visible", 0.0);
-               set_state(PART:"bt_2", "partly", 0.0);
-             }
-             else {
-               set_state(PART:"bt_1", "visible", 0.0);
-               set_state(PART:"bt_2", "visible", 0.0);
-             }
-             //////////////////////////
-             if (signl <= 11) {
-               set_state(PART:"cell_1", "default", 0.0);
-               set_state(PART:"cell_2", "default", 0.0);
-               set_state(PART:"cell_3", "default", 0.0);
-               set_state(PART:"cell_4", "default", 0.0);
-             }
-             else if (signl <= 22) {
-               set_state(PART:"cell_1", "partly", 0.0);
-               set_state(PART:"cell_2", "default", 0.0);
-               set_state(PART:"cell_3", "default", 0.0);
-               set_state(PART:"cell_4", "default", 0.0);
-             }
-             else if (signl <= 33) {
-               set_state(PART:"cell_1", "visible", 0.0);
-               set_state(PART:"cell_2", "default", 0.0);
-               set_state(PART:"cell_3", "default", 0.0);
-               set_state(PART:"cell_4", "default", 0.0);
-             }
-             else if (signl <= 44) {
-               set_state(PART:"cell_1", "visible", 0.0);
-               set_state(PART:"cell_2", "partly", 0.0);
-               set_state(PART:"cell_3", "default", 0.0);
-               set_state(PART:"cell_4", "default", 0.0);
-             }
-             else if (signl <= 55) {
-               set_state(PART:"cell_1", "visible", 0.0);
-               set_state(PART:"cell_2", "visible", 0.0);
-               set_state(PART:"cell_3", "default", 0.0);
-               set_state(PART:"cell_4", "default", 0.0);
-             }
-             else if (signl <= 66) {
-               set_state(PART:"cell_1", "visible", 0.0);
-               set_state(PART:"cell_2", "visible", 0.0);
-               set_state(PART:"cell_3", "partly", 0.0);
-               set_state(PART:"cell_4", "default", 0.0);
-             }
-             else if (signl <= 77) {
-               set_state(PART:"cell_1", "visible", 0.0);
-               set_state(PART:"cell_2", "visible", 0.0);
-               set_state(PART:"cell_3", "visible", 0.0);
-               set_state(PART:"cell_4", "default", 0.0);
-             }
-             else if (signl <= 88) {
-               set_state(PART:"cell_1", "visible", 0.0);
-               set_state(PART:"cell_2", "visible", 0.0);
-               set_state(PART:"cell_3", "visible", 0.0);
-               set_state(PART:"cell_4", "partly", 0.0);
-             }
-             else {
-               set_state(PART:"cell_1", "visible", 0.0);
-               set_state(PART:"cell_2", "visible", 0.0);
-               set_state(PART:"cell_3", "visible", 0.0);
-               set_state(PART:"cell_4", "visible", 0.0);
-             }
-          }
-       }
-   }
+
+#define SCRIPT_MESSAGE() \
+script { \
+public message(Msg_Type:type, id, ...) { \
+if ((type == MSG_INT_SET) && (id == 1)) { \
+new state = getarg(2), signl = getarg(3); \
+if (signl <= 14) { \
+set_state(PART:"wifi_1", "default", 0.0); \
+set_state(PART:"wifi_2", "default", 0.0); \
+set_state(PART:"wifi_3", "default", 0.0); \
+} \
+else if (signl <= 28) { \
+set_state(PART:"wifi_1", "partly", 0.0); \
+set_state(PART:"wifi_2", "default", 0.0); \
+set_state(PART:"wifi_3", "default", 0.0); \
+} \
+else if (signl <= 42) { \
+set_state(PART:"wifi_1", "visible", 0.0); \
+set_state(PART:"wifi_2", "default", 0.0); \
+set_state(PART:"wifi_3", "default", 0.0); \
+} \
+else if (signl <= 57) { \
+set_state(PART:"wifi_1", "visible", 0.0); \
+set_state(PART:"wifi_2", "partly", 0.0); \
+set_state(PART:"wifi_3", "default", 0.0); \
+} \
+else if (signl <= 71) { \
+set_state(PART:"wifi_1", "visible", 0.0); \
+set_state(PART:"wifi_2", "visible", 0.0); \
+set_state(PART:"wifi_3", "default", 0.0); \
+} \
+else if (signl <= 85) { \
+set_state(PART:"wifi_1", "visible", 0.0); \
+set_state(PART:"wifi_2", "visible", 0.0); \
+set_state(PART:"wifi_3", "partly", 0.0); \
+} \
+else { \
+set_state(PART:"wifi_1", "visible", 0.0); \
+set_state(PART:"wifi_2", "visible", 0.0); \
+set_state(PART:"wifi_3", "visible", 0.0); \
+} \
+if (signl <= 20) { \
+set_state(PART:"bt_1", "default", 0.0); \
+set_state(PART:"bt_2", "default", 0.0); \
+} \
+else if (signl <= 40) { \
+set_state(PART:"bt_1", "partly", 0.0); \
+set_state(PART:"bt_2", "default", 0.0); \
+} \
+else if (signl <= 60) { \
+set_state(PART:"bt_1", "visible", 0.0); \
+set_state(PART:"bt_2", "default", 0.0); \
+} \
+else if (signl <= 80) { \
+set_state(PART:"bt_1", "visible", 0.0); \
+set_state(PART:"bt_2", "partly", 0.0); \
+} \
+else { \
+set_state(PART:"bt_1", "visible", 0.0); \
+set_state(PART:"bt_2", "visible", 0.0); \
+} \
+if (signl <= 11) { \
+set_state(PART:"cell_1", "default", 0.0); \
+set_state(PART:"cell_2", "default", 0.0); \
+set_state(PART:"cell_3", "default", 0.0); \
+set_state(PART:"cell_4", "default", 0.0); \
+} \
+else if (signl <= 22) { \
+set_state(PART:"cell_1", "partly", 0.0); \
+set_state(PART:"cell_2", "default", 0.0); \
+set_state(PART:"cell_3", "default", 0.0); \
+set_state(PART:"cell_4", "default", 0.0); \
+} \
+else if (signl <= 33) { \
+set_state(PART:"cell_1", "visible", 0.0); \
+set_state(PART:"cell_2", "default", 0.0); \
+set_state(PART:"cell_3", "default", 0.0); \
+set_state(PART:"cell_4", "default", 0.0); \
+} \
+else if (signl <= 44) { \
+set_state(PART:"cell_1", "visible", 0.0); \
+set_state(PART:"cell_2", "partly", 0.0); \
+set_state(PART:"cell_3", "default", 0.0); \
+set_state(PART:"cell_4", "default", 0.0); \
+} \
+else if (signl <= 55) { \
+set_state(PART:"cell_1", "visible", 0.0); \
+set_state(PART:"cell_2", "visible", 0.0); \
+set_state(PART:"cell_3", "default", 0.0); \
+set_state(PART:"cell_4", "default", 0.0); \
+} \
+else if (signl <= 66) { \
+set_state(PART:"cell_1", "visible", 0.0); \
+set_state(PART:"cell_2", "visible", 0.0); \
+set_state(PART:"cell_3", "partly", 0.0); \
+set_state(PART:"cell_4", "default", 0.0); \
+} \
+else if (signl <= 77) { \
+set_state(PART:"cell_1", "visible", 0.0); \
+set_state(PART:"cell_2", "visible", 0.0); \
+set_state(PART:"cell_3", "visible", 0.0); \
+set_state(PART:"cell_4", "default", 0.0); \
+} \
+else if (signl <= 88) { \
+set_state(PART:"cell_1", "visible", 0.0); \
+set_state(PART:"cell_2", "visible", 0.0); \
+set_state(PART:"cell_3", "visible", 0.0); \
+set_state(PART:"cell_4", "partly", 0.0); \
+} \
+else { \
+set_state(PART:"cell_1", "visible", 0.0); \
+set_state(PART:"cell_2", "visible", 0.0); \
+set_state(PART:"cell_3", "visible", 0.0); \
+set_state(PART:"cell_4", "visible", 0.0); \
+} \
+if ((state == 2)) { \
+set_state(PART:"led", "default", 0.0); \
+run_program(PROGRAM:"connecting"); \
+return; } \
+else if ((state == 3)) { return; } \
+else if ((state == 4)) { set_state(PART:"led", "connected", 0.0); } \
+else if ((state == 5)) { set_state(PART:"led", "online", 0.0); } \
+else { set_state(PART:"led", "default", 0.0); \
+} } } }
+   
+   SCRIPT_MESSAGE()
    programs {
       program { name: "connecting";
          action: STATE_SET "connected" 0.0;
@@ -600,6 +587,7 @@ group { name: "e/modules/connman/main";
 
 group { name: "e/modules/connman/icon/wifi";
    inherit: "e/modules/connman/main";
+   SCRIPT_MESSAGE()
    programs {
       program {
          signal: "load"; source: "";
@@ -615,6 +603,7 @@ group { name: "e/modules/connman/icon/wifi";
 
 group { name: "e/modules/connman/icon/ethernet";
    inherit: "e/modules/connman/main";
+   SCRIPT_MESSAGE()
    programs {
       program {
          signal: "load"; source: "";
@@ -630,6 +619,7 @@ group { name: "e/modules/connman/icon/ethernet";
 
 group { name: "e/modules/connman/icon/bluetooth";
    inherit: "e/modules/connman/main";
+   SCRIPT_MESSAGE()
    programs {
       program {
          signal: "load"; source: "";
@@ -645,6 +635,7 @@ group { name: "e/modules/connman/icon/bluetooth";
 
 group { name: "e/modules/connman/icon/cellular";
    inherit: "e/modules/connman/main";
+   SCRIPT_MESSAGE()
    programs {
       program {
          signal: "load"; source: "";
