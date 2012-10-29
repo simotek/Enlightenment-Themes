@@ -28,4 +28,5 @@ collections {
 #include "edc/start.edc"
 #include "edc/pager.edc"
 #include "edc/xkbswitch.edc"
+#include "edc/tasks.edc"
 }
