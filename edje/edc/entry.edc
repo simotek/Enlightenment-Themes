@@ -1,4 +1,4 @@
-group { name: "e/widgets/entry";
+group { name: "e/widgets/entry/scrollframe";
    images.image: "inset_shadow.png" COMP;
    images.image: "bevel_in.png" COMP;
    parts {
@@ -17,14 +17,15 @@ group { name: "e/widgets/entry";
             rel2.to: "bg";
          }
       }
-      part { name: "e.swallow.text"; type: SWALLOW;
+      part { name: "e.swallow.content"; type: SWALLOW;
+         mouse_events: 1;
          clip_to: "clipper";
          description { state: "default" 0.0;
             rel1.offset: 3 3;
             rel2.offset: -4 -4;
          }
       }
-      part { name: "shadow"; mouse_events: 0;
+      part { name: "shadow"; mouse_events: 0; repeat_events: 1;
          description { state: "default" 0.0;
             image.normal: "inset_shadow.png";
             image.border: 5 5 7 3;
@@ -35,7 +36,7 @@ group { name: "e/widgets/entry";
             color: 255 255 255 128;
          }
       }
-      part { name: "inset"; mouse_events: 0;
+      part { name: "inset"; mouse_events: 0; repeat_events: 1;
          description { state: "default" 0.0;
             image.normal: "bevel_in.png";
             image.border: 1 1 1 1;
@@ -49,29 +50,46 @@ group { name: "e/widgets/entry";
 }
 
 group { name: "e/widgets/entry/text";
+      styles {
+         style { name: "entry_textblock_style";
+            base: "font=Sans font_size=10 color=#ffffff text_class=entry color_classs=entry_text";
+         }
+         style { name: "entry_textblock_disabled_style";
+            base: "font=Sans font_size=10 color=#151515 text_class=entry color_class=entry_text_disabled";
+         }
+      }
    parts {
-      part { name: "e.text.text"; type: TEXT; mouse_events: 0;
-         effect: SHADOW BOTTOM;
+      part { name: "e.text.text"; type: TEXTBLOCK; mouse_events: 1;
          scale: 1;
+         entry_mode: EDITABLE;
+         select_mode: DEFAULT;
+         cursor_mode: BEFORE;
+         multiline: 0;
+         source: "e/widgets/entry/selection"; // selection under
+         source4: "e/widgets/entry/cursor"; // cursorover
          description { state: "default" 0.0;
-            color: 255 255 255 255;
-            color3: 0 0 0 128;
             color_class: "entry_text";
-            text { font: "Sans"; size: 10;
+            text {
+               text: "";
+               style: "entry_textblock_style";
                min: 1 1;
-               align: 0.0 0.0;
-               text_class: "entry";
+               align: 0.0 0.5;
             }
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
-            color: 21 21 21 255;
-            color3: 255 255 255 25;
+            text.style: "entry_textblock_disabled_style";
             color_class: "entry_text_disabled";
          }
       }
    }
    programs {
+      program { name: "focus";
+         signal: "load";
+         source: "";
+         action: FOCUS_SET;
+         target: "e.text.text";
+      }
       program {
          signal: "e,state,disabled"; source: "e";
          action: STATE_SET "disabled" 0.0;
@@ -81,6 +99,18 @@ group { name: "e/widgets/entry/text";
          signal: "e,state,enabled"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "e.text.text";
+      }
+   }
+}
+
+group { name: "e/widgets/entry/password";
+   inherit: "e/widgets/entry/text";
+   parts {
+      part { name: "e.text.text";
+         entry_mode: PASSWORD;
+         description { state: "default" 0.0;
+            text.repch: "*";
+         }
       }
    }
 }
@@ -115,6 +145,22 @@ group { name: "e/widgets/entry/cursor";
          target: "cursor_hide_timer";
          after: "cursor_show";
       }
+      program {
+         name: "on_cursor_hide";
+         signal: "e,action,hide,cursor";
+         source: "e";
+         action: ACTION_STOP;
+         target: "cursor_show";
+         target: "cursor_hide";
+         target: "cursor_show_timer";
+         target: "cursor_hide_timer";
+         after: "cursor_hide_stop";
+      }
+      program {
+         name: "cursor_hide_stop";
+         action: STATE_SET "default" 0.0;
+         target: "cursor";
+      }
       program { name: "cursor_show";
          action: STATE_SET "visible" 0.0;
          target: "cursor";
@@ -122,8 +168,8 @@ group { name: "e/widgets/entry/cursor";
       }
       program { name: "cursor_hide";
          action: STATE_SET "default" 0.0;
-         transition: SINUSOIDAL 0.2;
          target: "cursor";
+         transition: SINUSOIDAL 0.2;
          after: "cursor_hide_timer";
       }
       program { name: "cursor_show_timer";
