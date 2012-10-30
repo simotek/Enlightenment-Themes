@@ -9,6 +9,8 @@ group { name: "e/fileman/default/list/variable";
    images.image: "bevel_horiz_out.png" COMP;
    images.image: "shine.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
+   images.image: "ball_small_glow.png" COMP;
+   images.image: "ball_small_glow_intense.png" COMP;
    parts {
       part { name: "base"; type: RECT; mouse_events: 0;
          description { state: "default" 0.0;
@@ -202,6 +204,28 @@ group { name: "e/fileman/default/list/variable";
             fixed: 1 1;
          }
       }
+      part { name: "vol"; mouse_events: 0;
+         description { state: "default" 0.0;
+            image.normal: "ball_small_glow.png";
+            min: 14 14;
+            max: 14 14;
+            rel1.relative: 1.0 1.0;
+            rel1.to: "e.swallow.icon";
+            rel2.to: "e.swallow.icon";
+            visible: 0;
+            fixed: 1 1;
+         }
+         description { state: "unmounted" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "ball_small_glow.png";
+            visible: 1;
+         }
+         description { state: "mounted" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "ball_small_glow_intense.png";
+            visible: 1;
+         }
+      }
 //////////////////////////
       part { name: "sel_shine"; mouse_events: 0;
          description { state: "default" 0.0;
@@ -304,15 +328,20 @@ signal: "e,state,move"; source: "e";
 signal: "e,state,copy"; source: "e";
       }
       
-      // XXX: need iconry.
       program {
-signal: "e,state,volume,off"; source: "e";
+         signal: "e,state,volume,off"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "vol";
       }
       program {
-signal: "e,state,volume,unmounted"; source: "e";
+         signal: "e,state,volume,unmounted"; source: "e";
+         action: STATE_SET "unmounted" 0.0;
+         target: "vol";
       }
       program {
-signal: "e,state,volume,mounted"; source: "e";
+         signal: "e,state,volume,mounted"; source: "e";
+         action: STATE_SET "mounted" 0.0;
+         target: "vol";
       }
    }
 }
@@ -541,6 +570,28 @@ group { name: "e/fileman/default/icon/fixed";
             rel2.to: "icon";
          }
       }
+      part { name: "vol"; mouse_events: 0;
+         description { state: "default" 0.0;
+            image.normal: "ball_small_glow.png";
+            min: 14 14;
+            max: 14 14;
+            rel1.relative: 1.0 1.0;
+            rel1.to: "e.swallow.icon";
+            rel2.to: "e.swallow.icon";
+            visible: 0;
+            fixed: 1 1;
+         }
+         description { state: "unmounted" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "ball_small_glow.png";
+            visible: 1;
+         }
+         description { state: "mounted" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "ball_small_glow_intense.png";
+            visible: 1;
+         }
+      }
 //////////////////////////////      
       part { name: "sel_shine"; mouse_events: 0;
          description { state: "default" 0.0;
@@ -652,15 +703,20 @@ signal: "e,state,move"; source: "e";
 signal: "e,state,copy"; source: "e";
       }
       
-      // XXX: need iconry.
       program {
-signal: "e,state,volume,off"; source: "e";
+         signal: "e,state,volume,off"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "vol";
       }
       program {
-signal: "e,state,volume,unmounted"; source: "e";
+         signal: "e,state,volume,unmounted"; source: "e";
+         action: STATE_SET "unmounted" 0.0;
+         target: "vol";
       }
       program {
-signal: "e,state,volume,mounted"; source: "e";
+         signal: "e,state,volume,mounted"; source: "e";
+         action: STATE_SET "mounted" 0.0;
+         target: "vol";
       }
    }
 }
