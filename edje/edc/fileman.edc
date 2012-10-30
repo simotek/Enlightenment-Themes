@@ -268,16 +268,7 @@ group { name: "e/fileman/default/list/variable";
          target: "label3";
       }
       program { name: "rename";
-         signal: "mouse,down,1"; source: "label_event";
-         in: 0.5 0.0;
-         after: "rename2";
-      }
-      program {
-         signal: "mouse,up,1*"; source: "label_event";
-         action: ACTION_STOP;
-         target: "rename";
-      }
-      program { name: "rename2";
+         signal: "mouse,up,1"; source: "label_event";
          action: SIGNAL_EMIT "e,action,label,click" "e";
       }
       program {
@@ -625,16 +616,7 @@ group { name: "e/fileman/default/icon/fixed";
          target: "sel_glow";
       }
       program { name: "rename";
-         signal: "mouse,down,1"; source: "label_event";
-         in: 0.5 0.0;
-         after: "rename2";
-      }
-      program {
-         signal: "mouse,up,1*"; source: "label_event";
-         action: ACTION_STOP;
-         target: "rename";
-      }
-      program { name: "rename2";
+         signal: "mouse,up,1"; source: "label_event";
          action: SIGNAL_EMIT "e,action,label,click" "e";
       }
       program {
