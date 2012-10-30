@@ -52,14 +52,14 @@ group { name: "e/widgets/entry/scrollframe";
 group { name: "e/widgets/entry/text";
       styles {
          style { name: "entry_textblock_style";
-            base: "font=Sans font_size=10 color=#ffffff text_class=entry color_classs=entry_text";
+            base: "font=Sans font_size=10 color=#ffffffff style=shadow,bottom shadow_color=#00000080 text_class=entry color_classs=entry_text";
          }
          style { name: "entry_textblock_disabled_style";
-            base: "font=Sans font_size=10 color=#151515 text_class=entry color_class=entry_text_disabled";
+            base: "font=Sans font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff80 text_class=entry color_class=entry_text_disabled";
          }
       }
    parts {
-      part { name: "e.text.text"; type: TEXTBLOCK; mouse_events: 1;
+      part { name: "e.text.text"; type: TEXTBLOCK;
          scale: 1;
          entry_mode: EDITABLE;
          select_mode: DEFAULT;
@@ -119,10 +119,10 @@ group { name: "e/widgets/entry/cursor";
    min: 1 0;
    images.image: "white_bar_vert_glow.png" COMP;
    parts {
-      part { name: "cursor";
+      part { name: "cursor"; mouse_events: 0;
          description { state: "default" 0.0;
-            rel1.offset: -4 -2;
-            rel2.offset: 3 1;
+            rel1.offset: -4 -4;
+            rel2.offset: 3 3;
             image.normal: "white_bar_vert_glow.png";
             image.border: 4 4 4 4;
             fill.smooth: 0;
@@ -186,7 +186,7 @@ group { name: "e/widgets/entry/cursor";
 group { name: "e/widgets/entry/selection";
 //   data.item: "on_foreground" "1";
    parts {
-      part { name: "selection"; type: RECT;
+      part { name: "selection"; type: RECT; mouse_events: 0;
          description { state: "default" 0.0;
             color: 51 153 255 255;
          }
