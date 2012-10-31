@@ -367,6 +367,7 @@ group { name: "e/comp/everything";
 group { name: "e/comp/fullscreen";
    images.image: "win_shadow.png" COMP;
    images.image: "screen_circular_shadow.png" COMP;
+   data.item: "screen.bg" "fullscreen.bg";
    parts {
       part { name: "clipper"; type: RECT;
          description { state: "default" 0.0;
@@ -377,7 +378,12 @@ group { name: "e/comp/fullscreen";
             color: 255 255 255 0;
             visible: 0;
          }
-         description { state: "visible" 0.0;
+         description { state: "visible1" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+            visible: 1;
+         }
+         description { state: "visible2" 0.0;
             inherit: "default" 0.0;
             color: 255 255 255 255;
             visible: 1;
