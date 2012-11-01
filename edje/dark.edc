@@ -8,6 +8,7 @@ collections {
 #include "edc/border.edc"
 #include "edc/dialog.edc"
 #include "edc/conf.edc"
+#include "edc/gadman.edc"
 // widgets
 #include "edc/menu.edc"
 #include "edc/button.edc"
@@ -24,6 +25,7 @@ collections {
 #include "edc/deskpreview.edc"
 #include "edc/entry.edc"
 #include "edc/fileman.edc"
+#include "edc/colorwell.edc"
 // modules
 #include "edc/start.edc"
 #include "edc/pager.edc"
