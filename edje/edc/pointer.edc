@@ -44,18 +44,19 @@ group { name: "e/pointer/enlightenment/default/color";
          transition: SINUSOIDAL 0.5;
          target: "glow";
       }
-      program {
+      program { name: "pulse";
          signal: "e,state,mouse,idle"; source: "e";
          in: 10.0 0.0;
          action: STATE_SET "faded" 0.0;
          transition: SINUSOIDAL 0.25;
          target: "glow";
-         after: "pulse";
+         after: "pulse2";
       }
-      program { name: "pulse";
+      program { name: "pulse2";
          action: STATE_SET "default" 0.0;
          transition: SINUSOIDAL 0.5;
          target: "glow";
+         after: "pulse";
       }
       program {
          signal: "e,state,mouse,active"; source: "e";
