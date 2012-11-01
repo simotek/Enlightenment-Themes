@@ -62,6 +62,12 @@ group { name: "e/pointer/enlightenment/default/color";
          signal: "e,state,mouse,active"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "glow";
+         after: "stop2";
+      }
+      program { name: "stop2";
+         action: ACTION_STOP;
+         target: "pulse";
+         target: "pulse2";
       }
    }
 }
