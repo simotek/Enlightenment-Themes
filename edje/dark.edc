@@ -10,6 +10,7 @@ collections {
 #include "edc/conf.edc"
 #include "edc/gadman.edc"
 #include "edc/syscon.edc"
+#include "edc/pointer.edc"
 // widgets
 #include "edc/menu.edc"
 #include "edc/button.edc"
