@@ -9,6 +9,7 @@ collections {
 #include "edc/dialog.edc"
 #include "edc/conf.edc"
 #include "edc/gadman.edc"
+#include "edc/syscon.edc"
 // widgets
 #include "edc/menu.edc"
 #include "edc/button.edc"
