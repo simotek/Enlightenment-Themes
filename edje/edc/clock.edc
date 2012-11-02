@@ -284,6 +284,18 @@ group { name: "e/modules/clock/calendar";
             action: SIGNAL_EMIT "e,action,next" "";
          }
       }
+      part { name: "sel";
+         description { state: "default" 0.0;
+            image.normal: "separator_horiz.png";
+            rel1.relative: 0.0 1.0;
+            rel1.offset: 0 0;
+            rel1.to: "e.table.daynames";
+            rel2.offset: -1 1;
+            rel2.to: "e.table.daynames";
+            min: 0 2;
+            fill.smooth: 0;
+         }
+      }
       
       part { name: "e.table.daynames"; type: TABLE;
          description { state: "default" 0.0;
