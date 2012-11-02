@@ -35,4 +35,5 @@ collections {
 #include "edc/tasks.edc"
 #include "edc/connman.edc"
 #include "edc/systray.edc"
+#include "edc/clock.edc"
 }
