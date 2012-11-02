@@ -34,4 +34,5 @@ collections {
 #include "edc/xkbswitch.edc"
 #include "edc/tasks.edc"
 #include "edc/connman.edc"
+#include "edc/systray.edc"
 }

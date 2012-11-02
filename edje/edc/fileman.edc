@@ -800,14 +800,16 @@ group { name: "e/fileman/default/scrollframe";
    inherit: "e/widgets/scrollframe";
    parts {
       part { name: "e.swallow.bg"; type: SWALLOW;
-         insert_after: "bg";
+         insert_before: "e.swallow.content";
+         clip_to: "clipper";
          description { state: "default" 0.0;
             rel1.to: "bg";
             rel2.to: "bg";
          }
       }
       part { name: "e.swallow.overlay"; type: SWALLOW;
-         insert_after: "e.swallow.content";
+         insert_before: "shadow";
+         clip_to: "clipper";
          description { state: "default" 0.0;
             rel1.to: "bg";
             rel2.to: "bg";
