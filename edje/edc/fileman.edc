@@ -1817,7 +1817,7 @@ group { name: "e/fileman/default/progress";
          signal: "e,action,set,normal"; source: "e";
       }
       program {
-         signal: "e,action,icon,unknow"; source: "e";
+         signal: "e,action,icon,unknown"; source: "e";
       }
       program {
          signal: "e,action,icon,copy"; source: "e";
@@ -1826,7 +1826,7 @@ group { name: "e/fileman/default/progress";
          signal: "e,action,icon,move"; source: "e";
       }
       program {
-         signal: "e,action,icon,delete"; source: "e";
+         signal: "e,action,icon,secure_delete"; source: "e";
       }
  */
    }
