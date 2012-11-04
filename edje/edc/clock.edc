@@ -1,3 +1,223 @@
+#if 0
+group { name: "e/modules/clock/digital";
+}
+#endif
+
+#if 0
+group { name: "e/modules/clock/main";
+   images {
+      image: "clock_base.png" COMP;
+      image: "tacho_fg.png" COMP;
+      image: "ch-h1.png" COMP;
+      image: "ch-h2.png" COMP;
+      image: "ch-m1.png" COMP;
+      image: "ch-m2.png" COMP;
+      image: "ch-s1.png" COMP;
+      image: "ch-s2.png" COMP;
+   }
+   min: 16 16;
+   max: 128 128;
+   script {
+      public do_seconds, tick_timer;
+      
+         public clock_cb(val) {
+            new year, month, day, yearday, weekday, hour, minute;
+            new Float:second;
+            new v, dosec, tim;
+            new x, y, w, h;
+            
+            date(year, month, day, yearday, weekday, hour, minute, second);
+            get_geometry(PART:"hour", x, y, w, h);
+            dosec = get_int(do_seconds);
+            if (dosec) {
+               v = round(second);
+               tim = timer(1.0 - (second - v), "clock_cb", 1);
+               
+               custom_state(PART:"seconds", "default", 0.0);
+               set_state_val(PART:"seconds", STATE_MAP_ROT_Z, (v * 360.0) / 60.0);
+               set_state_val(PART:"seconds", STATE_IMAGE, IMAGE:"ch-s1.png");
+               set_state(PART:"seconds", "custom", 0.0);
+               
+               custom_state(PART:"seconds-sh", "default", 0.0);
+               set_state_val(PART:"seconds-sh", STATE_MAP_ROT_Z, (v * 360.0) / 60.0);
+               set_state_val(PART:"seconds-sh", STATE_IMAGE, IMAGE:"ch-s2.png");
+               set_state(PART:"seconds-sh", "custom", 0.0);
+            }
+            else {
+               tim = timer(60.0 - (second), "clock_cb", 1);
+            }
+            set_int(tick_timer, tim);
+            
+            custom_state(PART:"minutes", "default", 0.0);
+            set_state_val(PART:"minutes", STATE_MAP_ROT_Z, (float(minute) * 360.0) / 60.0);
+            set_state_val(PART:"minutes", STATE_IMAGE, IMAGE:"ch-m1.png");
+            set_state(PART:"minutes", "custom", 0.0);
+            
+            custom_state(PART:"minutes-sh", "default", 0.0);
+            set_state_val(PART:"minutes-sh", STATE_MAP_ROT_Z, (float(minute) * 360.0) / 60.0);
+            set_state_val(PART:"minutes-sh", STATE_IMAGE, IMAGE:"ch-m2.png");
+            set_state(PART:"minutes-sh", "custom", 0.0);
+            
+            custom_state(PART:"hour", "default", 0.0);
+            set_state_val(PART:"hour", STATE_MAP_ROT_Z, ((float(hour) + (float(minute) / 60.0)) * 360.0) / 12.0);
+            set_state_val(PART:"hour", STATE_IMAGE, IMAGE:"ch-h1.png");
+            set_state(PART:"hour", "custom", 0.0);
+            
+            custom_state(PART:"hour-sh", "default", 0.0);
+            set_state_val(PART:"hour-sh", STATE_MAP_ROT_Z, ((float(hour) + (float(minute) / 60.0)) * 360.0) / 12.0);
+            set_state_val(PART:"hour-sh", STATE_IMAGE, IMAGE:"ch-h2.png");
+            set_state(PART:"hour-sh", "custom", 0.0);
+         }
+   }
+   parts {   
+      part { name: "base";
+         description { state: "default" 0.0;
+            aspect: 1.0 1.0;
+            image.normal: "clock_base.png";
+         }
+      }
+      part { name: "base2"; type: RECT; mouse_events: 0;
+         description { state: "default" 0.0;
+            visible: 0;
+            rel1.to: "base";
+            rel1.relative: (2.0/128.0) (2.0/128.0);
+            rel2.to: "base";
+            rel2.relative: (1.0+(2.0/128.0)) (1.0+(2.0/128.0));
+         }
+      }
+      part { name: "seconds-sh"; mouse_events: 0;
+         description { state: "default" 0.0;
+            rel1.to: "base2";
+            rel1.relative: 0.3125 0.0;
+            rel2.to: "base2";
+            rel2.relative: 0.6875 0.6875;
+            image.normal: "ch-s2.png";
+            map. on: 1;
+            map.rotation.center: "base2";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
+      }
+      part { name: "seconds"; mouse_events: 0;
+         description { state: "default" 0.0;
+            rel1.to: "base";
+            rel1.relative: 0.3125 0.0;
+            rel2.to: "base";
+            rel2.relative: 0.6875 0.6875;
+            image.normal: "ch-s1.png";
+            map.on: 1;
+            map.rotation.center: "base";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
+      }
+      part { name: "minutes-sh"; mouse_events: 0;
+         description { state: "default" 0.0;
+            rel1.to: "base2";
+            rel1.relative: 0.3125 0.0;
+            rel2.to: "base2";
+            rel2.relative: 0.6875 0.6875;
+            image.normal: "ch-m2.png";
+            map.on: 1;
+            map.rotation.center: "base2";
+         }
+      }
+      part { name: "minutes"; mouse_events: 0;
+         description { state: "default" 0.0;
+            rel1.to: "base";
+            rel1.relative: 0.3125 0.0;
+            rel2.to: "base";
+            rel2.relative: 0.6875 0.6875;
+            image.normal: "ch-m1.png";
+            map.on: 1;
+            map.rotation.center: "base";
+         }
+      }
+      part { name: "hour-sh"; mouse_events: 0;
+         description { state: "default" 0.0;
+            rel1.to: "base2";
+            rel1.relative: 0.3125 0.0;
+            rel2.to: "base2";
+            rel2.relative: 0.6875 0.6875;
+            image.normal: "ch-h2.png";
+            map.on: 1;
+            map.rotation.center: "base2";
+         }
+      }
+      part { name: "hour"; mouse_events: 0;
+         description { state: "default" 0.0;
+            rel1.to: "base";
+            rel1.relative: 0.3125 0.0;
+            rel2.to: "base";
+            rel2.relative: 0.6875 0.6875;
+            image.normal: "ch-h1.png";
+            map.on: 1;
+            map.rotation.center: "base";
+         }
+      }
+      part { name: "over"; mouse_events: 0;
+         description { state: "default" 0.0;
+            rel1.to: "base";
+            rel2.to: "base";
+            image.normal: "tacho_fg.png";
+         }
+      }
+   }
+   programs {
+      program {
+         signal: "load"; source: "";
+         script {
+            clock_cb(0);
+         }
+      }
+      program {
+         signal: "e,state,seconds,on"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "seconds";
+         target: "seconds-sh";
+         after: "sec2";
+      }
+      program { name: "sec2";
+         script {
+            new tim;
+            
+            set_int(do_seconds, 1);
+            tim = get_int(tick_timer);
+            if (tim) {
+               cancel_timer(tim);
+               set_int(tick_timer, 0);
+            }
+            clock_cb(0);
+         }
+      }
+      program {
+         signal: "e,state,seconds,off"; source: "e";
+         action: STATE_SET "hidden" 0.0;
+         target: "seconds";
+         target: "seconds-sh";
+         after: "sec3";
+      }
+      program { name: "sec3";
+         script {
+            new tim;
+            
+            set_int(do_seconds, 0);
+            tim = get_int(tick_timer);
+            if (tim) {
+               cancel_timer(tim);
+               set_int(tick_timer, 0);
+            }
+            clock_cb(0);
+         }
+      }
+   }
+}
+#endif
+
 group { name: "e/modules/clock/calendar/dayname";
    parts {
       part { name: "e.text.label"; type: TEXT; mouse_events: 0;
