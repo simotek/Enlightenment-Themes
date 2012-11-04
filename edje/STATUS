@@ -1,0 +1,220 @@
+--- TODO:
+e/modules/clock/digital
+e/modules/clock/main
+e/widgets/winlist/item *< same as menu item selection and non-selected
+e/widgets/winlist/main *< same grey bg,bevel, shine, title as menu bg, separator from dialog and swalllows for icon and list
+e/sys/halt *< same grey bg, bevel and shine from dialog etc. with busy icon from fileman overlay and same bold white text + shadow as in fileman overlay
+e/sys/hibernate *< same grey bg, bevel and shine from dialog etc. with busy icon from fileman overlay and same bold white text + shadow as in fileman overlay
+e/sys/logout *< same grey bg, bevel and shine from dialog etc. with busy icon from fileman overlay and same bold white text + shadow as in fileman overlay
+e/sys/reboot *< same grey bg, bevel and shine from dialog etc. with busy icon from fileman overlay and same bold white text + shadow as in fileman overlay
+e/sys/suspend *< same grey bg, bevel and shine from dialog etc. with busy icon from fileman overlay and same bold white text + shadow as in fileman overlay
+
+e/conf/randr/main/frame
+e/conf/randr/main/monitor
+e/conf/randr/main/stand
+e/conf/wallpaper/main/mini
+e/conf/wallpaper/main/mini-remote
+e/conf/wallpaper/main/mini-theme
+e/conf/wallpaper/main/scrollframe
+e/conf/wallpaper/main/window
+e/desklock/background
+e/desklock/login_box
+e/gadman/control
+e/gadman/frame
+e/gadman/full_bg
+e/init/extra_screen
+e/init/splash
+e/modules/backlight/main
+e/modules/battery/main
+e/modules/battery/popup
+e/modules/conf_colors/preview/solid
+e/modules/conf_colors/preview/text
+e/modules/conf_colors/preview/unknown
+e/modules/conf_edgebindings/selection
+e/modules/cpufreq/main
+e/modules/everything/gadget
+e/modules/everything/list
+e/modules/everything/main
+e/modules/everything/selector_item
+e/modules/everything/tab_item
+e/modules/everything/tab_item/back
+e/modules/everything/textblock
+e/modules/everything/thumbview/item/list
+e/modules/everything/thumbview/item/thumb
+e/modules/everything/thumbview/main/scrollframe
+e/modules/everything/thumbview/main/window
+e/modules/ibar/drop
+e/modules/ibar/drop_overlay
+e/modules/ibar/icon *< same as default, format cleanup
+e/modules/ibar/icon_overlay *< same as default, format cleanup
+e/modules/ibox/drop
+e/modules/ibox/drop_overlay
+e/modules/ibox/icon *< same as default, format cleanup
+e/modules/ibox/icon_overlay *< same as default, format cleanup
+e/modules/mixer/main
+e/modules/temperature/main
+e/theme/about
+e/transitions/crossfade *< same as default, format cleanup
+e/transitions/vswipe *< same as default, format cleanup
+e/transpreview/0 *< same as default, format cleanup
+e/transpreview/1 *< same as default, format cleanup
+e/widgets/about/main
+e/widgets/cslider *< same dragable setup as default but inset/shadow from preview
+e/widgets/fontpreview *< same as default, just with white color ??? maybe shadow style too
+e/widgets/spectrum *< same dargable cfg form default but inset + shadow liek preview
+e/wizard/extra
+e/wizard/firstpage
+e/wizard/main
+--- REALLY SIMPLE BUTTON + ICON:
+e/modules/illume_home_toggle/main *< same as button just with only icon inside
+e/modules/illume_kbd_toggle/main *< same as button just with only icon inside
+e/modules/illume_mode_toggle/main *< same as button just with only icon inside
+e/modules/conf/main
+--- ICONS:
+e/widgets/border/default/basic
+e/widgets/border/default/close
+e/widgets/border/default/fullscreen
+e/widgets/border/default/kill
+e/widgets/border/default/locks
+e/widgets/border/default/locks_application
+e/widgets/border/default/locks_user
+e/widgets/border/default/maximize
+e/widgets/border/default/minimize
+e/widgets/border/default/move *< same dialog (bg, bevel, shine), with same text as in labels (white + 1 pixel shadow + placeholder icon (to be drawn)
+e/widgets/border/default/move_icon
+e/widgets/border/default/properties
+e/widgets/border/default/remember
+e/widgets/border/default/resize *< same dialog (bg, bevel, shine), with same text as in labels (white + 1 pixel shadow + placeholder icon (to be drawn)
+e/widgets/border/default/resize_icon
+e/widgets/border/default/sendto
+e/widgets/border/default/shade
+e/widgets/border/default/skip
+e/widgets/border/default/skip_pager
+e/widgets/border/default/skip_taskbar
+e/widgets/border/default/skip_winlist
+e/widgets/border/default/stack_below
+e/widgets/border/default/stacking
+e/widgets/border/default/stack_normal
+e/widgets/border/default/stack_on_top
+e/widgets/border/default/stick
++
+e/icon/*
+
+--- DONE:
+e/comp/default
+e/comp/everything
+e/comp/fullscreen
+e/comp/menu
+e/comp/none
+e/comp/popup
+e/comp/still
+e/desktop/background
+e/fileman/default/list/fixed
+e/fileman/default/list_odd/fixed
+e/fileman/default/list_odd/variable
+e/fileman/default/list/variable
+e/fileman/default/scrollframe
+e/fileman/default/window/main
+e/fileman/desktop/list/fixed
+e/fileman/desktop/list_odd/fixed
+e/fileman/desktop/scrollframe
+e/fileman/popup/default
+e/fileman/toolbar/default/base
+e/ilist
+e/modules/comp/preview
+e/modules/comp/screen/base/default
+e/modules/comp/screen/overlay/default
+e/modules/pager/desk
+e/modules/pager/popup
+e/modules/pager/window
+e/modules/start/main
+e/shelf/alternate/base
+e/shelf/alternate/inset
+e/shelf/alternate/plain
+e/shelf/default/base
+e/shelf/default/inset
+e/shelf/default/plain
+e/shelf/invisible/base
+e/shelf/invisible/inset
+e/shelf/invisible/plain
+e/widgets/border/default/border
+e/widgets/border/dialog/border
+e/widgets/border/noresize/border
+e/widgets/border/noresize_dialog/border
+e/widgets/border/pixel/border
+e/widgets/border/shaped/border
+e/widgets/button
+e/widgets/check
+e/widgets/check_icon
+e/widgets/configure/main
+e/widgets/deskpreview/desk
+e/widgets/dialog/main
+e/widgets/dialog/text
+e/widgets/entry
+e/widgets/entry/cursor
+e/widgets/entry/selection
+e/widgets/entry/text
+e/widgets/frame
+e/widgets/ilist
+e/widgets/ilist_header
+e/widgets/ilist_header_odd
+e/widgets/ilist_odd
+e/widgets/ilist/toggle_end
+e/widgets/label
+e/widgets/menu/default/background
+e/widgets/menu/default/check
+e/widgets/menu/default/icon
+e/widgets/menu/default/item_bg
+e/widgets/menu/default/label
+e/widgets/menu/default/radio
+e/widgets/menu/default/separator
+e/widgets/menu/default/submenu
+e/widgets/menu/default/submenu_bg
+e/widgets/preview
+e/widgets/radio
+e/widgets/radio_icon
+e/widgets/scrollframe
+e/widgets/slider_horizontal
+e/widgets/slider_vertical
+e/widgets/textblock
+e/widgets/toolbar
+e/widgets/toolbar/item
+e/fileman/default/overlay
+e/fileman/desktop/overlay
+e/modules/xkbswitch/main
+e/modules/xkbswitch/noflag
+e/modules/tasks/item
+e/modules/tasks/item_vert
+e/modules/connman/end
+e/modules/connman/icon/bluetooth
+e/modules/connman/icon/cellular
+e/modules/connman/icon/ethernet
+e/modules/connman/icon/wifi
+e/modules/connman/main
+e/fileman/default/list/drop_between
+e/fileman/default/list/drop_in
+e/fileman/desktop/list/drop_between
+e/fileman/desktop/list/drop_in
+e/fileman/default/rubberband
+e/fileman/default/icon/fixed
+e/fileman/default/icon/variable
+e/fileman/desktop/icon/fixed
+e/fileman/desktop/icon/variable
+e/fileman/default/progress
+modules/efm_navigation/main *< same as buttons just with arrow icons taken from dark theme arrows, with reload and home/heart being temporary until we draw new ones
+modules/efm_navigation/pathbar_button *< same as buttons just with arrow icons taken from dark theme arrows, with reload and home/heart being temporary until we draw new ones
+modules/efm_navigation/pathbar_scrollframe *< same as toolbar arrows using shelf inset gfx for a separator either end of the scroll area
+e/gadman/popup *< same grey bg, bevel and shine from dialog minus separator
+e/widgets/color_well *< same as preview with color as content
+e/widgets/syscon/item/button *< same button widget (for now) but icon on top, text below
+e/widgets/syscon/main *< same grey bg, bevel and shine from dialog etc.
+e/pointer/enlightenment/default/color
+e/pointer/enlightenment/default/mono
+e/modules/clock/calendar
+e/modules/clock/calendar/day
+e/modules/clock/calendar/dayname
+e/modules/systray/main
+e/modules/systray/main/alternate
+e/modules/systray/main/alternate/inset
+e/modules/systray/main/default
+e/modules/systray/main/invisible
