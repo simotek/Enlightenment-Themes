@@ -1,13 +1,12 @@
 --- TODO:
-e/modules/clock/digital
-e/modules/clock/main
-e/widgets/winlist/item *< same as menu item selection and non-selected
-e/widgets/winlist/main *< same grey bg,bevel, shine, title as menu bg, separator from dialog and swalllows for icon and list
 e/sys/halt *< same grey bg, bevel and shine from dialog etc. with busy icon from fileman overlay and same bold white text + shadow as in fileman overlay
 e/sys/hibernate *< same grey bg, bevel and shine from dialog etc. with busy icon from fileman overlay and same bold white text + shadow as in fileman overlay
 e/sys/logout *< same grey bg, bevel and shine from dialog etc. with busy icon from fileman overlay and same bold white text + shadow as in fileman overlay
 e/sys/reboot *< same grey bg, bevel and shine from dialog etc. with busy icon from fileman overlay and same bold white text + shadow as in fileman overlay
 e/sys/suspend *< same grey bg, bevel and shine from dialog etc. with busy icon from fileman overlay and same bold white text + shadow as in fileman overlay
+
+e/widgets/winlist/item *< same as menu item selection and non-selected
+e/widgets/winlist/main *< same grey bg,bevel, shine, title as menu bg, separator from dialog and swalllows for icon and list
 
 e/conf/randr/main/frame
 e/conf/randr/main/monitor
@@ -101,6 +100,8 @@ e/widgets/border/default/stick
 e/icon/*
 
 --- DONE:
+e/modules/clock/digital
+e/modules/clock/main
 e/comp/default
 e/comp/everything
 e/comp/fullscreen
