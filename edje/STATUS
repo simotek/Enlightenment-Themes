@@ -1,58 +1,21 @@
 --- TODO:
-e/init/extra_screen *< make window identifiable by comp (name)
-e/init/splash *< make window identifiable by comp (name)
-e/wizard/extra
-e/wizard/firstpage
-e/wizard/main
-e/modules/ibar/drop
-e/modules/ibar/drop_overlay
-e/modules/ibar/icon *< same as default, format cleanup
-e/modules/ibar/icon_overlay *< same as default, format cleanup
-e/modules/ibox/drop
-e/modules/ibox/drop_overlay
-e/modules/ibox/icon *< same as default, format cleanup
-e/modules/ibox/icon_overlay *< same as default, format cleanup
-e/modules/backlight/main
-e/modules/battery/main
-e/modules/battery/popup
-e/modules/cpufreq/main
-e/modules/mixer/main
-e/modules/temperature/main
-e/conf/randr/main/frame
-e/conf/randr/main/monitor
-e/conf/randr/main/stand
-e/theme/about
-e/widgets/about/main
-e/gadman/control
-e/gadman/frame
-e/gadman/full_bg
-e/transitions/crossfade *< same as default, format cleanup
-e/transitions/vswipe *< same as default, format cleanup
-e/transpreview/0 *< same as default, format cleanup
-e/transpreview/1 *< same as default, format cleanup
-e/widgets/cslider *< same dragable setup as default but inset/shadow from preview
-e/widgets/fontpreview *< same as default, just with white color ??? maybe shadow style too
-e/widgets/spectrum *< same dargable cfg form default but inset + shadow liek preview
-e/modules/conf_colors/preview/solid
-e/modules/conf_colors/preview/text
-e/modules/conf_colors/preview/unknown
-e/modules/conf_edgebindings/selection
-e/modules/everything/gadget
-e/modules/everything/list
-e/modules/everything/main
-e/modules/everything/selector_item
-e/modules/everything/tab_item
-e/modules/everything/tab_item/back
-e/modules/everything/textblock
-e/modules/everything/thumbview/item/list
-e/modules/everything/thumbview/item/thumb
-e/modules/everything/thumbview/main/scrollframe
-e/modules/everything/thumbview/main/window
 --- REALLY SIMPLE BUTTON + ICON:
+e/modules/conf/main
+
 e/modules/illume_home_toggle/main *< same as button just with only icon inside
 e/modules/illume_kbd_toggle/main *< same as button just with only icon inside
 e/modules/illume_mode_toggle/main *< same as button just with only icon inside
-e/modules/conf/main
+
+modules/illume-indicator/window
+modules/illume-softkey/window
+
+e/modules/kbd/match/word
+e/modules/kbd/zoom/default
+e/modules/kbd/zoomkey/default
+e/modules/kbd/key/default
+e/modules/kbd/match/default
+e/modules/kbd/base/default
+
 --- ICONS:
 e/widgets/border/default/basic
 e/widgets/border/default/close
@@ -90,6 +53,57 @@ e/conf/wallpaper/main/scrollframe
 e/conf/wallpaper/main/window
 
 --- DONE:
+e/modules/everything/gadget
+e/modules/everything/list
+e/modules/everything/main
+e/modules/everything/selector_item
+e/modules/everything/tab_item
+e/modules/everything/tab_item/back
+e/modules/everything/textblock
+e/modules/everything/thumbview/item/list
+e/modules/everything/thumbview/item/thumb
+e/modules/everything/thumbview/main/scrollframe
+e/modules/everything/thumbview/main/window
+e/modules/battery/main
+e/modules/battery/popup
+e/modules/mixer/main
+e/modules/backlight/main
+e/modules/temperature/main
+e/modules/cpufreq/main
+e/modules/notification/main
+e/modules/notification/logo
+e/gadman/control
+e/gadman/frame
+e/gadman/full_bg
+e/conf/randr/main/frame
+e/conf/randr/main/monitor
+e/conf/randr/main/stand
+e/modules/conf_edgebindings/selection
+e/modules/conf_colors/preview/solid
+e/modules/conf_colors/preview/text
+e/modules/conf_colors/preview/unknown
+e/widgets/cslider *< same dragable setup as default but inset/shadow from preview
+e/widgets/spectrum *< same dargable cfg form default but inset + shadow liek preview
+e/widgets/fontpreview *< same as default, just with white color ??? maybe shadow style too
+e/transitions/crossfade *< same as default, format cleanup
+e/transitions/vswipe *< same as default, format cleanup
+e/transpreview/0 *< same as default, format cleanup
+e/transpreview/1 *< same as default, format cleanup
+e/theme/about
+e/widgets/about/main
+e/init/extra_screen
+e/init/splash
+e/modules/ibar/drop
+e/modules/ibar/drop_overlay
+e/modules/ibar/icon *< same as default, format cleanup
+e/modules/ibar/icon_overlay *< same as default, format cleanup
+e/modules/ibox/drop
+e/modules/ibox/drop_overlay
+e/modules/ibox/icon *< same as default, format cleanup
+e/modules/ibox/icon_overlay *< same as default, format cleanup
+e/wizard/extra
+e/wizard/firstpage
+e/wizard/main
 e/desklock/background *< make window identifiable by comp (name)
 e/desklock/login_box
 e/widgets/winlist/item *< same as menu item selection and non-selected
