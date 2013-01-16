@@ -1,13 +1,20 @@
 --- TODO:
---- REALLY SIMPLE BUTTON + ICON:
-e/modules/conf/main
+modules -> utilities/system
 
-e/modules/illume_home_toggle/main *< same as button just with only icon inside
-e/modules/illume_kbd_toggle/main *< same as button just with only icon inside
-e/modules/illume_mode_toggle/main *< same as button just with only icon inside
+dialog-warning
+dialog-error
+dialog-ask
+unknown
+
+e/icon/*
+
+
+--- LOW PRIORITY
 
 modules/illume-indicator/window
 modules/illume-softkey/window
+
+modules/illume-indicator/notify
 
 e/modules/kbd/match/word
 e/modules/kbd/zoom/default
@@ -16,7 +23,23 @@ e/modules/kbd/key/default
 e/modules/kbd/match/default
 e/modules/kbd/base/default
 
---- ICONS:
+e/conf/wallpaper/main/mini
+e/conf/wallpaper/main/mini-remote
+e/conf/wallpaper/main/mini-theme
+e/conf/wallpaper/main/scrollframe
+e/conf/wallpaper/main/window
+
+--- DONE:
+settings -> input -> touch
+preferences-variables
+settings -> advanced -> signal bindings, environment variables
+settings -> desklock language settings
+settings -> apps -> personal app launchers, screen lock applications, screen unlock applications, desktop environments
+enlightenment
+enlightenment -> about
+syscon-> lock, logout, suspend, hibernate, poweroff, reboot
+enlightenment -> restart, exit
+
 e/widgets/border/default/basic
 e/widgets/border/default/close
 e/widgets/border/default/fullscreen
@@ -41,18 +64,10 @@ e/widgets/border/default/stacking
 e/widgets/border/default/stack_normal
 e/widgets/border/default/stack_on_top
 e/widgets/border/default/stick
-+
-e/icon/*
-
---- LOW PRIORITY
-
-e/conf/wallpaper/main/mini
-e/conf/wallpaper/main/mini-remote
-e/conf/wallpaper/main/mini-theme
-e/conf/wallpaper/main/scrollframe
-e/conf/wallpaper/main/window
-
---- DONE:
+e/modules/illume_mode_toggle/main *< same as button just with only icon inside
+e/modules/illume_home_toggle/main *< same as button just with only icon inside
+e/modules/illume_kbd_toggle/main *< same as button just with only icon inside
+e/modules/conf/main
 e/modules/everything/gadget
 e/modules/everything/list
 e/modules/everything/main
