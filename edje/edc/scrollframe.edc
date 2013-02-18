@@ -177,22 +177,6 @@ group { name: "e/widgets/scrollframe";
          action: DRAG_VAL_PAGE  0.0 1.0;
          target: "e.dragable.vbar";
       }
-      program {
-         signal: "mouse,down,1*"; source: "e.dragable.vbar";
-         action: STATE_SET "clicked" 0.0;
-         target: "e.dragable.vbar";
-         target: "shadow_vbar";
-         target: "glow_vbar";
-         target: "center_glow_vbar";
-      }
-      program {
-         signal: "mouse,up,1"; source: "e.dragable.vbar";
-         action: STATE_SET "default" 0.0;
-         target: "e.dragable.vbar";
-         target: "shadow_vbar";
-         target: "glow_vbar";
-         target: "center_glow_vbar";
-      }
 
 // horiz bar /////////////////////////////////////////////////////////////
       part { name: "sb_hbar_show"; type: RECT;
@@ -349,22 +333,6 @@ group { name: "e/widgets/scrollframe";
          action: DRAG_VAL_PAGE  1.0 0.0;
          target: "e.dragable.hbar";
       }
-      program {
-         signal: "mouse,down,1*"; source: "e.dragable.hbar";
-         action: STATE_SET "clicked" 0.0;
-         target: "e.dragable.hbar";
-         target: "shadow_hbar";
-         target: "glow_hbar";
-         target: "center_glow_hbar";
-      }
-      program {
-         signal: "mouse,up,1"; source: "e.dragable.hbar";
-         action: STATE_SET "default" 0.0;
-         target: "e.dragable.hbar";
-         target: "shadow_hbar";
-         target: "glow_hbar";
-         target: "center_glow_hbar";
-      }
 
       part { name: "bg"; type: RECT;
          description { state: "default" 0.0;
@@ -390,17 +358,6 @@ group { name: "e/widgets/scrollframe";
             rel2.to_y: "sb_hbar";
          }
       }
-      part { name: "shadow"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "inset_shadow.png";
-            image.border: 5 5 7 3;
-            image.middle: 0;
-            rel1.to: "bg";
-            rel2.to: "bg";
-            fill.smooth: 0;
-            color: 255 255 255 128;
-         }
-      }
       part { name: "inset"; mouse_events: 0;
          description { state: "default" 0.0;
             image.normal: "bevel_in.png";
@@ -411,6 +368,17 @@ group { name: "e/widgets/scrollframe";
             rel2.to: "bg";
             rel2.offset: 0 0;
             fill.smooth: 0;
+         }
+      }
+      part { name: "shadow"; mouse_events: 0;
+         description { state: "default" 0.0;
+            image.normal: "inset_shadow.png";
+            image.border: 5 5 7 3;
+            image.middle: 0;
+            rel1.to: "bg";
+            rel2.to: "bg";
+            fill.smooth: 0;
+            color: 255 255 255 128;
          }
       }
       part { name: "runner_vbar"; mouse_events: 0;
@@ -704,6 +672,40 @@ group { name: "e/widgets/scrollframe";
             inherit: "default" 0.0;
             visible: 1;
          }
+      }
+   }
+   programs {
+      program {
+         signal: "mouse,down,1*"; source: "e.dragable.vbar";
+         action: STATE_SET "clicked" 0.0;
+         target: "e.dragable.vbar";
+         target: "shadow_vbar";
+         target: "glow_vbar";
+         target: "center_glow_vbar";
+      }
+      program {
+         signal: "mouse,up,1"; source: "e.dragable.vbar";
+         action: STATE_SET "default" 0.0;
+         target: "e.dragable.vbar";
+         target: "shadow_vbar";
+         target: "glow_vbar";
+         target: "center_glow_vbar";
+      }
+      program {
+         signal: "mouse,down,1*"; source: "e.dragable.hbar";
+         action: STATE_SET "clicked" 0.0;
+         target: "e.dragable.hbar";
+         target: "shadow_hbar";
+         target: "glow_hbar";
+         target: "center_glow_hbar";
+      }
+      program {
+         signal: "mouse,up,1"; source: "e.dragable.hbar";
+         action: STATE_SET "default" 0.0;
+         target: "e.dragable.hbar";
+         target: "shadow_hbar";
+         target: "glow_hbar";
+         target: "center_glow_hbar";
       }
    }
 }

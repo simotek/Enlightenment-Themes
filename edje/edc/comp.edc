@@ -1,4 +1,4 @@
-group { name: "e/modules/comp/preview";
+group { name: "e/comp/preview";
    parts {
       part { name: "e.swallow.preview"; type: SWALLOW; mouse_events: 0;
          description { state: "default" 0.0;
@@ -21,17 +21,17 @@ group { name: "e/modules/comp/preview";
    }
 }
 
-group { name: "e/modules/comp/screen/base/default";
+group { name: "e/comp/screen/base/default";
+   alias: "e/comp/screen/base/noeffects";
    parts {
-      part { name: "black"; type: RECT; mouse_events: 0;
+      part { name: "e.swallow.background"; type: SWALLOW; mouse_events: 0;
          description { state: "default" 0.0;
-            color: 0 0 0 255;
          }
       }
    }
 }
 
-group { name: "e/modules/comp/screen/overlay/default";
+group { name: "e/comp/screen/overlay/default";
    images.image: "screen_circular_shadow.png" COMP;
    parts {
       part { name: "clip"; type: RECT; mouse_events: 0;
@@ -81,30 +81,35 @@ group { name: "e/modules/comp/screen/overlay/default";
    }
    programs {
          program {
+            name: "screensaver_on";
             signal: "e,state,screensaver,on"; source: "e";
             action: STATE_SET "visible" 0.0;
             transition: ACCELERATE 3.0 CURRENT;
             target: "blanker";
          }
          program {
+            name: "screensaver_on2";
             signal: "e,state,screensaver,on"; source: "e";
             action: STATE_SET "visible" 0.0;
             transition: DECELERATE 1.5 CURRENT;
             target: "shadow";
          }
          program {
+            name: "screensaver_off";
             signal: "e,state,screensaver,off"; source: "e";
             action: STATE_SET "default" 0.0;
             transition: ACCELERATE 0.5 CURRENT;
             target: "blanker";
          }
          program {
+            name: "screensaver_off2";
             signal: "e,state,screensaver,off"; source: "e";
             action: STATE_SET "default" 0.0;
             transition: ACCELERATE 0.25 CURRENT;
             target: "shadow";
          }
          program {
+            name: "suspend";
             signal: "e,state,sys,suspend"; source: "e";
             action: STATE_SET "visible" 0.0;
             transition: ACCELERATE 0.5 CURRENT;
@@ -115,6 +120,7 @@ group { name: "e/modules/comp/screen/overlay/default";
             action: SIGNAL_EMIT "e,state,sys,suspend,done" "e";
          }
          program {
+            name: "hibernate";
             signal: "e,state,sys,hibernate"; source: "e";
             action: STATE_SET "visible" 0.0;
             transition: ACCELERATE 0.5 CURRENT;
@@ -125,12 +131,14 @@ group { name: "e/modules/comp/screen/overlay/default";
             action: SIGNAL_EMIT "e,state,sys,hibernate,done" "e";
          }
          program {
+            name: "resume";
             signal: "e,state,sys,resume"; source: "e";
             action: STATE_SET "default" 0.0;
             transition: DECELERATE 1.0 CURRENT;
             target: "suspender";
          }
          program {
+            name: "reboot";
             signal: "e,state,sys,reboot"; source: "e";
             action: STATE_SET "visible" 0.0;
             transition: ACCELERATE 0.5 CURRENT;
@@ -141,6 +149,7 @@ group { name: "e/modules/comp/screen/overlay/default";
             action: SIGNAL_EMIT "e,state,sys,reboot,done" "e";
          }
          program {
+            name: "halt";
             signal: "e,state,sys,halt"; source: "e";
             action: STATE_SET "visible" 0.0;
             transition: ACCELERATE 0.5 CURRENT;
@@ -151,6 +160,7 @@ group { name: "e/modules/comp/screen/overlay/default";
             action: SIGNAL_EMIT "e,state,sys,halt,done" "e";
          }
          program {
+            name: "logout";
             signal: "e,state,sys,logout"; source: "e";
             action: STATE_SET "visible" 0.0;
             transition: ACCELERATE 0.5 CURRENT;
@@ -163,8 +173,70 @@ group { name: "e/modules/comp/screen/overlay/default";
    }
 }
 
+
+group { name: "e/comp/screen/overlay/noeffects";
+   inherit: "e/comp/screen/overlay/default";
+   programs {
+         program {
+            name: "screensaver_on";
+            transition: ACCELERATE 0 CURRENT;
+         }
+         program {
+            name: "screensaver_on2";
+            transition: DECELERATE 0 CURRENT;
+         }
+         program {
+            name: "screensaver_off";
+            transition: ACCELERATE 0 CURRENT;
+         }
+         program {
+            name: "screensaver_off2";
+            transition: ACCELERATE 0 CURRENT;
+         }
+         program {
+            name: "suspend";
+            signal: "e,state,sys,suspend"; source: "e";
+            action: SIGNAL_EMIT "e,state,sys,suspend,done" "e";
+            after: "action_done";
+         }
+         program {
+            name: "action_done";
+            action: STATE_SET "visible" 0.0;
+            transition: ACCELERATE 0 CURRENT;
+            target: "suspender";
+         }
+         program {
+            name: "hibernate";
+            signal: "e,state,sys,hibernate"; source: "e";
+            action: SIGNAL_EMIT "e,state,sys,hibernate,done" "e";
+            after: "action_done";
+         }
+         program {
+            name: "resume";
+            transition: DECELERATE 1 CURRENT;
+         }
+         program {
+            name: "reboot";
+            signal: "e,state,sys,reboot"; source: "e";
+            action: SIGNAL_EMIT "e,state,sys,reboot,done" "e";
+            after: "action_done";
+         }
+         program {
+            name: "halt";
+            signal: "e,state,sys,halt"; source: "e";
+            action: SIGNAL_EMIT "e,state,sys,halt,done" "e";
+            after: "action_done";
+         }
+         program {
+            name: "logout";
+            signal: "e,state,sys,logout"; source: "e";
+            action: SIGNAL_EMIT "e,state,sys,logout,done" "e";
+            after: "action_done";
+         }
+   }
+}
+
 group { name: "e/comp/default";
-   alias: "e/comp/popup";
    images.image: "win_shadow.png" COMP;
    images.image: "win_glow.png" COMP;
    parts {
@@ -231,8 +303,23 @@ group { name: "e/comp/default";
             rel2.relative: 1.0  1.0;
          }
       }
-      part { name: "e.swallow.content"; type: SWALLOW;
+      part { name: "focus-clipper";
+         type: RECT;
          clip_to: "clipper";
+         mouse_events: 0;
+         description { state: "default" 0.0;
+            color_class: "comp_focus-out_color";
+            rel1.to: "clipper";
+            rel2.to: "clipper";
+         }
+         description { state: "focused" 0.0;
+            inherit: "default" 0.0;
+            color_class: "";
+            color: 255 255 255 255;
+         }
+      }
+      part { name: "e.swallow.content"; type: SWALLOW;
+         clip_to: "focus-clipper";
          description { state: "default" 0.0;
             rel1.to: "shower";
             rel2.to: "shower";
@@ -251,6 +338,7 @@ group { name: "e/comp/default";
          target: "shadow";
       }
       program {
+         name: "visible_on";
          signal: "e,state,visible,on"; source: "e";
          action: STATE_SET "visible" 0.0;
          transition: DECELERATE 0.15;
@@ -262,6 +350,7 @@ group { name: "e/comp/default";
          action: SIGNAL_EMIT "e,action,show,done" "e";
       }
       program {
+         name: "visible_off";
          signal: "e,state,visible,off"; source: "e";
          action: STATE_SET "default" 0.0;
          transition: DECELERATE 0.30;
@@ -273,10 +362,12 @@ group { name: "e/comp/default";
          action: SIGNAL_EMIT "e,action,hide,done" "e";
       }
       program {
+         name: "focus_on";
          signal: "e,state,focus,on"; source: "e";
          action: STATE_SET "focused" 0.0;
          transition: SINUSOIDAL 0.1;
          target: "glow";
+         target: "focus-clipper";
          after: "focus2";
       }
       program { name: "focus2";
@@ -284,9 +375,20 @@ group { name: "e/comp/default";
          transition: SINUSOIDAL 0.4;
          target: "glow";
       }
-//      program {
-//         signal: "e,state,focus,off"; source: "e";
-//      }
+      program {
+         name: "focus_off";
+         signal: "e,state,focus,off"; source: "e";
+         action: STATE_SET "default" 0.0;
+         transition: SINUSOIDAL 0.1;
+         target: "focus-clipper";
+         after: "focus_off2";
+      }
+      program {
+         name: "focus_off2";
+         action: STATE_SET "default" 0.0;
+         transition: SINUSOIDAL 0.4;
+         target: "glow";
+      }
       program { name: "urgent1";
          signal: "e,state,urgent,on"; source: "e";
          action: STATE_SET "focused" 0.0;
@@ -305,6 +407,148 @@ group { name: "e/comp/default";
          action: STATE_SET "default" 0.0;
          transition: SINUSOIDAL 0.6 CURRENT;
          target: "glow";
+      }
+   }
+}
+
+group { name: "e/comp/rotate";
+   inherit: "e/comp/default";
+   parts {
+      part { name: "e.swallow.content";
+         description { state: "default";
+            map {
+               on: 1;
+               rotation {
+                  z: 0;
+               }
+            }
+         }
+         description { state: "focus-out";
+            inherit: "default";
+            map.rotation.z: 180;
+         }
+      }
+      part {
+         name: "shower";
+         description { state: "default";
+            rel1.relative: 0.0  0.0;
+            rel2.relative: 1.0  1.0;
+         }
+      }
+   }
+   programs {
+      program { name: "focus3";
+         signal: "e,state,focus,on"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "e.swallow.content";
+         transition: LINEAR 0.3;
+      }
+      program { name: "focus_off3";
+         signal: "e,state,focus,off"; source: "e";
+         action: STATE_SET "focus-out" 0.0;
+         target: "e.swallow.content";
+         transition: LINEAR 0.3;
+      }
+   }
+}
+
+group { name: "e/comp/rotate/fast";
+   inherit: "e/comp/rotate";
+   programs {
+      program { name: "focus3";
+         transition: LINEAR 0;
+      }
+      program { name: "focus_off3";
+         transition: LINEAR 0;
+      }
+   }
+}
+
+group { name: "e/comp/flip";
+   inherit: "e/comp/rotate";
+   parts {
+      part { name: "e.swallow.content";
+         description { state: "default";
+            map {
+               on: 1;
+               rotation {
+                  z: 0;
+                  y: 0;
+               }
+               backface_cull: 1;
+            }
+         }
+         description { state: "focus-out";
+            inherit: "default";
+            map.rotation {
+               z: 0;
+               y: 180;
+            }
+         }
+      }
+   }
+}
+
+group { name: "e/comp/flip/fast";
+   inherit: "e/comp/flip";
+   programs {
+      program { name: "focus3";
+         transition: LINEAR 0;
+      }
+      program { name: "focus_off3";
+         transition: LINEAR 0;
+      }
+   }
+}
+
+group { name: "e/comp/popup";
+   inherit: "e/comp/default";
+   parts {
+      part { name: "focus-clipper";
+         description { state: "default";
+            color_class: "";
+         }
+      }
+   }
+}
+
+group { name: "e/comp/default/fast";
+   inherit: "e/comp/default";
+   programs {
+      program {
+         name: "visible_on";
+         transition: DECELERATE 0;
+      }
+      program {
+         name: "visible_off";
+         transition: DECELERATE 0;
+      }
+      program {
+         name: "focus_on";
+         transition: SINUSOIDAL 0.1;
+         target: "glow";
+         after: "focus2";
+      }
+      program {
+         name: "focus_on2";
+         signal: "e,state,focus,on"; source: "e";
+         action: STATE_SET "focused" 0.0;
+         target: "focus-clipper";
+      }
+      program {
+         name: "focus_off";
+         transition: SINUSOIDAL 0;
+      }
+   }
+}
+
+group { name: "e/comp/popup/fast";
+   inherit: "e/comp/default/fast";
+   parts {
+      part { name: "focus-clipper";
+         description { state: "default";
+            color_class: "";
+         }
       }
    }
 }
@@ -340,8 +584,32 @@ group { name: "e/comp/still";
    }
 }
 
+group { name: "e/comp/still/fast";
+   inherit: "e/comp/default/fast";
+   parts {
+      part { name: "shower";
+         description { state: "default" 0.0;
+            rel1.relative: 0.0 0.0;
+            rel2.relative: 1.0 1.0;
+         }
+      }
+   }
+}
+
 group { name: "e/comp/menu";
-   inherit: "e/comp/default";
+   inherit: "e/comp/popup";
+   parts {
+      part { name: "shower";
+         description { state: "default" 0.0;
+            rel1.relative: 0.05 0.0;
+            rel2.relative: 0.95 0.9;
+         }
+      }
+   }
+}
+
+group { name: "e/comp/menu/fast";
+   inherit: "e/comp/popup/fast";
    parts {
       part { name: "shower";
          description { state: "default" 0.0;
@@ -353,7 +621,19 @@ group { name: "e/comp/menu";
 }
 
 group { name: "e/comp/everything";
-   inherit: "e/comp/default";
+   inherit: "e/comp/popup";
+   parts {
+      part { name: "shower";
+         description { state: "default" 0.0;
+            rel1.relative: -0.3 -0.3;
+            rel2.relative: 1.3 1.3;
+         }
+      }
+   }
+}
+
+group { name: "e/comp/everything/fast";
+   inherit: "e/comp/popup/fast";
    parts {
       part { name: "shower";
          description { state: "default" 0.0;
@@ -516,6 +796,7 @@ group { name: "e/comp/fullscreen";
          target: "shadow";
       }
       program {
+         name: "visible_on";
          signal: "e,state,visible,on"; source: "e";
          action: STATE_SET "visible" 0.0;
          transition: DECELERATE 0.25;
@@ -523,6 +804,7 @@ group { name: "e/comp/fullscreen";
          target: "scr_shade";
       }
       program {
+         name: "visible_on2";
          signal: "e,state,visible,on"; source: "e";
          action: STATE_SET "visible1" 0.0;
          transition: DECELERATE 0.05;
@@ -545,6 +827,7 @@ group { name: "e/comp/fullscreen";
          action: SIGNAL_EMIT "e,action,show,done" "e";
       }
       program {
+         name: "visible_off";
          signal: "e,state,visible,off"; source: "e";
          action: STATE_SET "default" 0.0;
          transition: DECELERATE 0.25;
@@ -552,6 +835,7 @@ group { name: "e/comp/fullscreen";
          target: "scr_shade";
       }
       program {
+         name: "visible_off2";
          signal: "e,state,visible,off"; source: "e";
          action: STATE_SET "visible1" 0.0;
          transition: DECELERATE 0.2;
@@ -572,6 +856,34 @@ group { name: "e/comp/fullscreen";
       }
       program { name: "hide3";
          action: SIGNAL_EMIT "e,action,hide,done" "e";
+      }
+   }
+}
+
+group { name: "e/comp/fullscreen/fast";
+   inherit: "e/comp/fullscreen";
+   programs {
+      program {
+         name: "visible_on";
+         transition: DECELERATE 0;
+      }
+      program {
+         name: "visible_on2";
+         transition: DECELERATE 0;
+      }
+      program { name: "show2";
+         transition: DECELERATE 0;
+      }
+      program {
+         name: "visible_off";
+         transition: DECELERATE 0;
+      }
+      program {
+         name: "visible_off2";
+         transition: DECELERATE 0;
+      }
+      program { name: "hide2";
+         transition: DECELERATE 0;
       }
    }
 }

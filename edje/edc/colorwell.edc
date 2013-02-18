@@ -1,12 +1,21 @@
 group { name: "e/widgets/color_well";
    images.image: "inset_shadow.png" COMP;
    images.image: "bevel_in.png" COMP;
+   images.image: "dot_pattern.png" COMP;
    parts {
       part { name: "bg"; type: RECT;
          description { state: "default" 0.0;
             rel1.to: "e.swallow.content";
             rel2.to: "e.swallow.content";
             color: 48 48 48 255;
+         }
+      }
+      part { name: "pat";
+         description { state: "default" 0.0;
+            rel1.to: "bg";
+            rel2.to: "bg";
+            image.normal: "dot_pattern.png";
+            TILED_PATTERN(256, 256)
          }
       }
       part { name: "clipper"; type: RECT;
@@ -22,8 +31,8 @@ group { name: "e/widgets/color_well";
       part { name: "e.swallow.content"; type: SWALLOW;
          clip_to: "clipper";
          description { state: "default" 0.0;
-            rel1.offset: 1 1;
-            rel2.offset: -2 -2;
+            rel1.offset: 3 3;
+            rel2.offset: -4 -4;
          }
       }
       part { name: "shadow"; mouse_events: 0;
@@ -37,7 +46,7 @@ group { name: "e/widgets/color_well";
             color: 255 255 255 128;
          }
       }
-      part { name: "inset"; mouse_events: 0;
+      part { name: "inset";
          description { state: "default" 0.0;
             image.normal: "bevel_in.png";
             image.border: 1 1 1 1;
@@ -52,7 +61,7 @@ group { name: "e/widgets/color_well";
    }
    programs {
       program {
-         signal: "mouse,clicked,1"; source: "bg";
+         signal: "mouse,clicked,1"; source: "inset";
          action: SIGNAL_EMIT "e,action,click" "";
       }
       program {
