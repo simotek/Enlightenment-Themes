@@ -2,6 +2,12 @@
 
 collections {
 #include "colorclasses.edc"
+
+// elm
+#include "edc/elm/bg.edc"
+#include "edc/elm/frame.edc"
+#include "edc/elm/button.edc"
+
 // desktop in general
 #include "edc/comp.edc"
 #include "edc/background.edc"
@@ -20,6 +26,7 @@ collections {
 #include "edc/about-e.edc"
 #include "edc/about-theme.edc"
 #include "edc/transitions.edc"
+
 // widgets
 #include "edc/menu.edc"
 #include "edc/button.edc"
@@ -40,6 +47,7 @@ collections {
 #include "edc/fontpreview.edc"
 #include "edc/cslider.edc"
 #include "edc/spectrum.edc"
+
 // modules
 #include "edc/start.edc"
 #include "edc/pager.edc"
@@ -63,6 +71,7 @@ collections {
 #include "edc/evrything.edc"
 #include "edc/illume.edc"
 #include "edc/bluez4.edc"
+
 // icons
 #include "edc/icons.edc"
 #include "edc/border-icons.edc"
@@ -71,29 +80,4 @@ collections {
 #include "edc/O/efm_icons.edc"
 #include "edc/O/icons.edc"
 #include "edc/O/wallpaper.edc"
-//#include "edc/O/border_icons.edc"
-//#include "edc/O/illume_gad.edc"
-//#include "edc/O/conf_gad.edc"
-//#include "edc/O/evrything.edc"
-//#include "edc/O/battery.edc"
-//#include "edc/O/mixer.edc"
-//#include "edc/O/backlight.edc"
-//#include "edc/O/temperature.edc"
-//#include "edc/O/cpufreq.edc"
-//#include "edc/O/gadman.edc"
-//#include "edc/O/randr.edc"
-//#include "edc/O/edgebindings.edc"
-//#include "edc/O/colors.edc"
-//#include "edc/O/spectrum.edc"
-//#include "edc/O/cslider.edc"
-//#include "edc/O/fontpreview.edc"
-//#include "edc/O/transitions.edc"
-//#include "edc/O/about.edc"
-//#include "edc/O/init.edc"
-//#include "edc/O/ibarbox.edc"
-//#include "edc/O/wizard.edc"
-//#include "edc/O/desklock.edc"
-//#include "edc/O/winlist.edc"
-//#include "edc/O/border.edc"
-//#include "edc/O/clock.edc"
 }

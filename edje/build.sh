@@ -1,2 +1,2 @@
 #!/bin/sh
-edje_cc -id ./img dark.edc dark.edj
+edje_cc -fastcomp -id ./img dark.edc dark.edj
