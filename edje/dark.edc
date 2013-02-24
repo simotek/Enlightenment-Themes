@@ -7,6 +7,7 @@ collections {
 #include "edc/elm/bg.edc"
 #include "edc/elm/frame.edc"
 #include "edc/elm/button.edc"
+#include "edc/elm/label.edc"
 
 // desktop in general
 #include "edc/comp.edc"
