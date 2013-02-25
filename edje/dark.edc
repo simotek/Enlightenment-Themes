@@ -9,6 +9,7 @@ collections {
 #include "edc/elm/entry.edc"
 #include "edc/elm/frame.edc"
 #include "edc/elm/label.edc"
+#include "edc/elm/scroller.edc"
 
 // desktop in general
 #include "edc/comp.edc"

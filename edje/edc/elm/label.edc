@@ -1,7 +1,7 @@
 group { name: "elm/label/base/default";
    styles {
       style { name: "label_style";
-         base: "font=Sans font_size=10 text_class=tb_plain align=center color=#ffff style=shadow,bottom shadow_color=#00000080";
+         base: "font=Sans font_size=10 text_class=tb_plain align=center color=#ffffffff style=shadow,bottom shadow_color=#00000080";
          tag: "br" "\n";
          tag: "hilight" "+ font=Sans:style=Bold text_class=tb_light";
          tag: "b" "+ font=Sans:style=Bold text_class=tb_light";
@@ -30,7 +30,7 @@ group { name: "elm/label/base/default";
 group { name: "elm/label/base/marker";
    styles {
       style { name: "label_style2";
-         base: "font=Sans:Style=Bold font_size=10 text_class=tb_plain align=center color=#ffff style=shadow,bottom shadow_color=#00000080";
+         base: "font=Sans:style=Bold font_size=10 text_class=tb_plain align=center color=#ffffffff style=shadow,bottom shadow_color=#00000080";
          tag: "br" "\n";
          tag: "hilight" "+ font=Sans:style=Bold color=#3399ff text_class=tb_light";
          tag: "b" "+ font=Sans:style=Bold color=#3399ff text_class=tb_light";
