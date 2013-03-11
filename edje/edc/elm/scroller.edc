@@ -43,8 +43,8 @@ group { name: "elm/scroller/base/default";
       part { name: "sb_vbar_show"; type: RECT;
          scale: 1;
          description { state: "default" 0.0;
-            rel1.offset: -11 -11;
-            rel2.offset: 10 10;
+//            rel1.offset: -11 -11;
+//            rel2.offset: 10 10;
          }
          description { state: "hidden" 0.0;
             inherit: "default" 0.0;
@@ -203,8 +203,8 @@ group { name: "elm/scroller/base/default";
       part { name: "sb_hbar_show"; type: RECT;
          scale: 1;
          description { state: "default" 0.0;
-            rel1.offset: -11 -11;
-            rel2.offset: 10 10;
+//            rel1.offset: -11 -11;
+//            rel2.offset: 10 10;
          }
          description { state: "hidden" 0.0;
             inherit: "default" 0.0;
@@ -361,8 +361,8 @@ group { name: "elm/scroller/base/default";
 
       part { name: "bg"; type: RECT;
          description { state: "default" 0.0;
-            rel1.to: "elm.swallow.content";
-            rel2.to: "elm.swallow.content";
+            rel1.to: "elm.swallow.background";
+            rel2.to: "elm.swallow.background";
 //            color: 64 64 64 200;
             color: 0 0 0 0;
             color_class: "scrollframe_base";
@@ -370,15 +370,18 @@ group { name: "elm/scroller/base/default";
       }
       part { name: "clipper"; type: RECT;
          description { state: "default" 0.0;
-            rel1.to: "elm.swallow.content";
-            rel2.to: "elm.swallow.content";
+            rel1.to: "elm.swallow.background";
+            rel2.to: "elm.swallow.background";
          }
       }
       part { name: "elm.swallow.background"; type: SWALLOW;
          clip_to: "clipper";
          description { state: "default" 0.0;
-            rel1.to: "elm.swallow.content";
-            rel2.to: "elm.swallow.content";
+            rel1.offset: 1 1;
+            rel2.relative: 0.0 0.0;
+            rel2.offset: -2 -2;
+            rel2.to_x: "sb_vbar";
+            rel2.to_y: "sb_hbar";
          }
       }
       part { name: "elm.swallow.content"; type: SWALLOW;
