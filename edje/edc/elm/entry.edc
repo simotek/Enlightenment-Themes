@@ -462,6 +462,8 @@ group { name: "elm/entry/base/default";
          description { state: "default" 0.0;
             /* we gotta use 0 0 here, because of scrolled entries */
             fixed: 0 0;
+            rel1.offset: 2 2;
+            rel2.offset: -3 -3;
             text { style: "entry_style";
                min: 0 1;
                align: 0.0 0.0;
