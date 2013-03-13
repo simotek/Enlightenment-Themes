@@ -116,7 +116,7 @@ group { name: "elm/button/base/default";
          scale: 1;
          description { state: "default" 0.0;
             visible: 0;
-            text { font: "Sans,Edje-Vera"; size: 10;
+            text { font: "Sans"; size: 10;
                min: 0 0;
                text_class: "button_text";
             }
@@ -405,7 +405,7 @@ group { name: "elm/button/base/anchor";
          scale: 1;
          description { state: "default" 0.0;
             visible: 0;
-            text { font: "Sans,Edje-Vera"; size: 10;
+            text { font: "Sans"; size: 10;
                min: 0 0;
                text_class: "button_text";
             }
