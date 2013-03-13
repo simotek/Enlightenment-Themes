@@ -281,15 +281,15 @@ group { name: "elm/scroller/entry_single/default";
             image.border: 7 7 7 7;
             image.middle: 0;
             fill.smooth: 0;
-            color: 51 153 255 0;
+            color: 255 255 255 0;
          }
          description { state: "focused" 0.0;
             inherit: "default" 0.0;
-            color: 51 153 255 255;
+            color: 255 255 255 255;
          }
          description { state: "focused2" 0.0;
             inherit: "default" 0.0;
-            color: 51 153 255 64;
+            color: 255 255 255 64;
          }
       }
    }
