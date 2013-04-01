@@ -732,8 +732,8 @@ group { name: "e/modules/clock/main";
             rel1.to: "base";
             rel2.to: "base";
             image.normal: "inset_round_shading.png";
-                  }
-            }
+         }
+      }
       part { name: "knob"; type: SPACER;
          description { state: "default" 0.0;
             rel1.relative: (140/340) (140/340);
