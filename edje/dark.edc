@@ -14,6 +14,7 @@ collections {
 #include "edc/elm/check.edc"
 #include "edc/elm/slider.edc"
 #include "edc/elm/radio.edc"
+#include "edc/elm/bubble.edc"
 
 // desktop in general
 #include "edc/comp.edc"
