@@ -13,6 +13,7 @@ collections {
 #include "edc/elm/separator.edc"
 #include "edc/elm/check.edc"
 #include "edc/elm/slider.edc"
+#include "edc/elm/radio.edc"
 
 // desktop in general
 #include "edc/comp.edc"
