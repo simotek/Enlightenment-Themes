@@ -1,7 +1,7 @@
 group { name: "elm/radio/base/default";
-   images.image: "radio_base.png" COMP;
-   images.image: "radio.png" COMP;
-   images.image: "radio2.png" COMP;
+   images.image: "inset_shadow_circle_tiny.png" COMP;
+   images.image: "inset_circle_tiny.png" COMP;
+   images.image: "sym_radio_alum.png" COMP;
 #define ICON     1
 #define LABEL    2
 #define MASK     3
