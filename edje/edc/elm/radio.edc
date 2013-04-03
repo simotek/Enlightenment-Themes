@@ -72,7 +72,7 @@ group { name: "elm/radio/base/default";
             align: 0.0 0.5;
             min: 13 13;
             max: 13 13;
-            fixed: 1 1;
+            fixed: 1 0;
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
