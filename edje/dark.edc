@@ -16,6 +16,7 @@ collections {
 #include "edc/elm/radio.edc"
 #include "edc/elm/bubble.edc"
 #include "edc/elm/panes.edc"
+#include "edc/elm/toolbar.edc"
 
 // desktop in general
 #include "edc/comp.edc"
