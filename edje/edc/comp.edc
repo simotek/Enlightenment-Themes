@@ -24,7 +24,12 @@ group { name: "e/comp/preview";
 group { name: "e/comp/screen/base/default";
    alias: "e/comp/screen/base/noeffects";
    parts {
+      part { name: "clip"; type: RECT; mouse_events: 0;
+         description { state: "default" 0.0;
+         }
+      }
       part { name: "e.swallow.background"; type: SWALLOW; mouse_events: 0;
+         clip_to: "clip";
          description { state: "default" 0.0;
          }
       }
@@ -236,7 +241,7 @@ group { name: "e/comp/screen/overlay/noeffects";
    }
 }
 
-group { name: "e/comp/default";
+group { name: "e/comp/border/default";
    images.image: "win_shadow.png" COMP;
    images.image: "win_glow.png" COMP;
    parts {
@@ -255,7 +260,7 @@ group { name: "e/comp/default";
             visible: 1;
          }
       }
-      part { name: "shadow";
+      part { name: "shadow"; mouse_events: 0;
          clip_to: "clipper";
          description { state: "default" 0.0;
             image.normal: "win_shadow.png";
@@ -272,7 +277,7 @@ group { name: "e/comp/default";
             visible: 0;
          }
       }
-      part { name: "glow";
+      part { name: "glow"; mouse_events: 0;
          clip_to: "clipper";
          description { state: "default" 0.0;
             image.normal: "win_glow.png";
@@ -303,9 +308,19 @@ group { name: "e/comp/default";
             rel2.relative: 1.0  1.0;
          }
       }
-      part { name: "focus-clipper";
+      part { name: "trans-clipper";
          type: RECT;
          clip_to: "clipper";
+         mouse_events: 0;
+         description { state: "default" 0.0;
+            color_class: "comp_alpha";
+            rel1.to: "clipper";
+            rel2.to: "clipper";
+         }
+      }
+      part { name: "focus-clipper";
+         type: RECT;
+         clip_to: "trans-clipper";
          mouse_events: 0;
          description { state: "default" 0.0;
             color_class: "comp_focus-out_color";
@@ -411,8 +426,8 @@ group { name: "e/comp/default";
    }
 }
 
-group { name: "e/comp/rotate";
-   inherit: "e/comp/default";
+group { name: "e/comp/border/rotate";
+   inherit: "e/comp/border/default";
    parts {
       part { name: "e.swallow.content";
          description { state: "default";
@@ -452,8 +467,8 @@ group { name: "e/comp/rotate";
    }
 }
 
-group { name: "e/comp/rotate/fast";
-   inherit: "e/comp/rotate";
+group { name: "e/comp/border/rotate/fast";
+   inherit: "e/comp/border/rotate";
    programs {
       program { name: "focus3";
          transition: LINEAR 0;
@@ -464,8 +479,8 @@ group { name: "e/comp/rotate/fast";
    }
 }
 
-group { name: "e/comp/flip";
-   inherit: "e/comp/rotate";
+group { name: "e/comp/border/flip";
+   inherit: "e/comp/border/rotate";
    parts {
       part { name: "e.swallow.content";
          description { state: "default";
@@ -489,8 +504,8 @@ group { name: "e/comp/flip";
    }
 }
 
-group { name: "e/comp/flip/fast";
-   inherit: "e/comp/flip";
+group { name: "e/comp/border/flip/fast";
+   inherit: "e/comp/border/flip";
    programs {
       program { name: "focus3";
          transition: LINEAR 0;
@@ -501,8 +516,8 @@ group { name: "e/comp/flip/fast";
    }
 }
 
-group { name: "e/comp/popup";
-   inherit: "e/comp/default";
+group { name: "e/comp/border/popup";
+   inherit: "e/comp/border/default";
    parts {
       part { name: "focus-clipper";
          description { state: "default";
@@ -512,8 +527,8 @@ group { name: "e/comp/popup";
    }
 }
 
-group { name: "e/comp/default/fast";
-   inherit: "e/comp/default";
+group { name: "e/comp/border/default/fast";
+   inherit: "e/comp/border/default";
    programs {
       program {
          name: "visible_on";
@@ -542,8 +557,8 @@ group { name: "e/comp/default/fast";
    }
 }
 
-group { name: "e/comp/popup/fast";
-   inherit: "e/comp/default/fast";
+group { name: "e/comp/border/popup/fast";
+   inherit: "e/comp/border/default/fast";
    parts {
       part { name: "focus-clipper";
          description { state: "default";
@@ -553,7 +568,7 @@ group { name: "e/comp/popup/fast";
    }
 }
 
-group { name: "e/comp/none";
+group { name: "e/comp/border/none";
    parts {
       part { name: "e.swallow.content"; type: SWALLOW;
          description { state: "default" 0.0;
@@ -572,8 +587,8 @@ group { name: "e/comp/none";
    }
 }
 
-group { name: "e/comp/still";
-   inherit: "e/comp/default";
+group { name: "e/comp/border/still";
+   inherit: "e/comp/border/default";
    parts {
       part { name: "shower";
          description { state: "default" 0.0;
@@ -584,8 +599,8 @@ group { name: "e/comp/still";
    }
 }
 
-group { name: "e/comp/still/fast";
-   inherit: "e/comp/default/fast";
+group { name: "e/comp/border/still/fast";
+   inherit: "e/comp/border/default/fast";
    parts {
       part { name: "shower";
          description { state: "default" 0.0;
@@ -596,8 +611,8 @@ group { name: "e/comp/still/fast";
    }
 }
 
-group { name: "e/comp/menu";
-   inherit: "e/comp/popup";
+group { name: "e/comp/border/menu";
+   inherit: "e/comp/border/popup";
    parts {
       part { name: "shower";
          description { state: "default" 0.0;
@@ -608,8 +623,8 @@ group { name: "e/comp/menu";
    }
 }
 
-group { name: "e/comp/menu/fast";
-   inherit: "e/comp/popup/fast";
+group { name: "e/comp/border/menu/fast";
+   inherit: "e/comp/border/popup/fast";
    parts {
       part { name: "shower";
          description { state: "default" 0.0;
@@ -620,8 +635,8 @@ group { name: "e/comp/menu/fast";
    }
 }
 
-group { name: "e/comp/everything";
-   inherit: "e/comp/popup";
+group { name: "e/comp/border/everything";
+   inherit: "e/comp/border/popup";
    parts {
       part { name: "shower";
          description { state: "default" 0.0;
@@ -632,8 +647,8 @@ group { name: "e/comp/everything";
    }
 }
 
-group { name: "e/comp/everything/fast";
-   inherit: "e/comp/popup/fast";
+group { name: "e/comp/border/everything/fast";
+   inherit: "e/comp/border/popup/fast";
    parts {
       part { name: "shower";
          description { state: "default" 0.0;
@@ -644,7 +659,7 @@ group { name: "e/comp/everything/fast";
    }
 }
 
-group { name: "e/comp/fullscreen";
+group { name: "e/comp/border/fullscreen";
    images.image: "win_shadow.png" COMP;
    images.image: "screen_circular_shadow.png" COMP;
    data.item: "screen.bg" "fullscreen.bg";
@@ -693,7 +708,7 @@ group { name: "e/comp/fullscreen";
          description { state: "default" 0.0;
          }
       }
-      part { name: "scr_shadow";
+      part { name: "scr_shadow"; mouse_events: 0;
          clip_to: "clipper_all";
          description { state: "default" 0.0;
             rel1.relative: -1.0 -1.0;
@@ -722,7 +737,7 @@ group { name: "e/comp/fullscreen";
             visible: 1;
          }
       }
-      part { name: "shadow";
+      part { name: "shadow"; mouse_events: 0;
          clip_to: "clipper_sh";
          description { state: "default" 0.0;
             image.normal: "win_shadow.png";
@@ -860,8 +875,8 @@ group { name: "e/comp/fullscreen";
    }
 }
 
-group { name: "e/comp/fullscreen/fast";
-   inherit: "e/comp/fullscreen";
+group { name: "e/comp/border/fullscreen/fast";
+   inherit: "e/comp/border/fullscreen";
    programs {
       program {
          name: "visible_on";

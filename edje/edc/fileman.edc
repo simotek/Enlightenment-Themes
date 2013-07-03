@@ -2215,7 +2215,7 @@ group { name: "modules/efm_navigation/pathbar_button";
             text { font: "Sans"; size: 10;
               text_source: "e.text.label";
               align: 0.5 0.5;
-              text_class: "button_selected";
+              text_class: "button_text";
             }
             visible: 0;
          }
