@@ -1,9 +1,3 @@
-////////////////////////////////////////////////////////////////////////////
-//-- item
-//-- item_odd
-//-- item_compress
-//-- item_compress_odd
-
 #define ODD(_NAME, _SRC) \
    group { name: _NAME; \
       inherit: _SRC; \
