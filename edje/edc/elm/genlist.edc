@@ -24,6 +24,43 @@
             description { state: "default" 0.0; \
                text.min: 0 1; \
             } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label2"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label3"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
          } \
       } \
    }
@@ -33,6 +70,43 @@
       parts { \
          part { name: "elm.text"; \
             description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label2"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label3"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
                text.min: 0 1; \
             } \
          } \
@@ -2149,9 +2223,83 @@ COMPRESS_ODD("elm/genlist/tree_compress_odd/icon_top_text_bottom/default", "elm/
             description { state: "default" 0.0; \
                text.min: 0 1; \
             } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label2"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label3"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
          } \
          part { name: "elm.text.sub"; \
             description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label4"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label5"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
                text.min: 0 1; \
             } \
          } \
@@ -2165,9 +2313,83 @@ COMPRESS_ODD("elm/genlist/tree_compress_odd/icon_top_text_bottom/default", "elm/
             description { state: "default" 0.0; \
                text.min: 0 1; \
             } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label2"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label3"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
          } \
          part { name: "elm.text.sub"; \
             description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label4"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label5"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
                text.min: 0 1; \
             } \
          } \
@@ -2549,14 +2771,125 @@ COMPRESS_SUB_ODD("elm/genlist/tree_compress_odd/double_label/default", "elm/genl
             description { state: "default" 0.0; \
                text.min: 0 1; \
             } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label2"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label3"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
          } \
          part { name: "elm.title.1"; \
             description { state: "default" 0.0; \
                text.min: 0 1; \
             } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label4"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label5"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
          } \
          part { name: "elm.title.2"; \
             description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label6"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label7"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
                text.min: 0 1; \
             } \
          } \
@@ -2570,14 +2903,125 @@ COMPRESS_SUB_ODD("elm/genlist/tree_compress_odd/double_label/default", "elm/genl
             description { state: "default" 0.0; \
                text.min: 0 1; \
             } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label2"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label3"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
          } \
          part { name: "elm.title.1"; \
             description { state: "default" 0.0; \
                text.min: 0 1; \
             } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label4"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label5"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
          } \
          part { name: "elm.title.2"; \
             description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label6"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label7"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
                text.min: 0 1; \
             } \
          } \
@@ -3289,9 +3733,83 @@ group { name: "elm/genlist/item/media/default";
             description { state: "default" 0.0; \
                text.min: 0 1; \
             } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label2"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label3"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
          } \
          part { name: "elm.text.album-artist"; \
             description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label4"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label5"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
                text.min: 0 1; \
             } \
          } \
@@ -3305,9 +3823,83 @@ group { name: "elm/genlist/item/media/default";
             description { state: "default" 0.0; \
                text.min: 0 1; \
             } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label2"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label3"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
          } \
          part { name: "elm.text.album-artist"; \
             description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label4"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label5"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
                text.min: 0 1; \
             } \
          } \
@@ -3755,9 +4347,83 @@ group { name: "elm/genlist/item_compress/media-album/default";
          description { state: "default" 0.0;
             text.min: 0 1;
          }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label2";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label3";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
       }
       part { name: "elm.text.length";
          description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label4";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label5";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
             text.min: 0 1;
          }
       }
@@ -3770,9 +4436,83 @@ group { name: "elm/genlist/item_compress_odd/media-album/default";
          description { state: "default" 0.0;
             text.min: 0 1;
          }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label2";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label3";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
       }
       part { name: "elm.text.length";
          description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label4";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label5";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
             text.min: 0 1;
          }
       }
@@ -4102,9 +4842,83 @@ group { name: "elm/genlist/item_compress/media-preview/default";
          description { state: "default" 0.0;
             text.min: 0 1;
          }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label2";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label3";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
       }
       part { name: "elm.text.artist";
          description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label4";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label5";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
             text.min: 0 1;
          }
       }
@@ -4117,9 +4931,83 @@ group { name: "elm/genlist/item_odd_compress/media-preview/default";
          description { state: "default" 0.0;
             text.min: 0 1;
          }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label2";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label3";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
       }
       part { name: "elm.text.artist";
          description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label4";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
+            text.min: 0 1;
+         }
+      }
+      part { name: "label5";
+         description { state: "default" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "selected" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "disabled" 0.0;
+            text.min: 0 1;
+         }
+         description { state: "flip_enabled" 0.0;
             text.min: 0 1;
          }
       }
@@ -4134,6 +5022,43 @@ group { name: "elm/genlist/item_odd_compress/media-preview/default";
             description { state: "default" 0.0; \
                text.min: 0 1; \
             } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label2"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label3"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
          } \
       } \
    }
@@ -4143,6 +5068,43 @@ group { name: "elm/genlist/item_odd_compress/media-preview/default";
       parts { \
          part { name: "elm.text.mode"; \
             description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label2"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
+               text.min: 0 1; \
+            } \
+         } \
+         part { name: "label3"; \
+            description { state: "default" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "selected" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "disabled" 0.0; \
+               text.min: 0 1; \
+            } \
+            description { state: "flip_enabled" 0.0; \
                text.min: 0 1; \
             } \
          } \

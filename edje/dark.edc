@@ -18,7 +18,7 @@ collections {
 #include "edc/elm/panes.edc"
 #include "edc/elm/toolbar.edc"
 #include "edc/elm/genlist.edc"
-//#include "edc/elm/list.edc"
+#include "edc/elm/list.edc"
 //#include "edc/elm/photo.edc"
 //#include "edc/elm/panel.edc"
 //#include "edc/elm/tooltip.edc"
