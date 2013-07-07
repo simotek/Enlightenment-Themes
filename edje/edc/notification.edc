@@ -19,25 +19,25 @@ group { name: "e/modules/notification/main";
    data.item: "shaped" "1";
    styles {   
       style { name: "notification_style_nowrap";
-         base: "font=Sans font_size=10 align=left color=#ffff style=shadow,bottom shadow_color=#00000080 wrap=none text_class=notification_body";
+         base: "font="FN" font_size=10 align=left color=#ffff style=shadow,bottom shadow_color=#00000080 wrap=none text_class=notification_body";
          tag:  "subject"  "+ text_class=module_large style=glow color=#3399ffff glow_color=#3399ff18 align=center glow2_color=#3399ff12";
          tag:  "body"  "+ text_class=module_normal";
          tag:  "br" "\n";
          tag:  "ps" "ps";
-         tag:  "b" "+ font=Sans:style=Bold text_class=module_bold";
-         tag:  "i" "+ font=Sans:style=Oblique text_class=module_italic";
+         tag:  "b" "+ font="FNBD" text_class=module_bold";
+         tag:  "i" "+ font="FNIT" text_class=module_italic";
          tag:  "u" "+ underline=on underline_color=#3399ffff";
          tag:  "img" ""; // images not supported
          tag:  "a" ""; // links not supported
       }
       style { name: "notification_style";
-         base: "font=Sans font_size=10 align=left color=#ffff style=shadow,bottom shadow_color=#00000080 wrap=word text_class=notification_body";
+         base: "font="FN" font_size=10 align=left color=#ffff style=shadow,bottom shadow_color=#00000080 wrap=word text_class=notification_body";
          tag:  "subject"  "+ text_class=module_large style=glow color=#3399ffff glow_color=#3399ff18 align=center glow2_color=#3399ff12";
          tag:  "body"  "+ text_class=module_normal";
          tag:  "br" "\n";
          tag:  "ps" "ps";
-         tag:  "b" "+ font=Sans:style=Bold text_class=module_bold";
-         tag:  "i" "+ font=Sans:style=Oblique text_class=module_italic";
+         tag:  "b" "+ font="FNBD" text_class=module_bold";
+         tag:  "i" "+ font="FNIT" text_class=module_italic";
          tag:  "u" "+ underline=on underline_color=#3399ffff";
          tag:  "img" ""; // images not supported
          tag:  "a" ""; // links not supported
@@ -120,7 +120,7 @@ group { name: "e/modules/notification/main";
             color3: 0 0 0 128;
             align: 0.0 0.0;
             color_class: "notification_title";
-            text { font: "Sans:style=Bold"; size: 10;
+            text { font: FNBD; size: 10;
                text: "title goes here blah blah";
                min: 0 1;
                align: 0.0 0.5;

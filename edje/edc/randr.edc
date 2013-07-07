@@ -29,19 +29,19 @@ group { name: "e/conf/randr/main/frame";
    images.image: "sym_up_light_selected.png" COMP;
    styles {
       style { name: "randr_monitor_style";
-         base: "font=Sans font_size=10 text_class=randr_monitor align=center color=#ffff style=shadow,bottom shadow_color=#00000080 wrap=word";
+         base: "font="FN" font_size=10 text_class=randr_monitor align=center color=#ffff style=shadow,bottom shadow_color=#00000080 wrap=word";
          tag: "br" "\n";
-         tag: "hilight" "+ font=Sans:style=Bold";
+         tag: "hilight" "+ font="FNBD"";
       }
       style { name: "randr_resolution_style";
-         base: "font=Sans font_size=10 text_class=randr_resolution align=center color=#3399ffff wrap=mixed style=glow glow_color=#3399ff18 align=center glow2_color=#3399ff12";
+         base: "font="FN" font_size=10 text_class=randr_resolution align=center color=#3399ffff wrap=mixed style=glow glow_color=#3399ff18 align=center glow2_color=#3399ff12";
          tag: "br" "\n";
-         tag: "hilight" "+ font=Sans:style=Bold";
+         tag: "hilight" "+ font="FNBD"";
       }
       style { name: "randr_position_style";
-         base: "font=Sans font_size=10 text_class=randr_position align=center color=#3399ffff wrap=mixed style=glow glow_color=#3399ff18 align=center glow2_color=#3399ff12";
+         base: "font="FN" font_size=10 text_class=randr_position align=center color=#3399ffff wrap=mixed style=glow glow_color=#3399ff18 align=center glow2_color=#3399ff12";
          tag: "br" "\n";
-         tag: "hilight" "+ font=Sans:style=Bold";
+         tag: "hilight" "+ font="FNBD"";
       }
    }
    script {

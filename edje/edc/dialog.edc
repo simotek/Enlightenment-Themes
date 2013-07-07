@@ -91,9 +91,9 @@ group { name: "e/widgets/dialog/main";
 group { name: "e/widgets/dialog/text";
    styles {
       style { name: "dialog_style";
-         base: "font=Sans font_size=10 text_class=tb_plain align=center color=#ffff style=shadow,bottom shadow_color=#00000080 wrap=word";
+         base: "font="FN" font_size=10 text_class=tb_plain align=center color=#ffff style=shadow,bottom shadow_color=#00000080 wrap=word";
          tag: "br" "\n";
-         tag: "hilight" "+ font=Sans:style=Bold text_class=tb_light";
+         tag: "hilight" "+ font="FNBD" text_class=tb_light";
       }
    }
    parts {

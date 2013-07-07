@@ -42,7 +42,7 @@ group { name: "e/modules/appmenu/item";
             color: 255 255 255 255;
             color3: 0 0 0 128;
             text {
-               font: "Sans";
+               font: FN;
                size: 10;
                min: 1 1;
                align: 0.5 0.5;

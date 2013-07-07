@@ -426,7 +426,7 @@ group { name: "elm/entry/base/default";
    
    styles {
       style { name: "entry_style";
-         base: "font=Sans font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=word text_class=entry color_class=entry left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=word text_class=entry color_class=entry left_margin=2 right_margin=2";
          tag:  "em" "+ font_style=Oblique";
          tag:  "link" "+ color=#3399ff underline=on underline_color=#3399ff";
          tag:  "hilight" "+ font_weight=Bold";
@@ -434,7 +434,7 @@ group { name: "elm/entry/base/default";
          tag:  "preedit_sel" "+ backing=on backing_color=#000000 color=#ffffff";
       }
       style { name: "entry_disabled_style";
-         base: "font=Sans font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=word text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=word text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
          tag:  "em" "+ font_style=Oblique";
          tag:  "link" "+ color=#3399ff88 underline=on underline_color=#3399ff88";
          tag:  "hilight" "+ font_weight=Bold";
@@ -442,7 +442,7 @@ group { name: "elm/entry/base/default";
          tag:  "preedit_sel" "+ backing=on backing_color=#000 color=#888888";
       }
       style { name: "entry_guide_style";
-         base: "font=Sans font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=word text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
+         base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=word text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
          tag:  "em" "+ font_style=Oblique";
          tag:  "hilight" "+ font_weight=Bold";
       }
@@ -551,7 +551,7 @@ group { name: "elm/entry/base-mixedwrap/default";
    inherit: "elm/entry/base/default";
    styles {
       style { name: "entry_style_mixedwrap";
-         base: "font=Sans font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=mixed text_class=entry color_class=entry left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=mixed text_class=entry color_class=entry left_margin=2 right_margin=2";
          tag:  "em" "+ font_style=Oblique";
          tag:  "link" "+ color=#3399ff underline=on underline_color=#3399ff";
          tag:  "hilight" "+ font_weight=Bold";
@@ -559,7 +559,7 @@ group { name: "elm/entry/base-mixedwrap/default";
          tag:  "preedit_sel" "+ backing=on backing_color=#000000 color=#ffffff";
       }
       style { name: "entry_disabled_style_mixedwrap";
-         base: "font=Sans font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=mixed text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=mixed text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
          tag:  "em" "+ font_style=Oblique";
          tag:  "link" "+ color=#3399ff88 underline=on underline_color=#3399ff88";
          tag:  "hilight" "+ font_weight=Bold";
@@ -567,7 +567,7 @@ group { name: "elm/entry/base-mixedwrap/default";
          tag:  "preedit_sel" "+ backing=on backing_color=#000 color=#888888";
       }
       style { name: "entry_guide_style_mixedwrap";
-         base: "font=Sans font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=mixed text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
+         base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=mixed text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
          tag:  "em" "+ font_style=Oblique";
          tag:  "hilight" "+ font_weight=Bold";
       }
@@ -610,7 +610,7 @@ group { name: "elm/entry/base-charwrap/default";
    inherit: "elm/entry/base/default";
    styles {
       style { name: "entry_style_charwrap";
-         base: "font=Sans font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=char text_class=entry color_class=entry left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=char text_class=entry color_class=entry left_margin=2 right_margin=2";
          tag:  "em" "+ font_style=Oblique";
          tag:  "link" "+ color=#3399ff underline=on underline_color=#3399ff";
          tag:  "hilight" "+ font_weight=Bold";
@@ -618,7 +618,7 @@ group { name: "elm/entry/base-charwrap/default";
          tag:  "preedit_sel" "+ backing=on backing_color=#000000 color=#ffffff";
       }
       style { name: "entry_disabled_style_charwrap";
-         base: "font=Sans font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=char text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=char text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
          tag:  "em" "+ font_style=Oblique";
          tag:  "link" "+ color=#3399ff88 underline=on underline_color=#3399ff88";
          tag:  "hilight" "+ font_weight=Bold";
@@ -626,7 +626,7 @@ group { name: "elm/entry/base-charwrap/default";
          tag:  "preedit_sel" "+ backing=on backing_color=#000 color=#888888";
       }
       style { name: "entry_guide_style_charwrap";
-         base: "font=Sans font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=char text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
+         base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=char text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
          tag:  "em" "+ font_style=Oblique";
          tag:  "hilight" "+ font_weight=Bold";
       }
@@ -704,7 +704,7 @@ group { name: "elm/entry/base-single/default";
    inherit: "elm/entry/base/default";
    styles {
       style { name: "entry_single_style";
-         base: "font=Sans font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=none text_class=entry color_class=entry left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=none text_class=entry color_class=entry left_margin=2 right_margin=2";
          tag:  "em" "+ font_style=Oblique";
          tag:  "link" "+ color=#3399ff underline=on underline_color=#3399ff";
          tag:  "hilight" "+ font_weight=Bold";
@@ -712,7 +712,7 @@ group { name: "elm/entry/base-single/default";
          tag:  "preedit_sel" "+ backing=on backing_color=#000000 color=#ffffff";
       }
       style { name: "entry_single_disabled_style";
-         base: "font=Sans font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=none text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=none text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
          tag:  "em" "+ font_style=Oblique";
          tag:  "link" "+ color=#3399ff88 underline=on underline_color=#3399ff88";
          tag:  "hilight" "+ font_weight=Bold";
@@ -720,7 +720,7 @@ group { name: "elm/entry/base-single/default";
          tag:  "preedit_sel" "+ backing=on backing_color=#000 color=#888888";
       }
       style { name: "entry_single_guide_style";
-         base: "font=Sans font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=none text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
+         base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=none text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
          tag:  "em" "+ font_style=Oblique";
          tag:  "hilight" "+ font_weight=Bold";
       }

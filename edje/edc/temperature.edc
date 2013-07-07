@@ -46,7 +46,7 @@ group { name: "e/modules/temperature/main";
             color2: 0 0 0 255;
             color3: 0 0 0 0;
             color_class: "module_label";
-            text { font: "Sans"; size: 10;
+            text { font: FN; size: 10;
                min: 1 1;
                text_class: "module_small";
             }

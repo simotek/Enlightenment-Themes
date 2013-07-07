@@ -57,7 +57,7 @@ group {
             state: "default" 0;
             text.size: 12;
             text.text: "Music player";
-            text.font: "Sans";
+            text.font: FN;
             rel1.relative: 0.0 0.0;
             rel2.relative: 1.0 0.0;
             rel2.offset: 0 16;

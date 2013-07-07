@@ -1,0 +1,16 @@
+/*fonts {
+   font: "PT_Sans-Web-Regular.ttf" "PTSans";
+   font: "PT_Sans-Web-Bold.ttf" "PTSans-Bold";
+   font: "PT_Sans-Web-Italic.ttf" "PTSans-Italic";
+   font: "PT_Sans-Web-BoldItalic.ttf" "PTSans-BoldItalic";
+}
+
+#define FN     "PTSans"
+#define FNBD   "PTSans-Bold"
+#define FNIT   "PTSans-Italic"
+#define FNBDIT "PTSans-BoldItalic"
+*/
+#define FN     "Sans"
+#define FNBD   "Sans:style=Bold"
+#define FNIT   "Sans:style=Oblique"
+#define FNBDIT "Sans:style=Bold Italic"

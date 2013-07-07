@@ -71,7 +71,7 @@ group { name: "elm/frame/base/default";
             align: 0.0 0.0;
             color: 21 21 21 255;
             color3: 255 255 255 25;
-            text { font: "Sans:style=Bold"; size: 10;
+            text { font: FNBD; size: 10;
                text_class: "frame";
                align: 0.0 0.0;
                min: 0 1;

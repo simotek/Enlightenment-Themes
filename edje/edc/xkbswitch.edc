@@ -30,7 +30,7 @@ group { name: "e/modules/xkbswitch/main";
             rel2.relative: 1.0 0.5;
             color: 255 255 255 0;
             color3: 0 0 0 0;
-            text { font: "Sans"; size: 9;
+            text { font: FN; size: 9;
                min: 0 1;
                text_class: "module_small";
             }
@@ -126,7 +126,7 @@ group { name: "e/modules/xkbswitch/noflag";
             rel2.relative: 1.0 0.5;
             color: 255 255 255 255;
             color3: 0 0 0 128;
-            text { font: "Sans:style=Bold"; size: 9;
+            text { font: FNBD; size: 9;
                min: 0 1;
                text_class: "module_small";
             }

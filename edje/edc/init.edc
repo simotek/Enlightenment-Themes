@@ -65,7 +65,7 @@ group { name: "e/init/splash";
             rel2.to_y: "e.text.status";
             color: 255 255 255 255;
             color3: 0 0 0 128;
-            text { font: "Sans:style=Bold"; size: 20;
+            text { font: FNBD; size: 20;
                min: 0 1;
                text_class: "init_title";
             }
@@ -86,7 +86,7 @@ group { name: "e/init/splash";
             color: 51 153 255 255;
             color2: 51 153 255 24;
             color3: 51 153 255 18;
-            text { font: "Sans"; size: 10;
+            text { font: FN; size: 10;
                min: 0 1;
                text_class: "init_status";
             }
@@ -104,7 +104,7 @@ group { name: "e/init/splash";
             color: 51 153 255 255;
             color2: 51 153 255 24;
             color3: 51 153 255 18;
-            text { font: "Sans"; size: 8;
+            text { font: FN; size: 8;
                text: "0.17.0";
                min: 1 1;
                align: 1.0 1.0;

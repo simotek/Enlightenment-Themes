@@ -70,7 +70,7 @@
             color: 255 255 255 255;
             color3: 0 0 0 128;
             color_class: "button_text";
-            text { font: "Sans"; size: 10;
+            text { font: FN; size: 10;
                min: 1 1;
                align: 0.5 0.5;
                text_class: "button";
@@ -102,7 +102,7 @@
             color: 21 21 21 255;
             color3: 255 255 255 25;
             color_class: "button_text_disabled";
-            text { font: "Sans"; size: 10;
+            text { font: FN; size: 10;
                text_source: "e.text.label";
                align: 0.5 0.5;
                text_class: "button";

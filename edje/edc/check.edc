@@ -76,7 +76,7 @@ group { name: "e/widgets/check";
             color: 255 255 255 255;
             color3: 0 0 0 128;
             color_class: "check_text";
-            text { font: "Sans"; size: 10;
+            text { font: FN; size: 10;
                min: 1 1;
                align: 0.0 0.5;
                text_class: "check_button";
