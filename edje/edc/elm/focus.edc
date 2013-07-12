@@ -1,0 +1,337 @@
+group { name: "elm/focus_highlight/top/default";
+   images.image: "dots_glow_left.png" COMP;
+   images.image: "dots_glow_right.png" COMP;
+   images.image: "dots_glow_top.png" COMP;
+   images.image: "dots_glow_bottom.png" COMP;
+   images.image: "corner_glow_1.png" COMP;
+   images.image: "corner_glow_2.png" COMP;
+   images.image: "corner_glow_3.png" COMP;
+   images.image: "corner_glow_4.png" COMP;
+   images.image: "corner_glow_hi_1.png" COMP;
+   images.image: "corner_glow_hi_2.png" COMP;
+   images.image: "corner_glow_hi_3.png" COMP;
+   images.image: "corner_glow_hi_4.png" COMP;
+   data.item: "animate" "on";
+   script {
+      public s_x, s_y, s_w, s_h; /* source */
+      public difx, dify, difw, difh;
+      
+      public animator1(val, Float:pos) {
+         new x, y, w, h, dx, dy, dw, dh, Float:p;
+         p = 1.0 - ((1.0 - pos) * (1.0 - pos) * (1.0 - pos));
+         dx = round(float_mul(float(get_int(difx)), p));
+         x = get_int(s_x) + dx;
+         dy = round(float_mul(float(get_int(dify)), p));
+         y = get_int(s_y) + dy;
+         dw = round(float_mul(float(get_int(difw)), p));
+         w = get_int(s_w) + dw;
+         dh = round(float_mul(float(get_int(difh)), p));
+         h = get_int(s_h) + dh;
+         update_offset(x, y, w, h);
+      }
+      
+      public update_offset(x, y, w, h) {
+         set_state_val(PART:"base", STATE_REL1_OFFSET, x, y);
+         set_state_val(PART:"base", STATE_REL2_OFFSET, x + w, y + h);
+      }
+      
+      public message(Msg_Type:type, id, ...) {
+         if ((type == MSG_INT_SET) && (id == 1)) {
+            new x1, y1, w1, h1, x2, y2, w2, h2;
+            
+            x1 = getarg(2);
+            y1 = getarg(3);
+            w1 = getarg(4);
+            h1 = getarg(5);
+            x2 = getarg(6);
+            y2 = getarg(7);
+            w2 = getarg(8);
+            h2 = getarg(9);
+            
+            set_int(s_x, x1);
+            set_int(s_y, y1);
+            set_int(s_w, w1);
+            set_int(s_h, h1);
+            set_int(difx, x2 - x1);
+            set_int(dify, y2 - y1);
+            set_int(difw, w2 - w1);
+            set_int(difh, h2 - h1);
+            
+            custom_state(PART:"base", "default", 0.0);
+            set_state_val(PART:"base", STATE_REL1, 0.0, 0.0);
+            set_state_val(PART:"base", STATE_REL2, 0.0, 0.0);
+            update_offset(x1, y1, w1, h1);
+            set_state(PART:"base", "custom", 0.0);
+            
+            anim(0.2, "animator1", 1);
+         }
+      }
+   }
+   parts {
+      part { name: "base"; type: SPACER;
+         description { state: "default" 0.0;
+         }
+      }
+      part { name: "clip"; type: RECT;
+         description { state: "default" 0.0;
+            rel1.to: "c1";
+            rel2.to: "c4";
+            color: 255 255 255 0;
+         }
+         description { state: "visible" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+         }
+      }
+      part { name: "dl"; mouse_events: 0;
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            image.normal: "dots_glow_left.png";
+            rel1.to: "c1";
+            rel1.relative: 1.0 1.0;
+            rel1.offset: -17 -11;
+            rel2.to: "c3";
+            rel2.relative: 1.0 0.0;
+            rel2.offset: -9 10;
+            fill.size.relative: 1.0 0.0;
+            fill.size.offset: 0 32;
+            step: 0 8;
+         }
+      }
+      part { name: "dr"; mouse_events: 0;
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            image.normal: "dots_glow_right.png";
+            rel1.to: "c2";
+            rel1.relative: 0.0 1.0;
+            rel1.offset: 8 -11;
+            rel2.to: "c4";
+            rel2.relative: 0.0 0.0;
+            rel2.offset: 16 10;
+            fill.size.relative: 1.0 0.0;
+            fill.size.offset: 0 32;
+            step: 0 8;
+         }
+      }
+      part { name: "dt"; mouse_events: 0;
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            image.normal: "dots_glow_top.png";
+            rel1.to: "c1";
+            rel1.relative: 1.0 1.0;
+            rel1.offset: -11 -17;
+            rel2.to: "c2";
+            rel2.relative: 0.0 1.0;
+            rel2.offset: 10 -9;
+            fill.size.relative: 0.0 1.0;
+            fill.size.offset: 32 0;
+            step: 8 0;
+         }
+      }
+      part { name: "db"; mouse_events: 0;
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            image.normal: "dots_glow_bottom.png";
+            rel1.to: "c3";
+            rel1.relative: 1.0 0.0;
+            rel1.offset: -11 8;
+            rel2.to: "c4";
+            rel2.relative: 0.0 0.0;
+            rel2.offset: 10 16;
+            fill.size.relative: 0.0 1.0;
+            fill.size.offset: 32 0;
+            step: 8 0;
+         }
+      }
+      part { name: "c1"; mouse_events: 0;
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            image.normal: "corner_glow_1.png";
+            rel1.to: "base";
+            rel2.to: "base";
+            rel1.offset: -6 -6;
+            rel2.offset: 9 9;
+            rel1.relative: 0.0 0.0;
+            rel2.relative: 0.0 0.0;
+            color: 255 255 255 192;
+         }
+         description { state: "hi" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+         }
+      }
+      part { name: "c2"; mouse_events: 0;
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            image.normal: "corner_glow_2.png";
+            rel1.to: "base";
+            rel2.to: "base";
+            rel1.offset: -10 -6;
+            rel2.offset: 5 9;
+            rel1.relative: 1.0 0.0;
+            rel2.relative: 1.0 0.0;
+            color: 255 255 255 192;
+         }
+         description { state: "hi" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+         }
+      }
+      part { name: "c3"; mouse_events: 0;
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            image.normal: "corner_glow_3.png";
+            rel1.to: "base";
+            rel2.to: "base";
+            rel1.offset: -6 -10;
+            rel2.offset: 9 5;
+            rel1.relative: 0.0 1.0;
+            rel2.relative: 0.0 1.0;
+            color: 255 255 255 192;
+         }
+         description { state: "hi" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+         }
+      }
+      part { name: "c4"; mouse_events: 0;
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            image.normal: "corner_glow_4.png";
+            rel1.to: "base";
+            rel2.to: "base";
+            rel1.offset: -10 -10;
+            rel2.offset: 5 5;
+            rel1.relative: 1.0 1.0;
+            rel2.relative: 1.0 1.0;
+            color: 255 255 255 192;
+         }
+         description { state: "hi" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+         }
+      }
+      part { name: "ch1"; mouse_events: 0;
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            image.normal: "corner_glow_hi_1.png";
+            rel1.to: "c1";
+            rel2.to: "c1";
+            color: 255 255 255 0;
+         }
+         description { state: "hi" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+         }
+      }
+      part { name: "ch2"; mouse_events: 0;
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            image.normal: "corner_glow_hi_2.png";
+            rel1.to: "c2";
+            rel2.to: "c2";
+            color: 255 255 255 0;
+         }
+         description { state: "hi" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+         }
+      }
+      part { name: "ch3"; mouse_events: 0;
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            image.normal: "corner_glow_hi_3.png";
+            rel1.to: "c3";
+            rel2.to: "c3";
+            color: 255 255 255 0;
+         }
+         description { state: "hi" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+         }
+      }
+      part { name: "ch4"; mouse_events: 0;
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            image.normal: "corner_glow_hi_4.png";
+            rel1.to: "c4";
+            rel2.to: "c4";
+            color: 255 255 255 0;
+         }
+         description { state: "hi" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+         }
+      }
+      program {
+         signal: "elm,action,focus,show"; source: "elm";
+         action:  SIGNAL_EMIT "blink" "";
+         after: "go2";
+      }
+      program { name: "go2";
+         action:  STATE_SET "visible" 0.0;
+         transition: BOUNCE 0.4 0.5 4;
+         target: "clip";
+         after: "go3";
+      }
+      program { name: "go3";
+         action: SIGNAL_EMIT "elm,action,focus,show,end" "";
+      }
+      program {
+         signal: "elm,action,focus,hide"; source: "elm";
+         action:  STATE_SET "default" 0.0;
+         transition: DECELERATE 0.4;
+         target: "clip";
+         after: "stop2";
+      }
+      program { name: "stop2";
+         action:  ACTION_STOP;
+         target: "show1";
+         target: "show2";
+         target: "show3";
+         target: "show4";
+         target: "fade1";
+         target: "fade2";
+         target: "fade3";
+         target: "fade4";
+         after: "stop3";
+      }
+      program { name: "stop3";
+         action:  STATE_SET "default" 0.0;
+         target: "c1";
+         target: "c2";
+         target: "c3";
+         target: "c4";
+         target: "ch1";
+         target: "ch2";
+         target: "ch3";
+         target: "ch4";
+         after: "stop4";
+      }
+      program { name: "stop4";
+         action: SIGNAL_EMIT "elm,action,focus,hide,end" "";
+      }
+
+#define BLINK(n) \
+      program { name: "show"n; \
+         signal: "blink"; source: ""; \
+         action:  STATE_SET "hi" 0.0; \
+         transition: SINUSOIDAL 0.2; \
+         in: 5.0 0.5; \
+         target: "c"n; \
+         target: "ch"n; \
+         after: "fade"n; \
+      } \
+      program { name: "fade"n; \
+         action:  STATE_SET "default" 0.0; \
+         transition: SINUSOIDAL 0.5; \
+         target: "c"n; \
+         target: "ch"n; \
+         after: "show"n; \
+      }
+      BLINK("1")
+      BLINK("2")
+      BLINK("3")
+      BLINK("4")
+   }
+}
