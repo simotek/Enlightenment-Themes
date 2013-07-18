@@ -24,19 +24,19 @@ group { name: "elm/video/base/default";
       program {
          signal: "elm,video,play"; source: "elm";
          action: STATE_SET "default" 0.0;
-         transition: SINUSOIDAL 0.2;
+         transition: SINUSOIDAL 0.2 CURRENT;
          target: "clipper";
       }
       program {
          signal: "elm,video,end"; source: "elm";
          action: STATE_SET "darker" 0.0;
-         transition: SINUSOIDAL 0.5;
+         transition: SINUSOIDAL 0.5 CURRENT;
          target: "clipper";
       }
       program {
          signal: "elm,video,pause"; source: "elm";
          action: STATE_SET "darker" 0.0;
-         transition: SINUSOIDAL 0.7;
+         transition: SINUSOIDAL 0.7 CURRENT;
          target: "clipper";
       }
    }
