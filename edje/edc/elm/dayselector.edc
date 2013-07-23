@@ -88,7 +88,7 @@ group { name: "elm/dayselector/base/default";
          description {
             state: "visible" 0.0;
             inherit: "default" 0.0;
-            color: 200 200 200 255;
+            color: 185 185 185 185;
          }
       }
       part {
@@ -198,6 +198,10 @@ group { name: "elm/check/base/dayselector/default";
             set_state(PART:"text2", "weekend_style1", 0.0);
           }
         }
+      }
+      public check_text_pressed() {
+        set_state(PART:"elm.text", "pressed", 0.0);
+        set_state(PART:"text2", "default", 0.0);
       }
    }
    parts {
@@ -337,6 +341,12 @@ group { name: "elm/check/base/dayselector/default";
             inherit: "default" 0.0;
             visible: 0;
          }
+         description { state: "pressed" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+            color3: 255 255 255 0;
+            visible: 1;
+         }
       }
       part {
          name: "text2";
@@ -361,21 +371,18 @@ group { name: "elm/check/base/dayselector/default";
             color3: 51 153 255 18;
             visible: 0;
          }
-         description {
-            state: "weekend_default" 0.0;
+         description { state: "weekend_default" 0.0;
             inherit: "default" 0.0;
             visible: 1;
          }
-         description {
-            state: "weekend_style1" 0.0;
+         description { state: "weekend_style1" 0.0;
             inherit: "default" 0.0;
             color: 255 255 255 255;
             color2: 255 255 255 24;
             color3: 255 255 255 18;
             visible: 1;
          }
-         description {
-            state: "selected" 0.0;
+         description { state: "selected" 0.0;
             inherit: "default" 0.0;
             color: 255 255 255 255;
             color2: 255 255 255 24;
@@ -403,6 +410,7 @@ group { name: "elm/check/base/dayselector/default";
          script {
             set_int(check_state, DAYSELECOR_DAY_STATE_PRESSED);
             check_bg_show();
+            check_text_pressed();
          }
       }
       program {
