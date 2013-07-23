@@ -56,7 +56,7 @@ group { name: "elm/player/base/default";
             image.normal: "vgrad_med_lighter.png";
             rel1.to_y: "elm.swallow.media_player.prev";
             rel1.offset: 1 -1;
-            rel2.to_y: "elm.swallow.media_player.slider";
+            rel2.to_y: "elm.swallow.media_player.position";
             rel2.offset: -2 -1;
             fill.smooth: 0;
             TILED_HORIZ(120)
@@ -222,7 +222,7 @@ group { name: "elm/player/base/default";
             rel2.offset: 0 -1;
          }
       }
-      part { name: "elm.swallow.media_player.slider"; type: SWALLOW; 
+      part { name: "elm.swallow.media_player.position"; type: SWALLOW; 
          clip_to: "clipper";
          description { state: "default" 0.0;
             fixed: 0 1;
@@ -356,7 +356,7 @@ group { name: "elm/player/base/flush";
             rel2.offset: 0 -1;
          }
       }
-      part { name: "elm.swallow.media_player.slider";
+      part { name: "elm.swallow.media_player.position";
          description { state: "default" 0.0;
             rel2.offset: -1 -1;
          }

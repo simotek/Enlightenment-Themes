@@ -29,6 +29,8 @@ group { name: "elm/slider/hidden/limit";
 
 group { name: "elm/slider/horizontal/default";
    alias: "elm/slider/horizontal/disabled";
+   alias: "elm/slider/horizontal/media_player/position/default";
+   alias: "elm/slider/horizontal/media_player/position/flush";
    images.image: "slider_run_base_horiz.png" COMP;
    images.image: "slider_run_bevel_horiz.png" COMP;
    images.image: "slider_run_base_light_horiz.png" COMP;
@@ -610,6 +612,8 @@ group { name: "elm/slider/horizontal/default";
 group { name: "elm/slider/horizontal/indicator/default";
    alias: "elm/slider/horizontal/indicator/disabled";
    alias: "elm/slider/horizontal/popup/default";
+   alias: "elm/slider/horizontal/indicator/media_player/position/default";
+   alias: "elm/slider/horizontal/indicator/media_player/position/flush"; 
    images.image: "darken_rounded_square.png" COMP;
    parts {
       part { name: "base"; type: SPACER;
@@ -733,6 +737,8 @@ group { name: "elm/slider/horizontal/indicator/default";
 
 group { name: "elm/slider/vertical/default";
    alias: "elm/slider/vertical/disabled";
+   alias: "elm/slider/vertical/media_player/position/default";
+   alias: "elm/slider/vertical/media_player/position/flush";
    images.image: "slider_run_base_vert.png" COMP;
    images.image: "slider_run_bevel_vert.png" COMP;
    images.image: "slider_run_base_light_vert.png" COMP;
@@ -1313,6 +1319,8 @@ group { name: "elm/slider/vertical/default";
 group { name: "elm/slider/vertical/indicator/default";
    alias: "elm/slider/vertical/indicator/disabled";
    alias: "elm/slider/vertical/popup/default";
+   alias: "elm/slider/vertical/indicator/media_player/position/default";
+   alias: "elm/slider/vertical/indicator/media_player/position/flush";
    images.image: "darken_rounded_square.png" COMP;
    parts {
       part { name: "base"; type: SPACER;
