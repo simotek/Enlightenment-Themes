@@ -23,7 +23,6 @@ group { name: "elm/win/inwin/default";
                border: 4 4 3 5;
                middle: SOLID;
             }
-            fill.smooth: 0;
          }
       }
       part { name: "elm.swallow.content"; type: SWALLOW;
