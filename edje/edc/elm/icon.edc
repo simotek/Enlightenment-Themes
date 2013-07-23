@@ -49,12 +49,33 @@ IC("menu/refresh",         "icon_refresh.png",     16, 0);
 IC("menu/folder",          "icon_folder.png",      16, 0);
 IC("menu/file",            "icon_file.png",        16, 0);
 
-IC("media_player/forward", "icon_forward.png",       16, 0);
-IC("media_player/info",    "icon_info.png",          16, 0);
-IC("media_player/next",    "icon_next.png",          16, 0);
-IC("media_player/pause",   "icon_pause.png",         16, 0);
-IC("media_player/play",    "icon_play.png",          16, 0);
-IC("media_player/prev",    "icon_prev.png",          16, 0);
-IC("media_player/rewind",  "icon_rewind.png",        16, 0);
-IC("media_player/stop",    "icon_stop.png",          16, 0);
+IC("media_player/forward", "icon_forward.png", 16, 0);
+IC("media_player/info",    "icon_info.png",    16, 0);
+IC("media_player/next",    "icon_next.png",    16, 0);
+IC("media_player/pause",   "icon_pause.png",   16, 0);
+IC("media_player/play",    "icon_play.png",    16, 0);
+IC("media_player/prev",    "icon_prev.png",    16, 0);
+IC("media_player/rewind",  "icon_rewind.png",  16, 0);
+IC("media_player/stop",    "icon_stop.png",    16, 0);
+#undef IC
+
+#define IC(Name, File, Min, Max) \
+   group { name: "elm/icon/"##Name##"/default/default"; min: Min Min; max: Max Max; \
+   images.image: File COMP; parts { \
+   part { name: "hi"; \
+   description { \
+   rel1.to: "base"; rel1.offset: 0 1; rel2.to: "base"; rel2.offset: -1 0; \
+   image.normal: File; color: 255 255 255 25;} } \
+   part { name: "base"; \
+   description { aspect: 1.0 1.0; aspect_preference: BOTH; \
+   image.normal: File; color: 21 21 21 255;} } \
+   } }
+IC("media_player/forward", "icon_forward_mono.png", 16, 0);
+IC("media_player/info",    "icon_info_mono.png",    16, 0);
+IC("media_player/next",    "icon_next_mono.png",    16, 0);
+IC("media_player/pause",   "icon_pause_mono.png",   16, 0);
+IC("media_player/play",    "icon_play_mono.png",    16, 0);
+IC("media_player/prev",    "icon_prev_mono.png",    16, 0);
+IC("media_player/rewind",  "icon_rewind_mono.png",  16, 0);
+IC("media_player/stop",    "icon_stop_mono.png",    16, 0);
 #undef IC
