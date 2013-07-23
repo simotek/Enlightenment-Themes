@@ -1,0 +1,267 @@
+group { name: "elm/actionslider/base/default";
+
+   images {
+      image: "bevel_in.png" COMP;
+      image: "button_normal.png" COMP;
+      image: "button_clicked.png" COMP;
+   }
+   parts {
+      part { name: "base"; type: RECT; mouse_events: 0;
+         scale: 1;
+         description { state: "default" 0.0;
+            min: 75 25;
+            color: 24 24 24 255;
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            color: 64 64 64 255;
+         }
+      }
+      part { name: "inset"; mouse_events:  0;
+         scale: 1;
+         description { state: "default" 0.0;
+            rel1.to: "base";
+            rel2.to: "base";
+            image {
+               normal: "bevel_in.png";
+               border: 1 1 1 1;
+               middle: 0;
+            }
+            fill.smooth: 0;
+         }
+      }
+      part { name: "icon.dragable.area";
+         type: SPACER;
+         description { state: "default" 0.0;
+            rel1.to: "base";
+            rel2.to: "base";
+         }
+      }
+      part { name: "elm.text.left"; type: TEXT; mouse_events: 0;
+         effect: SHADOW BOTTOM;
+         scale: 1;
+         description { state: "default" 0.0;
+            color: 255 255 255 255;
+            color3: 200 200 200 100;
+            color_class: "button_text";
+            text { font: FN; size: 10;
+               align: 0.05 0.5;
+               min: 1 1;
+               text_class: "button";
+            }
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            color: 200 200 200 255;
+            color3: 255 255 255 25;
+            color_class: "button_text_disabled";
+         }
+      }
+      part { name: "elm.text.center"; type: TEXT; mouse_events: 0;
+         effect: SHADOW BOTTOM;
+         scale: 1;
+         description { state: "default" 0.0;
+            color: 255 255 255 255;
+            color3: 200 200 200 100;
+            color_class: "check_off_text";
+            text { font: FN; size: 10;
+               align: 0.5 0.5;
+               min: 1 1;
+               text_class: "check_off_text";
+            }
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            color: 200 200 200 255;
+            color3: 155 155 155 25;
+            color_class: "button_text_disabled";
+         }
+      }
+      part { name: "elm.text.right"; type: TEXT; mouse_events: 0;
+         effect: SHADOW BOTTOM;
+         scale: 1;
+         description { state: "default" 0.0;
+            color: 255 255 255 255;
+            color3: 200 200 200 100;
+            color_class: "check_off_text";
+            text { font: FN; size: 10;
+               align: 0.95 0.5;
+               min: 1 1;
+               text_class: "check_off_text";
+            }
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            color: 200 200 200 255;
+            color3: 255 255 255 25;
+            color_class: "button_text_disabled";
+         }
+      }
+      part { name: "elm.drag_button_base"; type: SWALLOW; mouse_events: 0;
+         scale: 1;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            min: 50 25;
+            align: 0.5 0.5;
+            rel1.to: "icon.dragable.area";
+            rel2 {
+               relative: 0.0 1.0;
+               to: "icon.dragable.area";
+            }
+         }
+         dragable {
+            confine: "icon.dragable.area";
+            x: 1 1 0;
+            y: 0 0 0;
+         }
+      }
+      part { name: "elm.drag_button";
+         type: RECT;
+         mouse_events: 1;
+         scale: 1;
+         description { state: "default" 0.0;
+            min: 50 25;
+            color: 255 255 255 0;
+            rel1.to_x: "elm.drag_button_base";
+            rel1.to_y: "icon.dragable.area";
+            rel2.to_x: "elm.drag_button_base";
+            rel2.to_y: "icon.dragable.area";
+         }
+         dragable {
+            events: "elm.drag_button_base";
+         }
+      }
+      part { name: "drag_button"; mouse_events: 0;
+         description { state: "default" 0.0;
+            rel1.to: "elm.drag_button";
+            rel1.offset: -1 0;
+            rel2.to: "elm.drag_button";
+            rel2.offset: 0 0;
+            image {
+               normal: "button_normal.png";
+               border: 4 4 3 5;
+               middle: SOLID;
+            }
+         }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "button_clicked.png";
+            image.border: 5 5 4 6;
+         }
+      }
+      part { name: "elm.text.indicator"; type: TEXT; mouse_events: 0;
+         effect: SHADOW BOTTOM;
+         scale: 1;
+         description { state: "default" 0.0;
+            rel1 {
+               to: "elm.drag_button";
+               offset: 5 0;
+            }
+            rel2 {
+               to: "elm.drag_button";
+               offset: -5 0;
+            }
+            color: 255 255 255 255;
+            color3: 0 0 0 128;
+            color_class: "check_off_text";
+            text {
+               font: FN; size: 10;
+               align: 0.5 0.5;
+               min: 0 1;
+               text_class: "check_off_text";
+            }
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            color: 200 200 200 255;
+            color3: 255 255 255 25;
+            color_class: "button_text_disabled";
+         }
+      }
+      part { name: "disabler";
+         type: RECT;
+         description { state: "default" 0.0;
+            color: 0 0 0 0;
+            visible: 0;
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+      }
+   }
+   programs {
+      program { name: "elm.drag_button,mouse,up";
+         signal: "mouse,up,1";
+         source: "elm.drag_button";
+         action: SIGNAL_EMIT "elm.drag_button,mouse,up" "";
+         after: "button_unclick_anim";
+      }
+      program { name: "button_unclick_anim";
+         action: STATE_SET "default" 0.0;
+         target: "drag_button";
+      }
+      program { name: "elm.drag_button,mouse,down";
+         signal: "mouse,down,1*";
+         source: "elm.drag_button";
+         action: SIGNAL_EMIT "elm.drag_button,mouse,down" "";
+         after: "button_click_anim";
+      }
+      program { name: "button_click_anim";
+         action: STATE_SET "clicked" 0.0;
+         target: "drag_button";
+      }
+      program { name: "elm.drag_button,mouse,move";
+         signal: "mouse,move";
+         source: "elm.drag_button_base";
+         action: SIGNAL_EMIT "elm.drag_button,mouse,move" "";
+      }
+      program { name: "disable";
+         signal: "elm,state,disabled";
+         source: "elm";
+         action: STATE_SET "disabled" 0.0;
+         target: "disabler";
+         target: "elm.text.left";
+         target: "elm.text.center";
+         target: "elm.text.right";
+         target: "elm.text.indicator";
+      }
+      program { name: "enable";
+         signal: "elm,state,enabled";
+         source: "elm";
+         action: STATE_SET "default" 0.0;
+         target: "disabler";
+         target: "elm.text.left";
+         target: "elm.text.center";
+         target: "elm.text.right";
+         target: "elm.text.indicator";
+      }
+   }
+}
+
+group { name: "elm/actionslider/base/bar";
+   inherit: "elm/actionslider/base/default";
+
+   images {
+      image: "horiz_glow_run_big.png" COMP;
+   }
+   parts {
+      part { name: "bar"; mouse_events: 0;
+         insert_before: "elm.drag_button_base";
+         description { state: "default" 0.0;
+            rel1.to: "base";
+            rel1.offset: 0 5;
+            rel2 {
+               relative: 0 1;
+               offset: 3 -7;
+               to_x: "elm.drag_button_base";
+               to_y: "base";
+            }
+            image {
+               normal: "horiz_glow_run_big.png";
+               border: 0 4 0 0;
+            }
+         }
+      }
+   }
+}
