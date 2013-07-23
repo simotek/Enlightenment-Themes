@@ -46,7 +46,7 @@ group { name: "elm/ctxpopup/bg/default";
       }
    }
 }
-///////////////////////////////////////////////////////////////////////////////
+
 group { name: "elm/ctxpopup/base/default";
    images {
       image: "vgrad_med_darker.png" COMP;
@@ -367,7 +367,7 @@ group { name: "elm/ctxpopup/base/default";
 
    }
 }
-///////////////////////////////////////////////////////////////////////////////
+
 group { name: "elm/ctxpopup/arrow/default";
    images {
       image: "ctxpopup_arrow_left.png" COMP;

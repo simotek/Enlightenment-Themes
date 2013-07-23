@@ -3,7 +3,7 @@ group { name: "elm/button/base/default";
    images.image: "button_clicked.png" COMP;
 #define ICON     1
 #define LABEL    2
-#define MASK     3   
+#define MASK     3
 #define DISABLE  4
    script {
       public btmode;
@@ -112,7 +112,7 @@ group { name: "elm/button/base/default";
             visible: 1;
          }
       }
-      part { name: "sizer.content"; type: TEXT; mouse_events:  0;
+      part { name: "sizer.content"; type: TEXT; mouse_events: 0;
          scale: 1;
          description { state: "default" 0.0;
             fixed: 1 1;
@@ -294,7 +294,7 @@ group { name: "elm/button/base/anchor";
    images.image: "horizontal_separated_bar_small_glow.png" COMP;
 #define ICON     1
 #define LABEL    2
-#define MASK     3   
+#define MASK     3
 #define DISABLE  4
    script {
       public btmode;
