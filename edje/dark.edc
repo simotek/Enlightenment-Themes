@@ -30,7 +30,7 @@ collections {
 #include "edc/elm/player.edc"
 #include "edc/elm/thumb.edc"
 #include "edc/elm/pointer.edc"
-//#include "edc/elm/fileselector.edc"
+#include "edc/elm/fileselector.edc"
 #include "edc/elm/win.edc"
 #include "edc/elm/inwin.edc"
 #include "edc/elm/slideshow.edc"
