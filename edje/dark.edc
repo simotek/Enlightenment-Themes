@@ -41,7 +41,7 @@ collections {
 //#include "edc/elm/actionslider.edc"
 //#include "edc/elm/photocam.edc"
 //#include "edc/elm/tooltip.edc"
-//#include "edc/elm/colorsel.edc"
+#include "edc/elm/colorsel.edc"
 //#include "edc/elm/segmentcontrol.edc"
 //#include "edc/elm/flipsel.edc"
 //#include "edc/elm/notification.edc"
