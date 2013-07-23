@@ -61,6 +61,7 @@ IC("media_player/stop",    "icon_stop.png",    16, 0);
 
 #define IC(Name, File, Min, Max) \
    group { name: "elm/icon/"##Name##"/default/default"; min: Min Min; max: Max Max; \
+   alias: "elm/icon/"##Name##"/default/flush"; \
    images.image: File COMP; parts { \
    part { name: "hi"; \
    description { \
@@ -79,3 +80,4 @@ IC("media_player/prev",    "icon_prev_mono.png",    16, 0);
 IC("media_player/rewind",  "icon_rewind_mono.png",  16, 0);
 IC("media_player/stop",    "icon_stop_mono.png",    16, 0);
 #undef IC
+

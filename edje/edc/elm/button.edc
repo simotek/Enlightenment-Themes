@@ -688,6 +688,16 @@ group { name: "elm/button/base/media_player/prev/default";
    alias: "elm/button/base/media_player/forward/default";
    alias: "elm/button/base/media_player/next/default";
    alias: "elm/button/base/media_player/info/default";
+
+   alias: "elm/button/base/media_player/prev/flush";
+   alias: "elm/button/base/media_player/rewind/flush";
+   alias: "elm/button/base/media_player/play/flush";
+   alias: "elm/button/base/media_player/pause/flush";
+   alias: "elm/button/base/media_player/stop/flush";
+   alias: "elm/button/base/media_player/forward/flush";
+   alias: "elm/button/base/media_player/next/flush";
+   alias: "elm/button/base/media_player/info/flush";
+   
    images.image: "shadow_inset_bevels.png" COMP;
    images.image: "shadow_angled_in_sides.png" COMP;
    parts {
