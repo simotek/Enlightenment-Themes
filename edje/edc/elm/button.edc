@@ -17,12 +17,14 @@ group { name: "elm/button/base/default";
                set_state(PART:"elm.text", "visible", 0.0);
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
+               set_state(PART:"event2", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "visible", 0.0);
                set_state(PART:"sizer.content", "visible", 0.0);
                set_state(PART:"elm.text", "disabled_visible", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
+               set_state(PART:"event2", "disabled", 0.0);
             }
          } else if (m1 == (ICON)) {
             if (!d) {
@@ -31,12 +33,14 @@ group { name: "elm/button/base/default";
                set_state(PART:"elm.text", "default", 0.0);
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
+               set_state(PART:"event2", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "icononly", 0.0);
                set_state(PART:"sizer.content", "icononly", 0.0);
                set_state(PART:"elm.text", "default", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
+               set_state(PART:"event2", "disabled", 0.0);
             }
          } else if (m1 == (LABEL)) {
             if (!d) {
@@ -45,12 +49,14 @@ group { name: "elm/button/base/default";
                set_state(PART:"elm.text", "textonly", 0.0);
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
+               set_state(PART:"event2", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "default", 0.0);
                set_state(PART:"sizer.content", "default", 0.0);
                set_state(PART:"elm.text", "disabled_textonly", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
+               set_state(PART:"event2", "disabled", 0.0);
             }
          } else {
             set_state(PART:"elm.swallow.content", "default", 0.0);
@@ -58,6 +64,7 @@ group { name: "elm/button/base/default";
             set_state(PART:"elm.text", "default", 0.0);
             set_state(PART:"icon_clip", "default", 0.0);
             set_state(PART:"event", "default", 0.0);
+            set_state(PART:"event2", "default", 0.0);
          }
       }
    }
@@ -200,6 +207,17 @@ group { name: "elm/button/base/default";
             visible: 0;
          }
       }
+      part { name: "event2"; type: RECT;
+         mouse_events: 1;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            color: 0 0 0 0;
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
+      }
    }
    programs {
       program {
@@ -212,7 +230,7 @@ group { name: "elm/button/base/default";
          target: "base";
       }
       program {
-         signal: "mouse,up,1"; source: "event";
+         signal: "mouse,up,1"; source: "event2";
          action: SIGNAL_EMIT "elm,action,unpress" "";
          after: "button_unclick_anim";
       }
@@ -310,6 +328,7 @@ group { name: "elm/button/base/anchor";
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"bar", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
+               set_state(PART:"event2", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "visible", 0.0);
                set_state(PART:"sizer.content", "visible", 0.0);
@@ -317,6 +336,7 @@ group { name: "elm/button/base/anchor";
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"bar", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
+               set_state(PART:"event2", "disabled", 0.0);
             }
          } else if (m1 == (ICON)) {
             if (!d) {
@@ -326,6 +346,7 @@ group { name: "elm/button/base/anchor";
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"bar", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
+               set_state(PART:"event2", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "icononly", 0.0);
                set_state(PART:"sizer.content", "icononly", 0.0);
@@ -333,6 +354,7 @@ group { name: "elm/button/base/anchor";
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"bar", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
+               set_state(PART:"event2", "disabled", 0.0);
             }
          } else if (m1 == (LABEL)) {
             if (!d) {
@@ -342,6 +364,7 @@ group { name: "elm/button/base/anchor";
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"bar", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
+               set_state(PART:"event2", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "default", 0.0);
                set_state(PART:"sizer.content", "default", 0.0);
@@ -349,6 +372,7 @@ group { name: "elm/button/base/anchor";
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"bar", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
+               set_state(PART:"event2", "disabled", 0.0);
             }
          } else {
             set_state(PART:"elm.swallow.content", "default", 0.0);
@@ -357,6 +381,7 @@ group { name: "elm/button/base/anchor";
             set_state(PART:"icon_clip", "default", 0.0);
             set_state(PART:"bar", "default", 0.0);
             set_state(PART:"event", "default", 0.0);
+            set_state(PART:"event2", "default", 0.0);
          }
       }
    }
@@ -545,6 +570,17 @@ group { name: "elm/button/base/anchor";
             visible: 0;
          }
       }
+      part { name: "event2"; type: RECT;
+         mouse_events: 1;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            color: 0 0 0 0;
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
+      }
    }
    programs {
       program {
@@ -559,7 +595,7 @@ group { name: "elm/button/base/anchor";
          target: "text2";
       }
       program {
-         signal: "mouse,up,1"; source: "event";
+         signal: "mouse,up,1"; source: "event2";
          action: SIGNAL_EMIT "elm,action,unpress" "";
          after: "button_unclick_anim";
       }
