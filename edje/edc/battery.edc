@@ -90,10 +90,10 @@ group { name: "e/modules/battery/main";
       part { name: "shadow";
          clip_to: "pulse_clip";
          description { state: "default" 0.0;
-            rel1.to: "base";
-            rel1.relative: (15/160) (15/160);
-            rel2.to: "base";
-            rel2.relative: (145/160) (160/160);
+            rel1.to: "top";
+            rel1.offset: -4 0;
+            rel2.to: "bottom";
+            rel2.offset: 3 3;
             image.normal: "bat_shadow.png";
          }
       }
@@ -112,9 +112,12 @@ group { name: "e/modules/battery/main";
          clip_to: "pulse_clip";
          description { state: "default" 0.0;
             rel1.to: "base";
-            rel1.relative: (24/160) (16/160);
+            rel1.offset: 6 4;
             rel2.to: "base";
-            rel2.relative: (136/160) (40/160);
+            rel2.offset: -7 4;
+            rel2.relative: 1.0 0.0;
+            aspect: (112/24) (112/24); aspect_preference: HORIZONTAL;
+            align: 0.5 0.0;
             image.normal: "bat_top0.png";
          }
       }
@@ -122,9 +125,11 @@ group { name: "e/modules/battery/main";
          clip_to: "pulse_clip";
          description { state: "default" 0.0;
             rel1.to: "base";
-            rel1.relative: (24/160) (132/160);
+            rel1.offset: 6 -5;
             rel2.to: "base";
-            rel2.relative: (136/160) (144/160);
+            rel2.offset: -7 -5;
+            aspect: (112/12) (112/12); aspect_preference: HORIZONTAL;
+            align: 0.5 1.0;
             image.normal: "bat_bottom0.png";
          }
       }
@@ -217,7 +222,7 @@ group { name: "e/modules/battery/main";
             rel2.to_y: "pwr";
             color: 255 255 255 255;
             color_class: "module_label";
-            text { font: FN; size: 6;
+            text { font: "Sans"; size: 6;
                min: 0 1;
                text_class: "module_small";
             }
@@ -235,7 +240,7 @@ group { name: "e/modules/battery/main";
             rel2.to: "bg";
             color: 255 255 255 255;
             color_class: "module_label";
-            text { font: FN; size: 6;
+            text { font: "Sans"; size: 6;
                min: 0 1;
                text_class: "module_small";
             }
@@ -316,7 +321,7 @@ group { name: "e/modules/battery/popup";
             rel2.relative: 1.0 0.5;
             color: 255 255 255 255;
             color3: 0 0 0 128;
-            text { font: FNBD; size: 10;
+            text { font: "Sans:style=Bold"; size: 10;
                text: "Your battery is low!";
                min: 1 1;
                text_class: "module_large";
@@ -331,7 +336,7 @@ group { name: "e/modules/battery/popup";
             rel1.to_x: "e.swallow.battery";
             color: 255 255 255 255;
             color3: 0 0 0 128;
-            text { font: FN; size: 10;
+            text { font: "Sans"; size: 10;
                text: "AC power is recommended.";
                min: 1 1;
                text_class: "module_normal";
