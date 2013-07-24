@@ -46,7 +46,7 @@ collections {
 //#include "edc/elm/flipsel.edc"
 //#include "edc/elm/notification.edc"
 //#include "edc/elm/map.edc"
-//#include "edc/elm/index.edc"
+#include "edc/elm/index.edc"
 //#include "edc/elm/calendar.edc"
 #include "edc/elm/layout.edc"
 //#include "edc/elm/progress.edc"
