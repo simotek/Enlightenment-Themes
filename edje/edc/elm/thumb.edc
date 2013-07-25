@@ -96,45 +96,45 @@ group { name: "elm/thumb/base/default";
             fill.smooth: 0;
          }
       }
-      programs {
-         program { name: "spin";
-            signal: "elm,state,pulse,start";
-            source: "elm";
-            action: STATE_SET "spin" 0.0;
-            transition: LINEAR 1.0;
-            target: "knob_spinner";
-            after: "spin2";
-         }
-         program { name: "spin2";
-            action: STATE_SET "default" 0.0;
-            target: "knob_spinner";
-            after: "spin";
-         }
-         program { name: "pulse_start";
-            signal: "elm,state,pulse,start";
-            source: "elm";
-            action: STATE_SET "active" 0.0;
-            transition: SINUSOIDAL 0.25;
-            target: "busy_clip";
-         }
-         program { name: "pulse_stop";
-            signal: "elm,state,pulse,stop";
-            source: "elm";
-            action: STATE_SET "default" 0.0;
-            transition: SINUSOIDAL 1.0;
-            target: "busy_clip";
-            after: "spin3";
-         }
-         program { name: "spin3";
-            action: ACTION_STOP;
-            target: "spin";
-            target: "spin2";
-            after: "spin4";
-         }
-         program { name: "spin4";
-            action: STATE_SET "default" 0.0;
-            target: "knob_spinner";
-         }
+   }
+   programs {
+      program { name: "spin";
+         signal: "elm,state,pulse,start";
+         source: "elm";
+         action: STATE_SET "spin" 0.0;
+         transition: LINEAR 1.0;
+         target: "knob_spinner";
+         after: "spin2";
+      }
+      program { name: "spin2";
+         action: STATE_SET "default" 0.0;
+         target: "knob_spinner";
+         after: "spin";
+      }
+      program { name: "pulse_start";
+         signal: "elm,state,pulse,start";
+         source: "elm";
+         action: STATE_SET "active" 0.0;
+         transition: SINUSOIDAL 0.25;
+         target: "busy_clip";
+      }
+      program { name: "pulse_stop";
+         signal: "elm,state,pulse,stop";
+         source: "elm";
+         action: STATE_SET "default" 0.0;
+         transition: SINUSOIDAL 1.0;
+         target: "busy_clip";
+         after: "spin3";
+      }
+      program { name: "spin3";
+         action: ACTION_STOP;
+         target: "spin";
+         target: "spin2";
+         after: "spin4";
+      }
+      program { name: "spin4";
+         action: STATE_SET "default" 0.0;
+         target: "knob_spinner";
       }
    }
 }
