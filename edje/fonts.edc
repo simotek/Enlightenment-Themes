@@ -14,3 +14,6 @@
 #define FNBD   "Sans:style=Bold"
 #define FNIT   "Sans:style=Oblique"
 #define FNBDIT "Sans:style=Bold Italic"
+
+#define FN_COL_DEFAULT 255 255 255 255; color3: 0 0 0 128
+#define FN_COL_HILIGHT 51 153 255 255; color2: 51 153 255 24; color3: 51 153 255 18

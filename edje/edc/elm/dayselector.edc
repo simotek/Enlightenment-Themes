@@ -326,8 +326,7 @@ group { name: "elm/check/base/dayselector/default";
                min: 1 1;
                text_class: "button";
             }
-            color: 255 255 255 255;
-            color3: 0 0 0 128;
+            color: FN_COL_DEFAULT;
          }
          description { state: "weekend_default" 0.0;
             inherit: "default" 0.0;
@@ -366,9 +365,7 @@ group { name: "elm/check/base/dayselector/default";
                text_source: "elm.text";
                text_class: "button";
             }
-            color: 51 153 255 255;
-            color2: 51 153 255 24;
-            color3: 51 153 255 18;
+            color: FN_COL_HILIGHT;
             visible: 0;
          }
          description { state: "weekend_default" 0.0;
