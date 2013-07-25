@@ -688,6 +688,9 @@ group { name: "elm/button/base/media_player/prev/default";
    alias: "elm/button/base/media_player/forward/default";
    alias: "elm/button/base/media_player/next/default";
    alias: "elm/button/base/media_player/info/default";
+   alias: "elm/button/base/media_player/eject/default";
+   alias: "elm/button/base/media_player/volume/default";
+   alias: "elm/button/base/media_player/mute/default";
 
    alias: "elm/button/base/media_player/prev/flush";
    alias: "elm/button/base/media_player/rewind/flush";
@@ -697,6 +700,9 @@ group { name: "elm/button/base/media_player/prev/default";
    alias: "elm/button/base/media_player/forward/flush";
    alias: "elm/button/base/media_player/next/flush";
    alias: "elm/button/base/media_player/info/flush";
+   alias: "elm/button/base/media_player/eject/flush";
+   alias: "elm/button/base/media_player/volume/flush";
+   alias: "elm/button/base/media_player/mute/flush";
    
    images.image: "shadow_inset_bevels.png" COMP;
    images.image: "shadow_angled_in_sides.png" COMP;

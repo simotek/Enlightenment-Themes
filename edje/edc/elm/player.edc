@@ -3,12 +3,34 @@ group { name: "elm/player/base/default";
    images.image: "inset_shadow.png" COMP;
    images.image: "shine.png" COMP;
    images.image: "bevel_out.png" COMP;
-   
    images.image: "vgrad_med_lighter.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    images.image: "vgrad_shadow_bi.png" COMP;
-   
+   images.image: "shadow_square_tiny.png" COMP;
+   script {
+      public in_control;
+      public in_volume;
+      public inside;
+      
+      public eval_in() {
+         new v1 = get_int(in_control);
+         new v2 = get_int(in_volume);
+         new isin = get_int(inside);
+         
+         if (isin) {
+            if ((!v1) && (!v2)) {
+               emit("conhide", "");
+               set_int(inside, 0);
+            }
+         } else {
+            if ((v1) || (v2)) {
+               emit("conshow", "");
+               set_int(inside, 1);
+            }
+         }
+      }
+   }
    parts {
       part { name: "bg"; type: RECT;
          description { state: "default" 0.0;
@@ -49,6 +71,19 @@ group { name: "elm/player/base/default";
             visible: 1;
          }
       }
+      part { name: "volpop_shadow"; mouse_events: 0;
+         clip_to: "volclip";
+         description { state: "default" 0.0;
+            rel1.offset: -3 -2;
+            rel1.to: "volpop";
+            rel2.offset: 3 4;
+            rel2.to: "volpop";
+            image.normal: "shadow_square_tiny.png";
+            image.border: 6 6 6 6;
+            fill.smooth: 0;
+         }
+      }
+      
       part { name: "bar";
          clip_to: "clipper";
          description { state: "default" 0.0;
@@ -56,7 +91,7 @@ group { name: "elm/player/base/default";
             image.normal: "vgrad_med_lighter.png";
             rel1.to_y: "elm.swallow.media_player.prev";
             rel1.offset: 1 -1;
-            rel2.to_y: "elm.swallow.media_player.position";
+            rel2.to_y: "elm.swallow.media_player.positionslider";
             rel2.offset: -2 -1;
             fill.smooth: 0;
             TILED_HORIZ(120)
@@ -91,6 +126,64 @@ group { name: "elm/player/base/default";
             rel2.relative: 1.0 0.0;
             rel2.offset: -1 2;
             rel2.to: "bar";
+            FIXED_SIZE(69, 5)
+         }
+      }
+
+      part { name: "volclip"; type: RECT;
+         description { state: "default" 0.0;
+            rel1.to: "bg";
+            rel2.to: "bg";
+            color: 255 255 255 0;
+            visible: 0;
+         }
+         description { state: "visible" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+            visible: 1;
+         }
+      }
+      part { name: "volpop";
+         clip_to: "volclip";
+         description { state: "default" 0.0;
+            color_class: "player_volume";
+            image.normal: "vgrad_med_lighter.png";
+            rel1.to: "elm.swallow.media_player.volumeslider";
+            rel1.offset: -1 -1;
+            rel2.to: "elm.swallow.media_player.volumeslider";
+            rel2.offset: 0 0;
+            fill.smooth: 0;
+            TILED_HORIZ(120)
+         }
+      }
+      part { name: "volpopclip"; type: RECT;
+         clip_to: "volclip";
+         description { state: "default" 0.0;
+            rel1.to: "volpop";
+            rel1.offset: 0 -5;
+            rel2.to: "volpop";
+            color: 255 255 255 255;
+         }
+      }
+      part { name: "volpopbev";
+         clip_to: "volpopclip";
+         description { state: "default" 0.0;
+            rel1.to: "volpop";
+            rel2.to: "volpop";
+            image.normal: "bevel_out.png";
+            image.border: 2 2 2 2;
+            fill.smooth: 0;
+         }
+      }
+      part { name: "volshine"; mouse_events: 0;
+         clip_to: "volpopclip";
+         description { state: "default" 0.0;
+            image.normal: "shine.png";
+            rel1.offset: 0 -2;
+            rel1.to: "volpop";
+            rel2.relative: 1.0 0.0;
+            rel2.offset: -1 2;
+            rel2.to: "volpop";
             FIXED_SIZE(69, 5)
          }
       }
@@ -207,7 +300,7 @@ group { name: "elm/player/base/default";
             rel2.offset: 0 -1;
          }
       }
-      part { name: "elm.swallow.media_player.info"; type: SWALLOW; 
+      part { name: "elm.swallow.media_player.eject"; type: SWALLOW;
          clip_to: "clipper";
          scale: 1;
          description { state: "default" 0.0;
@@ -222,7 +315,55 @@ group { name: "elm/player/base/default";
             rel2.offset: 0 -1;
          }
       }
-      part { name: "elm.swallow.media_player.position"; type: SWALLOW; 
+      part { name: "elm.swallow.media_player.volume"; type: SWALLOW;
+         clip_to: "clipper";
+         scale: 1;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            min: BSZ BSZ;
+            align: 0.0 1.0;
+            rel1.to: "elm.swallow.media_player.eject";
+            rel1.relative: 1.0 0.0;
+            rel1.offset: 0 0;
+            rel2.to: "elm.swallow.media_player.eject";
+            rel2.relative: 1.0 1.0;
+            rel2.offset: 0 -1;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
+      }
+      part { name: "elm.swallow.media_player.mute"; type: SWALLOW; 
+         clip_to: "clipper";
+         scale: 1;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            min: BSZ BSZ;
+            rel1.to: "elm.swallow.media_player.volume";
+            rel2.to: "elm.swallow.media_player.volume";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
+      }
+      part { name: "elm.swallow.media_player.info"; type: SWALLOW; 
+         clip_to: "clipper";
+         scale: 1;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            min: BSZ BSZ;
+            align: 0.0 1.0;
+            rel1.to: "elm.swallow.media_player.volume";
+            rel1.relative: 1.0 0.0;
+            rel1.offset: 0 0;
+            rel2.to: "elm.swallow.media_player.volume";
+            rel2.relative: 1.0 1.0;
+            rel2.offset: 0 -1;
+         }
+      }
+      part { name: "elm.swallow.media_player.positionslider"; type: SWALLOW; 
          clip_to: "clipper";
          description { state: "default" 0.0;
             fixed: 0 1;
@@ -230,6 +371,20 @@ group { name: "elm/player/base/default";
             rel1.to: "elm.swallow.media_player.info";
             rel2.to_y: "elm.swallow.media_player.info";
             rel2.offset: -2 -1;
+         }
+      }
+     part { name: "elm.swallow.media_player.volumeslider"; type: SWALLOW;
+         clip_to: "volclip";
+         scale: 1;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.to_x: "elm.swallow.media_player.volume";
+            rel1.offset: 0 1;
+            rel2.to: "elm.swallow.media_player.volume";
+            rel2.offset: -1 -3;
+            rel2.relative: 1.0 0.0;
+            align: 0.5 1.0;
+            max: 99999 100;
          }
       }
       
@@ -256,7 +411,10 @@ group { name: "elm/player/base/default";
             fill.smooth: 0;
          }
       }
+      
       part { name: "controls"; type: RECT; repeat_events: 1;
+         clip_to: "clipper";
+         scale: 1;
          description { state: "default" 0.0;
             min: BSZ BSZ;
             align: 0.5 1.0;
@@ -264,22 +422,95 @@ group { name: "elm/player/base/default";
             color: 0 0 0 0;
          }
       }
+      
+      part { name: "volumetop"; type: SPACER;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.to_y: "elm.swallow.media_player.volumeslider";
+            rel1.relative: 0.0 0.0;
+            rel2.to_y: "controls";
+            rel2.relative: 1.0 0.0;
+            align: 0.5 0.0;
+         }
+      }
+      part { name: "volume"; type: RECT; repeat_events: 1;
+         clip_to: "clipper";
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.to_y: "volumetop";
+            rel1.to_x: "elm.swallow.media_player.volume";
+            rel1.relative: -1.0 0.0;
+            rel1.offset: 0 -20;
+            rel2.to: "elm.swallow.media_player.volume";
+            rel2.relative: 2.0 1.0;
+            align: 0.5 1.0;
+            color: 0 0 0 0;
+            visible: 0;
+         }
+         description { state: "visible" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+      }
    }
    programs {
-      program {
+      program { name: "ci";
          signal: "mouse,in"; source: "controls";
+         script {
+            set_int(in_control, 1);
+            eval_in();
+         }
+      }
+      program { name: "co";
+         signal: "mouse,out"; source: "controls";
+         script {
+            set_int(in_control, 0);
+            eval_in();
+         }
+      }
+      program { name: "vi";
+         signal: "mouse,in"; source: "volume";
+         script {
+            set_int(in_volume, 1);
+            eval_in();
+         }
+      }
+      program { name: "vo";
+         signal: "mouse,out"; source: "volume";
+         script {
+            set_int(in_volume, 0);
+            eval_in();
+         }
+      }
+      program {
+         signal: "conshow"; source: "";
          action: STATE_SET "visible" 0.0;
          transition: DECELERATE 0.2;
          target: "elm.swallow.media_player.prev";
          target: "barshad";
+         target: "volume";
       }
       program {
-         signal: "mouse,out"; source: "controls";
+         signal: "conhide"; source: "";
          action: STATE_SET "default" 0.0;
          transition: DECELERATE 0.5;
          target: "elm.swallow.media_player.prev";
          target: "barshad";
+         target: "volume";
       }
+      program {
+         signal: "mouse,in"; source: "volume";
+         action: STATE_SET "visible" 0.0;
+         transition: DECELERATE 0.5;
+         target: "volclip";
+      }
+      program {
+         signal: "mouse,out"; source: "volume";
+         action: STATE_SET "default" 0.0;
+         transition: DECELERATE 0.5;
+         target: "volclip";
+      }
+      
       program {
          signal: "load"; source: "";
          after: "pause/0";
@@ -310,6 +541,38 @@ group { name: "elm/player/base/default";
          action: STATE_SET "default" 0.0;
          target: "elm.swallow.media_player.play";
       }
+
+      program {
+         signal: "load"; source: "";
+         after: "unmute/0";
+      }
+      program {
+         signal: "elm,player,mute"; source: "elm";
+         after: "mute/0";
+      }
+      program {
+         signal: "elm,player,unmute"; source: "elm";
+         after: "unmute/0";
+      }
+      program { name: "mute/0";
+         action: STATE_SET "hidden" 0.0;
+         target: "elm.swallow.media_player.volume";
+         after: "mute/1";
+      }
+      program { name: "mute/1";
+         action: STATE_SET "default" 0.0;
+         target: "elm.swallow.media_player.mute";
+      }
+      program { name: "unmute/0";
+         action: STATE_SET "hidden" 0.0;
+         target: "elm.swallow.media_player.mute";
+         after: "unmute/1";
+      }
+      program { name: "unmute/1";
+         action: STATE_SET "default" 0.0;
+         target: "elm.swallow.media_player.volume";
+      }
+      
    }
 }
 
@@ -356,7 +619,7 @@ group { name: "elm/player/base/flush";
             rel2.offset: 0 -1;
          }
       }
-      part { name: "elm.swallow.media_player.position";
+      part { name: "elm.swallow.media_player.positionslider";
          description { state: "default" 0.0;
             rel2.offset: -1 -1;
          }

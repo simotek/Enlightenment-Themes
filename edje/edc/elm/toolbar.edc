@@ -885,7 +885,6 @@ group { name: "elm/toolbar/item/default";
       }
       program { name: "st2";
          signal: "elm,text,visible"; source: "elm";
-         action: STATE_SET "default" 0.0;
          script {
             new m = get_int(btmode);
             m |= LABEL; set_int(btmode, m);

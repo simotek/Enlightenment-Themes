@@ -57,6 +57,9 @@ IC("media_player/play",    "icon_play.png",    16, 0);
 IC("media_player/prev",    "icon_prev.png",    16, 0);
 IC("media_player/rewind",  "icon_rewind.png",  16, 0);
 IC("media_player/stop",    "icon_stop.png",    16, 0);
+IC("media_player/eject",   "icon_eject.png",   16, 0);
+IC("media_player/volume",  "icon_volume.png",  16, 0);
+IC("media_player/mute",    "icon_mute.png",    16, 0);
 #undef IC
 
 #define IC(Name, File, Min, Max) \
@@ -79,5 +82,8 @@ IC("media_player/play",    "icon_play_mono.png",    16, 0);
 IC("media_player/prev",    "icon_prev_mono.png",    16, 0);
 IC("media_player/rewind",  "icon_rewind_mono.png",  16, 0);
 IC("media_player/stop",    "icon_stop_mono.png",    16, 0);
+IC("media_player/eject",   "icon_eject_mono.png",   16, 0);
+IC("media_player/volume",  "icon_volume_mono.png",  16, 0);
+IC("media_player/mute",    "icon_mute_mono.png",    16, 0);
 #undef IC
 
