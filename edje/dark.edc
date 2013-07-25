@@ -56,7 +56,7 @@ collections {
 //#include "edc/elm/border.edc"
 //#include "edc/elm/spinner.edc"
 //#include "edc/elm/menu.edc"
-//#include "edc/elm/clock.edc"
+#include "edc/elm/clock.edc"
 //#include "edc/elm/gengrid.edc"
 //#include "edc/elm/hover.edc"
 //#include "edc/elm/hoversel.edc"
