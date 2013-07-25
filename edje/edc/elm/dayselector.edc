@@ -365,7 +365,7 @@ group { name: "elm/check/base/dayselector/default";
                text_source: "elm.text";
                text_class: "button";
             }
-            color: FN_COL_HILIGHT;
+            color: FN_COL_HIGHLIGHT;
             visible: 0;
          }
          description { state: "weekend_default" 0.0;
