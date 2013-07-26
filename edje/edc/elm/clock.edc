@@ -57,7 +57,7 @@ group { name: "elm/clock/flipdigit/default";
          mouse_events: 1;
          description { state: "default" 0.0;
             visible: 0;
-            rel1.relative: 0.0 0.7;
+            rel1.relative: 0.0 0.5;
             color: 0 0 0 0;
          }
          description { state: "visible" 0.0;
@@ -71,7 +71,7 @@ group { name: "elm/clock/flipdigit/default";
          mouse_events: 1;
          description { state: "default" 0.0;
             visible: 0;
-            rel2.relative: 1.0 0.3;
+            rel2.relative: 1.0 0.5;
             color: 0 0 0 0;
          }
          description { state: "visible" 0.0;
@@ -82,7 +82,11 @@ group { name: "elm/clock/flipdigit/default";
       part { name: "digit";
          mouse_events: 0;
          scale: 1;
-         description { state: "default" 0.0;	
+         description { state: "default" 0.0;
+            rel1.to_y: "atop";
+            rel1.relative: 0.0 1.0;
+            rel2.to_y: "abot";
+            rel2.relative: 1.0 0.0;
             aspect: (52/72) (52/72); aspect_preference: BOTH;
             image.normal: "digit_0.png";
          }
@@ -109,8 +113,10 @@ group { name: "elm/clock/flipdigit/default";
          description { state: "default" 0.0;
             visible: 0;
             min: 10 10;
-            max: 10 10;
+            rel1.relative: 0.5 0.0;
+            rel2.relative: 0.5 0.1;
             align: 0.5 0.0;
+            fixed: 1 1;
             image.normal: "icon_arrow_up.png";
          }
          description { state: "visible" 0.0;
@@ -124,8 +130,10 @@ group { name: "elm/clock/flipdigit/default";
          description { state: "default" 0.0;
             visible: 0;
             min: 10 10;
-            max: 10 10;
-            align: 0.5 1.0;
+            rel1.relative: 0.5 0.9;
+            rel2.relative: 0.5 1.0;
+            align: 0.5 0.0;
+            fixed: 1 1;
             image.normal: "icon_arrow_down.png";
          }
          description { state: "visible" 0.0;
@@ -292,7 +300,6 @@ group { name: "elm/clock/flipampm/default";
 #define HOLE_PART(_NAME, _R1X, _R1Y, _R2X, _R2Y, _AX, _AY, _OX, _OY, _W, _H) \
    part { name: _NAME; \
          mouse_events: 0; \
-         scale: 1; \
          description { state: "default" 0.0; \
             rel1.relative: _R1X _R1Y; \
             rel1.offset: _OX _OY; \
