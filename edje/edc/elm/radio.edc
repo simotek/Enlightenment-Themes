@@ -191,7 +191,6 @@ group { name: "elm/radio/base/default";
          }
       }
       part { name: "event"; type: RECT;
-         ignore_flags: ON_HOLD;
          description { state: "default" 0.0;
             color: 0 0 0 0;
          }
