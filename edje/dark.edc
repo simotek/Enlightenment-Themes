@@ -44,6 +44,7 @@ collections {
 // XXX: fix gfx for actionslider - add glow on click like scrollbar. fix shadow under text (grey not blakc)
 #include "edc/elm/actionslider.edc"
 //#include "edc/elm/photocam.edc"
+// XXX: tooltip graphics need some work to look "perfect", but good job!
 #include "edc/elm/tooltip.edc"
 // XXX: fix gfx for colorsel - too much to talk about here. just look at it.
 #include "edc/elm/colorsel.edc"
