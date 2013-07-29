@@ -44,7 +44,6 @@ group { name: "elm/tooltip/base/default";
       image: "tooltip-edge-right-tip.png" COMP;
       image: "tooltip-edge-bottom-tip.png" COMP;
       image: "tooltip-edge-top-tip.png" COMP;
-      image: "tooltip_over_top.png" COMP;
    }
    script {
       hide_corners() {
@@ -166,15 +165,15 @@ group { name: "elm/tooltip/base/default";
             min: 30 30;
             rel1 {
                to: "elm.swallow.content";
-               offset: -5 -5;
+               offset: -5 -4;
             }
             rel2 {
                to: "elm.swallow.content";
-               offset: 4 4;
+               offset: 4 5;
             }
             image {
                normal: "tooltip-base.png";
-               border: 5 5 5 5;
+               border: 7 7 6 8;
             }
             image.middle: SOLID;
          }
@@ -192,12 +191,12 @@ group { name: "elm/tooltip/base/default";
             rel1 {                                                 \
                relative: rx ry;                                    \
                offset: ox oy;                                      \
-               to: "elm.swallow.content";                          \
+               to: "pop";                                          \
             }                                                      \
             rel2 {                                                 \
                relative: rx ry;                                    \
                offset: ox oy;                                      \
-               to: "elm.swallow.content";                          \
+               to: "pop";                                          \
             }                                                      \
             image.normal: "tooltip-corner-"name_"-tip.png";        \
          }                                                         \
@@ -206,23 +205,11 @@ group { name: "elm/tooltip/base/default";
             visible: 1;                                            \
          }                                                         \
       }
-      TT_CORNER("top-left", 0, 0, 1, 1, 2, 1);
-      TT_CORNER("top-right", 1, 0, 0, 1, -3, 1);
-      TT_CORNER("bottom-left", 0, 1, 1, 0, 2, -5);
-      TT_CORNER("bottom-right", 1, 1, 0, 0, -5, -5);
+      TT_CORNER("top-left", 0, 0, 0, 0, -4, -5);
+      TT_CORNER("top-right", 1, 0, 1, 0, 3, -5);
+      TT_CORNER("bottom-left", 0, 1, 0, 1, -4, 2);
+      TT_CORNER("bottom-right", 1, 1, 1, 1, 3, 2);
       #undef TT_CORNER
-
-      part { name: "over";
-         type: IMAGE;
-         mouse_events: 0;
-         clip_to: "clipper";
-         description { state: "default" 0.0;
-            rel1 { to: "pop"; offset: 1 0; }
-            rel2 { to: "pop"; relative: 1.0 0.4; offset: -2 0; }
-            image.normal: "tooltip_over_top.png";
-            image.border: 3 3 0 0;
-         }
-      }
 
       #define TT_EDGE_VERT(name_, rx, ax, ox)                      \
       part { name: "clipper-edge-"name_;                           \
@@ -230,7 +217,7 @@ group { name: "elm/tooltip/base/default";
          clip_to: "clipper";                                       \
          description { state: "default" 0.0;                       \
             visible: 0;                                            \
-            min: 8 11;                                             \
+            min: 9 13;                                             \
             align: ax 0.5;                                         \
             fixed: 1 1;                                            \
             rel1 {                                                 \
@@ -256,7 +243,7 @@ group { name: "elm/tooltip/base/default";
          scale: 1;                                                 \
          description { state: "default" 0.0;                       \
             color: 0 0 0 0;                                        \
-            min: 8 11;                                             \
+            min: 9 13;                                             \
             align: ax 0.5;                                         \
             fixed: 1 1;                                            \
             rel1 {                                                 \
@@ -283,7 +270,7 @@ group { name: "elm/tooltip/base/default";
          }                                                         \
          description { state: "default" 0.0;                       \
             color: 0 0 0 0;                                        \
-            min: 8 11;                                             \
+            min: 9 13;                                             \
             rel1.to: "edge-area-"name_;                            \
             rel2.to: "edge-area-"name_;                            \
          }                                                         \
@@ -293,7 +280,7 @@ group { name: "elm/tooltip/base/default";
          mouse_events: 0;                                          \
          clip_to: "clipper-edge-"name_;                            \
          description { state: "default" 0.0;                       \
-            FIXED_SIZE(8, 11)                                      \
+            FIXED_SIZE(9, 13)                                      \
             align: ax 0.5;                                         \
             rel1.to: "edge-drag-"name_;                            \
             rel2.to: "edge-drag-"name_;                            \
@@ -301,7 +288,7 @@ group { name: "elm/tooltip/base/default";
          }                                                         \
       }
       TT_EDGE_VERT("left", 0, 1, -3);
-      TT_EDGE_VERT("right", 1, 0, 1);
+      TT_EDGE_VERT("right", 1, 0, 2);
       #undef TT_EDGE_VERT
 
       #define TT_EDGE_HORIZ(name_, ry, ay, oy)                     \
@@ -374,8 +361,8 @@ group { name: "elm/tooltip/base/default";
             image.normal: "tooltip-edge-"name_"-tip.png";          \
          }                                                         \
       }
-      TT_EDGE_HORIZ("top", 0, 1, -2);
-      TT_EDGE_HORIZ("bottom", 1, 0, 0);
+      TT_EDGE_HORIZ("top", 0, 1, -1);
+      TT_EDGE_HORIZ("bottom", 1, 0, 1);
       #undef TT_EDGE_HORIZ
       part { name: "clipper_content";
          type: RECT;
