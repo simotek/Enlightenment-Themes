@@ -39,7 +39,6 @@ collections {
 // XXX: fix gfx for ctxpopup - use bubble look?
 #include "edc/elm/ctxpopup.edc"
 //#include "edc/elm/multibuttonentry.edc"
-// XXX: fix gfx for dayselector - round unselected corners and add gradient
 #include "edc/elm/dayselector.edc"
 // XXX: fix gfx for actionslider - add glow on click like scrollbar. fix shadow under text (grey not blakc)
 #include "edc/elm/actionslider.edc"
