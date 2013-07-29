@@ -213,7 +213,7 @@ group { name: "elm/check/base/dayselector/default";
             state: "default" 0.0;
             image {
                normal: "day_middle_normal.png";
-               border: 1 1 2 4;
+               border: 1 1 3 4;
             }
          }
          /* default */
@@ -221,21 +221,21 @@ group { name: "elm/check/base/dayselector/default";
             inherit: "default" 0.0;
             image {
                normal: "day_left_normal.png";
-               border: 2 1 3 5;
+               border: 4 1 3 4;
             }
          }
          description { state: "default_right" 0.0;
             inherit: "default" 0.0;
             image {
                normal: "day_right_normal.png";
-               border: 1 2 3 5;
+               border: 1 4 3 5;
             }
          }
          description { state: "default_middle" 0.0;
             inherit: "default" 0.0;
             image {
                normal: "day_middle_normal.png";
-               border: 1 1 2 4;
+               border: 1 1 3 4;
             }
          }
          /* pressed */
@@ -243,21 +243,21 @@ group { name: "elm/check/base/dayselector/default";
             inherit: "default" 0.0;
             image {
                normal: "day_left_press.png";
-               border:  4 0 4 5;
+               border:  5 1 4 5;
             }
          }
          description { state: "pressed_right" 0.0;
             inherit: "default" 0.0;
             image {
                normal: "day_right_press.png";
-               border:  1 4 4 5;
+               border:  1 5 4 5;
             }
          }
          description { state: "pressed_middle" 0.0;
             inherit: "default" 0.0;
             image {
                normal: "day_middle_press.png";
-               border: 1 0 2 3;
+               border: 2 1 4 7;
             }
          }
          /* selected */
@@ -265,21 +265,21 @@ group { name: "elm/check/base/dayselector/default";
             inherit: "default" 0.0;
             image {
                normal: "day_left_press.png";
-               border:  4 0 4 5;
+               border:  5 1 4 5;
             }
          }
          description { state: "selected_right" 0.0;
             inherit: "default" 0.0;
             image {
                normal: "day_right_press.png";
-               border:  1 4 4 5;
+               border:  1 5 4 5;
             }
          }
          description { state: "selected_middle" 0.0;
             inherit: "default" 0.0;
             image {
                normal: "day_middle_press.png";
-               border: 1 0 2 3;
+               border: 2 1 4 7;
             }
          }
       }
