@@ -233,7 +233,6 @@ group { name: "elm/segment_control/item/default";
       part { name: "disabler";
          type: RECT;
          description { state: "default" 0.0;
-            visible: 1;
             rel1.to: "segment";
             rel2.to: "segment";
          }

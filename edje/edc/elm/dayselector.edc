@@ -146,9 +146,11 @@ group { name: "elm/check/base/dayselector/default";
       image: "day_left_normal.png" COMP;
       image: "day_right_normal.png" COMP;
       image: "day_middle_press.png" COMP;
-      image: "day_middle_press2.png" COMP;
+      image: "day_middle_selected.png" COMP;
       image: "day_left_press.png" COMP;
+      image: "day_left_selected.png" COMP;
       image: "day_right_press.png" COMP;
+      image: "day_right_selected.png" COMP;
    }
    script {
       public check_pos; // Left, Right, Middle.
@@ -265,21 +267,21 @@ group { name: "elm/check/base/dayselector/default";
          description { state: "selected_left" 0.0;
             inherit: "default" 0.0;
             image {
-               normal: "day_left_press.png";
+               normal: "day_left_selected.png";
                border:  5 1 4 5;
             }
          }
          description { state: "selected_right" 0.0;
             inherit: "default" 0.0;
             image {
-               normal: "day_right_press.png";
+               normal: "day_right_selected.png";
                border:  1 5 4 5;
             }
          }
          description { state: "selected_middle" 0.0;
             inherit: "default" 0.0;
             image {
-               normal: "day_middle_press.png";
+               normal: "day_middle_selected.png";
                border: 2 1 4 7;
             }
          }
