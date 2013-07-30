@@ -376,9 +376,6 @@ group { name: "elm/check/base/dayselector/default";
          }
          description { state: "weekend_style1" 0.0;
             inherit: "default" 0.0;
-            color: 255 255 255 255;
-            color2: 255 255 255 24;
-            color3: 255 255 255 18;
             visible: 1;
          }
          description { state: "selected" 0.0;
