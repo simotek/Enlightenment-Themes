@@ -146,6 +146,7 @@ group { name: "elm/check/base/dayselector/default";
       image: "day_left_normal.png" COMP;
       image: "day_right_normal.png" COMP;
       image: "day_middle_press.png" COMP;
+      image: "day_middle_press2.png" COMP;
       image: "day_left_press.png" COMP;
       image: "day_right_press.png" COMP;
    }

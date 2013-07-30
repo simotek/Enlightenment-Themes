@@ -46,7 +46,7 @@ collections {
 #include "edc/elm/tooltip.edc"
 // XXX: fix gfx for colorsel - too much to talk about here. just look at it.
 #include "edc/elm/colorsel.edc"
-//#include "edc/elm/segment_control.edc"
+#include "edc/elm/segment_control.edc"
 //#include "edc/elm/flipsel.edc"
 //#include "edc/elm/notification.edc"
 //#include "edc/elm/map.edc"
