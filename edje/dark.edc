@@ -33,7 +33,6 @@ collections {
 #include "edc/elm/fileselector.edc"
 #include "edc/elm/win.edc"
 #include "edc/elm/inwin.edc"
-// XXX: stay black - dont use dark grey
 #include "edc/elm/slideshow.edc"
 // XXX: fix gfx for diskselector - unknown
 #include "edc/elm/diskselector.edc"
