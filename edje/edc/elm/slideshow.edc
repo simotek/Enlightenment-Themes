@@ -165,14 +165,14 @@ group { name: "elm/slideshow/base/default";
    }
    programs {
       program {
-         signal: "layout,fullscreen"; source: "slideshow";
+         signal: "layout,fullscreen"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "elm.swallow.1";
          target: "elm.swallow.2";
          transition: SINUSOIDAL 1.0;
       }
       program {
-         signal: "layout,not_fullscreen"; source: "slideshow";
+         signal: "layout,not_fullscreen"; source: "elm";
          action: STATE_SET "not_fullscreen" 0.0;
          target: "elm.swallow.1";
          target: "elm.swallow.2";
@@ -180,7 +180,7 @@ group { name: "elm/slideshow/base/default";
       }
       //
       program {
-         signal: "fade,next"; source: "slideshow";
+         signal: "fade,next"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "image_1_whole";
          target: "image_2_whole";
@@ -194,7 +194,7 @@ group { name: "elm/slideshow/base/default";
          after: "end";
       }
       program {
-         signal: "fade,previous"; source: "slideshow";
+         signal: "fade,previous"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "image_1_whole";
          target: "image_2_whole";
@@ -208,7 +208,7 @@ group { name: "elm/slideshow/base/default";
          after: "end";
       }
       program {
-         signal: "black_fade,next"; source: "slideshow";
+         signal: "black_fade,next"; source: "elm";
          action: STATE_SET "black_fade_prev_next_init" 0.0;
          target: "image_1_whole";
          target: "image_2_whole";
@@ -227,7 +227,7 @@ group { name: "elm/slideshow/base/default";
          after: "end";
       }
       program {
-         signal: "black_fade,previous"; source: "slideshow";
+         signal: "black_fade,previous"; source: "elm";
          action: STATE_SET "black_fade_prev_next_init" 0.0;
          target: "image_1_whole";
          target: "image_2_whole";
@@ -246,7 +246,7 @@ group { name: "elm/slideshow/base/default";
          after: "end";
       }
       program {
-         signal: "horizontal,next"; source: "slideshow";
+         signal: "horizontal,next"; source: "elm";
          action: STATE_SET "horizontal_next_init" 0.0;
          target: "image_1_whole";
          target: "image_2_whole";
@@ -260,7 +260,7 @@ group { name: "elm/slideshow/base/default";
          after: "end";
       }
       program { name: "horizontal_previous";
-         signal: "horizontal,previous"; source: "slideshow";
+         signal: "horizontal,previous"; source: "elm";
          action: STATE_SET "horizontal_prev_init" 0.0;
          target: "image_1_whole";
          target: "image_2_whole";
@@ -274,7 +274,7 @@ group { name: "elm/slideshow/base/default";
          after: "end";
       }
       program {
-         signal: "vertical,next"; source: "slideshow";
+         signal: "vertical,next"; source: "elm";
          action: STATE_SET "vertical_next_init" 0.0;
          target: "image_1_whole";
          target: "image_2_whole";
@@ -288,7 +288,7 @@ group { name: "elm/slideshow/base/default";
          after: "end";
       }
       program {
-         signal: "vertical,previous"; source: "slideshow";
+         signal: "vertical,previous"; source: "elm";
          action: STATE_SET "vertical_prev_init" 0.0;
          target: "image_1_whole";
          target: "image_2_whole";
@@ -302,7 +302,7 @@ group { name: "elm/slideshow/base/default";
          after: "end";
       }
       program {
-         signal: "square,next"; source: "slideshow";
+         signal: "square,next"; source: "elm";
          action: STATE_SET "square_prev_next_init" 0.0;
          target: "image_2_whole";
          after: "square_next_2";
@@ -315,30 +315,30 @@ group { name: "elm/slideshow/base/default";
          after: "end";
       }
       program {
-         signal: "square,previous"; source: "slideshow";
+         signal: "square,previous"; source: "elm";
          action: STATE_SET "square_prev_next_init" 0.0;
          target: "image_2_whole";
          after: "square_next_2";
       }
       program {
-         signal: "none,next"; source: "slideshow";
+         signal: "none,next"; source: "elm";
          action: STATE_SET "fade_prev_next" 0.0;
          target: "image_1_whole";
          target: "image_2_whole";
          after: "end";
       }
       program {
-         signal: "none,previous"; source: "slideshow";
+         signal: "none,previous"; source: "elm";
          action: STATE_SET "fade_prev_next" 0.0;
          target: "image_1_whole";
          target: "image_2_whole";
          after: "end";
       }
       program { name: "end";
-         action: SIGNAL_EMIT "end" "slideshow";
+         action: SIGNAL_EMIT "end" "elm";
       }
       program {
-         signal: "anim,end"; source: "slideshow";
+         signal: "anim,end"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "image_1_whole";
          target: "image_2_whole";
