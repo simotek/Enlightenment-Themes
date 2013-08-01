@@ -46,8 +46,7 @@ group { name: "elm/actionslider/base/default";
          effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
-            color: 255 255 255 255;
-            color3: 0 0 0 128;
+            color: FN_COL_DEFAULT;
             color_class: "button_text";
             text { font: FN; size: 10;
                align: 0.05 0.5;
@@ -57,8 +56,7 @@ group { name: "elm/actionslider/base/default";
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
-            color: 21 21 21 255;
-            color3: 255 255 255 25;
+            color: FN_COL_DISABLE;
             color_class: "button_text_disabled";
          }
       }
@@ -66,8 +64,7 @@ group { name: "elm/actionslider/base/default";
          effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
-            color: 255 255 255 255;
-            color3: 0 0 0 128;
+            color: FN_COL_DEFAULT;
             color_class: "check_off_text";
             text { font: FN; size: 10;
                align: 0.5 0.5;
@@ -77,8 +74,7 @@ group { name: "elm/actionslider/base/default";
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
-            color: 21 21 21 255;
-            color3: 255 255 255 25;
+            color: FN_COL_DISABLE;
             color_class: "button_text_disabled";
          }
       }
@@ -86,8 +82,7 @@ group { name: "elm/actionslider/base/default";
          effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
-            color: 255 255 255 255;
-            color3: 0 0 0 128;
+            color: FN_COL_DEFAULT;
             color_class: "check_off_text";
             text { font: FN; size: 10;
                align: 0.95 0.5;
@@ -97,8 +92,7 @@ group { name: "elm/actionslider/base/default";
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
-            color: 21 21 21 255;
-            color3: 255 255 255 25;
+            color: FN_COL_DISABLE;
             color_class: "button_text_disabled";
          }
       }
@@ -183,8 +177,7 @@ group { name: "elm/actionslider/base/default";
                to: "elm.drag_button";
                offset: -5 -3;
             }
-            color: 255 255 255 255;
-            color3: 0 0 0 128;
+            color: FN_COL_DEFAULT;
             color_class: "check_off_text";
             text {
                font: FN; size: 10;
@@ -195,8 +188,7 @@ group { name: "elm/actionslider/base/default";
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
-            color: 21 21 21 255;
-            color3: 255 255 255 25;
+            color: FN_COL_DISABLE;
             color_class: "button_text_disabled";
          }
       }
