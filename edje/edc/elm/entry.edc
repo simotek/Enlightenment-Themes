@@ -4,7 +4,7 @@ group { name: "elm/scroller/entry/default";
    parts {
       part { name: "bg";
          description { state: "default" 0.0;
-            color: 48 48 48 255;
+            color: DARK_GREY_BG_COLOR;
          }
       }
       part { name: "elm.swallow.content";
@@ -164,7 +164,7 @@ group { name: "elm/scroller/entry_single/default";
          description { state: "default" 0.0;
             rel1.to: "elm.swallow.background";
             rel2.to: "elm.swallow.background";
-            color: 48 48 48 255;
+            color: DARK_GREY_BG_COLOR;
             color_class: "scrollframe_base";
          }
       }

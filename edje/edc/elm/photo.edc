@@ -32,7 +32,7 @@ group { name: "elm/photo/base/default";
          description { state:    "default" 0.0;
             rel1.to: "clip";
             rel2.to: "clip";
-            color: 48 48 48 255;
+            color: DARK_GREY_BG_COLOR;
          }
       }
       part { name: "elm.swallow.content"; type: SWALLOW;
