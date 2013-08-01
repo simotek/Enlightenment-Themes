@@ -644,18 +644,14 @@ group { name: "elm/button/base/anchor";
 
 group { name: "elm/button/base/colorselector/left/default";
    inherit: "elm/button/base/default";
-   images.image: "sp_bt_l.png" COMP;
+   images.image: "sym_left_light_normal.png" COMP;
    parts {
-      part { name: "prev_image";
-         type: IMAGE;
-         scale: 1;
-         mouse_events: 0;
+      part { name: "ic"; mouse_events: 0;
          description { state: "default" 0.0;
-            min: 16 16;
-            max: 16 16;
+            min: 15 15;
+            max: 15 15;
             fixed: 1 1;
-            align: 0.5 0.5;
-            image.normal: "sp_bt_l.png";
+            image.normal: "sym_left_light_normal.png";
          }
       }
    }
@@ -663,18 +659,14 @@ group { name: "elm/button/base/colorselector/left/default";
 
 group { name: "elm/button/base/colorselector/right/default";
    inherit: "elm/button/base/default";
-   images.image: "sp_bt_r.png" COMP;
+   images.image: "sym_right_light_normal.png" COMP;
    parts {
-      part { name: "prev_image";
-         type: IMAGE;
-         scale: 1;
-         mouse_events: 0;
+      part { name: "ic"; mouse_events: 0;
          description { state: "default" 0.0;
-            min: 16 16;
-            max: 16 16;
+            min: 15 15;
+            max: 15 15;
             fixed: 1 1;
-            align: 0.5 0.5;
-            image.normal: "sp_bt_r.png";
+            image.normal: "sym_right_light_normal.png";
          }
       }
    }
