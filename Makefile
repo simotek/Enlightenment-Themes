@@ -20,6 +20,7 @@ clean:
 
 dark.edj: $(EDCS) $(IMAGES) Makefile
 	$(EDJE_CC) -id $(SRCDIR)/img/ \
+                -sd $(SRCDIR)/snd/ \
 		$(SRCDIR)/dark.edc \
 		$(BUILDDIR)/dark.edj
 
