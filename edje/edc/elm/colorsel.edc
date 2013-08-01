@@ -3,7 +3,7 @@ group { name: "elm/colorselector/palette/default";
    data.item: "vertical_pad" 0;
    images.image: "bevel_dark_in.png" COMP;
    parts {
-      part { name: "picker"; type: SWALLOW;
+      part { name: "elm.picker"; type: SWALLOW;
          description { state: "default" 0.0;
             fixed: 0 1;
             align: 0.5 0.0;
@@ -13,10 +13,10 @@ group { name: "elm/colorselector/palette/default";
       part { name: "sep1";
          description { state: "default" 0.0;
             fixed: 1 1;
-            rel1.to_y: "picker";
+            rel1.to_y: "elm.picker";
             rel1.offset: 4 4;
             rel1.relative: 0.0 1.0;
-            rel2.to_y: "picker";
+            rel2.to_y: "elm.picker";
             rel2.offset: -5 5;
             min: 2 2;
             max: 99999 2;
@@ -31,7 +31,7 @@ group { name: "elm/colorselector/palette/default";
             visible: 0;
          }
       }
-      part { name: "palette"; type: SWALLOW;
+      part { name: "elm.palette"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.5 0.0;
             rel1.to_y: "sep1";
@@ -50,9 +50,9 @@ group { name: "elm/colorselector/palette/default";
       part { name: "sep2";
          description { state: "default" 0.0;
             fixed: 1 1;
-            rel1.to_y: "selector";
+            rel1.to_y: "elm.selector";
             rel1.offset: 4 -6;
-            rel2.to_y: "selector";
+            rel2.to_y: "elm.selector";
             rel2.offset: -5 -5;
             rel2.relative: 1.0 0.0;
             min: 2 2;
@@ -68,7 +68,7 @@ group { name: "elm/colorselector/palette/default";
             visible: 0;
          }
       }
-      part { name: "selector"; type: SWALLOW;
+      part { name: "elm.selector"; type: SWALLOW;
          description { state: "default" 0.0;
             fixed: 0 1;
             align: 0.0 1.0;
@@ -86,7 +86,7 @@ group { name: "elm/colorselector/palette/default";
       program {
          source: "elm"; signal: "elm,state,palette";
          action: STATE_SET "default" 0.0;
-         target: "palette";
+         target: "elm.palette";
       }
       
       program {
@@ -94,7 +94,7 @@ group { name: "elm/colorselector/palette/default";
          action: STATE_SET "off" 0.0;
          target: "sep1";
          target: "sep2";
-         target: "palette";
+         target: "elm.palette";
       }
       
       program {
@@ -105,7 +105,7 @@ group { name: "elm/colorselector/palette/default";
       program {
          source: "elm"; signal: "elm,state,both";
          action: STATE_SET "default" 0.0;
-         target: "palette";
+         target: "elm.palette";
          target: "sep2";
       }
       
@@ -114,7 +114,7 @@ group { name: "elm/colorselector/palette/default";
          action: STATE_SET "off" 0.0;
          target: "sep1";
          target: "sep2";
-         target: "palette";
+         target: "elm.palette";
       }
       
       program {
@@ -122,7 +122,7 @@ group { name: "elm/colorselector/palette/default";
          action: STATE_SET "default" 0.0;
          target: "sep1";
          target: "sep2";
-         target: "palette";
+         target: "elm.palette";
       }
    }
 }
