@@ -1,8 +1,6 @@
 group { name: "elm/index/base/vertical/default";
    parts {
-      part { name: "clip";
-         type: RECT;
-         mouse_events:  0;
+      part { name: "clip"; type: RECT; mouse_events:  0;
          description { state: "default" 0.0;
             visible:  0;
             color: 255 255 255 0;
@@ -12,9 +10,7 @@ group { name: "elm/index/base/vertical/default";
             color: 255 255 255 255;
          }
       }
-      part { name: "clip2";
-         type: RECT;
-         mouse_events:  0;
+      part { name: "clip2"; type: RECT; mouse_events:  0;
          clip_to: "clip";
          description { state: "default" 0.0;
             visible: 0;
@@ -25,8 +21,7 @@ group { name: "elm/index/base/vertical/default";
             color: 255 255 255 255;
          }
       }
-      part { name: "elm.swallow.index.0";
-         type: SWALLOW;
+      part { name: "elm.swallow.index.0"; type: SWALLOW;
          clip_to: "clip";
          description { state: "default" 0.0;
             align: 1.0 0.5;
@@ -41,9 +36,7 @@ group { name: "elm/index/base/vertical/default";
             }
          }
       }
-      part { name: "elm.text";
-         type: TEXT;
-         mouse_events: 0;
+      part { name: "elm.text"; type: TEXT; mouse_events: 0;
          scale: 1;
          clip_to: "clip2";
          effect: GLOW;
@@ -71,14 +64,12 @@ group { name: "elm/index/base/vertical/default";
             }
          }
       }
-      part { name: "elm.dragable.pointer";
-         type: RECT;
-         mouse_events: 0;
+      part { name: "elm.dragable.pointer"; type: RECT; mouse_events: 0;
+         clip_to: "clip";
          dragable {
             x: 1 1 0;
             y: 1 1 0;
          }
-         clip_to: "clip";
          description { state: "default" 0.0;
             fixed: 1 1;
             min: 8 8;
@@ -94,8 +85,7 @@ group { name: "elm/index/base/vertical/default";
             }
          }
       }
-      part { name: "elm.swallow.event.0";
-         type: SWALLOW;
+      part { name: "elm.swallow.event.0"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 1.0 0.5;
             fixed: 1 1;
@@ -109,8 +99,7 @@ group { name: "elm/index/base/vertical/default";
             }
          }
       }
-      part { name: "access";
-         type: RECT;
+      part { name: "access"; type: RECT;
          repeat_events: 1;
          description { state: "default" 0.0;
             rel1.to:"elm.swallow.event.0";
@@ -121,29 +110,25 @@ group { name: "elm/index/base/vertical/default";
    }
    programs {
       program { name: "active";
-         signal: "elm,state,active";
-         source: "elm";
+         signal: "elm,state,active"; source: "elm";
          action: STATE_SET "active" 0.0;
          transition: DECELERATE 0.5;
          target: "clip";
       }
       program { name: "inactive";
-         signal: "elm,state,inactive";
-         source: "elm";
+         signal: "elm,state,inactive"; source: "elm";
          action: STATE_SET "default" 0.0;
          transition: DECELERATE 0.5;
          target: "clip";
       }
       program { name: "active2";
-         signal: "elm,indicator,state,active";
-         source: "elm";
+         signal: "elm,indicator,state,active"; source: "elm";
          action: STATE_SET "active" 0.0;
          transition: DECELERATE 0.5;
          target: "clip2";
       }
       program { name: "inactive2";
-         signal: "elm,indicator,state,inactive";
-         source: "elm";
+         signal: "elm,indicator,state,inactive"; source: "elm";
          action: STATE_SET "default" 0.0;
          transition: DECELERATE 0.5;
          target: "clip2";
@@ -154,18 +139,14 @@ group { name: "elm/index/base/vertical/default";
 group { name: "elm/index/item/vertical/default";
    data.item: "stacking" "below";
    images {
-      image: "ilist_1.png" COMP;
-      image: "ilist_item_shadow.png" COMP;
+      image: "darken_rounded_square_half.png" COMP;
    }
    parts {
-      part {
-         name: "base";
-         mouse_events: 0;
-         description {
-            state: "default" 0.0;
+      part { name: "base"; mouse_events: 0;
+         description { state: "default" 0.0;
             image {
-               normal: "ilist_1.png";
-               border: 2 2 2 2;
+               normal: "darken_rounded_square_half.png";
+               border: 7 0 6 8;
             }
             fill.smooth: 0;
          }
@@ -174,9 +155,7 @@ group { name: "elm/index/item/vertical/default";
             rel1.offset: -16 0;
          }
       }
-      part { name: "elm.text";
-         type: TEXT;
-         mouse_events: 0;
+      part { name: "elm.text"; type: TEXT; mouse_events: 0;
          scale: 1;
          effect: SHADOW BOTTOM;
          description {
@@ -204,9 +183,7 @@ group { name: "elm/index/item/vertical/default";
             visible: 0;
          }
       }
-      part { name: "elm.text2";
-         type: TEXT;
-         mouse_events: 0;
+      part { name: "elm.text2"; type: TEXT; mouse_events: 0;
          scale: 1;
          effect: GLOW;
          description {
@@ -239,8 +216,7 @@ group { name: "elm/index/item/vertical/default";
    }
    programs {
       program { name: "active";
-         signal: "elm,state,active";
-         source: "elm";
+         signal: "elm,state,active"; source: "elm";
          action: STATE_SET "active" 0.0;
          target: "elm.text";
          target: "elm.text2";
@@ -252,8 +228,7 @@ group { name: "elm/index/item/vertical/default";
          transition: DECELERATE 0.5;
       }
       program { name: "inactive";
-         signal: "elm,state,inactive";
-         source: "elm";
+         signal: "elm,state,inactive"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "elm.text";
          target: "elm.text2";
@@ -270,42 +245,12 @@ group { name: "elm/index/item/vertical/default";
 group { name: "elm/index/item_odd/vertical/default";
    data.item: "stacking" "above";
    data.item: "selectraise" "on";
-   images {
-      image: "ilist_2.png" COMP;
-   }
    parts {
-      part {
-         name: "base_sh";
-         mouse_events: 0;
-         description {
-            state: "default" 0.0;
-            align: 0.0 0.0;
-            min: 0 10;
-            fixed: 1 1;
-            rel1 {
-               to: "base";
-               relative: 0.0 1.0;
-               offset: 0 0;
-            }
-            rel2 {
-               to: "base";
-               relative: 1.0 1.0;
-               offset: -1 0;
-            }
+      part { name: "base"; mouse_events: 0;
+         description { state: "default" 0.0;
             image {
-               normal: "ilist_item_shadow.png";
-            }
-            fill.smooth: 0;
-         }
-      }
-      part {
-         name: "base";
-         mouse_events: 0;
-         description {
-            state: "default" 0.0;
-            image {
-               normal: "ilist_2.png";
-               border: 2 2 2 2;
+               normal: "darken_rounded_square_half.png";
+               border: 7 0 6 8;
             }
             fill.smooth: 0;
          }
@@ -314,9 +259,7 @@ group { name: "elm/index/item_odd/vertical/default";
             rel1.offset: -16 0;
          }
       }
-      part { name: "elm.text";
-         type: TEXT;
-         mouse_events: 0;
+      part { name: "elm.text"; type: TEXT; mouse_events: 0;
          scale: 1;
          effect: SHADOW BOTTOM;
          description {
@@ -344,9 +287,7 @@ group { name: "elm/index/item_odd/vertical/default";
             visible: 0;
          }
       }
-      part { name: "elm.text2";
-         type: TEXT;
-         mouse_events: 0;
+      part { name: "elm.text2"; type: TEXT; mouse_events: 0;
          scale: 1;
          effect: GLOW;
          description {
@@ -379,8 +320,7 @@ group { name: "elm/index/item_odd/vertical/default";
    }
    programs {
       program { name: "active";
-         signal: "elm,state,active";
-         source: "elm";
+         signal: "elm,state,active"; source: "elm";
          action: STATE_SET "active" 0.0;
          target: "elm.text";
          target: "elm.text2";
@@ -392,8 +332,7 @@ group { name: "elm/index/item_odd/vertical/default";
          transition: DECELERATE 0.5;
       }
       program { name: "inactive";
-         signal: "elm,state,inactive";
-         source: "elm";
+         signal: "elm,state,inactive"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "elm.text";
          target: "elm.text2";
@@ -409,9 +348,7 @@ group { name: "elm/index/item_odd/vertical/default";
 
 group { name: "elm/index/base/horizontal/default";
    parts {
-      part { name: "clip";
-         type: RECT;
-         mouse_events: 0;
+      part { name: "clip"; type: RECT; mouse_events: 0;
          description { state: "default" 0.0;
             visible: 0;
             color: 255 255 255 0;
@@ -421,9 +358,7 @@ group { name: "elm/index/base/horizontal/default";
             color: 255 255 255 255;
          }
       }
-      part { name: "clip2";
-         type: RECT;
-         mouse_events: 0;
+      part { name: "clip2"; type: RECT; mouse_events: 0;
          clip_to: "clip";
          description { state: "default" 0.0;
             visible: 0;
@@ -434,8 +369,7 @@ group { name: "elm/index/base/horizontal/default";
             color: 255 255 255 255;
          }
       }
-      part { name: "elm.swallow.index.0";
-         type: SWALLOW;
+      part { name: "elm.swallow.index.0"; type: SWALLOW;
          clip_to: "clip";
          description { state: "default" 0.0;
             align: 0.5 1.0;
@@ -450,9 +384,7 @@ group { name: "elm/index/base/horizontal/default";
             }
          }
       }
-      part { name: "elm.text";
-         type: TEXT;
-         mouse_events: 0;
+      part { name: "elm.text"; type: TEXT; mouse_events: 0;
          scale: 1;
          clip_to: "clip2";
          effect: GLOW;
@@ -480,14 +412,12 @@ group { name: "elm/index/base/horizontal/default";
             }
          }
       }
-      part { name: "elm.dragable.pointer";
-         type: RECT;
-         mouse_events: 0;
+      part { name: "elm.dragable.pointer"; type: RECT; mouse_events: 0;
+         clip_to: "clip";
          dragable {
             x: 1 1 0;
             y: 1 1 0;
          }
-         clip_to: "clip";
          description { state: "default" 0.0;
             fixed: 1 1;
             min: 8 8;
@@ -503,8 +433,7 @@ group { name: "elm/index/base/horizontal/default";
             }
          }
       }
-      part { name: "elm.swallow.event.0";
-         type: SWALLOW;
+      part { name: "elm.swallow.event.0"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.5 1;
             fixed: 1 1;
@@ -521,29 +450,25 @@ group { name: "elm/index/base/horizontal/default";
    }
    programs {
       program { name: "active";
-         signal: "elm,state,active";
-         source: "elm";
+         signal: "elm,state,active"; source: "elm";
          action: STATE_SET "active" 0.0;
          transition: DECELERATE 0.5;
          target: "clip";
       }
       program { name: "inactive";
-         signal: "elm,state,inactive";
-         source: "elm";
+         signal: "elm,state,inactive"; source: "elm";
          action: STATE_SET "default" 0.0;
          transition: DECELERATE 0.5;
          target: "clip";
       }
       program { name: "active2";
-         signal: "elm,indicator,state,active";
-         source: "elm";
+         signal: "elm,indicator,state,active"; source: "elm";
          action: STATE_SET "active" 0.0;
          transition: DECELERATE 0.5;
          target: "clip2";
       }
       program { name: "inactive2";
-         signal: "elm,indicator,state,inactive";
-         source: "elm";
+         signal: "elm,indicator,state,inactive"; source: "elm";
          action: STATE_SET "default" 0.0;
          transition: DECELERATE 0.5;
          target: "clip2";
@@ -554,18 +479,15 @@ group { name: "elm/index/base/horizontal/default";
 group { name: "elm/index/item/horizontal/default";
    data.item: "stacking" "below";
    images {
-      image: "ilist_1_h.png" COMP;
-      image: "ilist_item_shadow_h.png" COMP;
+      image: "darken_rounded_square_half_h.png" COMP;
    }
    parts {
-      part {
-         name: "base";
-         mouse_events: 0;
+      part { name: "base"; mouse_events: 0;
          description {
             state: "default" 0.0;
             image {
-               normal: "ilist_1_h.png";
-               border: 2 2 2 2;
+               normal: "darken_rounded_square_half_h.png";
+               border: 6 8 7 0;
             }
             fill.smooth: 0;
          }
@@ -574,13 +496,10 @@ group { name: "elm/index/item/horizontal/default";
             rel1.offset: 0 -16;
          }
       }
-      part { name: "elm.text";
-         type: TEXT;
-         mouse_events: 0;
+      part { name: "elm.text"; type: TEXT; mouse_events: 0;
          scale: 1;
          effect: SHADOW BOTTOM;
-         description {
-            state: "default" 0.0;
+         description { state: "default" 0.0;
             rel1 {
                to: "base";
                relative: 0.25  0.0;
@@ -602,9 +521,7 @@ group { name: "elm/index/item/horizontal/default";
             visible: 0;
          }
       }
-      part { name: "elm.text2";
-         type: TEXT;
-         mouse_events: 0;
+      part { name: "elm.text2"; type: TEXT; mouse_events: 0;
          scale: 1;
          effect: GLOW;
          description {
@@ -636,8 +553,7 @@ group { name: "elm/index/item/horizontal/default";
    }
    programs {
       program { name: "active";
-         signal: "elm,state,active";
-         source: "elm";
+         signal: "elm,state,active"; source: "elm";
          action: STATE_SET "active" 0.0;
          target: "elm.text";
          target: "elm.text2";
@@ -649,8 +565,7 @@ group { name: "elm/index/item/horizontal/default";
          transition: DECELERATE 0.5;
       }
       program { name: "inactive";
-         signal: "elm,state,inactive";
-         source: "elm";
+         signal: "elm,state,inactive"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "elm.text";
          target: "elm.text2";
@@ -667,40 +582,12 @@ group { name: "elm/index/item/horizontal/default";
 group { name: "elm/index/item_odd/horizontal/default";
    data.item: "stacking" "above";
    data.item: "selectraise" "on";
-   images {
-      image: "ilist_2_h.png" COMP;
-   }
    parts {
-      part {
-         name: "base_sh";
-         mouse_events: 0;
-         description {
-            state: "default" 0.0;
-            align: 0.0 0.5;
-            min: 10 0;
-            fixed: 1 1;
-            rel1 {
-               to: "base";
-               relative: 1.0 0.0;
-            }
-            rel2 {
-               to: "base";
-               relative: 1.0 1.0;
-            }
+      part { name: "base"; mouse_events: 0;
+         description { state: "default" 0.0;
             image {
-               normal: "ilist_item_shadow_h.png";
-            }
-            fill.smooth: 0;
-         }
-      }
-      part {
-         name: "base";
-         mouse_events: 0;
-         description {
-            state: "default" 0.0;
-            image {
-               normal: "ilist_2_h.png";
-               border: 2 2 2 2;
+               normal: "darken_rounded_square_half_h.png";
+               border: 6 8 7 0;
             }
             fill.smooth: 0;
          }
@@ -709,13 +596,10 @@ group { name: "elm/index/item_odd/horizontal/default";
             rel1.offset: 0 -16;
          }
       }
-      part { name: "elm.text";
-         type: TEXT;
-         mouse_events: 0;
+      part { name: "elm.text"; type: TEXT; mouse_events: 0;
          scale: 1;
          effect: SHADOW BOTTOM;
-         description {
-            state: "default" 0.0;
+         description { state: "default" 0.0;
             rel1 {
                to: "base";
                relative: 0.25  0.0;
@@ -737,9 +621,7 @@ group { name: "elm/index/item_odd/horizontal/default";
             visible: 0;
          }
       }
-      part { name: "elm.text2";
-         type: TEXT;
-         mouse_events: 0;
+      part { name: "elm.text2"; type: TEXT; mouse_events: 0;
          scale: 1;
          effect: GLOW;
          description {
@@ -771,8 +653,7 @@ group { name: "elm/index/item_odd/horizontal/default";
    }
    programs {
       program { name: "active";
-         signal: "elm,state,active";
-         source: "elm";
+         signal: "elm,state,active"; source: "elm";
          action: STATE_SET "active" 0.0;
          target: "elm.text";
          target: "elm.text2";
@@ -784,8 +665,7 @@ group { name: "elm/index/item_odd/horizontal/default";
          transition: DECELERATE 0.5;
       }
       program { name: "inactive";
-         signal: "elm,state,inactive";
-         source: "elm";
+         signal: "elm,state,inactive"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "elm.text";
          target: "elm.text2";
