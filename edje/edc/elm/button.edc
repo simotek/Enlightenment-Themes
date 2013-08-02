@@ -784,3 +784,91 @@ group { name: "elm/button/base/media_player/prev/default";
       }
    }
 }
+
+group { name: "elm/button/base/hoversel_vertical/default";
+   inherit: "elm/button/base/default";
+   alias: "elm/button/base/hoversel_vertical/entry";
+   alias: "elm/button/base/hoversel_horizontal/default";
+   alias: "elm/button/base/hoversel_horizontal/entry";
+
+   images {
+      image: "sym_down_light_normal.png" COMP;
+      image: "sym_up_light_normal.png" COMP;
+   }
+   parts {
+      part { name: "arrow_up"; mouse_events: 0;
+         description { state: "default" 0.0;
+            image.normal: "sym_up_light_normal.png";
+            aspect: 0.8 0.8;
+            aspect_preference: VERTICAL;
+            rel1.offset: 3 3;
+            rel2.offset: 3 -3;
+            rel2.relative: 0.0 0.5;
+            align: 0.0 1.0;
+         }
+      }
+      part { name: "arrow_down"; mouse_events: 0;
+         description { state: "default" 0.0;
+            image.normal: "sym_down_light_normal.png";
+            aspect: 0.8 0.8;
+            aspect_preference: VERTICAL;
+            rel1.offset: 3 3;
+            rel1.relative: 0.0 0.5;
+            rel2.offset: 3 -3;
+            rel2.relative: 0.0 1.0;
+            align: 0.0 0.0;
+         }
+      }
+      part { name: "elm.swallow.content";
+         description { state: "default" 0.0;
+            fixed: 1 0;
+            align: 0.0 0.5;
+            rel1 {
+               to_x: "arrow_up";
+               relative: 1.0 0.0;
+               offset: 6 5;
+            }
+            rel2 {
+               to_x: "arrow_up";
+               relative: 1.0 1.0;
+               offset: 6 -8;
+            }
+         }
+         description { state: "visible" 0.0;
+            inherit: "default" 0.0;
+            fixed: 1 0;
+            aspect: 1.0 1.0;
+            visible: 1;
+         }
+         description { state: "icononly" 0.0;
+            inherit: "default" 0.0;
+            fixed: 0 0;
+            align: 0.5 0.5;
+            rel2.relative: 1.0 1.0;
+            rel2.offset: -7 -8;
+            visible: 1;
+         }
+      }
+   }
+}
+
+group { name: "elm/button/base/hoversel_vertical_entry/default";
+   inherit: "elm/button/base/default";
+   alias: "elm/button/base/hoversel_vertical_entry/entry";
+   alias: "elm/button/base/hoversel_horizontal_entry/default";
+   alias: "elm/button/base/hoversel_horizontal_entry/entry";
+   parts {
+      part { name: "base";
+         description { state: "default" 0.0;
+            color: 255 255 255 0;
+            image.normal: "button_clicked.png";
+            image.border: 5 5 4 6;
+            fill.smooth: 0;
+         }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+         }
+      }
+   }
+}

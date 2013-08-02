@@ -60,11 +60,11 @@ collections {
 //#include "edc/elm/popup.edc"
 //#include "edc/elm/border.edc"
 //#include "edc/elm/spinner.edc"
-//#include "edc/elm/menu.edc"
+#include "edc/elm/menu.edc"
 // XXX: arrows overlap! bad. arrows should be dimmer until clicked.
 #include "edc/elm/clock.edc"
 //#include "edc/elm/gengrid.edc"
-//#include "edc/elm/hover.edc"
+#include "edc/elm/hover.edc"
 //#include "edc/elm/hoversel.edc"
 
 // desktop in general
