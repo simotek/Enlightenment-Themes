@@ -51,7 +51,7 @@ collections {
 //#include "edc/elm/map.edc"
 // XXX: fix gfx for index - should use dark semi-trans rounded bubble box
 #include "edc/elm/index.edc"
-//#include "edc/elm/calendar.edc"
+#include "edc/elm/calendar.edc"
 // XXX: review layouts
 #include "edc/elm/layout.edc"
 //#include "edc/elm/progress.edc"
