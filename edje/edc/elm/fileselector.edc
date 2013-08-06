@@ -12,7 +12,7 @@ group { name: "elm/entry/path/separator/default";
 }
 
 group { name: "elm/fileselector/base/default";
-   data.item: "path_separator" "<item relsize=16x16 vsize=full href=path/separator></item>";
+   data.item: "path_separator" "<item relsize=15x15 vsize=full href=path/separator></item>";
    parts {
       part { name: "elm.swallow.up"; type: SWALLOW;
          description { state: "default" 0.0;
