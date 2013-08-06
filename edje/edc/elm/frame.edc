@@ -171,14 +171,14 @@ group { name: "elm/frame/base/pad_small";
       part { name: "b0"; type: SPACER;
          scale: 1;
          description { state: "default" 0.0;
-            min: 4 4; max: 4 4;
+            min: 3 3; max: 3 3;
             align: 0.0 0.0;
          }
       }
       part { name: "b1"; type: SPACER;
          scale: 1;
          description { state: "default" 0.0;
-            min: 4 4; max: 4 4;
+            min: 3 3; max: 3 3;
             align: 1.0 1.0;
          }
       }
@@ -198,12 +198,12 @@ group { name: "elm/frame/base/pad_medium";
    parts {
       part { name: "b0";
          description { state: "default" 0.0;
-            min: 8 8; max: 8 8;
+            min: 6 6; max: 6 6;
          }
       }
       part { name: "b1";
          description { state: "default" 0.0;
-            min: 8 8; max: 8 8;
+            min: 6 6; max: 6 6;
          }
       }
    }
@@ -214,12 +214,12 @@ group { name: "elm/frame/base/pad_large";
    parts {
       part { name: "b0";
          description { state: "default" 0.0;
-            min: 16 16; max: 16 16;
+            min: 12 12; max: 12 12;
          }
       }
       part { name: "b1";
          description { state: "default" 0.0;
-            min: 16 16; max: 16 16;
+            min: 12 12; max: 12 12;
          }
       }
    }
@@ -230,12 +230,12 @@ group { name: "elm/frame/base/pad_huge";
    parts {
       part { name: "b0";
          description { state: "default" 0.0;
-            min: 32 32; max: 32 32;
+            min: 24 24; max: 24 24;
          }
       }
       part { name: "b1";
          description { state: "default" 0.0;
-            min: 32 32; max: 32 32;
+            min: 24 24; max: 24 24;
          }
       }
    }
