@@ -30,7 +30,6 @@ collections {
 #include "edc/elm/player.edc"
 #include "edc/elm/thumb.edc"
 #include "edc/elm/pointer.edc"
-// XXX: arrows in filesel entry for dir > dir2 > dir3 look so wrong! also busy widget seems to overflow area
 #include "edc/elm/fileselector.edc"
 #include "edc/elm/win.edc"
 #include "edc/elm/inwin.edc"
