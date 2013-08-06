@@ -49,7 +49,6 @@ collections {
 //#include "edc/elm/flipsel.edc"
 //#include "edc/elm/notification.edc"
 //#include "edc/elm/map.edc"
-// XXX: fix gfx for index - should use dark semi-trans rounded bubble box
 #include "edc/elm/index.edc"
 #include "edc/elm/calendar.edc"
 // XXX: review layouts
