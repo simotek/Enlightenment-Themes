@@ -71,7 +71,6 @@ collections {
 //#include "edc/elm/spinner.edc"
 // XXX: main menu totally doesn't work. menus are way too big per item (compare to e17 when finger size is 10)
 #include "edc/elm/menu.edc"
-// XXX: arrows overlap! bad. arrows should be dimmer until clicked.
 #include "edc/elm/clock.edc"
 //#include "edc/elm/gengrid.edc"
 // XXX: hover 2 needs some serious work! :)
