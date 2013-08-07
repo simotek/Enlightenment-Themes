@@ -8,7 +8,7 @@ group { name: "elm/win/inwin/default";
             color: 0 0 0 0;
          }
          description { state: "visible" 0.0;
-            inherit: "default" 1.0;
+            inherit: "default" 0.0;
             color: 150 150 150 64;
          }
       }

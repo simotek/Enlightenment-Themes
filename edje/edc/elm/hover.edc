@@ -160,7 +160,7 @@ group { name: "elm/hover/base/popout";
             color: 0 0 0 0;
          }
          description { state: "visible" 0.0;
-            inherit: "default" 1.0;
+            inherit: "default" 0.0;
             color: 0 0 0 64;
          }
       }
@@ -465,7 +465,7 @@ group { name: "elm/hover/base/menu";
             color: 0 0 0 0;
          }
          description { state: "visible" 0.0;
-            inherit: "default" 1.0;
+            inherit: "default" 0.0;
             color: 0 0 0 64;
          }
       }
@@ -898,7 +898,7 @@ group { name: "elm/hover/base/hoversel_vertical/default";
             color: 0 0 0 0;
          }
          description { state: "visible" 0.0;
-            inherit: "default" 1.0;
+            inherit: "default" 0.0;
             color: 0 0 0 64;
          }
       }
@@ -1099,7 +1099,7 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
             color: 0 0 0 0;
          }
          description { state: "visible" 0.0;
-            inherit: "default" 1.0;
+            inherit: "default" 0.0;
             color: 0 0 0 64;
          }
       }
