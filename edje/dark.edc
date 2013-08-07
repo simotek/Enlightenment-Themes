@@ -62,6 +62,7 @@ collections {
 // XXX: arrows overlap! bad. arrows should be dimmer until clicked.
 #include "edc/elm/clock.edc"
 //#include "edc/elm/gengrid.edc"
+// XXX: hover 2 needs some serious work! :)
 #include "edc/elm/hover.edc"
 //#include "edc/elm/hoversel.edc"
 
