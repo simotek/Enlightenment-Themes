@@ -15,14 +15,14 @@
          description { state: "default" 0.0;\
             fixed: 1 1;\
             rel1 { to: #_relative;\
-               offset: 2 2;\
+               offset: 0 0;\
             }\
             rel2 { to: #_relative;\
-               offset: -3 -3;\
+               offset: 0 -1;\
             }\
             align: 0.0 0.5;\
-            min: 24 24;\
-            max: 24 24;\
+            min: 15 15;\
+            max: 15 15;\
             color: 0 0 0 0;\
          }\
       }\
@@ -54,14 +54,14 @@
          description { state: "default" 0.0;\
             fixed: 1 1;\
             rel1 { to: #_relative;\
-               offset: -27 2;\
+               offset: -1 0;\
             }\
             rel2 { to: #_relative;\
-               offset: -3 -3;\
+               offset: -1 -1;\
             }\
             align: 1.0 0.5;\
-            min: 24 24;\
-            max: 24 24;\
+            min: 15 15;\
+            max: 15 15;\
             color: 0 0 0 0;\
          }\
       }\
@@ -100,7 +100,7 @@
             }\
             color: FN_COL_DEFAULT;\
             text { font: FNBD; size: 10;\
-               min: 1 1;\
+               min: 0 1;\
             }\
          }\
       }\
@@ -179,11 +179,11 @@
    part { name: "ch_"#_pos".base"; type: SPACER; \
       description { state: "default" 0.0; \
          rel1 { \
-            relative: (_pos % 7 / 7) 0; \
+            relative: (_pos % 7 / 7) 0.0; \
             to: "header"; \
          } \
          rel2 { \
-            relative: (_pos % 7 / 7 + 1 / 7) 1; \
+            relative: (_pos % 7 / 7 + 1 / 7) 1.0; \
             to: "header"; \
          } \
       } \
@@ -429,20 +429,18 @@ group { name: "elm/calendar/base/default";
    parts {
       part { name: "bg"; type: SPACER;
          description { state: "default" 0.0;
-            min: 0 24;
             rel1.offset: 1 1;
             rel2.offset: -2 -2;
-            align: 0.0 0.5;
          }
       }
       part { name: "spinner-base1"; type: SPACER;
          description { state: "default" 0.0;
-            min: 24 24;
-            max: 999999 24;
+            min: 24 16;
+            max: 999999 16;
             rel1.to: "bg";
-            rel1.offset: 6 6;
             rel2.to: "bg";
-            rel2.offset: -7 -7;
+            rel2.relative: 1.0 (1/8);
+            align: 0.5 0.0;
          }
       }
       part { name: "table-base"; type: SPACER;
@@ -450,21 +448,24 @@ group { name: "elm/calendar/base/default";
             min: 70 60;
             rel1.to_x: "bg";
             rel1.to_y: "spinner-base1";
-            rel1.offset: 6 6;
+            rel1.offset: 3 0;
             rel1.relative: 0.0 1.0;
             rel2.to: "bg";
-            rel2.offset: -7 -7;
+            rel2.offset: -4 -4;
          }
       }
       part { name: "header"; type: SPACER;
          description { state: "default" 0.0;
             rel1.to: "table-base";
             rel2.to: "table-base";
-            rel2.relative: 1.0 0.1;
+            rel2.relative: 1.0 (1/7);
+            align: 0.5 0.0;
+            min: 0 16;
          }
       }
       part { name: "header_separator"; mouse_events:  0;
          description { state: "default" 0.0;
+            fixed: 1 1;
             rel1.to: "header";
             rel1.relative: 0.0 1.0;
             rel1.offset: 0 -2;
@@ -498,9 +499,7 @@ group { name: "elm/calendar/base/default";
 group { name: "elm/calendar/base/double_spinners";
    inherit: "elm/calendar/base/default";
    parts {
-      part { name: "spinner-base1";
-         type: RECT;
-         mouse_events: 0;
+      part { name: "spinner-base1"; type: SPACER;
          description { state: "default" 0.0;
             min: 24 24;
             max: 999999 24;
@@ -509,13 +508,10 @@ group { name: "elm/calendar/base/double_spinners";
             rel2.to: "bg";
             rel2.relative: 0.5 1.0;
             rel2.offset: -7 -7;
-            color: 255 255 255 0;
             align: 0.0 0.0;
          }
       }
-      part { name: "spinner-base2";
-         type: RECT;
-         mouse_events: 0;
+      part { name: "spinner-base2"; type: SPACER;
          description { state: "default" 0.0;
             min: 24 24;
             max: 999999 24;
@@ -525,7 +521,6 @@ group { name: "elm/calendar/base/double_spinners";
             rel1.offset: 6 6;
             rel2.to: "bg";
             rel2.offset: -7 -7;
-            color: 255 255 255 0;
             align: 0.0 0.0;
          }
       }
