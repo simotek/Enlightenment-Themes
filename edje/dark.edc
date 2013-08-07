@@ -38,32 +38,45 @@ collections {
 #include "edc/elm/diskselector.edc"
 // XXX: fix gfx for ctxpopup - use bubble look?
 #include "edc/elm/ctxpopup.edc"
+// needs design work
 //#include "edc/elm/multibuttonentry.edc"
 #include "edc/elm/dayselector.edc"
 #include "edc/elm/actionslider.edc"
+// this shwould be easy - scroller and the standard busy gfx already done with the blue + knob spinner
 //#include "edc/elm/photocam.edc"
 #include "edc/elm/tooltip.edc"
 #include "edc/elm/colorsel.edc"
 #include "edc/elm/segment_control.edc"
+// needs design work   
 //#include "edc/elm/flipsel.edc"
+// needs design work probably should use semi-trans dar rounded box with shadow that e17 uses for notifications
 //#include "edc/elm/notification.edc"
+// needs some design work for markers (but busy etc. are done already)
 //#include "edc/elm/map.edc"
 #include "edc/elm/index.edc"
 #include "edc/elm/calendar.edc"
 // XXX: review layouts
 #include "edc/elm/layout.edc"
+// needs design work
 //#include "edc/elm/progress.edc"
+// i think needs some design work
 //#include "edc/elm/naviframe.edc"
+// needs design work
 //#include "edc/elm/panel.edc"
+// needs design work, but edc needs to also scale up and down but not be so fat when scale is down/finger size smaller
 //#include "edc/elm/popup.edc"
+// border - this just has to take the e17 borders as-is, combine with comp swallow for shadow+focus and presto!
 //#include "edc/elm/border.edc"
+// need to do artwork/design
 //#include "edc/elm/spinner.edc"
+// XXX: main menu totally doesn't work. menus are way too big per item (compare to e17 when finger size is 10)
 #include "edc/elm/menu.edc"
 // XXX: arrows overlap! bad. arrows should be dimmer until clicked.
 #include "edc/elm/clock.edc"
 //#include "edc/elm/gengrid.edc"
 // XXX: hover 2 needs some serious work! :)
 #include "edc/elm/hover.edc"
+// needs design work
 //#include "edc/elm/hoversel.edc"
 
 // desktop in general
