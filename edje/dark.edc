@@ -48,7 +48,6 @@ collections {
 //#include "edc/elm/flipsel.edc"
 //#include "edc/elm/notification.edc"
 //#include "edc/elm/map.edc"
-// XXX: too much spacing even at small finger sizes (should pack down to e's compact cal size), month/year font too big (use standard 10 - maybe bold), and use diagonal stripes like efm inside selected day?
 #include "edc/elm/index.edc"
 #include "edc/elm/calendar.edc"
 // XXX: review layouts
