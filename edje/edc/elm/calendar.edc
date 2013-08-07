@@ -13,6 +13,7 @@
       part { name: "left_bt"#_sufix;\
          type: RECT;\
          mouse_events:  1;\
+         scale: 1;\
          description { state: "default" 0.0;\
             rel1 { to: #_relative;\
                offset: 2 2;\
@@ -30,6 +31,7 @@
       part { name: "left_bt"#_sufix"_over";\
          mouse_events: 1;\
          repeat_events: 1;\
+         scale: 1;\
          description { state: "default" 0.0;\
             min: 15 15;\
             max: 15 15;\
@@ -54,6 +56,7 @@
       part { name: "right_bt"#_sufix;\
          type: RECT;\
          mouse_events:  1;\
+         scale: 1;\
          description { state: "default" 0.0;\
             rel1 { to: #_relative;\
                offset: -27 2;\
@@ -71,6 +74,7 @@
       part { name: "right_bt"#_sufix"_over";\
          mouse_events: 1;\
          repeat_events: 1;\
+         scale: 1;\
          description { state: "default" 0.0;\
             min: 15 15;\
             max: 15 15;\
@@ -96,23 +100,20 @@
          type: TEXT;\
          mouse_events: 0;\
          scale: 1;\
+         effect: SHADOW BOTTOM; \
          description { state: "default" 0.0;\
-            align: 0 0.5;\
             fixed: 1 1;\
+            align: 0.5 0.5;\
             rel1 { relative: 1.0 0.0;\
-               offset: 3 2;\
                to: "left_bt"#_sufix;\
-               to_y: #_relative;\
             }\
             rel2 { relative: 0.0 1.0;\
-               offset: -3 -2;\
-               to_x: "right_bt"#_sufix;\
-               to_y: #_relative;\
+               to: "right_bt"#_sufix;\
             }\
             color: FN_COL_DEFAULT;\
             text {\
-               font: FN;\
-               size: 12;\
+               font: "Sans:style=Bold";\
+               size: 11;\
                min: 1 1;\
                align: 0.5 0.5;\
             }\
@@ -475,7 +476,7 @@ group { name: "elm/calendar/base/default";
          type: RECT;
          mouse_events: 0;
          description { state: "default" 0.0;
-            min: 256 220;
+            min: 128 110;
             rel1.to_x: "bg";
             rel1.to_y: "spinner-base1";
             rel1.offset: 6 6;
