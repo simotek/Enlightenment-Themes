@@ -58,7 +58,7 @@ collections {
 // XXX: review layouts
 #include "edc/elm/layout.edc"
 // needs design work
-//#include "edc/elm/progress.edc"
+#include "edc/elm/progress.edc"
 // i think needs some design work
 //#include "edc/elm/naviframe.edc"
 // needs design work
