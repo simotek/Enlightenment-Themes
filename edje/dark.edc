@@ -57,7 +57,6 @@ collections {
 #include "edc/elm/calendar.edc"
 // XXX: review layouts
 #include "edc/elm/layout.edc"
-// needs design work
 #include "edc/elm/progress.edc"
 // i think needs some design work
 //#include "edc/elm/naviframe.edc"
