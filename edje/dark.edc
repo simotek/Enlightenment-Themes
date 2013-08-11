@@ -74,7 +74,7 @@ collections {
 //#include "edc/elm/gengrid.edc"
 // XXX: hover 2 needs some serious work! :)
 #include "edc/elm/hover.edc"
-// needs design work
+// XXX: needs design work !!!! hoversel not looking too good.!!!! arrows too small, hoversel popup too big.
 //#include "edc/elm/hoversel.edc"
 
 // desktop in general
