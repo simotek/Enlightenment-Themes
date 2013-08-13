@@ -72,10 +72,7 @@ collections {
 #include "edc/elm/menu.edc"
 #include "edc/elm/clock.edc"
 //#include "edc/elm/gengrid.edc"
-// XXX: hover 2 needs some serious work! :)
 #include "edc/elm/hover.edc"
-// XXX: needs design work !!!! hoversel not looking too good.!!!! arrows too small, hoversel popup too big.
-//#include "edc/elm/hoversel.edc"
 
 // desktop in general
 #include "edc/comp.edc"
