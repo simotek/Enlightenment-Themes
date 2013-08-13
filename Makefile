@@ -18,7 +18,7 @@ clean:
 	rm -f $(BUILDDIR)/dark.edj
 
 
-dark.edj: $(EDCS) $(IMAGES) Makefile
+$(BUILDDIR)/dark.edj: $(EDCS) $(IMAGES) Makefile
 	$(EDJE_CC) -id $(SRCDIR)/img/ \
                 -sd $(SRCDIR)/snd/ \
 		$(SRCDIR)/dark.edc \
