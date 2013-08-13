@@ -68,9 +68,9 @@ collections {
 //#include "edc/elm/border.edc"
 // need to do artwork/design
 //#include "edc/elm/spinner.edc"
-// XXX: main menu totally doesn't work. menus are way too big per item (compare to e17 when finger size is 10)
 #include "edc/elm/menu.edc"
 #include "edc/elm/clock.edc"
+// XXX: make it same as genlist, EXCEPT for grid items use a bevel out box, not horiz curved bevel. that's it.
 //#include "edc/elm/gengrid.edc"
 #include "edc/elm/hover.edc"
 
