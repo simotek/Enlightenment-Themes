@@ -11,6 +11,7 @@ group { name: "elm/spinner/base/default";
          effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
+            fixed: 1 0;
             color: FN_COL_DEFAULT;
             color_class: "spinner";
             rel1.to_y: "inset";
@@ -22,8 +23,7 @@ group { name: "elm/spinner/base/default";
             rel2.relative: 0.0 1.0;
             rel2.offset: -2 -2;
             text { font: FN; size: 10;
-               align: 0.5 0.5;
-               min: 1 1;
+               min: 0 1;
                text_class: "spinner";
             }
          }
@@ -41,6 +41,7 @@ group { name: "elm/spinner/base/default";
          dragable.x: 1 1 0;
          dragable.y: 0 0 0;
          description { state: "default" 0.0;
+            fixed: 1 0;
             rel1.to: "inset";
             rel2.to: "inset";
             color: 0 0 0 0;
@@ -48,6 +49,7 @@ group { name: "elm/spinner/base/default";
       }
       part { name: "elm.swallow.entry"; type: SWALLOW;
          description { state: "default" 0.0;
+            fixed: 1 0;
             rel1.to: "elm.text";
             rel2.to: "elm.text";
             visible: 0;
