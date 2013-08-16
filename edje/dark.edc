@@ -66,8 +66,7 @@ collections {
 //#include "edc/elm/popup.edc"
 // border - this just has to take the e17 borders as-is, combine with comp swallow for shadow+focus and presto!
 //#include "edc/elm/border.edc"
-// need to do artwork/design
-//#include "edc/elm/spinner.edc"
+#include "edc/elm/spinner.edc"
 #include "edc/elm/menu.edc"
 #include "edc/elm/clock.edc"
 // XXX: make it same as genlist, EXCEPT for grid items use a bevel out box, not horiz curved bevel. that's it.
