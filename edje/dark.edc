@@ -49,8 +49,7 @@ collections {
 #include "edc/elm/segment_control.edc"
 // needs design work   
 //#include "edc/elm/flipsel.edc"
-// needs design work probably should use semi-trans dar rounded box with shadow that e17 uses for notifications
-//#include "edc/elm/notification.edc"
+#include "edc/elm/notify.edc"
 // needs some design work for markers (but busy etc. are done already)
 //#include "edc/elm/map.edc"
 #include "edc/elm/index.edc"
