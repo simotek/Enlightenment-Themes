@@ -64,7 +64,7 @@ collections {
 // needs design work, but edc needs to also scale up and down but not be so fat when scale is down/finger size smaller
 //#include "edc/elm/popup.edc"
 // border - this just has to take the e17 borders as-is, combine with comp swallow for shadow+focus and presto!
-//#include "edc/elm/border.edc"
+#include "edc/elm/border.edc"
 #include "edc/elm/spinner.edc"
 #include "edc/elm/menu.edc"
 #include "edc/elm/clock.edc"
