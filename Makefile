@@ -12,7 +12,7 @@ IMAGES := $(wildcard $(SRCDIR)/img/*.png)
 
 .PHONY: all clean install install-system install-home
 
-all: dark.edj
+all: $(BUILDDIR)/dark.edj
 
 clean:
 	rm -f $(BUILDDIR)/dark.edj
@@ -21,6 +21,7 @@ clean:
 $(BUILDDIR)/dark.edj: $(EDCS) $(IMAGES) Makefile
 	$(EDJE_CC) -id $(SRCDIR)/img/ \
                 -sd $(SRCDIR)/snd/ \
+		-fd $(SRCDIR)/fnt/ \
 		$(SRCDIR)/dark.edc \
 		$(BUILDDIR)/dark.edj
 
