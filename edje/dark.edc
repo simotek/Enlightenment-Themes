@@ -48,7 +48,7 @@ collections {
 #include "edc/elm/colorsel.edc"
 #include "edc/elm/segment_control.edc"
 // needs design work   
-//#include "edc/elm/flipsel.edc"
+#include "edc/elm/flipselector.edc"
 #include "edc/elm/notify.edc"
 // needs some design work for markers (but busy etc. are done already)
 //#include "edc/elm/map.edc"
