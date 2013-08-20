@@ -526,3 +526,44 @@ group { name: "elm/flipselector/base/default";
       }
    }
 }
+
+group { name: "elm/flipselector/base/noarrow";
+   inherit: "elm/flipselector/base/default";
+   parts {
+      part { name: "arrow_top";
+         mouse_events: 0;
+         clip_to: "disclip";
+         scale: 1;
+         description { state: "default" 0.0;
+            min: 15 15;
+            max: 15 15;
+            align: 0.5 0.0;
+            rel1.to: "top";
+            rel2.to: "top";
+            image.normal: "sym_up_light_normal.png";
+            visible: 0;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+         }
+      }
+      part { name: "arrow_bottom";
+         mouse_events: 0;
+         clip_to: "disclip";
+         scale: 1;
+         description { state: "default" 0.0;
+            min: 15 15;
+            max: 15 15;
+            align: 0.5 1.0;
+            rel1.to: "bottom";
+            rel2.to: "bottom";
+            image.normal: "sym_down_light_normal.png";
+            visible: 0;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+         }
+      }
+   }
+}
+
