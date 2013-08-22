@@ -892,7 +892,7 @@ group { name: "elm/border/base/default";
             rel1.to: "frame";
             rel2.to_y: "title2";
             rel2.to_x: "frame";
-            rel2.offset: -8 -4;
+            rel2.offset: -1 -4;
             fill.smooth: 0;
             TILED_HORIZ(120)
          }
@@ -1212,6 +1212,7 @@ group { name: "elm/border/base/default";
       }
       part { name: "e.event.resize.tl"; type: RECT;
          description { state: "default" 0.0;
+            fixed: 1 1;
             rel1.to: "top";
             rel2.relative: 0.0 0.0;
             rel2.to: "top";
@@ -1222,6 +1223,7 @@ group { name: "elm/border/base/default";
       }
       part { name: "e.event.resize.t"; type: RECT;
          description { state: "default" 0.0;
+            fixed: 1 1;
             rel1.relative: 1.0 0.0;
             rel1.to_y: "top";
             rel1.to_x: "e.event.resize.tl";
@@ -1235,6 +1237,7 @@ group { name: "elm/border/base/default";
       }
       part { name: "e.event.resize.tr"; type: RECT;
          description { state: "default" 0.0;
+            fixed: 1 1;
             rel1.relative: 1.0 0.0;
             rel1.to: "top";
             rel2.relative: 1.0 0.0;
@@ -1288,6 +1291,7 @@ group { name: "elm/border/base/default";
       }
       part { name: "e.event.resize.bl"; type: RECT;
          description { state: "default" 0.0;
+            fixed: 1 1;
             rel1.relative: 0.0 1.0;
             rel1.to: "bottom";
             rel2.relative: 0.0 1.0;
@@ -1310,6 +1314,7 @@ group { name: "elm/border/base/default";
       }
       part { name: "e.event.resize.b"; type: RECT;
          description { state: "default" 0.0;
+            fixed: 1 1;
             rel1.relative: 1.0 1.0;
             rel1.to_x: "e.event.resize.tl";
             rel1.to_y: "bottom";
@@ -1334,6 +1339,7 @@ group { name: "elm/border/base/default";
       }
       part { name: "e.event.resize.br"; type: RECT;
          description { state: "default" 0.0;
+            fixed: 1 1;
             rel1.relative: 1.0 1.0;
             rel1.to: "bottom";
             rel2.relative: 1.0 1.0;
