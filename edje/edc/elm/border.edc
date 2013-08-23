@@ -797,9 +797,6 @@ group { name: "elm/border/base/default";
    images.image: "glow_round_corners_small.png" COMP;
    images.image: "knob_round_small_busy.png" COMP;
 
-   // FIXME: dont use framespace! use the client swallow and track it!
-   data.item: "framespace" "7 28 14 45";
-
    // XXX: trhis is UNTESTED!!! need wl to test!
    parts {
       part { name: "focus_clip"; type: RECT;
