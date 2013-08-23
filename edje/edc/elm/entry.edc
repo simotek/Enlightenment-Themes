@@ -733,7 +733,7 @@ group { name: "elm/entry/base-single/default";
             rel2.to: "elm.text";
             text { style: "entry_single_guide_style";
                min: 0 1;
-               align: 0.0 0.0;
+               align: 0.0 0.5;
             }
          }
          description { state: "hidden" 0.0;
@@ -889,7 +889,7 @@ group { name: "elm/entry/base-password/default";
             rel2.to: "elm.text";
             text { style: "entry_single_guide_style";
                min: 0 1;
-               align: 0.0 0.0;
+               align: 0.0 0.5;
             }
          }
          description { state: "hidden" 0.0;
