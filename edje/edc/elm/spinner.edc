@@ -68,6 +68,7 @@ group { name: "elm/spinner/base/default";
          }
       }
       part { name: "arrow1"; mouse_events: 0;
+         scale: 1;
          description { state: "default" 0.0;
             rel1.to: "left";
             rel2.to: "left";
@@ -84,6 +85,7 @@ group { name: "elm/spinner/base/default";
          }
       }
       part { name: "arrow2"; mouse_events: 0;
+         scale: 1;
          description { state: "default" 0.0;
             rel1.to: "right";
             rel2.to: "right";
