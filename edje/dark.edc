@@ -38,8 +38,7 @@ collections {
 #include "edc/elm/diskselector.edc"
 // XXX: fix gfx for ctxpopup - use bubble look?
 #include "edc/elm/ctxpopup.edc"
-// needs design work
-//#include "edc/elm/multibuttonentry.edc"
+#include "edc/elm/multibuttonentry.edc"
 #include "edc/elm/dayselector.edc"
 #include "edc/elm/actionslider.edc"
 // this shwould be easy - scroller and the standard busy gfx already done with the blue + knob spinner
