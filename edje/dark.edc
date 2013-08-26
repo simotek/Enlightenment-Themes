@@ -41,8 +41,7 @@ collections {
 #include "edc/elm/multibuttonentry.edc"
 #include "edc/elm/dayselector.edc"
 #include "edc/elm/actionslider.edc"
-// this shwould be easy - scroller and the standard busy gfx already done with the blue + knob spinner
-//#include "edc/elm/photocam.edc" // Started by Daniel Juyung Seo (SeoZ)
+#include "edc/elm/photocam.edc"
 #include "edc/elm/tooltip.edc"
 #include "edc/elm/colorsel.edc"
 #include "edc/elm/segment_control.edc"
