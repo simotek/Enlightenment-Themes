@@ -1568,6 +1568,10 @@ group { name: "elm/border/base/default";
          action: SIGNAL_EMIT "elm,action,move,start" "elm";
       }
       program {
+         signal: "mouse,up,1"; source: "e.event.titlebar";
+         action: SIGNAL_EMIT "elm,action,move,stop" "elm";
+      }
+      program {
          signal: "mouse,clicked,1"; source: "e.event.minimize";
          action: SIGNAL_EMIT "elm,action,minimize" "elm";
       }
