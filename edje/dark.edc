@@ -49,7 +49,6 @@ collections {
 // needs design work   
 #include "edc/elm/flipselector.edc"
 #include "edc/elm/notify.edc"
-// needs some design work for markers (but busy etc. are done already)
 #include "edc/elm/map.edc"
 #include "edc/elm/index.edc"
 #include "edc/elm/calendar.edc"
