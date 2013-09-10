@@ -8,7 +8,7 @@ collections {
 #include "edc/elm/bg.edc"
 #include "edc/elm/button.edc"
 #include "edc/elm/scroller.edc"
-// XXX: need to do magnifier etc...
+// XXX: (entry) need to do magnifier etc...
 #include "edc/elm/entry.edc"
 #include "edc/elm/frame.edc"
 #include "edc/elm/label.edc"
@@ -35,9 +35,9 @@ collections {
 #include "edc/elm/win.edc"
 #include "edc/elm/inwin.edc"
 #include "edc/elm/slideshow.edc"
-// XXX: fix gfx for diskselector - unknown
+// XXX: fix gfx (diskselector)
 #include "edc/elm/diskselector.edc"
-// XXX: fix gfx for ctxpopup - use bubble look?
+// XXX: fix gfx (ctxpopup) - use bubble look used for tooltips, bubble etc.
 #include "edc/elm/ctxpopup.edc"
 #include "edc/elm/multibuttonentry.edc"
 #include "edc/elm/dayselector.edc"
@@ -46,25 +46,25 @@ collections {
 #include "edc/elm/tooltip.edc"
 #include "edc/elm/colorsel.edc"
 #include "edc/elm/segment_control.edc"
-// needs design work   
+// XXX: needs design work (flipselector)
 #include "edc/elm/flipselector.edc"
 #include "edc/elm/notify.edc"
 #include "edc/elm/map.edc"
 #include "edc/elm/index.edc"
 #include "edc/elm/calendar.edc"
-// XXX: review layouts
+// XXX: review (layout)
 #include "edc/elm/layout.edc"
 #include "edc/elm/progress.edc"
-// i think needs some design work
+// XXX: needs design work (naviframe)
 //#include "edc/elm/naviframe.edc"
 #include "edc/elm/panel.edc"
-// needs design work, but edc needs to also scale up and down but not be so fat when scale is down/finger size smaller
+// XXX: needs design work (popup), but edc needs to also scale up and down but not be so fat when scale is down/finger size smaller
 //#include "edc/elm/popup.edc"
 #include "edc/elm/border.edc"
 #include "edc/elm/spinner.edc"
 #include "edc/elm/menu.edc"
 #include "edc/elm/clock.edc"
-// XXX: make it same as genlist, EXCEPT for grid items use a bevel out box, not horiz curved bevel. that's it.
+// XXX: make it same as genlist (gengrid), EXCEPT for grid items use a bevel out box, not horiz curved bevel. that's it.
 //#include "edc/elm/gengrid.edc"
 #include "edc/elm/hover.edc"
 
