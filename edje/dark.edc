@@ -54,6 +54,7 @@ collections {
 #include "edc/elm/calendar.edc"
 // XXX: review (layout)
 #include "edc/elm/layout.edc"
+// XXX: support multi progress (progressbar)
 #include "edc/elm/progress.edc"
 // XXX: needs design work (naviframe)
 //#include "edc/elm/naviframe.edc"
