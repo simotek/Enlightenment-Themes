@@ -48,7 +48,7 @@ group { name: "elm/panel/left/default";
       part { name: "base"; type: RECT;
          description { state: "default" 0.0;
             rel1.to_x: "all";
-            rel2.to_x: "elm.swallow.handle";
+            rel2.to_x: "elm.swallow.event";
             rel2.relative: 0.0 1.0;
             rel2.offset: -4 -1;
             color: 64 64 64 255;
@@ -83,7 +83,7 @@ group { name: "elm/panel/left/default";
             FIXED_SIZE(69, 5)
          }
       }
-      part { name: "elm.swallow.handle"; type: SWALLOW;
+      part { name: "elm.swallow.event"; type: SWALLOW;
          description { state: "default" 0.0;
             fixed: 1 1;
             min: 20 20;
@@ -102,8 +102,8 @@ group { name: "elm/panel/left/default";
       }
       part { name: "btn"; type: RECT;
          description { state: "default" 0.0;
-            rel1.to: "elm.swallow.handle";
-            rel2.to: "elm.swallow.handle";
+            rel1.to: "elm.swallow.event";
+            rel2.to: "elm.swallow.event";
             color: 0 0 0 0;
          }
       }
@@ -141,7 +141,7 @@ group { name: "elm/panel/left/default";
          signal: "elm,action,show"; source: "elm";
          action: STATE_SET "default" 0.0;
          transition: DECELERATE 0.3;
-         target: "elm.swallow.handle";
+         target: "elm.swallow.event";
          target: "base";
          target: "icn";
       }
@@ -149,7 +149,7 @@ group { name: "elm/panel/left/default";
          signal: "elm,action,hide"; source: "elm";
          action: STATE_SET "hidden" 0.0;
          transition: ACCELERATE 0.3;
-         target: "elm.swallow.handle";
+         target: "elm.swallow.event";
          target: "icn";
       }
       program { name: "hide1";
@@ -159,7 +159,7 @@ group { name: "elm/panel/left/default";
             
             custom_state(PART:"base", "default", 0.0);
             set_state_val(PART:"base", STATE_REL1, -1.0, 0.0);
-            get_geometry(PART:"elm.swallow.handle", x, y, w, h);
+            get_geometry(PART:"elm.swallow.event", x, y, w, h);
             set_state_val(PART:"base", STATE_REL1_OFFSET, w, 0);
          }
          after: "hide2";
@@ -190,14 +190,14 @@ group { name: "elm/panel/right/default";
       part { name: "base";
          description { state: "default" 0.0;
             rel1.relative: 1.0 0.0;
-            rel1.to_x: "elm.swallow.handle";
+            rel1.to_x: "elm.swallow.event";
             rel1.offset: 3 0;
             rel2.relative: 1.0 1.0;
             rel2.to_x: "all";
             rel2.offset: -1 -1;
          }
       }
-      part { name: "elm.swallow.handle";
+      part { name: "elm.swallow.event";
          description { state: "default" 0.0;
             align: 0.0 0.5;
             rel1.relative: 0.0 0.0;
@@ -231,7 +231,7 @@ group { name: "elm/panel/right/default";
             custom_state(PART:"base", "default", 0.0);
             set_state_val(PART:"base", STATE_REL1, 1.0, 0.0);
             set_state_val(PART:"base", STATE_REL2, 2.0, 1.0);
-            get_geometry(PART:"elm.swallow.handle", x, y, w, h);
+            get_geometry(PART:"elm.swallow.event", x, y, w, h);
             set_state_val(PART:"base", STATE_REL2_OFFSET, -w, 0);
          }
       }
@@ -249,11 +249,11 @@ group { name: "elm/panel/top/default";
             rel1.offset: 0 0;
             rel2.relative: 1.0 0.0;
             rel2.to_x: "all";
-            rel2.to_y: "elm.swallow.handle";
+            rel2.to_y: "elm.swallow.event";
             rel2.offset: -1 -4;
          }
       }
-      part { name: "elm.swallow.handle";
+      part { name: "elm.swallow.event";
          description { state: "default" 0.0;
             align: 0.5 1.0;
             rel1.relative: 0.0 1.0;
@@ -289,7 +289,7 @@ group { name: "elm/panel/top/default";
             custom_state(PART:"base", "default", 0.0);
             set_state_val(PART:"base", STATE_REL1, 0.0, -1.0);
             set_state_val(PART:"base", STATE_REL2, 1.0, 0.0);
-            get_geometry(PART:"elm.swallow.handle", x, y, w, h);
+            get_geometry(PART:"elm.swallow.event", x, y, w, h);
             set_state_val(PART:"base", STATE_REL1_OFFSET, 0, h);
          }
       }
@@ -303,7 +303,7 @@ group { name: "elm/panel/bottom/default";
          description { state: "default" 0.0;
             rel1.relative: 0.0 1.0;
             rel1.to_x: "all";
-            rel1.to_y: "elm.swallow.handle";
+            rel1.to_y: "elm.swallow.event";
             rel1.offset: 0 3;
             rel2.relative: 1.0 1.0;
             rel2.to_x: "all";
@@ -311,7 +311,7 @@ group { name: "elm/panel/bottom/default";
             rel2.offset: -1 -1;
          }
       }
-      part { name: "elm.swallow.handle";
+      part { name: "elm.swallow.event";
          description { state: "default" 0.0;
             align: 0.5 0.0;
             rel1.relative: 0.0 0.0;
@@ -347,7 +347,7 @@ group { name: "elm/panel/bottom/default";
             custom_state(PART:"base", "default", 0.0);
             set_state_val(PART:"base", STATE_REL1, 0.0, 1.0);
             set_state_val(PART:"base", STATE_REL2, 1.0, 2.0);
-            get_geometry(PART:"elm.swallow.handle", x, y, w, h);
+            get_geometry(PART:"elm.swallow.event", x, y, w, h);
             set_state_val(PART:"base", STATE_REL2_OFFSET, 0, -h);
          }
       }
