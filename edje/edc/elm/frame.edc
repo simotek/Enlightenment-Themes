@@ -123,13 +123,13 @@ group { name: "elm/frame/base/default";
       program { name: "collapse";
          action:  STATE_SET "collapsed" 0.0;
          target: "elm.swallow.content";
-         transition: BOUNCE 0.5 1.0 3;
+         transition: ACCELERATE 0.3;
          after: "signal";
       }
       program { name: "expand";
          action:  STATE_SET "default" 0.0;
          target: "elm.swallow.content";
-         transition: BOUNCE 0.5 1.0 3;
+         transition: DECELERATE 0.3;
          after: "signal";
       }
       program {

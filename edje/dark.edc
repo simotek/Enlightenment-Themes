@@ -57,8 +57,7 @@ collections {
 #include "edc/elm/progress.edc"
 // i think needs some design work
 //#include "edc/elm/naviframe.edc"
-// needs design work
-//#include "edc/elm/panel.edc"
+#include "edc/elm/panel.edc"
 // needs design work, but edc needs to also scale up and down but not be so fat when scale is down/finger size smaller
 //#include "edc/elm/popup.edc"
 #include "edc/elm/border.edc"
