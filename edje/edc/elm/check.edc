@@ -114,6 +114,7 @@ group { name: "elm/check/base/default";
          scale: 1;
          clip_to: "clip";
          description { state: "default" 0.0;
+            fixed: 1 1;
             rel1.to: "base";
             rel2.to: "base";
             image.normal: "sym_check_alum.png";
