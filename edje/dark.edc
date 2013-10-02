@@ -1,5 +1,7 @@
 #include "macros.edc"
 
+externals.external: "elm";
+
 collections {
 #include "colorclasses.edc"
 #include "fonts.edc"
@@ -65,8 +67,7 @@ collections {
 #include "edc/elm/spinner.edc"
 #include "edc/elm/menu.edc"
 #include "edc/elm/clock.edc"
-// XXX: make it same as genlist (gengrid), EXCEPT for grid items use a bevel out box, not horiz curved bevel. that's it.
-//#include "edc/elm/gengrid.edc"
+#include "edc/elm/gengrid.edc"
 #include "edc/elm/hover.edc"
 
 // desktop in general
