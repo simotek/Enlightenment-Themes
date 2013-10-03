@@ -33,11 +33,9 @@ group { name: "elm/scroller/base/default";
    parts {
       program {
          signal: "load"; source: "";
-         action: STATE_SET "hidden" 0.0;
-         target: "sb_hbar";
-         target: "sb_hbar_show";
-         target: "sb_vbar";
-         target: "sb_vbar_show";
+         script {
+            emit("reload", "elm");
+         }
       }
 // vert bar ////////////////////////////////////////////////////////////////
       part { name: "sb_vbar_show"; type: RECT;
