@@ -61,8 +61,7 @@ collections {
 // XXX: needs design work (naviframe)
 //#include "edc/elm/naviframe.edc"
 #include "edc/elm/panel.edc"
-// XXX: needs design work (popup), but edc needs to also scale up and down but not be so fat when scale is down/finger size smaller
-//#include "edc/elm/popup.edc"
+#include "edc/elm/popup.edc"
 #include "edc/elm/border.edc"
 #include "edc/elm/spinner.edc"
 #include "edc/elm/menu.edc"

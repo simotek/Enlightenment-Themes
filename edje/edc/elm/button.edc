@@ -234,7 +234,7 @@ group { name: "elm/button/base/default";
          signal: "mouse,clicked,1"; source: "event";
          action: SIGNAL_EMIT "elm,action,click" "";
       }
-      program { name:   "button_text_visible";
+      program { name: "button_text_visible";
          signal: "elm,state,text,visible"; source: "elm";
          script {
             new m = get_int(btmode);
@@ -242,7 +242,7 @@ group { name: "elm/button/base/default";
             eval_mode(m);
          }
       }
-      program { name:   "button_text_hidden";
+      program { name: "button_text_hidden";
          signal: "elm,state,text,hidden"; source: "elm";
          script {
             new m = get_int(btmode);
@@ -250,7 +250,7 @@ group { name: "elm/button/base/default";
             eval_mode(m);
          }
       }
-      program { name:   "button_icon_visible";
+      program { name: "button_icon_visible";
          signal: "elm,state,icon,visible"; source: "elm";
          script {
             new m = get_int(btmode);
@@ -258,7 +258,7 @@ group { name: "elm/button/base/default";
             eval_mode(m);
          }
       }
-      program { name:   "button_icon_hidden";
+      program { name: "button_icon_hidden";
          signal: "elm,state,icon,hidden"; source: "elm";
          action:  STATE_SET "default" 0.0;
          script {
@@ -267,7 +267,7 @@ group { name: "elm/button/base/default";
             eval_mode(m);
          }
       }
-      program { name:   "button_state_disabled";
+      program { name: "button_state_disabled";
          signal: "elm,state,disabled"; source: "elm";
          script {
             new m = get_int(btmode);
@@ -275,7 +275,7 @@ group { name: "elm/button/base/default";
             eval_mode(m);
          }
       }
-      program { name:   "button_state_enabled";
+      program { name: "button_state_enabled";
          signal: "elm,state,enabled"; source: "elm";
          script {
             new m = get_int(btmode);
@@ -550,7 +550,7 @@ group { name: "elm/button/base/anchor";
          action: SIGNAL_EMIT "elm,action,press" "";
          after: "button_click_anim";
       }
-      program { name:   "button_click_anim";
+      program { name: "button_click_anim";
          action: STATE_SET "clicked" 0.0;
          target: "base";
          target: "bar2";
@@ -561,7 +561,7 @@ group { name: "elm/button/base/anchor";
          action: SIGNAL_EMIT "elm,action,unpress" "";
          after: "button_unclick_anim";
       }
-      program { name:   "button_unclick_anim";
+      program { name: "button_unclick_anim";
          action: STATE_SET "default" 0.0;
          target: "base";
          target: "bar2";
@@ -575,7 +575,7 @@ group { name: "elm/button/base/anchor";
          target: "text2";
          after: "button_unpressed_anim";
       }
-      program { name:   "button_unpressed_anim";
+      program { name: "button_unpressed_anim";
          action: STATE_SET "default" 0.0;
          in: 0.5 0.0;
          target: "base";
@@ -586,7 +586,7 @@ group { name: "elm/button/base/anchor";
          signal: "mouse,clicked,1"; source: "event";
          action: SIGNAL_EMIT "elm,action,click" "";
       }
-      program {
+      program { name: "button_text_visible";
          signal: "elm,state,text,visible"; source: "elm";
          script {
             new m = get_int(btmode);
@@ -594,7 +594,7 @@ group { name: "elm/button/base/anchor";
             eval_mode(m);
          }
       }
-      program {
+      program { name: "button_text_hidden";
          signal: "elm,state,text,hidden"; source: "elm";
          script {
             new m = get_int(btmode);
@@ -602,7 +602,7 @@ group { name: "elm/button/base/anchor";
             eval_mode(m);
          }
       }
-      program {
+      program { name: "button_icon_visible";
          signal: "elm,state,icon,visible"; source: "elm";
          script {
             new m = get_int(btmode);
@@ -610,7 +610,7 @@ group { name: "elm/button/base/anchor";
             eval_mode(m);
          }
       }
-      program {
+      program { name: "button_icon_hidden";
          signal: "elm,state,icon,hidden"; source: "elm";
          action:  STATE_SET "default" 0.0;
          script {
@@ -619,7 +619,7 @@ group { name: "elm/button/base/anchor";
             eval_mode(m);
          }
       }
-      program {
+      program { name: "button_state_disabled";
          signal: "elm,state,disabled"; source: "elm";
          script {
             new m = get_int(btmode);
@@ -627,7 +627,7 @@ group { name: "elm/button/base/anchor";
             eval_mode(m);
          }
       }
-      program {
+      program { name: "button_state_enabled";
          signal: "elm,state,enabled"; source: "elm";
          script {
             new m = get_int(btmode);
