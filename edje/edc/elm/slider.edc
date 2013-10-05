@@ -462,17 +462,17 @@ group { name: "elm/slider/horizontal/default";
       }
       program {
          signal: "elm,state,indicator,show"; source: "elm";
-         action:  SIGNAL_EMIT "popup,show" "elm";
+         action:  SIGNAL_EMIT "elm,popup,show" "elm";
          after: "popup_show2";
       }
       program {
          signal: "elm,state,indicator,hide"; source: "elm";
-         action:  SIGNAL_EMIT "popup,hide" "elm";
+         action:  SIGNAL_EMIT "elm,popup,hide" "elm";
          after: "popup_hide2";
       }
       program {
          signal: "mouse,down,1"; source: "slideevent";
-         action:  SIGNAL_EMIT "popup,show" "elm";
+         action:  SIGNAL_EMIT "elm,popup,show" "elm";
          after: "popup_show2";
       }
       program { name: "popup_show2";
@@ -481,7 +481,7 @@ group { name: "elm/slider/horizontal/default";
       }
       program {
          signal: "mouse,up,1"; source: "slideevent";
-         action:  SIGNAL_EMIT "popup,hide" "elm";
+         action:  SIGNAL_EMIT "elm,popup,hide" "elm";
          after: "popup_hide2";
       }
       program { name: "popup_hide2";
@@ -689,20 +689,20 @@ group { name: "elm/slider/horizontal/indicator/default";
    }
    programs {
       program {
-         signal: "popup,show"; source: "elm";
+         signal: "elm,popup,show"; source: "elm";
          action:  STATE_SET "visible" 0.0;
          target:  "elm.indicator";
          target:  "bevel";
       }
       program {
-         signal: "popup,hide"; source: "elm";
+         signal: "elm,popup,hide"; source: "elm";
          action:  STATE_SET "default" 0.0;
          target:  "elm.indicator";
          target:  "bevel";
       }
       program {
-         signal: "popup,hide"; source: "elm";
-         action:  SIGNAL_EMIT "popup,hide,done" "elm";
+         signal: "elm,popup,hide"; source: "elm";
+         action:  SIGNAL_EMIT "elm,popup,hide,done" "elm";
       }
       program {
          signal: "elm,state,val,show"; source: "elm";
@@ -1174,17 +1174,17 @@ group { name: "elm/slider/vertical/default";
       }
       program {
          signal: "elm,state,indicator,show"; source: "elm";
-         action:  SIGNAL_EMIT "popup,show" "elm";
+         action:  SIGNAL_EMIT "elm,popup,show" "elm";
          after: "popup_show2";
       }
       program {
          signal: "elm,state,indicator,hide"; source: "elm";
-         action:  SIGNAL_EMIT "popup,hide" "elm";
+         action:  SIGNAL_EMIT "elm,popup,hide" "elm";
          after: "popup_hide2";
       }
       program {
          signal: "mouse,down,1"; source: "slideevent";
-         action:  SIGNAL_EMIT "popup,show" "elm";
+         action:  SIGNAL_EMIT "elm,popup,show" "elm";
          after: "popup_show2";
       }
       program { name: "popup_show2";
@@ -1193,7 +1193,7 @@ group { name: "elm/slider/vertical/default";
       }
       program {
          signal: "mouse,up,1"; source: "slideevent";
-         action:  SIGNAL_EMIT "popup,hide" "elm";
+         action:  SIGNAL_EMIT "elm,popup,hide" "elm";
          after: "popup_hide2";
       }
       program { name: "popup_hide2";
@@ -1401,20 +1401,20 @@ group { name: "elm/slider/vertical/indicator/default";
    }
    programs {
       program {
-         signal: "popup,show"; source: "elm";
+         signal: "elm,popup,show"; source: "elm";
          action:  STATE_SET "visible" 0.0;
          target:  "elm.indicator";
          target:  "bevel";
       }
       program {
-         signal: "popup,hide"; source: "elm";
+         signal: "elm,popup,hide"; source: "elm";
          action:  STATE_SET "default" 0.0;
          target:  "elm.indicator";
          target:  "bevel";
       }
       program {
-         signal: "popup,hide"; source: "elm";
-         action:  SIGNAL_EMIT "popup,hide,done" "elm";
+         signal: "elm,popup,hide"; source: "elm";
+         action:  SIGNAL_EMIT "elm,popup,hide,done" "elm";
       }
       program {
          signal: "elm,state,val,show"; source: "elm";

@@ -56,7 +56,7 @@ group { name: "elm/layout/application/content-back";
          program {
             signal: "clicked";
             source: "back";
-            action: SIGNAL_EMIT "elm,action,back" "";
+            action: SIGNAL_EMIT "elm,action,back" "elm";
          }
          program {
             signal: "elm,back,hide";
@@ -210,7 +210,7 @@ group { name: "elm/layout/application/content-back-next";
          program {
             signal: "clicked";
             source: "back";
-            action: SIGNAL_EMIT "elm,action,back" "";
+            action: SIGNAL_EMIT "elm,action,back" "elm";
          }
          program {
             signal: "elm,title,hide";
@@ -240,7 +240,7 @@ group { name: "elm/layout/application/content-back-next";
          program {
             signal: "clicked";
             source: "next";
-            action: SIGNAL_EMIT "elm,action,next" "";
+            action: SIGNAL_EMIT "elm,action,next" "elm";
          }
          program {
             signal: "elm,next,hide";

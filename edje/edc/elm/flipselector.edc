@@ -480,8 +480,7 @@ group { name: "elm/flipselector/base/default";
    }
    programs {
       program { name: "load";
-         signal: "load";
-         source: "";
+         signal: "load"; source: "";
          script {
             append_str(cur, "");
             append_str(prev, "");
@@ -490,8 +489,7 @@ group { name: "elm/flipselector/base/default";
          }
       }
       program { name: "hide_arrows";
-         signal: "elm,state,button,hidden";
-         source: "elm";
+         signal: "elm,state,button,hidden"; source: "elm";
          action: STATE_SET "hidden" 0.0;
          target: "arrow_top";
          target: "arrow_bottom";
@@ -499,8 +497,7 @@ group { name: "elm/flipselector/base/default";
          target: "bottom";
       }
       program { name: "show_arrows";
-         signal: "elm,state,button,visible";
-         source: "elm";
+         signal: "elm,state,button,visible"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "arrow_top";
          target: "arrow_bottom";
@@ -508,28 +505,23 @@ group { name: "elm/flipselector/base/default";
          target: "bottom";
       }
       program { name: "up";
-         signal: "mouse,down,1";
-         source: "top";
-         action: SIGNAL_EMIT "elm,action,up,start" "";
+         signal: "mouse,down,1"; source: "top";
+         action: SIGNAL_EMIT "elm,action,up,start" "elm";
       }
       program { name: "up,stop";
-         signal: "mouse,up,1";
-         source: "top";
-         action: SIGNAL_EMIT "elm,action,up,stop" "";
+         signal: "mouse,up,1"; source: "top";
+         action: SIGNAL_EMIT "elm,action,up,stop" "elm";
       }
       program { name: "down";
-         signal: "mouse,down,1";
-         source: "bottom";
-         action: SIGNAL_EMIT "elm,action,down,start" "";
+         signal: "mouse,down,1"; source: "bottom";
+         action: SIGNAL_EMIT "elm,action,down,start" "elm";
       }
       program { name: "down,stop";
-         signal: "mouse,up,1";
-         source: "bottom";
-         action: SIGNAL_EMIT "elm,action,down,stop" "";
+         signal: "mouse,up,1"; source: "bottom";
+         action: SIGNAL_EMIT "elm,action,down,stop" "elm";
       }
       program { name: "disable";
-         signal: "elm,state,disabled";
-         source: "elm";
+         signal: "elm,state,disabled"; source: "elm";
          script {
             new st[31];
             new Float:vl;
@@ -553,8 +545,7 @@ group { name: "elm/flipselector/base/default";
          }
       }
       program { name: "enable";
-         signal: "elm,state,enabled";
-         source: "elm";
+         signal: "elm,state,enabled"; source: "elm";
          script {
             new st[31];
             new Float:vl;

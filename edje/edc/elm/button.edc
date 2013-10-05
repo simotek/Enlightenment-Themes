@@ -203,7 +203,7 @@ group { name: "elm/button/base/default";
    programs {
       program {
          signal: "mouse,down,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,press" "";
+         action: SIGNAL_EMIT "elm,action,press" "elm";
          after: "button_click_anim";
       }
       program { name: "button_click_anim";
@@ -212,7 +212,7 @@ group { name: "elm/button/base/default";
       }
       program { name: "button_unclick";
          signal: "mouse,up,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,unpress" "";
+         action: SIGNAL_EMIT "elm,action,unpress" "elm";
          after: "button_unclick_anim";
       }
       program { name: "button_unclick_anim";
@@ -232,7 +232,7 @@ group { name: "elm/button/base/default";
       }
       program {
          signal: "mouse,clicked,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,click" "";
+         action: SIGNAL_EMIT "elm,action,click" "elm";
       }
       program { name: "button_text_visible";
          signal: "elm,state,text,visible"; source: "elm";
@@ -547,7 +547,7 @@ group { name: "elm/button/base/anchor";
    programs {
       program {
          signal: "mouse,down,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,press" "";
+         action: SIGNAL_EMIT "elm,action,press" "elm";
          after: "button_click_anim";
       }
       program { name: "button_click_anim";
@@ -558,7 +558,7 @@ group { name: "elm/button/base/anchor";
       }
       program {
          signal: "mouse,up,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,unpress" "";
+         action: SIGNAL_EMIT "elm,action,unpress" "elm";
          after: "button_unclick_anim";
       }
       program { name: "button_unclick_anim";
@@ -584,7 +584,7 @@ group { name: "elm/button/base/anchor";
       }
       program {
          signal: "mouse,clicked,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,click" "";
+         action: SIGNAL_EMIT "elm,action,click" "elm";
       }
       program { name: "button_text_visible";
          signal: "elm,state,text,visible"; source: "elm";
@@ -747,7 +747,7 @@ group { name: "elm/button/base/media_player/prev/default";
    programs {
       program {
          signal: "mouse,down,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,press" "";
+         action: SIGNAL_EMIT "elm,action,press" "elm";
          after: "button_click_anim";
       }
       program { name:   "button_click_anim";
@@ -757,7 +757,7 @@ group { name: "elm/button/base/media_player/prev/default";
       }
       program {
          signal: "mouse,up,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,unpress" "";
+         action: SIGNAL_EMIT "elm,action,unpress" "elm";
          after: "button_unclick_anim";
       }
       program { name:   "button_unclick_anim";
@@ -780,7 +780,7 @@ group { name: "elm/button/base/media_player/prev/default";
       }
       program {
          signal: "mouse,clicked,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,click" "";
+         action: SIGNAL_EMIT "elm,action,click" "elm";
       }
    }
 }
@@ -1163,7 +1163,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
    programs {
       program {
          signal: "mouse,down,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,press" "";
+         action: SIGNAL_EMIT "elm,action,press" "elm";
          after: "button_click_anim";
       }
       program { name: "button_click_anim";
@@ -1176,7 +1176,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
       }
       program { name: "button_unclick";
          signal: "mouse,up,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,unpress" "";
+         action: SIGNAL_EMIT "elm,action,unpress" "elm";
          after: "button_unclick_anim";
       }
       program { name: "button_unclick_anim";
@@ -1208,7 +1208,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
       }
       program {
          signal: "mouse,clicked,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,click" "";
+         action: SIGNAL_EMIT "elm,action,click" "elm";
       }
       program { name:   "button_text_visible";
          signal: "elm,state,text,visible"; source: "elm";

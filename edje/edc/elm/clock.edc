@@ -197,22 +197,22 @@ group { name: "elm/clock/flipdigit/default";
       program { name: "up";
          signal: "mouse,down,1";
          source: "t";
-         action: SIGNAL_EMIT "elm,action,up,start" "";
+         action: SIGNAL_EMIT "elm,action,up,start" "elm";
       }
       program { name: "up,stop";
          signal: "mouse,up,1";
          source: "t";
-         action: SIGNAL_EMIT "elm,action,up,stop" "";
+         action: SIGNAL_EMIT "elm,action,up,stop" "elm";
       }
       program { name: "down";
          signal: "mouse,down,1";
          source: "b";
-         action: SIGNAL_EMIT "elm,action,down,start" "";
+         action: SIGNAL_EMIT "elm,action,down,start" "elm";
       }
       program { name: "down,stop";
          signal: "mouse,up,1";
          source: "b";
-         action: SIGNAL_EMIT "elm,action,down,stop" "";
+         action: SIGNAL_EMIT "elm,action,down,stop" "elm";
       }
       program { name: "access_edit_on";
          signal: "elm,state,access,edit,on";
@@ -231,22 +231,22 @@ group { name: "elm/clock/flipdigit/default";
       program { name: "access,up";
          signal: "mouse,down,1";
          source: "access.t";
-         action: SIGNAL_EMIT "elm,action,up,start" "";
+         action: SIGNAL_EMIT "elm,action,up,start" "elm";
       }
       program { name: "access,up,stop";
          signal: "mouse,up,1";
          source: "access.t";
-         action: SIGNAL_EMIT "elm,action,up,stop" "";
+         action: SIGNAL_EMIT "elm,action,up,stop" "elm";
       }
       program { name: "access,down";
          signal: "mouse,down,1";
          source: "access.b";
-         action: SIGNAL_EMIT "elm,action,down,start" "";
+         action: SIGNAL_EMIT "elm,action,down,start" "elm";
       }
       program { name: "access,down,stop";
          signal: "mouse,up,1";
          source: "access.b";
-         action: SIGNAL_EMIT "elm,action,down,stop" "";
+         action: SIGNAL_EMIT "elm,action,down,stop" "elm";
       }
    }
 }

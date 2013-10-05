@@ -59,7 +59,7 @@ collections {
 // XXX: support multi progress (progressbar)
 #include "edc/elm/progress.edc"
 // XXX: needs design work (naviframe)
-//#include "edc/elm/naviframe.edc"
+#include "edc/elm/naviframe.edc"
 #include "edc/elm/panel.edc"
 #include "edc/elm/popup.edc"
 #include "edc/elm/border.edc"

@@ -175,8 +175,7 @@ group { name: "elm/diskselector/item/default";
          public item_style; // 0:icon and text, 1:text only, 2:con only
       }
       program { name: "center_text";
-         signal: "elm,state,center";
-         source: "elm";
+         signal: "elm,state,center"; source: "elm";
          script {
             if (get_int(item_style) == 1)
               set_state(PART:"elm.text", "text_only", 0.0);
@@ -190,15 +189,13 @@ group { name: "elm/diskselector/item/default";
          }
       }
       program { name: "center_small_text";
-         signal: "elm,state,center_small";
-         source: "elm";
+         signal: "elm,state,center_small"; source: "elm";
          action: STATE_SET "default_small" 0.0;
          target: "elm.text";
          target: "elm.swallow.icon";
       }
       program { name: "l_side_text";
-         signal: "elm,state,left_side";
-         source: "elm";
+         signal: "elm,state,left_side"; source: "elm";
          script {
             if (get_int(item_style) == 1)
               set_state(PART:"elm.text", "text_only_left_side", 0.0);
@@ -212,8 +209,7 @@ group { name: "elm/diskselector/item/default";
          }
       }
       program { name: "r_side_text";
-         signal: "elm,state,right_side";
-         source: "elm";
+         signal: "elm,state,right_side"; source: "elm";
          script {
             if (get_int(item_style) == 1)
               set_state(PART:"elm.text", "text_only_right_side", 0.0);
@@ -227,32 +223,28 @@ group { name: "elm/diskselector/item/default";
          }
       }
       program { name: "icon_only";
-         signal: "elm,state,icon,only";
-         source: "elm";
+         signal: "elm,state,icon,only"; source: "elm";
          script {
             set_state(PART:"elm.swallow.icon", "icon_only", 0.0);
             set_int(item_style, 2);
          }
       }
       program { name: "text_only";
-         signal: "elm,state,text,only";
-         source: "elm";
+         signal: "elm,state,text,only"; source: "elm";
          script {
             set_state(PART:"elm.text", "text_only", 0.0);
             set_int(item_style, 1);
          }
       }
       program { name: "text_icon";
-         signal: "elm,state,text,icon";
-         source: "elm";
+         signal: "elm,state,text,icon"; source: "elm";
          script {
             set_int(item_style, 0);
          }
       }
       program { name: "field_click";
-         signal: "mouse,clicked,1";
-         source: "over1";
-         action: SIGNAL_EMIT "elm,action,click" "";
+         signal: "mouse,clicked,1"; source: "over1";
+         action: SIGNAL_EMIT "elm,action,click" "elm";
       }
    }
 }
@@ -347,57 +339,50 @@ group { name: "elm/diskselector/item/datetime/default";
          }
       }
       program { name: "selected_text";
-         signal: "elm,state,selected";
-         source: "elm";
+         signal: "elm,state,selected"; source: "elm";
          script {
             set_int(field_selected, 1);
             update_state();
          }
       }
       program { name: "default_text";
-         signal: "elm,state,default";
-         source: "elm";
+         signal: "elm,state,default"; source: "elm";
          script {
             set_int(field_selected, 0);
             update_state();
          }
       }
       program { name: "center_text";
-         signal: "elm,state,center";
-         source: "elm";
+         signal: "elm,state,center"; source: "elm";
          script {
             set_int(field_pos, 0);
             update_state();
          }
       }
       program { name: "center_small_text";
-         signal: "elm,state,center_small";
-         source: "elm";
+         signal: "elm,state,center_small"; source: "elm";
          script {
             set_int(field_pos, 0);
             update_state();
          }
       }
       program { name: "l_side_text";
-         signal: "elm,state,left_side";
-         source: "elm";
+         signal: "elm,state,left_side"; source: "elm";
          script {
             set_int(field_pos, 1);
             update_state();
          }
       }
       program { name: "r_side_text";
-         signal: "elm,state,right_side";
-         source: "elm";
+         signal: "elm,state,right_side"; source: "elm";
          script {
             set_int(field_pos, 2);
             update_state();
          }
       }
       program { name: "field_click";
-         signal: "mouse,clicked,1";
-         source: "over1";
-         action: SIGNAL_EMIT "elm,action,click" "";
+         signal: "mouse,clicked,1"; source: "over1";
+         action: SIGNAL_EMIT "elm,action,click" "elm";
       }
    }
 }

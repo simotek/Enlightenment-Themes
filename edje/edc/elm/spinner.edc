@@ -119,7 +119,7 @@ group { name: "elm/spinner/base/default";
          target: "arrow1";
          after: "left2";
       } program { name: "left2";
-         action: SIGNAL_EMIT "elm,action,decrement,start" "";
+         action: SIGNAL_EMIT "elm,action,decrement,start" "elm";
       }
       program {
          signal: "mouse,up,1"; source: "left";
@@ -127,7 +127,7 @@ group { name: "elm/spinner/base/default";
          target: "arrow1";
          after: "left3";
       } program { name: "left3";
-         action: SIGNAL_EMIT "elm,action,decrement,stop" "";
+         action: SIGNAL_EMIT "elm,action,decrement,stop" "elm";
       }
       part { name: "right"; type: RECT;
          description { state: "default" 0.0;
@@ -148,7 +148,7 @@ group { name: "elm/spinner/base/default";
          target: "arrow2";
          after: "right2";
       } program { name: "right2";
-         action: SIGNAL_EMIT "elm,action,increment,start" "";
+         action: SIGNAL_EMIT "elm,action,increment,start" "elm";
       }
       program {
          signal: "mouse,up,1"; source: "right";
@@ -156,7 +156,7 @@ group { name: "elm/spinner/base/default";
          target: "arrow2";
          after: "right3";
       } program { name: "right3";
-         action: SIGNAL_EMIT "elm,action,increment,stop" "";
+         action: SIGNAL_EMIT "elm,action,increment,stop" "elm";
       }
       part { name: "inset"; mouse_events: 0;
          description { state: "default" 0.0;
@@ -181,7 +181,7 @@ group { name: "elm/spinner/base/default";
       }
       program {
          signal: "mouse,clicked,1"; source: "access_text";
-         action: SIGNAL_EMIT "elm,action,click" "";
+         action: SIGNAL_EMIT "elm,action,click" "elm";
       }
       part { name: "disabler"; type: RECT;
          description { state: "default" 0.0;
@@ -209,7 +209,7 @@ group { name: "elm/spinner/base/default";
       }
       program { name: "toggle_text";
          signal: "mouse,clicked,1"; source: "elm.dragable.slider";
-         action: SIGNAL_EMIT "elm,action,entry,toggle" "";
+         action: SIGNAL_EMIT "elm,action,entry,toggle" "elm";
       }
       program {
          signal: "elm,state,enabled"; source: "elm";

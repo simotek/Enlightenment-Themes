@@ -206,12 +206,12 @@ group { name: "elm/menu/item/default";
    programs {
       program {
          signal: "mouse,in"; source: "event";
-         action: SIGNAL_EMIT "elm,action,activate" "";
+         action: SIGNAL_EMIT "elm,action,activate" "elm";
          after: "selected";
       }
       program {
          signal: "mouse,out"; source: "event";
-//         action: SIGNAL_EMIT "elm,action,inactivate" "";
+//         action: SIGNAL_EMIT "elm,action,inactivate" "elm";
          after: "unselected";
       }
       program { signal: "mouse,down,1"; source: "event";
@@ -219,7 +219,7 @@ group { name: "elm/menu/item/default";
       }
       program {
          signal: "mouse,up,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,click" "";
+         action: SIGNAL_EMIT "elm,action,click" "elm";
       }
       program { name: "text_show";
          signal: "elm,state,text,visible"; source: "elm";
@@ -339,11 +339,11 @@ group { name: "elm/menu/item_with_submenu/default";
       }
       program {
          signal: "mouse,in"; source: "event";
-         action: SIGNAL_EMIT "elm,action,open" "";
+         action: SIGNAL_EMIT "elm,action,open" "elm";
       }
 //      program {
 //         signal: "mouse,up,1"; source: "event";
-//         action: SIGNAL_EMIT "elm,action,open" "";
+//         action: SIGNAL_EMIT "elm,action,open" "elm";
 //      }
    }
 }
@@ -603,12 +603,12 @@ group { name: "elm/menu/main_menu_submenu/default";
    programs {
       program {
          signal: "mouse,in"; source: "event";
-         action: SIGNAL_EMIT "elm,action,activate" "";
+         action: SIGNAL_EMIT "elm,action,activate" "elm";
          after: "selected";
       }
       program {
          signal: "mouse,out"; source: "event";
-//         action: SIGNAL_EMIT "elm,action,inactivate" "";
+//         action: SIGNAL_EMIT "elm,action,inactivate" "elm";
          after: "unselected";
       }
       program { signal: "mouse,down,1"; source: "event";
@@ -616,7 +616,7 @@ group { name: "elm/menu/main_menu_submenu/default";
       }
       program {
          signal: "mouse,down,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,click" "";
+         action: SIGNAL_EMIT "elm,action,click" "elm";
       }
       program { name: "text_show";
          signal: "elm,state,text,visible"; source: "elm";
