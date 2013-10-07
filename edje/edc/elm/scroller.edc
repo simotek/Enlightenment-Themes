@@ -4,6 +4,8 @@ group { name: "elm/scroller/base/default";
    alias: "elm/gengrid/base/default";
    alias: "elm/scroller/base/map_bubble";
    alias: "elm/genscroller/base/default";
+   alias: "elm/scroller/base/popup/default";
+   alias: "elm/scroller/base/popup/transparent";
 
    images.image: "inset_shadow.png" COMP;
    images.image: "bevel_in.png" COMP;

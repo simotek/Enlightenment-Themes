@@ -1938,7 +1938,7 @@ group { name: "elm/genlist/tree/tree_effect/default";
    }
    programs {
       program {
-         signal: "flip_item";
+         signal: "elm,action,flip_item"; source: "elm";
          action: STATE_SET "map_transition" 0.0;
          target: "group";
          after: "rot2";
@@ -1955,7 +1955,7 @@ group { name: "elm/genlist/tree/tree_effect/default";
       }
       
       program {
-         signal: "elm,state,contract_flip";
+         signal: "elm,state,contract_flip"; source: "elm";
          action: STATE_SET "map_rotate" 0.0;
          target: "group";
          after: "rotb2";
@@ -1972,12 +1972,12 @@ group { name: "elm/genlist/tree/tree_effect/default";
       }
       
       program {
-         signal: "elm,state,show";
+         signal: "elm,state,show"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "group";
       }
       program {
-         signal: "elm,state,hide";
+         signal: "elm,state,hide"; source: "elm";
          action: STATE_SET "hide" 0.0;
          target: "group";
       }

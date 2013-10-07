@@ -28,7 +28,7 @@ group { name: "elm/ctxpopup/bg/default";
       program { name: "clicked_event";
          signal: "mouse,clicked,1";
          source: "ctxpopup_bg";
-         action: SIGNAL_EMIT "elm,action,click" "";
+         action: SIGNAL_EMIT "elm,action,click" "elm";
       }
       program { name: "show";
          signal: "elm,state,show";
@@ -362,7 +362,7 @@ group { name: "elm/ctxpopup/base/default";
          after: "hide_finished";
       }
       program { name: "hide_finished";
-         action: SIGNAL_EMIT "elm,action,hide,finished" "";
+         action: SIGNAL_EMIT "elm,action,hide,finished" "elm";
       }
 
    }

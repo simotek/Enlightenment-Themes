@@ -236,7 +236,7 @@ group { name: "elm/check/base/default";
    programs {
       program {
          signal: "mouse,clicked,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,check,toggle" "";
+         action: SIGNAL_EMIT "elm,action,check,toggle" "elm";
       }
       program {
          signal: "elm,state,check,on"; source: "elm";
@@ -730,7 +730,7 @@ group { name: "elm/check/base/toggle";
    programs {
       program {
          signal: "mouse,clicked,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,check,toggle" "";
+         action: SIGNAL_EMIT "elm,action,check,toggle" "elm";
       }
       program {
          signal: "elm,state,check,on"; source: "elm";

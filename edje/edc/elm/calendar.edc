@@ -107,11 +107,11 @@
       programs {\
          program {\
             signal: "mouse,down,1"; source: "left_bt"#_sufix;\
-            action: SIGNAL_EMIT "elm,action,decrement,start"#_signal_sufix "";\
+            action: SIGNAL_EMIT "elm,action,decrement,start"#_signal_sufix "elm";\
          }\
          program {\
             signal: "mouse,up,1"; source: "left_bt"#_sufix;\
-            action: SIGNAL_EMIT "elm,action,stop"#_signal_sufix ""; \
+            action: SIGNAL_EMIT "elm,action,stop"#_signal_sufix "elm"; \
          }\
          program { name:   "left_bt"#_sufix"_click";\
             signal: "mouse,down,1"; source: "left_bt"#_sufix;\
@@ -133,11 +133,11 @@
          }\
          program {\
             signal: "mouse,down,1"; source: "right_bt"#_sufix;\
-            action: SIGNAL_EMIT "elm,action,increment,start"#_signal_sufix "";\
+            action: SIGNAL_EMIT "elm,action,increment,start"#_signal_sufix "elm";\
          }\
          program {\
             signal: "mouse,up,1"; source: "right_bt"#_sufix;\
-            action: SIGNAL_EMIT "elm,action,stop"#_signal_sufix "";     \
+            action: SIGNAL_EMIT "elm,action,stop"#_signal_sufix "elm";     \
          }\
          program { name:   "right_bt"#_sufix"_click";\
             signal: "mouse,down,1"; source: "right_bt"#_sufix;\

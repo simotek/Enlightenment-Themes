@@ -402,36 +402,28 @@ group { name: "elm/check/base/dayselector/default";
       }
    }
    programs {
-      program {
-         name: "check,pressed";
-         signal: "mouse,down,1";
-         source: "events";
+      program { name: "check,pressed";
+         signal: "mouse,down,1"; source: "events";
          script {
             set_int(check_state, DAYSELECOR_DAY_STATE_PRESSED);
             check_bg_show();
             check_text_pressed();
          }
       }
-      program {
-         name: "check,toggle";
-         signal: "mouse,up,1";
-         source: "events";
-         action: SIGNAL_EMIT "elm,action,check,toggle" "";
+      program { name: "check,toggle";
+         signal: "mouse,up,1"; source: "events";
+         action: SIGNAL_EMIT "elm,action,check,toggle" "elm";
       }
-      program {
-         name: "check,on";
-         signal: "elm,state,check,on";
-         source: "elm";
+      program { name: "check,on";
+         signal: "elm,state,check,on"; source: "elm";
          script {
             set_int(check_state, DAYSELECOR_DAY_STATE_SELECTED);
             check_bg_show();
             check_text_show();
          }
       }
-      program {
-         name: "check,off";
-         signal: "elm,state,check,off";
-         source: "elm";
+      program { name: "check,off";
+         signal: "elm,state,check,off"; source: "elm";
          script {
             set_int(check_state, DAYSELECOR_DAY_STATE_DEFAULT);
             check_bg_show();
@@ -439,48 +431,42 @@ group { name: "elm/check/base/dayselector/default";
          }
       }
       program { name: "check,left";
-         signal: "elm,pos,check,left";
-         source: "elm";
+         signal: "elm,pos,check,left"; source: "elm";
          script {
             set_int(check_pos, DAYSELECOR_DAY_POS_LEFT);
             check_bg_show();
          }
       }
       program { name: "check,right";
-         signal: "elm,pos,check,right";
-         source: "elm";
+         signal: "elm,pos,check,right"; source: "elm";
          script {
             set_int(check_pos, DAYSELECOR_DAY_POS_RIGHT);
             check_bg_show();
          }
       }
       program { name: "check,middle";
-         signal: "elm,pos,check,middle";
-         source: "elm";
+         signal: "elm,pos,check,middle"; source: "elm";
          script {
             set_int(check_pos, DAYSELECOR_DAY_POS_MIDDLE);
             check_bg_show();
          }
       }
       program { name: "check,weekday";
-         signal: "elm,type,weekday,default";
-         source: "";
+         signal: "elm,type,weekday,default"; source: "elm";
          script {
             set_int(check_type, DAYSELECOR_DAY_TYPE_WEEKDAY);
             check_text_show();
          }
       }
       program { name: "check,weekend,default";
-         signal: "elm,type,weekend,default";
-         source: "";
+         signal: "elm,type,weekend,default"; source: "elm";
          script {
             set_int(check_type, DAYSELECOR_DAY_TYPE_WEEKEND_DEFAULT);
             check_text_show();
          }
       }
       program { name: "check,weekend,style1";
-         signal: "elm,type,weekend,style1";
-         source: "";
+         signal: "elm,type,weekend,style1"; source: "elm";
          script {
             set_int(check_type, DAYSELECOR_DAY_TYPE_WEEKEND_STYLE1);
             check_text_show();

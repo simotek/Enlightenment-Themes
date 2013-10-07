@@ -275,7 +275,7 @@ group { name: "elm/focus_highlight/top/default";
          after: "go3";
       }
       program { name: "go3";
-         action: SIGNAL_EMIT "elm,action,focus,show,end" "";
+         action: SIGNAL_EMIT "elm,action,focus,show,end" "elm";
       }
       program {
          signal: "elm,action,focus,hide"; source: "elm";
@@ -309,7 +309,7 @@ group { name: "elm/focus_highlight/top/default";
          after: "stop4";
       }
       program { name: "stop4";
-         action: SIGNAL_EMIT "elm,action,focus,hide,end" "";
+         action: SIGNAL_EMIT "elm,action,focus,hide,end" "elm";
       }
 
 #define BLINK(n) \

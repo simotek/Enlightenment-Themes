@@ -979,3 +979,6 @@ group { name: "elm/gengrid/item/thumb/default";
       }
    }
 }
+#undef IMGP
+#undef BASEP
+#undef TOPP

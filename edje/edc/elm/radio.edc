@@ -204,7 +204,7 @@ group { name: "elm/radio/base/default";
    programs {
       program {
          signal: "mouse,clicked,1"; source: "event";
-         action: SIGNAL_EMIT "elm,action,radio,toggle" "";
+         action: SIGNAL_EMIT "elm,action,radio,toggle" "elm";
       }
       program {
          signal: "elm,state,radio,on"; source: "elm";

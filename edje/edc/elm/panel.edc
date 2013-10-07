@@ -135,7 +135,7 @@ group { name: "elm/panel/left/default";
    programs {
       program {
          signal: "mouse,clicked,1"; source: "btn";
-         action: SIGNAL_EMIT "elm,action,panel,toggle" "";
+         action: SIGNAL_EMIT "elm,action,panel,toggle" "elm";
       }
       program {
          signal: "elm,action,show"; source: "elm";
