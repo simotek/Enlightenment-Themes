@@ -327,7 +327,7 @@ echo "Converting images..."
 pushd img-color
 for F in `find -iname "*.png"`; do
         #modulate blue to be green in all images
-        convert $F -modulate 60,65,38 ../img-color-convd/$F
+        convert $F -modulate 70,100,40 ../img-color-convd/$F
 
 done
 popd
@@ -344,9 +344,10 @@ rm -rf edc-sb
 cp -a edc edc-sb
 for F in `find edc-sb -iname "*.edc"`; do
     #replace color blue by green in all edcrr
-    sed -i 's/51 153 255/75 151 32/' $F
+    sed -i 's/51 153 255/65 214 0/' $F
     #5e993b was target
-    sed -i 's/#3399ff/#4b9720/' $F
+    # new target 42ce13
+    sed -i 's/#3399ff/#41d600/' $F
     
     # File manager background
     #sed -i 's/64 64 64/14 18 19/' $F
