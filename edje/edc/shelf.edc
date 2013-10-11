@@ -14,6 +14,7 @@ group { name: "e/shelf/default/base";
    }
    images.image: "vgrad_med.png" COMP;
    images.image: "vgrad_tall.png" COMP;
+   images.image: "vgrad_tall_trans.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "holes_vert.png" COMP;
    images.image: "holes_horiz.png" COMP;
@@ -26,7 +27,7 @@ group { name: "e/shelf/default/base";
             TILED_HORIZ(120)
          }
          description { state: "vert" 0.0;
-            image.normal: "vgrad_tall.png";
+            image.normal: "vgrad_tall_trans.png";
             fill.smooth: 0;
             TILED_HORIZ(40)
          }
