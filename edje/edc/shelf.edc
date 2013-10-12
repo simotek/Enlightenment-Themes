@@ -12,12 +12,12 @@ group { name: "e/shelf/default/base";
        * totally hidden */
 //      item: "instant_delay" "3.0";
    }
+     // images.image: "shine.png" COMP;
    images.image: "vgrad_med_trans.png" COMP;
    images.image: "vgrad_tall_trans.png" COMP;
-   images.image: "bevel_out.png" COMP;
+   // images.image: "bevel_out.png" COMP;
    images.image: "holes_vert.png" COMP;
    images.image: "holes_horiz.png" COMP;
-   images.image: "shine.png" COMP;
    parts {
       part { name: "bg"; mouse_events: 0;
          description { state: "default" 0.0;
@@ -31,14 +31,14 @@ group { name: "e/shelf/default/base";
             TILED_HORIZ(40)
          }
       }
-      part { name: "bevel"; mouse_events: 0;
+      /* part { name: "bevel"; mouse_events: 0;
          description { state: "default" 0.0;
             image.normal: "bevel_out.png";
             image.border: 1 1 1 1;
             image.middle: 0;
             fill.smooth: 0;
          }
-      }
+      } */
       part { name: "dots_start"; mouse_events: 0;
          description { state: "default" 0.0;
             image.normal: "holes_vert.png";
@@ -89,7 +89,7 @@ group { name: "e/shelf/default/base";
             rel2.relative: 1.0 0.0;
          }
       }
-      part { name: "shine"; mouse_events: 0;
+      /*part { name: "shine"; mouse_events: 0;
          description { state: "default" 0.0;
             image.normal: "shine.png";
             rel1.offset: 0 -2;
@@ -97,7 +97,7 @@ group { name: "e/shelf/default/base";
             rel2.offset: -1 2;
             FIXED_SIZE(69, 5)
          }
-      }
+      }*/
       programs  {
 #define ORIENT_SATE(_ORIENT, _STATE) \
          program { \
