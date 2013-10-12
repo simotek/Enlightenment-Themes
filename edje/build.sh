@@ -387,6 +387,6 @@ cp -a dark.edc dark-sb.edc
 sed -i 's/"edc/"edc-sb/' dark-sb.edc
 
 rm default-sb.edj
-edje_cc -v -id img-no-change -id img-color-convd -id img-manual -sd snd dark-sb.edc  Extra-Dark-Green.edj
+edje_cc -v -id img-no-change -id img-color-convd -id img-manual -sd snd dark-sb.edc  Transient.edj
 echo $PWD
 mv -v img-bak img
