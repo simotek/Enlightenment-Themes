@@ -42,7 +42,7 @@ group { name: "e/shelf/default/base";
       part { name: "dots_start"; mouse_events: 0;
          description { state: "default" 0.0;
             image.normal: "holes_vert.png";
-            rel1.offset: 2 2;
+            rel1.offset: 2 4;
             rel2.relative: 0.0 1.0;
             rel2.offset: 5 -3;
             FIXED_SIZE(4, 14)
@@ -59,7 +59,7 @@ group { name: "e/shelf/default/base";
          description { state: "default" 0.0;
             image.normal: "holes_vert.png";
             rel1.relative: 1.0 0.0;
-            rel1.offset: -6 2;
+            rel1.offset: -6 4;
             rel2.offset: -3 -3;
             FIXED_SIZE(4, 14)
          }
@@ -73,10 +73,10 @@ group { name: "e/shelf/default/base";
       }
       part { name: "e.swallow.content"; type: SWALLOW;
          description { state: "default" 0.0;
-            rel1.offset: 1 0;
+            rel1.offset: 1 4;
             rel1.relative: 1.0 0.0;
             rel1.to_x: "dots_start";
-            rel2.offset: -2 -1;
+            rel2.offset: -2 -3;
             rel2.to_x: "dots_end";
             rel2.relative: 0.0 1.0;
          }
