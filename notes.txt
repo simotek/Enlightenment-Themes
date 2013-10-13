@@ -1,2 +1,13 @@
 Darken round, paste another copy on top at 70% transparency
 about 66% black
+
+
+Pager background,
+Brightness -40 of 127
+Contrast 20 of 127
+75% alpha - another 10%
+
+Todo:
+* Pager
+** Background normal for desktop gadget
+** Window on pager
