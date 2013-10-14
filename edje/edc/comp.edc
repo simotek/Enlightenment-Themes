@@ -271,6 +271,7 @@ group { name: "e/comp/border/default";
             rel2.to: "e.swallow.content";
             rel2.offset: 6 11;
             fill.smooth: 0;
+            visible: 0;
          }
          description { state: "hidden" 0.0;
             inherit: "default" 0.0;
