@@ -398,25 +398,25 @@ group { name: "elm/progressbar/horizontal/default";
       }
    }
    programs {
-      program {
+      program { name: "inverted-on";
          signal: "elm,state,inverted,on"; source: "elm";
          action:  STATE_SET "inv" 0.0;
          target: "bar";
          target: "barend";
          target: "light";
       }
-      program {
+      program { name: "inverted-off";
          signal: "elm,state,inverted,off"; source: "elm";
          action:  STATE_SET "default" 0.0;
          target: "bar";
          target: "barend";
          target: "light";
       }
-      program {
+      program { name: "drag-set";
          signal: "drag,set"; source: "elm.cur.progressbar";
          script {
             new a, Float:dx, Float:dy, Float:vl, st[20];
-            
+
             get_drag(PART:"elm.cur.progressbar", dx, dy);
             get_state(PART:"bar", st, 19, vl);
             if (!strcmp(st, "inv")) {
@@ -475,13 +475,13 @@ group { name: "elm/progressbar/horizontal/default";
          after: "pulse0";
          after: "pulse0.1";
       }
-      program {
+      program { name: "fraction";
          signal: "elm,state,fraction"; source: "elm";
          action:  STATE_SET "default" 0.0;
          target: "elm.text.status";
          after: "pulse-stop";
       }
-      program {
+      program { name: "elmpulse-stop";
          signal: "elm,state,pulse,stop"; source: "elm";
          action: ACTION_STOP;
          target: "pulse0";
@@ -492,17 +492,17 @@ group { name: "elm/progressbar/horizontal/default";
          action:  STATE_SET "default" 0.0;
          target: "pulse_clip";
       }
-      program {
+      program { name: "units-visible";
          signal: "elm,state,units,visible"; source: "elm";
          action:  STATE_SET "default" 0.0;
          target: "elm.text.status";
       }
-      program {
+      program { name: "units-hidden";
          signal: "elm,state,units,hidden"; source: "elm";
          action:  STATE_SET "hidden" 0.0;
          target: "elm.text.status";
       }
-      program {
+      program { name: "text-visible";
          signal: "elm,state,text,visible"; source: "elm";
          script {
             new m = get_int(slmode);
@@ -510,15 +510,15 @@ group { name: "elm/progressbar/horizontal/default";
             eval_mode(m);
          }
       }
-      program {
+      program { name: "text-hidden";
          signal: "elm,state,text,hidden"; source: "elm";
-         script {         
+         script {
             new m = get_int(slmode);
             m &= ~LABEL; set_int(slmode, m);
             eval_mode(m);
          }
       }
-      program {
+      program { name: "icon-visible";
          signal: "elm,state,icon,visible"; source: "elm";
          script {
             new m = get_int(slmode);
@@ -526,25 +526,25 @@ group { name: "elm/progressbar/horizontal/default";
             eval_mode(m);
          }
       }
-      program {
+      program { name: "icon-hidden";
          signal: "elm,state,icon,hidden"; source: "elm";
-         script {         
+         script {
             new m = get_int(slmode);
             m &= ~ICON; set_int(slmode, m);
             eval_mode(m);
          }
       }
-      program {
+      program { name: "state-disabled";
          signal: "elm,state,disabled"; source: "elm";
-         script {         
+         script {
             new m = get_int(slmode);
             m |= DISABLE; set_int(slmode, m);
             eval_mode(m);
          }
       }
-      program {
+      program { name: "state-enabled";
          signal: "elm,state,enabled"; source: "elm";
-         script {         
+         script {
             new m = get_int(slmode);
             m &= ~DISABLE; set_int(slmode, m);
             eval_mode(m);
@@ -970,25 +970,25 @@ group { name: "elm/progressbar/vertical/default";
       }
    }
    programs {
-      program {
+      program { name: "inverted-on";
          signal: "elm,state,inverted,on"; source: "elm";
          action:  STATE_SET "inv" 0.0;
          target: "bar";
          target: "barend";
          target: "light";
       }
-      program {
+      program { name: "inverted-off";
          signal: "elm,state,inverted,off"; source: "elm";
          action:  STATE_SET "default" 0.0;
          target: "bar";
          target: "barend";
          target: "light";
       }
-      program {
+      program { name: "drag-set";
          signal: "drag,set"; source: "elm.cur.progressbar";
          script {
             new a, Float:dx, Float:dy, Float:vl, st[20];
-            
+
             get_drag(PART:"elm.cur.progressbar", dx, dy);
             get_state(PART:"bar", st, 19, vl);
             if (!strcmp(st, "inv")) {
@@ -1047,13 +1047,13 @@ group { name: "elm/progressbar/vertical/default";
          after: "pulse0";
          after: "pulse0.1";
       }
-      program {
+      program { name: "fraction";
          signal: "elm,state,fraction"; source: "elm";
          action:  STATE_SET "default" 0.0;
          target: "elm.text.status";
          after: "pulse-stop";
       }
-      program {
+      program { name: "elmpulsestop";
          signal: "elm,state,pulse,stop"; source: "elm";
          action: ACTION_STOP;
          target: "pulse0";
@@ -1064,17 +1064,17 @@ group { name: "elm/progressbar/vertical/default";
          action:  STATE_SET "default" 0.0;
          target: "pulse_clip";
       }
-      program {
+      program { name: "unit-visible";
          signal: "elm,state,units,visible"; source: "elm";
          action:  STATE_SET "default" 0.0;
          target: "elm.text.status";
       }
-      program {
+      program { name: "unit-hidden";
          signal: "elm,state,units,hidden"; source: "elm";
          action:  STATE_SET "hidden" 0.0;
          target: "elm.text.status";
       }
-      program {
+      program { name: "text-visible";
          signal: "elm,state,text,visible"; source: "elm";
          script {
             new m = get_int(slmode);
@@ -1082,7 +1082,7 @@ group { name: "elm/progressbar/vertical/default";
             eval_mode(m);
          }
       }
-      program {
+      program { name: "text-hidden";
          signal: "elm,state,text,hidden"; source: "elm";
          script {         
             new m = get_int(slmode);
@@ -1090,7 +1090,7 @@ group { name: "elm/progressbar/vertical/default";
             eval_mode(m);
          }
       }
-      program {
+      program { name: "icon-visible";
          signal: "elm,state,icon,visible"; source: "elm";
          script {
             new m = get_int(slmode);
@@ -1098,7 +1098,7 @@ group { name: "elm/progressbar/vertical/default";
             eval_mode(m);
          }
       }
-      program {
+      program { name: "icon-hidden";
          signal: "elm,state,icon,hidden"; source: "elm";
          script {         
             new m = get_int(slmode);
@@ -1106,7 +1106,7 @@ group { name: "elm/progressbar/vertical/default";
             eval_mode(m);
          }
       }
-      program {
+      program { name: "elmdisabled";
          signal: "elm,state,disabled"; source: "elm";
          script {         
             new m = get_int(slmode);
@@ -1114,7 +1114,7 @@ group { name: "elm/progressbar/vertical/default";
             eval_mode(m);
          }
       }
-      program {
+      program { name: "elmenabled";
          signal: "elm,state,enabled"; source: "elm";
          script {         
             new m = get_int(slmode);
@@ -1218,6 +1218,183 @@ group { name: "elm/progressbar/horizontal/wheel";
       program { name: "spin4";
          action: STATE_SET "default" 0.0;
          target: "knob_spinner";
+      }
+   }
+}
+
+group { name: "elm/progressbar/horizontal/double";
+   inherit: "elm/progressbar/horizontal/default";
+   images {
+      image: "inset_bar_horiz_glow_base_double.png" COMP;
+      image: "inset_bar_horiz_glow_inv_base_double.png" COMP;
+   }
+   parts {
+      part { name: "elm.cur.progressbar1"; mouse_events: 0; type: SPACER;
+         insert_after: "inside";
+         scale: 1;
+         dragable.confine: "inside";
+         dragable.x: 1 1 1;
+         dragable.y: 0 0 0;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            min: 8 4;
+            max: 8 4;
+            rel1.to: "inside";
+            rel2.to: "inside";
+         }
+      }
+      part { name: "barend1"; type: SPACER;
+         scale: 1;
+         description { state: "default" 0.0;
+            fixed: 1 0;
+            min: 14 16;
+            rel1.to_x: "elm.cur.progressbar1";
+            rel1.relative: 1.0 0.0;
+            rel2.to_x: "elm.cur.progressbar1";
+            rel2.relative: 1.0 1.0;
+            align: 0.0 0.5;
+         }
+         description { state: "inv" 0.0;
+            inherit: "default" 0.0;
+            rel1.relative: 0.0 0.0;
+            rel2.relative: 0.0 1.0;
+            align: 1.0 0.5;
+         }
+      }
+      part { name: "bar1";
+         insert_after: "barend";
+         clip_to: "fract_clip";
+         scale: 1;
+         description { state: "default" 0.0;
+            rel1.to_x: "ins0";
+            rel1.to_y: "bg";
+            rel1.relative: (12/16) -0.25;
+            rel2.to_x: "barend1";
+            rel2.to_y: "bg";
+            rel2.relative: 1.0 1.25;
+            image.normal: "inset_bar_horiz_glow_base_double.png";
+            image.border: 0 72 0 0;
+            image.border_scale_by: 0.25; image.border_scale: 1;
+            color: 51 153 255 128;
+         }
+         description { state: "inv" 0.0;
+            inherit: "default" 0.0;
+            rel1.to_x: "barend";
+            rel1.relative: 0.0 -0.25;
+            rel2.to_x: "ins1";
+            rel2.relative: (4/16) 1.25;
+            image.normal: "inset_bar_horiz_glow_inv_base_double.png";
+            image.border: 72 0 0 0;
+         }
+      }
+   }
+   programs {
+      program { name: "inverted-on";
+         signal: "elm,state,inverted,on"; source: "elm";
+         action:  STATE_SET "inv" 0.0;
+         target: "bar";
+         target: "bar1";
+         target: "barend";
+         target: "barend1";
+         target: "light";
+      }
+      program
+       { name: "inverted-off";
+         signal: "elm,state,inverted,off"; source: "elm";
+         action:  STATE_SET "default" 0.0;
+         target: "bar";
+         target: "bar1";
+         target: "barend";
+         target: "barend1";
+         target: "light";
+      }
+   }
+}
+
+group { name: "elm/progressbar/vertical/double";
+   inherit: "elm/progressbar/vertical/default";
+   images {
+      image: "inset_bar_vert_glow_base_double.png" COMP;
+      image: "inset_bar_vert_glow_inv_base_double.png" COMP;
+   }
+   parts {
+      part { name: "elm.cur.progressbar1"; mouse_events: 0; type: SPACER;
+         insert_after: "inside";
+         scale: 1;
+         dragable.confine: "inside";
+         dragable.x: 0 0 0;
+         dragable.y: 1 1 1;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            min: 4 8;
+            max: 4 8;
+            rel1.to: "inside";
+            rel2.to: "inside";
+         }
+      }
+      part { name: "barend1"; type: SPACER;
+         scale: 1;
+         description { state: "default" 0.0;
+            fixed: 0 1;
+            min: 16 14;
+            rel1.to_y: "elm.cur.progressbar1";
+            rel1.relative: 0.0 1.0;
+            rel2.to_y: "elm.cur.progressbar1";
+            rel2.relative: 1.0 1.0;
+            align: 0.5 0.0;
+         }
+         description { state: "inv" 0.0;
+            inherit: "default" 0.0;
+            rel1.relative: 0.0 0.0;
+            rel2.relative: 1.0 0.0;
+            align: 0.5 1.0;
+         }
+      }
+      part { name: "bar1";
+         insert_after: "barend";
+         clip_to: "fract_clip";
+         scale: 1;
+         description { state: "default" 0.0;
+            rel1.to_y: "ins0";
+            rel1.to_x: "bg";
+            rel1.relative: -0.25 (12/16);
+            rel2.to_y: "barend1";
+            rel2.to_x: "bg";
+            rel2.relative: 1.25 1.0;
+            image.normal: "inset_bar_vert_glow_base_double.png";
+            image.border: 0 0 0 72;
+            image.border_scale_by: 0.25; image.border_scale: 1;
+            color: 51 153 255 128;
+         }
+         description { state: "inv" 0.0;
+            inherit: "default" 0.0;
+            rel1.to_y: "barend1";
+            rel1.relative: -0.25 0.0;
+            rel2.to_y: "ins1";
+            rel2.relative: 1.25 (4/16);
+            image.normal: "inset_bar_vert_glow_inv_base_double.png";
+            image.border: 0 0 72 0;
+         }
+      }
+   }
+   programs {
+      program { name: "inverted-on";
+         signal: "elm,state,inverted,on"; source: "elm";
+         action:  STATE_SET "inv" 0.0;
+         target: "bar";
+         target: "barend";
+         target: "light";
+         target: "bar1";
+         target: "barend1";
+      }
+      program { name: "inverted-off";
+         signal: "elm,state,inverted,off"; source: "elm";
+         action:  STATE_SET "default" 0.0;
+         target: "bar";
+         target: "barend";
+         target: "light";
+         target: "bar1";
+         target: "barend1";
       }
    }
 }

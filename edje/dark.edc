@@ -71,6 +71,8 @@ collections {
 
 // desktop in general
 #include "edc/comp.edc"
+#include "edc/comp_effects.edc"
+#include "edc/deskmirror.edc"
 #include "edc/background.edc"
 #include "edc/shelf.edc"
 #include "edc/border.edc"
@@ -87,7 +89,6 @@ collections {
 #include "edc/about-e.edc"
 #include "edc/about-theme.edc"
 #include "edc/transitions.edc"
-
 // widgets
 #include "edc/menu.edc"
 #include "edc/button.edc"

@@ -98,7 +98,7 @@
                color: 245 245 245 255;                \
                text {                                 \
                   text: NAME;                       \
-                  font: FNBD;          \
+                  font: "Sans:style=Bold";          \
                   size: 4;                          \
                   fit: 1 1;                         \
                   min: 1 1;                         \

@@ -447,5 +447,9 @@ group { name: "elm/popup/item/popup/default";
          signal: "mouse,up,1"; source: "event";
          action: SIGNAL_EMIT "elm,state,unselected" "elm";
       }
+      program {
+         signal: "mouse,clicked,1"; source: "event";
+         action: SIGNAL_EMIT "elm,action,click" "elm";
+      }
    }
 }

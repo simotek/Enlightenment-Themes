@@ -1,16 +1,6 @@
 group { name: "elm/focus_highlight/top/default";
-   images.image: "dots_glow_left.png" COMP;
-   images.image: "dots_glow_right.png" COMP;
-   images.image: "dots_glow_top.png" COMP;
-   images.image: "dots_glow_bottom.png" COMP;
-   images.image: "corner_glow_1.png" COMP;
-   images.image: "corner_glow_2.png" COMP;
-   images.image: "corner_glow_3.png" COMP;
-   images.image: "corner_glow_4.png" COMP;
-   images.image: "corner_glow_hi_1.png" COMP;
-   images.image: "corner_glow_hi_2.png" COMP;
-   images.image: "corner_glow_hi_3.png" COMP;
-   images.image: "corner_glow_hi_4.png" COMP;
+   images.image: "box_glow.png" COMP;
+   images.image: "box_outline.png" COMP;
    data.item: "animate" "on";
    script {
       public s_x, s_y, s_w, s_h; /* source */
@@ -74,8 +64,8 @@ group { name: "elm/focus_highlight/top/default";
       }
       part { name: "clip"; type: RECT;
          description { state: "default" 0.0;
-            rel1.to: "c1";
-            rel2.to: "c4";
+            rel1.to: "glow";
+            rel2.to: "glow";
             color: 255 255 255 0;
          }
          description { state: "visible" 0.0;
@@ -83,179 +73,28 @@ group { name: "elm/focus_highlight/top/default";
             color: 255 255 255 255;
          }
       }
-      part { name: "dl"; mouse_events: 0;
+      part { name: "glow"; mouse_events: 0;
          clip_to: "clip";
          description { state: "default" 0.0;
-            image.normal: "dots_glow_left.png";
-            rel1.to: "c1";
-            rel1.relative: 1.0 1.0;
-            rel1.offset: -17 -11;
-            rel2.to: "c3";
-            rel2.relative: 1.0 0.0;
-            rel2.offset: -9 10;
-            fill.size.relative: 1.0 0.0;
-            fill.size.offset: 0 32;
-            step: 0 8;
-         }
-      }
-      part { name: "dr"; mouse_events: 0;
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            image.normal: "dots_glow_right.png";
-            rel1.to: "c2";
-            rel1.relative: 0.0 1.0;
-            rel1.offset: 8 -11;
-            rel2.to: "c4";
-            rel2.relative: 0.0 0.0;
-            rel2.offset: 16 10;
-            fill.size.relative: 1.0 0.0;
-            fill.size.offset: 0 32;
-            step: 0 8;
-         }
-      }
-      part { name: "dt"; mouse_events: 0;
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            image.normal: "dots_glow_top.png";
-            rel1.to: "c1";
-            rel1.relative: 1.0 1.0;
-            rel1.offset: -11 -17;
-            rel2.to: "c2";
-            rel2.relative: 0.0 1.0;
-            rel2.offset: 10 -9;
-            fill.size.relative: 0.0 1.0;
-            fill.size.offset: 32 0;
-            step: 8 0;
-         }
-      }
-      part { name: "db"; mouse_events: 0;
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            image.normal: "dots_glow_bottom.png";
-            rel1.to: "c3";
-            rel1.relative: 1.0 0.0;
-            rel1.offset: -11 8;
-            rel2.to: "c4";
-            rel2.relative: 0.0 0.0;
-            rel2.offset: 10 16;
-            fill.size.relative: 0.0 1.0;
-            fill.size.offset: 32 0;
-            step: 8 0;
-         }
-      }
-      part { name: "c1"; mouse_events: 0;
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            image.normal: "corner_glow_1.png";
+            image.normal: "box_glow.png";
+            image.border: 12 12 12 12;
+            image.middle: 0;
+            fill.smooth: 0;
             rel1.to: "base";
+            rel1.offset: -7 -7;
             rel2.to: "base";
-            rel1.offset: -6 -6;
-            rel2.offset: 9 9;
-            rel1.relative: 0.0 0.0;
-            rel2.relative: 0.0 0.0;
-            color: 255 255 255 192;
-         }
-         description { state: "hi" 0.0;
-            inherit: "default" 0.0;
-            color: 255 255 255 255;
-         }
-      }
-      part { name: "c2"; mouse_events: 0;
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            image.normal: "corner_glow_2.png";
-            rel1.to: "base";
-            rel2.to: "base";
-            rel1.offset: -10 -6;
-            rel2.offset: 5 9;
-            rel1.relative: 1.0 0.0;
-            rel2.relative: 1.0 0.0;
-            color: 255 255 255 192;
-         }
-         description { state: "hi" 0.0;
-            inherit: "default" 0.0;
-            color: 255 255 255 255;
-         }
-      }
-      part { name: "c3"; mouse_events: 0;
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            image.normal: "corner_glow_3.png";
-            rel1.to: "base";
-            rel2.to: "base";
-            rel1.offset: -6 -10;
-            rel2.offset: 9 5;
-            rel1.relative: 0.0 1.0;
-            rel2.relative: 0.0 1.0;
-            color: 255 255 255 192;
-         }
-         description { state: "hi" 0.0;
-            inherit: "default" 0.0;
-            color: 255 255 255 255;
-         }
-      }
-      part { name: "c4"; mouse_events: 0;
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            image.normal: "corner_glow_4.png";
-            rel1.to: "base";
-            rel2.to: "base";
-            rel1.offset: -10 -10;
             rel2.offset: 5 5;
-            rel1.relative: 1.0 1.0;
-            rel2.relative: 1.0 1.0;
-            color: 255 255 255 192;
-         }
-         description { state: "hi" 0.0;
-            inherit: "default" 0.0;
-            color: 255 255 255 255;
          }
       }
-      part { name: "ch1"; mouse_events: 0;
+      part { name: "sel"; mouse_events: 0;
          clip_to: "clip";
          description { state: "default" 0.0;
-            image.normal: "corner_glow_hi_1.png";
-            rel1.to: "c1";
-            rel2.to: "c1";
-            color: 255 255 255 0;
-         }
-         description { state: "hi" 0.0;
-            inherit: "default" 0.0;
-            color: 255 255 255 255;
-         }
-      }
-      part { name: "ch2"; mouse_events: 0;
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            image.normal: "corner_glow_hi_2.png";
-            rel1.to: "c2";
-            rel2.to: "c2";
-            color: 255 255 255 0;
-         }
-         description { state: "hi" 0.0;
-            inherit: "default" 0.0;
-            color: 255 255 255 255;
-         }
-      }
-      part { name: "ch3"; mouse_events: 0;
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            image.normal: "corner_glow_hi_3.png";
-            rel1.to: "c3";
-            rel2.to: "c3";
-            color: 255 255 255 0;
-         }
-         description { state: "hi" 0.0;
-            inherit: "default" 0.0;
-            color: 255 255 255 255;
-         }
-      }
-      part { name: "ch4"; mouse_events: 0;
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            image.normal: "corner_glow_hi_4.png";
-            rel1.to: "c4";
-            rel2.to: "c4";
+            image.normal: "box_outline.png";
+            image.border: 12 12 12 12;
+            image.middle: 0;
+            fill.smooth: 0;
+            rel1.to: "glow";
+            rel2.to: "glow";
             color: 255 255 255 0;
          }
          description { state: "hi" 0.0;
@@ -265,13 +104,16 @@ group { name: "elm/focus_highlight/top/default";
       }
       program {
          signal: "elm,action,focus,show"; source: "elm";
-         action:  SIGNAL_EMIT "blink" "";
+         action: ACTION_STOP;
+         target: "pulse";
+         target: "pulse2";
          after: "go2";
       }
       program { name: "go2";
-         action:  STATE_SET "visible" 0.0;
-         transition: BOUNCE 0.4 0.5 4;
+         action: STATE_SET "visible" 0.0;
+         transition: DECELERATE 0.2;
          target: "clip";
+         after: "pulse";
          after: "go3";
       }
       program { name: "go3";
@@ -279,59 +121,32 @@ group { name: "elm/focus_highlight/top/default";
       }
       program {
          signal: "elm,action,focus,hide"; source: "elm";
-         action:  STATE_SET "default" 0.0;
+         action: STATE_SET "default" 0.0;
          transition: DECELERATE 0.4;
          target: "clip";
          after: "stop2";
       }
       program { name: "stop2";
-         action:  ACTION_STOP;
-         target: "show1";
-         target: "show2";
-         target: "show3";
-         target: "show4";
-         target: "fade1";
-         target: "fade2";
-         target: "fade3";
-         target: "fade4";
+         action: SIGNAL_EMIT "elm,action,focus,hide,end" "elm";
          after: "stop3";
       }
       program { name: "stop3";
-         action:  STATE_SET "default" 0.0;
-         target: "c1";
-         target: "c2";
-         target: "c3";
-         target: "c4";
-         target: "ch1";
-         target: "ch2";
-         target: "ch3";
-         target: "ch4";
-         after: "stop4";
+         action: ACTION_STOP;
+         target: "pulse";
+         target: "pulse2";
       }
-      program { name: "stop4";
-         action: SIGNAL_EMIT "elm,action,focus,hide,end" "elm";
+      program { name: "pulse";
+         action: STATE_SET "hi" 0.0;
+         transition: SINUSOIDAL 0.2;
+         in: 3.0 0.0;
+         target: "sel";
+         after: "pulse2";
       }
-
-#define BLINK(n) \
-      program { name: "show"n; \
-         signal: "blink"; source: ""; \
-         action:  STATE_SET "hi" 0.0; \
-         transition: SINUSOIDAL 0.2; \
-         in: 5.0 0.5; \
-         target: "c"n; \
-         target: "ch"n; \
-         after: "fade"n; \
-      } \
-      program { name: "fade"n; \
-         action:  STATE_SET "default" 0.0; \
-         transition: SINUSOIDAL 0.5; \
-         target: "c"n; \
-         target: "ch"n; \
-         after: "show"n; \
+      program { name: "pulse2";
+         action: STATE_SET "default" 0.0;
+         transition: SINUSOIDAL 0.4;
+         target: "sel";
+         after: "pulse";
       }
-      BLINK("1")
-      BLINK("2")
-      BLINK("3")
-      BLINK("4")
    }
 }

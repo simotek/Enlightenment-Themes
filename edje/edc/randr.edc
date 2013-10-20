@@ -1,3 +1,53 @@
+group { name: "e/conf/randr/main";
+   images.image: "inset_shadow.png" COMP;
+   images.image: "bevel_in.png" COMP;
+   parts {
+      part { name: "bg"; type: RECT;
+         description { state: "default" 0.0;
+            rel1.to: "e.swallow.content";
+            rel2.to: "e.swallow.content";
+            color: 64 64 64 255;
+         }
+      }
+      part { name: "clipper"; type: RECT;
+         description { state: "default" 0.0;
+            rel1.to: "e.swallow.content";
+            rel2.to: "e.swallow.content";
+         }
+      }
+      part { name: "e.swallow.content"; type: SWALLOW;
+         clip_to: "clipper";
+         description { state: "default" 0.0;
+            rel1.offset: 0 0;
+            rel2.offset: -1 -1;
+         }
+      }
+      part { name: "shadow"; type: IMAGE; mouse_events: 0;
+         description { state: "default" 0.0;
+            image.normal: "inset_shadow.png";
+            image.border: 5 5 7 3;
+            image.middle: 0;
+            rel1.to: "bg";
+            rel2.to: "bg";
+            fill.smooth: 0;
+            color: 255 255 255 128;
+         }
+      }
+      part { name: "inset"; type: IMAGE; mouse_events: 0;
+         description { state: "default" 0.0;
+            image.normal: "bevel_in.png";
+            image.border: 1 1 1 1;
+            image.middle: 0;
+            rel1.offset: -1 -1;
+            rel1.to: "bg";
+            rel2.offset: 0 0;
+            rel2.to: "bg";
+            fill.smooth: 0;
+         }
+      }
+   }
+}
+
 group { name: "e/conf/randr/main/monitor";
    parts {
       part { name: "e.swallow.stand"; type: SWALLOW;
@@ -28,26 +78,39 @@ group { name: "e/conf/randr/main/frame";
    images.image: "sym_up_light_normal.png" COMP;
    images.image: "sym_up_light_selected.png" COMP;
    styles {
-      style { name: "randr_monitor_style";
-         base: "font="FN" font_size=10 text_class=randr_monitor align=center color=#ffff style=shadow,bottom shadow_color=#00000080 wrap=word";
+      style { name: "randr_name_style";
+         base: "font=Sans font_size=10 text_class=randr_monitor align=center color=#ffff style=shadow,bottom shadow_color=#00000080 wrap=word";
          tag: "br" "\n";
-         tag: "hilight" "+ font="FNBD"";
+         tag: "hilight" "+ font=Sans:style=Bold";
       }
       style { name: "randr_resolution_style";
-         base: "font="FN" font_size=10 text_class=randr_resolution align=center color=#3399ffff wrap=mixed style=glow glow_color=#3399ff18 align=center glow2_color=#3399ff12";
+         base: "font=Sans font_size=10 text_class=randr_resolution align=center color=#3399ffff wrap=mixed style=glow glow_color=#3399ff18 align=center glow2_color=#3399ff12";
          tag: "br" "\n";
-         tag: "hilight" "+ font="FNBD"";
+         tag: "hilight" "+ font=Sans:style=Bold";
       }
       style { name: "randr_position_style";
-         base: "font="FN" font_size=10 text_class=randr_position align=center color=#3399ffff wrap=mixed style=glow glow_color=#3399ff18 align=center glow2_color=#3399ff12";
+         base: "font=Sans font_size=10 text_class=randr_position align=center color=#3399ffff wrap=mixed style=glow glow_color=#3399ff18 align=center glow2_color=#3399ff12";
          tag: "br" "\n";
-         tag: "hilight" "+ font="FNBD"";
+         tag: "hilight" "+ font=Sans:style=Bold";
       }
    }
    script {
       public refresh_open;
    }
    parts {
+      part { name: "primary"; type: IMAGE;
+         description { state: "default" 0.0;
+            image.normal: "glow_small.png";
+            image.border: 7 7 7 7;
+            rel1.offset: -4 -4;
+            rel2.offset: 3 3;
+            visible: 0;
+         }
+         description { state: "on" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+      }
       part { name: "base";
          description { state: "default" 0.0;
             image.normal: "screen_bg.png";
@@ -66,6 +129,11 @@ group { name: "e/conf/randr/main/frame";
             rel1.to: "e.swallow.preview";
             rel2.to: "e.swallow.preview";
          }
+         description { state: "off" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 64;
+//            color: 64 64 64 255;
+         }
       }
       part { name: "e.box.clone"; type: BOX;
          clip_to: "clone_clip";
@@ -73,7 +141,9 @@ group { name: "e/conf/randr/main/frame";
             rel1.to: "e.swallow.preview";
             rel1.relative: 0.0 1.0;
             rel1.offset: 0 -27;
-            rel2.to: "e.swallow.preview";
+            rel2.relative: 1.0 0.0;
+            rel2.to_x: "e.swallow.preview";
+            rel2.to_y: "e.event.indicator";
             box {
                layout: "horizontal";
                padding: 2 0;
@@ -146,7 +216,7 @@ group { name: "e/conf/randr/main/frame";
             rel2.relative: 0.5 0.5;
             rel2.to: "e.swallow.preview";
             align: 0.5 1.0;
-            text { style: "randr_monitor_style";
+            text { style: "randr_name_style";
                min: 1.0 1.0;
             }
          }
@@ -355,8 +425,12 @@ group { name: "e/conf/randr/main/frame";
       part { name: "e.event.indicator"; type: RECT;
          description { state: "default" 0.0;
             color: 0 0 0 0;
-            max: 21 21;
+            max: 15 15;
             align: 0.0 1.0;
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
          }
       }
       part { name: "e.event.resize"; type: RECT;
@@ -442,6 +516,7 @@ group { name: "e/conf/randr/main/frame";
       program {
          signal: "e,state,enabled"; source: "e";
          action: STATE_SET "default" 0.0;
+         target: "clip";
          target: "led";
          after: "pulse1";
       }
@@ -456,6 +531,7 @@ group { name: "e/conf/randr/main/frame";
          signal: "e,state,disabled"; source: "e";
          action: STATE_SET "off" 0.0;
          target: "led";
+         target: "clip";
       }
       program {
          signal: "e,state,drop,on"; source: "e";
@@ -471,6 +547,26 @@ group { name: "e/conf/randr/main/frame";
          signal: "e,state,rotate_disabled"; source: "e";
          action: STATE_SET "disabled" 0.0;
          target: "e.event.rotate";
+      }
+      program {
+         signal: "e,state,primary,off"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "primary";
+      }
+      program {
+         signal: "e,state,primary,on"; source: "e";
+         action: STATE_SET "on" 0.0;
+         target: "primary";
+      }
+      program {
+         signal: "e,state,indicator,enabled"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "e.event.indicator";
+      }
+      program {
+         signal: "e,state,indicator,disabled"; source: "e";
+         action: STATE_SET "disabled" 0.0;
+         target: "e.event.indicator";
       }
       program {
          signal: "mouse,in"; source: "e.event.resize";
