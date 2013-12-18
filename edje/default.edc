@@ -9,8 +9,9 @@ collections {
 // elm
 #include "edc/elm/bg.edc"
 #include "edc/elm/button.edc"
+// XXX: mobile mode needs invbisible scrollers... make signals that do this
 #include "edc/elm/scroller.edc"
-// XXX: (entry) need to do magnifier etc...
+// XXX: mobile mode needs different entry setup
 #include "edc/elm/entry.edc"
 #include "edc/elm/frame.edc"
 #include "edc/elm/label.edc"
@@ -37,9 +38,7 @@ collections {
 #include "edc/elm/win.edc"
 #include "edc/elm/inwin.edc"
 #include "edc/elm/slideshow.edc"
-// XXX: fix gfx (diskselector)
 #include "edc/elm/diskselector.edc"
-// XXX: fix gfx (ctxpopup) - use bubble look used for tooltips, bubble etc.
 #include "edc/elm/ctxpopup.edc"
 #include "edc/elm/multibuttonentry.edc"
 #include "edc/elm/dayselector.edc"
@@ -48,21 +47,18 @@ collections {
 #include "edc/elm/tooltip.edc"
 #include "edc/elm/colorsel.edc"
 #include "edc/elm/segment_control.edc"
-// XXX: needs design work (flipselector)
 #include "edc/elm/flipselector.edc"
 #include "edc/elm/notify.edc"
 #include "edc/elm/map.edc"
 #include "edc/elm/index.edc"
 #include "edc/elm/calendar.edc"
-// XXX: review (layout)
 #include "edc/elm/layout.edc"
-// XXX: support multi progress (progressbar)
 #include "edc/elm/progress.edc"
-// XXX: needs design work (naviframe)
 #include "edc/elm/naviframe.edc"
 #include "edc/elm/panel.edc"
 #include "edc/elm/popup.edc"
 #include "edc/elm/border.edc"
+// XXX: min size calc problems - too wide! ... err ok on my 32bit box... eh?
 #include "edc/elm/spinner.edc"
 #include "edc/elm/menu.edc"
 #include "edc/elm/clock.edc"
@@ -70,7 +66,9 @@ collections {
 #include "edc/elm/hover.edc"
 
 // desktop in general
+#include "edc/wallpaper.edc"
 #include "edc/comp.edc"
+#include "edc/comp_effects.edc"
 #include "edc/background.edc"
 #include "edc/shelf.edc"
 #include "edc/border.edc"
@@ -140,5 +138,4 @@ collections {
 // port unchanged stuff so this can work as a replacement
 #include "edc/O/efm_icons.edc"
 #include "edc/O/icons.edc"
-#include "edc/O/wallpaper.edc"
 }

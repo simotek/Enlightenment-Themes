@@ -353,6 +353,15 @@ group { name: "elm/entry/cursor/default";
          target: "cursor_hide_timer";
          after: "cursor_hide_stop";
       }
+      program {
+         signal: "elm,action,show,cursor"; source: "elm";
+         action: ACTION_STOP;
+         target: "cursor_show";
+         target: "cursor_hide";
+         target: "cursor_show_timer";
+         target: "cursor_hide_timer";
+         after: "cursor_show";
+      }
       program { name: "cursor_hide_stop";
          action: STATE_SET "default" 0.0;
          target: "cursor";
@@ -406,7 +415,7 @@ group { name: "elm/entry/anchor/default";
 }
 
 group { name: "elm/entry/base/default";
-   sounds {   
+   /*sounds {   
       sample { name: "key-tap1" LOSSY 64;
          source: "kbd-tap.wav";
       }
@@ -422,7 +431,7 @@ group { name: "elm/entry/base/default";
       sample { name: "key-tap5" LOSSY 64;
          source: "kbd-tap5.wav";
       }
-   }
+   }*/
    
    styles {
       style { name: "entry_style";
@@ -529,7 +538,7 @@ group { name: "elm/entry/base/default";
             run_program(get_program_id(buf));
          }
       }
-      program { name: "key-down1";
+      /*program { name: "key-down1";
          action: PLAY_SAMPLE "key-tap1" 1.0;
       }
       program { name: "key-down2";
@@ -543,7 +552,7 @@ group { name: "elm/entry/base/default";
       }
       program { name: "key-down5";
          action: PLAY_SAMPLE "key-tap5" 1.0;
-      }
+      }*/
    }
 }
 
@@ -916,6 +925,162 @@ group { name: "elm/entry/base-password/default";
             text { style: "entry_single_disabled_style";
             }
          }
+      }
+   }
+}
+
+group { name: "elm/entry/magnifier/default";
+   images.image: "frame_rounded.png" COMP;
+   parts {
+      part { name: "bg"; type: RECT; mouse_events: 0;
+         description { state: "default" 0.0;
+            rel1.offset: 10 10;
+            rel1.to: "over";
+            rel2.offset: -11 -11;
+            rel2.to: "over";
+            color: 48 48 48 255;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
+      }
+      part { name: "elm.swallow.content"; type: SWALLOW; mouse_events: 0;
+         description { state: "default" 0.0;
+            rel1.offset: 10 10;
+            rel1.to: "over";
+            rel2.offset: -11 -11;
+            rel2.to: "over";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
+      }
+      part { name: "over"; mouse_events: 0;
+         scale: 1;
+         description { state: "default" 0.0;
+            min: 128 64;
+            align: 0 0;
+            image.normal: "frame_rounded.png";
+            image.border: 14 14 14 14;
+            image.middle: 0;
+            fill.smooth: 0;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
+      }
+   }
+   programs {
+      program { name: "magnifier_show";
+         signal: "elm,action,show,magnifier"; source: "elm";
+         action: STATE_SET "default" 0.0;
+         target: "elm.swallow.content";
+         target: "bg";
+         target: "over";
+      }
+      program { name: "magnifier_hide";
+         signal: "elm,action,hide,magnifier"; source: "elm";
+         action: STATE_SET "hidden" 0.0;
+         target: "elm.swallow.content";
+         target: "bg";
+         target: "over";
+      }
+   }
+}
+
+group { name: "elm/entry/handler/start/default";
+   images.image: "handle_pick_up_left.png" COMP;
+   parts {
+      part { name: "base"; mouse_events: 0;
+         scale: 1;
+         description { state: "default" 0.0;
+            min: 21 27; // 42 54
+            image.normal: "handle_pick_up_left.png";
+            align: (29/42) (11/54);
+            visible: 0;
+         }
+         description { state: "visible" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+      }
+      part { name: "event"; type: RECT;
+         scale: 1;
+         description { state: "default" 0.0;
+            color: 0 0 0 0;
+            rel1.to: "base";
+            rel2.to: "base";
+            min: 32 32;
+            visible: 0;
+         }
+         description { state: "visible" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+      }
+   }
+   programs {
+      program {
+         signal: "elm,handler,show"; source: "elm";
+         action: STATE_SET "visible" 0.0;
+         target: "base";
+         target: "event";
+      }
+      program {
+         signal: "elm,handler,hide"; source: "elm";
+         action: STATE_SET "default" 0.0;
+         target: "base";
+         target: "event";
+      }
+   }
+}
+
+group { name: "elm/entry/handler/end/default";
+   images.image: "handle_pick_up_right.png" COMP;
+   parts {
+      part { name: "base"; mouse_events: 0;
+         scale: 1;
+         description { state: "default" 0.0;
+            min: 21 27; // 42 54
+            image.normal: "handle_pick_up_right.png";
+            align: (12/42) (11/54);
+            visible: 0;
+         }
+         description { state: "visible" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+      }
+      part { name: "event"; type: RECT;
+         scale: 1;
+         description { state: "default" 0.0;
+            color: 0 0 0 0;
+            rel1.to: "base";
+            rel2.to: "base";
+            min: 32 32;
+            visible: 0;
+         }
+         description { state: "visible" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+      }
+   }
+   programs {
+      program {
+         signal: "elm,handler,show"; source: "elm";
+         action: STATE_SET "visible" 0.0;
+         target: "base";
+         target: "event";
+      }
+      program {
+         signal: "elm,handler,hide"; source: "elm";
+         action: STATE_SET "default" 0.0;
+         target: "base";
+         target: "event";
       }
    }
 }

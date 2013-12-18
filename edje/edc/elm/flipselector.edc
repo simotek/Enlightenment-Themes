@@ -2,18 +2,17 @@
 #define FLIP_PICKER_MAX_LEN_STR "50"
 
 group { name: "elm/flipselector/base/default";
-   images {
-      image: "flip_base_shad.png" COMP;
-      image: "flip_shad.png" COMP;
-      image: "sym_up_light_normal.png" COMP;
-      image: "sym_down_light_normal.png" COMP;
-      image: "sym_up_dark_normal.png" COMP;
-      image: "sym_down_dark_normal.png" COMP;
-      image: "shine.png" COMP;
-   }
-   data {
-      item: "max_len" FLIP_PICKER_MAX_LEN_STR;
-   }
+   images.image: "flip_shad.png" COMP;
+   images.image: "sym_up_light_normal.png" COMP;
+   images.image: "sym_down_light_normal.png" COMP;
+   images.image: "sym_up_dark_normal.png" COMP;
+   images.image: "sym_down_dark_normal.png" COMP;
+   images.image: "shine.png" COMP;
+   images.image: "win_shadow.png" COMP;
+   images.image: "bevel_out.png" COMP;
+   
+   data.item: "max_len" FLIP_PICKER_MAX_LEN_STR;
+   
    //FIXME: quick successive clicks on, say, up, lead to nastiness
    script {
       public cur, prev, next, lock;
@@ -153,29 +152,26 @@ group { name: "elm/flipselector/base/default";
       }
    }
    parts {
-      part { name: "base_shadow";
-         mouse_events: 0;
+      part { name: "base_shadow"; mouse_events: 0;
          description { state: "default" 0.0;
-            rel1 { offset: -4 -4; to: "base"; }
-            rel2 { offset: 3 6; to: "base"; }
-            image {
-               normal: "flip_base_shad.png";
-               border: 10 10 10 10;
-            }
+            image.normal: "win_shadow.png";
+            image.border: 14 14 14 14;
+            image.middle: 0;
+            rel1.to: "base";
+            rel1.offset: -7  -3;
+            rel2.to: "base";
+            rel2.offset: 6 11;
             fill.smooth: 0;
          }
       }
-      part { name: "base";
-         type: RECT;
+      part { name: "base"; type: RECT;
          scale: 1;
          description { state: "default" 0.0;
-            rel1.offset: 6 4;
-            rel2.offset: -6 -7;
+            rel1.offset: 6 6;
+            rel2.offset: -7 -7;
          }
       }
-      part { name: "bottom";
-         type: RECT;
-         mouse_events: 1;
+      part { name: "bottom"; type: RECT;
          description { state: "default" 0.0;
             rel1 { to: "base"; relative: 0.0 0.5; }
             rel2.to: "base";
@@ -185,9 +181,7 @@ group { name: "elm/flipselector/base/default";
             visible: 0;
          }
       }
-      part { name: "top";
-         type: RECT;
-         mouse_events: 1;
+      part { name: "top"; type: RECT;
          description { state: "default" 0.0;
             rel1.to: "base";
             rel2 { to: "base"; relative: 1.0 0.5; }
@@ -204,21 +198,23 @@ group { name: "elm/flipselector/base/default";
          description { state: "default" 0.0;
             rel1.to: "bottom";
             rel2.to: "bottom";
-            color: 80 79 79 255;
+            color: 72 72 72 255;
          }
       }
-      part { name: "bottom_text_prev";
-         type: TEXT;
+      part { name: "bottom_text_prev"; type: TEXT; mouse_events: 0;
          effect: SHADOW BOTTOM;
          clip_to: "bottom_clipper";
-         mouse_events: 0;
          scale: 1;
          description { state: "default" 0.0;
-            rel1.to: "base";
+            rel1.to_x: "base";
+            rel1.to_y: "arrow_top";
+            rel1.relative: 0.0 0.7;
+            rel1.offset: 2 0;
             rel2.to: "base";
-            text {
-               font: FN;
-               size: 20;
+            rel2.to_y: "arrow_bottom";
+            rel2.relative: 1.0 0.3;
+            rel2.offset: -3 -1;
+            text { font: FN; size: 10;
                min: 1 1;
                align: 0.5 0.5;
             }
@@ -229,8 +225,7 @@ group { name: "elm/flipselector/base/default";
             color: FN_COL_DISABLE;
          }
       }
-      part { name: "bottom_shadow";
-         mouse_events: 0;
+      part { name: "bottom_shadow"; mouse_events: 0;
          clip_to: "bottom_clipper";
          description { state: "default" 0.0;
             rel1.to: "bottom";
@@ -247,22 +242,18 @@ group { name: "elm/flipselector/base/default";
             rel2.relative: 1.0 2.0;
          }
       }
-      part { name: "bottom_cur";
-         type: RECT;
-         mouse_events: 0;
+      part { name: "bottom_cur"; type: RECT; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.to: "bottom";
             rel2.to: "bottom";
-            color: 80 79 79 255;
+            color: 72 72 72 255;
          }
          description { state: "shrink" 0.0;
             inherit: "default" 0.0;
             rel2.relative: 1.0 0.0;
          }
       }
-      part { name: "bottom_shine_cur";
-         type: IMAGE;
-         mouse_events: 0;
+      part { name: "bottom_shine_cur"; mouse_events: 0;
          description { state: "default" 0.0;
             rel1 { to: "bottom_cur"; relative: 0 1; }
             rel2.to: "bottom_cur";
@@ -277,18 +268,20 @@ group { name: "elm/flipselector/base/default";
             visible: 1;
          }
       }
-      part { name: "elm.bottom";
-         type: TEXT;
+      part { name: "elm.bottom"; type: TEXT; mouse_events: 0;
          effect: SHADOW BOTTOM;
          clip_to: "bottom_clipper";
-         mouse_events: 0;
          scale: 1;
          description { state: "default" 0.0;
-            rel1.to: "base";
+            rel1.to_x: "base";
+            rel1.to_y: "arrow_top";
+            rel1.relative: 0.0 0.7;
+            rel1.offset: 2 0;
             rel2.to: "base";
-            text {
-               font: FN;
-               size: 20;
+            rel2.to_y: "arrow_bottom";
+            rel2.relative: 1.0 0.3;
+            rel2.offset: -3 -1;
+            text { font: FN; size: 10;
                min: 1 1;
                align: 0.5 0.5;
             }
@@ -305,32 +298,32 @@ group { name: "elm/flipselector/base/default";
             color: FN_COL_DISABLE;
          }
       }
-      part { name: "top_prev";
-         type: RECT;
-         mouse_events: 0;
+      part { name: "top_prev"; type: RECT; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.to: "top";
             rel2.to: "top";
-            color: 70 69 69 255;
+            color: 56 56 56 255;
          }
       }
-      part { name: "top_text_prev";
-         type: TEXT;
+      part { name: "top_text_prev"; type: TEXT; mouse_events: 0;
          effect: SHADOW BOTTOM;
-         mouse_events: 0;
          clip_to: "top_clipper";
          scale: 1;
          description { state: "default" 0.0;
-            rel1.to: "base";
+            rel1.to_x: "base";
+            rel1.to_y: "arrow_top";
+            rel1.relative: 0.0 0.7;
+            rel1.offset: 2 0;
             rel2.to: "base";
-            text {
-               font: FN;
-               size: 20;
+            rel2.to_y: "arrow_bottom";
+            rel2.relative: 1.0 0.3;
+            rel2.offset: -3 -1;
+            text { font: FN; size: 10;
                min: 1 1;
                align: 0.5 0.5;
                source: "elm.top";
             }
-            color: 205 205 205 255;
+            color: 192 192 192 255;
             color3: 0 0 0 128;
          }
          description { state: "disabled" 0.0;
@@ -339,9 +332,7 @@ group { name: "elm/flipselector/base/default";
             color3: 255 255 255 25;
          }
       }
-      part { name: "top_shine_prev";
-         type: IMAGE;
-         mouse_events: 0;
+      part { name: "top_shine_prev"; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.to: "top_prev";
             rel2 { to: "top_prev"; relative: 1 0; }
@@ -351,36 +342,32 @@ group { name: "elm/flipselector/base/default";
             align: 0.5 0;
          }
       }
-      part { name: "top_cur";
-         type: RECT;
-         mouse_events: 0;
+      part { name: "top_cur"; type: RECT; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.to: "top";
             rel2.to: "top";
-            color: 70 69 69 255;
+            color: 56 56 56 255;
          }
          description { state: "shrink" 0.0;
             inherit: "default" 0.0;
             rel1.relative: 0.0 1.0;
-            color: 40 39 39 255;
+            color: 40 40 40 255;
          }
       }
-      part { name: "elm.top";
-         type: TEXT;
+      part { name: "elm.top"; type: TEXT; mouse_events: 0;
          effect: SHADOW BOTTOM;
-         mouse_events: 0;
          clip_to: "top_clipper";
          scale: 1;
          description { state: "default" 0.0;
             rel1.to: "base";
+            rel1.offset: 2 2;
             rel2.to: "base";
-            text {
-               font: FN;
-               size: 20;
+            rel2.offset: -3 -3;
+            text { font: FN; size: 10;
                min: 1 1;
                align: 0.5 0.5;
             }
-            color: 205 205 205 255;
+            color: 192 192 192 255;
             color3: 0 0 0 128;
          }
          description { state: "shrink" 0.0;
@@ -394,9 +381,7 @@ group { name: "elm/flipselector/base/default";
             color3: 255 255 255 25;
          }
       }
-      part { name: "top_shine_cur";
-         type: IMAGE;
-         mouse_events: 0;
+      part { name: "top_shine_cur"; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.to: "top_cur";
             rel2 { to: "top_cur"; relative: 1 0; }
@@ -411,8 +396,17 @@ group { name: "elm/flipselector/base/default";
             visible: 1;
          }
       }
-      part { name: "arrow_top";
-         mouse_events: 0;
+      part { name: "bevel"; mouse_events: 0;
+         description { state: "default" 0.0;
+            image.normal: "bevel_out.png";
+            image.border: 1 1 1 1;
+            image.middle: 0;
+            rel1.to: "base";
+            rel2.to: "base";
+            fill.smooth: 0;
+         }
+      }
+      part { name: "arrow_top"; mouse_events: 0;
          scale: 1;
          description { state: "default" 0.0;
             min: 15 15;
@@ -421,6 +415,7 @@ group { name: "elm/flipselector/base/default";
             rel1.to: "top";
             rel2.to: "top";
             image.normal: "sym_up_light_normal.png";
+            color: 192 192 192 255;
          }
          description { state: "hidden" 0.0;
             inherit: "default" 0.0;
@@ -431,8 +426,7 @@ group { name: "elm/flipselector/base/default";
             image.normal: "sym_up_dark_normal.png";
          }
       }
-      part { name: "arrow_bottom";
-         mouse_events: 0;
+      part { name: "arrow_bottom"; mouse_events: 0;
          scale: 1;
          description { state: "default" 0.0;
             min: 15 15;
@@ -451,23 +445,19 @@ group { name: "elm/flipselector/base/default";
             image.normal: "sym_down_dark_normal.png";
          }
       }
-      part { name: "top_clipper";
-         type: RECT;
-         mouse_events: 0;
+      part { name: "top_clipper"; type: RECT;
          description { state: "default" 0.0;
             rel1.to: "top";
             rel2.to: "top";
          }
       }
-      part { name: "bottom_clipper";
-         type: RECT;
+      part { name: "bottom_clipper"; type: RECT;
          description { state: "default" 0.0;
             rel1.to: "bottom";
             rel2.to: "bottom";
          }
       }
-      part { name: "event_blocker";
-         type: RECT;
+      part { name: "event_blocker"; type: RECT;
          description { state: "default" 0.0;
             color: 0 0 0 0;
             visible: 0;
@@ -479,7 +469,7 @@ group { name: "elm/flipselector/base/default";
       }
    }
    programs {
-      program { name: "load";
+      program {
          signal: "load"; source: "";
          script {
             append_str(cur, "");
@@ -488,7 +478,7 @@ group { name: "elm/flipselector/base/default";
             set_int(lock, 0);
          }
       }
-      program { name: "hide_arrows";
+      program {
          signal: "elm,state,button,hidden"; source: "elm";
          action: STATE_SET "hidden" 0.0;
          target: "arrow_top";
@@ -496,7 +486,7 @@ group { name: "elm/flipselector/base/default";
          target: "top";
          target: "bottom";
       }
-      program { name: "show_arrows";
+      program {
          signal: "elm,state,button,visible"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "arrow_top";

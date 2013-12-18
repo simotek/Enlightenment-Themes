@@ -142,6 +142,7 @@ mv img/led_light.png img-color/
 mv img/runner_glow_horiz.png img-color/
 mv img/runner_glow_vert.png img-color/
 mv img/bg_glow_in.png img-color/
+mv img/box_glow.png img-color/
 mv img/corner_glow_1.png img-color/
 mv img/corner_glow_2.png img-color/
 mv img/corner_glow_3.png img-color/
@@ -199,6 +200,8 @@ mv img/emo-wink.png img-color/
 mv img/emo-worried.png img-color/
 mv img/emo-wtf.png img-color/
 mv img/eth.png img-color/
+mv img/handle_pick_up_left.png img-color/
+mv img/handle_pick_up_right.png img-color/
 mv img/horiz_glow_run_big.png img-color/
 mv img/horiz_glow_run_rev.png img-color/
 mv img/icon_apps.png img-color/
@@ -333,14 +336,14 @@ for F in `find -iname "*.png"`; do
         #    convert $F -modulate 80,74,42 ../img-color-convd/$F
         #    convert $F -modulate 78,60,35 ../img-color-convd/$F
         #    convert $F -modulate 79,66,30 ../img-color-convd/$F
-        #    convert $F -modulate 79,50,32 ../img-color-convd/$F
+        convert $F -modulate 79,50,32 ../img-color-convd/$F
 done
 popd
 
 pushd img-bgnd
 for F in `find -iname "*.png"`; do
         #modulate blue to be green in all images
-        # convert $F -modulate 80,20,120 ../img-color-convd/$F
+        convert $F -modulate 80,20,120 ../img-color-convd/$F
 done
 popd
 
@@ -351,7 +354,7 @@ for F in `find edc-sb -iname "*.edc"`; do
     #replace color blue by green in all edcrr
     #sed -i 's/51 153 255/152 205 87/' $F
     #5e993b was target
-    #sed -i 's/#3399ff/#98cd57/' $F
+    sed -i 's/#3399ff/#98cd57/' $F
     
     # File manager background
     #sed -i 's/64 64 64/14 18 19/' $F
@@ -384,13 +387,13 @@ for F in `find edc-sb -iname "*.edc"`; do
 done
 
 #repair the definition of blue
-#sed -i 's/#define BLUE    152 205 87 255/#define BLUE    51 153 255 255/' edc-sb/init.edc
+sed -i 's/#define BLUE    152 205 87 255/#define BLUE    51 153 255 255/' edc-sb/init.edc
 
 cp -a default.edc default-sb.edc
 
-#sed -i 's/"edc/"edc-sb/' default-sb.edc
+sed -i 's/"edc/"edc-sb/' default-sb.edc
 
 rm default-sb.edj
-edje_cc -v -id img-no-change -id img-color-convd -id img-manual default-sb.edc  default-sb.edj
+edje_cc -v -id img-no-change -id img-color-convd -id img-manual -fd fnt default-sb.edc default-sb.edj
 echo $PWD
 mv -v img-bak img

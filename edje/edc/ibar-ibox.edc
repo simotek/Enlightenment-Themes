@@ -66,9 +66,9 @@ group { name: "e/modules/ibox/icon";
             min: 10 10;
             max: 10 10;
             rel1.relative: 1.0 1.0;
-            rel1.offset: -4 -4;
+            rel1.offset: -5 -5;
             rel2.relative: 1.0 1.0;
-            rel2.offset: -3 -3;
+            rel2.offset: -4 -4;
             image.normal: "led_tiny_blue.png";
             color: 255 255 255 0;
             visible: 0;
@@ -114,6 +114,18 @@ group { name: "e/modules/ibox/icon";
          action: STATE_SET "default" 0.0;
          target: "item_clip";
       }
+      program { name: "ion";
+         signal: "e,state,on"; source: "e";
+         action: STATE_SET "visible" 0.0;
+         target: "indicator";
+         transition: ACCELERATE 0.1;
+      }
+      program { name: "ioff";
+         signal: "e,state,off"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "indicator";
+         transition: DECELERATE 0.1;
+      }
       program {
          signal: "e,state,on"; source: "e";
          action: STATE_SET "visible" 0.0;
@@ -156,8 +168,7 @@ group { name: "e/modules/ibar/menu";
    images.image: "darken_rounded_square.png" COMP;
    parts {
       part { name: "sizer"; type: SPACER;
-         description { state: "default";
-         }
+         description { state: "default"; }
          description { state: "hidden";
             rel1.relative: 0.5 1.0;
             rel2.relative: 0.5 1.0;
