@@ -350,11 +350,21 @@ popd
 echo "Rewriting .edc..."
 rm -rf edc-sb
 cp -a edc edc-sb
-for F in `find edc-sb -iname "*.edc"`; do
+
+#clean up
+rm colorclasses-sb.edc
+rm fonts-sb.edc
+rm macros-sb.edc
+
+cp -a colorclasses.edc colorclasses-sb.edc
+cp -a fonts.edc fonts-sb.edc
+cp -a macros.edc macros-sb.edc
+for F in `find edc-sb colorclasses-sb.edc fonts-sb.edc macros-sb.edc -iname "*.edc"`; do
+    echo $F
     #replace color blue by green in all edcrr
-    #sed -i 's/51 153 255/152 205 87/' $F
+    sed -i 's/51 153 255/255 0 0/' $F
     #5e993b was target
-    sed -i 's/#3399ff/#98cd57/' $F
+    sed -i 's/#3399ff/#FF0000/' $F
     
     # File manager background
     #sed -i 's/64 64 64/14 18 19/' $F
@@ -389,9 +399,13 @@ done
 #repair the definition of blue
 sed -i 's/#define BLUE    152 205 87 255/#define BLUE    51 153 255 255/' edc-sb/init.edc
 
+rm default-sb.edc
 cp -a default.edc default-sb.edc
 
 sed -i 's/"edc/"edc-sb/' default-sb.edc
+sed -i 's/"colorclasses/"colorclasses-sb/' default-sb.edc
+sed -i 's/"fonts/"fonts-sb/' default-sb.edc
+sed -i 's/"macros/"macros-sb/' default-sb.edc
 
 rm default-sb.edj
 edje_cc -v -id img-no-change -id img-color-convd -id img-manual -fd fnt default-sb.edc default-sb.edj
