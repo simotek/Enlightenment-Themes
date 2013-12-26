@@ -357,7 +357,6 @@ cp -a macros.edc macros-sb.edc
 for F in `find edc-sb colorclasses-sb.edc fonts-sb.edc macros-sb.edc -iname "*.edc"`; do
     echo $F
     #replace color blue by green in all edcrr
-
     sed -i 's/51 153 255/65 214 0/' $F
     #5e993b was target
     # new target 42ce13
