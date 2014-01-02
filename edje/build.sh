@@ -240,6 +240,7 @@ mv img/inset_bar_horiz_glow_mid_base.png img-color/
 mv img/inset_bar_vert_glow_base.png img-color/
 mv img/inset_bar_vert_glow_inv_base.png img-color/
 mv img/inset_bar_vert_glow_mid_base.png img-color/
+mv img/led_tiny_blue.png img-color/
 mv img/ring_white_blue_glow.png img-color/
 mv img/vert_glow_run_rev.png img-color/
 
