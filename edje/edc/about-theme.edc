@@ -32,8 +32,8 @@ group { name: "e/theme/about";
             color3: 51 153 255 18;
             rel1.relative: 0.5 0.5;
             rel2.relative: 0.5 0.5;
-            text { font: FNBD; size: 64;
-               text: "Dark";
+            text { font: FNBD; size: 30;
+               text: "openSUSE-E";
                min: 1 1;
                align: 0.5 0.5;
             }
@@ -47,13 +47,13 @@ group { name: "e/theme/about";
             color: 51 153 255 255;
             color2: 51 153 255 24;
             color3: 51 153 255 18;
-            rel1.relative: 0.5 0.9;
+            rel1.relative: 0.5 1.1;
             rel1.to: "name";
-            rel2.relative: 0.5 0.9;
+            rel2.relative: 0.5 1.1;
             rel2.to: "name";
             align: 0.5 1.0;
-            text { font: FN; size: 10;
-               text: "The default theme for Enlightenment";
+            text { font: FN; size: 8;
+               text: "The Enlightenment theme for openSUSE";
                min: 1 1;
                align: 0.5 1.0;
             }
