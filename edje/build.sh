@@ -1,8 +1,4 @@
 
-# Other modifications
-# battery.edc
-# about-theme.edc
-# fileman 1093 -> removed border
 
 echo "moving images..."
 rm -rf img-color
@@ -330,21 +326,15 @@ mkdir img-color-convd
 echo "Converting images..."
 pushd img-color
 for F in `find -iname "*.png"`; do
-        #modulate blue to be green in all images
-        #100  60 80 84 75 79 84
-        #80   61 58 85 75 80 74
-        # 210 97 87 106 93 84 84
-        #    convert $F -modulate 80,74,42 ../img-color-convd/$F
-        #    convert $F -modulate 78,60,35 ../img-color-convd/$F
-        #    convert $F -modulate 79,66,30 ../img-color-convd/$F
-        convert $F -modulate 79,50,32 ../img-color-convd/$F
+        #modulate blue to be dark blue in all images
+        convert $F -modulate 45,170 ../img-color-convd/$F
 done
 popd
 
 pushd img-bgnd
 for F in `find -iname "*.png"`; do
-        #modulate blue to be green in all images
-        convert $F -modulate 80,20,120 ../img-color-convd/$F
+        # lighten background images
+        convert $F -brightness-contrast 40,-5 ../img-color-convd/$F
 done
 popd
 
@@ -362,26 +352,27 @@ cp -a fonts.edc fonts-sb.edc
 cp -a macros.edc macros-sb.edc
 for F in `find edc-sb colorclasses-sb.edc fonts-sb.edc macros-sb.edc -iname "*.edc"`; do
     echo $F
-    #replace color blue by green in all edcrr
-    sed -i 's/51 153 255/255 0 0/' $F
+    #replace color blue by new color in all edcrr
+    sed -i 's/51 153 255/0 61 135/' $F
     #5e993b was target
-    sed -i 's/#3399ff/#FF0000/' $F
+    sed -i 's/#3399ff/#003d87/' $F
+    
     
     # File manager background
-    #sed -i 's/64 64 64/14 18 19/' $F
+    sed -i 's/64 64 64/196 196 196/' $F
     
-    #sed -i 's/#404040/#0e1213/' $F
+    sed -i 's/#404040/#c5c4c4/' $F
     
     # file manager alt
     #next is 56 56 56 -> 34 39 42
     #    #383838 -> #22272a
-    #sed -i 's/56 56 56/34 39 42/' $F
-    #sed -i 's/#383838/#22272a/' $F
+    sed -i 's/56 56 56/182 182 182/' $F
+    sed -i 's/#383838/#b5b6b6/' $F
     
     # File manager image background
     # 303030, 48 48 48 -> 172526 23 37 38
-    #sed -i 's/48 48 48/23 37 38/' $F
-    #sed -i 's/#303030/#172526/' $F
+    sed -i 's/48 48 48/182 182 182/' $F
+    sed -i 's/#303030/#b5b6b6/' $F
     
     # text in alt bars
     # 101010 16 16 16
@@ -393,9 +384,13 @@ for F in `find edc-sb colorclasses-sb.edc fonts-sb.edc macros-sb.edc -iname "*.e
     # sed -i 's/50 50 50/23 37 38/' $F
     # sed -i 's/#323232/#172526/' $F
     
-    # other images in gimp colorize 201 12 -47
-
 done
+
+# just change the font from white_bar_vert_glow
+for F in `find fonts-sb.edc -iname "*.edc"`; do
+    sed -i 's/255 255 255/28 28 28/' $F
+done
+
 
 #repair the definition of blue
 sed -i 's/#define BLUE    152 205 87 255/#define BLUE    51 153 255 255/' edc-sb/init.edc
