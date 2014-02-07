@@ -326,15 +326,21 @@ mkdir img-color-convd
 echo "Converting images..."
 pushd img-color
 for F in `find -iname "*.png"`; do
-        #modulate blue to be dark blue in all images
-        convert $F -modulate 45,170 ../img-color-convd/$F
+        #modulate blue to be green in all images
+        #100  60 80 84 75 79 84
+        #80   61 58 85 75 80 74
+        # 210 97 87 106 93 84 84
+        #    convert $F -modulate 80,74,42 ../img-color-convd/$F
+        #    convert $F -modulate 78,60,35 ../img-color-convd/$F
+        #    convert $F -modulate 79,66,30 ../img-color-convd/$F
+        convert $F -modulate 79,50,32 ../img-color-convd/$F
 done
 popd
 
 pushd img-bgnd
 for F in `find -iname "*.png"`; do
-        # lighten background images
-        convert $F -brightness-contrast 40,-5 ../img-color-convd/$F
+        #modulate blue to be green in all images
+        convert $F -modulate 80,20,120 ../img-color-convd/$F
 done
 popd
 
@@ -403,7 +409,6 @@ for F in `find fonts-sb.edc -iname "*.edc"`; do
     sed -i 's/255 255 255 255; color3: 0 0 0 128/28 28 28 255; color3: 0 0 0 32/' $F
     sed -i 's/255 255 255/28 28 28/' $F
 done
-
 
 #repair the definition of blue
 sed -i 's/#define BLUE    152 205 87 255/#define BLUE    51 153 255 255/' edc-sb/init.edc
