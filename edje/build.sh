@@ -388,6 +388,7 @@ done
 
 # just change the font from white_bar_vert_glow
 for F in `find fonts-sb.edc -iname "*.edc"`; do
+    sed -i 's/255 255 255 255; color3: 0 0 0 128/28 28 28 255; color3: 0 0 0 32/' $F
     sed -i 's/255 255 255/28 28 28/' $F
 done
 
@@ -404,6 +405,6 @@ sed -i 's/"fonts/"fonts-sb/' default-sb.edc
 sed -i 's/"macros/"macros-sb/' default-sb.edc
 
 rm default-sb.edj
-edje_cc -v -id img-no-change -id img-color-convd -id img-manual -fd fnt default-sb.edc default-sb.edj
+edje_cc -v -id img-no-change -id img-color-convd -id img-manual -fd fn -sd snd default-sb.edc default-sb.edj
 echo $PWD
 mv -v img-bak img
