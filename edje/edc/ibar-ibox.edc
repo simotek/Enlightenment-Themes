@@ -215,21 +215,26 @@ group { name: "e/modules/ibar/menu";
          target: "sizer";
          target: "clip";
       }
+
       program { signal: "e,action,show"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "sizer";
          target: "clip";
-         transition: DECELERATE 0.2;
+         transition: SINUSOIDAL 0.2;
+         after: "show2";
       }
+      program { name: "show2";
+         action: SIGNAL_EMIT "e,action,show,done" "";
+      }
+
       program { signal: "e,action,hide"; source: "e";
          action: STATE_SET "hidden" 0.0;
          target: "sizer";
          target: "clip";
-         transition: ACCELERATE 0.2;
+         transition: SINUSOIDAL 0.2;
          after: "hide2";
       }
       program { name: "hide2";
-         in: 0.2 0.0;
          action: SIGNAL_EMIT "e,action,hide,done" "";
       }
    }
@@ -237,6 +242,7 @@ group { name: "e/modules/ibar/menu";
 
 group { name: "e/modules/ibar/menu/item";
    images.image: "glow_small.png" COMP;
+   images.image: "win_shadow.png" COMP;
    parts {
       part { name: "icon"; type: SPACER;
          description { state: "default";
@@ -246,6 +252,18 @@ group { name: "e/modules/ibar/menu/item";
             aspect: 1.0 1.0; aspect_preference: BOTH;
             min: 48 48;
             max: 48 48;
+         }
+      }
+      part { name: "shadow"; mouse_events: 0;
+         description { state: "default" 0.0;
+            image.normal: "win_shadow.png";
+            image.border: 14 14 14 14;
+            image.middle: 0;
+            rel1.to: "e.swallow.icon";
+            rel1.offset: -7 -3;
+            rel2.to: "e.swallow.icon";
+            rel2.offset: 6 11;
+            fill.smooth: 0;
          }
       }
       part { name: "glow"; mouse_events: 0;
@@ -274,8 +292,8 @@ group { name: "e/modules/ibar/menu/item";
          }
          description { state: "focus";
             inherit: "default";
-            rel1.offset: -2 -2;
-            rel2.offset: 1 1;
+            rel1.offset: -4 -4;
+            rel2.offset: 3 3;
          }
       }
       part { name: "e.text.title"; type: TEXT; mouse_events: 0;

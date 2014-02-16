@@ -68,6 +68,7 @@ collections {
 // desktop in general
 #include "edc/wallpaper.edc"
 #include "edc/comp.edc"
+#include "edc/comp_compat.edc"
 #include "edc/comp_effects.edc"
 #include "edc/background.edc"
 #include "edc/shelf.edc"
@@ -80,6 +81,7 @@ collections {
 #include "edc/sys.edc"
 #include "edc/winlist.edc"
 #include "edc/desklock.edc"
+#include "edc/deskmirror.edc"
 #include "edc/wizard.edc"
 #include "edc/init.edc"
 #include "edc/about-e.edc"
@@ -110,6 +112,7 @@ collections {
 // modules
 #include "edc/start.edc"
 #include "edc/pager.edc"
+#include "edc/pager16.edc"
 #include "edc/xkbswitch.edc"
 #include "edc/tasks.edc"
 #include "edc/connman.edc"
@@ -130,6 +133,7 @@ collections {
 #include "edc/evrything.edc"
 #include "edc/illume.edc"
 #include "edc/bluez4.edc"
+#include "edc/packagekit.edc"
 
 // icons
 #include "edc/icons.edc"

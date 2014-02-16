@@ -21,7 +21,9 @@ group { name: "elm/scroller/entry/default";
          clip_to: "clipper";
          description { state: "default" 0.0;
             fixed: 1 1;
+            rel1.to: "clipper";
             rel1.offset: 1 1;
+            rel2.to: "clipper";
             rel2.offset: 1 -2;
             rel2.relative: 0.0 1.0;
             visible: 0;
@@ -47,8 +49,10 @@ group { name: "elm/scroller/entry/default";
          clip_to: "clipper";
          description { state: "default" 0.0;
             fixed: 1 1;
+            rel1.to: "clipper";
             rel1.offset: -2 1;
             rel1.relative: 1.0 0.0;
+            rel2.to: "clipper";
             rel2.offset: -2 -2;
             visible: 0;
             align: 0.0 0.0;
@@ -415,7 +419,7 @@ group { name: "elm/entry/anchor/default";
 }
 
 group { name: "elm/entry/base/default";
-   /*sounds {   
+   sounds {   
       sample { name: "key-tap1" LOSSY 64;
          source: "kbd-tap.wav";
       }
@@ -431,29 +435,23 @@ group { name: "elm/entry/base/default";
       sample { name: "key-tap5" LOSSY 64;
          source: "kbd-tap5.wav";
       }
-   }*/
+   }
    
    styles {
       style { name: "entry_style";
          base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=word text_class=entry color_class=entry left_margin=2 right_margin=2";
-         tag:  "em" "+ font_style=Oblique";
-         tag:  "link" "+ color=#3399ff underline=on underline_color=#3399ff";
-         tag:  "hilight" "+ font_weight=Bold";
-         tag:  "preedit" "+ underline=on underline_color=#3399ff";
-         tag:  "preedit_sel" "+ backing=on backing_color=#000000 color=#ffffff";
+         COMMON_TEXTBLOCK_TAGS
+         ENABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_disabled_style";
          base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=word text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
-         tag:  "em" "+ font_style=Oblique";
-         tag:  "link" "+ color=#3399ff88 underline=on underline_color=#3399ff88";
-         tag:  "hilight" "+ font_weight=Bold";
-         tag:  "preedit" "+ underline=on underline_color=#3399ff88";
-         tag:  "preedit_sel" "+ backing=on backing_color=#000 color=#888888";
+         DISABLED_COMMON_TEXTBLOCK_TAGS
+         DISABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_guide_style";
          base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=word text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
-         tag:  "em" "+ font_style=Oblique";
-         tag:  "hilight" "+ font_weight=Bold";
+         DISABLED_COMMON_TEXTBLOCK_TAGS
+         DISABLED_TEXTBLOCK_TAGS
       }
    }
 //   data.item: "context_menu_orientation" "horizontal";
@@ -538,7 +536,7 @@ group { name: "elm/entry/base/default";
             run_program(get_program_id(buf));
          }
       }
-      /*program { name: "key-down1";
+      program { name: "key-down1";
          action: PLAY_SAMPLE "key-tap1" 1.0;
       }
       program { name: "key-down2";
@@ -552,7 +550,7 @@ group { name: "elm/entry/base/default";
       }
       program { name: "key-down5";
          action: PLAY_SAMPLE "key-tap5" 1.0;
-      }*/
+      }
    }
 }
 
@@ -561,24 +559,18 @@ group { name: "elm/entry/base-mixedwrap/default";
    styles {
       style { name: "entry_style_mixedwrap";
          base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=mixed text_class=entry color_class=entry left_margin=2 right_margin=2";
-         tag:  "em" "+ font_style=Oblique";
-         tag:  "link" "+ color=#3399ff underline=on underline_color=#3399ff";
-         tag:  "hilight" "+ font_weight=Bold";
-         tag:  "preedit" "+ underline=on underline_color=#3399ff";
-         tag:  "preedit_sel" "+ backing=on backing_color=#000000 color=#ffffff";
+         COMMON_TEXTBLOCK_TAGS
+         ENABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_disabled_style_mixedwrap";
          base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=mixed text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
-         tag:  "em" "+ font_style=Oblique";
-         tag:  "link" "+ color=#3399ff88 underline=on underline_color=#3399ff88";
-         tag:  "hilight" "+ font_weight=Bold";
-         tag:  "preedit" "+ underline=on underline_color=#3399ff88";
-         tag:  "preedit_sel" "+ backing=on backing_color=#000 color=#888888";
+         DISABLED_COMMON_TEXTBLOCK_TAGS
+         DISABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_guide_style_mixedwrap";
          base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=mixed text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
-         tag:  "em" "+ font_style=Oblique";
-         tag:  "hilight" "+ font_weight=Bold";
+         DISABLED_COMMON_TEXTBLOCK_TAGS
+         DISABLED_TEXTBLOCK_TAGS
       }
    }
    parts {
@@ -620,24 +612,18 @@ group { name: "elm/entry/base-charwrap/default";
    styles {
       style { name: "entry_style_charwrap";
          base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=char text_class=entry color_class=entry left_margin=2 right_margin=2";
-         tag:  "em" "+ font_style=Oblique";
-         tag:  "link" "+ color=#3399ff underline=on underline_color=#3399ff";
-         tag:  "hilight" "+ font_weight=Bold";
-         tag:  "preedit" "+ underline=on underline_color=#3399ff";
-         tag:  "preedit_sel" "+ backing=on backing_color=#000000 color=#ffffff";
+         COMMON_TEXTBLOCK_TAGS
+         ENABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_disabled_style_charwrap";
          base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=char text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
-         tag:  "em" "+ font_style=Oblique";
-         tag:  "link" "+ color=#3399ff88 underline=on underline_color=#3399ff88";
-         tag:  "hilight" "+ font_weight=Bold";
-         tag:  "preedit" "+ underline=on underline_color=#3399ff88";
-         tag:  "preedit_sel" "+ backing=on backing_color=#000 color=#888888";
+         DISABLED_COMMON_TEXTBLOCK_TAGS
+         DISABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_guide_style_charwrap";
          base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=char text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
-         tag:  "em" "+ font_style=Oblique";
-         tag:  "hilight" "+ font_weight=Bold";
+         DISABLED_COMMON_TEXTBLOCK_TAGS
+         DISABLED_TEXTBLOCK_TAGS
       }
    }
    parts {
@@ -714,24 +700,18 @@ group { name: "elm/entry/base-single/default";
    styles {
       style { name: "entry_single_style";
          base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=none text_class=entry color_class=entry left_margin=2 right_margin=2";
-         tag:  "em" "+ font_style=Oblique";
-         tag:  "link" "+ color=#3399ff underline=on underline_color=#3399ff";
-         tag:  "hilight" "+ font_weight=Bold";
-         tag:  "preedit" "+ underline=on underline_color=#3399ff";
-         tag:  "preedit_sel" "+ backing=on backing_color=#000000 color=#ffffff";
+         COMMON_TEXTBLOCK_TAGS
+         ENABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_single_disabled_style";
          base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=none text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
-         tag:  "em" "+ font_style=Oblique";
-         tag:  "link" "+ color=#3399ff88 underline=on underline_color=#3399ff88";
-         tag:  "hilight" "+ font_weight=Bold";
-         tag:  "preedit" "+ underline=on underline_color=#3399ff88";
-         tag:  "preedit_sel" "+ backing=on backing_color=#000 color=#888888";
+         DISABLED_COMMON_TEXTBLOCK_TAGS
+         DISABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_single_guide_style";
          base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=none text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
-         tag:  "em" "+ font_style=Oblique";
-         tag:  "hilight" "+ font_weight=Bold";
+         DISABLED_COMMON_TEXTBLOCK_TAGS
+         DISABLED_TEXTBLOCK_TAGS
       }
    }
    parts {
