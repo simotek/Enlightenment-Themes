@@ -384,6 +384,15 @@ for F in `find edc-sb colorclasses-sb.edc fonts-sb.edc macros-sb.edc -iname "*.e
     # sed -i 's/50 50 50/23 37 38/' $F
     # sed -i 's/#323232/#172526/' $F
     
+    # Textbox elm/entry
+    #          base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=char text_class=entry color_class=entry left_margin=2 right_margin=2";
+    #          base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=char text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
+    #          base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=char text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
+    
+    # elm/gengrid
+    # color=#fff style=shadow,bottom shadow_color=#00000080
+    # color=#3399ffff style=glow glow_color=#3399ff18 glow2_color=#3399ff12
+    
 done
 
 # just change the font from white_bar_vert_glow
