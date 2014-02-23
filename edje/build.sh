@@ -393,6 +393,9 @@ for F in `find edc-sb colorclasses-sb.edc fonts-sb.edc macros-sb.edc -iname "*.e
     # color=#fff style=shadow,bottom shadow_color=#00000080
     # color=#3399ffff style=glow glow_color=#3399ff18 glow2_color=#3399ff12
     
+    #tag: "hilight" "+ font="FNBD" color=#3399ff text_class=tb_light";
+    # tag: "b" "+ font="FNBD" color=#3399ff text_class=tb_light";
+    
 done
 
 # just change the font from white_bar_vert_glow
