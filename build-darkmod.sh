@@ -1,3 +1,19 @@
+#####################################################################
+#                                                                   #
+# darkmod - Enlightenment Dark theme modifier                       #
+#                                                                   #
+#   You should not modify this file directly all colors and paths   #
+#   can be modified in darkmod-colors-paths.sh images that you      #
+#   wish to modify manually can be placed in the img-manual         #
+#   directory and they will be included over the existing images    #
+#                                                                   #
+#####################################################################
+
+
+# load libraries
+source darkmod-colors-paths.sh
+source darkmod-util.sh
+source darkmod-copy.sh
 
 # Other modifications
 # battery.edc
@@ -16,233 +32,7 @@ cp -vr img/* img-bak
 mkdir img-color
 mkdir img-bgnd
 
-mv img/glow_lock_locked.png img-color/
-mv img/icon_border_close.png img-color/
-mv img/digit_2.png img-color/
-mv img/diagonal_stripes.png img-color/
-mv img/mini_blue_glow_arrow_1.png img-color/
-mv img/glow_exclam.png img-color/
-mv img/logo_blue_bottom.png img-color/
-mv img/icon_system-lock-screen.png img-color/
-mv img/digit_4.png img-color/
-mv img/wifi_sig_3.png img-color/
-mv img/split_h_glow.png img-color/
-mv img/cell_sig_1.png img-color/
-mv img/icon_system.png img-color/
-mv img/icon_border_stack_top.png img-color/
-mv img/col_sel_end_left.png img-color/
-mv img/home_glow.png img-color/
-mv img/cell_sig_3.png img-color/
-mv img/bulb_glow.png img-color/
-mv img/icon_border_pager.png img-color/
-mv img/digit_1.png img-color/
-mv img/logo_blue_small.png img-color/
-mv img/horizontal_separated_bar_glow.png img-color/
-mv img/next.png img-color/
-mv img/win_glow.png img-color/
-mv img/icon_system-shutdown.png img-color/
-mv img/sym_close_dark_selected.png img-color/
-mv img/icon_border_pin.png img-color/
-mv img/mini_blue_glow_arrow_2.png img-color/
-mv img/digit_8.png img-color/
-mv img/icon_border_move.png img-color/
-mv img/kbd_glow.png img-color/
-mv img/icon_border_stack_bot.png img-color/
-mv img/digit_9.png img-color/
-mv img/icon_border_maximize.png img-color/
-mv img/cell_sig_4.png img-color/
-mv img/icon_border_sendto.png img-color/
-mv img/digit_6.png img-color/
-mv img/white_bar_vert_glow.png img-color/
-mv img/sym_icon_op_move.png img-color/
-mv img/outline_glow.png img-color/
-mv img/sym_down_dark_selected.png img-color/
-mv img/bt_sig_2.png img-color/
-mv img/downlight_glow_left.png img-color/
-mv img/bt_sig_1.png img-color/
-mv img/ball_small_glow.png img-color/
-mv img/wifi_sig_1.png img-color/
-mv img/icon_preferences-desktop-signal-bindings.png img-color/
-mv img/mini_blue_glow_arrow_3.png img-color/
-mv img/icon_border_shaded.png img-color/
-mv img/icon_border_border.png img-color/
-mv img/downlight_glow_up.png img-color/
-mv img/icon_border_lock.png img-color/
-mv img/therm_content.png img-color/
-mv img/sym_up_dark_selected.png img-color/
-mv img/icon_enlightenment.png img-color/
-mv img/downlight_glow.png img-color/
-mv img/sym_reload_glow_normal.png img-color/
-mv img/col_sel_end_bottom.png img-color/
-mv img/mini_blue_glow_arrow_0.png img-color/
-mv img/icon_preferences-applications-personal.png img-color/
-mv img/digit_3.png img-color/
-mv img/icon_preferences-variables.png img-color/
-mv img/vertical_separated_bar_glow.png img-color/
-mv img/horiz_glow_run.png img-color/
-mv img/icon_border_minimize.png img-color/
-mv img/media_busy_progress.png img-color/
-mv img/split_v_glow.png img-color/
-mv img/bt_base.png img-color/
-mv img/sym_up_light_selected.png img-color/
-mv img/mini_box_glow.png img-color/
-mv img/icon_preferences-interaction.png img-color/
-mv img/col_sel_end_right.png img-color/
-mv img/ic_win_move.png img-color/
-mv img/wifi_sig_2.png img-color/
-mv img/sym_icon_op_copy.png img-color/
-mv img/spanner_glow.png img-color/
-mv img/digit_7.png img-color/
-mv img/sym_heart_glow_normal.png img-color/
-mv img/digit_5.png img-color/
-mv img/sym_down_glow_normal.png img-color/
-mv img/icon_border_more.png img-color/
-mv img/icon_border_remember.png img-color/
-mv img/downlight_glow_right.png img-color/
-mv img/sym_down_light_selected.png img-color/
-mv img/cell_base.png img-color/
-mv img/icon_preferences-desktop-environments.png img-color/
-mv img/sym_right_glow_normal.png img-color/
-mv img/icon_border_stack_norm.png img-color/
-mv img/glow_round_corners_small.png img-color/
-mv img/holes_tiny_glow_vert.png img-color/
-mv img/horizontal_separated_bar_small_glow.png img-color/
-mv img/icon_border_skip.png img-color/
-mv img/icon_border_properties.png img-color/
-mv img/ic_win_resize.png img-color/
-mv img/sym_up_glow_normal.png img-color/
-mv img/digit_pm.png img-color/
-mv img/holes_tiny_glow_horiz.png img-color/
-mv img/icon_system-suspend-hibernate.png img-color/
-mv img/split_none_glow.png img-color/
-mv img/icon_border_resize.png img-color/
-mv img/ball_small_glow_intense.png img-color/
-mv img/digit_am.png img-color/
-mv img/glow_lock_unlocked.png img-color/
-mv img/icon_system-suspend.png img-color/
-mv img/wifi_base.png img-color/
-mv img/digit_0.png img-color/
-mv img/icon_system-log-out.png img-color/
-mv img/sym_left_glow_normal.png img-color/
-mv img/icon_border_kill.png img-color/
-mv img/vert_glow_run.png img-color/
-mv img/glow_lock_double.png img-color/
-mv img/col_sel_end_top.png img-color/
-mv img/glow_small.png img-color/
-mv img/sym_icon_op_ask.png img-color/
-mv img/add_glow_small.png img-color/
-mv img/logo_blue_small_glow.png img-color/
-mv img/pointer_glow.png img-color/
-mv img/sym_close_light_selected.png img-color/
-mv img/tacho_base.png img-color/
-mv img/glow_round_corners.png img-color/
-mv img/cell_sig_2.png img-color/
-mv img/icon_system-restart.png img-color/
-mv img/led_light.png img-color/
-mv img/runner_glow_horiz.png img-color/
-mv img/runner_glow_vert.png img-color/
-mv img/bg_glow_in.png img-color/
-mv img/box_glow.png img-color/
-mv img/corner_glow_1.png img-color/
-mv img/corner_glow_2.png img-color/
-mv img/corner_glow_3.png img-color/
-mv img/corner_glow_4.png img-color/
-mv img/day_left_press.png img-color/
-mv img/day_left_selected.png img-color/
-mv img/day_middle_press.png img-color/
-mv img/day_middle_selected.png img-color/
-mv img/day_right_press.png img-color/
-mv img/day_right_selected.png img-color/
-mv img/day_single_press.png img-color/
-mv img/day_single_selected.png img-color/
-mv img/dots_glow_bottom.png img-color/
-mv img/dots_glow_left.png img-color/
-mv img/dots_glow_right.png img-color/
-mv img/dots_glow_top.png img-color/
-mv img/emo-angry.png img-color/
-mv img/emo-angry-shout.png img-color/
-mv img/emo-crazy-laugh.png img-color/
-mv img/emo-evil-laugh.png img-color/
-mv img/emo-evil.png img-color/
-mv img/emo-goggle-smile.png img-color/
-mv img/emo-grumpy.png img-color/
-mv img/emo-grumpy-smile.png img-color/
-mv img/emo-guilty.png img-color/
-mv img/emo-guilty-smile.png img-color/
-mv img/emo-haha.png img-color/
-mv img/emo-half-smile.png img-color/
-mv img/emo-happy-panting.png img-color/
-mv img/emo-happy.png img-color/
-mv img/emo-indifferent.png img-color/
-mv img/emo-kiss.png img-color/
-mv img/emo-knowing-grin.png img-color/
-mv img/emo-laugh.png img-color/
-mv img/emo-little-bit-sorry.png img-color/
-mv img/emo-love-lots.png img-color/
-mv img/emo-love.png img-color/
-mv img/emo-minimal-smile.png img-color/
-mv img/emo-not-happy.png img-color/
-mv img/emo-not-impressed.png img-color/
-mv img/emo-omg.png img-color/
-mv img/emo-opensmile.png img-color/
-mv img/emo-smile.png img-color/
-mv img/emo-sorry.png img-color/
-mv img/emo-squint-laugh.png img-color/
-mv img/emo-surprised.png img-color/
-mv img/emo-suspicious.png img-color/
-mv img/emo-tongue-dangling.png img-color/
-mv img/emo-tongue-poke.png img-color/
-mv img/emo-uh.png img-color/
-mv img/emo-unhappy.png img-color/
-mv img/emo-very-sorry.png img-color/
-mv img/emo-what.png img-color/
-mv img/emo-wink.png img-color/
-mv img/emo-worried.png img-color/
-mv img/emo-wtf.png img-color/
-mv img/eth.png img-color/
-mv img/handle_pick_up_left.png img-color/
-mv img/handle_pick_up_right.png img-color/
-mv img/horiz_glow_run_big.png img-color/
-mv img/horiz_glow_run_rev.png img-color/
-mv img/icon_apps.png img-color/
-mv img/icon_arrow_down_left.png img-color/
-mv img/icon_arrow_down.png img-color/
-mv img/icon_arrow_down_right.png img-color/
-mv img/icon_arrow_left.png img-color/
-mv img/icon_arrow_right.png img-color/
-mv img/icon_arrow_up_left.png img-color/
-mv img/icon_arrow_up.png img-color/
-mv img/icon_arrow_up_right.png img-color/
-mv img/icon_chat.png img-color/
-mv img/icon_clock.png img-color/
-mv img/icon_close.png img-color/
-mv img/icon_delete.png img-color/
-mv img/icon_edit.png img-color/
-mv img/icon_eject.png img-color/
-mv img/icon_file.png img-color/
-mv img/icon_folder.png img-color/
-mv img/icon_forward.png img-color/
-mv img/icon_head.png img-color/
-mv img/icon_home.png img-color/
-mv img/icon_info.png img-color/
-mv img/icon_mute.png img-color/
-mv img/icon_next.png img-color/
-mv img/icon_pause.png img-color/
-mv img/icon_play.png img-color/
-mv img/icon_prev.png img-color/
-mv img/icon_refresh.png img-color/
-mv img/icon_rewind.png img-color/
-mv img/icon_stop.png img-color/
-mv img/icon_volume.png img-color/
-mv img/inset_bar_horiz_glow_base.png img-color/
-mv img/inset_bar_horiz_glow_inv_base.png img-color/
-mv img/inset_bar_horiz_glow_mid_base.png img-color/
-mv img/inset_bar_vert_glow_base.png img-color/
-mv img/inset_bar_vert_glow_inv_base.png img-color/
-mv img/inset_bar_vert_glow_mid_base.png img-color/
-mv img/led_tiny_blue.png img-color/
-mv img/ring_white_blue_glow.png img-color/
-mv img/vert_glow_run_rev.png img-color/
+moveAllHighlightImages
 
 
 # move background images

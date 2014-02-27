@@ -1,6 +1,9 @@
-###
-# generic functionality
-#######################
+#####################################################################
+#                                                                   #
+# This file is not intended to be used on its own it is             #
+# Intended to be sourced in build-darkmod.sh and clean-darkmod.sh   #
+#                                                                   #
+#####################################################################
 
 GREEN="\033[01;32m"
 YELLOW="\033[01;33m"
