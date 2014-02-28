@@ -20,7 +20,6 @@ source darkmod-copy.sh
 # about-theme.edc
 # fileman 1093 -> removed border
 
-echo "moving images..."
 rm -rf img-color
 rm -rf img-bgnd
 rm -rf img-color-convd
@@ -32,8 +31,9 @@ cp -vr img/* img-bak
 mkdir img-color
 mkdir img-bgnd
 
-moveAllHighlightImages
 
+moveAllHighlightImages
+moveAllBackgroundImages
 
 # move background images
 mv img/home_inset.png img-bgnd/
