@@ -11,7 +11,7 @@
 
 
 # load libraries
-source darkmod-colors-paths.sh
+source darkmod-colors-paths.conf
 source darkmod-util.sh
 source darkmod-copy.sh
 
