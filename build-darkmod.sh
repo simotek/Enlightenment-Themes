@@ -199,6 +199,8 @@ sed -i 's/"fonts/"fonts-sb/' default-sb.edc
 sed -i 's/"macros/"macros-sb/' default-sb.edc
 
 rm default-sb.edj
-edje_cc -v -id img-no-change -id img-color-convd -id img-manual -fd fnt default-sb.edc default-sb.edj
+edje_cc -v -id img-no-change -id img-color-convd -id $MANUAL_IMAGE_DIR -fd fnt default-sb.edc default-sb.edj
 echo $PWD
 mv -v img-bak img
+
+# TBD: copy back to current dir, and to .e file

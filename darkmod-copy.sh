@@ -13,7 +13,7 @@
 
 moveHighlightImage(){
     # if file is in img-manual don't copy
-    if [ ! -f $ELM_ENLIGHT_THEME_PATH/img-manual/$1 ]; then
+    if [ ! -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_DIR/$1 ]; then
         report_on_error mv $ELM_ENLIGHT_THEME_PATH/img/$1 $ELM_ENLIGHT_THEME_PATH/img-color/
     fi
 }
