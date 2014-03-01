@@ -23,21 +23,27 @@ source clean-darkmod.sh
 
 inform "Cleaning Repository"
 clean-darkmod
+success "    Finished Cleaning Repository"
 
 inform "Creating a backup of all images"
 mkdir $ELM_ENLIGHT_THEME_PATH/img-bak
 report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img/* $ELM_ENLIGHT_THEME_PATH/img-bak
+success "    Finished Cleaning Repository"
+
 
 inform "Moving images to be converted"
 moveAllHighlightImages
 moveAllBackgroundImages
+success "    Finished Moving images that need converting"
+
 
 inform "Moving images that need no conversion"
 mv $ELM_ENLIGHT_THEME_PATH/img $ELM_ENLIGHT_THEME_PATH/img-no-change
+success "    Finished Moving images that don't need converting"
 
 mkdir $ELM_ENLIGHT_THEME_PATH/img-color-convd
 
-echo "Converting images..."
+inform "Converting images"
 pushd $ELM_ENLIGHT_THEME_PATH/img-color
 for F in `find -iname "*.png"`; do
         #modulate blue to be green in all images
@@ -50,15 +56,16 @@ for F in `find -iname "*.png"`; do
         convert $F -modulate 79,50,32 ../img-color-convd/$F
 done
 popd
-
+ 
 pushd $ELM_ENLIGHT_THEME_PATH/img-bgnd
 for F in `find -iname "*.png"`; do
         #modulate blue to be green in all images
         convert $F -modulate 80,20,120 ../img-color-convd/$F
 done
 popd
+success "    Finished Converting Images"
 
-inform "Rewriting .edc..."
+inform "Rewriting .edc"
 pushd $ELM_ENLIGHT_THEME_PATH
 report_on_error cp -a edc edc-sb
 
@@ -67,7 +74,6 @@ report_on_error cp -a fonts.edc fonts-sb.edc
 report_on_error cp -a macros.edc macros-sb.edc
 
 for F in `find edc-sb colorclasses-sb.edc fonts-sb.edc macros-sb.edc -iname "*.edc"`; do
-    echo $F
     #replace color blue by green in all edcrr
     sed -i 's/51 153 255/255 0 0/' $F
     #5e993b was target
@@ -103,8 +109,8 @@ for F in `find edc-sb colorclasses-sb.edc fonts-sb.edc macros-sb.edc -iname "*.e
 
 done
 
-#repair the definition of blue
-sed -i 's/#define BLUE    152 205 87 255/#define BLUE    51 153 255 255/' edc-sb/init.edc
+# #repair the definition of blue - used in startup leds
+report_on_error sed -i 's/#define BLUE    152 205 87 255/#define BLUE    51 153 255 255/' edc-sb/init.edc
 
 report_on_error cp -a default.edc default-sb.edc
 
@@ -112,10 +118,12 @@ report_on_error sed -i 's/"edc/"edc-sb/' default-sb.edc
 report_on_error sed -i 's/"colorclasses/"colorclasses-sb/' default-sb.edc
 report_on_error sed -i 's/"fonts/"fonts-sb/' default-sb.edc
 report_on_error sed -i 's/"macros/"macros-sb/' default-sb.edc
+success "    Finished Writing .edc"
 
-echo $PWD
+
+inform "Creating theme"
 edje_cc -v -id img-no-change -id img-color-convd -id $MANUAL_IMAGE_DIR -fd fnt -sd snd default-sb.edc default-sb.edj
-echo $PWD
+
 report_on_error mv -v img-bak img
 
 popd
