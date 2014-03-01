@@ -59,7 +59,7 @@ report_on_error() {
             fi
         done
         echo
-        echo "$OUTPUT"
+        error "$OUTPUT"
         false
     fi
 }
