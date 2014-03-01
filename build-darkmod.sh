@@ -114,7 +114,7 @@ report_on_error sed -i 's/"fonts/"fonts-sb/' default-sb.edc
 report_on_error sed -i 's/"macros/"macros-sb/' default-sb.edc
 
 echo $PWD
-edje_cc -v -id img-no-change -id img-color-convd -id $MANUAL_IMAGE_DIR -fd fnt default-sb.edc default-sb.edj
+edje_cc -v -id img-no-change -id img-color-convd -id $MANUAL_IMAGE_DIR -fd fnt -sd snd default-sb.edc default-sb.edj
 echo $PWD
 report_on_error mv -v img-bak img
 
