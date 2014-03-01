@@ -67,13 +67,13 @@ success "    Finished Converting Images"
 
 inform "Rewriting .edc"
 pushd $ELM_ENLIGHT_THEME_PATH
-report_on_error cp -a edc edc-sb
+report_on_error cp -a edc edc-dm
 
-report_on_error cp -a colorclasses.edc colorclasses-sb.edc
-report_on_error cp -a fonts.edc fonts-sb.edc
-report_on_error cp -a macros.edc macros-sb.edc
+report_on_error cp -a colorclasses.edc colorclasses-dm.edc
+report_on_error cp -a fonts.edc fonts-dm.edc
+report_on_error cp -a macros.edc macros-dm.edc
 
-for F in `find edc-sb colorclasses-sb.edc fonts-sb.edc macros-sb.edc -iname "*.edc"`; do
+for F in `find edc-dm colorclasses-dm.edc fonts-dm.edc macros-dm.edc -iname "*.edc"`; do
     #replace color blue by green in all edcrr
     sed -i 's/51 153 255/255 0 0/' $F
     #5e993b was target
@@ -110,19 +110,19 @@ for F in `find edc-sb colorclasses-sb.edc fonts-sb.edc macros-sb.edc -iname "*.e
 done
 
 # #repair the definition of blue - used in startup leds
-report_on_error sed -i 's/#define BLUE    152 205 87 255/#define BLUE    51 153 255 255/' edc-sb/init.edc
+report_on_error sed -i 's/#define BLUE    152 205 87 255/#define BLUE    51 153 255 255/' edc-dm/init.edc
 
-report_on_error cp -a default.edc default-sb.edc
+report_on_error cp -a default.edc default-dm.edc
 
-report_on_error sed -i 's/"edc/"edc-sb/' default-sb.edc
-report_on_error sed -i 's/"colorclasses/"colorclasses-sb/' default-sb.edc
-report_on_error sed -i 's/"fonts/"fonts-sb/' default-sb.edc
-report_on_error sed -i 's/"macros/"macros-sb/' default-sb.edc
+report_on_error sed -i 's/"edc/"edc-dm/' default-dm.edc
+report_on_error sed -i 's/"colorclasses/"colorclasses-dm/' default-dm.edc
+report_on_error sed -i 's/"fonts/"fonts-dm/' default-dm.edc
+report_on_error sed -i 's/"macros/"macros-dm/' default-dm.edc
 success "    Finished Writing .edc"
 
 
 inform "Creating theme"
-edje_cc -v -id img-no-change -id img-color-convd -id $MANUAL_IMAGE_DIR -fd fnt -sd snd default-sb.edc default-sb.edj
+edje_cc -v -id img-no-change -id img-color-convd -id $MANUAL_IMAGE_DIR -fd fnt -sd snd default-dm.edc darkmod.edj
 
 report_on_error mv -v img-bak img
 

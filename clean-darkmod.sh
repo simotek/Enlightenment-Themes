@@ -10,12 +10,12 @@ clean-darkmod(){
     report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/img-color-convd
     report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/img-no-change
     report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/img-bak
-    report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/edc-sb
-    report_on_error rm $ELM_ENLIGHT_THEME_PATH/colorclasses-sb.edc
-    report_on_error rm $ELM_ENLIGHT_THEME_PATH/fonts-sb.edc
-    report_on_error rm $ELM_ENLIGHT_THEME_PATH/macros-sb.edc
-    report_on_error rm $ELM_ENLIGHT_THEME_PATH/default-sb.edc
-    report_on_error rm $ELM_ENLIGHT_THEME_PATH/default-sb.edj
+    report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/edc-dm
+    report_on_error rm $ELM_ENLIGHT_THEME_PATH/colorclasses-dm.edc
+    report_on_error rm $ELM_ENLIGHT_THEME_PATH/fonts-dm.edc
+    report_on_error rm $ELM_ENLIGHT_THEME_PATH/macros-dm.edc
+    report_on_error rm $ELM_ENLIGHT_THEME_PATH/default-dm.edc
+    report_on_error rm $ELM_ENLIGHT_THEME_PATH/darkmod.edj
 }
 
 clean-darkmod
