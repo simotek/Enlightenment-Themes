@@ -34,7 +34,7 @@ error() {
 }
 
 inform() {
-    local COLOR="$RED"
+    local COLOR="$BLUE"
     colorize "$@"
     return 1
 }

@@ -26,6 +26,8 @@ moveBackgroundImage(){
 }
 
 moveAllHighlightImages(){
+    mkdir $ELM_ENLIGHT_THEME_PATH/img-color
+
     moveHighlightImage glow_lock_locked.png
     moveHighlightImage icon_border_close.png
     moveHighlightImage digit_2.png
@@ -257,6 +259,8 @@ moveAllHighlightImages(){
 
 moveAllBackgroundImages(){
 # move background images
+    mkdir $ELM_ENLIGHT_THEME_PATH/img-bgnd
+    
     moveBackgroundImage home_inset.png 
     moveBackgroundImage bevel_out.png 
     moveBackgroundImage slider_run_base_light_vert.png 
