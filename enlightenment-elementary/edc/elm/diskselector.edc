@@ -289,7 +289,7 @@ group { name: "elm/diskselector/item/datetime/default";
         }
         description { state: "right_side" 0.0;
            inherit: "default" 0.0;
-           color: FN_COLs_GREY_152;
+           color: FN_COL_GREY_152;
            text.align: 0.8 0.5;
         }
         description { state: "right_side_sel" 0.0;
