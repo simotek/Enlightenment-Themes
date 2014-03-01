@@ -53,7 +53,7 @@ for F in `find -iname "*.png"`; do
         #    convert $F -modulate 80,74,42 ../img-color-convd/$F
         #    convert $F -modulate 78,60,35 ../img-color-convd/$F
         #    convert $F -modulate 79,66,30 ../img-color-convd/$F
-        convert $F -modulate 79,50,32 ../img-color-convd/$F
+        convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
 done
 popd
  
@@ -74,10 +74,10 @@ report_on_error cp -a fonts.edc fonts-dm.edc
 report_on_error cp -a macros.edc macros-dm.edc
 
 for F in `find edc-dm colorclasses-dm.edc fonts-dm.edc macros-dm.edc -iname "*.edc"`; do
-    #replace color blue by green in all edcrr
-    sed -i 's/51 153 255/255 0 0/' $F
+    #replace color blue by green in all edc
+    sed -i 's/51 153 255/65 214 0/g' $F
     #5e993b was target
-    sed -i 's/#3399ff/#FF0000/' $F
+    sed -i 's/#3399ff/#41d600/g' $F
     
     # File manager background
     #sed -i 's/64 64 64/14 18 19/' $F
@@ -126,6 +126,7 @@ edje_cc -v -id img-no-change -id img-color-convd -id $MANUAL_IMAGE_DIR -fd fnt -
 
 report_on_error mv -v img-bak img
 
+report_on_error cp darkmod.edj ~/.elementary/themes
 popd
 
 # TBD: copy back to current dir, and to .e file
