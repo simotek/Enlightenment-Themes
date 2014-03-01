@@ -56,6 +56,22 @@ for F in `find -iname "*.png"`; do
         convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
 done
 popd
+
+HIGH_RAW=$(convert $ELM_ENLIGHT_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:-)
+echo $HIGH_RAW
+#HIGH_HTML=$HIGH_RAW | sed -n 's/.*\(*#[0-9][0-9][0-9][0-9][0-9][0-9]*\).*/\1/p'
+#remove most of the variable content
+TMP_MID=$(echo "$HIGH_RAW"| cut -d "#" -f2)
+echo $TMP_MID
+echo "SUB"
+#remove the remaining fixed content
+TMP_EXTRACTED=${TMP_MID#${TMP_MID:0:46}}
+echo $TMP_EXTRACTED
+#form the html number
+HIGH_HTML="#${TMP_EXTRACTED:0:6}"
+#form the rgb number
+TMP_RGB=${TMP_EXTRACTED#${TMP_EXTRACTED:0:14}}
+HIGH_RGB=${TMP_RGB%")"}
  
 pushd $ELM_ENLIGHT_THEME_PATH/img-bgnd
 for F in `find -iname "*.png"`; do
