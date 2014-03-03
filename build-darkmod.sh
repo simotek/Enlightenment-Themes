@@ -63,15 +63,29 @@ echo $HIGH_RAW
 #remove most of the variable content
 TMP_MID=$(echo "$HIGH_RAW"| cut -d "#" -f2)
 echo $TMP_MID
-echo "SUB"
 #remove the remaining fixed content
 TMP_EXTRACTED=${TMP_MID#${TMP_MID:0:46}}
-echo $TMP_EXTRACTED
 #form the html number
 HIGH_HTML="#${TMP_EXTRACTED:0:6}"
 #form the rgb number
 TMP_RGB=${TMP_EXTRACTED#${TMP_EXTRACTED:0:14}}
-HIGH_RGB=${TMP_RGB%")"}
+TMP_RGB2=${TMP_RGB%")"}
+TMP_RGB3=${TMP_RGB2//,/ }
+HIGH_RGB=$(echo "$TMP_RGB3"| rev | cut -c 2- | rev)
+warn $HIGH_RGB 
+#if we don't have a valid color error
+if [ -z "$HIGH_HTML" ]; then
+    error "Highlight Color could not be determined"
+    # Move images back before exit
+    report_on_error mv -v img-bak img
+    exit 1
+fi
+if [ -z "$HIGH_RGB" ]; then
+    error "Highlight Color could not be determined"
+    # Move images back before exit
+    report_on_error mv -v img-bak img
+    exit 1
+fi
  
 pushd $ELM_ENLIGHT_THEME_PATH/img-bgnd
 for F in `find -iname "*.png"`; do
@@ -89,11 +103,12 @@ report_on_error cp -a colorclasses.edc colorclasses-dm.edc
 report_on_error cp -a fonts.edc fonts-dm.edc
 report_on_error cp -a macros.edc macros-dm.edc
 
+
 for F in `find edc-dm colorclasses-dm.edc fonts-dm.edc macros-dm.edc -iname "*.edc"`; do
     #replace color blue by green in all edc
-    sed -i 's/51 153 255/65 214 0/g' $F
+    sed -i "s/51 153 255/$HIGH_RGB/g" $F
     #5e993b was target
-    sed -i 's/#3399ff/#41d600/g' $F
+    sed -i "s/#3399ff/$HIGH_HTML/g" $F
     
     # File manager background
     #sed -i 's/64 64 64/14 18 19/' $F
