@@ -78,11 +78,11 @@ if [ -z "$HIGH_RGB" ]; then
     report_on_error mv -v img-bak img
     exit 1
 fi
- 
+
+# Converting background images
 pushd $ELM_ENLIGHT_THEME_PATH/img-bgnd
 for F in `find -iname "*.png"`; do
-        #modulate blue to be green in all images
-        convert $F -modulate 80,20,120 ../img-color-convd/$F
+        convert $F -brightness-contrast $BGND_BRIGHTNESS,$BGND_SATURATION ../img-color-convd/$F
 done
 popd
 success "    Finished Converting Images"
