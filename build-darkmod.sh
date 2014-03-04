@@ -46,23 +46,14 @@ mkdir $ELM_ENLIGHT_THEME_PATH/img-color-convd
 inform "Converting images"
 pushd $ELM_ENLIGHT_THEME_PATH/img-color
 for F in `find -iname "*.png"`; do
-        #modulate blue to be green in all images
-        #100  60 80 84 75 79 84
-        #80   61 58 85 75 80 74
-        # 210 97 87 106 93 84 84
-        #    convert $F -modulate 80,74,42 ../img-color-convd/$F
-        #    convert $F -modulate 78,60,35 ../img-color-convd/$F
-        #    convert $F -modulate 79,66,30 ../img-color-convd/$F
         convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
 done
 popd
 
 HIGH_RAW=$(convert $ELM_ENLIGHT_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:-)
-echo $HIGH_RAW
 #HIGH_HTML=$HIGH_RAW | sed -n 's/.*\(*#[0-9][0-9][0-9][0-9][0-9][0-9]*\).*/\1/p'
 #remove most of the variable content
 TMP_MID=$(echo "$HIGH_RAW"| cut -d "#" -f2)
-echo $TMP_MID
 #remove the remaining fixed content
 TMP_EXTRACTED=${TMP_MID#${TMP_MID:0:46}}
 #form the html number
@@ -72,7 +63,8 @@ TMP_RGB=${TMP_EXTRACTED#${TMP_EXTRACTED:0:14}}
 TMP_RGB2=${TMP_RGB%")"}
 TMP_RGB3=${TMP_RGB2//,/ }
 HIGH_RGB=$(echo "$TMP_RGB3"| rev | cut -c 2- | rev)
-warn $HIGH_RGB 
+ 
+
 #if we don't have a valid color error
 if [ -z "$HIGH_HTML" ]; then
     error "Highlight Color could not be determined"
