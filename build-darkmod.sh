@@ -95,23 +95,18 @@ report_on_error cp -a colorclasses.edc colorclasses-dm.edc
 report_on_error cp -a fonts.edc fonts-dm.edc
 report_on_error cp -a macros.edc macros-dm.edc
 
-
 for F in `find edc-dm colorclasses-dm.edc fonts-dm.edc macros-dm.edc -iname "*.edc"`; do
     #replace color blue by green in all edc
     sed -i "s/51 153 255/$HIGH_RGB/g" $F
-    #5e993b was target
     sed -i "s/#3399ff/$HIGH_HTML/g" $F
     
     # File manager background
-    #sed -i 's/64 64 64/14 18 19/' $F
-    
-    #sed -i 's/#404040/#0e1213/' $F
+    sed -i "s/64 64 64/$FILEMGR_BKND_RGB/g" $F
+    sed -i "s/#404040/$FILEMGR_BKND_HTML/g" $F
     
     # file manager alt
-    #next is 56 56 56 -> 34 39 42
-    #    #383838 -> #22272a
-    #sed -i 's/56 56 56/34 39 42/' $F
-    #sed -i 's/#383838/#22272a/' $F
+    sed -i "s/56 56 56/$FILEMGR_ALT_BKND_RGB/" $F
+    sed -i "s/#383838/$FILEMGR_ALT_BKND_HTML/" $F
     
     # File manager image background
     # 303030, 48 48 48 -> 172526 23 37 38
