@@ -105,13 +105,12 @@ for F in `find edc-dm colorclasses-dm.edc fonts-dm.edc macros-dm.edc -iname "*.e
     sed -i "s/#404040/$FILEMGR_BKND_HTML/g" $F
     
     # file manager alt
-    sed -i "s/56 56 56/$FILEMGR_ALT_BKND_RGB/" $F
-    sed -i "s/#383838/$FILEMGR_ALT_BKND_HTML/" $F
+    sed -i "s/56 56 56/$FILEMGR_ALT_BKND_RGB/g" $F
+    sed -i "s/#383838/$FILEMGR_ALT_BKND_HTML/g" $F
     
     # File manager image background
-    # 303030, 48 48 48 -> 172526 23 37 38
-    #sed -i 's/48 48 48/23 37 38/' $F
-    #sed -i 's/#303030/#172526/' $F
+    sed -i "s/48 48 48/$FILEMGR_IMG_BKND_RGB/g" $F
+    sed -i "s/#303030/$FILEMGR_IMG_BKND_HTML/g" $F
     
     # text in alt bars
     # 101010 16 16 16
@@ -121,10 +120,7 @@ for F in `find edc-dm colorclasses-dm.edc fonts-dm.edc macros-dm.edc -iname "*.e
     # Grey boxes in pager
     # 333333 51 51 51
     # sed -i 's/50 50 50/23 37 38/' $F
-    # sed -i 's/#323232/#172526/' $F
-    
-    # other images in gimp colorize 201 12 -47
-
+    # sed -i 's/#323232/#172526/' $F    
 done
 
 # #repair the definition of blue - used in startup leds
