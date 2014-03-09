@@ -126,7 +126,10 @@ for F in `find fonts-dm.edc -iname "*.edc"`; do
     sed -i "s/255 255 255/$FNT_DEFAULT_RGB/g" $F
     sed -i "s/#ffffff/$FNT_DEFAULT_HTML/gI" $F
     sed -i "s/#fff/$FNT_DEFAULT_HTML/gI" $F
-
+    
+    sed -i "s/0 0 0 128/$FNT_DEFAULT_SHADOW_RGB/g" $F
+    sed -i "s/#00000080/$FNT_DEFAULT_SHADOW_HTML/gI" $F
+    
     # Highlight color
     sed -i "s/51 153 255/$HIGH_RGB/g" $F
     sed -i "s/#3399ff/$HIGH_HTML/g" $F
@@ -135,6 +138,9 @@ for F in `find fonts-dm.edc -iname "*.edc"`; do
     sed -i "s/21 21 21/$FNT_DISABLED_RGB/g" $F
     sed -i "s/16 16 16 16/16 $FNT_DISABLED_RGB/g" $F
     sed -i "s/#151515/$FNT_DISABLED_HTML/g" $F
+    
+    sed -i "s/255 255 255 25/$FNT_DISABLED_SHADOW_RGB/g" $F
+    sed -i "s/#FFFFFF19/$FNT_DISABLED_SHADOW_HTML/gI" $F
     
     # Various Grey text need 4 colors so it doesn't overwrite the name instead
     sed -i "s/192 192 192 192/192 $FNT_GREY_192_RGB/g" $F
