@@ -1,3 +1,4 @@
+#!/bin/bash
 #####################################################################
 #                                                                   #
 # darkmod - Enlightenment Dark theme modifier                       #
@@ -95,10 +96,10 @@ report_on_error cp -a colorclasses.edc colorclasses-dm.edc
 report_on_error cp -a fonts.edc fonts-dm.edc
 report_on_error cp -a macros.edc macros-dm.edc
 
-for F in `find edc-dm colorclasses-dm.edc fonts-dm.edc macros-dm.edc -iname "*.edc"`; do
+# Replace background and highlights in edc 
+for F in `find edc-dm colorclasses-dm.edc macros-dm.edc -iname "*.edc"`; do
     #replace color blue by green in all edc
-    sed -i "s/51 153 255/$HIGH_RGB/g" $F
-    sed -i "s/#3399ff/$HIGH_HTML/g" $F
+    
     
     # File manager background
     sed -i "s/64 64 64/$FILEMGR_BKND_RGB/g" $F
@@ -112,15 +113,34 @@ for F in `find edc-dm colorclasses-dm.edc fonts-dm.edc macros-dm.edc -iname "*.e
     sed -i "s/48 48 48/$FILEMGR_IMG_BKND_RGB/g" $F
     sed -i "s/#303030/$FILEMGR_IMG_BKND_HTML/g" $F
     
-    # text in alt bars
-    # 101010 16 16 16
-    #sed -i 's/21 21 21/152 205 87/' $F
-    #sed -i 's/#151515/#98cd57/' $F
-    
     # Grey boxes in pager
-    # 333333 51 51 51
-    # sed -i 's/50 50 50/23 37 38/' $F
-    # sed -i 's/#323232/#172526/' $F    
+    sed -i "s/50 50 50/$FILEMGR_MID_GREY_RGB/g" $F
+    sed -i "s/#323232/$FILEMGR_MID_GREY_HTML/g" $F
+    
+  
+done
+
+# replace text colors / yes this probably doesn't need a for loop
+for F in `find fonts-dm.edc -iname "*.edc"`; do
+    # default text
+    sed -i "s/255 255 255/$FNT_DEFAULT_RGB/g" $F
+    sed -i "s/#ffffff/$FNT_DEFAULT_HTML/gI" $F
+    sed -i "s/#fff/$FNT_DEFAULT_HTML/gI" $F
+
+    # Highlight color
+    sed -i "s/51 153 255/$HIGH_RGB/g" $F
+    sed -i "s/#3399ff/$HIGH_HTML/g" $F
+    
+    # Disabled text
+    sed -i "s/21 21 21/$FNT_DISABLED_RGB/g" $F
+    sed -i "s/16 16 16/$FNT_DISABLED_RGB/g" $F
+    sed -i "s/#151515/$FNT_DISABLED_HTML/g" $F
+    
+    # Various Grey text
+    sed -i "s/192 192 192/$FNT_GREY_192_RGB/g" $F
+    sed -i "s/172 172 172/$FNT_GREY_172_RGB/g" $F
+    sed -i "s/152 152 152/$FNT_GREY_152_RGB/g" $F
+    
 done
 
 # #repair the definition of blue - used in startup leds
