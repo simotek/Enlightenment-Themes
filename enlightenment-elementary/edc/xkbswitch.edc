@@ -22,13 +22,13 @@ group { name: "e/modules/xkbswitch/main";
          }
       }
       part { name: "e.text.label"; type: TEXT; mouse_events: 0;
-         effect: SHADOW BOTTOM;
+         effect: GLOW;
          description { state: "default" 0.0;
             rel1.to: "e.swallow.flag";
             rel1.relative: 0.0 0.5;
             rel2.to: "e.swallow.flag";
             rel2.relative: 1.0 0.5;
-            color: FN_COL_TRANSPARENT;
+            color: FN_COL_OUTLINE_TRANSPARENT;
             text { font: FN; size: 9;
                min: 0 1;
                text_class: "module_small";
@@ -37,7 +37,7 @@ group { name: "e/modules/xkbswitch/main";
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
-            color: FN_COL_DEFAULT;
+            color: FN_COL_OUTLINE_DEFAULT;
          }
       }
       part { name: "bevel"; mouse_events: 0;
