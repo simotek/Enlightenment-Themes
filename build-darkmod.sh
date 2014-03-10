@@ -21,6 +21,10 @@ source clean-darkmod.sh
 # battery.edc
 # about-theme.edc
 # dark rounded rect needs to be light
+# filemanager icons
+# menu text
+# load from param
+# everything shadows
 
 inform "Cleaning Repository"
 clean-darkmod
