@@ -25,6 +25,13 @@ moveBackgroundImage(){
     fi
 }
 
+moveShadowImage(){
+    # if file is in img-manual don't copy
+    if [ ! -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_DIR/$1 ]; then
+        report_on_error mv $ELM_ENLIGHT_THEME_PATH/img/$1 $ELM_ENLIGHT_THEME_PATH/img-shadow/
+    fi
+}
+
 moveAllHighlightImages(){
     mkdir $ELM_ENLIGHT_THEME_PATH/img-color
 
@@ -337,4 +344,13 @@ moveAllBackgroundImages(){
     moveBackgroundImage tooltip-edge-left-tip.png 
     moveBackgroundImage tooltip-edge-right-tip.png 
     moveBackgroundImage tooltip-edge-top-tip.png 
+}
+
+moveAllShadowImages(){
+    mkdir $ELM_ENLIGHT_THEME_PATH/img-shadow
+
+    moveShadowImage digit_na.png
+    moveShadowImage digit_nm.png
+    moveShadowImage shadow_inset_bevels.png
+    moveShadowImage shadow_angled_in_sides.png
 }

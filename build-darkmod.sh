@@ -20,7 +20,7 @@ source clean-darkmod.sh
 # Other modifications
 # battery.edc
 # about-theme.edc
-# fileman 1093 -> removed border
+# dark rounded rect needs to be light
 
 inform "Cleaning Repository"
 clean-darkmod
@@ -35,6 +35,7 @@ success "    Finished Cleaning Repository"
 inform "Moving images to be converted"
 moveAllHighlightImages
 moveAllBackgroundImages
+moveAllShadowImages
 success "    Finished Moving images that need converting"
 
 
@@ -83,9 +84,17 @@ fi
 # Converting background images
 pushd $ELM_ENLIGHT_THEME_PATH/img-bgnd
 for F in `find -iname "*.png"`; do
-        convert $F -brightness-contrast $BGND_BRIGHTNESS,$BGND_SATURATION ../img-color-convd/$F
+    convert $F -brightness-contrast $BGND_BRIGHTNESS,$BGND_SATURATION ../img-color-convd/$F
 done
 popd
+
+#converting shadows
+pushd $ELM_ENLIGHT_THEME_PATH/img-shadow
+for F in `find -iname "*.png"`; do
+    convert $F -channel A -evaluate Multiply $SHADOW_MULT ../img-color-convd/$F
+done
+popd
+
 success "    Finished Converting Images"
 
 inform "Rewriting .edc"
@@ -98,8 +107,9 @@ report_on_error cp -a macros.edc macros-dm.edc
 
 # Replace background and highlights in edc 
 for F in `find edc-dm colorclasses-dm.edc macros-dm.edc -iname "*.edc"`; do
-    #replace color blue by green in all edc
-    
+    # Highlight color
+    sed -i "s/51 153 255/$HIGH_RGB/g" $F
+    sed -i "s/#3399ff/$HIGH_HTML/g" $F
     
     # File manager background
     sed -i "s/64 64 64/$FILEMGR_BKND_RGB/g" $F
@@ -117,6 +127,16 @@ for F in `find edc-dm colorclasses-dm.edc macros-dm.edc -iname "*.edc"`; do
     sed -i "s/50 50 50/$FILEMGR_MID_GREY_RGB/g" $F
     sed -i "s/#323232/$FILEMGR_MID_GREY_HTML/g" $F
     
+    # modify html versions of text for textblock
+    sed -i "s/#ffffff/$FNT_DEFAULT_HTML/gI" $F
+    sed -i "s/#fff/$FNT_DEFAULT_HTML/gI" $F
+    
+    sed -i "s/#00000080/$FNT_DEFAULT_SHADOW_HTML/gI" $F
+    
+    # Disabled text
+    sed -i "s/#151515/$FNT_DISABLED_HTML/g" $F
+    
+    sed -i "s/#FFFFFF19/$FNT_DISABLED_SHADOW_HTML/gI" $F
   
 done
 
