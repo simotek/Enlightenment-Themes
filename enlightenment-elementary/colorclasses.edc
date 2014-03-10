@@ -54,7 +54,7 @@ color_classes {
       color: FN_COL_HIGHLIGHT;
    }
    color_class { name: "winlist_label";
-      color: FN_COL_DEFAULT;
+      color: WIN_DEFAULT;
    }
    color_class { name: "winlist_title";
       color: FN_COL_DISABLE;
