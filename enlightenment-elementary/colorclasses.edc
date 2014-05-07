@@ -1,5 +1,5 @@
 #define WIN_DEFAULT_BASIC 255 255 255 255
-#define WIN_DEFAULT 255 255 255 255; color3: 0 0 0 128
+// #define WIN_DEFAULT 255 255 255 255; color3: 0 0 0 128
 
 color_classes {
 // comp
@@ -39,7 +39,7 @@ color_classes {
       color: FN_COL_DISABLE;
    }
    color_class { name: "menu_item";
-      color: WIN_DEFAULT;
+      color: FN_COL_DEFAULT;
    }
    color_class { name: "menu_item_active";
       color: FN_COL_HIGHLIGHT;
@@ -48,13 +48,13 @@ color_classes {
       color: FN_COL_DISABLE;
    }
    color_class { name: "winlist_item";
-      color: WIN_DEFAULT;
+      color: FN_COL_DEFAULT;
    }
    color_class { name: "winlist_item_active";
       color: FN_COL_HIGHLIGHT;
    }
    color_class { name: "winlist_label";
-      color: WIN_DEFAULT;
+      color: FN_COL_DEFAULT;
    }
    color_class { name: "winlist_title";
       color: FN_COL_DISABLE;
@@ -125,25 +125,25 @@ color_classes {
       color: FN_COL_HIGHLIGHT;
    }
    color_class { name: "ilist_item";
-      color: WIN_DEFAULT;
+      color: FN_COL_DEFAULT;
    }
    color_class { name: "ilist_item_base";
       color: WIN_DEFAULT_BASIC;
    }
    color_class { name: "ilist_item_odd";
-      color: WIN_DEFAULT;
+      color: FN_COL_DEFAULT;
    }
    color_class { name: "ilist_item_odd_base";
       color: WIN_DEFAULT_BASIC;
    }
    color_class { name: "ilist_item_header";
-      color: WIN_DEFAULT;
+      color: FN_COL_DEFAULT;
    }
    color_class { name: "ilist_item_header_base";
       color: WIN_DEFAULT_BASIC;
    }
    color_class { name: "ilist_item_header_odd";
-      color: WIN_DEFAULT;
+      color: FN_COL_DEFAULT;
    }
    color_class { name: "ilist_item_header_odd_base";
       color: WIN_DEFAULT_BASIC;
