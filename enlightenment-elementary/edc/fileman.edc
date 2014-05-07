@@ -941,8 +941,7 @@ group { name: "e/fileman/default/scrollframe";
             color_class: "fileman_base";
          }
       }
-      part { name: "e.swallow.bg"; type: SWALLOW;
-         insert_before: "clipper";
+      part { name: "e.swallow.bg"; type: SWALLOW; insert_before: "e.swallow.content";
          clip_to: "clipper";
          description { state: "default" 0.0;
             rel1.to: "bg";
@@ -1323,6 +1322,7 @@ group { name: "e/fileman/default/overlay";
             color_class: "fileman_busy";
             text { font: FNBD; size: 10;
                min: 1 1;
+               ellipsis: -1;
                align: 0.0 0.5;
                text_class: "fileman_busy";
             }
@@ -1384,6 +1384,7 @@ group { name: "e/fileman/default/overlay";
             color_class: "fileman_typebuf";
             text { font: FNBD; size: 10;
                min: 1 1;
+               ellipsis: -1;
                align: 0.5 0.5;
                text_class: "fileman_typebuf";
             }
@@ -1787,6 +1788,7 @@ group { name: "e/fileman/default/progress";
             rel2.offset: -3 -1;
             text { font: FN; size: 10;
                min: 1 0;
+               ellipsis: -1;
                align: 0.0 0.5;
                text_class: "fileman_icon";
             }
@@ -2220,6 +2222,7 @@ group { name: "modules/efm_navigation/pathbar_button";
             color_class: "button_text";
             text { font: FN; size: 10;
                min: 1 1;
+               ellipsis: -1;
                align: 0.5 0.5;
                text_class: "button";
             }

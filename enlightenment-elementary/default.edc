@@ -2,6 +2,10 @@
 
 externals.external: "elm";
 
+// theme api version. from 1.10 on we will check version to avoid
+// compat issues
+data.item: "version" "110";
+
 collections {
 #include "fonts.edc"
 #include "colorclasses.edc"
@@ -9,7 +13,7 @@ collections {
 // elm
 #include "edc/elm/bg.edc"
 #include "edc/elm/button.edc"
-// XXX: mobile mode needs invbisible scrollers... make signals that do this
+// XXX: mobile mode needs invisible scrollers... make signals that do this
 #include "edc/elm/scroller.edc"
 // XXX: mobile mode needs different entry setup
 #include "edc/elm/entry.edc"
@@ -64,6 +68,7 @@ collections {
 #include "edc/elm/clock.edc"
 #include "edc/elm/gengrid.edc"
 #include "edc/elm/hover.edc"
+#include "edc/elm/cursor.edc"
 
 // desktop in general
 #include "edc/wallpaper.edc"
