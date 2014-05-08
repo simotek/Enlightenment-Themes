@@ -346,9 +346,12 @@ moveAllBackgroundImages(){
 
 moveAllShadowImages(){
     mkdir $ELM_ENLIGHT_THEME_PATH/img-shadow
-
+    moveShadowImage darken_rounded_square.png
+    moveShadowImage darken_rounded_square_half.png
+    moveShadowImage darken_rounded_square_half_h.png
     moveShadowImage digit_na.png
     moveShadowImage digit_nm.png
+    moveShadowImage rounded_square.png
     moveShadowImage shadow_inset_bevels.png
     moveShadowImage shadow_angled_in_sides.png
 }
