@@ -133,7 +133,7 @@ for F in `find edc-dm colorclasses-dm.edc macros-dm.edc -iname "*.edc"`; do
     
     # modify html versions of text for textblock
     sed -i "s/#ffffff/$FNT_DEFAULT_HTML/gI" $F
-    sed -i "s/#fff/$FNT_DEFAULT_HTML/gI" $F
+    sed -i "s/#ffff/$FNT_DEFAULT_HTML/gI" $F
     
     sed -i "s/#00000080/$FNT_DEFAULT_SHADOW_HTML/gI" $F
     
@@ -149,7 +149,7 @@ for F in `find fonts-dm.edc -iname "*.edc"`; do
     # default text
     sed -i "s/255 255 255/$FNT_DEFAULT_RGB/g" $F
     sed -i "s/#ffffff/$FNT_DEFAULT_HTML/gI" $F
-    sed -i "s/#fff/$FNT_DEFAULT_HTML/gI" $F
+    sed -i "s/#ffff/$FNT_DEFAULT_HTML/gI" $F
     
     sed -i "s/0 0 0 128/$FNT_DEFAULT_SHADOW_RGB/g" $F
     sed -i "s/#00000080/$FNT_DEFAULT_SHADOW_HTML/gI" $F
