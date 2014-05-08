@@ -57,7 +57,6 @@ moveAllHighlightImages(){
     moveHighlightImage digit_1.png
     moveHighlightImage logo_blue_small.png
     moveHighlightImage horizontal_separated_bar_glow.png
-    moveHighlightImage next.png
     moveHighlightImage win_glow.png
     moveHighlightImage icon_system-shutdown.png
     moveHighlightImage sym_close_dark_selected.png
@@ -162,10 +161,6 @@ moveAllHighlightImages(){
     moveHighlightImage runner_glow_vert.png
     moveHighlightImage bg_glow_in.png
     moveHighlightImage box_glow.png
-    moveHighlightImage corner_glow_1.png
-    moveHighlightImage corner_glow_2.png
-    moveHighlightImage corner_glow_3.png
-    moveHighlightImage corner_glow_4.png
     moveHighlightImage day_left_press.png
     moveHighlightImage day_left_selected.png
     moveHighlightImage day_middle_press.png
@@ -174,10 +169,6 @@ moveAllHighlightImages(){
     moveHighlightImage day_right_selected.png
     moveHighlightImage day_single_press.png
     moveHighlightImage day_single_selected.png
-    moveHighlightImage dots_glow_bottom.png
-    moveHighlightImage dots_glow_left.png
-    moveHighlightImage dots_glow_right.png
-    moveHighlightImage dots_glow_top.png
     moveHighlightImage emo-angry.png
     moveHighlightImage emo-angry-shout.png
     moveHighlightImage emo-crazy-laugh.png
