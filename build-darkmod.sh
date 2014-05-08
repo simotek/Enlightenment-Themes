@@ -70,7 +70,10 @@ TMP_RGB2=${TMP_RGB%")"}
 TMP_RGB3=${TMP_RGB2//,/ }
 HIGH_RGB=$(echo "$TMP_RGB3"| rev | cut -c 2- | rev)
  
-
+set $HIGH_RGB
+HIGH_RED=$1
+HIGH_GREEN=$2
+HIGH_BLUE=$3
 #if we don't have a valid color error
 if [ -z "$HIGH_HTML" ]; then
     error "Highlight Color could not be determined"
@@ -114,6 +117,7 @@ for F in `find edc-dm colorclasses-dm.edc macros-dm.edc -iname "*.edc"`; do
     # Highlight color
     sed -i "s/51 153 255/$HIGH_RGB/g" $F
     sed -i "s/#3399ff/$HIGH_HTML/g" $F
+    sed -i "s/r = 51, g = 153, b = 255/r = $HIGH_RED, g = $HIGH_GREEN, b = $HIGH_BLUE/g" $F
     
     # File manager background
     sed -i "s/64 64 64/$FILEMGR_BKND_RGB/g" $F
