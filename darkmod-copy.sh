@@ -209,6 +209,8 @@ moveAllHighlightImages(){
     moveHighlightImage emo-wink.png
     moveHighlightImage emo-worried.png
     moveHighlightImage emo-wtf.png
+    moveHighlightImage efm_generic_icon_over.png
+    moveHighlightImage efm_generic_icon_over_empty.png
     moveHighlightImage eth.png
     moveHighlightImage handle_pick_up_left.png
     moveHighlightImage handle_pick_up_right.png
@@ -242,8 +244,12 @@ moveAllHighlightImages(){
     moveHighlightImage icon_prev.png
     moveHighlightImage icon_refresh.png
     moveHighlightImage icon_rewind.png
+    moveHighlightImage icon_spanner.png
+    moveHighlightImage icon_splat.png
+    moveHighlightImage icon_splat_half.png
     moveHighlightImage icon_stop.png
     moveHighlightImage icon_volume.png
+    moveHighlightImage icon_warning.png
     moveHighlightImage inset_bar_horiz_glow_base.png
     moveHighlightImage inset_bar_horiz_glow_inv_base.png
     moveHighlightImage inset_bar_horiz_glow_mid_base.png
@@ -252,6 +258,7 @@ moveAllHighlightImages(){
     moveHighlightImage inset_bar_vert_glow_mid_base.png
     moveHighlightImage led_tiny_blue.png
     moveHighlightImage ring_white_blue_glow.png
+    moveHighlightImage packagekit_base.png
     moveHighlightImage vert_glow_run_rev.png
 }
 
