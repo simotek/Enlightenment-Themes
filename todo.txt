@@ -1,0 +1,3 @@
+   * Name variable - theme about - theme name
+   * Description Var - Theme about
+   * Licence
