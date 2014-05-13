@@ -167,7 +167,7 @@ for F in `find fonts-dm.edc -iname "*.edc"`; do
     sed -i "s/16 16 16 16/16 $FNT_DISABLED_RGB/g" $F
     sed -i "s/#151515/$FNT_DISABLED_HTML/g" $F
     
-    sed -i "s/255 255 255 25/$FNT_DISABLED_SHADOW_RGB/g" $F
+    sed -i "s/255 255 255 25 /$FNT_DISABLED_SHADOW_RGB/g " $F
     sed -i "s/#FFFFFF19/$FNT_DISABLED_SHADOW_HTML/gI" $F
     
     # Various Grey text need 4 colors so it doesn't overwrite the name instead
