@@ -355,3 +355,48 @@ moveAllShadowImages(){
     moveShadowImage shadow_inset_bevels.png
     moveShadowImage shadow_angled_in_sides.png
 }
+
+moveTerminologyHighlightImage(){
+    # if file is in img-manual don't copy
+    if [ ! -f $TERMINOLOGY_THEME_PATH/$MANUAL_IMAGE_DIR/$1 ]; then
+        report_on_error mv $TERMINOLOGY_THEME_PATH/images/$1 $TERMINOLOGY_THEME_PATH/img-color/
+    fi
+}
+
+moveTerminologyBackgroundImage(){
+    # if file is in img-manual don't copy
+    if [ ! -f $TERMINOLOGY_THEME_PATH/$MANUAL_IMAGE_DIR/$1 ]; then
+        report_on_error mv $TERMINOLOGY_THEME_PATH/images/$1 $TERMINOLOGY_THEME_PATH/img-bgnd/
+    fi
+}
+
+moveTerminologyShadowImage(){
+    # if file is in img-manual don't copy
+    if [ ! -f $TERMINOLOGY_THEME_PATH/$MANUAL_IMAGE_DIR/$1 ]; then
+        report_on_error mv $TERMINOLOGY_THEME_PATH/images/$1 $TERMINOLOGY_THEME_PATH/img-shadow/
+    fi
+}
+
+moveAllTerminologyHighlightImages(){
+    mkdir $TERMINOLOGY_THEME_PATH/img-color
+    moveTerminologyHighlightImage icon_about.png
+    moveTerminologyHighlightImage icon_close.png
+    moveTerminologyHighlightImage icon_copy.png
+    moveTerminologyHighlightImage icon_new.png
+    moveTerminologyHighlightImage icon_paste.png
+    moveTerminologyHighlightImage icon_split_h.png
+    moveTerminologyHighlightImage icon_split_v.png
+}
+
+moveAllTerminologyBackgroundImages(){
+    mkdir $TERMINOLOGY_THEME_PATH/img-bgnd
+    moveTerminologyBackgroundImage bg_shadow.png
+    moveTerminologyBackgroundImage bg_shadow2.png
+    moveTerminologyBackgroundImage bg_shadow3.png
+}
+
+moveAllTerminologyShadowImages(){
+    mkdir $TERMINOLOGY_THEME_PATH/img-shadow
+    moveTerminologyShadowImage inset_shadow.png
+    moveTerminologyShadowImage pm_overlay.png
+}
