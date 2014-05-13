@@ -177,6 +177,10 @@ for F in `find fonts-dm.edc -iname "*.edc"`; do
     
 done
 
+sed -i "s/Dark/$THEME_NAME/g" edc-dm/about-theme.edc
+sed -i "s/The default theme for Enlightenment/$THEME_DESC/g" edc-dm/about-theme.edc
+
+
 # #repair the definition of blue - used in startup leds
 report_on_error sed -i 's/#define BLUE    152 205 87 255/#define BLUE    51 153 255 255/' edc-dm/init.edc
 
@@ -190,11 +194,98 @@ success "    Finished Writing .edc"
 
 
 inform "Creating theme"
-edje_cc -v -id img-no-change -id img-color-convd -id $MANUAL_IMAGE_DIR -fd fnt -sd snd default-dm.edc darkmod.edj
+edje_cc -v -id img-no-change -id img-color-convd -id $MANUAL_IMAGE_DIR -fd fnt -sd snd default-dm.edc -a licenses-authors/AUTHORS -a licenses-authors/AUTHORS.elementary -a licenses-authors/AUTHORS.enlightenment -l COPYING -l licenses-authors/COPYING.bsd -l licenses-authors/COPYING.images -l licenses-authors/COPYING.lgpl $THEME_NAME.edj
 
 report_on_error mv -v img-bak img
 
-report_on_error cp darkmod.edj ~/.elementary/themes
+report_on_error cp $THEME_NAME.edj ~/.elementary/themes
 popd
+
+if [ -n "$TERMINOLOGY_THEME_PATH" ]; then
+    mkdir $TERMINOLOGY_THEME_PATH/img-bak
+    report_on_error cp -vr $TERMINOLOGY_THEME_PATH/images/* $TERMINOLOGY_THEME_PATH/img-bak
+    
+    moveAllTerminologyHighlightImages
+    moveAllTerminologyBackgroundImages
+    moveAllTerminologyShadowImages
+    
+    mv $TERMINOLOGY_THEME_PATH/images $TERMINOLOGY_THEME_PATH/img-no-change
+    success "    Finished moving terminology images"
+
+    mkdir $TERMINOLOGY_THEME_PATH/img-color-convd
+    
+    pushd $TERMINOLOGY_THEME_PATH/img-color
+    for F in `find -iname "*.png"`; do
+            convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
+    done
+    popd
+    
+    # Converting background images
+    pushd $TERMINOLOGY_THEME_PATH/img-bgnd
+    for F in `find -iname "*.png"`; do
+        convert $F -brightness-contrast $BGND_BRIGHTNESS,$BGND_SATURATION ../img-color-convd/$F
+    done
+    popd
+
+    #converting shadows
+    pushd $TERMINOLOGY_THEME_PATH/img-shadow
+    for F in `find -iname "*.png"`; do
+        convert $F -channel A -evaluate Multiply $SHADOW_MULT ../img-color-convd/$F
+    done
+    popd
+
+    
+    pushd $TERMINOLOGY_THEME_PATH
+    report_on_error cp -a default.edc default-dm.edc
+    report_on_error cp -a default_colors.in.edc default-dm_colors.in.edc
+    
+    sed -i "s/default_colors.in.edc/default-dm_colors.in.edc/g" default-dm.edc
+    
+    # Replace background and highlights in edc 
+    for F in `find default-dm.edc default-dm_colors.in.edc -iname "*.edc"`; do
+        # Highlight color
+        sed -i "s/51 153 255/$HIGH_RGB/g" $F
+        sed -i "s/#3399ff/$HIGH_HTML/g" $F
+        sed -i "s/r = 51, g = 153, b = 255/r = $HIGH_RED, g = $HIGH_GREEN, b = $HIGH_BLUE/g" $F
+        
+        # File manager background
+        sed -i "s/64 64 64/$FILEMGR_BKND_RGB/g" $F
+        sed -i "s/#404040/$FILEMGR_BKND_HTML/g" $F
+        
+        # file manager alt
+        sed -i "s/56 56 56/$FILEMGR_ALT_BKND_RGB/g" $F
+        sed -i "s/#383838/$FILEMGR_ALT_BKND_HTML/g" $F
+        
+        # File manager image background
+        sed -i "s/48 48 48/$FILEMGR_IMG_BKND_RGB/g" $F
+        sed -i "s/#303030/$FILEMGR_IMG_BKND_HTML/g" $F
+        
+        # Grey boxes in pager
+        sed -i "s/50 50 50/$FILEMGR_MID_GREY_RGB/g" $F
+        sed -i "s/#323232/$FILEMGR_MID_GREY_HTML/g" $F
+        
+        # modify html versions of text for textblock
+        sed -i "s/#ffffff/$FNT_DEFAULT_HTML/gI" $F
+        sed -i "s/#ffff/$FNT_DEFAULT_HTML/gI" $F
+        
+        sed -i "s/#00000080/$FNT_DEFAULT_SHADOW_HTML/gI" $F
+        
+        # Disabled text
+        sed -i "s/#151515/$FNT_DISABLED_HTML/g" $F
+        
+        sed -i "s/#FFFFFF19/$FNT_DISABLED_SHADOW_HTML/gI" $F
+        
+        #terminology background
+        # tbd: this should be a variable
+        sed -i "s/32 32 32/$TERMINOLOGY_BACKGROUND/g" $F
+
+    done
+    edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -sd sounds default-dm.edc -a licenses-authors/AUTHORS -a licenses-authors/AUTHORS.elementary -a licenses-authors/AUTHORS.enlightenment -l COPYING -l licenses-authors/COPYING.bsd -l licenses-authors/COPYING.images -l licenses-authors/COPYING.lgpl $THEME_NAME.edj
+
+    report_on_error mv -v img-bak images
+
+    report_on_error cp $THEME_NAME.edj ~/.config/terminology/themes
+popd
+fi
 
 # TBD: copy back to current dir, and to .e file

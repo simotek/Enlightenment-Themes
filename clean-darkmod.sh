@@ -16,7 +16,19 @@ clean-darkmod(){
     report_on_error rm $ELM_ENLIGHT_THEME_PATH/fonts-dm.edc
     report_on_error rm $ELM_ENLIGHT_THEME_PATH/macros-dm.edc
     report_on_error rm $ELM_ENLIGHT_THEME_PATH/default-dm.edc
-    report_on_error rm $ELM_ENLIGHT_THEME_PATH/darkmod.edj
+    report_on_error rm $ELM_ENLIGHT_THEME_PATH/$THEME_NAME.edj
+    
+    if [ -n "$TERMINOLOGY_THEME_PATH" ]; then
+        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-color
+        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-bgnd
+        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-shadow
+        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-color-convd
+        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-no-change
+        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-bak
+        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/default-dm.edc
+                report_on_error rm -rf $TERMINOLOGY_THEME_PATH/default-dm_colors.in.edc
+    fi
+    
 }
 
 clean-darkmod
