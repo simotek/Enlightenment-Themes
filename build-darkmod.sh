@@ -194,7 +194,7 @@ success "    Finished Writing .edc"
 
 
 inform "Creating theme"
-edje_cc -v -id img-no-change -id img-color-convd -id $MANUAL_IMAGE_DIR -fd fnt -sd snd default-dm.edc -a licenses-authors/AUTHORS -a licenses-authors/AUTHORS.elementary -a licenses-authors/AUTHORS.enlightenment -l COPYING -l licenses-authors/COPYING.bsd -l licenses-authors/COPYING.images -l licenses-authors/COPYING.lgpl $THEME_NAME.edj
+edje_cc -v -id img-no-change -id img-color-convd -id $MANUAL_IMAGE_DIR -fd fnt -sd snd default-dm.edc $ELM_ENLIGHT_AUTHORS $ELM_ENLIGHT_LICENSE $THEME_NAME.edj
 
 report_on_error mv -v img-bak img
 
@@ -280,7 +280,7 @@ if [ -n "$TERMINOLOGY_THEME_PATH" ]; then
         sed -i "s/32 32 32/$TERMINOLOGY_BACKGROUND/g" $F
 
     done
-    edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -sd sounds default-dm.edc -a licenses-authors/AUTHORS -a licenses-authors/AUTHORS.elementary -a licenses-authors/AUTHORS.enlightenment -l COPYING -l licenses-authors/COPYING.bsd -l licenses-authors/COPYING.images -l licenses-authors/COPYING.lgpl $THEME_NAME.edj
+    edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -sd sounds default-dm.edc $TERMINOLOGY_LICENSE $TERMINOLOGY_AUTHORS $THEME_NAME.edj
 
     report_on_error mv -v img-bak images
 
