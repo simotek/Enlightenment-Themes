@@ -194,7 +194,7 @@ success "    Finished Writing .edc"
 
 
 inform "Creating theme"
-edje_cc -v -id img-no-change -id img-color-convd -id $MANUAL_IMAGE_DIR -fd fnt -sd snd default-dm.edc $ELM_ENLIGHT_AUTHORS $ELM_ENLIGHT_LICENSE $THEME_NAME.edj
+edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -fd fnt -sd snd default-dm.edc $ELM_ENLIGHT_AUTHORS $ELM_ENLIGHT_LICENSE $THEME_NAME.edj
 
 report_on_error mv -v img-bak img
 
