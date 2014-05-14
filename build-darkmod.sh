@@ -115,60 +115,88 @@ report_on_error cp -a macros.edc macros-dm.edc
 # Replace background and highlights in edc 
 for F in `find edc-dm colorclasses-dm.edc macros-dm.edc -iname "*.edc"`; do
     # Highlight color
-    sed -i "s/51 153 255/$HIGH_RGB/g" $F
-    sed -i "s/#3399ff/$HIGH_HTML/g" $F
-    sed -i "s/r = 51, g = 153, b = 255/r = $HIGH_RED, g = $HIGH_GREEN, b = $HIGH_BLUE/g" $F
+    if [[ "$HIGH_RGB" != "51 153 255" ]]; then
+        sed -i "s/51 153 255/$HIGH_RGB/g" $F
+        sed -i "s/#3399ff/$HIGH_HTML/g" $F
+        # for battery
+        sed -i "s/r = 51, g = 153, b = 255/r = $HIGH_RED, g = $HIGH_GREEN, b = $HIGH_BLUE/g" $F
+    fi 
     
     # File manager background
-    sed -i "s/64 64 64/$FILEMGR_BKND_RGB/g" $F
-    sed -i "s/#404040/$FILEMGR_BKND_HTML/g" $F
+    if [[ "$FILEMGR_BKND_RGB" != "64 64 64" ]]; then
+        sed -i "s/64 64 64/$FILEMGR_BKND_RGB/g" $F
+        sed -i "s/#404040/$FILEMGR_BKND_HTML/g" $F
+    fi
     
     # file manager alt
-    sed -i "s/56 56 56/$FILEMGR_ALT_BKND_RGB/g" $F
-    sed -i "s/#383838/$FILEMGR_ALT_BKND_HTML/g" $F
+    if [[ "$FILEMGR_ALT_BKND_RGB" != "56 56 56" ]]; then
+        sed -i "s/56 56 56/$FILEMGR_ALT_BKND_RGB/g" $F
+        sed -i "s/#383838/$FILEMGR_ALT_BKND_HTML/g" $F
+    fi
     
     # File manager image background
-    sed -i "s/48 48 48/$FILEMGR_IMG_BKND_RGB/g" $F
-    sed -i "s/#303030/$FILEMGR_IMG_BKND_HTML/g" $F
+    if [[ "$FILEMGR_IMG_BKND_RGB" != "48 48 48" ]]; then
+        sed -i "s/48 48 48/$FILEMGR_IMG_BKND_RGB/g" $F
+        sed -i "s/#303030/$FILEMGR_IMG_BKND_HTML/g" $F
+    fi
     
     # Grey boxes in pager
-    sed -i "s/50 50 50/$FILEMGR_MID_GREY_RGB/g" $F
-    sed -i "s/#323232/$FILEMGR_MID_GREY_HTML/g" $F
+    if [[ "$FILEMGR_MID_GREY_RGB" != "50 50 50" ]]; then
+        sed -i "s/50 50 50/$FILEMGR_MID_GREY_RGB/g" $F
+        sed -i "s/#323232/$FILEMGR_MID_GREY_HTML/g" $F
+    fi
     
     # modify html versions of text for textblock
-    sed -i "s/#ffffff/$FNT_DEFAULT_HTML/gI" $F
-    sed -i "s/#ffff/$FNT_DEFAULT_HTML/gI" $F
+    if [[ "$FNT_DEFAULT_HTML" != "#ffffff" ]]; then
+        sed -i "s/#ffffff/$FNT_DEFAULT_HTML/gI" $F
+        sed -i "s/#ffff/$FNT_DEFAULT_HTML/gI" $F
+    fi
     
-    sed -i "s/#00000080/$FNT_DEFAULT_SHADOW_HTML/gI" $F
+    if [[ "$FNT_DEFAULT_SHADOW_HTML" != "#00000080" ]]; then
+        sed -i "s/#00000080/$FNT_DEFAULT_SHADOW_HTML/gI" $F
+    fi
     
     # Disabled text
-    sed -i "s/#151515/$FNT_DISABLED_HTML/g" $F
+    if [[ "$FNT_DISABLED_HTML" != "#151515" ]]; then
+        sed -i "s/#151515/$FNT_DISABLED_HTML/g" $F
+    fi
     
-    sed -i "s/#FFFFFF19/$FNT_DISABLED_SHADOW_HTML/gI" $F
-  
+    if [[ "$FNT_DISABLED_SHADOW_HTML" != "#FFFFFF19" ]]; then
+        sed -i "s/#FFFFFF19/$FNT_DISABLED_SHADOW_HTML/gI" $F
+    fi
 done
 
 # replace text colors / yes this probably doesn't need a for loop
 for F in `find fonts-dm.edc -iname "*.edc"`; do
     # default text
-    sed -i "s/255 255 255/$FNT_DEFAULT_RGB/g" $F
-    sed -i "s/#ffffff/$FNT_DEFAULT_HTML/gI" $F
-    sed -i "s/#ffff/$FNT_DEFAULT_HTML/gI" $F
+    if [[ "$FNT_DEFAULT_RGB" != "255 255 255" ]]; then
+        sed -i "s/255 255 255/$FNT_DEFAULT_RGB/g" $F
+        sed -i "s/#ffffff/$FNT_DEFAULT_HTML/gI" $F
+        sed -i "s/#ffff/$FNT_DEFAULT_HTML/gI" $F
+    fi
     
-    sed -i "s/0 0 0 128/$FNT_DEFAULT_SHADOW_RGB/g" $F
-    sed -i "s/#00000080/$FNT_DEFAULT_SHADOW_HTML/gI" $F
+    if [[ "$FNT_DEFAULT_SHADOW_RGB" != "0 0 0 128" ]]; then
+        sed -i "s/0 0 0 128/$FNT_DEFAULT_SHADOW_RGB/g" $F
+        sed -i "s/#00000080/$FNT_DEFAULT_SHADOW_HTML/gI" $F
+    fi
     
     # Highlight color
-    sed -i "s/51 153 255/$HIGH_RGB/g" $F
-    sed -i "s/#3399ff/$HIGH_HTML/g" $F
+    if [[ "$HIGH_RGB" != "51 153 255" ]]; then
+        sed -i "s/51 153 255/$HIGH_RGB/g" $F
+        sed -i "s/#3399ff/$HIGH_HTML/g" $F
+    fi
     
     # Disabled text
-    sed -i "s/21 21 21/$FNT_DISABLED_RGB/g" $F
-    sed -i "s/16 16 16 16/16 $FNT_DISABLED_RGB/g" $F
-    sed -i "s/#151515/$FNT_DISABLED_HTML/g" $F
+    if [[ "$FNT_DISABLED_HTM" != "#151515" ]]; then
+        sed -i "s/21 21 21/$FNT_DISABLED_RGB/g" $F
+        sed -i "s/16 16 16 16/16 $FNT_DISABLED_RGB/g" $F
+        sed -i "s/#151515/$FNT_DISABLED_HTML/g" $F
+    fi
     
-    sed -i "s/255 255 255 25 /$FNT_DISABLED_SHADOW_RGB/g " $F
-    sed -i "s/#FFFFFF19/$FNT_DISABLED_SHADOW_HTML/gI" $F
+    if [[ "$FNT_DISABLED_SHADOW_RG" != "255 255 255 25" ]]; then
+        sed -i "s/color3: 255 255 255 25/color3: $FNT_DISABLED_SHADOW_RGB/g " $F
+        sed -i "s/#FFFFFF19/$FNT_DISABLED_SHADOW_HTML/gI" $F
+    fi
     
     # Various Grey text need 4 colors so it doesn't overwrite the name instead
     sed -i "s/192 192 192 192/192 $FNT_GREY_192_RGB/g" $F
@@ -244,40 +272,60 @@ if [ -n "$TERMINOLOGY_THEME_PATH" ]; then
     # Replace background and highlights in edc 
     for F in `find default-dm.edc default-dm_colors.in.edc -iname "*.edc"`; do
         # Highlight color
-        sed -i "s/51 153 255/$HIGH_RGB/g" $F
-        sed -i "s/#3399ff/$HIGH_HTML/g" $F
-        sed -i "s/r = 51, g = 153, b = 255/r = $HIGH_RED, g = $HIGH_GREEN, b = $HIGH_BLUE/g" $F
+        if [[ "$HIGH_RGB" != "51 153 255" ]]; then
+            sed -i "s/51 153 255/$HIGH_RGB/g" $F
+            sed -i "s/#3399ff/$HIGH_HTML/g" $F
+            sed -i "s/r = 51, g = 153, b = 255/r = $HIGH_RED, g = $HIGH_GREEN, b = $HIGH_BLUE/g" $F
+        fi
+        
         
         # File manager background
-        sed -i "s/64 64 64/$FILEMGR_BKND_RGB/g" $F
-        sed -i "s/#404040/$FILEMGR_BKND_HTML/g" $F
+        if [[ "$FILEMGR_BKND_RGB" != "64 64 64" ]]; then
+            sed -i "s/64 64 64/$FILEMGR_BKND_RGB/g" $F
+            sed -i "s/#404040/$FILEMGR_BKND_HTML/g" $F
+        fi
         
         # file manager alt
-        sed -i "s/56 56 56/$FILEMGR_ALT_BKND_RGB/g" $F
-        sed -i "s/#383838/$FILEMGR_ALT_BKND_HTML/g" $F
+        if [[ "$FILEMGR_ALT_BKND_RGB" != "56 56 56" ]]; then
+            sed -i "s/56 56 56/$FILEMGR_ALT_BKND_RGB/g" $F
+            sed -i "s/#383838/$FILEMGR_ALT_BKND_HTML/g" $F
+        fi
         
         # File manager image background
-        sed -i "s/48 48 48/$FILEMGR_IMG_BKND_RGB/g" $F
-        sed -i "s/#303030/$FILEMGR_IMG_BKND_HTML/g" $F
+        if [[ "$FILEMGR_IMG_BKND_RGB" != "48 48 48" ]]; then
+            sed -i "s/48 48 48/$FILEMGR_IMG_BKND_RGB/g" $F
+            sed -i "s/#303030/$FILEMGR_IMG_BKND_HTML/g" $F
+        fi
         
         # Grey boxes in pager
-        sed -i "s/50 50 50/$FILEMGR_MID_GREY_RGB/g" $F
-        sed -i "s/#323232/$FILEMGR_MID_GREY_HTML/g" $F
+        if [[ "$FILEMGR_MID_GREY_RGB" != "50 50 50" ]]; then
+            sed -i "s/50 50 50/$FILEMGR_MID_GREY_RGB/g" $F
+            sed -i "s/#323232/$FILEMGR_MID_GREY_HTML/g" $F
+        fi
         
         # modify html versions of text for textblock
-        sed -i "s/#ffffff/$FNT_DEFAULT_HTML/gI" $F
-        sed -i "s/#ffff/$FNT_DEFAULT_HTML/gI" $F
+        if [[ "$FNT_DEFAULT_HTML" != "#ffffff" ]]; then
+            sed -i "s/#ffffff/$FNT_DEFAULT_HTML/gI" $F
+            sed -i "s/#ffff/$FNT_DEFAULT_HTML/gI" $F
+        fi
         
-        sed -i "s/#00000080/$FNT_DEFAULT_SHADOW_HTML/gI" $F
+        if [[ "$FNT_DEFAULT_SHADOW_HTML" != "#00000080" ]]; then
+            sed -i "s/#00000080/$FNT_DEFAULT_SHADOW_HTML/gI" $F
+        fi
         
         # Disabled text
-        sed -i "s/#151515/$FNT_DISABLED_HTML/g" $F
+        if [[ "$FNT_DISABLED_HTML" != "#151515" ]]; then
+            sed -i "s/#151515/$FNT_DISABLED_HTML/g" $F
+        fi
         
-        sed -i "s/#FFFFFF19/$FNT_DISABLED_SHADOW_HTML/gI" $F
+        if [[ "$FNT_DISABLED_SHADOW_HTML" != "#FFFFFF19" ]]; then
+            sed -i "s/#FFFFFF19/$FNT_DISABLED_SHADOW_HTML/gI" $F
+        fi
         
         #terminology background
-        # tbd: this should be a variable
-        sed -i "s/32 32 32/$TERMINOLOGY_BACKGROUND/g" $F
+        if [[ "$TERMINOLOGY_BACKGROUND" != "32 32 32" ]]; then
+            sed -i "s/32 32 32/$TERMINOLOGY_BACKGROUND/g" $F
+        fi
 
     done
     edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -sd sounds default-dm.edc $TERMINOLOGY_LICENSE $TERMINOLOGY_AUTHORS $THEME_NAME.edj
