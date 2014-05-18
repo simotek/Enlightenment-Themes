@@ -147,7 +147,7 @@ for F in `find edc-dm colorclasses-dm.edc macros-dm.edc -iname "*.edc"`; do
     fi
     
     # modify html versions of text for textblock
-    if [[ "$FNT_DEFAULT_HTML" != "#ffffff" ]]; then
+    if [[ "$FNT_DEFAULT_HTML" != "#FFFFFF" ]]; then
         sed -i "s/#ffffff/$FNT_DEFAULT_HTML/gI" $F
         sed -i "s/#ffff/$FNT_DEFAULT_HTML/gI" $F
     fi
