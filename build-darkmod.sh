@@ -194,7 +194,7 @@ for F in `find fonts-dm.edc -iname "*.edc"`; do
     fi
     
     if [[ "$FNT_DISABLED_SHADOW_RG" != "255 255 255 25" ]]; then
-        sed -i "s/color3: 255 255 255 25/color3: $FNT_DISABLED_SHADOW_RGB/g " $F
+        sed -i "s/255 255 255 25\ns/$FNT_DISABLED_SHADOW_RGB\n/g " $F
         sed -i "s/#FFFFFF19/$FNT_DISABLED_SHADOW_HTML/gI" $F
     fi
     
