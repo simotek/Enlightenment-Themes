@@ -1,5 +1,4 @@
 #define WIN_DEFAULT_BASIC 255 255 255 255
-// #define WIN_DEFAULT 255 255 255 255; color3: 0 0 0 128
 
 color_classes {
 // comp
