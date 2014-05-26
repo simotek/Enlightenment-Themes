@@ -43,15 +43,8 @@ group { name: "e/theme/about";
          scale: 1;
          description { state: "default" 0.0;
             fixed: 1 1;
-<<<<<<< HEAD:enlightenment-elementary/edc/about-theme.edc
             color: FN_COL_HIGHLIGHT;
             rel1.relative: 0.5 0.9;
-=======
-            color: 51 153 255 255;
-            color2: 51 153 255 24;
-            color3: 51 153 255 18;
-            rel1.relative: 0.5 1.1;
->>>>>>> resynced 20131230:edje/edc/about-theme.edc
             rel1.to: "name";
             rel2.relative: 0.5 1.1;
             rel2.to: "name";
