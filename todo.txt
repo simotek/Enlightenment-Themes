@@ -1,0 +1,2 @@
+   * check for files before deleting in clean  to remove errors
+   * obs mode, report success / falure possibly install to prefix 
