@@ -1,2 +1,17 @@
    * check for files before deleting in clean  to remove errors
    * obs mode, report success / falure possibly install to prefix 
+   
+   
+   
+     * Border
+       * Title name color
+       * Buttons
+       * Maximise, top only
+       * Dialog
+     * Menu
+       * menu Color
+       * Selection
+     * Comp
+       * Look over diff, Menu shaddow
+     * Shelf
+       * bottom the same as window borders
