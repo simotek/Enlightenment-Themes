@@ -11,10 +11,10 @@ color_classes {
 
 // wm
    color_class { name: "border_title";
-      color: FN_COL_DISABLE;
+      color: FN_COL_DEFAULT;
    }
    color_class { name: "border_title_active";
-      color: FN_COL_DEFAULT_SOFT_SHADOW;
+      color: FN_COL_HIGHLIGHT;
    }
    color_class { name: "border_frame";
       color: WIN_DEFAULT_BASIC;
