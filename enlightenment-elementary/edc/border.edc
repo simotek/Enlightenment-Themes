@@ -27,16 +27,11 @@ BORDER_BUTTON_ADV2(NAME,TYPE,REL1X,REL1Y,OFF1X,OFF1Y,TO1,TO1,REL2X,REL2Y,OFF2X,O
         rel2.relative: 1.0 1.0;                          \
         rel2.offset: -5 -5;                              \
         rel2.to: NAME"_bg";                              \
-        image.normal: "e17_button_detail_"TYPE".png";    \
+        image.normal: "sym_"TYPE"_light_normal.png";     \
      }                                                   \
      description { state: "active" 0.0;                  \
-        rel1.relative: 0.0  0.0;                         \
-        rel1.offset: 0 0;                                \
-        rel1.to: NAME"_bg";                              \
-        rel2.relative: 1.0 1.0;                          \
-        rel2.offset: 0 0;                                \
-        rel2.to: NAME"_bg";                              \
-        color: 255 0 0 255;                              \
+	inherit: "default" 0.0;                          \
+        image.normal: "sym_"TYPE"_light_selected.png";   \
       }                                                  \
    }                                                     \
    part { name: NAME; type: RECT;            /* a rect for positioning */ \
@@ -149,6 +144,12 @@ images {
    // image: "e17_border3b.png" COMP;
    image: "e17_border5b.png" COMP;
    image: "e17_border7b.png" COMP;
+   image: "sym_close_light_normal.png" COMP;
+   image: "sym_close_light_selected.png" COMP;
+   image: "sym_minimize_light_normal.png" COMP;
+   image: "sym_minimize_light_selected.png" COMP;
+   image: "sym_maximize_light_normal.png" COMP;
+   image: "sym_maximize_light_selected.png" COMP;
 }
 
 group {
@@ -582,7 +583,7 @@ group {
 FULL_SIZE_BORDER_BUTTON("close")
 FULL_SIZE_BORDER_BUTTON("minimize")
 FULL_SIZE_BORDER_BUTTON("maximize")
-FULL_SIZE_BORDER_BUTTON("shade")
+/*FULL_SIZE_BORDER_BUTTON("shade")
 FULL_SIZE_BORDER_BUTTON("stick")
 FULL_SIZE_BORDER_BUTTON("kill")
 FULL_SIZE_BORDER_BUTTON("locks")
@@ -599,4 +600,4 @@ FULL_SIZE_BORDER_BUTTON("stacking")
 FULL_SIZE_BORDER_BUTTON("stack_on_top")
 FULL_SIZE_BORDER_BUTTON("stack_normal")
 FULL_SIZE_BORDER_BUTTON("stack_below")
-FULL_SIZE_BORDER_BUTTON("properties")
+FULL_SIZE_BORDER_BUTTON("properties")*/
