@@ -454,12 +454,8 @@ group {
             rel2.to: "b2";
          }
       }
-     // BORDER_BUTTON_ADV("close","close",0.0,0.0, 0,0,"whole", "whole",1.0,1.0,-1,5,"whole", "title2")
-     BORDER_BUTTON2("maximize","maximize",0.0,0.0,3,0,"close",0.0,1.0,3,-1,"close")
-     BORDER_BUTTON2("minimize","minimize",0.0,0.0,3,0,"maximize",0.0,1.0,3,-1,"maximize")
-     BORDER_BUTTON2("close","close",0.0,0.0,50,1,"right",0.0,1.0,50,-1,"right")
-
-     part { name: "e.event.icon"; type: RECT;
+      
+      part { name: "e.event.icon"; type: RECT;
          description { state: "default" 0.0;
             rel1.to: "e.swallow.icon";
             rel2.to: "e.swallow.icon";
@@ -473,6 +469,12 @@ group {
             color: 0 0 0 0;
          }
       }
+     // BORDER_BUTTON_ADV("close","close",0.0,0.0, 0,0,"whole", "whole",1.0,1.0,-1,5,"whole", "title2")
+     BORDER_BUTTON2("maximize","maximize",0.0,0.0,3,0,"close",0.0,1.0,3,-1,"close")
+     BORDER_BUTTON2("minimize","minimize",0.0,0.0,3,0,"maximize",0.0,1.0,3,-1,"maximize")
+     BORDER_BUTTON2("close","close",0.0,0.0,50,1,"right",0.0,1.0,50,-1,"right")
+
+     
    }
    programs {
       program {
@@ -579,25 +581,6 @@ group {
 group { name: "e/widgets/border/dialog/border";
    inherit: "e/widgets/border/default/border";
    parts {
-      part { name: "t3";
-         description { state: "default" 0.0;
-            // rel1.to_x: "close";
-	    visible: 0;
-         }
-      }
-      part { name: "t2";
-         description { state: "default" 0.0;
-            rel2.to_x: "close";
-	    visible: 0;
-         }
-      }
-      part { name: "t1";
-         description { state: "default" 0.0;
-            rel2.to_x: "close";
-	    rel2.offset: -24 0;
-	    
-         }
-      }
       part { name: "maximize_detail";
          description { state: "default" 0.0;
             min: 0 0;
@@ -663,11 +646,6 @@ group { name: "e/widgets/border/dialog/border";
             min: 0 0;
             max: 0 0;
             visible: 0;
-         }
-      }
-      part { name: "e.event.titlebar";
-         description { state: "default" 0.0;
-            rel2.to_x: "e.event.close";
          }
       }
       part { name: "e.event.maximize";
