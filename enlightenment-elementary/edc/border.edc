@@ -681,18 +681,6 @@ group { name: "e/widgets/border/noresize/border";
             rel2.to: "b2";
          }
       }
-      part { name: "bottom"; type: RECT;
-         description { state: "default" 0.0;
-            color_class: "border_bottom";
-            rel1.relative: 0.0 1.0;
-            rel1.offset: 0 -1;
-            rel2.relative: 1.0 1.0;
-            min: 0 0;
-            fixed: 0 1;
-            visible: 0;
-         }
-      }
-      
       part { name: "left";
          description { state: "default" 0.0;
 	    visible: 0;
@@ -753,17 +741,6 @@ group { name: "e/widgets/border/noresize_dialog/border";
             rel2.relative: 0.0  0.0;
             rel2.offset: 3 -1;
             rel2.to: "b2";
-         }
-      }
-      part { name: "bottom"; type: RECT;
-         description { state: "default" 0.0;
-            color_class: "border_bottom";
-            rel1.relative: 0.0 1.0;
-            rel1.offset: 0 -1;
-            rel2.relative: 1.0 1.0;
-            min: 0 0;
-            fixed: 0 1;
-            visible: 0;
          }
       }
       part { name: "bevel2";
