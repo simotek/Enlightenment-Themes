@@ -5,7 +5,7 @@ group { name: "e/widgets/dialog/main";
       part { name: "base"; type: RECT;
          description { state: "default" 0.0;
             color_class: "dialog_base";
-            color: 64 64 64 255;
+            color: 0 0 0 197;
          }
       }
       part { name: "bevel";
