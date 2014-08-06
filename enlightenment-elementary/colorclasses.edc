@@ -1,4 +1,6 @@
 #define WIN_DEFAULT_BASIC 255 255 255 255
+#define WIN_BACKGROUND 255 255 255 197
+
 
 color_classes {
 // comp
@@ -59,7 +61,7 @@ color_classes {
       color: FN_COL_DISABLE;
    }
    color_class { name: "dialog_base";
-      color: WIN_DEFAULT_BASIC;
+      color: WIN_BACKGROUND;
    }
    color_class { name: "shelf_base";
       color: WIN_DEFAULT_BASIC;
