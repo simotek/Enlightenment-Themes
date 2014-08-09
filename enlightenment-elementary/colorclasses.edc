@@ -76,15 +76,6 @@ color_classes {
    color_class { name: "button_text_disabled";
       color: FN_COL_DISABLE;
    }
-   color_class { name: "button_text_anchor";
-      color: FN_COL_HIGHLIGHT;
-   }
-   color_class { name: "button_text_anchor_clicked";
-      color: FN_COL_HIGHLIGHT_CLICKED;
-   }
-   color_class { name: "button_text_anchor_disabled";
-      color: FN_COL_HIGHLIGHT_DISABLE;
-   }
    color_class { name: "check_text";
       color: FN_COL_DEFAULT;
    }
@@ -149,16 +140,6 @@ color_classes {
       color: WIN_DEFAULT_BASIC;
    }
 
-   color_class { name: "hoversel_text";
-      color: FN_COL_DEFAULT;
-   }
-   color_class { name: "hoversel_text_disabled";
-      color: FN_COL_DISABLE;
-   }
-   color_class { name: "hoversel_item_active";
-      color: FN_COL_HIGHLIGHT;
-   }
-   
 // modules
    color_class { name: "module_label";
       color: FN_COL_DEFAULT;

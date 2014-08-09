@@ -418,10 +418,17 @@ group { name: "elm/toolbar/item/default";
                set_state(PART:"label2", "noicon_disabled", 0.0);
             }
          } else {
-            set_state(PART:"elm.swallow.icon", "default", 0.0);
-            set_state(PART:"icon_clip", "default", 0.0);
-            set_state(PART:"elm.text", "default", 0.0);
-            set_state(PART:"label2", "default", 0.0);
+            if (!d) {
+               set_state(PART:"elm.swallow.icon", "noicon", 0.0);
+               set_state(PART:"icon_clip", "default", 0.0);
+               set_state(PART:"elm.text", "noicon", 0.0);
+               set_state(PART:"label2", "noicon", 0.0);
+            } else {
+               set_state(PART:"elm.swallow.icon", "noicon", 0.0);
+               set_state(PART:"icon_clip", "disabled", 0.0);
+               set_state(PART:"elm.text", "noicon_disabled", 0.0);
+               set_state(PART:"label2", "noicon_disabled", 0.0);
+            }
          }
       }
    }
@@ -597,6 +604,7 @@ group { name: "elm/toolbar/item/default";
             color_class: "toolbar_item";
             text { font: FN; size: 10;
                min: 1 1;
+               ellipsis: -1;
                align: 0.5 0.5;
                text_class: "toolbar_item";
             }
@@ -689,6 +697,7 @@ group { name: "elm/toolbar/item/default";
             color_class: "toolbar_item";
             text { font: FN; size: 10;
                min: 1 1;
+               ellipsis: -1;
                align: 0.5 0.5;
                text_class: "toolbar_item";
             }
@@ -1044,6 +1053,7 @@ group { name: "elm/toolbar/item/item_horizontal";
             color_class: "toolbar_item";
             text { font: FN; size: 10;
                min: 1 1;
+               ellipsis: -1;
                align: 0.0 0.5;
                text_class: "toolbar_item";
             }
@@ -1105,6 +1115,7 @@ group { name: "elm/toolbar/item/item_horizontal";
             color_class: "toolbar_item";
             text { font: FN; size: 10;
                min: 1 1;
+               ellipsis: -1;
                align: 0.0 0.5;
                text_class: "toolbar_item";
             }

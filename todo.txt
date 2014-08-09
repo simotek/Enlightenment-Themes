@@ -1,2 +1,6 @@
    * check for files before deleting in clean  to remove errors
    * obs mode, report success / falure possibly install to prefix 
+
+ * Name variable - theme about - theme name
+   * Description Var - Theme about
+   * Licence

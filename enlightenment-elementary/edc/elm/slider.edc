@@ -9,7 +9,7 @@ group { name: "elm/slider/hidden/limit";
                text_class: "slider_text";
                min: 1 1;
                align: 0.0 0.5;
-               elipsis: -1;
+               ellipsis: -1;
             }
          }
       }
@@ -22,7 +22,7 @@ group { name: "elm/slider/hidden/limit";
                text_class: "slider_text";
                min: 1 1;
                align: 0.0 0.5;
-               elipsis: -1;
+               ellipsis: -1;
             }
          }
       }
@@ -248,6 +248,7 @@ group { name: "elm/slider/horizontal/default";
             rel2.to: "elm.swallow.icon";
             text {
                min: 1 1;
+               ellipsis: -1;
                text: "M";
             }
          }
@@ -280,11 +281,12 @@ group { name: "elm/slider/horizontal/default";
             rel1.offset: 2 2;
             rel2.offset: 2 -3;
             text.min: 1 1;
+            text.ellipsis: -1;
          }
          description { state: "disabled_visible" 0.0;
             inherit: "visible" 0.0;
             color_class: "slider_text_disabled";
-            color: FN_COL_DISABLE;
+            color3: 255 255 255 255;
          }
       }
       part { name: "elm.swallow.end"; type: SWALLOW;
@@ -321,6 +323,7 @@ group { name: "elm/slider/horizontal/default";
             rel2.to: "elm.swallow.end";
             text {
                min: 1 1;
+               ellipsis: -1;
                text: "M";
             }
          }
@@ -362,7 +365,7 @@ group { name: "elm/slider/horizontal/default";
                text_class: "slider";
                align: 1.0 0.5;
                min: 1 1;
-               elipsis: -1;
+               ellipsis: -1;
             }
          }
          description { state: "visible" 0.0;
@@ -371,8 +374,8 @@ group { name: "elm/slider/horizontal/default";
          }
          description { state: "disabled_visible" 0.0;
             inherit: "visible" 0.0;
-            color: FN_COL_DISABLE_LIGHTER_SHADOW;
             color_class: "slider_text_disabled";
+            color3: 255 255 255 255;
          }
       }
       part { name: "button"; type: GROUP; mouse_events: 0;
@@ -587,22 +590,12 @@ group { name: "elm/slider/horizontal/default";
          }
       }
       program {
-         signal: "elm,state,disabled"; source: "elm";
-         action: SIGNAL_EMIT "elm,state,disabled" "elm";
-         target: "elm.dragable.slider";
-      }
-      program {
          signal: "elm,state,enabled"; source: "elm";
          script {         
             new m = get_int(slmode);
             m &= ~DISABLE; set_int(slmode, m);
             eval_mode(m);
          }
-      }
-      program {
-         signal: "elm,state,enabled"; source: "elm";
-         action: SIGNAL_EMIT "elm,state,enabled" "elm";
-         target: "elm.dragable.slider";
       }
    }
 #undef ICON
@@ -680,7 +673,7 @@ group { name: "elm/slider/horizontal/indicator/default";
                min: 1 1;
                align: 0.5 1.0;
                text_class: "slider_indicator";
-               elipsis: -1;
+               ellipsis: -1;
             }
             visible: 0;
          }
@@ -961,6 +954,7 @@ group { name: "elm/slider/vertical/default";
             rel2.to: "elm.swallow.icon";
             text {
                min: 1 1;
+               ellipsis: -1;
                text: "M";
             }
          }
@@ -982,6 +976,7 @@ group { name: "elm/slider/vertical/default";
             text { font: FN; size: 10;
                text_class: "slider";
                min: 1 0;
+               ellipsis: -1;
                align: 0.5 0.0;
             }
             visible: 0;
@@ -992,11 +987,13 @@ group { name: "elm/slider/vertical/default";
             rel1.offset: 2 2;
             rel2.offset: -3 2;
             text.min: 1 1;
+            text.ellipsis: -1;
+
          }
          description { state: "disabled_visible" 0.0;
             inherit: "visible" 0.0;
             color_class: "slider_text_disabled";
-            color: FN_COL_DISABLE_LIGHTER_SHADOW;
+            color3: 255 255 255 255;
          }
       }
       part { name: "elm.swallow.end"; type: SWALLOW;
@@ -1033,6 +1030,7 @@ group { name: "elm/slider/vertical/default";
             rel2.to: "elm.swallow.end";
             text {
                min: 1 1;
+               ellipsis: -1;
                text: "M";
             }
          }
@@ -1074,18 +1072,19 @@ group { name: "elm/slider/vertical/default";
                text_class: "slider";
                min: 0 0;
                align: 0.5 1.0;
-               elipsis: -1;
+               ellipsis: -1;
             }
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
             visible: 1;
             text.min: 1 1;
+            text.ellipsis: -1;
          }
          description { state: "disabled_visible" 0.0;
             inherit: "visible" 0.0;
-            color: FN_COL_DISABLE_LIGHTER_SHADOW;
             color_class: "slider_text_disabled";
+            color3: 255 255 255 255;
          }
       }
       part { name: "button"; type: GROUP; mouse_events: 0;
@@ -1298,20 +1297,12 @@ group { name: "elm/slider/vertical/default";
          }
       }
       program {
-         signal: "elm,state,disabled"; source: "elm";
-         action: SIGNAL_EMIT "elm.dragable.slider:elm,state,disabled" "elm";
-      }
-      program {
          signal: "elm,state,enabled"; source: "elm";
          script {         
             new m = get_int(slmode);
             m &= ~DISABLE; set_int(slmode, m);
             eval_mode(m);
          }
-      }
-      program {
-         signal: "elm,state,enabled"; source: "elm";
-         action: SIGNAL_EMIT "elm.dragable.slider:elm,state,enabled" "elm";
       }
    }
 #undef ICON
@@ -1389,7 +1380,7 @@ group { name: "elm/slider/vertical/indicator/default";
                min: 1 1;
                align: 0.0 0.5;
                text_class: "slider_indicator";
-               elipsis: -1;
+               ellipsis: -1;
             }
             visible: 0;
          }

@@ -51,6 +51,7 @@ group { name: "e/theme/about";
             text { font: FN; size: 8;
                text: "The Enlightenment theme for openSUSE";
                min: 1 1;
+               ellipsis: -1;
                align: 0.5 1.0;
             }
          }
