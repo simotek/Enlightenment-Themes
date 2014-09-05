@@ -1,6 +1,6 @@
 group { name: "e/desktop/background";
    images.image: "bg_radgrad.png" COMP;
-   images.image: "1600x1200-background.jpg" COMP;
+   images.image: "1920x1080.png" COMP;
    parts {
       part { name: "bg";
          description { state: "default" 0.0;
@@ -12,8 +12,8 @@ group { name: "e/desktop/background";
       }
       part { name: "pat";
          description { state: "default" 0.0;
-            image.normal: "1600x1200-background.jpg";
-            ASPECT_FILL((1920/1080))
+            image.normal: "1920x1080.png";
+            ASPECT_FILL((1680/1050))
          }
       }
    }
