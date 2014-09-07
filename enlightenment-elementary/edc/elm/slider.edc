@@ -286,7 +286,7 @@ group { name: "elm/slider/horizontal/default";
          description { state: "disabled_visible" 0.0;
             inherit: "visible" 0.0;
             color_class: "slider_text_disabled";
-            color: FN_COL_DISABLE;
+            color3: 255 255 255 255;
          }
       }
       part { name: "elm.swallow.end"; type: SWALLOW;
@@ -374,8 +374,8 @@ group { name: "elm/slider/horizontal/default";
          }
          description { state: "disabled_visible" 0.0;
             inherit: "visible" 0.0;
-            color: FN_COL_DISABLE_LIGHTER_SHADOW;
             color_class: "slider_text_disabled";
+            color3: 255 255 255 255;
          }
       }
       part { name: "button"; type: GROUP; mouse_events: 0;
@@ -590,22 +590,12 @@ group { name: "elm/slider/horizontal/default";
          }
       }
       program {
-         signal: "elm,state,disabled"; source: "elm";
-         action: SIGNAL_EMIT "elm,state,disabled" "elm";
-         target: "elm.dragable.slider";
-      }
-      program {
          signal: "elm,state,enabled"; source: "elm";
          script {         
             new m = get_int(slmode);
             m &= ~DISABLE; set_int(slmode, m);
             eval_mode(m);
          }
-      }
-      program {
-         signal: "elm,state,enabled"; source: "elm";
-         action: SIGNAL_EMIT "elm,state,enabled" "elm";
-         target: "elm.dragable.slider";
       }
    }
 #undef ICON
@@ -1003,7 +993,7 @@ group { name: "elm/slider/vertical/default";
          description { state: "disabled_visible" 0.0;
             inherit: "visible" 0.0;
             color_class: "slider_text_disabled";
-            color: FN_COL_DISABLE_LIGHTER_SHADOW;
+            color3: 255 255 255 255;
          }
       }
       part { name: "elm.swallow.end"; type: SWALLOW;
@@ -1093,8 +1083,8 @@ group { name: "elm/slider/vertical/default";
          }
          description { state: "disabled_visible" 0.0;
             inherit: "visible" 0.0;
-            color: FN_COL_DISABLE_LIGHTER_SHADOW;
             color_class: "slider_text_disabled";
+            color3: 255 255 255 255;
          }
       }
       part { name: "button"; type: GROUP; mouse_events: 0;
@@ -1307,20 +1297,12 @@ group { name: "elm/slider/vertical/default";
          }
       }
       program {
-         signal: "elm,state,disabled"; source: "elm";
-         action: SIGNAL_EMIT "elm.dragable.slider:elm,state,disabled" "elm";
-      }
-      program {
          signal: "elm,state,enabled"; source: "elm";
          script {         
             new m = get_int(slmode);
             m &= ~DISABLE; set_int(slmode, m);
             eval_mode(m);
          }
-      }
-      program {
-         signal: "elm,state,enabled"; source: "elm";
-         action: SIGNAL_EMIT "elm.dragable.slider:elm,state,enabled" "elm";
       }
    }
 #undef ICON
