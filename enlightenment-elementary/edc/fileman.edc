@@ -447,7 +447,7 @@ group { name: "e/fileman/default/icon/fixed";
          base: "font="FN" font_size=10 text_class=fileman_icon align=center color=#ffffffff wrap=mixed style=shadow,bottom shadow_color=#00000080 align=center ellipsis=1.0";
       }
       style { name: "fileman_icon_name_selected";
-         base: "font="FN" font_size=10 text_class=fileman_icon align=center color=#3399ffff wrap=mixed style=glow glow_color=#3399ff18 align=center glow2_color=#3399ff12 ellipsis=1.0";
+         base: "font="FN" font_size=10 text_class=fileman_icon align=center color=#e0e0e0ff wrap=mixed style=glow glow_color=#00000080 align=center glow2_color=#3399ff12 ellipsis=1.0";
       }
    }
    script {
