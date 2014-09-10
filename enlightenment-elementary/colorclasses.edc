@@ -15,7 +15,7 @@ color_classes {
       color: FN_COL_DISABLE;
    }
    color_class { name: "border_title_active";
-      color: FN_COL_DEFAULT_SOFT_SHADOW;
+      color: 255 255 255 255; color3:0 0 0 32;
    }
    color_class { name: "border_frame";
       color: WIN_DEFAULT_BASIC;

@@ -1,6 +1,7 @@
 group { name: "e/widgets/border/default/border";
    alias: "e/widgets/border/shaped/border";
    images.image: "vgrad_med_lighter.png" COMP;
+   images.image: "vgrad_med_curved_color.png" COMP;
    images.image: "vgrad_med_dark.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
@@ -88,7 +89,7 @@ group { name: "e/widgets/border/default/border";
          }
          description { state: "focused" 0.0;
             inherit: "default" 0.0;
-            image.normal: "vgrad_med_dark.png";
+            image.normal: "vgrad_med_curved_color.png";
             color_class: "border_frame_active";
          }
       }
