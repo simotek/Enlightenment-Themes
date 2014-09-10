@@ -15,7 +15,7 @@ color_classes {
       color: FN_COL_DISABLE;
    }
    color_class { name: "border_title_active";
-      color: 255 255 255 255; color3:0 0 0 32;
+      color: 220 220 200 255; color3:0 0 0 32;
    }
    color_class { name: "border_frame";
       color: WIN_DEFAULT_BASIC;
@@ -42,7 +42,8 @@ color_classes {
       color: FN_COL_DEFAULT;
    }
    color_class { name: "menu_item_active";
-      color: FN_COL_HIGHLIGHT;
+      color: 220 220 200 255; color3:0 0 0 32;
+;
    }
    color_class { name: "menu_item_disabled";
       color: FN_COL_DISABLE;
@@ -51,7 +52,7 @@ color_classes {
       color: FN_COL_DEFAULT;
    }
    color_class { name: "winlist_item_active";
-      color: FN_COL_HIGHLIGHT;
+      color: 220 220 200 255; color3:0 0 0 32;
    }
    color_class { name: "winlist_label";
       color: FN_COL_DEFAULT;
@@ -113,7 +114,7 @@ color_classes {
       color: FN_COL_DISABLE;
    }
    color_class { name: "ilist_item_selected";
-      color: FN_COL_HIGHLIGHT;
+      color: 220 220 200 255; color3:0 0 0 32;
    }
    color_class { name: "ilist_item";
       color: FN_COL_DEFAULT;
