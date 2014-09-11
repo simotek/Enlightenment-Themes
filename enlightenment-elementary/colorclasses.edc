@@ -11,7 +11,7 @@ color_classes {
 
 // wm
    color_class { name: "border_title";
-      color: FN_COL_DISABLE;
+      color: FN_COL_HIGHLIGHT;
    }
    color_class { name: "border_title_active";
       color: FN_COL_DEFAULT_SOFT_SHADOW;
@@ -41,7 +41,7 @@ color_classes {
       color: FN_COL_DEFAULT;
    }
    color_class { name: "menu_item_active";
-      color: FN_COL_HIGHLIGHT;
+      color: FN_COL_DEFAULT_SOFT_SHADOW;
    }
    color_class { name: "menu_item_disabled";
       color: FN_COL_DISABLE;
@@ -50,7 +50,7 @@ color_classes {
       color: FN_COL_DEFAULT;
    }
    color_class { name: "winlist_item_active";
-      color: FN_COL_HIGHLIGHT;
+      color: FN_COL_DEFAULT_SOFT_SHADOW;
    }
    color_class { name: "winlist_label";
       color: FN_COL_DEFAULT;
@@ -121,7 +121,7 @@ color_classes {
       color: FN_COL_DISABLE;
    }
    color_class { name: "ilist_item_selected";
-      color: FN_COL_HIGHLIGHT;
+      color: FN_COL_DEFAULT_SOFT_SHADOW;
    }
    color_class { name: "ilist_item";
       color: FN_COL_DEFAULT;
@@ -155,7 +155,7 @@ color_classes {
       color: FN_COL_DISABLE;
    }
    color_class { name: "hoversel_item_active";
-      color: FN_COL_HIGHLIGHT;
+      color: FN_COL_DEFAULT_SOFT_SHADOW;
    }
    
 // modules
