@@ -16,7 +16,7 @@ clean-darkmod(){
     report_on_error rm $ELM_ENLIGHT_THEME_PATH/fonts-dm.edc
     report_on_error rm $ELM_ENLIGHT_THEME_PATH/macros-dm.edc
     report_on_error rm $ELM_ENLIGHT_THEME_PATH/default-dm.edc
-    report_on_error rm $ELM_ENLIGHT_THEME_PATH/$THEME_NAME.edj
+    report_on_error rm $ELM_ENLIGHT_THEME_PATH/*.edj
     
     if [ -n "$TERMINOLOGY_THEME_PATH" ]; then
         report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-color
