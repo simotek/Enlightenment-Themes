@@ -9,13 +9,17 @@
 #   directory and they will be included over the existing images    #
 #                                                                   #
 #####################################################################
-
-
+if [ $1 == '--epkg' ]; then
+    DKMD_EPKG=1
+else
+    DKMD_EPKG=0
+fi
 # load libraries
 source darkmod-color-paths.conf
 source darkmod-util.sh
 source darkmod-copy.sh
 source clean-darkmod.sh
+
 
 # Other modifications
 # battery.edc
@@ -229,7 +233,9 @@ report_on_error mv -v img-bak img
 report_on_error cp $THEME_NAME.edj ~/.elementary/themes
 popd
 
-if [ -n "$TERMINOLOGY_THEME_PATH" ]; then
+if [ -n "$TERMINOLOGY_THEME_PATH" ];then
+if [ $DKMD_EPKG != 1 ]; then
+
     mkdir $TERMINOLOGY_THEME_PATH/img-bak
     report_on_error cp -vr $TERMINOLOGY_THEME_PATH/images/* $TERMINOLOGY_THEME_PATH/img-bak
     
@@ -332,8 +338,12 @@ if [ -n "$TERMINOLOGY_THEME_PATH" ]; then
 
     report_on_error mv -v img-bak images
 
-    report_on_error cp $THEME_NAME.edj ~/.config/terminology/themes
+    if [ $DKMD_EPKG != 1 ]; then
+	echo "foo $1"
+	report_on_error cp $THEME_NAME.edj ~/.config/terminology/themes
+    fi
 popd
+fi
 fi
 
 # TBD: copy back to current dir, and to .e file
