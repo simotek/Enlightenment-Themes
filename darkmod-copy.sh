@@ -379,6 +379,7 @@ moveTerminologyShadowImage(){
 
 moveAllTerminologyHighlightImages(){
     mkdir $TERMINOLOGY_THEME_PATH/img-color
+    moveTerminologyHighlightImage bg_glow_in.png
     moveTerminologyHighlightImage icon_about.png
     moveTerminologyHighlightImage icon_close.png
     moveTerminologyHighlightImage icon_copy.png

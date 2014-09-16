@@ -282,7 +282,7 @@ if [ $DKMD_EPKG != 1 ]; then
     popd
     
     if [ $DKMD_TERMPKG == 1 ]; then
-	HIGH_RAW=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/sl_stripe.png -crop "1x1+0+0" txt:-)
+	HIGH_RAW=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:-)
 	#HIGH_HTML=$HIGH_RAW | sed -n 's/.*\(*#[0-9][0-9][0-9][0-9][0-9][0-9]*\).*/\1/p'
 	#remove most of the variable content
 	TMP_MID=$(echo "$HIGH_RAW"| cut -d "#" -f2)
@@ -313,6 +313,7 @@ if [ $DKMD_EPKG != 1 ]; then
 		report_on_error mv -v $TERMINOLOGY_THEME_PATH/img-bak $TERMINOLOGY_THEME_PATH/images
 		exit 1
 	fi
+	echo $HIGH_HTML $HIGH_RGB
     fi
     
     pushd $TERMINOLOGY_THEME_PATH
@@ -385,7 +386,7 @@ if [ $DKMD_EPKG != 1 ]; then
 
     report_on_error mv -v img-bak images
 
-    if [ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]; then
+    if [ $DKMD_TERMPKG != 1 ]; then
 	report_on_error cp $THEME_NAME.edj ~/.config/terminology/themes
     fi
 popd
