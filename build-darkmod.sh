@@ -313,7 +313,6 @@ if [ $DKMD_EPKG != 1 ]; then
 		report_on_error mv -v $TERMINOLOGY_THEME_PATH/img-bak $TERMINOLOGY_THEME_PATH/images
 		exit 1
 	fi
-	echo $HIGH_HTML $HIGH_RGB
     fi
     
     pushd $TERMINOLOGY_THEME_PATH
