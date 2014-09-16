@@ -386,6 +386,7 @@ moveAllTerminologyHighlightImages(){
     moveTerminologyHighlightImage icon_paste.png
     moveTerminologyHighlightImage icon_split_h.png
     moveTerminologyHighlightImage icon_split_v.png
+    moveTerminologyHighlightImage sl_stripe.png
 }
 
 moveAllTerminologyBackgroundImages(){
