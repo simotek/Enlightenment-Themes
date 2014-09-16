@@ -304,13 +304,13 @@ if [ $DKMD_EPKG != 1 ]; then
 	if [ -z "$HIGH_HTML" ]; then
 		error "Highlight Color could not be determined"
 		# Move images back before exit
-		report_on_error mv -v $TERMINOLOGY_THEME_PATH/images $TERMINOLOGY_THEME_PATH/img-bak
+		report_on_error mv -v $TERMINOLOGY_THEME_PATH/img-bak $TERMINOLOGY_THEME_PATH/images
 		exit 1
 	fi
 	if [ -z "$HIGH_RGB" ]; then
 		error "Highlight Color could not be determined"
 		# Move images back before exit
-		report_on_error mv -v $TERMINOLOGY_THEME_PATH/images $TERMINOLOGY_THEME_PATH/img-bak
+		report_on_error mv -v $TERMINOLOGY_THEME_PATH/img-bak $TERMINOLOGY_THEME_PATH/images
 		exit 1
 	fi
     fi
