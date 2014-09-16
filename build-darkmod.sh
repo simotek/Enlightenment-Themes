@@ -385,7 +385,7 @@ if [ $DKMD_EPKG != 1 ]; then
 
     report_on_error mv -v img-bak images
 
-    if [ if [ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]; then
+    if [ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]; then
 	report_on_error cp $THEME_NAME.edj ~/.config/terminology/themes
     fi
 popd
