@@ -2,13 +2,8 @@ Licensing
 
 There are several licenses used within this repository. All images are licensed under
 the license specified in licenses-authors/COPYING.images. The theme source code 
-(.edc files) is partly licensed lgpl for parts of the theme last modified in elementary 
-see licenses-authors/COPYING.lgpl and partly licensed under the BSD license for parts 
-last modified in enlightenment see licenses-authors/COPYING.bsd. I have Asked the 
-enlightenment developers to clarify which sections are covered by each license 
-here https://phab.enlightenment.org/T1026 and any statements made in that location shall 
-over rule the statements in this file with respect to theme (.edc) files. The terminology
-theme license is specified in licenses-authors/COPYING.terminology and authors in 
+(.edc files) is partly licensed lgpl see licenses-authors/COPYING.lgpl 
+The terminology theme license is specified in licenses-authors/COPYING.terminology and authors in 
 licenses-authors/AUTHORS.terminology.
 All other contents of this repository including bash scripts and build scripts shall be
 licensed under the following license.
