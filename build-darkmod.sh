@@ -9,13 +9,23 @@
 #   directory and they will be included over the existing images    #
 #                                                                   #
 #####################################################################
+if [[ $1 == '--epkg' ]]; then
+    DKMD_EPKG=1
+else
+    DKMD_EPKG=0
+fi
 
-
+if [[ $1 == '--termpkg' ]]; then
+    DKMD_TERMPKG=1
+else
+    DKMD_TERMPKG=0
+fi
 # load libraries
 source darkmod-color-paths.conf
 source darkmod-util.sh
 source darkmod-copy.sh
 source clean-darkmod.sh
+
 
 # Other modifications
 # battery.edc
@@ -30,6 +40,7 @@ inform "Cleaning Repository"
 clean-darkmod
 success "    Finished Cleaning Repository"
 
+if [ $DKMD_TERMPKG != 1 ]; then
 inform "Creating a backup of all images"
 mkdir $ELM_ENLIGHT_THEME_PATH/img-bak
 report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img/* $ELM_ENLIGHT_THEME_PATH/img-bak
@@ -222,14 +233,23 @@ success "    Finished Writing .edc"
 
 
 inform "Creating theme"
+inform "edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -fd fnt -sd snd default-dm.edc $ELM_ENLIGHT_AUTHORS $ELM_ENLIGHT_LICENSE $THEME_NAME.edj"
 edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -fd fnt -sd snd default-dm.edc $ELM_ENLIGHT_AUTHORS $ELM_ENLIGHT_LICENSE $THEME_NAME.edj
 
 report_on_error mv -v img-bak img
-
-report_on_error cp $THEME_NAME.edj ~/.elementary/themes
+if [ $DKMD_EPKG != 1 ]; then
+ report_on_error cp $THEME_NAME.edj ~/.elementary/themes
+fi
 popd
 
-if [ -n "$TERMINOLOGY_THEME_PATH" ]; then
+fi 
+#if [ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]; then
+
+##############################################################################################################################
+
+if [ -n "$TERMINOLOGY_THEME_PATH" ];then
+if [ $DKMD_EPKG != 1 ]; then
+
     mkdir $TERMINOLOGY_THEME_PATH/img-bak
     report_on_error cp -vr $TERMINOLOGY_THEME_PATH/images/* $TERMINOLOGY_THEME_PATH/img-bak
     
@@ -261,9 +281,43 @@ if [ -n "$TERMINOLOGY_THEME_PATH" ]; then
         convert $F -channel A -evaluate Multiply $SHADOW_MULT ../img-color-convd/$F
     done
     popd
+    
+    if [ $DKMD_TERMPKG == 1 ]; then
+	HIGH_RAW=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:-)
+	#HIGH_HTML=$HIGH_RAW | sed -n 's/.*\(*#[0-9][0-9][0-9][0-9][0-9][0-9]*\).*/\1/p'
+	#remove most of the variable content
+	TMP_MID=$(echo "$HIGH_RAW"| cut -d "#" -f2)
+	#remove the remaining fixed content
+	TMP_EXTRACTED=${TMP_MID#${TMP_MID:0:46}}
+	#form the html number
+	HIGH_HTML="#${TMP_EXTRACTED:0:6}"
+	#form the rgb number
+	TMP_RGB=${TMP_EXTRACTED#${TMP_EXTRACTED:0:14}}
+	TMP_RGB2=${TMP_RGB%")"}
+	TMP_RGB3=${TMP_RGB2//,/ }
+	HIGH_RGB=$(echo "$TMP_RGB3"| rev | cut -c 2- | rev)
 
+	set $HIGH_RGB
+	HIGH_RED=$1
+	HIGH_GREEN=$2
+	HIGH_BLUE=$3
+	#if we don't have a valid color error
+	if [ -z "$HIGH_HTML" ]; then
+		error "Highlight Color could not be determined"
+		# Move images back before exit
+		report_on_error mv -v $TERMINOLOGY_THEME_PATH/img-bak $TERMINOLOGY_THEME_PATH/images
+		exit 1
+	fi
+	if [ -z "$HIGH_RGB" ]; then
+		error "Highlight Color could not be determined"
+		# Move images back before exit
+		report_on_error mv -v $TERMINOLOGY_THEME_PATH/img-bak $TERMINOLOGY_THEME_PATH/images
+		exit 1
+	fi
+    fi
     
     pushd $TERMINOLOGY_THEME_PATH
+
     report_on_error cp -a default.edc default-dm.edc
     report_on_error cp -a default_colors.in.edc default-dm_colors.in.edc
     
@@ -328,12 +382,16 @@ if [ -n "$TERMINOLOGY_THEME_PATH" ]; then
         fi
 
     done
+    inform "edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -sd sounds default-dm.edc $TERMINOLOGY_LICENSE $TERMINOLOGY_AUTHORS $THEME_NAME.edj"
     edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -sd sounds default-dm.edc $TERMINOLOGY_LICENSE $TERMINOLOGY_AUTHORS $THEME_NAME.edj
 
     report_on_error mv -v img-bak images
 
-    report_on_error cp $THEME_NAME.edj ~/.config/terminology/themes
+    if [ $DKMD_TERMPKG != 1 ]; then
+	report_on_error cp $THEME_NAME.edj ~/.config/terminology/themes
+    fi
 popd
+fi
 fi
 
 # TBD: copy back to current dir, and to .e file
