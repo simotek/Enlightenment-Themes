@@ -12,11 +12,6 @@ collections {
         image: "icon_close.png" COMP;
         image: "fn_shadow.png" COMP;
       }
-      set { name: "bg_shadow";
-        image { image: "bg_shadow.png"  COMP; size: 0 0 200 150; }
-        image { image: "bg_shadow2.png" COMP; size: 200 150 400 300; }
-        image { image: "bg_shadow3.png" COMP; size: 400 300 99999 99999; }
-      }
       parts {
          part { name: "miniview.bg"; type: RECT;
             //mouse_events: 1;
@@ -27,8 +22,13 @@ collections {
          part { name: "shadow";
             mouse_events: 0;
             description { state: "default" 0.0;
-               image.normal: "bg_shadow";
+               image.normal: "bg_shadow.png";
                fill.smooth: 0;
+               visible: 0;
+            }
+            description { state: "translucent" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
             }
          }
          part { name: "miniview.img"; type: SWALLOW;
@@ -202,11 +202,6 @@ collections {
         image: "pm_fill.png" COMP;
         image: "cr_glow.png" COMP;
       }
-      set { name: "bg_shadow";
-        image { image: "bg_shadow.png"  COMP; size: 0 0 200 150; }
-        image { image: "bg_shadow2.png" COMP; size: 200 150 400 300; }
-        image { image: "bg_shadow3.png" COMP; size: 400 300 99999 99999; }
-      }
       sounds {
          sample { name: "bell" LOSSY 64;
             source: "bell.wav";
@@ -237,8 +232,13 @@ collections {
          part { name: "shadow";
             mouse_events: 0;
             description { state: "default" 0.0;
-               image.normal: "bg_shadow";
+               image.normal: "bg_shadow.png";
                fill.smooth: 0;
+               visible: 0;
+            }
+            description { state: "translucent" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
             }
          }
          part { name: "base"; type: RECT;
