@@ -1,8 +1,9 @@
 group { name: "elm/win/base/default";
+   data.item: "alpha" "1";
    parts {
       part { name: "menu_bg"; type: RECT;
          description { state: "default" 0.0;
-            color: 64 64 64 255;
+            color: 64 0 0 128;
             align: 0.5 0;
             rel2.to: "elm.swallow.menu";
          }
@@ -32,7 +33,7 @@ group { name: "elm/win/base/default";
          description { state: "default" 0.0;
             rel1.relative : 0.0 0.0;
             rel2.relative : 1.0 1.0;
-            color: 64 64 64 150;
+            color: 0 0 64 128;
             visible: 0;
          }
          description { state: "visible" 0.0;
