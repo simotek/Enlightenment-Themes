@@ -1,4 +1,5 @@
 group { name: "elm/win/base/default";
+   data.item: "alpha" "1";
    parts {
       part { name: "menu_bg"; type: RECT;
          description { state: "default" 0.0;
