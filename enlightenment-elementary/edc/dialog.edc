@@ -5,15 +5,16 @@ group { name: "e/widgets/dialog/main";
       part { name: "base"; type: RECT;
          description { state: "default" 0.0;
             color_class: "dialog_base";
-            color: 0 0 0 197;
+            color: 0 0 0 0;
          }
       }
       part { name: "bevel";
          description { state: "default" 0.0;
-            image.normal: "bevel_dark_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
+            //image.normal: "bevel_dark_out.png";
+            //image.border: 1 1 1 1;
+            //image.middle: 0;
+            //fill.smooth: 0;
+             color: 0 0 0 0;
          }
       }
       part { name: "separator"; mouse_events: 0;

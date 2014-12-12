@@ -1,11 +1,10 @@
 group { name: "elm/bg/base/default";
-   data.item: "alpha" "1";
    images.image: "bevel_dark_out.png" COMP;
    parts {
       part { name: "base"; type: RECT;
          description { state: "default" 0.0;
             color_class: "dialog_base";
-            color: 128 128 128 128;
+            color: 0 0 0 0;
          }
       }
       part { name: "elm.swallow.rectangle"; type: SWALLOW;
@@ -22,7 +21,7 @@ group { name: "elm/bg/base/default";
             //image.border: 1 1 1 1;
             //image.middle: 0;
             //fill.smooth: 0;
-             color: 255 255 255 128;
+             color: 255 255 255 0;
          }
       }
       part { name: "elm.swallow.content"; type: SWALLOW;
