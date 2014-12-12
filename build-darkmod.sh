@@ -69,6 +69,8 @@ TMP_RGB=${TMP_EXTRACTED#${TMP_EXTRACTED:0:14}}
 TMP_RGB2=${TMP_RGB%")"}
 TMP_RGB3=${TMP_RGB2//,/ }
 HIGH_RGB=$(echo "$TMP_RGB3"| rev | cut -c 2- | rev)
+
+HIGH_RGB="2 255 0"
  
 set $HIGH_RGB
 HIGH_RED=$1
