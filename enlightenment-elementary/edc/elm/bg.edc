@@ -4,7 +4,7 @@ group { name: "elm/bg/base/default";
       part { name: "base"; type: RECT;
          description { state: "default" 0.0;
             color_class: "dialog_base";
-            color: 0 0 0 196;
+            color: 0 0 0 0;
          }
       }
       part { name: "elm.swallow.rectangle"; type: SWALLOW;
@@ -17,10 +17,11 @@ group { name: "elm/bg/base/default";
       }
       part { name: "bevel";
          description { state: "default" 0.0;
-            image.normal: "bevel_dark_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
+            //image.normal: "bevel_dark_out.png";
+            //image.border: 1 1 1 1;
+            //image.middle: 0;
+            //fill.smooth: 0;
+             color: 255 255 255 0;
          }
       }
       part { name: "elm.swallow.content"; type: SWALLOW;
