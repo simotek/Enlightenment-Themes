@@ -2,7 +2,7 @@ group { name: "elm/button/base/default";
    alias: "elm/button/base/naviframe/back_btn/default";
    alias: "elm/button/base/naviframe/back_btn/pager";
    images.image: "frame_fill.png" COMP;
-   images.image: "button_clicked.png" COMP;
+   images.image: "frame_clicked.png" COMP;
 #define ICON     1
 #define LABEL    2
 #define MASK     3
@@ -75,8 +75,8 @@ group { name: "elm/button/base/default";
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            //image.normal: "button_clicked.png";
-            //image.border: 5 5 4 6;
+            image.normal: "frame_clicked.png";
+            image.border: 10 10 10 10;
          }
       }
       part { name: "icon_clip"; type: RECT;
