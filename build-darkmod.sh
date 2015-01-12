@@ -92,6 +92,14 @@ if [ -z "$HIGH_RGB" ]; then
     exit 1
 fi
 
+if [ -d "$ELM_ENLIGHT_THEME_PATH/img-color-manual" ]; then
+    pushd $ELM_ENLIGHT_THEME_PATH/img-color-manual
+    for F in `find -iname "*.png"`; do
+            convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
+    done
+    popd
+fi
+
 # Converting background images
 pushd $ELM_ENLIGHT_THEME_PATH/img-bgnd
 for F in `find -iname "*.png"`; do
@@ -251,6 +259,14 @@ if [ -n "$TERMINOLOGY_THEME_PATH" ]; then
             convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
     done
     popd
+    
+    if [ -d "$TERMINOLOGY_THEME_PATH/img-color-manual" ]; then
+        pushd $TERMINOLOGY_THEME_PATH/img-color-manual
+            for F in `find -iname "*.png"`; do
+                    convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
+            done
+        popd
+    fi
     
     # Converting background images
     pushd $TERMINOLOGY_THEME_PATH/img-bgnd
