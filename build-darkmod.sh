@@ -12,7 +12,6 @@
 
 hash edje_cc 2>/dev/null || { echo >&2 "I require edje_cc but it's not installed.  Aborting."; exit 1; }
 hash convert 2>/dev/null || { echo >&2 "I require the convert binary from imagemagick but it's not installed.  Aborting."; exit 1; }
-hash foo 2>/dev/null || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
 
 # load libraries
 source darkmod-color-paths.conf
