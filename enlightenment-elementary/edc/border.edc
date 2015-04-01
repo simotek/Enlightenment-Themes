@@ -13,10 +13,6 @@ BORDER_BUTTON_ADV2(NAME,TYPE,REL1X,REL1Y,OFF1X,OFF1Y,TO1,TO1,REL2X,REL2Y,OFF2X,O
          image.normal: "e17_border1b.png";               \
          color: 0 0 0 0;                                 \
       }                                                  \
-      description { state: "active" 0.0;                 \
-        inherit: "default" 0.0;                          \
-        color: 255 255 255 255;                          \
-     }                                                   \
    }                                                     \
    part { name: NAME"_detail"; mouse_events: 0;          \
       description { state: "default" 0.0;                \
@@ -510,60 +506,30 @@ group {
       program {
          signal: "mouse,down,*"; source: "e.event.close";
          action: STATE_SET "active" 0.0;
-         target: "close_bg";
-      }
-      program {
-         signal: "mouse,up,*"; source: "e.event.close";
-         action: STATE_SET "default" 0.0;
-         target: "close_bg";
-      }
-      program {
-         signal: "mouse,in"; source: "e.event.close";
-         action: STATE_SET "active" 0.0;
          target: "close_detail";
       }
       program {
-         signal: "mouse,out"; source: "e.event.close";
+         signal: "mouse,up,*"; source: "e.event.close";
          action: STATE_SET "default" 0.0;
          target: "close_detail";
       }
       program {
          signal: "mouse,down,*"; source: "e.event.maximize";
          action: STATE_SET "active" 0.0;
-         target: "maximize_bg";
-      }
-      program {
-         signal: "mouse,up,*"; source: "e.event.maximize";
-         action: STATE_SET "default" 0.0;
-         target: "maximize_bg";
-      }
-      program {
-         signal: "mouse,in"; source: "e.event.maximize";
-         action: STATE_SET "active" 0.0;
          target: "maximize_detail";
       }
       program {
-         signal: "mouse,out"; source: "e.event.maximize";
+         signal: "mouse,up,*"; source: "e.event.maximize";
          action: STATE_SET "default" 0.0;
          target: "maximize_detail";
       }
       program {
          signal: "mouse,down,*"; source: "e.event.minimize";
          action: STATE_SET "active" 0.0;
-         target: "minimize_bg";
-      }
-      program {
-         signal: "mouse,up,*"; source: "e.event.minimize";
-         action: STATE_SET "default" 0.0;
-         target: "minimize_bg";
-      }
-      program {
-         signal: "mouse,in"; source: "e.event.minimize";
-         action: STATE_SET "active" 0.0;
          target: "minimize_detail";
       }
       program {
-         signal: "mouse,out"; source: "e.event.minimize";
+         signal: "mouse,up,*"; source: "e.event.minimize";
          action: STATE_SET "default" 0.0;
          target: "minimize_detail";
       }
