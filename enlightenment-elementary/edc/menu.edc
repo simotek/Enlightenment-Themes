@@ -181,7 +181,7 @@ group { name: "e/widgets/menu/default/icon";
          clip_to: "clip";
          description { state: "default" 0.0;
             min: 16 16;
-            rel1.offset: 2 2;
+            rel1.offset: 6 2;
             rel2.offset: -3 -3;
          }
       }
