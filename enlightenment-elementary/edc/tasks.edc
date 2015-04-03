@@ -267,13 +267,12 @@ group { name:"e/modules/tasks/item";
          signal: "e,state,unfocused"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "clip";
-         target: "sel_highlight";
+         target: "sel_clip";
          target: "glow";
       }
       program {
          signal: "e,state,unfocused"; source: "e";
          action: STATE_SET "default" 0.0;
-         transition: DECELERATE 0.2;
          target: "sel_highlight";
       }
       program {
