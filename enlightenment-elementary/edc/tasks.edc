@@ -1,15 +1,15 @@
 group { name:"e/modules/tasks/item";
-   images.image: "button_normal.png" COMP;
    images.image: "button_clicked.png" COMP;
-   images.image: "shadow_rounded_horiz.png" COMP;
-   images.image: "vgrad_med_dark.png" COMP;
-   images.image: "bevel_out.png" COMP;
+   // images.image: "shadow_rounded_horiz.png" COMP;
+   //images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    images.image: "glow_small.png" COMP;
-   images.image: "horizontal_separated_bar_glow.png" COMP;
+   // images.image: "horizontal_separated_bar_glow.png" COMP;
    images.image: "frame_base.png" COMP;
+   images.image: "frame_clicked.png" COMP;
+   images.image: "frame_highlight.png" COMP;
    parts {
-      part { name: "sel_shadow"; mouse_events: 0;
+      /*part { name: "sel_shadow"; mouse_events: 0;
          clip_to: "sel_clip";
          description { state: "default" 0.0;
             image.normal: "shadow_rounded_horiz.png";
@@ -20,14 +20,14 @@ group { name:"e/modules/tasks/item";
             rel2.to: "sel_base";
             fill.smooth: 0;
          }
-      }
+      }*/
       part { name: "glow"; mouse_events: 0;
-         clip_to: "sel_clip";
+         //clip_to: "sel_clip";
          description { state: "default" 0.0;
             rel1.to: "sel_base";
             rel2.to: "sel_base";
-            image.normal: "glow_small.png";
-            image.border: 7 7 7 7;
+            image.normal: "frame_highlight.png";
+            image.border: 10 10 10 10;
             fill.smooth: 0;
             color: 255 255 255 0;
          }
@@ -35,34 +35,44 @@ group { name:"e/modules/tasks/item";
             inherit: "default" 0.0;
             rel1.offset: -4 -4;
             rel2.offset: 3 3;
-            color: 255 255 255 128;
+            color: 255 255 255 0;
          }
          description { state: "hilighted" 0.0;
             inherit: "default" 0.0;
             rel1.offset: -4 -4;
             rel2.offset: 3 3;
-            color: 255 255 255 255;
+            color: 255 255 255 0;
          }
       }
       part { name: "sel_base"; mouse_events: 0;
          clip_to: "sel_clip";
          description { state: "default" 0.0;
-            rel1.offset: 3 3;
-            rel2.offset: -4 -4;
-            image.normal: "vgrad_med_dark.png";
+            rel1.offset: 0 0;
+            rel2.offset: -2 0;
+            image.normal: "frame_clicked.png";
+            image.border: 10 10 10 10;
             fill.smooth: 0;
-            TILED_HORIZ(120)
+            // TILED_HORIZ(120)
          }
       }
-      part { name: "sel_bevel"; mouse_events: 0;
-         clip_to: "sel_clip";
+      part { name: "sel_highlight"; mouse_events: 0;
+         // clip_to: "sel_clip";
          description { state: "default" 0.0;
             rel1.to: "sel_base";
             rel2.to: "sel_base";
-            image.normal: "bevel_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
+            image.normal: "frame_highlight.png";
+            image.border: 10 10 10 10;
+            #image.middle: 0;
             fill.smooth: 0;
+            visible: 0;
+         }
+         description { state: "visible" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+         description { state: "hilighted" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
          }
       }
       part { name: "sel_label"; type: TEXT; mouse_events: 0;
@@ -93,9 +103,7 @@ group { name:"e/modules/tasks/item";
          description { state: "default" 0.0;
             image.normal: "frame_base.png";
             image.border: 10 10 10 10;
-            rel1.offset: -3 -2;
             rel1.to: "sel_base";
-            rel2.offset: 2 3;
             rel2.to: "sel_base";
             fill.smooth: 0;
          }
@@ -133,10 +141,10 @@ group { name:"e/modules/tasks/item";
          description { state: "default" 0.0;
             aspect: 1.0 1.0; aspect_preference: VERTICAL;
             align: 0.0 0.5;
-            rel1.offset: 3 3;
+            rel1.offset: 6 6;
             rel1.to: "sel_base";
             rel2.relative: 0.0 1.0;
-            rel2.offset: 3 -4;
+            rel2.offset: 6 -7;
             rel2.to: "sel_base";
          }
          description { state: "icon_only" 0.0;
@@ -173,20 +181,6 @@ group { name:"e/modules/tasks/item";
             color: 255 255 255 64;
          }
       }
-      part { name: "bar"; mouse_events: 0;
-         clip_to: "sel_clip";
-         description { state: "default" 0.0;
-            rel1.offset: -5 -10;
-            rel1.relative: 0.0 1.0;
-            rel1.to: "sel_base";
-            rel2.offset: 4 4;
-            rel2.to: "sel_base";
-            image.normal: "horizontal_separated_bar_glow.png";
-            image.border: 7 7 7 7;
-            fill.smooth: 0;
-            fixed: 0 1;
-         }
-      }
       part { name: "e.swallow.icon"; type: SWALLOW; mouse_events: 0;
          clip_to: "icon_clip";
          description { state: "default" 0.0;
@@ -211,18 +205,6 @@ group { name:"e/modules/tasks/item";
          ignore_flags: ON_HOLD;
          description { state: "default" 0.0;
             color: 0 0 0 0;
-         }
-      }
-      part {  name: "sel_shine"; mouse_events: 0;
-         clip_to: "sel_clip";
-         description { state: "default" 0.0;
-            image.normal: "shine.png";
-            rel1.offset: 0 -2;
-            rel1.to: "sel_base";
-            rel2.relative: 1.0 0.0;
-            rel2.offset: -1 2;
-            rel2.to: "sel_base";
-            FIXED_SIZE(69, 5)
          }
       }
       part { name: "clip"; type: RECT;
@@ -285,20 +267,26 @@ group { name:"e/modules/tasks/item";
          signal: "e,state,unfocused"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "clip";
-         target: "sel_clip";
+         target: "sel_highlight";
          target: "glow";
+      }
+      program {
+         signal: "e,state,unfocused"; source: "e";
+         action: STATE_SET "default" 0.0;
+         transition: DECELERATE 0.2;
+         target: "sel_highlight";
       }
       program {
          signal: "e,state,focused"; source: "e";
          action: STATE_SET "hilighted" 0.0;
          transition: DECELERATE 0.2;
-         target: "glow";
+         target: "sel_highlight";
          after: "focus2";
       }
       program { name: "focus2";
          action: STATE_SET "visible" 0.0;
          transition: SINUSOIDAL 0.3;
-         target: "glow";
+         target: "sel_highlight";
       }
       program {
          signal: "e,state,urgent"; source: "e";
