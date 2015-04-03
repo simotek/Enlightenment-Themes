@@ -1,8 +1,6 @@
 group { name: "e/widgets/menu/default/background";
    images.image: "darken_rounded_square_no_border.png" COMP;
    images.image: "vgrad_med_lighter.png" COMP;
-   images.image: "bevel_out.png" COMP;
-   images.image: "shine.png" COMP;
    parts {
       part { name: "base"; type: IMAGE; mouse_events: 0;
          description { state: "default" 0.0;
@@ -65,7 +63,6 @@ group { name: "e/widgets/menu/default/background";
          description { state: "default" 0.0;
             rel1.relative: 0.0 0.0;
             rel1.offset: 0 3;
-            rel1.to_y: "bevel";
             rel2.offset: -1 -4;
          }
          description { state: "active" 0.0;
@@ -73,26 +70,6 @@ group { name: "e/widgets/menu/default/background";
             rel1.relative: 0.0 1.0;
             rel1.offset: 0 0;
             rel1.to_y: "top";
-         }
-      }
-      part { name: "bevel"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "bevel_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
-         }
-      }
-      part { name: "shine"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "shine.png";
-            rel1.offset: 0 -2;
-            rel1.to: "top";
-            rel2.relative: 1.0 0.0;
-            rel2.offset: -1 2;
-            rel2.to: "top";
-            FIXED_SIZE(69, 5)
-	    visible:0;
          }
       }
    }
