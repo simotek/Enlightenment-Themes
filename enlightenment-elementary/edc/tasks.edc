@@ -215,7 +215,6 @@ group { name:"e/modules/tasks/item";
          action: STATE_SET "default" 0.0;
          target: "clip";
          target: "sel_clip";
-         target: "glow";
       }
       program {
          signal: "e,state,urgent"; source: "e";
