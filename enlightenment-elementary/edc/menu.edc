@@ -62,8 +62,8 @@ group { name: "e/widgets/menu/default/background";
       part { name: "e.swallow.content"; type: SWALLOW;
          description { state: "default" 0.0;
             rel1.relative: 0.0 0.0;
-            rel1.offset: 0 3;
-            rel2.offset: -1 -4;
+            rel1.offset: 0 5;
+            rel2.offset: -1 -6;
          }
          description { state: "active" 0.0;
             inherit: "default" 0.0;
@@ -116,6 +116,8 @@ group { name: "e/widgets/menu/default/item_bg";
    parts {
       part { name: "base"; mouse_events: 0;
          description { state: "default" 0.0;
+            rel1.offset: 2 -3;
+            rel2.offset: -2 3;
             image.normal: "frame_clicked.png";
             fill.smooth: 0;
             image.border: 10 10 10 10;
@@ -128,6 +130,8 @@ group { name: "e/widgets/menu/default/item_bg";
       }
       part { name: "highlight"; mouse_events: 0;
          description { state: "default" 0.0;
+            rel1.offset: 2 -3;
+            rel2.offset: -2 3;
             image.normal: "frame_highlight.png";
             fill.smooth: 0;
             image.border: 10 10 10 10;
@@ -391,6 +395,7 @@ group { name: "e/widgets/menu/default/check";
             image.border: 1 1 1 1;
             image.middle: 0;
             fill.smooth: 0;
+            rel1.offset: 5 1;
             min: 13 13;
             max: 13 13;
          }
@@ -437,6 +442,7 @@ group { name: "e/widgets/menu/default/radio";
       part { name: "base";
          description { state: "default" 0.0;
             image.normal: "inset_shadow_circle_tiny.png";
+            rel1.offset: 5 1;
             min: 13 13;
             max: 13 13;
          }
