@@ -197,7 +197,7 @@ group { name: "e/widgets/toolbar/item";
             // aspect: 1.0 1.0;
             // aspect_preference: VERTICAL;
             rel1.relative: 0.0 0.0;
-            rel1.offset: 2 2;
+            rel1.offset: 4 2;
             rel2.to_y: "e.text.label";
             rel2.relative: 1.0 0.0;
             rel2.offset: -3 -1;
@@ -280,12 +280,16 @@ group { name: "e/widgets/toolbar/item";
          action: STATE_SET "selected" 0.0;
          target: "e.text.label";
          target: "label2";
+         target: "shadow1";
+         target: "shadow2";
       }
       program {
          signal: "e,state,unselected"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "e.text.label";
          target: "label2";
+         target: "shadow1";
+         target: "shadow2";
       }
       program {
          signal: "mouse,up,1"; source: "event";
