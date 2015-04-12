@@ -514,12 +514,37 @@ group { name: "e/modules/ibox/icon_overlay";
             visible: 1;
          }
       }
+      text { name: "spacer";
+         effect: SHADOW BOTTOM;
+         scale: 1;
+         desc { color: 0 0 0 0;
+            rel1.relative: 1 0;
+            rel2.relative: 0 1;
+            text {
+               source: "e.text.label";
+               text_source: "e.text.label";
+            }
+            link.base: "e,origin,center" "e";
+            link.transition: SINUSOIDAL 0.1 CURRENT;
+         }
+         desc { "left"; inherit: "default";
+            align: 0.0 0.5;
+            link.base: "e,origin,left" "e";
+            link.transition: SINUSOIDAL 0.1 CURRENT;
+         }
+         desc { "right"; inherit: "default";
+            align: 1.0 0.5;
+            link.base: "e,origin,right" "e";
+            link.transition: SINUSOIDAL 0.1 CURRENT;
+         }
+      }
       part { name: "e.text.label"; type: TEXT; mouse_events: 0;
          effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
-            rel1.relative: 0.0 1.0;
-            rel2.relative: 1.0 1.0;
+            rel1.to_x: "spacer";
+            rel2.to_x: "spacer";
+            rel1.relative: 0 1;
             color_class: "module_label_invisible";
             color3: 255 255 255 255;
             text { font: FN; size: 10;
@@ -582,6 +607,16 @@ group { name: "e/modules/ibox/icon_overlay";
          action: STATE_SET "default" 0.0;
          transition: SINUSOIDAL 1.0;
          target: "e.text.label";
+         target: "bevel";
+      }
+      program { name: "show_bevel";
+         action: STATE_SET visible 0.0;
+         transition: SINUSOIDAL 1.0;
+         target: "bevel";
+      }
+      program { name: "hide_bevel";
+         action: STATE_SET default 0.0;
+         transition: SINUSOIDAL 1.0;
          target: "bevel";
       }
       program { name: "go_passive2";
