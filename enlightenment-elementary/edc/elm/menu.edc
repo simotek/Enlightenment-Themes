@@ -152,7 +152,7 @@ group { name: "elm/menu/item/default";
             visible: 0;
          }
       }
-      /*part { name: "bevel"; mouse_events: 0;
+      part { name: "bevel"; mouse_events: 0;
          description { state: "default" 0.0;
             image.normal: "bevel_horiz_out.png";
             image.border: 0 0 2 2;
@@ -162,7 +162,7 @@ group { name: "elm/menu/item/default";
          }
          description { state: "active" 0.0;
             inherit: "default" 0.0;
-            visible: 1;
+            visible: 0;
          }
          description { state: "disabled" 0.0;
             inherit:  "default" 0.0;
@@ -182,12 +182,12 @@ group { name: "elm/menu/item/default";
          }
          description { state: "active" 0.0;
             inherit:  "default" 0.0;
-            visible: 1;
+            visible: 0;
          }
          description { state: "disabled" 0.0;
             inherit:  "default" 0.0;
          }
-      }*/
+      }
       part { name: "event"; type: RECT;
          ignore_flags: ON_HOLD;
          description { state: "default" 0.0;
@@ -257,8 +257,8 @@ group { name: "elm/menu/item/default";
          action: STATE_SET "active" 0.0;
          target: "shadow";
          target: "base";
-         target: "bevel";
-         target: "shine";
+         //target: "bevel";
+         //target: "shine";
          target: "elm.text";
          target: "label2";
          target: "label3";
@@ -678,8 +678,8 @@ group { name: "elm/menu/main_menu_submenu/default";
          target: "shadow";
          target: "base";
          target: "bevel0";
-         target: "bevel";
-         target: "shine";
+         //target: "bevel";
+         //target: "shine";
          target: "elm.text";
          target: "label2";
          target: "label3";
@@ -741,10 +741,9 @@ group { name: "elm/hover/base/menu/default";
             rel2.relative: 1.0 1.0;
          }
       }
-      part { name: "base"; type: IMAGE; repeat_events: 1;
+      part { name: "base"; type: RECT; repeat_events: 1;
          description { state: "default" 0.0;
-            image.normal: "darken_rounded_square_no_border.png";
-            image.border: 10 10 10 10;
+            color: 0 0 0 0;
          }
       }
       part { name: "elm.swallow.slot.left"; type: SWALLOW;
@@ -774,9 +773,8 @@ group { name: "elm/hover/base/menu/default";
       part { name: "shadow";
          clip_to: "bottomclip";
          description { state: "default" 0.0;
-            image.normal: "win_shadow.png";
-            image.border: 14 14 14 14;
-            image.middle: 0;
+            image.normal: "darken_rounded_square_no_border.png";
+            image.border: 10 10 10 10;
             rel1.to: "bottom";
             rel1.offset: -7  -3;
             rel2.to: "bottom";
