@@ -65,6 +65,24 @@ group { name: "elm/check/base/default";
                set_state(PART:"clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
             }
+         } else {
+            if (!d) {
+               set_state(PART:"elm.swallow.content", "default", 0.0);
+               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"elm.text", "default", 0.0);
+               set_state(PART:"shadow", "default", 0.0);
+               set_state(PART:"base", "default", 0.0);
+               set_state(PART:"clip", "default", 0.0);
+               set_state(PART:"event", "default", 0.0);
+            } else {
+               set_state(PART:"elm.swallow.content", "default", 0.0);
+               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"elm.text", "default", 0.0);
+               set_state(PART:"shadow", "disabled", 0.0);
+               set_state(PART:"base", "disabled", 0.0);
+               set_state(PART:"clip", "disabled", 0.0);
+               set_state(PART:"event", "disabled", 0.0);
+            }
          }
       }
    }
@@ -207,7 +225,8 @@ group { name: "elm/check/base/default";
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
-            color: FN_COL_DISABLE;
+            color_class: "check_text_disabled";
+            color3: 255 255 255 255;
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
@@ -217,7 +236,8 @@ group { name: "elm/check/base/default";
          }
          description { state: "disabled_visible" 0.0;
             inherit: "default" 0.0;
-            color: FN_COL_DISABLE;
+            color_class: "check_text_disabled";
+            color3: 255 255 255 255;
             visible: 1;
             text.min: 1 1;
             text.ellipsis: -1;
@@ -403,6 +423,32 @@ group { name: "elm/check/base/toggle";
                set_state(PART:"onrect", "disabled", 0.0);
                set_state(PART:"offrect", "disabled", 0.0);
             }
+         } else {
+            if (!d) {
+               set_state(PART:"elm.swallow.content", "default", 0.0);
+               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"elm.text", "default", 0.0);
+               set_state(PART:"shadow", "default", 0.0);
+               set_state(PART:"clip", "default", 0.0);
+               set_state(PART:"event", "default", 0.0);
+               set_state(PART:"event2", "default", 0.0);
+               set_state(PART:"elm.ontext", "default", 0.0);
+               set_state(PART:"elm.offtext", "default", 0.0);
+               set_state(PART:"onrect", "default", 0.0);
+               set_state(PART:"offrect", "default", 0.0);
+            } else {
+               set_state(PART:"elm.swallow.content", "default", 0.0);
+               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"elm.text", "default", 0.0);
+               set_state(PART:"shadow", "disabled", 0.0);
+               set_state(PART:"clip", "disabled", 0.0);
+               set_state(PART:"event", "disabled", 0.0);
+               set_state(PART:"event2", "disabled", 0.0);
+               set_state(PART:"elm.ontext", "disabled", 0.0);
+               set_state(PART:"elm.offtext", "disabled", 0.0);
+               set_state(PART:"onrect", "disabled", 0.0);
+               set_state(PART:"offrect", "disabled", 0.0);
+            }
          }
       }
    }
@@ -469,7 +515,8 @@ group { name: "elm/check/base/toggle";
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
-            color: FN_COL_DISABLE;
+            color_class: "check_off_text_disabled";
+            color3: 255 255 255 255;
          }
       }
       part { name: "elm.ontext"; type: TEXT; mouse_events:  0;
@@ -483,8 +530,9 @@ group { name: "elm/check/base/toggle";
             rel2.to: "button";
             rel2.relative: 0.0 1.0;
             rel2.offset: -1 -2;
-            color: FN_COL_HIGHLIGHT;
             color_class: "check_on_text";
+            color2: 255 255 255 255;
+            color3: 255 255 255 255;
             text { font: FN; size: 10;
                min: 0 1;
                align: 0.5 0.5;
@@ -494,7 +542,8 @@ group { name: "elm/check/base/toggle";
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
-            color: FN_COL_HIGHLIGHT_DISABLE;
+            color_class: "check_on_text_disabled";
+            color3: 255 255 255 255;
          }
       }
       part { name: "shadow"; mouse_events: 0;
@@ -683,7 +732,8 @@ group { name: "elm/check/base/toggle";
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
-            color: FN_COL_DISABLE;
+            color_class: "check_text_disabled";
+            color3: 255 255 255 255;
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
@@ -693,7 +743,8 @@ group { name: "elm/check/base/toggle";
          }
          description { state: "disabled_visible" 0.0;
             inherit: "default" 0.0;
-            color: FN_COL_DISABLE;
+            color_class: "check_text_disabled";
+            color3: 255 255 255 255;
             visible: 1;
             text.min: 1 1;
             text.ellipsis: -1;
@@ -752,7 +803,7 @@ group { name: "elm/check/base/toggle";
             set_drag(PART:"button", drag, 0.0);
          }
       }
-      program {      
+      program {
          signal: "mouse,clicked,1"; source: "button";
          script {
             new Float:dx, Float:dy;
@@ -765,9 +816,9 @@ group { name: "elm/check/base/toggle";
                }
                if (((get_int(is_rtl) == 1) && (dx <= 0.5)) ||
                    (get_int(is_rtl) == 0) && (dx > 0.5)) {
-                  emit("elm,action,check,off", "");
+                  emit("elm,action,check,off", "elm");
                } else {
-                  emit("elm,action,check,on", "");
+                  emit("elm,action,check,on", "elm");
                }
             }
          }
@@ -798,9 +849,9 @@ group { name: "elm/check/base/toggle";
                }
                if (((get_int(is_rtl) == 1) && (dx <= 0.5)) ||
                    (get_int(is_rtl) == 0) && (dx > 0.5)) {
-                 emit("elm,action,check,on", "");
+                 emit("elm,action,check,on", "elm");
                } else {
-                 emit("elm,action,check,off", "");
+                 emit("elm,action,check,off", "elm");
                }
                set_int(was_drag, 1);
                set_int(is_drag, 0);
