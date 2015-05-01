@@ -442,6 +442,8 @@ group { name: "e/fileman/default/icon/fixed";
    images.image: "sym_icon_op_ask.png" COMP;
    images.image: "sym_icon_op_copy.png" COMP;
    images.image: "sym_icon_op_move.png" COMP;
+   images.image: "frame_clicked.png" COMP;
+   images.image: "frame_highlight.png" COMP;
    styles {
       style { name: "fileman_icon_name";
          base: "font="FN" font_size=10 text_class=fileman_icon align=center color=#ffffffff wrap=mixed style=shadow,bottom shadow_color=#00000080 align=center ellipsis=1.0";
@@ -468,7 +470,7 @@ group { name: "e/fileman/default/icon/fixed";
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
-            visible: 1;
+            visible: 0;
          }
       }
       part { name: "sel_glow"; mouse_events: 0;
@@ -486,23 +488,25 @@ group { name: "e/fileman/default/icon/fixed";
             rel1.offset: -4 -4;
             rel2.offset: 3 3;
             color: 255 255 255 128;
-            visible: 1;
+            visible: 0;
          }
          description { state: "hilighted" 0.0;
             inherit: "default" 0.0;
             rel1.offset: -4 -4;
             rel2.offset: 3 3;
             color: 255 255 255 255;
-            visible: 1;
+            visible: 0;
          }
       }
       part { name: "sel_base"; mouse_events: 0;
          description { state: "default" 0.0;
-            rel1.offset: 2 2;
-            rel2.offset: -3 -3;
-            image.normal: "vgrad_med_dark.png";
+            rel1.offset: -2 -2;
+            rel2.offset: 2 2;
+            // image.normal: "vgrad_med_dark.png";
             fill.smooth: 0;
-            TILED_HORIZ(120)
+            // TILED_HORIZ(120)
+            image.normal: "frame_clicked.png";
+            image.border: 10 10 10 10;
             visible: 0;
          }
          description { state: "selected" 0.0;
@@ -514,8 +518,8 @@ group { name: "e/fileman/default/icon/fixed";
          description { state: "default" 0.0;
             rel1.to: "sel_base";
             rel2.to: "sel_base";
-            image.normal: "bevel_out.png";
-            image.border: 1 1 1 1;
+            image.normal: "frame_highlight.png";
+            image.border: 10 10 10 10;
             image.middle: 0;
             fill.smooth: 0;
             visible: 0;
@@ -713,7 +717,7 @@ group { name: "e/fileman/default/icon/fixed";
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
-            visible: 1;
+            visible: 0;
          }
       }
 //////////////////////////////      
@@ -2184,7 +2188,7 @@ group { name: "modules/efm_navigation/main";
 }
 
 group { name: "modules/efm_navigation/pathbar_button";
-   images.image: "horizontal_separated_bar_small_glow.png" COMP;
+   images.image: "top_bottom_glow.png" COMP;
    parts {
       part { name: "e.text.label"; type: TEXT; mouse_events: 0;
          effect: SHADOW BOTTOM;
@@ -2230,12 +2234,11 @@ group { name: "modules/efm_navigation/pathbar_button";
       }
       part { name: "bar"; mouse_events: 0;
          description { state: "default" 0.0;
-            image.normal: "horizontal_separated_bar_small_glow.png";
-            image.border: 4 4 4 4;
+            image.normal: "top_bottom_glow.png";
+            image.border: 8 8 8 8;
             fill.smooth: 0;
-            rel1.relative: 0.0 1.0;
-            rel1.offset: -3 -6;
-            rel2.offset: 2 3;
+            rel1.offset: -2 -1;
+            rel2.offset: 3 1;
             visible: 0;
          }
          description { state: "selected" 0.0;

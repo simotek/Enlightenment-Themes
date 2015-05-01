@@ -1,3 +1,16 @@
+/* panes widget style information
+
+   [SIGNAL]
+      elm,panes,fixed: Used for elm_panes_fixed_set()
+      elm,panes,unfixed: Used for elm_panes_fixed_set()
+
+   [SIGNAL EMIT]
+      elm,action,click: Used for "clicked" smart callback.
+      elm,action,click,double: Used for "clicked,double" smart callback.
+      elm,action,press: Used for "press" smart callback.
+      elm,action,unpress: Used for "unpress" smart callback.
+*/
+
 #define PANEMIN  10
 #define PANEMIN2 16
 #define PANEWID  32
@@ -7,6 +20,32 @@ group { name: "elm/panes/vertical/default";
    parts {
       part { name: "whole"; type: SPACER;
          description { state: "default" 0.0;
+         }
+      }
+      part { name: "right_constraint"; type: SPACER;
+         dragable { confine: "whole";
+            x: 1 1 1;
+            y: 0 0 0;
+         }
+         description { state: "default" 0.0;
+            max: 0 0;
+         }
+      }
+      part { name: "left_constraint"; type: SPACER;
+         dragable { confine: "whole";
+            x: 1 1 1;
+            y: 0 0 0;
+         }
+         description { state: "default" 0.0;
+            max: 0 0;
+         }
+      }
+      part { name: "sub_whole"; type: SPACER;
+         description { state: "default" 0.0;
+            rel1.relative: 1.0 0.0;
+            rel1.to_x: "left_constraint";
+            rel2.relative: 0.0 1.0;
+            rel2.to_x: "right_constraint";
          }
       }
       part { name: "whole_left"; type: RECT;
@@ -40,7 +79,7 @@ group { name: "elm/panes/vertical/default";
          }
       }
       part { name: "elm.bar"; type: SPACER;
-         dragable { confine: "whole";
+         dragable { confine: "sub_whole";
             x: 1 1 1;
             y: 0 0 0;
          }
@@ -79,6 +118,10 @@ group { name: "elm/panes/vertical/default";
             rel2.to_x: "elm.swallow.event";
             color: 0 0 0 0;
          }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
       }
    }
    programs {
@@ -94,6 +137,16 @@ group { name: "elm/panes/vertical/default";
       program { signal: "mouse,down,1,double"; source: "bar"; // for "clicked,double" smart callback
          action: SIGNAL_EMIT "elm,action,click,double" "elm";
       }
+      program { // for elm_panes_fixed_set()
+         signal: "elm,panes,fixed"; source: "elm";
+         action: STATE_SET "disabled" 0.0;
+         target: "bar";
+      }
+      program { // for elm_panes_fixed_set()
+         signal: "elm,panes,unfixed"; source: "elm";
+         action: STATE_SET "default" 0.0;
+         target: "bar";
+      }
    }
 }
 
@@ -102,6 +155,32 @@ group { name: "elm/panes/horizontal/default";
    parts {
       part { name: "whole"; type: SPACER;
          description { state: "default" 0.0;
+         }
+      }
+      part { name: "right_constraint"; type: SPACER;
+         dragable { confine: "whole";
+            x: 0 0 0;
+            y: 1 1 1;
+         }
+         description { state: "default" 0.0;
+            max: 0 0;
+         }
+      }
+      part { name: "left_constraint"; type: SPACER;
+         dragable { confine: "whole";
+            x: 0 0 0;
+            y: 1 1 1;
+         }
+         description { state: "default" 0.0;
+            max: 0 0;
+         }
+      }
+      part { name: "sub_whole"; type: SPACER;
+         description { state: "default" 0.0;
+            rel1.relative: 0.0 1.0;
+            rel1.to_y: "left_constraint";
+            rel2.relative: 1.0 0.0;
+            rel2.to_y: "right_constraint";
          }
       }
       part { name: "whole_left"; type: RECT;
@@ -135,7 +214,7 @@ group { name: "elm/panes/horizontal/default";
          }
       }
       part { name: "elm.bar"; type: SPACER;
-         dragable { confine: "whole";
+         dragable { confine: "sub_whole";
             x: 0 0 0;
             y: 1 1 1;
          }
@@ -174,6 +253,10 @@ group { name: "elm/panes/horizontal/default";
             rel2.to_y: "elm.swallow.event";
             color: 0 0 0 0;
          }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
       }
    }
    programs {
@@ -189,10 +272,21 @@ group { name: "elm/panes/horizontal/default";
       program { signal: "mouse,down,1,double"; source: "bar"; // for "clicked,double" smart callback
          action: SIGNAL_EMIT "elm,action,click,double" "elm";
       }
+      program { // for elm_panes_fixed_set()
+         signal: "elm,panes,fixed"; source: "elm";
+         action: STATE_SET "disabled" 0.0;
+         target: "bar";
+      }
+      program { // for elm_panes_fixed_set()
+         signal: "elm,panes,unfixed"; source: "elm";
+         action: STATE_SET "default" 0.0;
+         target: "bar";
+      }
    }
 }
 
 ////////////////////////////////////////////////////////////////////////////
+
 
 group { name: "elm/panes/vertical/flush";
    images.image: "downlight_glow_left.png" COMP;
@@ -200,6 +294,32 @@ group { name: "elm/panes/vertical/flush";
    parts {
       part { name: "whole"; type: SPACER;
          description { state: "default" 0.0;
+         }
+      }
+      part { name: "right_constraint"; type: SPACER;
+         dragable { confine: "whole";
+            x: 1 1 1;
+            y: 0 0 0;
+         }
+         description { state: "default" 0.0;
+            max: 0 0;
+         }
+      }
+      part { name: "left_constraint"; type: SPACER;
+         dragable { confine: "whole";
+            x: 1 1 1;
+            y: 0 0 0;
+         }
+         description { state: "default" 0.0;
+            max: 0 0;
+         }
+      }
+      part { name: "sub_whole"; type: SPACER;
+         description { state: "default" 0.0;
+            rel1.relative: 1.0 0.0;
+            rel1.to_x: "left_constraint";
+            rel2.relative: 0.0 1.0;
+            rel2.to_x: "right_constraint";
          }
       }
       part { name: "whole_left"; type: RECT;
@@ -219,6 +339,7 @@ group { name: "elm/panes/vertical/flush";
          description { state: "default" 0.0;
             rel2.to_x: "elm.bar";
             rel2.relative: 1.0 1.0;
+            fixed: 1 0;
          }
       }
       part { name: "elm.swallow.right"; type: SWALLOW;
@@ -226,10 +347,11 @@ group { name: "elm/panes/vertical/flush";
          description { state: "default" 0.0;
             rel1.to_x: "elm.bar";
             rel1.relative: 0.0 0.0;
+            fixed: 1 0;
          }
       }
       part { name: "elm.bar"; type: SPACER;
-         dragable { confine: "whole";
+         dragable { confine: "sub_whole";
             x: 1 1 1;
             y: 0 0 0;
          }
@@ -261,6 +383,10 @@ group { name: "elm/panes/vertical/flush";
             rel2.to_x: "elm.swallow.event";
             rel2.relative: 1.0 0.75;
             color: 0 0 0 0;
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
          }
       }
       part { name: "glow1a"; mouse_events: 0;
@@ -349,6 +475,16 @@ group { name: "elm/panes/vertical/flush";
       program { signal: "mouse,down,1,double"; source: "bar"; // for "clicked,double" smart callback
          action: SIGNAL_EMIT "elm,action,click,double" "elm";
       }
+      program { // for elm_panes_fixed_set()
+         signal: "elm,panes,fixed"; source: "elm";
+         action: STATE_SET "disabled" 0.0;
+         target: "bar";
+      }
+      program { // for elm_panes_fixed_set()
+         signal: "elm,panes,unfixed"; source: "elm";
+         action: STATE_SET "default" 0.0;
+         target: "bar";
+      }
       program {
          signal: "mouse,in"; source: "bar1";
          action: STATE_SET "active" 0.0;
@@ -388,6 +524,32 @@ group { name: "elm/panes/horizontal/flush";
          description { state: "default" 0.0;
          }
       }
+      part { name: "right_constraint"; type: SPACER;
+         dragable { confine: "whole";
+            x: 0 0 0;
+            y: 1 1 1;
+         }
+         description { state: "default" 0.0;
+            max: 0 0;
+         }
+      }
+      part { name: "left_constraint"; type: SPACER;
+         dragable { confine: "whole";
+            x: 0 0 0;
+            y: 1 1 1;
+         }
+         description { state: "default" 0.0;
+            max: 0 0;
+         }
+      }
+      part { name: "sub_whole"; type: SPACER;
+         description { state: "default" 0.0;
+            rel1.relative: 0.0 1.0;
+            rel1.to_y: "left_constraint";
+            rel2.relative: 1.0 0.0;
+            rel2.to_y: "right_constraint";
+         }
+      }
       part { name: "whole_left"; type: RECT;
          description { state: "default" 0.0;
             rel2.to_y: "elm.bar";
@@ -405,6 +567,7 @@ group { name: "elm/panes/horizontal/flush";
          description { state: "default" 0.0;
             rel2.to_y: "elm.bar";
             rel2.relative: 1.0 1.0;
+            fixed: 0 1;
          }
       }
       part { name: "elm.swallow.right"; type: SWALLOW;
@@ -412,10 +575,11 @@ group { name: "elm/panes/horizontal/flush";
          description { state: "default" 0.0;
             rel1.to_y: "elm.bar";
             rel1.relative: 0.0 0.0;
+            fixed: 0 1;
          }
       }
       part { name: "elm.bar"; type: SPACER;
-         dragable { confine: "whole";
+         dragable { confine: "sub_whole";
             x: 0 0 0;
             y: 1 1 1;
          }
@@ -447,6 +611,10 @@ group { name: "elm/panes/horizontal/flush";
             rel2.to_y: "elm.swallow.event";
             rel2.relative: 0.75 1.0;
             color: 0 0 0 0;
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
          }
       }
       part { name: "glow1a"; mouse_events: 0;
@@ -562,6 +730,16 @@ group { name: "elm/panes/horizontal/flush";
       }
       program { signal: "mouse,down,1,double"; source: "bar"; // for "clicked,double" smart callback
          action: SIGNAL_EMIT "elm,action,click,double" "elm";
+      }
+      program { // for elm_panes_fixed_set()
+         signal: "elm,panes,fixed"; source: "elm";
+         action: STATE_SET "disabled" 0.0;
+         target: "bar";
+      }
+      program { // for elm_panes_fixed_set()
+         signal: "elm,panes,unfixed"; source: "elm";
+         action: STATE_SET "default" 0.0;
+         target: "bar";
       }
    }
 }
