@@ -1,5 +1,5 @@
 group { name:"e/modules/tasks/item";
-   images.image: "frame_base.png" COMP;
+   images.image: "frame_fill.png" COMP;
    images.image: "frame_clicked.png" COMP;
    images.image: "frame_highlight.png" COMP;
    parts {
@@ -55,7 +55,7 @@ group { name:"e/modules/tasks/item";
       part { name: "base";
          clip_to: "clip";
          description { state: "default" 0.0;
-            image.normal: "frame_base.png";
+            image.normal: "frame_fill.png";
             image.border: 10 10 10 10;
             rel1.to: "sel_base";
             rel2.to: "sel_base";
