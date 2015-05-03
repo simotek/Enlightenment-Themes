@@ -3,6 +3,8 @@ group { name: "elm/button/base/default";
    alias: "elm/button/base/naviframe/back_btn/pager";
    images.image: "button_normal.png" COMP;
    images.image: "button_clicked.png" COMP;
+   images.image: "frame_highlight.png" COMP;
+
 #define ICON     1
 #define LABEL    2
 #define MASK     3
@@ -76,7 +78,7 @@ group { name: "elm/button/base/default";
          desc { "default";
             image.normal: "frame_fill.png";
             image.border: 10 10 10 10;
-            image.middle: SOLID;
+            //image.middle: SOLID;
             rel1.offset: 0 0;
             rel2.offset: 0 0;
             fill.smooth: 0;
@@ -87,6 +89,20 @@ group { name: "elm/button/base/default";
             image.border: 10 10 10 10;
          }
       }
+      image { "highlight"; nomouse;
+         desc { "default";
+            rel1.offset: 0 0;
+            rel2.offset: 0 0;
+            fill.smooth: 0;
+            visible: 0;
+         }
+         desc { "clicked";
+            inherit: "default";
+            image.normal: "frame_highlight.png";
+            image.border: 10 10 10 10;
+            visible: 1;
+         }
+      }      
       rect { "icon_clip";
          desc { "default";
          }
@@ -227,6 +243,7 @@ group { name: "elm/button/base/default";
       program { name: "button_click_anim";
          action: STATE_SET "clicked" 0.0;
          target: "base";
+         target: "highlight";
       }
       program { name: "button_unclick";
          signal: "mouse,up,1"; source: "event";
@@ -236,17 +253,20 @@ group { name: "elm/button/base/default";
       program { name: "button_unclick_anim";
          action: STATE_SET "default" 0.0;
          target: "base";
+         target: "highlight";
       }
       program { name: "buttonactivate";
          signal: "elm,anim,activate"; source: "elm";
          action: STATE_SET "clicked" 0.0;
          target: "base";
+         target: "highlight";
          after: "button_unpressed_anim";
       }
       program { name: "button_unpressed_anim";
          action: STATE_SET "default" 0.0;
          in: 0.5 0.0;
          target: "base";
+         target: "highlight";
       }
       program {
          signal: "mouse,clicked,1"; source: "event";
