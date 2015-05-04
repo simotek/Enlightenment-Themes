@@ -521,7 +521,7 @@ group { name: "e/widgets/scrollframe";
             rel2.to: "e.dragable.vbar";
             image.normal: "ball_small_glow_intense_fill.png";
             image.border: 6 6 6 6;
-            image.border_scale_by: 0.5; image.border_scale: 1;
+            //image.border_scale_by: 0.25; image.border_scale: 1;
             fill.smooth: 0;
             min: 14 14;
             //TILED_HORIZ(120)
