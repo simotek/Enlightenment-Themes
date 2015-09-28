@@ -3,6 +3,8 @@ group { name: "elm/button/base/default";
    alias: "elm/button/base/naviframe/back_btn/pager";
    images.image: "button_normal.png" COMP;
    images.image: "button_clicked.png" COMP;
+
+
 #define ICON     1
 #define LABEL    2
 #define MASK     3
