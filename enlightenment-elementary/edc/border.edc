@@ -10,12 +10,15 @@ group { name: "e/widgets/border/default/border";
    images.image: "sym_close_dark_selected.png" COMP;
    images.image: "sym_close_light_normal.png" COMP;
    images.image: "sym_close_light_selected.png" COMP;
+   images.image: "sym_close_color_normal.png" COMP;
    images.image: "sym_down_dark_normal.png" COMP;
+   images.image: "sym_down_color_normal.png" COMP;
    images.image: "sym_down_dark_selected.png" COMP;
    images.image: "sym_down_light_normal.png" COMP;
    images.image: "sym_down_light_selected.png" COMP;
    images.image: "sym_up_dark_normal.png" COMP;
    images.image: "sym_up_dark_selected.png" COMP;
+   images.image: "sym_up_color_normal.png" COMP;
    images.image: "sym_up_light_normal.png" COMP;
    images.image: "sym_up_light_selected.png" COMP;
    images.image: "glow_round_corners_small.png" COMP;
@@ -46,7 +49,7 @@ group { name: "e/widgets/border/default/border";
          }
          description { state: "shaded";
             inherit: "default";
-            rel2.to: "top";
+            rel2.to: "e.swallow.client";
          }
       }
       part { name: "client_clip"; type: RECT; mouse_events: 0;
@@ -248,7 +251,7 @@ group { name: "e/widgets/border/default/border";
       part { name: "close1";  mouse_events: 0;
          clip_to: "clip1";
          description { state: "default" 0.0;
-            image.normal: "sym_close_dark_normal.png";
+            image.normal: "sym_close_color_normal.png";
             rel1.to: "e.event.close";
             rel2.to: "e.event.close";
             min: 15 15;
@@ -257,13 +260,13 @@ group { name: "e/widgets/border/default/border";
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
-            image.normal: "sym_close_dark_selected.png";
+            image.normal: "sym_close_color_normal.png";
          }
       }
       part { name: "max1"; mouse_events: 0;
          clip_to: "clip1";
          description { state: "default" 0.0;
-            image.normal: "sym_up_dark_normal.png";
+            image.normal: "sym_up_color_normal.png";
             rel1.to: "e.event.maximize";
             rel2.to: "e.event.maximize";
             min: 15 15;
@@ -272,13 +275,13 @@ group { name: "e/widgets/border/default/border";
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
-            image.normal: "sym_up_dark_selected.png";
+            image.normal: "sym_up_color_normal.png";
          }
       }
       part { name: "min1"; mouse_events: 0;
          clip_to: "clip1";
          description { state: "default" 0.0;
-            image.normal: "sym_down_dark_normal.png";
+            image.normal: "sym_down_color_normal.png";
             rel1.to: "e.event.minimize";
             rel2.to: "e.event.minimize";
             min: 15 15;
@@ -287,7 +290,7 @@ group { name: "e/widgets/border/default/border";
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
-            image.normal: "sym_down_dark_selected.png";
+            image.normal: "sym_down_color_normal.png";
          }
       }
       part { name: "close2"; mouse_events: 0;
@@ -623,15 +626,10 @@ group { name: "e/widgets/border/default/border";
          action: STATE_SET "default" 0.0;
          target: "knob_spinner";
       }
-      program { name: "shade_hide";
-         action: STATE_SET "hidden" 0.0;
-         target: "client_clip";
-      }
       program {
          signal: "e,state,shaded"; source: "e";
          action: STATE_SET "shaded" 0.0;
          target: "shadow";
-         after: "shade_hide";
          after: "shading";
       }
       program { name: "shading";
