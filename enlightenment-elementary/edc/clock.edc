@@ -1,6 +1,8 @@
 group { name: "e/modules/clock/digital";
    min: 64 16;
    max: 512 128;
+   images.image: "frame_clicked.png" COMP;
+   images.image: "frame_highlight.png" COMP;
    images.image: "digit_na.png" COMP;
    images.image: "digit_nm.png" COMP;
    images.image: "digit_0.png" COMP;
@@ -172,7 +174,7 @@ group { name: "e/modules/clock/digital";
       }
       // XXX: hours1/2, mins1/2, secs1/2 and ampm SHOULD be spacers... but
       // if they are calculations go weird. this shouldnt happen, but does.
-      part { name: "timearea"; type: RECT;
+      part { name: "timearea";
          description { state: "default" 0.0;
             visible: 0;
          }
