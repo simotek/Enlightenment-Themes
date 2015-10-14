@@ -318,7 +318,7 @@ if [ $DKMD_EPKG != 1 ]; then
 	TMP_RGB2=${TMP_RGB%")"}
 	TMP_RGB3=${TMP_RGB2//,/ }
 	HIGH_RGB=$(echo "$TMP_RGB3"| rev | cut -c 2- | rev)
-
+   fi
 
     pushd $TERMINOLOGY_THEME_PATH
     report_on_error cp -a default.edc default-dm.edc
