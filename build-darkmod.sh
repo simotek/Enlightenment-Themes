@@ -395,6 +395,5 @@ if [ $DKMD_EPKG != 1 ]; then
 popd
 fi
 fi
-fi
 
 # TBD: copy back to current dir, and to .e file
