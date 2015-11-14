@@ -156,6 +156,12 @@ group {
 // this tells e the border is shaped
    data.item: "shaped" "1";
    parts {
+      part { name: "snap";
+        type: SNAPSHOT;
+        desc { "default";
+            filter.code: "filter";
+        }
+      }
       part { name: "whole";
          description { state: "default" 0.0;
             image.normal: "darken_rounded_square_no_border.png";
