@@ -12,8 +12,8 @@ group { name: "e/shelf/default/base";
        * totally hidden */
 //      item: "instant_delay" "3.0";
    }
-   images.image: "vgrad_med.png" COMP;
-   images.image: "vgrad_tall.png" COMP;
+   images.image: "vgrad_med_trans.png" COMP;
+   images.image: "vgrad_tall_trans.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "holes_vert.png" COMP;
    images.image: "holes_horiz.png" COMP;
@@ -24,13 +24,13 @@ group { name: "e/shelf/default/base";
       }
       part { name: "bg";
          description { state: "default" 0.0;
-            image.normal: "vgrad_med.png";
+            image.normal: "vgrad_med_trans.png";
             fill.smooth: 0;
             TILED_HORIZ(120)
             color_class: "shelf_base";
          }
          description { state: "vert" 0.0;
-            image.normal: "vgrad_tall.png";
+            image.normal: "vgrad_tall_trans.png";
             fill.smooth: 0;
             TILED_HORIZ(40)
             color_class: "shelf_base";
