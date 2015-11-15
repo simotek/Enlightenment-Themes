@@ -1,12 +1,3 @@
-filters {
-      filter {
-         name: "filter";
-         script {
-            padding_set(0)
-            blur { 10 }
-         }
-      }
-   }
 group { name: "e/shelf/default/base";
    alias: "e/shelf/alternate/base";
    data {
@@ -61,7 +52,7 @@ group { name: "e/shelf/default/base";
                rel.to: "bg";
                //rel1.relative: 0.25 0.25;
                //rel2.relative: 0.75 0.75;
-               filter.code: "filter";
+               filter.code: "blurbackground";
             }
          }
       part { name: "img";

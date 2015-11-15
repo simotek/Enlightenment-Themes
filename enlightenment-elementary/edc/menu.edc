@@ -1,12 +1,3 @@
-filters {
-      filter {
-         name: "filter3";
-         script {
-            padding_set(0)
-            blur { 10 }
-         }
-      }
-   }
 group { name: "e/widgets/menu/default/background";
    images.image: "darken_rounded_square_no_border.png" COMP;
    parts {
@@ -16,7 +7,7 @@ group { name: "e/widgets/menu/default/background";
             rel.to: "base";
             //rel1.relative: 0.25 0.25;
             //rel2.relative: 0.75 0.75;
-            filter.code: "filter";
+            filter.code: "blurbackground";
         }
       }
       part { name: "base"; type: IMAGE; mouse_events: 0;

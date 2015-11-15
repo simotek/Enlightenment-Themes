@@ -50,7 +50,7 @@ group { name: "e/modules/notification/main";
         desc { "default";
             rel1.offset: 10 10;
             rel2.offset: -10 -10;
-            filter.code: "filter";
+            filter.code: "blurbackground";
         }
       }
       part { name: "base";

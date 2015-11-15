@@ -159,7 +159,7 @@ group {
       part { name: "snap";
         type: SNAPSHOT;
         desc { "default";
-            filter.code: "filter";
+            filter.code: "blurhighperf";
         }
       }
       part { name: "whole";

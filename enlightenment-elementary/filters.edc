@@ -1,0 +1,18 @@
+filters {
+      filter {
+         name: "blurbackground";
+         script {
+            padding_set(0)
+            blur { 5 }
+         }
+      }
+   }
+   filters {
+      filter {
+         name: "blurhighperf";
+         script {
+            padding_set(0)
+            blur { 5 }
+         }
+      }
+   }
