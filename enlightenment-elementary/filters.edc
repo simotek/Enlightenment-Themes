@@ -3,16 +3,28 @@ filters {
          name: "blurbackground";
          script {
             padding_set(0)
+            blur { 10 }
+         }
+      }
+   }
+   // blurhighperf won't perform well in a lot of cases currently as such it has been renamed so the filter isn't active,
+   // If using it change the name of blurlowperf
+   filters {
+      filter {
+         // name: "blurhighperf";
+         name: "blurhighperf_disabled";
+         script {
+            padding_set(0)
             blur { 5 }
          }
       }
    }
    filters {
       filter {
-         name: "blurhighperf";
+         name: "blurlowperf";
          script {
             padding_set(0)
-            blur { 5 }
+            blur { 10 }
          }
       }
    }

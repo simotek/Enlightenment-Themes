@@ -730,6 +730,12 @@ group { name: "e/widgets/border/noresize/border";
 group { name: "e/widgets/border/frame/border";
    inherit: "e/widgets/border/noresize/border";
    parts {
+      part { name: "snap";
+        type: SNAPSHOT;
+        desc { "default";
+            filter.code: "blurlowperf";
+        }
+      }
       part { name: "e.swallow.client"; type: SWALLOW;
          description { state: "default" 0.0;
             rel1.relative: 1.0 1.0;
@@ -849,6 +855,17 @@ group { name: "e/widgets/border/modal/border";
    
 }
 
+group { name: "e/widgets/border/blur/border";
+   inherit: "e/widgets/border/default/border";
+   parts {
+      part { name: "snap";
+        type: SNAPSHOT;
+        desc { "default";
+            filter.code: "blurlowperf";
+        }
+      }
+   }
+}
 FULL_SIZE_BORDER_BUTTON("close")
 FULL_SIZE_BORDER_BUTTON("minimize")
 FULL_SIZE_BORDER_BUTTON("maximize")
