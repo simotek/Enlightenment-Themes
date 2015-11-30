@@ -84,7 +84,7 @@ HIGH_HTML="#${TMP_EXTRACTED:0:6}"
 HIGH_HTML=$(convert enlightenment-elementary/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | awk 'match($0, /#[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]/) {print substr($0, RSTART, RLENGTH)}')
 
 # Need the first bracket to match the right string so remove it after
-HIGH_RGB=$(convert enlightenment-elementary/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | awk 'match($0, /srgba\([0-9]+,[0-9]+,[0-9]+/) {print substr($0, 7, RLENGTH-5)}')
+HIGH_RGB=$(convert enlightenment-elementary/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | perl -e 'while(<STDIN>){if(/srgba\((\d+),(\d+),(\d+)/){print"$1,$2,$3\n"}}')
 HIGH_RGB=${HIGH_RGB:1}
 # Substitute , for " "
 HIGH_RGB=$(echo "$HIGH_RGB" | tr "," " ")
@@ -318,7 +318,7 @@ if [ $DKMD_EPKG != 1 ]; then
 	HIGH_HTML=$(convert enlightenment-elementary/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | awk 'match($0, /#[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]/) {print substr($0, RSTART, RLENGTH)}')
 	#form the rgb number
 	# Need the first bracket to match the right string so remove it after
-	HIGH_RGB=$(convert enlightenment-elementary/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | awk 'match($0, /srgba\([0-9]+,[0-9]+,[0-9]+/) {print substr($0, 7, RLENGTH-5)}')
+	HIGH_RGB=$(convert enlightenment-elementary/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | perl -e 'while(<STDIN>){if(/srgba\((\d+),(\d+),(\d+)/){print"$1,$2,$3\n"}}')
 	HIGH_RGB=${HIGH_RGB:1}
 	# Substitute , for " "
 	HIGH_RGB=$(echo "$HIGH_RGB" | tr "," " ")
