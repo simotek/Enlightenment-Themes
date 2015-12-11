@@ -18,10 +18,34 @@
    inkscape:version="0.91 r13725"
    sodipodi:docname="border.svg"
    inkscape:export-filename="/home/simon/src/Themes/Enlightenment-Themes/orig/border_test.png"
-   inkscape:export-xdpi="12.486742"
-   inkscape:export-ydpi="12.486742">
+   inkscape:export-xdpi="45"
+   inkscape:export-ydpi="45">
   <defs
      id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4765">
+      <stop
+         style="stop-color:#3399ff;stop-opacity:1"
+         offset="0"
+         id="stop4767" />
+      <stop
+         style="stop-color:#3399ff;stop-opacity:0"
+         offset="1"
+         id="stop4769" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4749">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop4751" />
+      <stop
+         style="stop-color:#363636;stop-opacity:0.87843138"
+         offset="1"
+         id="stop4753" />
+    </linearGradient>
     <linearGradient
        id="linearGradient4151"
        inkscape:collect="always">
@@ -36,12 +60,12 @@
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient4151"
+       xlink:href="#linearGradient4749"
        id="linearGradient4184"
        x1="16"
        y1="900.36218"
-       x2="144"
-       y2="1028.3622"
+       x2="98.58271"
+       y2="982.94489"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.0596828,0,0,1.0596828,-0.46640012,-53.247572)" />
     <linearGradient
@@ -51,9 +75,19 @@
        id="linearGradient4184-0"
        x1="16"
        y1="900.36218"
-       x2="144"
-       y2="1028.3622"
+       x2="109.09713"
+       y2="993.40253"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4765"
+       id="linearGradient4771"
+       x1="97.428574"
+       y1="889.29077"
+       x2="97.428574"
+       y2="929.29077"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-2.1428571,31.428572)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -69,16 +103,16 @@
      inkscape:current-layer="layer1"
      showgrid="true"
      units="px"
-     inkscape:window-width="1279"
+     inkscape:window-width="1280"
      inkscape:window-height="739"
-     inkscape:window-x="5"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
        id="grid3374"
-       spacingx="8"
-       spacingy="8"
+       spacingx="4"
+       spacingy="4"
        empspacing="4" />
   </sodipodi:namedview>
   <metadata
@@ -89,7 +123,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
         <cc:license
            rdf:resource="http://creativecommons.org/licenses/by-sa/3.0/" />
       </cc:Work>
@@ -132,5 +166,10 @@
        y="-1033.1617"
        ry="28.817894"
        transform="scale(-1,-1)" />
+    <path
+       style="fill:#cccccc;fill-rule:evenodd;stroke:url(#linearGradient4771);stroke-width:32;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 45.857143,943.79076 63.999997,0 8,0"
+       id="path4763"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>
