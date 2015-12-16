@@ -386,6 +386,9 @@ moveAllTerminologyHighlightImages(){
     moveTerminologyHighlightImage icon_paste.png
     moveTerminologyHighlightImage icon_split_h.png
     moveTerminologyHighlightImage icon_split_v.png
+
+    # Move in the color thats used for script generation 
+    moveTerminologyHighlightImage bg_glow_in.png
 }
 
 moveAllTerminologyBackgroundImages(){
