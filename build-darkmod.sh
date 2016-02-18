@@ -26,6 +26,7 @@ hash convert 2>/dev/null || { echo >&2 "I require the convert binary from imagem
 
 # load libraries
 source darkmod-color-paths.conf
+source colors.conf
 source darkmod-util.sh
 source darkmod-copy.sh
 source clean-darkmod.sh
