@@ -5,6 +5,9 @@ about 66% black
 Darker: 211 59 3
 Lighter: 211 10 0
 
+## Clock
+6 65 -16
+
 
 Pager background,
 Brightness -40 of 127
