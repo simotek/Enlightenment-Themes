@@ -106,8 +106,8 @@ group { name: "e/widgets/toolbar";
          target: "arrow_clipper";
          target: "arrow_clipper";
       }
-      
-      program {      
+
+      program {
          signal: "mouse,down,1*"; source: "arrow1_ev";
          action: SIGNAL_EMIT "e,action,prev" "e";
          after: "arrow1_repeat";
@@ -121,7 +121,7 @@ group { name: "e/widgets/toolbar";
          signal: "mouse,up,1"; source: "arrow1_ev";
          action: ACTION_STOP;
          target: "arrow1_repeat";
-      } 
+      }
       program {
          signal: "mouse,down,1*"; source: "arrow1_ev";
          action: STATE_SET "clicked" 0.0;
@@ -133,7 +133,7 @@ group { name: "e/widgets/toolbar";
          target: "arrow1";
       }
 
-      program {      
+      program {
          signal: "mouse,down,1*"; source: "arrow2_ev";
          action: SIGNAL_EMIT "e,action,next" "e";
          after: "arrow2_repeat";
@@ -147,7 +147,7 @@ group { name: "e/widgets/toolbar";
          signal: "mouse,up,1"; source: "arrow2_ev";
          action: ACTION_STOP;
          target: "arrow2_repeat";
-      } 
+      }
       program {
          signal: "mouse,down,1*"; source: "arrow2_ev";
          action: STATE_SET "clicked" 0.0;
@@ -162,15 +162,19 @@ group { name: "e/widgets/toolbar";
 }
 
 group { name: "e/widgets/toolbar/item";
-   images.image: "frame_base.png" COMP;
+   images.image: "frame_base_4x.png" COMP;
    images.image: "frame_highlight.png" COMP;
    parts {
       part { name: "shadow1"; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.offset: 0 0;
             rel2.offset: 0 0;
-            image.normal: "frame_base.png";
-            image.border: 10 10 10 10;
+
+            image.normal: "frame_base_4x.png";
+
+            image.border: 32 32 32 32;
+            image.border_scale_by: 0.25; image.border_scale: 1;
+
             visible: 0;
          }
          description { state: "selected" 0.0;
