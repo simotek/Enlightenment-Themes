@@ -60,7 +60,7 @@ group { name: "elm/toolbar/base/default";
 	    visible: 0;
          }
       }
-      
+
       part { name: "arrow_clipper_l"; type: RECT;
          description { state: "default" 0.0;
             visible: 0;
@@ -94,7 +94,7 @@ group { name: "elm/toolbar/base/default";
             FIXED_SIZE(23, 23)
          }
       }
-      
+
       part { name: "arrow_clipper_r"; type: RECT;
          description { state: "default" 0.0;
             visible: 0;
@@ -140,7 +140,7 @@ group { name: "elm/toolbar/base/default";
 	    visible: 0;
          }
       }
-      
+
       part { name: "arrow_clipper_u"; type: RECT;
          description { state: "default" 0.0;
             visible: 0;
@@ -174,7 +174,7 @@ group { name: "elm/toolbar/base/default";
             FIXED_SIZE(23, 23)
          }
       }
-      
+
       part { name: "arrow_clipper_d"; type: RECT;
          description { state: "default" 0.0;
             visible: 0;
@@ -253,7 +253,7 @@ group { name: "elm/toolbar/base/default";
          action: STATE_SET "default" 0.0;
          target: "arrow_l";
       }
-      
+
       program {
          signal: "elm,action,show,right"; source: "elm";
          action: STATE_SET "visible" 0.0;
@@ -291,7 +291,7 @@ group { name: "elm/toolbar/base/default";
          action: STATE_SET "default" 0.0;
          target: "arrow_r";
       }
-      
+
       program {
          signal: "elm,action,show,up"; source: "elm";
          action: STATE_SET "visible" 0.0;
@@ -329,7 +329,7 @@ group { name: "elm/toolbar/base/default";
          action: STATE_SET "default" 0.0;
          target: "arrow_u";
       }
-      
+
       program {
          signal: "elm,action,show,down"; source: "elm";
          action: STATE_SET "visible" 0.0;
@@ -380,13 +380,13 @@ group { name: "elm/toolbar/item/default";
    images.image: "shadow_angled_in_sides.png" COMP;
    images.image: "horizontal_separated_bar_small_glow.png" COMP;
    images.image: "bevel_dark_in.png" COMP;
-   images.image: "frame_base.png" COMP;
+   images.image: "frame_base_4x.png" COMP;
    images.image: "frame_highlight.png" COMP;
 #define ICON     1
 #define LABEL    2
 #define MASK     3
 #define DISABLE  4
-   script {   
+   script {
       public btmode;
       public eval_mode(m) {
          new m1 = m & MASK;
@@ -460,8 +460,11 @@ group { name: "elm/toolbar/item/default";
 
             // image.normal: "shadow_inset_bevels.png";
             // image.border: 2 2 0 1;
-	    image.normal: "frame_base.png";
-            image.border: 10 10 10 10;
+	          image.normal: "frame_base_4x.png";
+
+            image.border: 32 32 32 32;
+            image.border_scale_by: 0.25; image.border_scale: 1;
+
             visible: 0;
          }
          description { state: "selected" 0.0;
@@ -480,7 +483,7 @@ group { name: "elm/toolbar/item/default";
             // image.normal: "shadow_angled_in_sides.png";
             // image.border: 8 8 0 1;
             // image.middle: 0;
-	    
+
             visible: 0;
          }
          description { state: "selected" 0.0;
@@ -514,7 +517,7 @@ group { name: "elm/toolbar/item/default";
             visible: 1;
          }
       }
-      
+
       part { name: "icon_clip"; type: RECT;
          description { state: "default" 0.0;
          }
@@ -597,7 +600,7 @@ group { name: "elm/toolbar/item/default";
             rel2.to_y: "icon_clip";
          }
       }
-      
+
       part { name: "text_clip1"; type: RECT;
          description { state: "default" 0.0;
             color: 255 255 255 255;
@@ -839,14 +842,14 @@ group { name: "elm/toolbar/item/default";
          target: "base";
          target: "bend_clip";
       }
-      
+
       program { name: "st0";
          signal: "load"; source: "";
          script {
             set_int(btmode, LABEL | ICON);
          }
       }
-      
+
       program {
          signal: "elm,state,selected"; source: "elm";
          action: STATE_SET "selected" 0.0;
@@ -871,7 +874,7 @@ group { name: "elm/toolbar/item/default";
          signal: "mouse,up,1"; source: "event";
          action: SIGNAL_EMIT "elm,action,click" "elm";
       }
-      
+
       program {
          signal: "elm,highlight,on"; source: "elm";
          action: STATE_SET "selected" 0.0;
@@ -882,7 +885,7 @@ group { name: "elm/toolbar/item/default";
          action: STATE_SET "default" 0.0;
          target: "highlight";
       }
-      
+
       program {
          signal:  "mouse,in"; source:  "event";
          action:  SIGNAL_EMIT "elm,mouse,in" "elm";
@@ -891,7 +894,7 @@ group { name: "elm/toolbar/item/default";
          signal:  "mouse,out"; source:  "event";
          action:  SIGNAL_EMIT "elm,mouse,out" "elm";
       }
-      
+
       program { name: "st1";
          signal: "elm,text,hidden"; source: "elm";
          action: STATE_SET "notext" 0.0;
@@ -941,14 +944,14 @@ group { name: "elm/toolbar/item/default";
             eval_mode(m);
          }
       }
-      
+
       program {
          signal: "elm,state,moving"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "shadow1";
          target: "shadow2";
       }
-      
+
       program {
          signal: "elm,state,icon_set,forward"; source: "elm";
          after: "icon_set,animation";
@@ -1022,7 +1025,7 @@ group { name: "elm/toolbar/item/item_horizontal";
 #define LABEL    2
 #define MASK     3
 #define DISABLE  4
-   script {   
+   script {
       public btmode;
       public eval_mode(m) {
          new m1 = m & MASK;
@@ -1142,7 +1145,7 @@ group { name: "elm/toolbar/item/item_horizontal";
             visible: 1;
          }
       }
-      
+
       part { name: "icon_clip"; type: RECT;
          description { state: "default" 0.0;
          }
@@ -1225,7 +1228,7 @@ group { name: "elm/toolbar/item/item_horizontal";
             rel2.to_y: "icon_clip";
          }
       }
-      
+
       part { name: "text_clip1"; type: RECT;
          description { state: "default" 0.0;
             color: 255 255 255 255;
@@ -1473,14 +1476,14 @@ group { name: "elm/toolbar/item/item_horizontal";
          target: "base";
          target: "bend_clip";
       }
-      
+
       program { name: "st0";
          signal: "load"; source: "";
          script {
             set_int(btmode, LABEL | ICON);
          }
       }
-      
+
       program {
          signal: "elm,state,selected"; source: "elm";
          action: STATE_SET "selected" 0.0;
@@ -1505,7 +1508,7 @@ group { name: "elm/toolbar/item/item_horizontal";
          signal: "mouse,up,1"; source: "event";
          action: SIGNAL_EMIT "elm,action,click" "elm";
       }
-      
+
       program {
          signal: "elm,highlight,on"; source: "elm";
          action: STATE_SET "selected" 0.0;
@@ -1516,7 +1519,7 @@ group { name: "elm/toolbar/item/item_horizontal";
          action: STATE_SET "default" 0.0;
          target: "highlight";
       }
-      
+
       program {
          signal:  "mouse,in"; source:  "event";
          action:  SIGNAL_EMIT "elm,mouse,in" "elm";
@@ -1525,7 +1528,7 @@ group { name: "elm/toolbar/item/item_horizontal";
          signal:  "mouse,out"; source:  "event";
          action:  SIGNAL_EMIT "elm,mouse,out" "elm";
       }
-      
+
       program { name: "st1";
          signal: "elm,text,hidden"; source: "elm";
          script {
@@ -1574,14 +1577,14 @@ group { name: "elm/toolbar/item/item_horizontal";
             eval_mode(m);
          }
       }
-      
+
       program {
          signal: "elm,state,moving"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "shadow1";
          target: "shadow2";
       }
-      
+
       program {
          signal: "elm,state,icon_set,forward"; source: "elm";
          after: "icon_set,animation";
