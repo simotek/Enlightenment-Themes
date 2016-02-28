@@ -71,8 +71,41 @@
 
    EFM_MIME_ICON("application/x-python-bytecode", "efm_generic_icon_content_python.png", (114/115), (114/115), ".PYC", 240, 0.5);
    EFM_MIME_ICON("application/x-python", "efm_generic_icon_content_python.png", (114/115), (114/115), ".PY", 240, 0.5);
-   
+   EFM_MIME_ICON("text/x-python", "efm_generic_icon_content_python.png", (114/115), (114/115), ".PY", 240, 0.5);
+
    //.pyo .pyd??????????????????//
+
+//Ruby//
+
+   EFM_MIME_ICON("application/x-ruby", "efm_generic_icon_content_ruby.png", (114/114), (114/114), ".RB", 240, 0.5);
+   EFM_MIME_ICON("text/x-ruby", "efm_generic_icon_content_ruby.png", (114/114), (114/114), ".RB", 240, 0.5);
+
+   //.rbw???//
+
+//Perl//
+
+   EFM_MIME_ICON("application/x-perl", "efm_generic_icon_content_perl.png", (114/122), (114/122), ".PERL", 240, 0.5);
+   EFM_MIME_ICON("text/x-perl","efm_generic_icon_content_perl.png", (114/122), (114/122), ".PL", 240, 0.5);
+
+//CAD//
+
+   EFM_MIME_ICON("application/acad", "efm_generic_icon_content_cad.png", (114/130), (114/130), ".DWG", 240, 0.5);
+   EFM_MIME_ICON("application/x-acad", "efm_generic_icon_content_cad.png", (114/130), (114/130), ".DWG", 240, 0.5);
+   EFM_MIME_ICON("application/autocad_dwg", "efm_generic_icon_content_cad.png", (114/130), (114/130), ".DWG", 240, 0.5);
+   EFM_MIME_ICON("image/x-dwg", "efm_generic_icon_content_cad.png", (114/130), (114/130), ".DWG", 240, 0.5);
+   EFM_MIME_ICON("application/dwg", "efm_generic_icon_content_cad.png", (114/130), (114/130), ".DWG", 240, 0.5);
+   EFM_MIME_ICON("application/x-dwg", "efm_generic_icon_content_cad.png", (114/130), (114/130), ".DWG", 240, 0.5);
+   EFM_MIME_ICON("application/x-autocad", "efm_generic_icon_content_cad.png", (114/130), (114/130), ".DWG", 240, 0.5);
+   EFM_MIME_ICON("image/vnd.dwg", "efm_generic_icon_content_cad.png", (114/130), (114/130), ".DWG", 240, 0.5);
+   EFM_MIME_ICON("drawing/dwg", "efm_generic_icon_content_cad.png", (114/130), (114/130), ".DWG", 240, 0.5);
+
+//ISO//
+
+   EFM_MIME_ICON("application/x-iso9660-image", "efm_generic_icon_content_iso.png", (114/114), (114/114), ".ISO", 240, 0.5);
+
+//Cue//
+
+   EFM_MIME_ICON("application/x-cue", "efm_generic_icon_content_iso.png", (114/114), (114/114), ".CUE", 240, 0.5);
 
 //Audio//
 
@@ -85,6 +118,8 @@
    EFM_MIME_ICON("application/x-audacity-project","efm_generic_icon_content_audio.png",(54/154), (54/154), ".AUP", 240, 0.5);
    EFM_MIME_ICON("audio/x-ms-wma","efm_generic_icon_content_audio.png", (54/154), (54/154),".WMA", 240, 0.5);
    EFM_MIME_ICON("audio/opus","efm_generic_icon_content_audio.png", (54/154), (54/154),".OPUS", 240, 0.5);
+   EFM_MIME_ICON("audio/ogg","efm_generic_icon_content_audio.png", (54/154), (54/154),".OPUS", 240, 0.5);
+   EFM_MIME_ICON("audio/x-opus+ogg","efm_generic_icon_content_audio.png", (54/154), (54/154),".OPUS", 240, 0.5);
    EFM_MIME_ICON("audio/ape","efm_generic_icon_content_audio.png", (54/154), (54/154), ".APE", 240, 0.5);
    EFM_MIME_ICON("audio/webm","efm_generic_icon_content_audio.png", (54/154), (54/154), ".WEBA", 240, 0.5);
    EFM_MIME_ICON("audio/mp4","efm_generic_icon_content_audio.png", (54/154), (54/154), ".MP4", 240, 0.5);
@@ -92,15 +127,64 @@
    EFM_MIME_ICON("audio/speex","efm_generic_icon_content_audio.png",(54/154), (54/154), ".SPX", 240, 0.5);
    EFM_MIME_ICON("audio/aac","efm_generic_icon_content_audio.png", (54/154), (54/154),".AAC", 240, 0.5);
    EFM_MIME_ICON("audio/vnd.rn-realaudio","efm_generic_icon_content_audio.png", (54/154), (54/154),".RA", 240, 0.5);
+   EFM_MIME_ICON("audio/x-voc","efm_generic_icon_content_audio.png", (54/154), (54/154),".VOC", 240, 0.5);
+   EFM_MIME_ICON("audio/x-tta","efm_generic_icon_content_audio.png", (54/154), (54/154),".TTA", 240, 0.5);
+   EFM_MIME_ICON("audio/x-stm","efm_generic_icon_content_audio.png", (54/154), (54/154),".STM", 240, 0.5);
+   EFM_MIME_ICON("audio/x-speex+ogg","efm_generic_icon_content_audio.png", (54/154), (54/154),".SPX", 240, 0.5);
+   EFM_MIME_ICON("audio/x-wacpack","efm_generic_icon_content_audio.png", (54/154), (54/154),".WV", 240, 0.5);
+   EFM_MIME_ICON("audio/x-xmf","efm_generic_icon_content_audio.png", (54/154), (54/154),".XMF", 240, 0.5);
+   EFM_MIME_ICON("audio/x-xm","efm_generic_icon_content_audio.png", (54/154), (54/154),".XM", 240, 0.5);
+   EFM_MIME_ICON("audio/x-xi","efm_generic_icon_content_audio.png", (54/154), (54/154),".XI", 240, 0.5);
+   EFM_MIME_ICON("audio/x-wacpack-correction","efm_generic_icon_content_audio.png", (54/154), (54/154),".WVC", 240, 0.5);
+   EFM_MIME_ICON("audio/x-s3m","efm_generic_icon_content_audio.png", (54/154), (54/154),".S3M", 240, 0.5);
+   EFM_MIME_ICON("audio/x-riff","efm_generic_icon_content_audio.png", (54/154), (54/154),".RMI", 240, 0.5);
+   EFM_MIME_ICON("audio/x-psflib","efm_generic_icon_content_audio.png", (54/154), (54/154),".PSFLIB", 240, 0.5);
+   EFM_MIME_ICON("audio/x-psf","efm_generic_icon_content_audio.png", (54/154), (54/154),".PSF", 240, 0.5);
+   EFM_MIME_ICON("audio/x-scpls","efm_generic_icon_content_audio.png", (54/154), (54/154),".PLS", 240, 0.5);
+   EFM_MIME_ICON("audio/x-ms-asx","efm_generic_icon_content_audio.png", (54/154), (54/154),".ASX", 240, 0.5);
+   EFM_MIME_ICON("audio/x-mpegurl","efm_generic_icon_content_audio.png", (54/154), (54/154),".M3U", 240, 0.5);
+   EFM_MIME_ICON("audio/x-mod","efm_generic_icon_content_audio.png", (54/154), (54/154),".MOD", 240, 0.5);
+   EFM_MIME_ICON("audio/x-mo3","efm_generic_icon_content_audio.png", (54/154), (54/154),".MO3", 240, 0.5);
+   EFM_MIME_ICON("audio/x-minipsf","efm_generic_icon_content_audio.png", (54/154), (54/154),".MINIPSF", 240, 0.5);
+   EFM_MIME_ICON("audio/matroska","efm_generic_icon_content_audio.png", (54/154), (54/154),".MKV", 240, 0.5);
+   EFM_MIME_ICON("audio/x-m4b","efm_generic_icon_content_audio.png", (54/154), (54/154),".M4B", 240, 0.5);
+   EFM_MIME_ICON("audio/x-it","efm_generic_icon_content_audio.png", (54/154), (54/154),".IT", 240, 0.5);
+   EFM_MIME_ICON("audio/x-iriver-pla","efm_generic_icon_content_audio.png", (54/154), (54/154),".PLA", 240, 0.5);
+   EFM_MIME_ICON("audio/x-gsm","efm_generic_icon_content_audio.png", (54/154), (54/154),".GSM", 240, 0.5);
+   EFM_MIME_ICON("audio/x-flac+ogg","efm_generic_icon_content_audio.png",(54/154), (54/154), ".FLAC", 240, 0.5);
+   EFM_MIME_ICON("audio/x-amzxml","efm_generic_icon_content_audio.png",(54/154), (54/154), ".AMZ", 240, 0.5);
+   EFM_MIME_ICON("audio/x-aiff","efm_generic_icon_content_audio.png",(54/154), (54/154), ".AIFF", 240, 0.5);
+   EFM_MIME_ICON("audio/x-aifc","efm_generic_icon_content_audio.png",(54/154), (54/154), ".AIFC", 240, 0.5);
+   EFM_MIME_ICON("audio/x-adpcm","efm_generic_icon_content_audio.png",(54/154), (54/154), ".ADPCM", 240, 0.5);
+   EFM_MIME_ICON("audio/vdn.rn-realaudio","efm_generic_icon_content_audio.png",(54/154), (54/154), ".RA", 240, 0.5);
+   EFM_MIME_ICON("audio/vdn.dts","efm_generic_icon_content_audio.png",(54/154), (54/154), ".DTS", 240, 0.5);
+   EFM_MIME_ICON("audio/vdn.dts.hd","efm_generic_icon_content_audio.png",(54/154), (54/154), ".DTSHD", 240, 0.5);
+   EFM_MIME_ICON("audio/prs.sid","efm_generic_icon_content_audio.png",(54/154), (54/154), ".SID", 240, 0.5);
+   EFM_MIME_ICON("audio/mp2","efm_generic_icon_content_audio.png", (54/154), (54/154), ".MP2", 240, 0.5);
+   EFM_MIME_ICON("audio/basic","efm_generic_icon_content_audio.png", (54/154), (54/154), ".SND", 240, 0.5);
+   EFM_MIME_ICON("audio/annodex","efm_generic_icon_content_audio.png", (54/154), (54/154), ".AXA", 240, 0.5);
+   EFM_MIME_ICON("audio/AMR","efm_generic_icon_content_audio.png", (54/154), (54/154), ".AMR", 240, 0.5);
+   EFM_MIME_ICON("audio/amr","efm_generic_icon_content_audio.png", (54/154), (54/154), ".AMR", 240, 0.5);
+   EFM_MIME_ICON("audio/amr-wb","efm_generic_icon_content_audio.png", (54/154), (54/154), ".AWB", 240, 0.5);
+   EFM_MIME_ICON("audio/AMR-WB","efm_generic_icon_content_audio.png", (54/154), (54/154), ".AWB", 240, 0.5);
+   EFM_MIME_ICON("audio/ac3","efm_generic_icon_content_audio.png", (54/154), (54/154), ".AC3", 240, 0.5);
+
+   EFM_MIME_ICON("application/x-mpegurl","efm_generic_icon_content_audio.png", (54/154), (54/154),".M3U", 240, 0.5);
+   EFM_MIME_ICON("application/vnd.apple.mpegurl","efm_generic_icon_content_audio.png", (54/154), (54/154),".M3U", 240, 0.5);
 
 //Code//
 
    EFM_MIME_ICON("text/x-csrc","efm_generic_icon_content_code.png", (114/88), (114/88), ".C", 240, 0.3);
    EFM_MIME_ICON("text/x-chdr","efm_generic_icon_content_code.png", (114/88), (114/88), ".H", 240, 0.3);
+   EFM_MIME_ICON("text/x-c++hdr","efm_generic_icon_content_code.png", (114/88), (114/88), ".HH", 240, 0.3);
    EFM_MIME_ICON("text/x-c++src","efm_generic_icon_content_code.png", (114/88), (114/88), ".C++", 240, 0.3);
    EFM_MIME_ICON("text/x-csharp","efm_generic_icon_content_code.png", (114/88), (114/88), ".C#", 240, 0.3);
    EFM_MIME_ICON("application/x-awk","efm_generic_icon_content_code.png", (114/88), (114/88), ".AWK", 240, 0.3);
-   
+   EFM_MIME_ICON("text/x-hdr","efm_generic_icon_content_code.png", (114/88), (114/88), ".HPP", 240, 0.3);
+   EFM_MIME_ICON("text/x-fortran","efm_generic_icon_content_code.png", (114/88), (114/88), ".F", 240, 0.3);
+   EFM_MIME_ICON("text/x-java-source","efm_generic_icon_content_code.png", (114/88), (114/88), ".JAVA", 240, 0.3);
+
+
    //add moreeeeeee//
 
 //Text//   
@@ -108,11 +192,21 @@
    EFM_MIME_ICON("text/x-patch","efm_generic_icon_content_text.png", (114/126), (114/126), ".PATCH", 240, 0.5);
    EFM_MIME_ICON("text/plain","efm_generic_icon_content_text.png", (114/126), (114/126), ".TXT", 240, 0.5);
    EFM_MIME_ICON("text/x-log","efm_generic_icon_content_text.png",  (114/126), (114/126), ".LOG", 240, 0.5);
+   EFM_MIME_ICON("application/x-md5","efm_generic_icon_content_text.png",  (114/126), (114/126), ".MD5", 240, 0.5);
+   EFM_MIME_ICON("text/x-makefile","efm_generic_icon_content_text.png",  (114/126), (114/126), ".MK", 240, 0.5);
+   EFM_MIME_ICON("application/x-m4","efm_generic_icon_content_text.png",  (114/126), (114/126), ".M4", 240, 0.5);
+   EFM_MIME_ICON("application/pkix-attr-cert","efm_generic_icon_content_text.png",  (114/126), (114/126), ".AC", 240, 0.5);
+   EFM_MIME_ICON("text/x-subviewer","efm_generic_icon_content_text.png",  (114/126), (114/126), ".SUB", 240, 0.5);
+   EFM_MIME_ICON("application/x-wais-source","efm_generic_icon_content_text.png",  (114/126), (114/126), ".SRC", 240, 0.5);
 
 //Web//
 
    EFM_MIME_ICON("text/css","efm_generic_icon_content_web.png", (114/68), (114/68), ".CSS", 240, 0.3);
    EFM_MIME_ICON("text/html","efm_generic_icon_content_web.png", (114/68), (114/68), ".HTML", 240, 0.3);
+   EFM_MIME_ICON("application/xml","efm_generic_icon_content_web.png", (114/68), (114/68), ".XML", 240, 0.3);
+   EFM_MIME_ICON("application/javascript","efm_generic_icon_content_web.png", (114/68), (114/68), ".JS", 240, 0.3);
+   EFM_MIME_ICON("application/json","efm_generic_icon_content_web.png", (114/68), (114/68), ".JSON", 240, 0.3);
+   EFM_MIME_ICON("text/json","efm_generic_icon_content_web.png", (114/68), (114/68), ".JSON", 240, 0.3);
 
 //Enlightenment//
    
@@ -145,6 +239,7 @@
 //Data Base//
 
    EFM_MIME_ICON("application/vnd.ms-binder","efm_generic_icon_content_db.png", (114/128), (114/128), ".ODB", 240, 0.5);
+   EFM_MIME_ICON("application/x-sqlite3","efm_generic_icon_content_db.png", (114/128), (114/128), ".SQLITE", 240, 0.5);
 
 //Formula//
 
@@ -192,9 +287,10 @@
 
 //Font//
    
-   EFM_MIME_ICON("application/x-font-ttf","efm_generic_icon_content_image.png", (114/93), (114/93), ".TTF", 240, 0.5);
-   EFM_MIME_ICON("application/x-font-pcf","efm_generic_icon_content_image.png", (114/93), (114/93), ".PCF", 240, 0.5);
-   EFM_MIME_ICON("application/x-font-bdf","efm_generic_icon_content_image.png", (114/93), (114/93), ".BDF", 240, 0.5);
+   EFM_MIME_ICON("application/x-font-ttf","efm_generic_icon_content_font.png", (114/93), (114/93), ".TTF", 240, 0.5);
+   EFM_MIME_ICON("application/x-font-pcf","efm_generic_icon_content_font.png", (114/93), (114/93), ".PCF", 240, 0.5);
+   EFM_MIME_ICON("application/x-font-bdf","efm_generic_icon_content_font.png", (114/93), (114/93), ".BDF", 240, 0.5);
+   EFM_MIME_ICON("application/x-font-otf","efm_generic_icon_content_font.png", (114/93), (114/93), ".BDF", 240, 0.5);
 
 //PS (fallback)//
    
@@ -204,6 +300,10 @@
 
    EFM_MIME_ICON("application/pdf","efm_generic_icon_content_pdf.png", (114/101), (114/101), ".PDF", 240, 0.5);
 
+//Translate//
+
+   EFM_MIME_ICON("text/x-gettext-translation","efm_generic_icon_content_translate.png", (114/97), (114/97), ".PO", 240, 0.5);
+   EFM_MIME_ICON("application/x-gettext-translation","efm_generic_icon_content_translate.png", (114/97), (114/97), ".GMO", 240, 0.5);
 
 //Base 2//
 #define EFM_MIME_ICON_SIMPLE(_NAME, _IMAGE, _ASPMIN, _ASPMAX, _SIZE, _VALIGN) \
@@ -267,13 +367,38 @@
    EFM_MIME_ICON_SIMPLE("application/x-executable","efm_generic_icon_content_executable.png", (114/114), (114/114), 240, 0.5);
    EFM_MIME_ICON_SIMPLE("application/x-ms-dos-executable","efm_generic_icon_content_executable.png", (114/114), (114/114), 240, 0.5);
 
+//Libraries//
+
+   EFM_MIME_ICON_SIMPLE("application/x-sharedlib","efm_generic_icon_content_lib.png", (114/114), (114/114), 240, 0.5);
+   EFM_MIME_ICON_SIMPLE("application/x-shared-library-la","efm_generic_icon_content_lib.png", (114/114), (114/114), 240, 0.5);
+
 //Unknown//
    
    EFM_MIME_ICON_SIMPLE("application/x-object","efm_generic_icon_content_unknown.png", (100/154), (100/154), 240, 0.5);
 
+//Trash//
+
+   EFM_MIME_ICON_SIMPLE("application/x-trash","efm_generic_icon_content_trash.png", (114/142), (114/142), 240, 0.5);
+
 //Octet-Stream//
    
    EFM_MIME_ICON_SIMPLE("application/octet-stream","efm_generic_icon_content_text.png",(114/126), (114/126), 240, 0.5);
+
+//Install//
+
+   EFM_MIME_ICON_SIMPLE("application/x-install-instructions","efm_generic_icon_content_install.png",(114/149), (114/149), 240, 0.5);
+
+//Cache//
+
+   EFM_MIME_ICON_SIMPLE("chemical/x-cache","efm_generic_icon_content_db.png", (114/128), (114/128), 240, 0.5);
+
+//Inode//
+   
+   EFM_MIME_ICON_SIMPLE("inode/chardevice","efm_generic_icon_content_inode_char.png", (114/77), (114/77), 240, 0.5);
+   EFM_MIME_ICON_SIMPLE("inode/blockdevice","efm_generic_icon_content_inode_block.png", (81/114), (81/114), 240, 0.5);
+   EFM_MIME_ICON_SIMPLE("inode/fifo","efm_generic_icon_content_inode_fifo.png", (87/114), (87/114), 240, 0.5);
+   EFM_MIME_ICON_SIMPLE("inode/socket","efm_generic_icon_content_inode_socket.png", (114/114), (114/114), 240, 0.5);
+   EFM_MIME_ICON_SIMPLE("inode/file","efm_generic_icon_content_inode_file.png", (83/114), (83/114), 240, 0.5);
 
 #undefine EFM_MIME_ICON
 #undefine EFM_MIME_ICON_SIMPLE
@@ -327,6 +452,7 @@
       }                                               \
    }
 
+   MIMEICON("inode/directory","icon_efm_folder.png", 128);
 
    MIMEICON("application/x-deb","icon_mime_deb.png", 128);
    MIMEICON("application/x-bzip","icon_mime_package.png", 128);
@@ -337,13 +463,8 @@
    MIMEICON("application/x-compressed-tar","icon_mime_package.png",128);
    MIMEICON("application/x-tar","icon_mime_package.png", 128);
    MIMEICON("application/x-rar","icon_mime_package.png", 128);
-   MIMEICON("inode/chardevice","icon_efm_file.png", 128);
-   MIMEICON("inode/blockdevice","icon_efm_file.png", 128);
-   MIMEICON("inode/fifo","icon_efm_file.png", 128);
-   MIMEICON("inode/socket","icon_efm_file.png", 128);
-   MIMEICON("inode/directory","icon_efm_folder.png", 128);
-   MIMEICON("inode/file","icon_efm_file.png", 128);
 
    MIMEICON("application/x-7z-compressed","icon_mime_package.png", 128);
    MIMEICON("application/vnd.ms-cab-compressed","icon_mime_package.png", 128);
+
 
