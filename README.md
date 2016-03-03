@@ -11,6 +11,8 @@ Images that you wish to modify manually can be placed in the img-manual director
 and the script will include them instead of the originals or modified images specified
 in the theme.
 
+A how to blog can be found at http://simotek.net/tech/projects/linux-themes/darkmod-enlightenment-theme-converter/
+
 Branch Structure
 ----------------
 ```
