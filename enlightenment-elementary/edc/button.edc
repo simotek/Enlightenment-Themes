@@ -1,12 +1,13 @@
  group { name: "e/widgets/button";
-   images.image: "frame_fill.png" COMP;
-   images.image: "frame_clicked.png" COMP;
+   images.image: "frame_fill_4x.png" COMP;
+   images.image: "frame_clicked_4x.png" COMP;
    images.image: "win_glow.png" COMP;
    parts {
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "frame_fill.png";
-            image.border: 10 10 10 10;
+            image.normal: "frame_fill_4x.png";
+            image.border: 32 32 32 32;
+            image.border_scale_by: 0.25; image.border_scale: 1;
             image.middle: SOLID;
             rel1.offset: 0 0;
             rel2.offset: 0 0;
@@ -14,8 +15,9 @@
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            image.normal: "frame_clicked.png";
-            image.border: 10 10 10 10;
+            image.normal: "frame_clicked_4x.png";
+            image.border: 32 32 32 32;
+            image.border_scale_by: 0.25; image.border_scale: 1;
          }
       }
       part { name: "icon_clip"; type: RECT;
