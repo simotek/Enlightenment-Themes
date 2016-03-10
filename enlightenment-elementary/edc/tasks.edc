@@ -1,7 +1,7 @@
 group { name:"e/modules/tasks/item";
-   images.image: "frame_fill.png" COMP;
-   images.image: "frame_clicked.png" COMP;
-   images.image: "frame_highlight.png" COMP;
+   images.image: "frame_fill_4x.png" COMP;
+   images.image: "frame_clicked_4x.png" COMP;
+   images.image: "frame_highlight_4x.png" COMP;
    images.image: "frame_base_4x.png" COMP;
    parts {
       part { name: "sel_base"; mouse_events: 0;
@@ -9,16 +9,18 @@ group { name:"e/modules/tasks/item";
          description { state: "default" 0.0;
             rel1.offset: 0 0;
             rel2.offset: -2 0;
-            image.normal: "frame_clicked.png";
-            image.border: 10 10 10 10;
+            image.normal: "frame_clicked_4x.png";
+            image.border: 32 32 32 32;
+            image.border_scale_by: 0.25; image.border_scale: 1;
          }
       }
       part { name: "sel_highlight"; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.to: "sel_base";
             rel2.to: "sel_base";
-            image.normal: "frame_highlight.png";
-            image.border: 10 10 10 10;
+            image.normal: "frame_highlight_4x.png";
+            image.border: 32 32 32 32;
+            image.border_scale_by: 0.25; image.border_scale: 1;
             visible: 0;
          }
          description { state: "visible" 0.0;

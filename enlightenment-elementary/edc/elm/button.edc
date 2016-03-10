@@ -3,7 +3,7 @@ group { name: "elm/button/base/default";
    alias: "elm/button/base/naviframe/back_btn/pager";
    images.image: "button_normal.png" COMP;
    images.image: "button_clicked.png" COMP;
-   images.image: "frame_highlight.png" COMP;
+   images.image: "frame_highlight_4x.png" COMP;
 
 #define ICON     1
 #define LABEL    2
@@ -76,8 +76,9 @@ group { name: "elm/button/base/default";
    parts {
       image { "base"; nomouse;
          desc { "default";
-            image.normal: "frame_fill.png";
-            image.border: 10 10 10 10;
+            image.normal: "frame_fill_4x.png";
+            image.border: 32 32 32 32;
+            image.border_scale_by: 0.25; image.border_scale: 1;
             //image.middle: SOLID;
             rel1.offset: 0 0;
             rel2.offset: 0 0;
@@ -85,8 +86,9 @@ group { name: "elm/button/base/default";
          }
          desc { "clicked";
             inherit: "default";
-            image.normal: "frame_clicked.png";
-            image.border: 10 10 10 10;
+            image.normal: "frame_clicked_4x.png";
+            image.border: 32 32 32 32;
+            image.border_scale_by: 0.25; image.border_scale: 1;
          }
       }
       image { "highlight"; nomouse;
@@ -98,8 +100,9 @@ group { name: "elm/button/base/default";
          }
          desc { "clicked";
             inherit: "default";
-            image.normal: "frame_highlight.png";
-            image.border: 10 10 10 10;
+            image.normal: "frame_highlight_4x.png";
+            image.border: 32 32 32 32;
+            image.border_scale_by: 0.25; image.border_scale: 1;
             visible: 1;
          }
       }      
