@@ -12,8 +12,8 @@ group { name: "elm/menu/item/default";
    images.image: "bevel_horiz_out.png" COMP;
    images.image: "shadow_rounded_horiz.png" COMP;
    images.image: "shine.png" COMP;
-   images.image: "frame_clicked_4x.png" COMP;
-   images.image: "frame_highlight_4x.png" COMP;
+   images.image: "frame_clicked.png" COMP;
+   images.image: "frame_highlight.png" COMP;
    script {
       public menu_text_visible; //0:hide (default), 1:visible
       public menu_disable; //0:enable, 1:disable
@@ -23,9 +23,8 @@ group { name: "elm/menu/item/default";
          description { state: "default" 0.0;
             rel1.offset: 2 -3;
             rel2.offset: -2 3;
-            image.normal: "frame_highlight_4x.png";
-            image.border: 32 32 32 32;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+            image.normal: "frame_highlight.png";
+            image.border: 10 10 10 10;
             fill.smooth: 0;
             visible: 0;
          }
@@ -41,9 +40,8 @@ group { name: "elm/menu/item/default";
          description { state: "default" 0.0;
             rel1.offset: 2 -3;
             rel2.offset: -2 3;
-            image.normal: "frame_clicked_4x.png";
-            image.border: 32 32 32 32;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+            image.normal: "frame_clicked.png";
+            image.border: 10 10 10 10;
             fill.smooth: 0;
             visible: 0;
          }

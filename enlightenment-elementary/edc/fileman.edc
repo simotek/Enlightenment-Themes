@@ -442,8 +442,8 @@ group { name: "e/fileman/default/icon/fixed";
    images.image: "sym_icon_op_ask.png" COMP;
    images.image: "sym_icon_op_copy.png" COMP;
    images.image: "sym_icon_op_move.png" COMP;
-   images.image: "frame_clicked_4x.png" COMP;
-   images.image: "frame_highlight_4x.png" COMP;
+   images.image: "frame_clicked.png" COMP;
+   images.image: "frame_highlight.png" COMP;
    styles {
       style { name: "fileman_icon_name";
          base: "font="FN" font_size=10 text_class=fileman_icon align=center color=#ffffffff wrap=mixed style=shadow,bottom shadow_color=#00000080 align=center ellipsis=1.0";
@@ -505,9 +505,8 @@ group { name: "e/fileman/default/icon/fixed";
             // image.normal: "vgrad_med_dark.png";
             fill.smooth: 0;
             // TILED_HORIZ(120)
-            image.normal: "frame_clicked_4x.png";
-            image.border: 32 32 32 32;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+            image.normal: "frame_clicked.png";
+            image.border: 10 10 10 10;
             visible: 0;
          }
          description { state: "selected" 0.0;
@@ -519,9 +518,8 @@ group { name: "e/fileman/default/icon/fixed";
          description { state: "default" 0.0;
             rel1.to: "sel_base";
             rel2.to: "sel_base";
-            image.normal: "frame_highlight_4x.png";
-            image.border: 32 32 32 32;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+            image.normal: "frame_highlight.png";
+            image.border: 10 10 10 10;
             image.middle: 0;
             fill.smooth: 0;
             visible: 0;
@@ -1120,16 +1118,15 @@ group { name: "e/fileman/default/window/main";
 }
 
 group { name: "e/fileman/toolbar/default/base";
-   images.image: "frame_clicked_4x.png" COMP;
+   images.image: "frame_clicked.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
    parts {
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "frame_clicked_4x.png";
-            image.border: 32 32 32 32;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+            image.normal: "frame_clicked.png";
+            image.border: 10 10 10 10;
             // rel1.offset: 2 2;
             // rel2.offset: -3 -3;
             fill.smooth: 0;
