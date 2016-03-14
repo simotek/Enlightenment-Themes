@@ -4,3 +4,7 @@
  * Name variable - theme about - theme name
    * Description Var - Theme about
    * Licence
+   
+ * Coloring
+   * H: 186; S: 22; L: 0; 
+   * H: 186; S: 12; L: 0; 
