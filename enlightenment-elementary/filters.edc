@@ -1,6 +1,7 @@
 filters {
       filter {
-         name: "blurbackground";
+         // name: "blurbackground";
+         name: "blurbackground_none";
          script {
             padding_set(0)
             blur { 10 }
@@ -21,7 +22,8 @@ filters {
    }
    filters {
       filter {
-         name: "blurlowperf";
+         // name: "blurlowperf";
+         name: "blurbackground_none2";
          script {
             padding_set(0)
             blur { 10 }
