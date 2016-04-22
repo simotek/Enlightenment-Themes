@@ -1,5 +1,5 @@
 color_class { name: "c0";       color: 236 240 241 255; } // COL_DEF
-color_class { name: "c1";       color:  44  62  80 255; } // COL_BLACK
+color_class { name: "c1";       color:  27  37  48 255; } // COL_BLACK
 color_class { name: "c2";       color: 231  76  60 255; } // COL_RED
 color_class { name: "c3";       color:  46 204 113 255; } // COL_GREEN
 color_class { name: "c4";       color: 211  84   0 255; } // COL_YELLOW
@@ -11,27 +11,27 @@ color_class { name: "c9";       color:   0   0   0   0; } // COL_INVIS
 color_class { name: "c10";      color:  52  73  94 255; } // COL_INVERSE
 color_class { name: "c11";      color: 149 165 166 255; } // COL_INVERSEBG
 
-color_class { name: "c12";      color: 189 195 199 255; } // COL_DEF
+color_class { name: "c12";      color: 221 221 221 255; } // COL_DEF
 color_class { name: "c13";      color:  44  62  80 255; } // COL_BLACK
-color_class { name: "c14";      color: 192  57  43 255; } // COL_RED
-color_class { name: "c15";      color:  39 174  96 255; } // COL_GREEN
+color_class { name: "c14";      color: 141  47  37 255; } // COL_RED
+color_class { name: "c15";      color:   2 123  53 255; } // COL_GREEN
 color_class { name: "c16";      color: 241 196  15 255; } // COL_YELLOW
-color_class { name: "c17";      color:  41 128 185 255; } // COL_BLUE
+color_class { name: "c17";      color:   2  82 134 255; } // COL_BLUE
 color_class { name: "c18";      color: 142  68 173 255; } // COL_MAGENTA
-color_class { name: "c19";      color:  22 160 133 255; } // COL_CYAN
+color_class { name: "c19";      color:   0 109  88 255; } // COL_CYAN
 color_class { name: "c20";      color: 127 140 141 255; } // COL_WHITE
-color_class { name: "c21";      color:   0   0   0   0; } // COL_INVIS
-color_class { name: "c22";      color:  44  62  80 255; } // COL_INVERSE
+color_class { name: "c21";      color:  44  62  80   0; } // COL_INVIS
+color_class { name: "c22";      color: 127 140 141 255; } // COL_INVERSE
 color_class { name: "c23";      color: 127 140 141 255; } // COL_INVERSEBG
 
 color_class { name: "c24";      color: 221 221 221 255; } // COL_DEF
 color_class { name: "c25";      color:   0   0   0 255; } // COL_BLACK
-color_class { name: "c26";      color: 204 136 136 255; } // COL_RED
-color_class { name: "c27";      color: 136 204 136 255; } // COL_GREEN
+color_class { name: "c26";      color: 192  57  43 255; } // COL_RED
+color_class { name: "c27";      color:  39 174  96 255; } // COL_GREEN
 color_class { name: "c28";      color: 204 170 136 255; } // COL_YELLOW
-color_class { name: "c29";      color: 136 136 204 255; } // COL_BLUE
-color_class { name: "c30";      color: 204 136 204 255; } // COL_MAGENTA
-color_class { name: "c31";      color: 136 204 204 255; } // COL_CYAN
+color_class { name: "c29";      color:  41 128 185 255; } // COL_BLUE
+color_class { name: "c30";      color: 142  68 173 255; } // COL_MAGENTA
+color_class { name: "c31";      color:  22 160 133 255; } // COL_CYAN
 color_class { name: "c32";      color: 204 204 204 255; } // COL_WHITE
 color_class { name: "c33";      color:   0   0   0   0; } // COL_INVIS
 color_class { name: "c34";      color:  17  17  17 255; } // COL_INVERSE
