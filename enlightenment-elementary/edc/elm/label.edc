@@ -3,12 +3,17 @@ group { name: "elm/label/base/default";
       style { name: "label_style";
          base: "font="FN" font_size=10 text_class=tb_plain align=center color=#ffffffff style=shadow,bottom shadow_color=#00000080";
          tag: "br" "\n";
-         tag: "hilight" "+ font="FNBD" text_class=tb_light";
          tag: "b" "+ font="FNBD" text_class=tb_light";
+         ENABLED_TEXTBLOCK_TAGS
       }
    }
    parts {
       part { name: "label.text.clip"; type: RECT;
+         description { state: "default" 0.0;
+         }
+      }
+      part { name: "elm.swallow.background"; type: SWALLOW;
+         clip_to: "label.text.clip";
          description { state: "default" 0.0;
          }
       }
@@ -27,7 +32,42 @@ group { name: "elm/label/base/default";
    }
 }
 
+group { name: "elm/label/base/default/left";
+   inherit: "elm/label/base/default";
+   styles {
+      style { name: "label_style_left";
+         base: "font="FN" font_size=10 text_class=tb_plain align=left color=#ffffffff style=shadow,bottom shadow_color=#00000080";
+         tag: "br" "\n";
+         tag: "b" "+ font="FNBD" text_class=tb_light";
+         ENABLED_TEXTBLOCK_TAGS
+      }
+   }
+   parts {
+      textblock { "elm.text";
+         desc { "default"; text.style: "label_style_left"; }
+      }
+   }
+}
+
+group { name: "elm/label/base/default/right";
+   inherit: "elm/label/base/default";
+   styles {
+      style { name: "label_style_right";
+         base: "font="FN" font_size=10 text_class=tb_plain align=right color=#ffffffff style=shadow,bottom shadow_color=#00000080";
+         tag: "br" "\n";
+         tag: "b" "+ font="FNBD" text_class=tb_light";
+         ENABLED_TEXTBLOCK_TAGS
+      }
+   }
+   parts {
+      textblock { "elm.text";
+         desc { "default"; text.style: "label_style_right"; }
+      }
+   }
+}
+
 group { name: "elm/label/base/marker";
+   inherit: "elm/label/base/default";
    styles {
       style { name: "label_style2";
          base: "font="FNBD" font_size=10 text_class=tb_plain align=center color=#ffffffff style=shadow,bottom shadow_color=#00000080";
@@ -49,7 +89,54 @@ group { name: "elm/label/base/marker";
    }
 }
 
+group { "elm/label/base/marker/left";
+   inherit: "elm/label/base/default";
+   styles {
+      style { name: "label_style3";
+         base: "font="FNBD" font_size=10 text_class=tb_plain align=left color=#ffffffff style=shadow,bottom shadow_color=#00000080";
+         tag: "br" "\n";
+         tag: "hilight" "+ font="FNBD" color=#3399ff text_class=tb_light";
+         tag: "b" "+ font="FNBD" color=#3399ff text_class=tb_light";
+      }
+   }
+   parts {
+      part { name: "elm.text"; type: TEXTBLOCK;
+         scale: 1;
+         description { state: "default" 0.0;
+            text { style: "label_style3";
+               min: 1 1;
+               ellipsis: -1;
+            }
+         }
+      }
+   }
+}
+
+group { "elm/label/base/marker/right";
+   inherit: "elm/label/base/default";
+   styles {
+      style { name: "label_style4";
+         base: "font="FNBD" font_size=10 text_class=tb_plain align=right color=#ffffffff style=shadow,bottom shadow_color=#00000080";
+         tag: "br" "\n";
+         tag: "hilight" "+ font="FNBD" color=#3399ff text_class=tb_light";
+         tag: "b" "+ font="FNBD" color=#3399ff text_class=tb_light";
+      }
+   }
+   parts {
+      part { name: "elm.text"; type: TEXTBLOCK;
+         scale: 1;
+         description { state: "default" 0.0;
+            text { style: "label_style4";
+               min: 1 1;
+               ellipsis: -1;
+            }
+         }
+      }
+   }
+}
+
 group { name: "elm/label/base/slide_long";
+   inherit: "elm/label/base/default";
    script {
       public g_duration, g_stopslide, g_timer_id, g_anim_id;
 
@@ -133,6 +220,7 @@ group { name: "elm/label/base/slide_long";
                min: 1 1;
                ellipsis: -1;
             }
+            fixed: 1 0;
          }
          description { state: "slide_begin" 0.0;
             inherit: "default" 0.0;
@@ -144,6 +232,7 @@ group { name: "elm/label/base/slide_long";
                min: 1 1;
                ellipsis: -1;
             }
+            fixed: 1 0;
          }
       }
    }
@@ -165,6 +254,7 @@ group { name: "elm/label/base/slide_long";
 
 
 group { name: "elm/label/base/slide_short";
+   inherit: "elm/label/base/default";
    script {
       public g_duration, g_stopslide, g_timer_id, g_anim_id;
 
@@ -246,6 +336,7 @@ group { name: "elm/label/base/slide_short";
                min: 1 1;
                ellipsis: -1;
             }
+            fixed: 1 0;
          }
          description { state: "slide_begin" 0.0;
             inherit: "default" 0.0;
@@ -256,6 +347,7 @@ group { name: "elm/label/base/slide_short";
                min: 1 1;
                ellipsis: -1;
             }
+            fixed: 1 0;
          }
       }
    }
@@ -276,6 +368,7 @@ group { name: "elm/label/base/slide_short";
 }
 
 group { name: "elm/label/base/slide_bounce";
+   inherit: "elm/label/base/default";
    script {
       public g_duration, g_stopslide, g_timer_id, g_anim_id;
 
@@ -369,6 +462,7 @@ group { name: "elm/label/base/slide_bounce";
                min: 1 1;
                ellipsis: -1;
             }
+            fixed: 1 0;
          }
          description { state: "slide_begin" 0.0;
             inherit: "default" 0.0;
@@ -379,6 +473,7 @@ group { name: "elm/label/base/slide_bounce";
                min: 1 1;
                ellipsis: -1;
             }
+            fixed: 1 0;
          }
       }
    }

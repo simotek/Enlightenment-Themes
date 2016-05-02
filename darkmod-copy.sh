@@ -3,7 +3,7 @@
 # This file is not intended to be used on its own it is             #
 # Intended to be sourced in build-darkmod.sh and clean-darkmod.sh   #
 #                                                                   #
-##################################################################### 
+#####################################################################
 #####################################################################
 #                                                                   #
 # This file is not intended to be used on its own it is             #
@@ -331,8 +331,8 @@ moveAllBackgroundImages(){
     moveBackgroundImage day_middle_normal.png 
     moveBackgroundImage day_right_normal.png 
     moveBackgroundImage day_single_normal.png 
-    #moveBackgroundImage inset_bar_horiz_base.png 
-    #moveBackgroundImage inset_bar_vert_base.png 
+    moveBackgroundImage inset_bar_horiz_base.png 
+    moveBackgroundImage inset_bar_vert_base.png 
     moveBackgroundImage tooltip-base.png 
     moveBackgroundImage tooltip-corner-bottom-left-tip.png 
     moveBackgroundImage tooltip-corner-bottom-right-tip.png 
