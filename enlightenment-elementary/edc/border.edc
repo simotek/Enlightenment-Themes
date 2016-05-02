@@ -470,9 +470,31 @@ group {
             rel2.to: "b2";
          }
       }
-      
+      part { "clip1";
+         desc { "default";
+            rel1.to: "";
+            rel1.offset: -9999 -9999;
+            rel2.to: "";
+            rel2.offset: 9999 9999;
+         }
+      }
+      part { "clip2";
+         desc { "default";
+            rel1.to: "";
+            rel1.offset: -9999 -9999;
+            rel2.to: "";
+            rel2.offset: 9999 9999;
+         }
+         desc { "focused";
+            rel1.to: "";
+            rel1.offset: -9999 -9999;
+            rel2.to: "";
+            rel2.offset: 9999 9999;
+         }
+      }
       part { name: "e.event.icon"; type: RECT;
          description { state: "default" 0.0;
+            fixed: 1 0;
             rel1.to: "e.swallow.icon";
             rel2.to: "e.swallow.icon";
             color: 0 0 0 0;
