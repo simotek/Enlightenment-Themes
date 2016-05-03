@@ -26,7 +26,6 @@ hash convert 2>/dev/null || { echo >&2 "I require the convert binary from imagem
 
 # load libraries
 source darkmod-color-paths.conf
-source colors.conf
 source darkmod-util.sh
 source darkmod-copy.sh
 source clean-darkmod.sh
@@ -82,10 +81,10 @@ TMP_EXTRACTED=${TMP_MID#${TMP_MID:0:46}}
 HIGH_HTML="#${TMP_EXTRACTED:0:6}"
 #form the rgb number
 
-HIGH_HTML=$(convert enlightenment-elementary/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | awk 'match($0, /#[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]/) {print substr($0, RSTART, RLENGTH)}')
+HIGH_HTML=$(convert $ELM_ENLIGHT_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | awk 'match($0, /#[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]/) {print substr($0, RSTART, RLENGTH)}')
 
 # Need the first bracket to match the right string so remove it after
-HIGH_RGB=$(convert enlightenment-elementary/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | perl -e 'while(<STDIN>){if(/srgba\((\d+),(\d+),(\d+)/){print"$1,$2,$3\n"}}')
+HIGH_RGB=$(convert $ELM_ENLIGHT_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | perl -e 'while(<STDIN>){if(/srgba\((\d+),(\d+),(\d+)/){print"$1,$2,$3\n"}}')
 # Substitute , for " "
 HIGH_RGB=$(echo "$HIGH_RGB" | tr "," " ")
 
@@ -315,10 +314,10 @@ if [ $DKMD_EPKG != 1 ]; then
 	#form the html number
 	HIGH_HTML="#${TMP_EXTRACTED:0:6}"
 
-	HIGH_HTML=$(convert enlightenment-elementary/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | awk 'match($0, /#[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]/) {print substr($0, RSTART, RLENGTH)}')
+	HIGH_HTML=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | awk 'match($0, /#[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]/) {print substr($0, RSTART, RLENGTH)}')
 	#form the rgb number
 	# Need the first bracket to match the right string so remove it after
-	HIGH_RGB=$(convert enlightenment-elementary/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | perl -e 'while(<STDIN>){if(/srgba\((\d+),(\d+),(\d+)/){print"$1,$2,$3\n"}}')
+	HIGH_RGB=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | perl -e 'while(<STDIN>){if(/srgba\((\d+),(\d+),(\d+)/){print"$1,$2,$3\n"}}')
 	# Substitute , for " "
 	HIGH_RGB=$(echo "$HIGH_RGB" | tr "," " ")
    fi
