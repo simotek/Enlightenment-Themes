@@ -3,7 +3,7 @@ group { name: "elm/button/base/default";
    alias: "elm/button/base/naviframe/back_btn/pager";
    images.image: "button_normal.png" COMP;
    images.image: "button_clicked.png" COMP;
-   images.image: "frame_highlight_4x.png" COMP;
+   images.image: "frame_highlight.png" COMP;
 
 #define ICON     1
 #define LABEL    2
@@ -107,19 +107,18 @@ group { name: "elm/button/base/default";
    parts {
       image { "base"; nomouse;
          desc { "default";
-            image.normal: "frame_fill_4x.png";
-            image.border: 32 32 32 32;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+            image.normal: "frame_fill.png";
+            image.border: 10 10 10 10;
             //image.middle: SOLID;
             rel1.offset: 0 0;
             rel2.offset: 0 0;
             fill.smooth: 0;
+            color_class: "button_bg";
          }
          desc { "pressed";
             inherit: "default";
-            image.normal: "frame_clicked_4x.png";
-            image.border: 32 32 32 32;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+            image.normal: "frame_clicked.png";
+            image.border: 10 10 10 10;
             color_class: "button_bg_pressed";
          }
          desc { "disabled";
@@ -131,15 +130,25 @@ group { name: "elm/button/base/default";
             visible: 0;
          }
       }
-      swallow { "elm.swallow.background"; nomouse;
+      image { "highlight"; nomouse;
+      {
          desc { "default";
             rel1.to: "base";
             rel2.to: "base";
             visible: 0;
          }
          desc { "visible";
-            inherit: "default";
-            visible: 1;
+             inherit: "default";
+             image.normal: "frame_highlight.png";
+             image.border: 10 10 10 10;
+             visible: 1;
+         }
+      }
+      swallow { "elm.swallow.background"; nomouse;
+         desc { "default";
+            rel1.to: "base";
+            rel2.to: "base";
+            visible: 0;
          }
       }
       rect { "icon_clip";
@@ -1121,7 +1130,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
       image { "base"; nomouse;
          desc { "default";
             fixed: 1 1;
-            rel1.offset: 0 0;
+            rel1.offset: -6 0;
             image.normal: "vgrad_med_dark.png";
             fill.smooth: 0;
             TILED_HORIZ(120)
@@ -1226,7 +1235,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
             color_class: "hoversel_text";
             color3: 255 255 255 255;
             text { font: FN; size: 10;
-               align: 0.0 0.5;
+               align: -1 0.5;
                min: 0 0;
                text_class: "button";
             }
@@ -1457,9 +1466,6 @@ group { name: "elm/button/base/hoversel_horizontal_entry/default";
 
 /******************* SPINNER BUTTONS STYLES **********************/
    group { name: "elm/button/base/spinner/increase/default";
-      alias: "elm/button/base/spinner/increase/colorselector/default";
-      alias: "elm/button/base/calendar/increase/default";
-      alias: "elm/button/base/calendar/increase/double_spinners";
       images.image: "sym_right_light_normal.png" COMP;
       images.image: "sym_right_glow_normal.png" COMP;
       images.image: "sym_right_dark_normal.png" COMP;
