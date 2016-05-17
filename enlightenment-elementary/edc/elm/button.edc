@@ -4,6 +4,8 @@ group { name: "elm/button/base/default";
    images.image: "button_normal.png" COMP;
    images.image: "button_clicked.png" COMP;
    images.image: "frame_highlight.png" COMP;
+   images.image: "frame_fill.png" COMP;
+   images.image: "frame_clicked.png" COMP;
 
 #define ICON     1
 #define LABEL    2
