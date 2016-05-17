@@ -130,17 +130,25 @@ group { name: "elm/button/base/default";
             visible: 0;
          }
       }
-      swallow { "elm.swallow.background"; nomouse;
+      image { "highlight"; nomouse;
+      {
          desc { "default";
             rel1.to: "base";
             rel2.to: "base";
             visible: 0;
          }
          desc { "visible";
-            inherit: "default";
-            image.normal: "frame_highlight.png";
-            image.border: 10 10 10 10;
-            visible: 1;
+             inherit: "default";
+             image.normal: "frame_highlight.png";
+             image.border: 10 10 10 10;
+             visible: 1;
+         }
+      }
+      swallow { "elm.swallow.background"; nomouse;
+         desc { "default";
+            rel1.to: "base";
+            rel2.to: "base";
+            visible: 0;
          }
       }
       rect { "icon_clip";
