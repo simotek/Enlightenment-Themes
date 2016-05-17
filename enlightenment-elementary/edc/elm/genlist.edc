@@ -203,6 +203,7 @@ group { "elm/genlist/item/group_index/default"; nomouse; program_source: "elm";
          desc { "default";
             fixed: 1 0;
             align: 0.0 0.5;
+            aspect: 1.0 1.0;
             rel1.to_x: "elm.swallow.pad";
             rel1.relative: 1.0 0.0;
             rel1.offset: -1 2;
@@ -215,6 +216,7 @@ group { "elm/genlist/item/group_index/default"; nomouse; program_source: "elm";
          desc { "default";
             fixed: 1 0;
             align: 1.0 0.5;
+            aspect: 1.0 1.0;
             rel1.offset: -3 2;
             rel1.relative: 1.0 0.0;
             rel2.offset: -3 -3;
@@ -225,6 +227,7 @@ group { "elm/genlist/item/group_index/default"; nomouse; program_source: "elm";
             image.normal: "horizontal_separated_bar_small_glow.png";
             image.border: 4 4 4 4;
             fill.smooth: 0;
+            fixed: 0 1;
             rel1.relative: 0.0 1.0;
             rel1.offset: -3 -6;
             rel2.offset: 2 3;
@@ -1345,7 +1348,7 @@ group { "genlist_arrow"; inherit_only: 1; program_source: "elm";
    images.image: "sym_down_dark_normal.png" COMP;
 
    parts {
-      image { "arrow_img_l"; insert_after: "sel_bevel";
+      image { "arrow_img_l";
          clip_to: "arrow_clip_l";
          scale;
          ignore_flags: ON_HOLD;
@@ -1411,7 +1414,7 @@ group { "genlist_arrow"; inherit_only: 1; program_source: "elm";
             image.normal: "sym_down_dark_normal.png";
          }
       }
-      rect { "arrow"; insert_before: "sel_shine"; mouse;
+      rect { "arrow"; mouse;
          desc { "default";
             fixed: 1 0;
             min: 15 15;
@@ -1699,6 +1702,7 @@ group { "elm/genlist/tree/tree_effect/default"; nomouse;
       rect { "point"; mouse;
          scale;
          desc { "default";
+            fixed: 1 1;
             color: 0 0 0 0;
             rel1.relative: 0.0 0.0;
             rel2.relative: 1.0 0.0;
@@ -1710,14 +1714,6 @@ group { "elm/genlist/tree/tree_effect/default"; nomouse;
       group { "group"; mouse;
          source: "elm/genlist/tree/default/default";
          desc { "default";
-            link.base: "elm,state,show";
-         }
-         desc { "hide";
-//            hid;
-            link.base: "elm,state,hide";
-         }
-         desc { "map_transition";
-            color: 50 50 50 255;
             map {
                perspective: "point";
                on: 1;
@@ -1726,18 +1722,27 @@ group { "elm/genlist/tree/tree_effect/default"; nomouse;
                backface_cull: 1;
                rotation {
                   center: "point";
-                  x: -90;
+                  x: 0;
                   y: 0;
                   z: 0;
                }
             }
+            link.base: "elm,state,show";
+         }
+         desc { "hide";
+//            hid;
+            link.base: "elm,state,hide";
+         }
+         desc { "map_transition";
+            inherit: "default";
+            color: 50 50 50 255;
+            map.rotation.x: -90;
             link { base: "elm,action,flip_item";
                after: "rot2";
             }
          }
          desc { "map_rotate";
-            inherit: "map_transition";
-            map.rotation.x: 0;
+            inherit: "default";
             link { base: "elm,state,contract_flip";
                after: "rotb2";
             }
@@ -4845,6 +4850,7 @@ group { "elm/genlist/item/mode/default"; nomouse;
       }
       spacer { "pers";
          desc { "default";
+            fixed: 0 1;
             rel1.relative: 0.0 1.0;
          }
       }

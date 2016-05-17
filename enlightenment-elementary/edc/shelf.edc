@@ -268,6 +268,7 @@ group { name: "e/shelf/invisible/base"; nomouse;
    inherit: "e/shelf/default/base";
    data {
       item: "shaped" "1";
+      item: "noshadow" "1";
    }
    parts {
       part { name: "bg";
@@ -327,6 +328,7 @@ group { name: "e/shelf/translucent/base"; nomouse;
    inherit: "e/shelf/default/base";
    data {
       item: "shaped" "1";
+      item: "noshadow" "1";
    }
    parts {
       part { name: "bg";
