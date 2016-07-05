@@ -1,5 +1,6 @@
  group {
       name: "e/modules/start/main";
+      alias: "e/gadget/start/main";
       max: 128 128;
       images {
          image: "logo_white_128.png" COMP;
