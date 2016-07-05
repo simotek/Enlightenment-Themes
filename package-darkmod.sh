@@ -7,22 +7,43 @@ source clean-darkmod.sh
 
 clean-darkmod
 
-THEME_PKG_DIR="$THEME_NAME-$THEME_VERSION"
+E_THEME_PKG_DIR="enlightenment-theme-$THEME_NAME-$THEME_VERSION"
 
-mkdir $THEME_PKG_DIR
+mkdir $E_THEME_PKG_DIR
 
-cp -r $ELM_ENLIGHT_THEME_PATH "$THEME_PKG_DIR/$ELM_ENLIGHT_THEME_PATH"
-cp -r "licenses-authors" "$THEME_PKG_DIR/licenses-authors"
-cp build-darkmod.sh "$THEME_PKG_DIR/build-darkmod.sh"
-cp clean-darkmod.sh "$THEME_PKG_DIR/clean-darkmod.sh"       
-cp COPYING "$THEME_PKG_DIR/COPYING"
-cp darkmod-color-paths.conf "$THEME_PKG_DIR/darkmod-color-paths.conf"
-cp darkmod-copy.sh "$THEME_PKG_DIR/darkmod-copy.sh"
-cp darkmod-util.sh "$THEME_PKG_DIR/darkmod-util.sh"
-cp README.md "$THEME_PKG_DIR/README.md"
+cp -r $ELM_ENLIGHT_THEME_PATH "$E_THEME_PKG_DIR/$ELM_ENLIGHT_THEME_PATH"
+cp -r "licenses-authors" "$E_THEME_PKG_DIR/licenses-authors"
+cp build-darkmod.sh "$E_THEME_PKG_DIR/build-darkmod.sh"
+cp clean-darkmod.sh "$E_THEME_PKG_DIR/clean-darkmod.sh"       
+cp COPYING "$E_THEME_PKG_DIR/COPYING"
+cp darkmod-color-paths.conf "$E_THEME_PKG_DIR/darkmod-color-paths.conf"
+cp darkmod-copy.sh "$E_THEME_PKG_DIR/darkmod-copy.sh"
+cp darkmod-util.sh "$E_THEME_PKG_DIR/darkmod-util.sh"
+cp README.md "$E_THEME_PKG_DIR/README.md"
 
-rm "$THEME_PKG_DIR.tar.xz"
-tar cfJ "$THEME_PKG_DIR.tar.xz" $THEME_PKG_DIR
+rm "$E_THEME_PKG_DIR.tar.xz"
+tar cfJ "$E_THEME_PKG_DIR.tar.xz" $E_THEME_PKG_DIR
 
 # Kill package dir once done
-rm -rf $THEME_PKG_DIR
+rm -rf $E_THEME_PKG_DIR
+
+
+TERM_THEME_PKG_DIR="terminology-theme-$THEME_NAME-$THEME_VERSION"
+
+mkdir $TERM_THEME_PKG_DIR
+
+cp -r $TERMINOLOGY_THEME_PATH "$TERM_THEME_PKG_DIR/$TERMINOLOGY_THEME_PATH"
+cp -r "licenses-authors" "$TERM_THEME_PKG_DIR/licenses-authors"
+cp build-darkmod.sh "$TERM_THEME_PKG_DIR/build-darkmod.sh"
+cp clean-darkmod.sh "$TERM_THEME_PKG_DIR/clean-darkmod.sh"       
+cp COPYING "$TERM_THEME_PKG_DIR/COPYING"
+cp darkmod-color-paths.conf "$TERM_THEME_PKG_DIR/darkmod-color-paths.conf"
+cp darkmod-copy.sh "$TERM_THEME_PKG_DIR/darkmod-copy.sh"
+cp darkmod-util.sh "$TERM_THEME_PKG_DIR/darkmod-util.sh"
+cp README.md "$TERM_THEME_PKG_DIR/README.md"
+
+rm "$TERM_THEME_PKG_DIR.tar.xz"
+tar cfJ "$TERM_THEME_PKG_DIR.tar.xz" $TERM_THEME_PKG_DIR
+
+# Kill package dir once done
+rm -rf $TERM_THEME_PKG_DIR

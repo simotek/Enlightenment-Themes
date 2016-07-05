@@ -9,9 +9,10 @@ group { name: "elm/spinner/base/default";
          }
       }
       part { name: "bg";
-         type: SPACER;
+         type: RECT;
          scale: 1;
          description { state: "default" 0.0;
+            color_class: "spinner_bg";
          }
       }
       part { name: "inset"; mouse_events: 0;
@@ -57,6 +58,7 @@ group { name: "elm/spinner/base/default";
          type: SWALLOW;
          scale: 1;
          description { state: "default" 0.0;
+            fixed: 1 0;
             rel1.to: "inset";
             rel1.offset: 1 1;
             rel2.to: "inset";
@@ -71,6 +73,7 @@ group { name: "elm/spinner/base/default";
          type: SWALLOW;
          scale: 1;
          description { state: "default" 0.0;
+            fixed: 1 0;
             rel1.to: "inset";
             rel1.offset: 1 1;
             rel1.relative: 1.0 0.0;
@@ -106,8 +109,8 @@ group { name: "elm/spinner/base/default";
          dragable.y: 0 0 0;
          description { state: "default" 0.0;
             fixed: 1 0;
-            rel1.to: "inset";
-            rel2.to: "inset";
+            rel1.to: "elm.swallow.text_button";
+            rel2.to: "elm.swallow.text_button";
             color: 0 0 0 0;
          }
       }
@@ -221,6 +224,17 @@ group { name: "elm/spinner/base/vertical";
             rel2.offset: 1 -2;
             rel2.relative: 0.0 1.0;
             align: 0.0 0.5;
+         }
+      }
+      part { name: "elm.dragable.slider"; type: RECT;
+         repeat_events: 1;
+         dragable.x: 0 0 0;
+         dragable.y: 1 1 0;
+         description { state: "default" 0.0;
+            fixed: 1 0;
+            rel1.to: "elm.swallow.text_button";
+            rel2.to: "elm.swallow.text_button";
+            color: 0 0 0 0;
          }
       }
    }
