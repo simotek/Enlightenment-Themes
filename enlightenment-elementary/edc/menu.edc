@@ -112,7 +112,7 @@ group { name: "e/widgets/menu/default/item_bg";
    alias: "e/widgets/menu/default/submenu_bg";
    images.image: "shadow_rounded_horiz.png" COMP;
    images.image: "frame_clicked.png" COMP;
-   images.image: "frame_highlight.png" COMP;
+   images.image: "frame_highlight_4x.png" COMP;
    images.image: "bevel_horiz_out.png" COMP;
    images.image: "shine.png" COMP;
    parts {
@@ -134,9 +134,10 @@ group { name: "e/widgets/menu/default/item_bg";
          description { state: "default" 0.0;
             rel1.offset: 2 -3;
             rel2.offset: -2 3;
-            image.normal: "frame_highlight.png";
+            image.normal: "frame_highlight_4x.png";
             fill.smooth: 0;
-            image.border: 10 10 10 10;
+            image.border: 32 32 32 32;
+            image.border_scale_by: 0.25; image.border_scale: 1;
             visible: 0;
          }
          description { state: "active" 0.0;
