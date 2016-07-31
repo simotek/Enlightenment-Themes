@@ -163,7 +163,7 @@ group { name: "e/widgets/toolbar";
 
 group { name: "e/widgets/toolbar/item";
    images.image: "frame_base_4x.png" COMP;
-   images.image: "frame_highlight.png" COMP;
+   images.image: "frame_highlight_4x.png" COMP;
    parts {
       part { name: "shadow1"; mouse_events: 0;
          description { state: "default" 0.0;
@@ -186,8 +186,9 @@ group { name: "e/widgets/toolbar/item";
          description { state: "default" 0.0;
             rel1.to: "shadow1";
             rel2.to: "shadow1";
-            image.normal: "frame_highlight.png";
-            image.border: 10 10 10 10;
+            image.normal: "frame_highlight_4x.png";
+            image.border: 32 32 32 32;
+            image.border_scale_by: 0.25; image.border_scale: 1;
             visible: 0;
          }
          description { state: "selected" 0.0;
