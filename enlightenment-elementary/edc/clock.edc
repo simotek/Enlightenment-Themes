@@ -420,7 +420,7 @@ group { name: "e/modules/clock/digital";
              rel1.offset: 0 1;
              rel2.offset: -1 1;
              align: 0.5 1.0;
-             color_class: toolbar_date;
+             color: FN_COL_CLOCK_DATE;
              text { font: FN; size: 8;
                 text_class: "module_small";
                 align: 0.5 0.5;
@@ -1134,7 +1134,7 @@ item { \
    align: -1.0 -1.0; \
 }
                D(0) D(1) D(2) D(3) D(4) D(5) D(6)
-#undef D
+#undef D                 
             }
          }
       }

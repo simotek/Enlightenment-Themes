@@ -47,6 +47,9 @@
 #define FN_COL_OUTLINE_TRANSPARENT 255 255 255 0; color2: 0 0 0 0; color3: 0 0 0 0;
 #define FN_COL_OUTLINE_DEFAULT 255 255 255 255; color2: 0 0 0 128; color3: 0 0 0 24;
 
+/* SL: In the transient series of themes we have some extra colors. */
+#define FN_COL_CLOCK_DATE 155 89 182 255; color2: 155 89 182 24; color3: 155 89 182 18
+
 #define ENABLED_TEXTBLOCK_TAGS                                             \
    tag: "em" "+ font_style=Oblique";                                       \
    tag: "hilight" "+ font_weight=Bold style=glow glow_color=#3399ff80";    \
