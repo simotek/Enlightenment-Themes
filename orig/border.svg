@@ -17,11 +17,27 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="border.svg"
-   inkscape:export-filename="/home/simon/src/Themes/Enlightenment-Themes/enlightenment-elementary/img-manual/frame_fill.png"
+   inkscape:export-filename="/home/simon/src/Themes/Enlightenment-Themes/enlightenment-elementary/img-manual/frame_highlight_4x.png"
    inkscape:export-xdpi="45"
    inkscape:export-ydpi="45">
   <defs
      id="defs4">
+    <linearGradient
+       id="edit-2"
+       inkscape:collect="always">
+      <stop
+         id="stop4195"
+         offset="0"
+         style="stop-color:#1a232c;stop-opacity:0" />
+      <stop
+         style="stop-color:#46282b;stop-opacity:0"
+         offset="0.57836407"
+         id="stop4201" />
+      <stop
+         id="stop4197"
+         offset="1"
+         style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
     <linearGradient
        id="linearGradient4511"
        inkscape:collect="always">
@@ -170,6 +186,17 @@
        x2="146.95685"
        y2="44.893051"
        gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#edit-2"
+       id="radialGradient4191"
+       cx="83.846069"
+       cy="966.89758"
+       fx="83.846069"
+       fy="966.89758"
+       r="59.946064"
+       gradientTransform="matrix(1.1898636,-0.00489769,0.00484363,1.1767167,-20.602581,-170.45622)"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -179,14 +206,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="4.0933436"
-     inkscape:cx="71.381073"
-     inkscape:cy="84.195454"
+     inkscape:cx="36.690606"
+     inkscape:cy="111.9234"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      units="px"
-     inkscape:window-width="1365"
-     inkscape:window-height="707"
+     inkscape:window-width="1919"
+     inkscape:window-height="1019"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -304,12 +331,20 @@
        x="21.117985"
        y="1057.387" />
     <rect
-       style="opacity:1;fill:#1a232c;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       style="opacity:1;fill:url(#radialGradient4191);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
        id="rect4403"
        width="119.89212"
        height="119.91516"
        x="23.900005"
        y="906.94"
+       ry="31.65822" />
+    <rect
+       style="opacity:1;fill:#1a232c;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       id="rect4403-0"
+       width="119.89212"
+       height="119.91516"
+       x="-130.30418"
+       y="912.68579"
        ry="31.65822" />
   </g>
 </svg>
