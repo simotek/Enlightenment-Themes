@@ -219,7 +219,7 @@ group {
          description {
             state: "hidden" 0.0;
             inherit: "default" 0.0;
-            image.normal: "darken_rounded_square_no_border.png";
+            image.normal: "surface.png";
          }
       }
       part { name: "b1"; mouse_events: 0;

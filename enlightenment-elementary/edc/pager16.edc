@@ -1,12 +1,12 @@
 group { name: "e/modules/pager16/popup";
-   images.image: "darken_rounded_square_no_border.png" COMP;
+   images.image: "surface.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    parts {
       part { name: "base"; mouse_events: 0;
          description { state: "default" 0.0;
-            image.normal: "darken_rounded_square_no_border.png";
-            image.border: 10 10 10 10;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
          }
       }
       part { name: "bevel"; mouse_events: 0;

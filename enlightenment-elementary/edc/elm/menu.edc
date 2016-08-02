@@ -732,7 +732,7 @@ group { name: "elm/hover/base/menu/default";
       image: "bevel_out.png" COMP;
       image: "shine.png" COMP;
       image: "win_shadow.png" COMP;
-      image: "darken_rounded_square_no_border.png" COMP;
+      image: "surface.png" COMP;
    }
    parts {
       part { name: "elm.swallow.offset"; type: SWALLOW;
@@ -785,8 +785,8 @@ group { name: "elm/hover/base/menu/default";
       part { name: "shadow";
          clip_to: "bottomclip";
          description { state: "default" 0.0;
-            image.normal: "darken_rounded_square_no_border.png";
-            image.border: 10 10 10 10;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
             rel1.to: "bottom";
             rel1.offset: -7  -3;
             rel2.to: "bottom";
@@ -933,7 +933,7 @@ group { name: "elm/hover/base/submenu/default";
 }
 
 group { name: "elm/hover/base/main_menu/default";
-   images.image: "darken_rounded_square_no_border.png" COMP;
+   images.image: "surface.png" COMP;
    parts {
       part { name: "elm.swallow.offset"; type: SWALLOW;
          description { state: "default" 0.0;
@@ -961,8 +961,8 @@ group { name: "elm/hover/base/main_menu/default";
             rel2.to_y: "bottom";
             fill.smooth: 0;
             TILED_HORIZ(120)*/
-            image.normal: "darken_rounded_square_no_border.png";
-            image.border: 10 10 10 10;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
          }
       }
       part { name: "bevel"; mouse_events: 0;
