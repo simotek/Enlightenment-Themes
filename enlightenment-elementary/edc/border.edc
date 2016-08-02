@@ -97,7 +97,7 @@ part { name: NAME; type: TYPE;                           \
    }                                                     \
 }
 images {
-   image: "darken_rounded_square_no_border.png" COMP;
+   image: "surface.png" COMP;
    image: "e17_border1.png" COMP;
    image: "e17_border2.png" COMP;
    image: "e17_border3.png" COMP;
@@ -164,12 +164,12 @@ group {
       }
       part { name: "whole";
          description { state: "default" 0.0;
-            image.normal: "darken_rounded_square_no_border.png";
-            image.border: 5 5 5 5;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
          }
          description { state: "max" 0.0;
-	        image.normal: "darken_rounded_square_no_border.png";
-            image.border: 5 5 5 5;
+	        image.normal: "surface.png";
+            image.border: 8 8 8 8;
             rel1.offset: -5 0; 
             rel2.offset: 6 0;
          }
