@@ -1,9 +1,7 @@
 group { name: "elm/button/base/default";
    alias: "elm/button/base/naviframe/back_btn/default";
    alias: "elm/button/base/naviframe/back_btn/pager";
-   images.image: "button_normal.png" COMP;
-   images.image: "button_clicked.png" COMP;
-   images.image: "frame_highlight.png" COMP;
+   images.image: "surface.png" COMP;
 
 #define ICON     1
 #define LABEL    2
@@ -107,23 +105,21 @@ group { name: "elm/button/base/default";
    parts {
       image { "base"; nomouse;
          desc { "default";
-            image.normal: "frame_fill.png";
-            image.border: 10 10 10 10;
-            //image.middle: SOLID;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
+            
             rel1.offset: 0 0;
             rel2.offset: 0 0;
             fill.smooth: 0;
-            color_class: "button_bg";
+            color: 255 255 255 90;
          }
          desc { "pressed";
             inherit: "default";
-            image.normal: "frame_clicked.png";
-            image.border: 10 10 10 10;
-            color_class: "button_bg_pressed";
+            color: 255 255 255 180;
          }
          desc { "disabled";
             inherit: "default";
-            color_class: "button_bg_disabled";
+            color: 255 255 255 30;
          }
          desc { "hidden";
             inherit: "default";
@@ -139,8 +135,7 @@ group { name: "elm/button/base/default";
          }
          desc { "visible";
              inherit: "default";
-             image.normal: "frame_highlight.png";
-             image.border: 10 10 10 10;
+             color: 255 255 255 255;
              visible: 1;
          }
       }

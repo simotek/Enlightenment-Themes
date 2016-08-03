@@ -1,21 +1,21 @@
  group { name: "e/widgets/button";
-   images.image: "frame_fill.png" COMP;
-   images.image: "frame_clicked.png" COMP;
+   images.image: "surface.png" COMP;
    images.image: "win_glow.png" COMP;
    parts {
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "frame_fill.png";
-            image.border: 10 10 10 10;
-            image.middle: SOLID;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
+            
+            color: 255 255 255 90;
+            
             rel1.offset: 0 0;
             rel2.offset: 0 0;
             fill.smooth: 0;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            image.normal: "frame_clicked.png";
-            image.border: 10 10 10 10;
+            color: 255 255 255 255;
          }
       }
       part { name: "icon_clip"; type: RECT;
