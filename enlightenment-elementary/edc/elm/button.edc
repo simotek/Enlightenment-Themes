@@ -108,8 +108,8 @@ group { name: "elm/button/base/default";
             image.normal: "surface.png";
             image.border: 8 8 8 8;
             
-            rel1.offset: 0 0;
-            rel2.offset: 0 0;
+            rel1.offset: 2 2;
+            rel2.offset: -2 -2;
             fill.smooth: 0;
             color: 255 255 255 90;
          }
@@ -221,7 +221,7 @@ group { name: "elm/button/base/default";
          effect: SHADOW BOTTOM;
          scale: 1;
          desc { "default";
-            rel1.offset: 0 5;
+            rel1.offset: 0 6;
             rel1.relative: 1.0 0.0;
             rel1.to_x: "elm.swallow.content";
             rel1.to_y: "base";
@@ -239,7 +239,7 @@ group { name: "elm/button/base/default";
          }
          desc { "visible";
             inherit: "default";
-            rel1.offset: 2 5;
+            rel1.offset: 2 6;
             text.min: 1 1;
             text.ellipsis: -1;
             visible: 1;
@@ -247,7 +247,7 @@ group { name: "elm/button/base/default";
          }
          desc { "pressed_visible";
             inherit: "default";
-            rel1.offset: 2 5;
+            rel1.offset: 2 6;
             text.min: 1 1;
             text.ellipsis: -1;
             visible: 1;
@@ -271,7 +271,7 @@ group { name: "elm/button/base/default";
          }
          desc { "disabled_visible";
             inherit: "default";
-            rel1.offset: 2 5;
+            rel1.offset: 2 6;
             color_class: "button_text_disabled";
             color3: 255 255 255 255;
             text.min: 1 1;

@@ -9,8 +9,8 @@
             
             color: 255 255 255 90;
             
-            rel1.offset: 0 0;
-            rel2.offset: 0 0;
+            rel1.offset: 2 2;
+            rel2.offset: -2 -4;
             fill.smooth: 0;
          }
          description { state: "clicked" 0.0;
@@ -62,7 +62,7 @@
          scale: 1;
          clip_to: "label_clip";
          description { state: "default" 0.0;
-            rel1.offset: 6 5;
+            rel1.offset: 6 9;
             rel1.to_x: "base";
             rel1.to_y: "base";
             rel2.offset: -7 -7;
@@ -84,7 +84,7 @@
          description { state: "combo" 0.0;
             inherit: "default" 0.0;
             rel1.relative: 1.0 0.0;
-            rel1.offset: 2 5;
+            rel1.offset: 2 9;
             rel1.to_x: "e.swallow.icon";
          }
          description { state: "icon" 0.0;
