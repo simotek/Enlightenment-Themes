@@ -432,6 +432,8 @@ group {
 	    }
 	    color_class: "Background";
 	    color: 255 255 255 90;
+        rel1.offset: 1 2;
+        rel2.offset: -1 -1;
 	 }
       }
       part {
@@ -458,10 +460,10 @@ group {
 	 description {
 	    state:    "default" 0.0;
 	    rel1 {
-	       offset:   4    4;
+	       offset:   5    6;
 	    }
 	    rel2 {
-	       offset:   -5    -5;
+	       offset:   -5    -6;
 	    }
 	 }
       }
