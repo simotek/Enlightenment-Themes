@@ -9,8 +9,8 @@
             image.border: 32 32 32 32;
             image.border_scale_by: 0.25; image.border_scale: 1;
             image.middle: SOLID;
-            rel1.offset: 0 0;
-            rel2.offset: 0 0;
+            rel1.offset: 2 2;
+            rel2.offset: -2 -4;
             fill.smooth: 0;
          }
          description { state: "clicked" 0.0;
