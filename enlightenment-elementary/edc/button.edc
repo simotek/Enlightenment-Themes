@@ -8,8 +8,8 @@
             image.normal: "frame_fill.png";
             image.border: 10 10 10 10;
             image.middle: SOLID;
-            rel1.offset: 0 0;
-            rel2.offset: 0 0;
+            rel1.offset: 2 2;
+            rel2.offset: -2 -4;
             fill.smooth: 0;
          }
          description { state: "clicked" 0.0;
