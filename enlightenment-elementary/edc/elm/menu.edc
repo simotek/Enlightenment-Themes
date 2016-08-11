@@ -1,12 +1,3 @@
-filters {
-      filter {
-         name: "filter2";
-         script {
-            padding_set(0)
-            blur { 10 }
-         }
-      }
-   }
 group { name: "elm/menu/item/default";
    images.image: "vgrad_med_dark.png" COMP;
    images.image: "bevel_horiz_out.png" COMP;
