@@ -112,7 +112,6 @@ group { name: "e/widgets/menu/default/item_bg";
    alias: "e/widgets/menu/default/submenu_bg";
    images.image: "shadow_rounded_horiz.png" COMP;
    images.image: "frame_clicked.png" COMP;
-   images.image: "frame_highlight_4x.png" COMP;
    images.image: "bevel_horiz_out.png" COMP;
    images.image: "shine.png" COMP;
    parts {
@@ -120,9 +119,6 @@ group { name: "e/widgets/menu/default/item_bg";
          description { state: "default" 0.0;
             rel1.offset: 2 -3;
             rel2.offset: -2 3;
-            image.normal: "frame_clicked.png";
-            fill.smooth: 0;
-            image.border: 10 10 10 10;
             visible: 0;
          }
          description { state: "active" 0.0;
@@ -132,12 +128,12 @@ group { name: "e/widgets/menu/default/item_bg";
       }
       part { name: "highlight"; mouse_events: 0;
          description { state: "default" 0.0;
-            rel1.offset: 2 -3;
-            rel2.offset: -2 3;
-            image.normal: "frame_highlight_4x.png";
-            fill.smooth: 0;
-            image.border: 32 32 32 32;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+            rel1.offset: 4 0;
+            rel2.offset: -6 0;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
+            
+            color: 255 255 255 255;
             visible: 0;
          }
          description { state: "active" 0.0;
@@ -218,7 +214,7 @@ group { name: "e/widgets/menu/default/label";
          effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
-            rel1.offset: 5 -1;
+            rel1.offset: 5 1;
             rel2.offset: -4 -1;
             color_class: "menu_item";
             color3: 255 255 255 255;
