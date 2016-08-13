@@ -873,7 +873,7 @@ group { name: "e/fileman/default/icon/fixed";
 group { name: "e/fileman/desktop/icon/fixed";
    inherit: "e/fileman/default/icon/fixed";
    alias: "e/fileman/desktop/icon/variable";
-   images.image: "darken_square.png" COMP;
+   images.image: "surface.png" COMP;
    styles {
       style { name: "fileman_icon_full";
          base: "font="FN" font_size=10 text_class=fileman_icon align=center color=#ff00ffff wrap=mixed style=shadow,bottom shadow_color=#00000080 align=center";
@@ -914,12 +914,12 @@ group { name: "e/fileman/desktop/icon/fixed";
          insert_before: "e.text.label";
          clip_to: "textmaster";
          description { state: "default" 0.0;
-            rel1.offset: -8 -7;
+            rel1.offset: 0 0;
             rel1.to: "e.text.label";
-            rel2.offset: 7 7;
+            rel2.offset: 0 4;
             rel2.to: "label_min";
-            image.normal: "darken_square.png";
-            image.border: 6 6 6 6;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
             fill.smooth: 0;
             fixed: 1 1;
          }
@@ -1118,17 +1118,18 @@ group { name: "e/fileman/default/window/main";
 }
 
 group { name: "e/fileman/toolbar/default/base";
-   images.image: "frame_clicked.png" COMP;
+   images.image: "surface.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
    parts {
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "frame_clicked.png";
-            image.border: 10 10 10 10;
-            // rel1.offset: 2 2;
-            // rel2.offset: -3 -3;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
+            color: 255 255 255 90;
+            rel1.offset: 2 2;
+            rel2.offset: -3 -3;
             fill.smooth: 0;
          }
       }
@@ -1344,8 +1345,9 @@ group { name: "e/fileman/default/overlay";
             rel1.to: "e.text.typebuf_label";
             rel2.offset: 14 14;
             rel2.to: "e.text.typebuf_label";
-            image.normal: "darken_rounded_square.png";
-            image.border: 15 15 15 15;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
+            color: 255 255 255 90;
             fill.smooth: 0;
          }
       }
@@ -1728,8 +1730,7 @@ group { name: "e/fileman/default/rubberband";
 }
 
 group { name: "e/fileman/default/progress";
-   images.image: "darken_rounded_square.png" COMP;
-   images.image: "knob_round_busy.png" COMP;
+   images.image: "surface.png" COMP;
    images.image: "glow_round_corners.png" COMP;
    images.image: "media_busy_progress.png" COMP;
    images.image: "sym_close_light_normal.png" COMP;
@@ -1748,8 +1749,8 @@ group { name: "e/fileman/default/progress";
          description { state: "default" 0.0;
             rel1.offset: -5 -5;
             rel2.offset: 4 4;
-            image.normal: "darken_rounded_square.png";
-            image.border: 15 15 15 15;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
             fill.smooth: 0;
             fixed: 1 1;
          }
@@ -2210,6 +2211,20 @@ group { name: "modules/efm_navigation/pathbar_button";
             visible: 0;
          }
       }
+      part { name: "bar"; mouse_events: 0;
+         description { state: "default" 0.0;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
+            fill.smooth: 0;
+            rel1.offset: -2 -4;
+            rel2.offset: 2 2;
+            visible: 0;
+         }
+         description { state: "selected" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+      }
       part { name: "sel_label"; type: TEXT; mouse_events: 0;
          effect: GLOW;
          scale: 1;
@@ -2225,20 +2240,6 @@ group { name: "modules/efm_navigation/pathbar_button";
               align: 0.5 0.5;
               text_class: "button_text";
             }
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-      part { name: "bar"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "top_bottom_glow.png";
-            image.border: 8 8 8 8;
-            fill.smooth: 0;
-            rel1.offset: -2 -1;
-            rel2.offset: 3 1;
             visible: 0;
          }
          description { state: "selected" 0.0;
