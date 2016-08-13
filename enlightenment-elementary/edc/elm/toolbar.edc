@@ -1,8 +1,5 @@
 // === toolbar default base with scrolling arrows etc.
 group { name: "elm/toolbar/base/default";
-   images.image: "vgrad_med_lighter.png" COMP;
-   images.image: "bevel_out.png" COMP;
-   images.image: "shine.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
    images.image: "sym_left_light_normal.png" COMP;
    images.image: "sym_left_glow_normal.png" COMP;
@@ -12,26 +9,15 @@ group { name: "elm/toolbar/base/default";
    images.image: "sym_up_glow_normal.png" COMP;
    images.image: "sym_down_light_normal.png" COMP;
    images.image: "sym_down_glow_normal.png" COMP;
-   images.image: "frame_clicked.png" COMP;
    parts {
-      part { name: "shadow"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.offset: -1 0;
-            rel2.offset: 0 1;
-            image.normal: "shadow_square_tiny.png";
-            image.border: 6 6 6 6;
-            fill.smooth: 0;
-         }
-      }
       part { name: "base";
          description { state: "default" 0.0;
-            // image.normal: "vgrad_med_lighter.png";
-            rel1.offset: -2 -2;
-            rel2.offset: 0 0;
-	    image.normal: "frame_clicked.png";
-            image.border: 10 10 10 10;
+            rel1.offset: 0 0;
+            rel2.offset: 0 -1;
+	        image.normal: "surface.png";
+            image.border: 8 8 8 8;
+            color: 255 255 255 90;
             fill.smooth: 0;
-            // TILED_HORIZ(120)
          }
       }
       part { name: "clipper"; type: RECT;
@@ -47,17 +33,6 @@ group { name: "elm/toolbar/base/default";
          description { state: "default" 0.0;
             rel1.offset: 2 2;
             rel2.offset: -3 -3;
-         }
-      }
-      part { name: "bevel"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.to: "base";
-            rel2.to: "base";
-            image.normal: "bevel_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
-	    visible: 0;
          }
       }
 
@@ -126,18 +101,6 @@ group { name: "elm/toolbar/base/default";
             align: 1.0 0.5;
             color: 0 0 0 0;
             FIXED_SIZE(23, 23)
-         }
-      }
-      part { name: "shine"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "shine.png";
-            rel1.offset: 0 -2;
-            rel1.to: "base";
-            rel2.relative: 1.0 0.0;
-            rel2.offset: -1 2;
-            rel2.to: "base";
-            FIXED_SIZE(69, 5)
-	    visible: 0;
          }
       }
 
@@ -380,8 +343,7 @@ group { name: "elm/toolbar/item/default";
    images.image: "shadow_angled_in_sides.png" COMP;
    images.image: "horizontal_separated_bar_small_glow.png" COMP;
    images.image: "bevel_dark_in.png" COMP;
-   images.image: "frame_base_4x.png" COMP;
-   images.image: "frame_highlight_4x.png" COMP;
+   images.image: "surface.png" COMP;
 #define ICON     1
 #define LABEL    2
 #define MASK     3
@@ -445,12 +407,12 @@ group { name: "elm/toolbar/item/default";
    parts {
       part { name: "base"; type: SPACER;
          description { state: "default" 0.0;
-	    rel1.offset: -3 -2;
-            rel2.offset: 3 2;
+	        rel1.offset: -1 1;
+            rel2.offset: 1 -2;
          }
          description { state: "vert" 0.0;
-            rel1.offset: -1 0;
-            rel2.offset: 0 -1;
+            rel1.offset: 3 0;
+            rel2.offset: -2 0;
          }
       }
       part { name: "shadow1"; mouse_events: 0;
@@ -458,29 +420,8 @@ group { name: "elm/toolbar/item/default";
             rel1.to: "base";
             rel2.to: "base";
 
-            // image.normal: "shadow_inset_bevels.png";
-            // image.border: 2 2 0 1;
-	          image.normal: "frame_base_4x.png";
-
-            image.border: 32 32 32 32;
-            image.border_scale_by: 0.25; image.border_scale: 1;
-
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-      part { name: "shadow2"; mouse_events: 0;
-         description { state: "default" 0.0;
-            // rel1.offset: 1 0;
-            rel1.to: "shadow1";
-            // rel2.offset: -2 -1;
-            rel2.to: "shadow1";
-	        image.normal: "frame_highlight_4x.png";
-            image.border: 32 32 32 32;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+	        image.normal: "surface.png";
+            image.border: 8 8 8 8;
 
             visible: 0;
          }
@@ -783,43 +724,6 @@ group { name: "elm/toolbar/item/default";
             fixed: 1 1;
          }
       }
-
-      part { name: "bar"; mouse_events: 0;
-         description { state: "default" 0.0;
-            fixed: 0 1;
-            rel1.offset: -3 -7;
-            rel1.relative: 0.0 1.0;
-            rel1.to: "shadow2";
-            rel2.offset: 2 2;
-            rel2.to: "shadow2";
-            image.normal: "horizontal_separated_bar_small_glow.png";
-            image.border: 4 4 4 4;
-            fill.smooth: 0;
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
-      part { name: "highlight"; mouse_events: 0;
-         description { state: "default" 0.0;
-            fixed: 0 1;
-            rel1.offset: -3 -7;
-            rel1.relative: 0.0 1.0;
-            rel1.to: "shadow2";
-            rel2.offset: 2 2;
-            rel2.to: "shadow2";
-            image.normal: "horizontal_separated_bar_small_glow.png";
-            image.border: 4 4 4 4;
-            fill.smooth: 0;
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
       part { name: "event"; type: RECT;
          ignore_flags: ON_HOLD;
          description { state: "default" 0.0;
@@ -854,8 +758,7 @@ group { name: "elm/toolbar/item/default";
          target: "elm.text";
          target: "label2";
          target: "shadow1";
-         target: "shadow2";
-         target: "bar";
+
          target: "bend";
       }
       program {
@@ -864,24 +767,11 @@ group { name: "elm/toolbar/item/default";
          target: "elm.text";
          target: "label2";
          target: "shadow1";
-         target: "shadow2";
-         target: "bar";
          target: "bend";
       }
       program {
          signal: "mouse,up,1"; source: "event";
          action: SIGNAL_EMIT "elm,action,click" "elm";
-      }
-
-      program {
-         signal: "elm,highlight,on"; source: "elm";
-         action: STATE_SET "selected" 0.0;
-         target: "highlight";
-      }
-      program {
-         signal: "elm,highlight,off"; source: "elm";
-         action: STATE_SET "default" 0.0;
-         target: "highlight";
       }
 
       program {
@@ -947,7 +837,6 @@ group { name: "elm/toolbar/item/default";
          signal: "elm,state,moving"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "shadow1";
-         target: "shadow2";
       }
 
       program {
@@ -1015,7 +904,7 @@ group { name: "elm/toolbar/item/item_horizontal";
    data.item: "transition_animation_on" "1";
    data.item: "focusraise" "on";
 
-   images.image: "shadow_inset_bevels.png" COMP;
+   images.image: "surface.png" COMP;
    images.image: "shadow_angled_in_sides.png" COMP;
    images.image: "horizontal_separated_bar_small_glow.png" COMP;
    images.image: "bevel_dark_in.png" COMP;
@@ -1092,24 +981,8 @@ group { name: "elm/toolbar/item/item_horizontal";
          description { state: "default" 0.0;
             rel1.to: "base";
             rel2.to: "base";
-            image.normal: "shadow_inset_bevels.png";
-            image.border: 2 2 0 1;
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-      part { name: "shadow2"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.offset: 1 0;
-            rel1.to: "shadow1";
-            rel2.offset: -2 -1;
-            rel2.to: "shadow1";
-            image.normal: "shadow_angled_in_sides.png";
-            image.border: 8 8 0 1;
-            image.middle: 0;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
             visible: 0;
          }
          description { state: "selected" 0.0;
@@ -1421,43 +1294,6 @@ group { name: "elm/toolbar/item/item_horizontal";
             fixed: 1 1;
          }
       }
-
-      part { name: "bar"; mouse_events: 0;
-         description { state: "default" 0.0;
-            fixed: 0 1;
-            rel1.offset: -3 -7;
-            rel1.relative: 0.0 1.0;
-            rel1.to: "shadow2";
-            rel2.offset: 2 2;
-            rel2.to: "shadow2";
-            image.normal: "horizontal_separated_bar_small_glow.png";
-            image.border: 4 4 4 4;
-            fill.smooth: 0;
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-      part { name: "highlight"; mouse_events: 0;
-         description { state: "default" 0.0;
-            fixed: 0 1;
-            rel1.offset: -3 -7;
-            rel1.relative: 0.0 1.0;
-            rel1.to: "shadow2";
-            rel2.offset: 2 2;
-            rel2.to: "shadow2";
-            image.normal: "horizontal_separated_bar_small_glow.png";
-            image.border: 4 4 4 4;
-            fill.smooth: 0;
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
       part { name: "event"; type: RECT;
          ignore_flags: ON_HOLD;
          description { state: "default" 0.0;
@@ -1492,8 +1328,6 @@ group { name: "elm/toolbar/item/item_horizontal";
          target: "elm.text";
          target: "label2";
          target: "shadow1";
-         target: "shadow2";
-         target: "bar";
          target: "bend";
       }
       program {
@@ -1502,24 +1336,11 @@ group { name: "elm/toolbar/item/item_horizontal";
          target: "elm.text";
          target: "label2";
          target: "shadow1";
-         target: "shadow2";
-         target: "bar";
          target: "bend";
       }
       program {
          signal: "mouse,up,1"; source: "event";
          action: SIGNAL_EMIT "elm,action,click" "elm";
-      }
-
-      program {
-         signal: "elm,highlight,on"; source: "elm";
-         action: STATE_SET "selected" 0.0;
-         target: "highlight";
-      }
-      program {
-         signal: "elm,highlight,off"; source: "elm";
-         action: STATE_SET "default" 0.0;
-         target: "highlight";
       }
 
       program {
@@ -1584,7 +1405,6 @@ group { name: "elm/toolbar/item/item_horizontal";
          signal: "elm,state,moving"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "shadow1";
-         target: "shadow2";
       }
 
       program {
