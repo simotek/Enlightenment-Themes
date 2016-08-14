@@ -12,8 +12,8 @@ group { name: "elm/toolbar/base/default";
    parts {
       part { name: "base";
          description { state: "default" 0.0;
-            rel1.offset: 0 0;
-            rel2.offset: 0 -1;
+            rel1.offset: -2 3;
+            rel2.offset: 2 -3;
 	        image.normal: "surface.png";
             image.border: 8 8 8 8;
             color: 255 255 255 90;
@@ -31,7 +31,7 @@ group { name: "elm/toolbar/base/default";
       part { name: "elm.swallow.content"; type: SWALLOW;
          clip_to: "clipper";
          description { state: "default" 0.0;
-            rel1.offset: 2 2;
+            rel1.offset: 7 5;
             rel2.offset: -3 -3;
          }
       }
@@ -411,8 +411,8 @@ group { name: "elm/toolbar/item/default";
             rel2.offset: 1 -2;
          }
          description { state: "vert" 0.0;
-            rel1.offset: 3 0;
-            rel2.offset: -2 0;
+            rel1.offset: -1 -1;
+            rel2.offset: 2 1;
          }
       }
       part { name: "shadow1"; mouse_events: 0;
@@ -973,7 +973,7 @@ group { name: "elm/toolbar/item/item_horizontal";
          description { state: "default" 0.0;
          }
          description { state: "vert" 0.0;
-            rel1.offset: -1 0;
+            rel1.offset: -3 -3;
             rel2.offset: 0 -1;
          }
       }
