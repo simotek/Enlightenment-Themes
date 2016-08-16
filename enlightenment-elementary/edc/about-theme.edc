@@ -100,17 +100,10 @@ group {
 	       min:      0 1;
 	       text: 
 "Welcome to Cerium. It is a fairly dynamic theme. There is a minimal amount "
-"of base textures so you can re-theme it very easily. Also, there is some "
-"support for color_classes, which means YOU can re-colour the theme however "
-"you like without knowing how to use Edje and its complexities. "
-"To get a list of what you can change, run this in a terminal " 
-"<br><syntax>enlightenment_remote -color-class-list</syntax><br> "
-"Now set the colour class colour to something interesting. "
-"<br><syntax>enlightenment_remote -color-class-color-set Background 255 190 190 255</syntax><br>"
-"to make the background coloured Light Red. You can also use a composite "
-"manager and set the colours to '255 255 255 200' to make the background "
-"see through. For more details on this, enquire online at <syntax>http://exchange.enlightenment.org</syntax><br>"
-"<br><br>Enjoy the look and feel of Cerium!<br><br>-Toma.";
+"of base textures so you can re-theme it very easily. This is a e21 remake of"
+"Toma's original Cerium e17 theme, its not a 100% recreation but all of the"
+"artwork and concept credit goes to him."
+"<br><br>Enjoy the look and feel of Cerium!<br><br>Simotek.";
 	    }
 	 }
       }
