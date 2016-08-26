@@ -1,18 +1,9 @@
 group { name: "e/desktop/background";
-   images.image: "bg_radgrad.png" COMP;
-   images.image: "1600x1200-background.jpg" COMP;
+   images.image: "Wood_pattern_high_quality.jpg" COMP;
    parts {
-      part { name: "bg";
-         description { state: "default" 0.0;
-            image.normal: "bg_radgrad.png";
-            image.scale_hint: STATIC;
-            fill.smooth: 0;
-            ASPECT_FILL((1024/653))
-         }
-      }
       part { name: "pat";
          description { state: "default" 0.0;
-            image.normal: "1600x1200-background.jpg";
+            image.normal: "Wood_pattern_high_quality.jpg";
             ASPECT_FILL((1920/1080))
          }
       }
