@@ -927,7 +927,6 @@ group { name: "e/fileman/default/scrollframe";
          }
       }
       part { name: "e.box.operations"; type: BOX;
-         insert_after: "inset";
          description { state: "default" 0.0;
             rel1.offset: 3 3;
             rel1.to: "bg";
@@ -1210,7 +1209,7 @@ group { name: "e/fileman/desktop/scrollframe";
 
 group { name: "e/fileman/default/overlay";
    alias: "e/fileman/desktop/overlay";
-   images.image: "darken_rounded_square.png" COMP;
+   images.image: "surface.png" COMP;
    images.image: "knob_round_busy.png" COMP;
    images.image: "glow_round_corners.png" COMP;
    parts {
@@ -1241,8 +1240,8 @@ group { name: "e/fileman/default/overlay";
             rel1.to: "e.text.busy_label";
             rel2.offset: 11 -1;
             rel2.to: "e.text.busy_label";
-            image.normal: "darken_rounded_square.png";
-            image.border: 15 15 15 15;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
             fill.smooth: 0;
          }
       }
