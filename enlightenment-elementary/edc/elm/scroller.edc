@@ -8,17 +8,15 @@ group { name: "elm/scroller/base/default";
    alias: "elm/scroller/base/popup/transparent";
 
    images.image: "inset_shadow.png" COMP;
-   images.image: "ball_small_glow_intense_fill.png" COMP;
    images.image: "bevel_in.png" COMP;
    images.image: "bevel_out.png" COMP;
-   images.image: "inset_bar_horiz_base.png" COMP;
-   images.image: "inset_bar_vert_base.png" COMP;
    images.image: "inset_bar_horiz_glow_mid_base.png" COMP;
    images.image: "inset_bar_vert_glow_mid_base.png" COMP;
    images.image: "runner_glow_horiz.png" COMP;
    images.image: "runner_glow_vert.png" COMP;
    images.image: "holes_tiny_horiz.png" COMP;
-   images.image: "holes_tiny_vert.png" COMP;
+   images.image: "scrollbar_vdrag_thumb.png" COMP;
+   images.image: "scrollbar_hdrag_thumb.png" COMP;
    images.image: "holes_tiny_glow_horiz.png" COMP;
    images.image: "holes_tiny_glow_vert.png" COMP;
    images.image: "vgrad_med_lighter.png" COMP;
@@ -697,13 +695,13 @@ group { name: "elm/scroller/base/default";
             action_on_pos_hbar(10);
          }
       }
-      part { name: "bg"; type: RECT;
+      part { name: "bg"; type: IMAGE;
          description { state: "default" 0.0;
             rel1.to: "elm.swallow.background";
             rel2.to: "elm.swallow.background";
-//            color: 64 64 64 200;
-            color: 0 0 0 0;
-            color_class: "scroller_bg";
+            image.normal: surface.png;
+            image.border: 8 8 8 8;
+            color: 255 255 255 90;
          }
       }
       part { name: "clipper"; type: RECT;
@@ -732,29 +730,7 @@ group { name: "elm/scroller/base/default";
             rel2.to_y: "sb_hbar";
          }
       }
-      part { name: "inset"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "bevel_in.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            rel1.to: "bg";
-            rel1.offset: -1 -1;
-            rel2.to: "bg";
-            rel2.offset: 0 0;
-            fill.smooth: 0;
-         }
-      }
-      part { name: "shadow"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "inset_shadow.png";
-            image.border: 5 5 7 3;
-            image.middle: 0;
-            rel1.to: "bg";
-            rel2.to: "bg";
-            fill.smooth: 0;
-            color: 255 255 255 128;
-         }
-      }
+     
       part { name: "elm.swallow.overlay"; type: SWALLOW;
          clip_to: "clipper";
          description { state: "default" 0.0;
@@ -765,9 +741,9 @@ group { name: "elm/scroller/base/default";
       part { name: "runner_vbar"; mouse_events: 0;
          clip_to: "sb_vbar_show";
          description { state: "default" 0.0;
-            image.normal: "inset_bar_vert_base.png";
-            image.border: 0 0 32 32;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
+            color: 255 255 255 90;
             rel1.to: "sb_vbar_base";
             rel2.to: "sb_vbar_base";
             rel1.offset: 1 0;
@@ -781,9 +757,9 @@ group { name: "elm/scroller/base/default";
       part { name: "runner_hbar"; mouse_events: 0;
          clip_to: "sb_hbar_show";
          description { state: "default" 0.0;
-            image.normal: "inset_bar_horiz_base.png";
-            image.border: 32 32 0 0;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
+            color: 255 255 255 90;
             rel1.to: "sb_hbar_base";
             rel2.to: "sb_hbar_base";
             fill.smooth: 0;
@@ -932,55 +908,47 @@ group { name: "elm/scroller/base/default";
          clip_to: "sb_vbar_show";
          description { state: "default" 0.0;
             fixed: 1 1;
-            rel1.offset: 1 0;
+            rel1.offset: 3 0;
             rel1.to: "elm.dragable.vbar";
-            rel2.offset: -1 -1;
+            rel2.offset: -3 -1;
             rel2.to: "elm.dragable.vbar";
-            image.normal: "ball_small_glow_intense_fill.png";
-            image.border: 6 6 6 6;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
             fill.smooth: 0;
-            min: 14 14;
+            min: 12 12;
             //TILED_HORIZ(120)
             fixed: 1 1;
             color_class: "scroller_bar";
-         }
-      }
-      part { name: "bevel_vbar"; mouse_events: 0;
+        }
+     }
+     part { name: "center_vbar"; mouse_events: 0;
          clip_to: "sb_vbar_show";
          description { state: "default" 0.0;
             rel1.to: "base_vbar";
+            rel1.offset: 0 0;
             rel2.to: "base_vbar";
-            image.normal: "bevel_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
-            min: 3 3;
-            fixed: 1 1;
-            visible: 0;
-         }
-      }
-      part { name: "center_vbar"; mouse_events: 0;
-         clip_to: "sb_vbar_show";
-         description { state: "default" 0.0;
-            rel1.to: "base_vbar";
-            rel2.to: "base_vbar";
-            image.normal: "holes_tiny_vert.png";
-            FIXED_SIZE(3, 11)
-            visible: 0;
+            rel2.offset: 0 -1;
+            image.normal: "scrollbar_vdrag_thumb.png";
+            FIXED_SIZE(4, 7)
+            color: 255 255 255 190;
+            visible:1;
          }
       }
       part { name: "center_glow_vbar"; mouse_events: 0;
          clip_to: "sb_vbar_show";
          description { state: "default" 0.0;
             rel1.to: "center_vbar";
+            rel1.offset: 0 0;
             rel2.to: "center_vbar";
-            image.normal: "holes_tiny_glow_vert.png";
-            FIXED_SIZE(11, 17)
+            rel2.offset: 0 -1;
+            image.normal: "scrollbar_vdrag_thumb.png";
+            FIXED_SIZE(4, 7)
+            color: 255 255 255 255;
             visible: 0;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            visible: 0;
+            visible: 1;
          }
       }
       part { name: "arrow1_hbar_indent"; mouse_events: 0;
@@ -1102,27 +1070,13 @@ group { name: "elm/scroller/base/default";
             fixed: 1 1;
             rel1.offset: 0 1;
             rel1.to: "elm.dragable.hbar";
-            rel2.offset: -1 -1;
+            rel2.offset: -1 -3;
             rel2.to: "elm.dragable.hbar";
-            image.normal: "ball_small_glow_intense_fill.png";
-            image.border: 6 6 6 6;
+            image.normal: "surface.png";
+            image.border:8 8 8 8;
             fill.smooth: 0;
-            min: 14 14;
+            min: 12 12;
             //TILED_HORIZ(120)
-         }
-      }
-      part { name: "bevel_hbar"; mouse_events: 0;
-         clip_to: "sb_hbar_show";
-         description { state: "default" 0.0;
-            rel1.to: "base_hbar";
-            rel2.to: "base_hbar";
-            image.normal: "bevel_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
-            min: 3 3;
-            fixed: 1 1;
-            visible: 0;
          }
       }
       part { name: "center_hbar"; mouse_events: 0;
@@ -1130,10 +1084,11 @@ group { name: "elm/scroller/base/default";
          description { state: "default" 0.0;
             rel1.to: "base_hbar";
             rel2.to: "base_hbar";
-            image.normal: "holes_tiny_horiz.png";
-            FIXED_SIZE(11, 3)
+            image.normal: "scrollbar_hdrag_thumb.png";
+            FIXED_SIZE(8, 4)
             fixed: 1 1;
-            visible: 0;
+            color: 255 255 255 190;
+            visible: 1;
          }
       }
       part { name: "center_glow_hbar"; mouse_events: 0;
@@ -1141,13 +1096,14 @@ group { name: "elm/scroller/base/default";
          description { state: "default" 0.0;
             rel1.to: "center_hbar";
             rel2.to: "center_hbar";
-            image.normal: "holes_tiny_glow_horiz.png";
-            FIXED_SIZE(17, 11)
+            image.normal: "scrollbar_hdrag_thumb.png";
+            FIXED_SIZE(8, 4)
+            color: 255 255 255 255;
             visible: 0;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            visible: 0;
+            visible: 1;
          }
       }
       part { name: "dim_effect"; type: RECT; mouse_events: 0;
