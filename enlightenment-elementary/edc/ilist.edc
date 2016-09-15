@@ -1,5 +1,5 @@
 group { name: "e/ilist";
-   images.image: "darken_square.png" COMP;
+   images.image: "surface.png" COMP;
    parts {
       part { name: "typebuf_clip"; type: RECT;
          description { state: "default" 0.0;
@@ -18,8 +18,8 @@ group { name: "e/ilist";
             rel1.to: "e.text.label";
             rel2.offset: 5 5;
             rel2.to: "e.text.label";
-            image.normal: "darken_square.png";
-            image.border: 6 6 6 6;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
             fill.smooth: 0;
          }
       }

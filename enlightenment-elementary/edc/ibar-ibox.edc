@@ -162,10 +162,9 @@ group { name: "e/modules/ibox/icon";
          target: "e.swallow.content";
       }
    }
-}
 
 group { name: "e/modules/ibar/menu";
-   images.image: "darken_square.png" COMP;
+   images.image: "surface.png" COMP;
    parts {
       part { name: "sizer"; type: SPACER;
          description { state: "default"; }
@@ -191,17 +190,17 @@ group { name: "e/modules/ibar/menu";
          description { state: "default" 0.0;
             rel1.to: "sizer";
             rel2.to: "sizer";
-            image.normal: "darken_square.png";
-            image.border: 6 6 6 6;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
          }
       }
       part { name: "e.box"; type: BOX;
          clip_to: "clip";
          description { state: "default";
             rel1.to: "sizer";
-            rel1.offset: 12 12;
+            rel1.offset: 6 2;
             rel2.to: "sizer";
-            rel2.offset: -13 -13;
+            rel2.offset: -7 -3;
             box { layout: "vertical";
                padding: 0 0;
                align: 0.5 0.5;
@@ -427,7 +426,7 @@ group { name: "e/modules/ibar/menu/item";
 
 group { name: "e/modules/ibox/icon_overlay";
    alias: "e/modules/ibar/icon_overlay";
-   images.image: "darken_square.png" COMP;
+   images.image: "surface.png" COMP;
    script_recursion: 1;
    script {
       public urgent;
@@ -502,8 +501,8 @@ group { name: "e/modules/ibox/icon_overlay";
             rel1.to: "e.text.label";
             rel2.offset: 8 4;
             rel2.to: "e.text.label";
-            image.normal: "darken_square.png";
-            image.border: 6 6 6 6;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
             fill.smooth: 0;
             fixed: 1 1;
             color: 255 255 255 0;
