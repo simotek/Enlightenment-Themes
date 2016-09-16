@@ -1,41 +1,10 @@
 group { name: "e/widgets/check";
-   images.image: "inset_shadow_tiny.png" COMP;
-   images.image: "bevel_in.png" COMP;
-   images.image: "sym_check_alum.png" COMP;
+   images.image: "menu_check_normal.png" COMP;
    parts {
       part { name: "base"; type: RECT;
          description { state: "default" 0.0;
-            rel1.offset: 1 1;
-            rel1.to: "inset";
-            rel2.offset: -2 -2;
-            rel2.to: "inset";
-            color: 24 24 24 255;
-         }
-         description { state: "disabled" 0.0;
-            inherit: "default" 0.0;
-            color: 64 64 64 255;
-         }
-      }
-      part { name: "shadow"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "inset_shadow_tiny.png";
-            rel1.to: "base";
-            rel2.to: "base";
-         }
-         description { state: "disabled" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
-      part { name: "inset"; mouse_events: 0;
-         description { state: "default" 0.0;
             rel1.offset: 2 2;
             rel2.relative: 0.0 1.0;
-            rel2.offset: 2 -3;
-            image.normal: "bevel_in.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
             align: 0.0 0.5;
             min: 13 13;
             max: 13 13;
@@ -45,23 +14,27 @@ group { name: "e/widgets/check";
       part { name: "clip"; type: RECT;
          description { state: "default" 0.0;
          }
-         description { state: "disabled" 0.0;
-            inherit: "default" 0.0;
-            color: 255 255 255 64;
-         }
       }
       part { name: "indicator"; mouse_events: 0;
          clip_to: "clip";
          description { state: "default" 0.0;
             rel1.to: "base";
+            rel1.offset: 1 1;
             rel2.to: "base";
-            image.normal: "sym_check_alum.png";
+            rel2.offset: -2 -2;
+            image.normal: "menu_check_normal.png";
             min: 11 11;
             max: 11 11;
-            visible: 0;
+            visible: 1;
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
+            image.normal: "menu_check_selected.png";
+            visible: 1;
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "menu_check_disabled.png";
             visible: 1;
          }
       }
@@ -70,7 +43,7 @@ group { name: "e/widgets/check";
          scale: 1;
          description { state: "default" 0.0;
             rel1.offset: 2 2;
-            rel1.to_x: "inset";
+            rel1.to_x: "base";
             rel1.relative: 1.0 0.0;
             rel2.offset: -3 -3;
             color_class: "check_text";
@@ -118,7 +91,7 @@ group { name: "e/widgets/check";
          signal: "e,state,disabled"; source: "e";
          action: STATE_SET "disabled" 0.0;
          target: "base";
-         target: "shadow";
+         target: "indicator";
          target: "clip";
          target: "e.text.label";
          target: "event";
@@ -127,7 +100,7 @@ group { name: "e/widgets/check";
          signal: "e,state,enabled"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "base";
-         target: "shadow";
+         target: "indicator";
          target: "clip";
          target: "e.text.label";
          target: "event";
@@ -144,10 +117,10 @@ group { name: "e/widgets/check_icon";
          description { state: "default" 0.0;
             rel1.offset: 2 2;
             rel1.relative: 1.0 0.0; 
-            rel1.to_x: "inset";
+            rel1.to_x: "base";
             rel2.offset: 2 -3;
             rel2.relative: 1.0 1.0;
-            rel1.to_x: "inset";
+            rel1.to_x: "base";
             align: 0.0 0.5;
             aspect: 1.0 1.0; aspect_preference: VERTICAL;
          }

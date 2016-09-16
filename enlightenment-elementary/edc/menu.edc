@@ -350,48 +350,37 @@ group { name: "e/widgets/menu/default/submenu";
 }
 
 group { name: "e/widgets/menu/default/check";
-   images.image: "inset_shadow_tiny.png" COMP;
-   images.image: "bevel_in.png" COMP;
-   images.image: "sym_check_alum.png" COMP;
+   images.image: "menu_check_normal.png" COMP;
+   images.image: "menu_check_selected.png" COMP;
+   images.image: "menu_check_disabled.png" COMP;
    parts {
       part { name: "base"; type: RECT;
          description { state: "default" 0.0;
-            rel1.offset: 1 1;
-            rel1.to: "inset";
-            rel2.offset: -2 -2;
-            rel2.to: "inset";
-            color: 24 24 24 255;
-         }
-      }
-      part { name: "shadow"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "inset_shadow_tiny.png";
-            rel1.to: "base";
-            rel2.to: "base";
-         }
-      }
-      part { name: "inset"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "bevel_in.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
             rel1.offset: 5 1;
             min: 13 13;
             max: 13 13;
+            color: 255 255 255 0;
          }
       }
       part { name: "indicator"; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.to: "base";
+            rel1.offset: 1 1;
             rel2.to: "base";
-            image.normal: "sym_check_alum.png";
+            rel2.offset: -2 -2;
+            image.normal: "menu_check_normal.png";
             min: 11 11;
             max: 11 11;
-            visible: 0;
+            visible: 1;
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
+            image.normal: "menu_check_selected.png";
+            visible: 1;
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "menu_check_disabled.png";
             visible: 1;
          }
       }
