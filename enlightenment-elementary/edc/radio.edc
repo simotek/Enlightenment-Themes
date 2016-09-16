@@ -1,24 +1,22 @@
 group { name: "e/widgets/radio";
-   images.image: "inset_shadow_circle_tiny.png" COMP;
-   images.image: "inset_circle_tiny.png" COMP;
-   images.image: "sym_radio_alum.png" COMP;
+   images.image: "menu_radio_normal.png" COMP;
+   images.image: "menu_radio_disabled.png" COMP;
+   images.image: "menu_radio_selected.png" COMP;
    parts {
-      part { name: "inset"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.offset: 2 2;
-            rel2.relative: 0.0 1.0;
-            rel2.offset: 2 -3;
-            image.normal: "inset_shadow_circle_tiny.png";
-            align: 0.0 0.5;
-            min: 13 13;
-            max: 13 13;
-            fixed: 1 1;
+       part { name: "base"; type: RECT;
+          description { state: "default" 0.0;
+             rel1.offset: 2 2;
+             rel2.relative: 0.0 1.0;
+             rel2.offset: 2 -3;
+             
+             align: 0.0 0.5;
+             min: 13 13;
+             max: 13 13;
+             fixed: 1 1;
+             
+             color: 255 255 255 0;
          }
-         description { state: "disabled" 0.0;
-            inherit: "default" 0.0;
-            image.normal: "inset_circle_tiny.png";
-         }
-      }
+       }
       part { name: "clip"; type: RECT;
          description { state: "default" 0.0;
          }
@@ -30,15 +28,21 @@ group { name: "e/widgets/radio";
       part { name: "indicator"; mouse_events: 0;
          clip_to: "clip";
          description { state: "default" 0.0;
-            rel1.to: "inset";
-            rel2.to: "inset";
-            image.normal: "sym_radio_alum.png";
+            rel1.to: "base";
+            rel2.to: "base";
+            image.normal: "menu_radio_normal.png";
             min: 11 11;
             max: 11 11;
-            visible: 0;
+            visible: 1;
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
+            image.normal: "menu_radio_selected.png";
+            visible: 1;
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "menu_radio_disabled.png";
             visible: 1;
          }
       }
@@ -47,7 +51,7 @@ group { name: "e/widgets/radio";
          scale: 1;
          description { state: "default" 0.0;
             rel1.offset: 2 2;
-            rel1.to_x: "inset";
+            rel1.to_x: "base";
             rel1.relative: 1.0 0.0;
             rel2.offset: -3 -3;
             color_class: "radio_text";
@@ -94,16 +98,14 @@ group { name: "e/widgets/radio";
       program {
          signal: "e,state,disabled"; source: "e";
          action: STATE_SET "disabled" 0.0;
-         target: "inset";
-         target: "clip";
+         target: "indicator";
          target: "e.text.label";
          target: "event";
       }
       program {
          signal: "e,state,enabled"; source: "e";
          action: STATE_SET "default" 0.0;
-         target: "inset";
-         target: "clip";
+         target: "indicator";
          target: "e.text.label";
          target: "event";
       }
@@ -119,10 +121,10 @@ group { name: "e/widgets/radio_icon";
          description { state: "default" 0.0;
             rel1.offset: 2 2;
             rel1.relative: 1.0 0.0; 
-            rel1.to_x: "inset";
+            rel1.to_x: "base";
             rel2.offset: 2 -3;
             rel2.relative: 1.0 1.0;
-            rel1.to_x: "inset";
+            rel1.to_x: "base";
             align: 0.0 0.5;
             aspect: 1.0 1.0; aspect_preference: VERTICAL;
          }

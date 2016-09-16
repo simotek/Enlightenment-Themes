@@ -417,28 +417,30 @@ group { name: "e/widgets/menu/default/check";
 }
 
 group { name: "e/widgets/menu/default/radio";
-   images.image: "inset_shadow_circle_tiny.png" COMP;
-   images.image: "sym_radio_alum.png" COMP;
+   images.image: "menu_radio_normal.png" COMP;
+   images.image: "menu_radio_selected.png" COMP;
    parts {
-      part { name: "base";
+      part { name: "base"; type: RECT;
          description { state: "default" 0.0;
-            image.normal: "inset_shadow_circle_tiny.png";
             rel1.offset: 5 1;
             min: 13 13;
             max: 13 13;
+            
+            color: 255 255 255 0;
          }
       }
       part { name: "indicator"; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.to: "base";
             rel2.to: "base";
-            image.normal: "sym_radio_alum.png";
+            image.normal: "menu_radio_normal.png";
             min: 11 11;
             max: 11 11;
-            visible: 0;
+            visible: 1;
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
+            image.normal: "menu_radio_selected.png";
             visible: 1;
          }
       }
