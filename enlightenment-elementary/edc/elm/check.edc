@@ -302,7 +302,7 @@ group { name: "elm/check/base/toggle";
    images.image: "inset_shadow_tiny.png" COMP;
    images.image: "bevel_in.png" COMP;
    images.image: "bevel_out.png" COMP;
-   images.image: "surface-circle.png" COMP;
+   images.image: "surface_circle_small.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
    images.image: "glow_small.png" COMP;
    
@@ -324,7 +324,6 @@ group { name: "elm/check/base/toggle";
                set_state(PART:"elm.swallow.content", "visible", 0.0);
                set_state(PART:"sizer.content", "visible", 0.0);
                set_state(PART:"elm.text", "visible", 0.0);
-               set_state(PART:"shadow", "default", 0.0);
                set_state(PART:"clip", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
                set_state(PART:"event2", "default", 0.0);
@@ -336,7 +335,6 @@ group { name: "elm/check/base/toggle";
                set_state(PART:"elm.swallow.content", "visible", 0.0);
                set_state(PART:"sizer.content", "visible", 0.0);
                set_state(PART:"elm.text", "disabled_visible", 0.0);
-               set_state(PART:"shadow", "disabled", 0.0);
                set_state(PART:"clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
                set_state(PART:"event2", "disabled", 0.0);
@@ -350,7 +348,6 @@ group { name: "elm/check/base/toggle";
                set_state(PART:"elm.swallow.content", "visible", 0.0);
                set_state(PART:"sizer.content", "icononly", 0.0);
                set_state(PART:"elm.text", "default", 0.0);
-               set_state(PART:"shadow", "default", 0.0);
                set_state(PART:"clip", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
                set_state(PART:"event2", "default", 0.0);
@@ -362,7 +359,6 @@ group { name: "elm/check/base/toggle";
                set_state(PART:"elm.swallow.content", "visible", 0.0);
                set_state(PART:"sizer.content", "icononly", 0.0);
                set_state(PART:"elm.text", "disabled", 0.0);
-               set_state(PART:"shadow", "disabled", 0.0);
                set_state(PART:"clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
                set_state(PART:"event2", "disabled", 0.0);
@@ -376,7 +372,6 @@ group { name: "elm/check/base/toggle";
                set_state(PART:"elm.swallow.content", "default", 0.0);
                set_state(PART:"sizer.content", "default", 0.0);
                set_state(PART:"elm.text", "visible", 0.0);
-               set_state(PART:"shadow", "default", 0.0);
                set_state(PART:"clip", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
                set_state(PART:"event2", "default", 0.0);
@@ -388,7 +383,6 @@ group { name: "elm/check/base/toggle";
                set_state(PART:"elm.swallow.content", "default", 0.0);
                set_state(PART:"sizer.content", "default", 0.0);
                set_state(PART:"elm.text", "disabled_visible", 0.0);
-               set_state(PART:"shadow", "disabled", 0.0);
                set_state(PART:"clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
                set_state(PART:"event2", "disabled", 0.0);
@@ -402,7 +396,6 @@ group { name: "elm/check/base/toggle";
                set_state(PART:"elm.swallow.content", "default", 0.0);
                set_state(PART:"sizer.content", "default", 0.0);
                set_state(PART:"elm.text", "default", 0.0);
-               set_state(PART:"shadow", "default", 0.0);
                set_state(PART:"clip", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
                set_state(PART:"event2", "default", 0.0);
@@ -414,7 +407,6 @@ group { name: "elm/check/base/toggle";
                set_state(PART:"elm.swallow.content", "default", 0.0);
                set_state(PART:"sizer.content", "default", 0.0);
                set_state(PART:"elm.text", "default", 0.0);
-               set_state(PART:"shadow", "disabled", 0.0);
                set_state(PART:"clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
                set_state(PART:"event2", "disabled", 0.0);
@@ -439,7 +431,7 @@ group { name: "elm/check/base/toggle";
             max: 88 15;
          }
       }
-      part { name: "onrect"; type: RECT; mouse_events: 0;
+      part { name: "onrect";  mouse_events: 0;
          scale: 1;
          clip_to: "tog_clip";
          description { state: "default" 0.0;
@@ -447,26 +439,27 @@ group { name: "elm/check/base/toggle";
             rel1.relative: -5.0 0.0;
             rel2.to: "button";
             rel2.relative: 0.5 1.0;
-            color: 24 24 24 255;
+            image.normal: surface.png;
+            image.border: 8 8 8 8;
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
-            color: 64 64 64 255;
+            color: 255 255 255 120;
          }
       }
-      part { name: "offrect"; type: RECT; mouse_events: 0;
+      part { name: "offrect"; mouse_events: 0;
          scale: 1;
          clip_to: "tog_clip";
          description { state: "default" 0.0;
             rel1.to: "button";
             rel1.relative: 0.5 0.0;
             rel2.to: "button";
-            rel2.relative: 6.0 1.0;
-            color: 24 24 24 255;
+            image.normal: surface.png;
+            image.border: 8 8 8 8;
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
-            color: 64 64 64 255;
+            color: 255 255 255 120;
          }
       }
       part { name: "elm.offtext"; type: TEXT; mouse_events:  0;
@@ -518,18 +511,6 @@ group { name: "elm/check/base/toggle";
             inherit: "default" 0.0;
             color_class: "check_on_text_disabled";
             color3: 255 255 255 255;
-         }
-      }
-      part { name: "shadow"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "surface.png";
-            image.border: 8 8 8 8;
-            rel1.to: "tog";
-            rel2.to: "tog";
-         }
-         description { state: "disabled" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
          }
       }
       part { name: "inset"; mouse_events: 0;
@@ -589,7 +570,7 @@ group { name: "elm/check/base/toggle";
          description { state: "default" 0.0;
             rel1.to: "button";
             rel2.to: "button";
-            image.normal: "surface.png";
+            image.normal: "surface_circle_small.png";
             image.border: 8 8 8 8;
             fill.smooth: 0;
          }
