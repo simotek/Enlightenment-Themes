@@ -1,29 +1,17 @@
 group { name: "e/widgets/scrollframe";
    images.image: "inset_shadow.png" COMP;
-   images.image: "ball_small_glow_intense_fill.png" COMP;
    images.image: "bevel_in.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "inset_bar_horiz_base.png" COMP;
    images.image: "inset_bar_vert_base.png" COMP;
-   images.image: "inset_bar_horiz_glow_mid_base.png" COMP;
-   images.image: "inset_bar_vert_glow_mid_base.png" COMP;
-   images.image: "runner_glow_horiz.png" COMP;
-   images.image: "runner_glow_vert.png" COMP;
    images.image: "holes_tiny_horiz.png" COMP;
    images.image: "holes_tiny_vert.png" COMP;
-   images.image: "holes_tiny_glow_horiz.png" COMP;
-   images.image: "holes_tiny_glow_vert.png" COMP;
    images.image: "vgrad_med_lighter.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
-   images.image: "glow_small.png" COMP;
-   images.image: "sym_left_light_normal.png" COMP;
-   images.image: "sym_right_light_normal.png" COMP;
-   images.image: "sym_up_light_normal.png" COMP;
-   images.image: "sym_down_light_normal.png" COMP;
-   images.image: "sym_left_glow_normal.png" COMP;
-   images.image: "sym_right_glow_normal.png" COMP;
-   images.image: "sym_up_glow_normal.png" COMP;
-   images.image: "sym_down_glow_normal.png" COMP;
+   images.image: "scrollbar_left.png" COMP;
+   images.image: "scrollbar_right.png" COMP;
+   images.image: "scrollbar_up.png" COMP;
+   images.image: "scrollbar_down.png" COMP;
    parts {
 // vert bar ////////////////////////////////////////////////////////////////
       part { name: "sb_vbar_show"; type: RECT;
@@ -370,9 +358,9 @@ group { name: "e/widgets/scrollframe";
       part { name: "runner_vbar"; mouse_events: 0;
          clip_to: "sb_vbar_show";
          description { state: "default" 0.0;
-            image.normal: "inset_bar_vert_base.png";
-            image.border: 0 0 32 32;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
+            color: 255 255 255 90;
             rel1.to: "sb_vbar_base";
             rel2.to: "sb_vbar_base";
             rel1.offset: 1 0;
@@ -386,9 +374,9 @@ group { name: "e/widgets/scrollframe";
       part { name: "runner_hbar"; mouse_events: 0;
          clip_to: "sb_hbar_show";
          description { state: "default" 0.0;
-            image.normal: "inset_bar_horiz_base.png";
-            image.border: 32 32 0 0;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
+            color: 255 255 255 90;
             rel1.to: "sb_hbar_base";
             rel2.to: "sb_hbar_base";
               fill.smooth: 0;
@@ -406,6 +394,7 @@ group { name: "e/widgets/scrollframe";
             rel1.offset: 0 1;
             rel2.to: "runner_vbar";
             rel2.offset: -1 -2;
+            visible: 0;
          }
       }
       part { name: "runner_hbar_clip"; type: RECT;
@@ -417,6 +406,7 @@ group { name: "e/widgets/scrollframe";
             rel1.offset: 1 0;
             rel2.to: "runner_hbar";
             rel2.offset: -2 -1;
+            visible: 0;
          }
       }
 
@@ -425,12 +415,13 @@ group { name: "e/widgets/scrollframe";
          description { state: "default" 0.0;
             rel1.to: "sb_vbar_a1";
             rel2.to: "sb_vbar_a1";
-            image.normal: "sym_up_light_normal.png";
+            image.normal: "scrollbar_up.png";
             FIXED_SIZE(15, 15)
+            color: 255 255 255 190;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            image.normal: "sym_up_glow_normal.png";
+            color: 255 255 255 255;
          }
       }
       part { name: "arrow2_vbar"; mouse_events: 0;
@@ -438,89 +429,26 @@ group { name: "e/widgets/scrollframe";
          description { state: "default" 0.0;
             rel1.to: "sb_vbar_a2";
             rel2.to: "sb_vbar_a2";
-            image.normal: "sym_down_light_normal.png";
+            image.normal: "scrollbar_down.png";
             FIXED_SIZE(15, 15)
+            color: 255 255 255 190;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            image.normal: "sym_down_glow_normal.png";
-         }
-      }
-      part { name: "shadow_vbar"; mouse_events: 0;
-         clip_to: "sb_vbar_show";
-         description { state: "default" 0.0;
-            rel1.offset: -3 -2;
-            rel1.to: "base_vbar";
-            rel2.offset: 2 4;
-            rel2.to: "base_vbar";
-            image.normal: "shadow_square_tiny.png";
-            image.border: 6 6 6 6;
-            fill.smooth: 0;
-         }
-         description { state: "clicked" 0.0;
-            inherit: "default" 0.0;
-            rel1.offset: -2 -2;
-            rel2.offset: 1 1;
-            color: 255 255 255 128;
-         }
-      }
-      part { name: "glow_vbar"; mouse_events: 0;
-         clip_to: "sb_vbar_show";
-         description { state: "default" 0.0;
-            rel1.offset: -3 -3;
-            rel1.to: "base_vbar";
-            rel2.offset: 2 2;
-            rel2.to: "base_vbar";
-            image.normal: "glow_small.png";
-            image.border: 7 7 7 7;
-            fill.smooth: 0;
-            visible: 0;
-         }
-         description { state: "clicked" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
-      part { name: "runner_glow_vbar"; mouse_events: 0;
-         clip_to: "runner_vbar_clip";
-         description { state: "default" 0.0;
-            rel1.offset: 0 -30;
-            rel1.to_x: "runner_vbar_clip";
-            rel1.to_y: "base_vbar";
-            rel2.offset: -1 29;
-            rel2.to_x: "runner_vbar_clip";
-            rel2.to_y: "base_vbar";
-            image.normal: "runner_glow_vert.png";
-            image.border: 0 0 33 33;
-            visible: 0;
+            color: 255 255 255 255;
          }
       }
       part { name: "base_vbar"; mouse_events: 0;
          clip_to: "sb_vbar_show";
          description { state: "default" 0.0;
-            rel1.offset: 1 0;
+            rel1.offset: 3 0;
             rel1.to: "e.dragable.vbar";
-            rel2.offset: -1 -1;
+            rel2.offset: -3 -1;
             rel2.to: "e.dragable.vbar";
-            image.normal: "ball_small_glow_intense_fill.png";
-            image.border: 6 6 6 6;
-            //image.border_scale_by: 0.25; image.border_scale: 1;
+            image.normal: "surface.png";
+            image.border:8 8 8 8;
             fill.smooth: 0;
-            min: 14 14;
-            //TILED_HORIZ(120)
-         }
-      }
-      part { name: "bevel_vbar"; mouse_events: 0;
-         clip_to: "sb_vbar_show";
-         description { state: "default" 0.0;
-            rel1.to: "base_vbar";
-            rel2.to: "base_vbar";
-            image.normal: "bevel_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
-            min: 5 5;
-            visible: 0;
+            min: 12 12;
          }
       }
       part { name: "center_vbar"; mouse_events: 0;
@@ -528,37 +456,24 @@ group { name: "e/widgets/scrollframe";
          description { state: "default" 0.0;
             rel1.to: "base_vbar";
             rel2.to: "base_vbar";
-            image.normal: "holes_tiny_vert.png";
-            FIXED_SIZE(3, 11)
-            visible: 0;
+            image.normal: "scrollbar_vdrag_thumb.png";
+            FIXED_SIZE(4, 7)
+            color: 255 255 255 190;
+            visible: 1;
          }
       }
-      part { name: "center_glow_vbar"; mouse_events: 0;
-         clip_to: "sb_vbar_show";
-         description { state: "default" 0.0;
-            rel1.to: "center_vbar";
-            rel2.to: "center_vbar";
-            image.normal: "holes_tiny_glow_vert.png";
-            FIXED_SIZE(11, 17)
-            visible: 0;
-         }
-         description { state: "clicked" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
-
       part { name: "arrow1_hbar"; mouse_events: 0;
          clip_to: "sb_hbar_show";
          description { state: "default" 0.0;
             rel1.to: "sb_hbar_a1";
             rel2.to: "sb_hbar_a1";
-            image.normal: "sym_left_light_normal.png";
+            image.normal: "scrollbar_left.png";
             FIXED_SIZE(15, 15)
+            color: 255 255 255 190;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            image.normal: "sym_left_glow_normal.png";
+            color: 255 255 255 255;
          }
       }
       part { name: "arrow2_hbar"; mouse_events: 0;
@@ -566,64 +481,13 @@ group { name: "e/widgets/scrollframe";
          description { state: "default" 0.0;
             rel1.to: "sb_hbar_a2";
             rel2.to: "sb_hbar_a2";
-            image.normal: "sym_right_light_normal.png";
+            image.normal: "scrollbar_right.png";
             FIXED_SIZE(15, 15)
+            color: 255 255 255 190;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            image.normal: "sym_right_glow_normal.png";
-         }
-      }
-      part { name: "shadow_hbar"; mouse_events: 0;
-         clip_to: "sb_hbar_show";
-         description { state: "default" 0.0;
-            rel1.offset: -3 -2;
-            rel1.to: "base_hbar";
-            rel2.offset: 2 4;
-            rel2.to: "base_hbar";
-            image.normal: "shadow_square_tiny.png";
-            image.border: 6 6 6 6;
-            fill.smooth: 0;
-            visible: 0;
-         }
-         description { state: "clicked" 0.0;
-            inherit: "default" 0.0;
-            rel1.offset: -2 -2;
-            rel2.offset: 1 1;
-            color: 255 255 255 128;
-            visible: 0;
-         }
-      }
-      part { name: "glow_hbar"; mouse_events: 0;
-         clip_to: "sb_hbar_show";
-         description { state: "default" 0.0;
-            rel1.offset: -3 -3;
-            rel1.to: "base_hbar";
-            rel2.offset: 2 2;
-            rel2.to: "base_hbar";
-            image.normal: "glow_small.png";
-            image.border: 7 7 7 7;
-            fill.smooth: 0;
-            visible: 0;
-         }
-         description { state: "clicked" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-            visible: 0;
-         }
-      }
-      part { name: "runner_glow_hbar"; mouse_events: 0;
-         clip_to: "runner_hbar_clip";
-         description { state: "default" 0.0;
-            rel1.offset: -30 0;
-            rel1.to_x: "base_hbar";
-            rel1.to_y: "runner_hbar_clip";
-            rel2.offset: 29 -1;
-            rel2.to_x: "base_hbar";
-            rel2.to_y: "runner_hbar_clip";
-            image.normal: "runner_glow_horiz.png";
-            image.border: 33 33 0 0;
-            visible: 0;
+            color: 255 255 255 255;
          }
       }
       part { name: "base_hbar"; mouse_events: 0;
@@ -633,24 +497,10 @@ group { name: "e/widgets/scrollframe";
             rel1.to: "e.dragable.hbar";
             rel2.offset: -1 -1;
             rel2.to: "e.dragable.hbar";
-            image.normal: "ball_small_glow_intense_fill.png";
-            image.border: 6 6 6 6;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
             fill.smooth: 0;
-            min: 14 14;
-            //TILED_HORIZ(120)
-            visible: 0;
-         }
-      }
-      part { name: "bevel_hbar"; mouse_events: 0;
-         clip_to: "sb_hbar_show";
-         description { state: "default" 0.0;
-            rel1.to: "base_hbar";
-            rel2.to: "base_hbar";
-            image.normal: "bevel_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
-            min: 5 5;
+            min: 12 12;
             visible: 0;
          }
       }
@@ -659,23 +509,10 @@ group { name: "e/widgets/scrollframe";
          description { state: "default" 0.0;
             rel1.to: "base_hbar";
             rel2.to: "base_hbar";
-            image.normal: "holes_tiny_horiz.png";
-            FIXED_SIZE(11, 3)
-            visible: 0;
-         }
-      }
-      part { name: "center_glow_hbar"; mouse_events: 0;
-         clip_to: "sb_hbar_show";
-         description { state: "default" 0.0;
-            rel1.to: "center_hbar";
-            rel2.to: "center_hbar";
-            image.normal: "holes_tiny_glow_horiz.png";
-            FIXED_SIZE(17, 11)
-            visible: 0;
-         }
-         description { state: "clicked" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
+            image.normal: "scrollbar_hdrag_thumb.png";
+            FIXED_SIZE(8, 4)
+            color: 255 255 255 190;
+            visible: 1;
          }
       }
    }
@@ -684,33 +521,21 @@ group { name: "e/widgets/scrollframe";
          signal: "mouse,down,1*"; source: "e.dragable.vbar";
          action: STATE_SET "clicked" 0.0;
          target: "e.dragable.vbar";
-         target: "shadow_vbar";
-         target: "glow_vbar";
-         target: "center_glow_vbar";
       }
       program {
          signal: "mouse,up,1"; source: "e.dragable.vbar";
          action: STATE_SET "default" 0.0;
          target: "e.dragable.vbar";
-         target: "shadow_vbar";
-         target: "glow_vbar";
-         target: "center_glow_vbar";
       }
       program {
          signal: "mouse,down,1*"; source: "e.dragable.hbar";
          action: STATE_SET "clicked" 0.0;
          target: "e.dragable.hbar";
-         target: "shadow_hbar";
-         target: "glow_hbar";
-         target: "center_glow_hbar";
       }
       program {
          signal: "mouse,up,1"; source: "e.dragable.hbar";
          action: STATE_SET "default" 0.0;
          target: "e.dragable.hbar";
-         target: "shadow_hbar";
-         target: "glow_hbar";
-         target: "center_glow_hbar";
       }
    }
 }

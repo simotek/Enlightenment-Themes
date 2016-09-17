@@ -22,18 +22,10 @@ group { name: "elm/scroller/base/default";
    images.image: "vgrad_med_lighter.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
    images.image: "glow_small.png" COMP;
-   images.image: "sym_left_light_normal.png" COMP;
-   images.image: "sym_right_light_normal.png" COMP;
-   images.image: "sym_up_light_normal.png" COMP;
-   images.image: "sym_down_light_normal.png" COMP;
-   images.image: "sym_left_glow_normal.png" COMP;
-   images.image: "sym_right_glow_normal.png" COMP;
-   images.image: "sym_up_glow_normal.png" COMP;
-   images.image: "sym_down_glow_normal.png" COMP;
-   images.image: "sym_up_dark_normal.png" COMP;
-   images.image: "sym_down_dark_normal.png" COMP;
-   images.image: "sym_left_dark_normal.png" COMP;
-   images.image: "sym_right_dark_normal.png" COMP;
+   images.image: "scrollbar_up.png" COMP;
+   images.image: "scrollbar_down.png" COMP;
+   images.image: "scrollbar_left.png" COMP;
+   images.image: "scrollbar_right.png" COMP;
 
 
    data.item: "focus_highlight" "on";
@@ -320,8 +312,6 @@ group { name: "elm/scroller/base/default";
          target: "y_vbar_up";
          target: "y_vbar_down_mapper";
          target: "y_vbar_down";
-         target: "arrow1_vbar_indent";
-         target: "arrow2_vbar_indent";
          after: "check_pos_vbar";
       }
       program {
@@ -336,8 +326,6 @@ group { name: "elm/scroller/base/default";
          target: "y_vbar_up";
          target: "y_vbar_down_mapper";
          target: "y_vbar_down";
-         target: "arrow1_vbar_indent";
-         target: "arrow2_vbar_indent";
       }
       program {
          signal: "mouse,down,1*"; source: "sb_vbar_a1";//ok
@@ -607,8 +595,6 @@ group { name: "elm/scroller/base/default";
          target: "x_hbar_left";
          target: "x_hbar_right_mapper";
          target: "x_hbar_right";
-         target: "arrow1_hbar_indent";
-         target: "arrow2_hbar_indent";
          after: "check_pos_hbar";
       }
       program {
@@ -623,8 +609,6 @@ group { name: "elm/scroller/base/default";
          target: "x_hbar_left";
          target: "x_hbar_right_mapper";
          target: "x_hbar_right";
-         target: "arrow1_hbar_indent";
-         target: "arrow2_hbar_indent";
       }
       program {
          signal: "mouse,down,1*"; source: "sb_hbar_a1";
@@ -792,45 +776,22 @@ group { name: "elm/scroller/base/default";
             fixed: 1 1;
          }
       }
-      part { name: "arrow1_vbar_indent"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.to: "sb_vbar_a1";
-            rel2.to: "sb_vbar_a1";
-            image.normal: "sym_up_dark_normal.png";
-            FIXED_SIZE(15, 15)
-         }
-         description { state: "hidden" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
       part { name: "arrow1_vbar"; mouse_events: 0;
          clip_to: "sb_vbar_show";
          description { state: "default" 0.0;
             rel1.to: "sb_vbar_a1";
             rel2.to: "sb_vbar_a1";
-            image.normal: "sym_up_light_normal.png";
+            image.normal: "scrollbar_up.png";
             FIXED_SIZE(15, 15)
+            color:  255 255 255 190;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            image.normal: "sym_up_glow_normal.png";
+            color:  255 255 255 255;
          }
          description { state: "hidden" 0.0;
             inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
-      part { name: "arrow2_vbar_indent"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.to: "sb_vbar_a2";
-            rel2.to: "sb_vbar_a2";
-            image.normal: "sym_down_dark_normal.png";
-            FIXED_SIZE(15, 15)
-         }
-         description { state: "hidden" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
+            color:  255 255 255 90;
          }
       }
       part { name: "arrow2_vbar"; mouse_events: 0;
@@ -838,16 +799,17 @@ group { name: "elm/scroller/base/default";
          description { state: "default" 0.0;
             rel1.to: "sb_vbar_a2";
             rel2.to: "sb_vbar_a2";
-            image.normal: "sym_down_light_normal.png";
+            image.normal: "scrollbar_down.png";
             FIXED_SIZE(15, 15)
+            color: 255 255 255 190;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            image.normal: "sym_down_glow_normal.png";
+            color: 255 255 255 255;
          }
          description { state: "hidden" 0.0;
             inherit: "default" 0.0;
-            visible: 0;
+            color:  255 255 255 90;
          }
       }
       part { name: "shadow_vbar"; mouse_events: 0;
@@ -946,50 +908,23 @@ group { name: "elm/scroller/base/default";
             color: 255 255 255 255;
             visible: 0;
          }
-         description { state: "clicked" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-      part { name: "arrow1_hbar_indent"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.to: "sb_hbar_a1";
-            rel2.to: "sb_hbar_a1";
-            image.normal: "sym_left_dark_normal.png";
-            FIXED_SIZE(15, 15)
-         }
-         description { state: "hidden" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
-         }
       }
       part { name: "arrow1_hbar"; mouse_events: 0;
          clip_to: "sb_hbar_show";
          description { state: "default" 0.0;
             rel1.to: "sb_hbar_a1";
             rel2.to: "sb_hbar_a1";
-            image.normal: "sym_left_light_normal.png";
+            image.normal: "scrollbar_left.png";
             FIXED_SIZE(15, 15)
+            color: 255 255 255 190;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            image.normal: "sym_left_glow_normal.png";
+            color: 255 255 255 255;
          }
          description { state: "hidden" 0.0;
             inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
-      part { name: "arrow2_hbar_indent"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.to: "sb_hbar_a2";
-            rel2.to: "sb_hbar_a2";
-            image.normal: "sym_right_dark_normal.png";
-            FIXED_SIZE(15, 15)
-         }
-         description { state: "hidden" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
+            color:  255 255 255 90;
          }
       }
       part { name: "arrow2_hbar"; mouse_events: 0;
@@ -997,16 +932,17 @@ group { name: "elm/scroller/base/default";
          description { state: "default" 0.0;
             rel1.to: "sb_hbar_a2";
             rel2.to: "sb_hbar_a2";
-            image.normal: "sym_right_light_normal.png";
+            image.normal: "scrollbar_right.png";
             FIXED_SIZE(15, 15)
+            color: 255 255 255 190;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            image.normal: "sym_right_glow_normal.png";
+            color: 255 255 255 255;
          }
          description { state: "hidden" 0.0;
             inherit: "default" 0.0;
-            visible: 0;
+            color:  255 255 255 90;
          }
       }
       part { name: "shadow_hbar"; mouse_events: 0;
@@ -1100,10 +1036,6 @@ group { name: "elm/scroller/base/default";
             FIXED_SIZE(8, 4)
             color: 255 255 255 255;
             visible: 0;
-         }
-         description { state: "clicked" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
          }
       }
       part { name: "dim_effect"; type: RECT; mouse_events: 0;
