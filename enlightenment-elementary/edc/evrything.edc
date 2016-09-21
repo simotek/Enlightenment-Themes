@@ -1,5 +1,5 @@
 group { name: "e/modules/everything/main";
-   images.image: "vgrad_med_lighter.png" COMP;
+   images.image: "surface_top.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    parts {
@@ -15,12 +15,12 @@ group { name: "e/modules/everything/main";
       }
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "vgrad_med_lighter.png";
+            image.normal: "surface_top.png";
+            image.border: 8 8 0 8;
             min: 320 64;
             rel2.relative: 1.0 0.0;
             align: 0.5 0.0;
             fill.smooth: 0;
-            TILED_HORIZ(120)
             fixed: 1 1;
          }
       }
