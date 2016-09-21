@@ -98,19 +98,6 @@ part { name: NAME; type: TYPE;                           \
 }
 images {
    image: "surface.png" COMP;
-   image: "e17_border1.png" COMP;
-   image: "e17_border2.png" COMP;
-   image: "e17_border3.png" COMP;
-   image: "e17_border4.png" COMP;
-   image: "e17_border5.png" COMP;
-   image: "e17_border6.png" COMP;
-   image: "e17_border6b.png" COMP;
-   image: "e17_border7.png" COMP;
-   image: "e17_titlebar.png" COMP;
-//   image: "e17_titlebar_hung.png" COMP;
-//   image: "e17_titlebar_glint1.png" COMP;
-//   image: "e17_titlebar_glint2.png" COMP;
-//   image: "e17_titlebar_glint3.png" COMP;
    image: "e17_button_detail_close.png" COMP;
    image: "e17_button_detail_maximize.png" COMP;
    image: "e17_button_detail_minimize.png" COMP;
@@ -137,9 +124,7 @@ images {
    image: "e17_button_detail_skip_pager.png" COMP;
    image: "e17_mini_button.png" COMP;
    image: "e17_border1b.png" COMP;
-   // image: "e17_border3b.png" COMP;
-   image: "e17_border5b.png" COMP;
-   image: "e17_border7b.png" COMP;
+   image: "e17_border6b.png" COMP;
    image: "sym_close_light_normal.png" COMP;
    image: "sym_close_light_selected.png" COMP;
    image: "sym_minimize_light_normal.png" COMP;
