@@ -162,7 +162,7 @@ group { name: "e/modules/ibox/icon";
          target: "e.swallow.content";
       }
    }
-
+}
 group { name: "e/modules/ibar/menu";
    images.image: "surface.png" COMP;
    parts {
