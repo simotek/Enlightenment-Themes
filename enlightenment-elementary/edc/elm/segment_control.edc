@@ -145,6 +145,7 @@ group { name: "elm/segment_control/item/default";
          clip_to: "disabler";
          description { state: "default" 0.0;
             align: 0.5 0.5;
+            fixed: 1 0;
             rel1.offset: 10 3;
             rel2.relative: 0.0 1.0;
             aspect: 1.0 1.0;
@@ -152,11 +153,13 @@ group { name: "elm/segment_control/item/default";
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
+            fixed: 0 1;
             rel2.relative: 0.25 1.0;
             rel2.offset: -5 -4;
          }
          description { state: "icononly" 0.0;
             inherit: "default" 0.0;
+            fixed: 0 0;
             rel1.offset: 5 2;
             rel2.relative: 1.0 1.0;
             rel2.offset: -5 -4;
@@ -211,7 +214,9 @@ group { name: "elm/segment_control/item/default";
             fixed: 1 1;
             min: 1 1;
             rel1.to: "elm.text";
+            rel1.offset: -2 -2;
             rel2.to: "elm.text";
+            rel2.offset: 1 1;
             text {
                font: FN;
                size: 10;
@@ -220,6 +225,9 @@ group { name: "elm/segment_control/item/default";
                text_class: "button";
             }
             color: FN_COL_WHITE_GLOW;
+         }
+         description { state: "" 0.0;
+            inherit: "default" 0.0;
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;

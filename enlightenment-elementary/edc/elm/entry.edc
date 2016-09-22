@@ -2,6 +2,13 @@ group { name: "elm/scroller/entry/default";
    inherit: "elm/scroller/base/default";
    image: "bg_glow_in.png" COMP;
    parts {
+      part { name: "elm.swallow.background"; type: SWALLOW;
+         clip_to: "clipper";
+         description { state: "default" 0.0;
+            rel1.offset: 1 1;
+            rel2.offset: -2 -2;
+         }
+      }
       part { name: "validation_glow";
          type: RECT;
          insert_before: "bg";
@@ -215,7 +222,7 @@ group { name: "elm/scroller/entry_single/default";
             rel1.to: "elm.swallow.background";
             rel2.to: "elm.swallow.background";
             color: DARK_GREY_BG_COLOR;
-            color_class: "scrollframe_base";
+            color_class: "scroller_bg";
          }
       }
       part { name: "clipper"; type: RECT;
@@ -395,6 +402,7 @@ group { name: "elm/entry/cursor/default";
             image.border: 4 4 4 4;
             fill.smooth: 0;
             color: 255 255 255 0;
+            color_class: "entry_cursor";
             min: 9 10;
          }
          description { state: "visible" 0.0;
@@ -416,12 +424,17 @@ group { name: "elm/entry/cursor/default";
    }
    programs {
       program {
-         signal: "selection,start"; source: "elm.text";
+         signal: "selection,changed"; source: "elm.text";
          action: STATE_SET "hidden" 0.0;
          target: "clipper";
       }
       program {
          signal: "selection,cleared"; source: "elm.text";
+         action: STATE_SET "default" 0.0;
+         target: "clipper";
+      }
+      program {
+         signal: "selection,reset"; source: "elm.text";
          action: STATE_SET "default" 0.0;
          target: "clipper";
       }
@@ -496,6 +509,7 @@ group { name: "elm/entry/anchor/default";
             image.normal: "horizontal_separated_bar_small_glow.png";
             image.border: 4 4 4 4;
             fill.smooth: 0;
+            fixed: 0 1;
             rel1.relative: 0.0 1.0;
             rel1.offset: -3 -5;
             rel2.offset: 2 4;
@@ -525,28 +539,34 @@ group { name: "elm/entry/base/default";
    
    styles {
       style { name: "entry_style";
-         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=word text_class=entry color_class=entry left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=word text_class=entry_text color_class=entry_text left_margin=2 right_margin=2";
          ENABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_nowrap_style";
-         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 text_class=entry color_class=entry left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 text_class=entry_text color_class=entry_text left_margin=2 right_margin=2";
          ENABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_disabled_style";
-         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=word text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=word text_class=entry_text_disabled color_class=entry_text_disabled left_margin=2 right_margin=2";
          DISABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_nowrap_disabled_style";
-         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 text_class=entry_text_disabled color_class=entry_text_disabled left_margin=2 right_margin=2";
          DISABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_guide_style";
-         base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=word text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
+         base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=word text_class=entry_guide_text color_class=entry_guide_text left_margin=2 right_margin=2 ellipsis=0.0";
          DISABLED_TEXTBLOCK_TAGS
       }
    }
 //   data.item: "context_menu_orientation" "horizontal";
    parts {
+      part { name: "elm.swallow.background"; type: SWALLOW;
+         description { state: "default" 0.0;
+            rel1.offset: 1 1;
+            rel2.offset: -2 -2;
+         }
+      }
       part { name: "elm.guide"; type: TEXTBLOCK; mouse_events: 0;
          scale: 1;
          description { state: "default" 0.0;
@@ -628,19 +648,19 @@ group { name: "elm/entry/base/default";
          }
       }
       program { name: "key-down1";
-         action: PLAY_SAMPLE "key-tap1" 1.0;
+         action: PLAY_SAMPLE "key-tap1" 1.0 INPUT;
       }
       program { name: "key-down2";
-         action: PLAY_SAMPLE "key-tap2" 1.0;
+         action: PLAY_SAMPLE "key-tap2" 1.0 INPUT;
       }
       program { name: "key-down3";
-         action: PLAY_SAMPLE "key-tap3" 1.0;
+         action: PLAY_SAMPLE "key-tap3" 1.0 INPUT;
       }
       program { name: "key-down4";
-         action: PLAY_SAMPLE "key-tap4" 1.0;
+         action: PLAY_SAMPLE "key-tap4" 1.0 INPUT;
       }
       program { name: "key-down5";
-         action: PLAY_SAMPLE "key-tap5" 1.0;
+         action: PLAY_SAMPLE "key-tap5" 1.0 INPUT;
       }
    }
 }
@@ -649,15 +669,15 @@ group { name: "elm/entry/base-mixedwrap/default";
    inherit: "elm/entry/base/default";
    styles {
       style { name: "entry_style_mixedwrap";
-         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=mixed text_class=entry color_class=entry left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=mixed text_class=entry_text color_class=entry_text left_margin=2 right_margin=2";
          ENABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_disabled_style_mixedwrap";
-         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=mixed text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=mixed text_class=entry_text_disabled color_class=entry_text_disabled left_margin=2 right_margin=2";
          DISABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_guide_style_mixedwrap";
-         base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=mixed text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
+         base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=mixed text_class=entry_guide_text color_class=entry_guide_text left_margin=2 right_margin=2 ellipsis=0.0";
          DISABLED_TEXTBLOCK_TAGS
       }
    }
@@ -699,15 +719,15 @@ group { name: "elm/entry/base-charwrap/default";
    inherit: "elm/entry/base/default";
    styles {
       style { name: "entry_style_charwrap";
-         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=char text_class=entry color_class=entry left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=char text_class=entry_text color_class=entry_text left_margin=2 right_margin=2";
          ENABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_disabled_style_charwrap";
-         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=char text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=char text_class=entry_text_disabled color_class=entry_text_disabled left_margin=2 right_margin=2";
          DISABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_guide_style_charwrap";
-         base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=char text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
+         base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=char text_class=entry_guide_text color_class=entry_guide_text left_margin=2 right_margin=2 ellipsis=0.0";
          DISABLED_TEXTBLOCK_TAGS
       }
    }
@@ -729,7 +749,7 @@ group { name: "elm/entry/base-charwrap/default";
       }
       part { name: "elm.text";
          description { state: "default" 0.0;
-            fixed: 1 0;
+            fixed: 1 1;
             text { style: "entry_style_charwrap";
                min: 0 1;
                align: 0.0 0.0;
@@ -785,15 +805,15 @@ group { name: "elm/entry/base-single/default";
    inherit: "elm/entry/base/default";
    styles {
       style { name: "entry_single_style";
-         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=none text_class=entry color_class=entry left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 wrap=none text_class=entry_text color_class=entry_text left_margin=2 right_margin=2";
          ENABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_single_disabled_style";
-         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=none text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
+         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 wrap=none text_class=entry_text_disabled color_class=entry_text_disabled left_margin=2 right_margin=2";
          DISABLED_TEXTBLOCK_TAGS
       }
       style { name: "entry_single_guide_style";
-         base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=none text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
+         base: "font="FN" font_size=10 color=#000000 style=shadow,bottom shadow_color=#ffffff19 wrap=none text_class=entry_guide_text color_class=entry_guide_text left_margin=2 right_margin=2 ellipsis=0.0";
          DISABLED_TEXTBLOCK_TAGS
       }
    }
@@ -1072,6 +1092,7 @@ group { name: "elm/entry/handler/start/default";
             min: 21 27; // 42 54
             image.normal: "handle_pick_up_left.png";
             align: (29/42) (11/54);
+            color_class: "entry_selection_handler";
             visible: 0;
          }
          description { state: "visible" 0.0;
@@ -1119,6 +1140,7 @@ group { name: "elm/entry/handler/end/default";
             min: 21 27; // 42 54
             image.normal: "handle_pick_up_right.png";
             align: (12/42) (11/54);
+            color_class: "entry_selection_handler";
             visible: 0;
          }
          description { state: "visible" 0.0;
