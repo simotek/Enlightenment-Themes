@@ -8,6 +8,7 @@ group { name: "e/widgets/check";
             align: 0.0 0.5;
             min: 13 13;
             max: 13 13;
+            color: 255 255 255 0;
             fixed: 1 1;
          }
       }
