@@ -279,15 +279,15 @@ group { "genlist_base"; inherit_only: 1; nomouse; program_source: "elm";
              link.base: "elm,state,disabled";
           }
        }
-       rect { "base";
+       image { "base";
           desc { "default";
-             color: 64 64 64 255;
-             color_class: "list_item_base";
+             color: 255 255 255 96;
+             image.normal: "list_even.png";
              link.base: "elm,state,even";
           }
           desc { "odd";
-             color: 56 56 56 255;
-             color_class: "list_item_base_odd";
+             color: 255 255 255 96;
+             image.normal: "list_odd.png";
              link.base: "elm,state,odd";
           }
        }
@@ -299,28 +299,13 @@ group { "genlist_base"; inherit_only: 1; nomouse; program_source: "elm";
              fill.smooth: 0;
           }
        }
-       image { "sel_shadow";
-          desc { "default";
-             image.normal: "shadow_rounded_horiz.png";
-             image.border: 0 0 9 9;
-             rel1.offset: 0 -4;
-             rel2.offset: -1 5;
-             fill.smooth: 0;
-             link.base: "elm,state,unselected";
-             hid;
-          }
-          desc { "selected";
-             inherit: "default";
-             link.base: "elm,state,selected";
-             vis;
-          }
-       }
        image { "sel_base";
           desc { "default";
-             image.normal: "vgrad_med_dark.png";
-             fill.smooth: 0;
+             image.normal: "surface.png";
+             image.border: 8 8 8 8;
+             rel1.offset: 2 2;
+             rel2.offset: -2 -4;
              hid;
-             TILED_HORIZ(120)
              link.base: "elm,state,unselected";
           }
           desc { "selected";
