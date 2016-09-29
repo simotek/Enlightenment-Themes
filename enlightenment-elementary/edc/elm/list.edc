@@ -187,14 +187,12 @@ group { name: "elm/list/item/default";
       program {
          signal: "elm,state,selected"; source: "elm";
          action: STATE_SET "selected" 0.0;
-         target: "sel_shadow";
          target: "sel_base";
          target: "sel_bevel";
       }
       program {
          signal: "elm,state,unselected"; source: "elm";
          action: STATE_SET "default" 0.0;
-         target: "sel_shadow";
          target: "sel_base";
          target: "sel_bevel";
       }
