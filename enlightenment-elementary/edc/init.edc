@@ -103,22 +103,6 @@ group { name: "e/init/splash";
          }
       }
       
-      part { name: "shadow"; mouse_events: 0;
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            rel1.relative: 0.0 0.0;
-            rel2.relative: 1.0 1.0;
-            color: 255 255 255 255;
-            image.normal: "screen_circular_shadow.png";
-            fill.smooth: 0;
-         }
-         description { state: "visible" 0.0;
-            inherit: "default" 0.0;
-            rel1.relative: -1.0 -1.0;
-            rel2.relative: 2.0 2.0;
-            color: 255 255 255 255;
-         }
-      }
       
 #define LED(_NAME, _TO, _SHINE, _C00, _C01, _C10, _C11, _C20, _C21, _C30, _C31, _C40, _C41, _C50, _C51, _C60, _C61) \
       part { name: _NAME"_shadow"; \
@@ -457,7 +441,6 @@ group { name: "e/init/splash";
         signal: "show"; source: "";
         action: STATE_SET "visible" 0.0;
         transition: DECELERATE 1.0;
-        target: "shadow";
         target: "blanker";
         after: "ready";
      }
@@ -499,7 +482,6 @@ group { name: "e/init/splash";
         signal: "e,state,done"; source: "e";
         action: STATE_SET "default" 0.0;
         transition: SINUSOIDAL 1.0 CURRENT;
-        target: "shadow";
         target: "blanker";
         after: "exit2";
      }
@@ -510,7 +492,6 @@ group { name: "e/init/splash";
 }
 
 group { name: "e/init/extra_screen";
-   images.image: "screen_circular_shadow.png" COMP;
    images.image: "surface_no_border.png" COMP;
    parts {
       part { name: "clip"; type: RECT; mouse_events: 0;
@@ -542,7 +523,6 @@ group { name: "e/init/extra_screen";
          signal: "show"; source: "";
          action: STATE_SET "visible" 0.0;
          transition: DECELERATE 1.0;
-         target: "shadow";
          target: "blanker";
       }
    }
