@@ -1,9 +1,6 @@
 group { name: "e/wizard/main";
-   images.image: "screen_circular_shadow.png" COMP;
-   images.image: "bg_radgrad.png" COMP;
-   images.image: "dot_pattern.png" COMP;
-   images.image: "button_normal.png" COMP;
-   images.image: "button_clicked.png" COMP;
+   images.image: "surface_no_border.png" COMP;
+   images.image: "surface.png" COMP;
    images.image: "knob_round_busy.png" COMP;
    images.image: "glow_round_corners.png" COMP;
    parts {
@@ -13,16 +10,10 @@ group { name: "e/wizard/main";
       }
       part { name: "bg";
          description { state: "default" 0.0;
-            image.normal: "bg_radgrad.png";
+            image.normal: "surface_no_border.png";
             image.scale_hint: STATIC;
             fill.smooth: 0;
             ASPECT_FILL((1024/653))
-         }
-      }
-      part { name: "pat";
-         description { state: "default" 0.0;
-            image.normal: "dot_pattern.png";
-            TILED_PATTERN(256, 256)
          }
       }
       part { name: "busy_clip"; type: RECT;
@@ -62,19 +53,18 @@ group { name: "e/wizard/main";
       }
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "button_normal.png";
-            image.border: 4 4 3 5;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
             image.middle: SOLID;
             rel1.offset: -1 0;
             rel1.to: "e.text.label";
             rel2.offset: 0 1;
             rel2.to: "e.text.label";
-            fill.smooth: 0;
+            color: 255 255 255 190;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            image.normal: "button_clicked.png";
-            image.border: 5 5 4 6;
+            color: 255 255 255 255;
          }
       }
       part { name: "block"; type: RECT;
@@ -109,22 +99,6 @@ group { name: "e/wizard/main";
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
             color: FN_COL_DISABLE;
-         }
-      }
-      part { name: "shadow"; mouse_events: 0;
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            rel1.relative: 0.0 0.0;
-            rel2.relative: 1.0 1.0;
-            color: 255 255 255 255;
-            image.normal: "screen_circular_shadow.png";
-            fill.smooth: 0;
-         }
-         description { state: "visible" 0.0;
-            inherit: "default" 0.0;
-            rel1.relative: -1.0 -1.0;
-            rel2.relative: 2.0 2.0;
-            color: 255 255 255 255;
          }
       }
       part { name: "e.text.title"; type: TEXT;
@@ -177,7 +151,6 @@ group { name: "e/wizard/main";
          signal: "show"; source: "";
          action: STATE_SET "visible" 0.0;
          transition: DECELERATE 1.0;
-         target: "shadow";
          target: "blanker";
       }
       program {
@@ -312,9 +285,7 @@ group { name: "e/wizard/firstpage";
 }
 
 group { name: "e/wizard/extra";
-   images.image: "screen_circular_shadow.png" COMP;
-   images.image: "bg_radgrad.png" COMP;
-   images.image: "dot_pattern.png" COMP;
+   images.image: "surface_no_background.png" COMP;
    parts {
       part { name: "clip"; type: RECT; mouse_events: 0;
          description { state: "default" 0.0;
@@ -326,28 +297,6 @@ group { name: "e/wizard/extra";
             image.scale_hint: STATIC;
             fill.smooth: 0;
             ASPECT_FILL((1024/653))
-         }
-      }
-      part { name: "pat";
-         description { state: "default" 0.0;
-            image.normal: "dot_pattern.png";
-            TILED_PATTERN(256, 256)
-         }
-      }
-      part { name: "shadow"; mouse_events: 0;
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            rel1.relative: 0.0 0.0;
-            rel2.relative: 1.0 1.0;
-            color: 255 255 255 255;
-            image.normal: "screen_circular_shadow.png";
-            fill.smooth: 0;
-         }
-         description { state: "visible" 0.0;
-            inherit: "default" 0.0;
-            rel1.relative: -1.0 -1.0;
-            rel2.relative: 2.0 2.0;
-            color: 255 255 255 255;
          }
       }
       part { name: "blanker"; type: RECT; mouse_events: 0;
@@ -367,7 +316,6 @@ group { name: "e/wizard/extra";
          signal: "show"; source: "";
          action: STATE_SET "visible" 0.0;
          transition: DECELERATE 1.0;
-         target: "shadow";
          target: "blanker";
       }
    }
