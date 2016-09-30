@@ -1,5 +1,5 @@
 group { name: "elm/progressbar/horizontal/default";
-   images.image: "inset_bar_horiz_base.png" COMP;
+   images.image: "surface.png" COMP;
    images.image: "inset_bar_horiz_light.png" COMP;
    images.image: "inset_bar_horiz_inside_base.png" COMP;
    images.image: "inset_bar_horiz_inside_light.png" COMP;
@@ -168,9 +168,9 @@ group { name: "elm/progressbar/horizontal/default";
             rel1.relative: 1.0 0.0;
             rel1.offset: 3 3;
             rel2.offset: -4 -4;
-            image.normal: "inset_bar_horiz_base.png";
-            image.border: 32 32 0 0;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+            image.normal: "surface_rot.png";
+            image.border: 16 16 16 16;
+            color: 255 255 255 190;
          }
       }
       part { name: "ins0"; type: SPACER;
@@ -218,6 +218,7 @@ group { name: "elm/progressbar/horizontal/default";
             image.normal: "inset_bar_horiz_inside_base.png";
             image.border: 8 8 0 0;
             image.border_scale_by: 0.25; image.border_scale: 1;
+            color: 255 255 255 32;
          }
       }
       part { name: "elm.swallow.bar"; type: SWALLOW; mouse_events: 0;
@@ -557,7 +558,7 @@ group { name: "elm/progressbar/horizontal/default";
 }
 
 group { name: "elm/progressbar/vertical/default";
-   images.image: "inset_bar_vert_base.png" COMP;
+   images.image: "surface.png" COMP;
    images.image: "inset_bar_vert_light.png" COMP;
    images.image: "inset_bar_vert_inside_base.png" COMP;
    images.image: "inset_bar_vert_inside_light.png" COMP;
@@ -726,9 +727,9 @@ group { name: "elm/progressbar/vertical/default";
             rel1.relative: 0.0 1.0;
             rel1.offset: 3 3;
             rel2.offset: -4 -4;
-            image.normal: "inset_bar_vert_base.png";
-            image.border: 0 0 32 32;
-            image.border_scale_by: 0.25; image.border_scale: 1;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
+            color: 255 255 255 190;
          }
       }
       part { name: "ins0"; type: SPACER;
@@ -776,6 +777,7 @@ group { name: "elm/progressbar/vertical/default";
             image.normal: "inset_bar_vert_inside_base.png";
             image.border: 0 0 8 8;
             image.border_scale_by: 0.25; image.border_scale: 1;
+            color: 255 255 255 32;
          }
       }
       part { name: "elm.swallow.bar"; type: SWALLOW; mouse_events: 0;
