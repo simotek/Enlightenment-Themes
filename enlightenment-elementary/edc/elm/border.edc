@@ -1,6 +1,5 @@
 group { name: "elm/ews/background/default";
-   images.image: "bg_radgrad.png" COMP;
-   images.image: "dot_pattern.png" COMP;
+   images.image: "surface_no_border.png" COMP;
    parts {
       part { name: "bg";
          description { state: "default" 0.0;
@@ -8,12 +7,6 @@ group { name: "elm/ews/background/default";
             image.scale_hint: STATIC;
             fill.smooth: 0;
             ASPECT_FILL((1024/653))
-         }
-      }
-      part { name: "pat";
-         description { state: "default" 0.0;
-            image.normal: "dot_pattern.png";
-            TILED_PATTERN(256, 256)
          }
       }
    }
