@@ -1131,7 +1131,7 @@ group { name: "elm/progressbar/vertical/default";
 
 group { name: "elm/progressbar/horizontal/wheel";
    alias: "elm/progressbar/vertical/wheel";
-   images.image: "knob_round_busy.png" COMP;
+   images.image: "surface-circle.png" COMP;
    images.image: "glow_round_corners.png" COMP;
    parts {
       part { name: "elm.swallow.bar" ; type: SWALLOW; mouse_events: 0;
@@ -1161,9 +1161,20 @@ group { name: "elm/progressbar/horizontal/wheel";
       part { name: "knob"; mouse_events: 0;
          scale: 1;
          description { state: "default" 0.0;
-            image.normal: "knob_round_busy.png";
+            image.normal: "surface-circle.png";
             min: 40 40;
             max: 40 40;
+            visible: 0;
+         }
+      }
+      part { name: "knob_bg"; mouse_events: 0;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.to: "knob";
+            rel1.offset: 9 9;
+            rel2.to: "knob";
+            rel2.offset: -9 -9;
+            image.normal: "surface-circle.png";
          }
       }
       part { name: "knob_spinner"; mouse_events: 0;
