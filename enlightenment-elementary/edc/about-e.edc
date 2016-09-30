@@ -1,8 +1,5 @@
 group { name: "e/widgets/about/main";
    // data.item: "borderless" "1";
-   // data.item: "shaped" "1";
-   images.image: "bg_radgrad.png" COMP;
-   images.image: "dot_pattern.png" COMP;
    images.image: "bevel_dark_out.png" COMP;
    images.image: "vgrad_med_lighter.png" COMP;
    images.image: "bevel_out.png" COMP;
