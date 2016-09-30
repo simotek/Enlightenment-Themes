@@ -167,9 +167,9 @@ group { name: "e/widgets/toolbar";
 group { name: "e/widgets/toolbar/item";
    images.image: "surface.png" COMP;
    parts {
-      part { name: "shadow1"; mouse_events: 0;
+      part { name: "bg"; mouse_events: 0;
          description { state: "default" 0.0;
-            rel1.offset: 3 2;
+            rel1.offset: 3 1;
             rel2.offset: -4 -3;
 
             image.normal: "surface.png";
@@ -272,14 +272,14 @@ group { name: "e/widgets/toolbar/item";
          action: STATE_SET "selected" 0.0;
          target: "e.text.label";
          target: "label2";
-         target: "shadow1";
+         target: "bg";
       }
       program {
          signal: "e,state,unselected"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "e.text.label";
          target: "label2";
-         target: "shadow1";
+         target: "bg";
       }
       program {
          signal: "mouse,up,1"; source: "event";
