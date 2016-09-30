@@ -112,7 +112,7 @@ group { name: "e/widgets/menu/default/separator";
 
 group { name: "e/widgets/menu/default/item_bg";
    alias: "e/widgets/menu/default/submenu_bg";
-   images.image: "frame_clicked.png" COMP;
+   images.image: "surface_rot.png" COMP;
    parts {
       part { name: "base"; mouse_events: 0;
          description { state: "default" 0.0;
@@ -129,7 +129,7 @@ group { name: "e/widgets/menu/default/item_bg";
          description { state: "default" 0.0;
             rel1.offset: 4 0;
             rel2.offset: -6 0;
-            image.normal: "surface.png";
+            image.normal: "surface_rot.png";
             image.border: 8 8 8 8;
             
             color: 255 255 255 255;

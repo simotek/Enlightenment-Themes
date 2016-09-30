@@ -1,8 +1,4 @@
 group { name: "elm/menu/item/default";
-   images.image: "vgrad_med_dark.png" COMP;
-   images.image: "bevel_horiz_out.png" COMP;
-   images.image: "shadow_rounded_horiz.png" COMP;
-   images.image: "shine.png" COMP;
    script {
       public menu_text_visible; //0:hide (default), 1:visible
       public menu_disable; //0:enable, 1:disable
@@ -14,7 +10,7 @@ group { name: "elm/menu/item/default";
             rel1.offset:  4 -1;
             rel2.offset: -4 1;
             
-            image.normal: "surface.png";
+            image.normal: "surface_rot.png";
             image.border: 8 8 8 8;
          
             visible: 0;
@@ -295,11 +291,6 @@ group { name: "elm/menu/separator/default";
 }
 
 group { name: "elm/menu/main_menu_submenu/default";
-   images.image: "vgrad_med_dark.png" COMP;
-   images.image: "bevel_out.png" COMP;
-   images.image: "bevel_in.png" COMP;
-   images.image: "shadow_rounded_horiz.png" COMP;
-   images.image: "shine.png" COMP;
    script {
       public menu_text_visible; //0:hide (default), 1:visible
       public menu_disable; //0:enable, 1:disable
