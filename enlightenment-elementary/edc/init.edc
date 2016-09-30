@@ -1,5 +1,4 @@
 group { name: "e/init/splash";
-   images.image: "screen_circular_shadow.png" COMP;
    images.image: "surface_no_border.png" COMP;
    images.image: "logo_blue_small.png" COMP;
    images.image: "logo_blue_small_glow.png" COMP;

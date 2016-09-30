@@ -5,7 +5,6 @@ group { name: "e/widgets/about/main";
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
-   images.image: "screen_circular_shadow.png" COMP;
    images.image: "logo_blue_bottom.png" COMP;
    images.image: "button_normal.png" COMP;
    images.image: "button_clicked.png" COMP;

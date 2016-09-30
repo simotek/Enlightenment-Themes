@@ -776,7 +776,6 @@ group { name: "elm/border/base/default";
    images.image: "sym_up_light_selected.png" COMP;
    images.image: "glow_round_corners_small.png" COMP;
    images.image: "knob_round_small_busy.png" COMP;
-   images.image: "screen_circular_shadow.png" COMP;
    images.image: "win_shadow.png" COMP;
    data.item: "shadow" "1";
    parts {
