@@ -84,27 +84,6 @@ group { name: "e/modules/everything/main";
             rel2.relative: 1.0 1.0;
          }
       }
-      part { name: "bevel"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.to: "base";
-            rel2.to: "base";
-            image.normal: "bevel_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
-         }
-      }
-      part { name: "shine"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "shine.png";
-            rel1.offset: 0 -2;
-            rel1.to: "base";
-            rel2.relative: 1.0 0.0;
-            rel2.offset: -1 2;
-            rel2.to: "base";
-            FIXED_SIZE(69, 5)
-         }
-      }
    }
    programs {
       program {
@@ -127,39 +106,9 @@ group { name: "e/modules/everything/main";
 }
 
 group { name: "e/modules/everything/selector_item";
-   images.image: "shadow_inset_bevels.png" COMP;
-   images.image: "shadow_angled_in_sides.png" COMP;
-   images.image: "horizontal_separated_bar_small_glow.png" COMP;
    parts {
       part { name: "clip"; type: RECT;
          description { state: "default" 0.0;
-         }
-      }
-      part { name: "shadow1"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "shadow_inset_bevels.png";
-            image.border: 2 2 0 1;
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-      part { name: "shadow2"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.offset: 1 0;
-            rel1.to: "shadow1";
-            rel2.offset: -2 -1;
-            rel2.to: "shadow1";
-            image.normal: "shadow_angled_in_sides.png";
-            image.border: 8 8 0 1;
-            image.middle: 0;
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
          }
       }
       part { name: "icon_clip"; type: RECT;
@@ -287,23 +236,6 @@ group { name: "e/modules/everything/selector_item";
             visible: 1;
          }
       }
-      part { name: "bar"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.offset: -3 -7;
-            rel1.relative: 0.0 1.0;
-            rel1.to: "shadow2";
-            rel2.offset: 2 2;
-            rel2.to: "shadow2";
-            image.normal: "horizontal_separated_bar_small_glow.png";
-            image.border: 4 4 4 4;
-            fill.smooth: 0;
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
       part { name: "event"; type: RECT;
          ignore_flags: ON_HOLD;
          description { state: "default" 0.0;
@@ -319,9 +251,6 @@ group { name: "e/modules/everything/selector_item";
          target: "e.text.plugin";
          target: "label2";
          target: "label3";
-         target: "shadow1";
-         target: "shadow2";
-         target: "bar";
       }
       program {
          signal: "e,state,unselected"; source: "e";
@@ -330,9 +259,6 @@ group { name: "e/modules/everything/selector_item";
          target: "e.text.plugin";
          target: "label2";
          target: "label3";
-         target: "shadow1";
-         target: "shadow2";
-         target: "bar";
       }
       program {
          signal: "e,signal,update"; source: "e";
@@ -362,81 +288,40 @@ group { name: "e/modules/everything/selector_item";
 
 group { name: "e/modules/everything/list";
    images.image: "bevel_dark_out.png" COMP;
-   images.image: "bevel_out.png" COMP;
+   images.image: "surface_lr.png" COMP;
    images.image: "white_bar_vert_glow.png" COMP;
    images.image: "vert_bar_inset.png" COMP;
-   images.image: "shine.png" COMP;
+   images.image: "surface_sq.png" COMP;
    parts {
-      part { name: "input_base"; type: RECT;
+      part { name: "input_base";
          description { state: "default" 0.0;
             rel1.to_y: "e.text.label";
             rel1.offset: 0 -4;
             rel2.to_y: "e.text.label";
             rel2.offset: -1 3;
-            color: 64 64 64 255;
+            image.normal: "surface_lr.png";
+            image.border: 8 8 0 0;
          }
       }
-      part { name: "list_base"; type: RECT;
+      part { name: "list_base";
          description { state: "default" 0.0;
             rel1.to_y: "input_base";
             rel1.relative: 0.0 1.0;
             rel2.to_y: "bar_base";
             rel2.relative: 1.0 0.0;
-            color: 64 64 64 255;
+            image.normal: "surface_sq.png";
+            image.border: 8 8 8 8;
          }
       }
-      part { name: "bar_base"; type: RECT;
+      part { name: "bar_base";
          scale: 1;
          description { state: "default" 0.0;
             fixed: 0 1;
             rel1.relative: 0.0 1.0;
             align: 0.5 1.0;
             min: 32 28;
-            color: 64 64 64 255;
-         }
-      }
-      part { name: "input_bevel"; 
-         description { state: "default" 0.0;
-            rel1.to: "input_base";
-            rel2.to: "input_base";
-            image.normal: "bevel_dark_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
-         }
-      }
-      part { name: "list_bevel"; 
-         clip_to: "list_clip";
-         description { state: "default" 0.0;
-            rel1.to: "list_base";
-            rel1.offset: 0 -1;
-            rel2.to: "list_base";
-            rel2.offset: -1 0;
-            image.normal: "bevel_dark_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
-         }
-      }
-      part { name: "bar_bevel"; 
-         description { state: "default" 0.0;
-            rel1.to: "bar_base";
-            rel1.to: "bar_base";
-            image.normal: "bevel_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
-         }
-      }
-      part { name: "shine"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "shine.png";
-            rel1.offset: 0 -2;
-            rel1.to: "bar_bevel";
-            rel2.relative: 1.0 0.0;
-            rel2.offset: -1 2;
-            rel2.to: "bar_bevel";
-            FIXED_SIZE(69, 5)
+            image.normal: "surface_bottom.png";
+            image.border: 8 8 0 8;
          }
       }
       part { name: "e.text.label"; type: TEXT;
@@ -508,17 +393,6 @@ group { name: "e/modules/everything/list";
             inherit: "default" 0.0;
             rel1.relative: 0.0 0.0;
             rel2.relative: 1.0 1.0;
-         }
-      }
-      part { name: "list_shadow"; mouse_events: 0;
-         clip_to: "list_clip";
-         description { state: "default" 0.0;
-            rel1.to: "list_bevel";
-            rel2.to: "list_bevel";
-            image.normal: "vert_bar_inset.png";
-            image.border: 1 1 8 6;
-            image.middle: 0;
-            fill.smooth: 0;
          }
       }
       part { name: "bar_clip"; type: RECT;
@@ -711,16 +585,17 @@ group { name: "e/modules/everything/thumbview/main/window";
 }
 
 group { name: "e/modules/everything/tab_item";
-   images.image: "shadow_inset_bevels.png" COMP;
+   images.image: "list_even_lr.png" COMP;
    images.image: "shadow_angled_in_sides.png" COMP;
    images.image: "horizontal_separated_bar_small_glow.png" COMP;
    parts {
-      part { name: "shadow1"; mouse_events: 0;
+      part { name: "bg"; mouse_events: 0;
          scale: 1;
          description { state: "default" 0.0;
             min: 80 10;
-            image.normal: "shadow_inset_bevels.png";
-            image.border: 2 2 0 1;
+            rel2.offset: 0 1;
+            image.normal: "list_even_lr.png";
+            image.border: 1 1 0 0;
             visible: 0;
          }
          description { state: "selected" 0.0;
@@ -728,23 +603,6 @@ group { name: "e/modules/everything/tab_item";
             visible: 1;
          }
       }
-      part { name: "shadow2"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.offset: 1 0;
-            rel1.to: "shadow1";
-            rel2.offset: -2 -1;
-            rel2.to: "shadow1";
-            image.normal: "shadow_angled_in_sides.png";
-            image.border: 8 8 0 1;
-            image.middle: 0;
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-      
       part { name: "e.text.label"; type: TEXT; mouse_events: 0;
          effect: SHADOW BOTTOM;
          scale: 1;
@@ -791,23 +649,6 @@ group { name: "e/modules/everything/tab_item";
             visible: 1;
          }
       }
-      part { name: "bar"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.offset: -3 -7;
-            rel1.relative: 0.0 1.0;
-            rel1.to: "shadow2";
-            rel2.offset: 2 2;
-            rel2.to: "shadow2";
-            image.normal: "horizontal_separated_bar_small_glow.png";
-            image.border: 4 4 4 4;
-            fill.smooth: 0;
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
       part { name: "event"; type: RECT;
          ignore_flags: ON_HOLD;
          description { state: "default" 0.0;
@@ -821,18 +662,14 @@ group { name: "e/modules/everything/tab_item";
          action: STATE_SET "selected" 0.0;
          target: "e.text.label";
          target: "label2";
-         target: "shadow1";
-         target: "shadow2";
-         target: "bar";
+         target: "bg";
       }
       program {
          signal: "e,state,unselected"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "e.text.label";
          target: "label2";
-         target: "shadow1";
-         target: "shadow2";
-         target: "bar";
+         target: "bg";
       }
    }
 }
@@ -926,7 +763,7 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
             visible: 0;
          }
       }
-      part { name: "sb_vbar"; type: RECT; mouse_events: 0;
+      part { name: "sb_vbar"; type: RECT;
          scale: 1;
          description { state: "default" 0.0;
             min: 15 15;
@@ -936,8 +773,8 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
          }
          description { state: "hidden" 0.0;
             inherit: "default" 0.0;
-            min: 15 0;
-            max: 15 99999;
+            min: 0 0;
+            max: 0 99999;
          }
       }
       part { name: "sb_vbar_base"; type: RECT;
@@ -1011,7 +848,7 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
             rel2.to: "sb_vbar";
          }
       }
-      program {      
+      program {
          signal: "e,action,show,vbar"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "sb_vbar";
@@ -1071,24 +908,17 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
       part { name: "runner_vbar"; mouse_events: 0;
          clip_to: "sb_vbar_show";
          description { state: "default" 0.0;
-            image.normal: "runner_vert.png";
-            image.border: 0 0 2 2;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
+            color: 255 255 255 90;
             rel1.to: "sb_vbar_base";
             rel2.to: "sb_vbar_base";
+            rel1.offset: 1 0;
+            rel2.offset: -1 0;
             fill.smooth: 0;
-            min: 3 4;
-            max: 3 99999;
-         }
-      }
-      part { name: "runner_vbar_clip"; type: RECT;
-         clip_to: "sb_vbar_show";
-         description { state: "default" 0.0;
-            min: 1 1;
-            max: 1 99999;
-            rel1.to: "runner_vbar";
-            rel1.offset: 0 1;
-            rel2.to: "runner_vbar";
-            rel2.offset: -1 -2;
+            min: 12 12;
+            max: 12 -1;
+            fixed: 1 1;
          }
       }
       part { name: "arrow1_vbar"; mouse_events: 0;
@@ -1096,12 +926,13 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
          description { state: "default" 0.0;
             rel1.to: "sb_vbar_a1";
             rel2.to: "sb_vbar_a1";
-            image.normal: "sym_up_light_normal.png";
+            image.normal: "scrollbar_up.png";
             FIXED_SIZE(15, 15)
+            color: 255 255 255 190;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            image.normal: "sym_up_glow_normal.png";
+            color: 255 255 255 255;
          }
       }
       part { name: "arrow2_vbar"; mouse_events: 0;
@@ -1109,85 +940,26 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
          description { state: "default" 0.0;
             rel1.to: "sb_vbar_a2";
             rel2.to: "sb_vbar_a2";
-            image.normal: "sym_down_light_normal.png";
+            image.normal: "scrollbar_down.png";
             FIXED_SIZE(15, 15)
+            color: 255 255 255 190;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            image.normal: "sym_down_glow_normal.png";
+            color: 255 255 255 255;
          }
       }
-      part { name: "shadow_vbar"; mouse_events: 0;
-         clip_to: "sb_vbar_show";
-         description { state: "default" 0.0;
-            rel1.offset: -3 -2;
-            rel1.to: "base_vbar";
-            rel2.offset: 2 4;
-            rel2.to: "base_vbar";
-            image.normal: "shadow_square_tiny.png";
-            image.border: 6 6 6 6;
-            fill.smooth: 0;
-         }
-         description { state: "clicked" 0.0;
-            inherit: "default" 0.0;
-            rel1.offset: -2 -2;
-            rel2.offset: 1 1;
-            color: 255 255 255 128;
-         }
-      }
-      part { name: "glow_vbar"; mouse_events: 0;
-         clip_to: "sb_vbar_show";
-         description { state: "default" 0.0;
-            rel1.offset: -3 -3;
-            rel1.to: "base_vbar";
-            rel2.offset: 2 2;
-            rel2.to: "base_vbar";
-            image.normal: "glow_small.png";
-            image.border: 7 7 7 7;
-            fill.smooth: 0;
-            visible: 0;
-         }
-         description { state: "clicked" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-      part { name: "runner_glow_vbar"; mouse_events: 0;
-         clip_to: "runner_vbar_clip";
-         description { state: "default" 0.0;
-            rel1.offset: 0 -30;
-            rel1.to_x: "runner_vbar_clip";
-            rel1.to_y: "base_vbar";
-            rel2.offset: -1 29;
-            rel2.to_x: "runner_vbar_clip";
-            rel2.to_y: "base_vbar";
-            image.normal: "runner_glow_vert.png";
-            image.border: 0 0 33 33;
-                  }
-            }
       part { name: "base_vbar"; mouse_events: 0;
          clip_to: "sb_vbar_show";
          description { state: "default" 0.0;
-            rel1.offset: 2 0;
+            rel1.offset: 3 0;
             rel1.to: "e.dragable.vbar";
             rel2.offset: -3 -1;
             rel2.to: "e.dragable.vbar";
-            image.normal: "vgrad_med_lighter.png";
+            image.normal: "surface.png";
+            image.border:8 8 8 8;
             fill.smooth: 0;
-            min: 5 13;
-            TILED_HORIZ(120)
-         }
-      }
-      part { name: "bevel_vbar"; mouse_events: 0;
-         clip_to: "sb_vbar_show";
-         description { state: "default" 0.0;
-            rel1.to: "base_vbar";
-            rel2.to: "base_vbar";
-            image.normal: "bevel_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
-            min: 5 5;
+            min: 12 12;
          }
       }
       part { name: "center_vbar"; mouse_events: 0;
@@ -1195,21 +967,9 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
          description { state: "default" 0.0;
             rel1.to: "base_vbar";
             rel2.to: "base_vbar";
-            image.normal: "holes_tiny_vert.png";
-            FIXED_SIZE(3, 11)
-         }
-      }
-      part { name: "center_glow_vbar"; mouse_events: 0;
-         clip_to: "sb_vbar_show";
-         description { state: "default" 0.0;
-            rel1.to: "center_vbar";
-            rel2.to: "center_vbar";
-            image.normal: "holes_tiny_glow_vert.png";
-            FIXED_SIZE(11, 17)
-            visible: 0;
-         }
-         description { state: "clicked" 0.0;
-            inherit: "default" 0.0;
+            image.normal: "scrollbar_vdrag_thumb.png";
+            FIXED_SIZE(4, 7)
+            color: 255 255 255 190;
             visible: 1;
          }
       }
@@ -1219,20 +979,15 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
          signal: "mouse,down,1*"; source: "e.dragable.vbar";
          action: STATE_SET "clicked" 0.0;
          target: "e.dragable.vbar";
-         target: "shadow_vbar";
-         target: "glow_vbar";
-         target: "center_glow_vbar";
       }
       program {
          signal: "mouse,up,1"; source: "e.dragable.vbar";
          action: STATE_SET "default" 0.0;
          target: "e.dragable.vbar";
-         target: "shadow_vbar";
-         target: "glow_vbar";
-         target: "center_glow_vbar";
       }
    }
 }
+
 
 group { name: "e/modules/everything/thumbview/item/thumb";
    images.image: "vgrad_med_dark.png" COMP;
@@ -1243,70 +998,12 @@ group { name: "e/modules/everything/thumbview/item/thumb";
    images.image: "sym_close_light_selected.png" COMP;
    images.image: "sym_right_light_normal.png" COMP;
    parts {
-      part { name: "shadow"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "shadow_square_tiny.png";
-            image.border: 6 6 6 6;
-            fill.smooth: 0;
-            rel1.offset: -3 -2;
-            rel1.to: "sel_base";
-            rel2.offset: 2 3;
-            rel2.to: "sel_base";
-            fill.smooth: 0;
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-      part { name: "sel_glow"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.to: "sel_base";
-            rel2.to: "sel_base";
-            image.normal: "glow_small.png";
-            image.border: 7 7 7 7;
-            fill.smooth: 0;
-            color: 255 255 255 0;
-            visible: 0;
-         }
-         description { state: "visible" 0.0;
-            inherit: "default" 0.0;
-            rel1.offset: -4 -4;
-            rel2.offset: 3 3;
-            color: 255 255 255 128;
-            visible: 1;
-         }
-         description { state: "hilighted" 0.0;
-            inherit: "default" 0.0;
-            rel1.offset: -4 -4;
-            rel2.offset: 3 3;
-            color: 255 255 255 255;
-            visible: 1;
-         }
-      }
       part { name: "sel_base"; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.offset: 2 2;
             rel2.offset: -3 -3;
-            image.normal: "vgrad_med_dark.png";
-            fill.smooth: 0;
-            TILED_HORIZ(120)
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-      part { name: "sel_bevel"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.to: "sel_base";
-            rel2.to: "sel_base";
-            image.normal: "bevel_out.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
+            image.normal: "surface.png";
+            image.border: 8 8 8 8;
             visible: 0;
          }
          description { state: "selected" 0.0;
@@ -1374,9 +1071,9 @@ group { name: "e/modules/everything/thumbview/item/thumb";
          effect: GLOW;
          scale: 1;
          description { state: "default" 0.0;
-            rel1.offset: -3 -2;
+            rel1.offset: 1 -2;
             rel1.to: "e.text.label";
-            rel2.offset: 2 2;
+            rel2.offset: 0 2;
             rel2.to: "e.text.label";
             color: FN_COL_HIGHLIGHT;
             color_class: "menu_item_active";
@@ -1429,22 +1126,6 @@ group { name: "e/modules/everything/thumbview/item/thumb";
             color: 255 255 255 255;
          }
       }
-      part { name: "sel_shine"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "shine.png";
-            rel1.offset: 0 -2;
-            rel1.to: "sel_base";
-            rel2.relative: 1.0 0.0;
-            rel2.offset: -1 2;
-            rel2.to: "sel_base";
-            FIXED_SIZE(69, 5)
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
       part { name: "event"; type: RECT;
          description { state: "default" 0.0;
             color: 0 0 0 0;
@@ -1457,33 +1138,14 @@ group { name: "e/modules/everything/thumbview/item/thumb";
          action: STATE_SET "selected" 0.0;
          target: "e.text.label";
          target: "label2";
-         target: "shadow";
          target: "sel_base";
-         target: "sel_bevel";
-         target: "sel_shine";
-      }
-      program {
-         signal: "e,state,selected"; source: "e";
-         action: STATE_SET "hilighted" 0.0;
-         transition: DECELERATE 0.2;
-         target: "sel_glow";
-         after: "sel2";
-      }
-      program { name: "sel2";
-         action: STATE_SET "visible" 0.0;
-         transition: SINUSOIDAL 0.3;
-         target: "sel_glow";
       }
       program {
          signal: "e,state,unselected"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "e.text.label";
          target: "label2";
-         target: "shadow";
          target: "sel_base";
-         target: "sel_bevel";
-         target: "sel_shine";
-         target: "sel_glow";
       }
       program {
          signal: "e,state,marked"; source: "e";
@@ -1544,44 +1206,18 @@ group { name: "e/modules/everything/thumbview/item/list";
             fill.smooth: 0;
          }
       }
-      part { name: "sel_shadow"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "shadow_rounded_horiz.png";
-            image.border: 0 0 9 9;
-            rel1.offset: 0 -4;
-            rel2.offset: -1 5;
-            fill.smooth: 0;
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
       part { name: "sel_base"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "vgrad_med_dark.png";
-            fill.smooth: 0;
-            TILED_HORIZ(120)
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-      part { name: "sel_bevel"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "bevel_horiz_out.png";
-            image.border: 0 0 2 2;
-            image.middle: 0;
-            fill.smooth: 0;
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
+          description { state: "default" 0.0;
+             image.normal: "surface.png";
+             image.border: 8 8 8 8;
+             rel1.offset: 2 2;
+             rel2.offset: -2 -4;
+             visible: 0;
+          }
+          description { state: "selected" 0.0;
+             inherit: "default" 0.0;
+             visible: 1;
+          }
       }
       part { name: "detail_clip"; type: RECT;
          description { state: "default" 0.0;
@@ -1757,27 +1393,6 @@ group { name: "e/modules/everything/thumbview/item/list";
             color: 255 255 255 255;
          }
       }
-      part { name: "sel_shine"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "shine.png";
-            rel1.offset: 0 -2;
-            rel1.to: "sel_base";
-            rel2.relative: 1.0 0.0;
-            rel2.offset: -1 2;
-            rel2.to: "sel_base";
-            FIXED_SIZE(69, 5)
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-      part { name: "event"; type: RECT;
-         description { state: "default" 0.0;
-            color: 0 0 0 0;
-         }
-      }
    }
    programs {
       program {
@@ -1787,10 +1402,7 @@ group { name: "e/modules/everything/thumbview/item/list";
          target: "e.text.detail";
          target: "label2";
          target: "label3";
-         target: "sel_shadow";
          target: "sel_base";
-         target: "sel_bevel";
-         target: "sel_shine";
       }
       program {
          signal: "e,state,unselected"; source: "e";
@@ -1799,10 +1411,7 @@ group { name: "e/modules/everything/thumbview/item/list";
          target: "e.text.detail";
          target: "label2";
          target: "label3";
-         target: "sel_shadow";
          target: "sel_base";
-         target: "sel_bevel";
-         target: "sel_shine";
       }
       program {
          signal: "e,state,marked"; source: "e";
