@@ -244,46 +244,17 @@ group { name: "e/wizard/main";
 
 group { name: "e/wizard/firstpage";
    images.image: "logo_blue_small.png" COMP;
-   images.image: "logo_blue_small_glow.png" COMP;
    parts {
       part { name: "logo";
          description { state: "default" 0.0;
             image.normal: "logo_blue_small.png";
             rel1.relative: 0.5 0.5;
             rel2.relative: 0.5 0.5;
-            FIXED_SIZE(100, 127)
+            FIXED_SIZE(100, 100)
          }
       }
-      part { name: "logo_glow";
-         description { state: "default" 0.0;
-            image.normal: "logo_blue_small_glow.png";
-            rel1.to: "logo";
-            rel2.to: "logo";
-            color: 255 255 255 128;
-         }
-         description { state: "active" 0.0;
-            inherit: "default" 0.0;
-            color: 255 255 255 255;
-         }
-      }
-   }
-  programs {
-     program { name: "logo_pulse";
-        signal: "show"; source: "";
-        action: STATE_SET "active" 0.0;
-        target: "logo_glow";
-        transition: BOUNCE 0.8 0.5 6;
-        after: "logo_pulse2";
-     }
-     program { name: "logo_pulse2";
-        action: STATE_SET "default" 0.0;
-        target: "logo_glow";
-        transition: SINUSOIDAL 0.8;
-        after: "logo_pulse";
-     }
   }
 }
-
 group { name: "e/wizard/extra";
    images.image: "surface_no_border.png" COMP;
    parts {
