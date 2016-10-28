@@ -37,13 +37,11 @@ moveAllHighlightImages(){
 
     moveHighlightImage glow_lock_locked.png
     moveHighlightImage icon_border_close.png
-    moveHighlightImage digit_2.png
     moveHighlightImage diagonal_stripes.png
     moveHighlightImage mini_blue_glow_arrow_1.png
     moveHighlightImage glow_exclam.png
     moveHighlightImage logo_blue_bottom.png
     moveHighlightImage icon_system-lock-screen.png
-    moveHighlightImage digit_4.png
     moveHighlightImage wifi_sig_3.png
     moveHighlightImage split_h_glow.png
     moveHighlightImage cell_sig_1.png
@@ -54,7 +52,6 @@ moveAllHighlightImages(){
     moveHighlightImage cell_sig_3.png
     moveHighlightImage bulb_glow.png
     moveHighlightImage icon_border_pager.png
-    moveHighlightImage digit_1.png
     moveHighlightImage logo_blue_small.png
     moveHighlightImage horizontal_separated_bar_glow.png
     moveHighlightImage win_glow.png
@@ -62,15 +59,12 @@ moveAllHighlightImages(){
     moveHighlightImage sym_close_dark_selected.png
     moveHighlightImage icon_border_pin.png
     moveHighlightImage mini_blue_glow_arrow_2.png
-    moveHighlightImage digit_8.png
     moveHighlightImage icon_border_move.png
     moveHighlightImage kbd_glow.png
     moveHighlightImage icon_border_stack_bot.png
-    moveHighlightImage digit_9.png
     moveHighlightImage icon_border_maximize.png
     moveHighlightImage cell_sig_4.png
     moveHighlightImage icon_border_sendto.png
-    moveHighlightImage digit_6.png
     moveHighlightImage white_bar_vert_glow.png
     moveHighlightImage sym_icon_op_move.png
     moveHighlightImage outline_glow.png
@@ -94,7 +88,6 @@ moveAllHighlightImages(){
     moveHighlightImage col_sel_end_bottom.png
     moveHighlightImage mini_blue_glow_arrow_0.png
     moveHighlightImage icon_preferences-applications-personal.png
-    moveHighlightImage digit_3.png
     moveHighlightImage icon_preferences-variables.png
     moveHighlightImage vertical_separated_bar_glow.png
     moveHighlightImage horiz_glow_run.png
@@ -110,9 +103,7 @@ moveAllHighlightImages(){
     moveHighlightImage wifi_sig_2.png
     moveHighlightImage sym_icon_op_copy.png
     moveHighlightImage spanner_glow.png
-    moveHighlightImage digit_7.png
     moveHighlightImage sym_heart_glow_normal.png
-    moveHighlightImage digit_5.png
     moveHighlightImage sym_down_glow_normal.png
     moveHighlightImage icon_border_more.png
     moveHighlightImage icon_border_remember.png
@@ -129,17 +120,14 @@ moveAllHighlightImages(){
     moveHighlightImage icon_border_properties.png
     moveHighlightImage ic_win_resize.png
     moveHighlightImage sym_up_glow_normal.png
-    moveHighlightImage digit_pm.png
     moveHighlightImage holes_tiny_glow_horiz.png
     moveHighlightImage icon_system-suspend-hibernate.png
     moveHighlightImage split_none_glow.png
     moveHighlightImage icon_border_resize.png
     moveHighlightImage ball_small_glow_intense.png
-    moveHighlightImage digit_am.png
     moveHighlightImage glow_lock_unlocked.png
     moveHighlightImage icon_system-suspend.png
     moveHighlightImage wifi_base.png
-    moveHighlightImage digit_0.png
     moveHighlightImage icon_system-log-out.png
     moveHighlightImage sym_left_glow_normal.png
     moveHighlightImage icon_border_kill.png
