@@ -299,12 +299,14 @@ group { name: "elm/check/base/default";
 }
 
 group { name: "elm/check/base/toggle";
-   images.image: "inset_shadow_tiny.png" COMP;
    images.image: "bevel_in.png" COMP;
    images.image: "bevel_out.png" COMP;
-   images.image: "surface_circle_small.png" COMP;
+   images.image: "vgrad_med_lighter.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
    images.image: "glow_small.png" COMP;
+   images.image: "surface_rot.png" COMP;
+   images.image: "surface_circle_small.png" COMP;
+
    
 #define ICON     1
 #define LABEL    2
@@ -425,26 +427,29 @@ group { name: "elm/check/base/toggle";
             fixed: 1 0;
             rel1.relative: 1.0 0.0;
             rel1.offset: 2 2;
-            rel2.offset: -3 -3;
+            rel2.offset: -1 0;
             align: 1.0 0.5;
             min: 88 15;
             max: 88 15;
          }
       }
-      part { name: "onrect";  mouse_events: 0;
+      part { name: "onrect"; mouse_events: 0;
          scale: 1;
          clip_to: "tog_clip";
          description { state: "default" 0.0;
             rel1.to: "button";
             rel1.relative: -5.0 0.0;
+            rel1.offset: -1.0 -1.0;
             rel2.to: "button";
-            rel2.relative: 0.5 1.0;
-            image.normal: surface.png;
+            rel2.relative: 1.0 1.0;
+            rel2.offset: 0.0 0.0;
+            image.normal: "surface_rot.png";
             image.border: 8 8 8 8;
+            color: 255 255 255 190;
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
-            color: 255 255 255 120;
+            color: 255 255 255 90;
          }
       }
       part { name: "offrect"; mouse_events: 0;
@@ -452,14 +457,18 @@ group { name: "elm/check/base/toggle";
          clip_to: "tog_clip";
          description { state: "default" 0.0;
             rel1.to: "button";
-            rel1.relative: 0.5 0.0;
+            rel1.relative: 0.0 0.0;
+            rel1.offset: -1.0 -1.0;
             rel2.to: "button";
-            image.normal: surface.png;
+            rel2.relative: 6.0 1.0;
+            rel2.offset: 0.0 0.0;
+            image.normal: "surface_rot.png";
             image.border: 8 8 8 8;
+            color: 255 255 255 190;
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
-            color: 255 255 255 120;
+            color: 255 255 255 90;
          }
       }
       part { name: "elm.offtext"; type: TEXT; mouse_events:  0;
@@ -513,24 +522,12 @@ group { name: "elm/check/base/toggle";
             color3: 255 255 255 255;
          }
       }
-      part { name: "inset"; mouse_events: 0;
-         scale: 1;
-         description { state: "default" 0.0;
-            fixed: 1 1;
-            rel1.to: "tog";
-            rel1.offset: -1 -1;
-            rel2.to: "tog";
-            rel2.offset: 0 0;
-            image.normal: "bevel_in.png";
-            image.border: 1 1 1 1;
-            image.middle: 0;
-            fill.smooth: 0;
-         }
-      }
       part { name: "tog_clip"; type: RECT;
          description { state: "default" 0.0;
             rel1.to: "tog";
+            rel1.offset: -1 -1;
             rel2.to: "tog";
+            rel2.offset: 2 2;
          }
       }
       part { name: "button"; type: RECT;
@@ -550,28 +547,11 @@ group { name: "elm/check/base/toggle";
             color: 0 0 0 0;
          }
       }
-      part { name: "glow_but"; mouse_events: 0;
-         description { state: "default" 0.0;
-            rel1.offset: -3 -3;
-            rel1.to: "base_but";
-            rel2.offset: 2 2;
-            rel2.to: "base_but";
-            image.normal: "glow_small.png";
-            image.border: 7 7 7 7;
-            fill.smooth: 0;
-            visible: 0;
-         }
-         description { state: "clicked" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
       part { name: "base_but"; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.to: "button";
             rel2.to: "button";
             image.normal: "surface_circle_small.png";
-            image.border: 8 8 8 8;
             fill.smooth: 0;
          }
       }
@@ -784,16 +764,6 @@ group { name: "elm/check/base/toggle";
                set_int(is_drag, 0);
             }
          }
-      }
-      program {
-         signal: "mouse,down,1"; source: "button";
-         action: STATE_SET "clicked" 0.0;
-         target: "glow_but";
-      }
-      program {
-         signal: "mouse,up,1"; source: "button";
-         action: STATE_SET "default" 0.0;
-         target: "glow_but";
       }
       program {
          signal: "elm,state,text,visible"; source: "elm";
