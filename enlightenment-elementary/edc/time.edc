@@ -87,7 +87,6 @@ group { "e/gadget/clock/digital/advanced"; nomouse;
          desc {
             rel1.to: "e.text";
             rel2.to: "e.text.sub";
-            rel2.offset: 3 0;
          }
          desc { "only";
             rel.to: "e.text";
@@ -103,9 +102,6 @@ group { "e/gadget/clock/digital/advanced"; nomouse;
       program { signal: "e,state,date,off"; source: "e";
          action: STATE_SET "only";
          targets: "e.text" "e.text.sub" "e.sizer";
-      }
-      program { signal: "resize";
-        action: SIGNAL_EMIT "e,state,sizing,changed" "e";
       }
    }
 }
@@ -693,9 +689,6 @@ group { name: "e/gadget/clock/digital";
             set_state(PART:"ampmclip", "default", 0.0);
             reset();
          }
-      }
-      program { signal: "resize";
-        action: SIGNAL_EMIT "e,state,sizing,changed" "e";
       }
 #define DIGPRG(_NAME) \
       program { \

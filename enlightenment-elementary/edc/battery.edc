@@ -7,6 +7,8 @@ group { name: "e/modules/battery/main";
    images.image: "bat_top0.png" COMP;
    images.image: "bat_top1.png" COMP;
    images.image: "glow_med_white.png" COMP;
+   min: 16 16;
+   max: 160 160;
    script {
       public message(Msg_Type:type, id, ...) {
          if ((type == MSG_FLOAT) && (id == 1)) {
@@ -76,6 +78,7 @@ group { name: "e/modules/battery/main";
             rel2.to: "bg";
             rel2.relative: 0.60 0.60;
             aspect: 1.0 1.0; aspect_preference: BOTH;
+            min: 5 5;
             step: 5 5;
          }
       }
@@ -220,10 +223,9 @@ group { name: "e/modules/battery/main";
             rel2.offset: -1 2;
             color_class: "module_label_plain";
             color3: 255 255 255 255;
-            text { font: "Sans";
+            text { font: "Sans"; size: 8;
+               min: 0 1;
                fit: 1 1;
-               ellipsis: -1;
-               align: 0.5 0.5;
                text_class: "module_small";
             }
          }
@@ -241,10 +243,9 @@ group { name: "e/modules/battery/main";
             rel2.to: "bg";
             color_class: "module_label_plain";
             color3: 255 255 255 255;
-            text { font: "Sans";
+            text { font: "Sans"; size: 8;
+               min: 0 1;
                fit: 1 1;
-               ellipsis: -1;
-               align: 0.5 0.5;
                text_class: "module_small";
             }
          }

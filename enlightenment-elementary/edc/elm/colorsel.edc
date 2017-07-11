@@ -363,7 +363,6 @@ group { name: "elm/colorselector/base/default";
    images.image: "col_sel_end_top.png" COMP;
    parts {
       part { name: "elm.bar_bg"; type: SWALLOW; mouse_events: 0;
-         scale: 1;
          description { state: "default" 0.0;
             min: 32 15;
             rel1.offset: 0 10;
@@ -467,7 +466,6 @@ group { name: "elm/colorselector/base/default";
       }
       part { name: "end1"; mouse_events: 0;
          clip_to: "clipper";
-         scale: 1;
          description { state: "default" 0.0;
             image.normal: "col_sel_end_top.png";
             FIXED_SIZE(11, 8)
@@ -480,7 +478,6 @@ group { name: "elm/colorselector/base/default";
       }
       part { name: "end2"; mouse_events: 0;
          clip_to: "clipper";
-         scale: 1;
          description { state: "default" 0.0;
             image.normal: "col_sel_end_bottom.png";
             FIXED_SIZE(11, 8)

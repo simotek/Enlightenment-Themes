@@ -1,5 +1,4 @@
 group { name: "e/modules/xkbswitch/main";
-   alias: "e/modules/xkbswitch/main_vert";
    images.image: "shadow_square_tiny.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
@@ -92,7 +91,6 @@ group { name: "e/modules/xkbswitch/main";
 }
 
 group { name: "e/modules/xkbswitch/noflag";
-   alias: "e/modules/xkbswitch/noflag_vert";
    images.image: "shadow_square_tiny.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
