@@ -7,7 +7,6 @@
 */
 
 group { name: "elm/bg/base/default";
-   data.item: "version" "119";
    images.image: "bevel_dark_out.png" COMP;
    parts {
       part { name: "base"; type: RECT;

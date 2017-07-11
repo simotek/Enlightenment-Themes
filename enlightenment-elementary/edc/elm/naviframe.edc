@@ -544,15 +544,10 @@ group { name: "elm/naviframe/item/basic/default";
       program {
          signal: "elm,state,visible"; source: "elm";
          action: STATE_SET "default" 0.0;
-         target: "elements_clip";
-         target: "base";
-      }
-      program {
-         signal: "elm,state,invisible"; source: "elm";
-         action: STATE_SET "hidden" 0.0;
+         target: "elm.swallow.content";
          target: "elements_clip";
       }
-
+      
       /* current page is being pushed: [previous]<----[current] */
       program {
          signal: "elm,state,cur,pushed"; source: "elm";
@@ -652,6 +647,31 @@ group { name: "elm/naviframe/item/overlap/default";
          description { state: "title-hidden" 0.0;
             color: 255 255 255 224;
          }
+      }
+   }
+   programs {
+      /* current page is being pushed: [previous]<----[current] */
+      program {
+         signal: "elm,state,cur,pushed"; source: "elm";
+         action: SIGNAL_EMIT "elm,action,pushed,finished" "elm";
+      }
+
+      /* current page is being popped: [current]---->[next] */
+      program {
+         signal: "elm,state,cur,popped"; source: "elm";
+         action: SIGNAL_EMIT "elm,action,popped,finished" "elm";
+      }
+
+      /* new page is being pushed: [current]<----[next] */
+      program {
+         signal: "elm,state,new,pushed"; source: "elm";
+         action: SIGNAL_EMIT "elm,action,show,finished" "elm";
+      }
+
+      /* previous page is being pushed: [previous]---->[current] */
+      program {
+         signal: "elm,state,prev,popped"; source: "elm";
+         action: SIGNAL_EMIT "elm,action,show,finished" "elm";
       }
    }
 }
