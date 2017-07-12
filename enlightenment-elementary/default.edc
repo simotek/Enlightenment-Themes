@@ -4,7 +4,7 @@ externals.external: "elm";
 
 // theme api version. from 1.10 on we will check version to avoid
 // compat issues
-data.item: "version" "110";
+data.item: "version" "119";
 
 collections {
 #include "fonts.edc"
@@ -13,6 +13,7 @@ collections {
 // elm
 #include "edc/elm/bg.edc"
 #include "edc/elm/button.edc"
+#include "edc/elm/nstate.edc"
 // XXX: mobile mode needs invisible scrollers... make signals that do this
 #include "edc/elm/scroller.edc"
 // XXX: mobile mode needs different entry setup
@@ -30,11 +31,12 @@ collections {
 #include "edc/elm/list.edc"
 #include "edc/elm/conform.edc"
 #include "edc/elm/icon.edc"
+#include "edc/elm/icon_fdo.edc"
 #include "edc/elm/video.edc"
 #include "edc/elm/access.edc"
 #include "edc/elm/photo.edc"
 #include "edc/elm/focus.edc"
-#include "edc/elm/datetime.edc"
+#include "edc/elm/uiclock.edc"
 #include "edc/elm/player.edc"
 #include "edc/elm/thumb.edc"
 #include "edc/elm/pointer.edc"
@@ -70,6 +72,8 @@ collections {
 #include "edc/elm/gengrid.edc"
 #include "edc/elm/hover.edc"
 #include "edc/elm/cursor.edc"
+#include "edc/elm/code.edc"
+#include "edc/elm/ews.edc"
 
 // desktop in general
 #include "edc/wallpaper.edc"
@@ -77,6 +81,8 @@ collections {
 #include "edc/comp_compat.edc"
 #include "edc/comp_effects.edc"
 #include "edc/background.edc"
+#include "edc/bryce.edc"
+#include "edc/bryce_editor.edc"
 #include "edc/shelf.edc"
 #include "edc/border.edc"
 #include "edc/dialog.edc"
@@ -136,10 +142,17 @@ collections {
 #include "edc/backlight.edc"
 #include "edc/mixer.edc"
 #include "edc/battery.edc"
+#include "edc/batman.edc"
 #include "edc/evrything.edc"
 #include "edc/illume.edc"
 #include "edc/bluez4.edc"
 #include "edc/packagekit.edc"
+#include "edc/wireless.edc"
+#include "edc/time.edc"
+#include "edc/luncher.edc"
+#include "edc/memusage.edc"
+#include "edc/cpumonitor.edc"
+#include "edc/netstatus.edc"
 
 // icons
 #include "edc/icons.edc"
