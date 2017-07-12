@@ -1,4 +1,5 @@
 group { name: "e/modules/pager16/popup";
+   alias: "e/gadget/pager16/popup";
    images.image: "vgrad_tall.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
@@ -60,6 +61,7 @@ group { name: "e/modules/pager16/popup";
 }
 
 group { name: "e/modules/pager16/desk";
+   alias: "e/gadget/pager16/desk";
    images.image: "vgrad_med_darker.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "bevel_in.png" COMP;
@@ -92,6 +94,18 @@ group { name: "e/modules/pager16/desk";
          description { state: "default" 0.0;
             rel1.to: "base";
             rel2.to: "base";
+         }
+      }
+      part { name: "e.swallow.drop"; type: SWALLOW;
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            rel1.to: "base";
+            rel2.to: "base";
+            rel2.offset: -2 -1;
+            link.base: "e,state,visible" "e";
+         }
+         desc { "hid"; inherit; hid;
+            link.base: "e,state,hidden" "e";
          }
       }
       part { name: "e.swallow.content"; type: SWALLOW;
