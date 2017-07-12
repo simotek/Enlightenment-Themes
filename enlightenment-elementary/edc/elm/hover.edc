@@ -1,9 +1,14 @@
 /* TODO: replicate diagonal swallow slots to the other hover styles */
 group { name: "elm/hover/base/default";
+   data.item: "dismiss" "on";
+   script {
+      public on_dismiss = 0;
+   }
    parts {
       part { name: "elm.swallow.offset"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            fixed: 1 1;
             rel1.relative: 0.0 0.0;
             rel2.relative: 0.0 0.0;
          }
@@ -11,6 +16,7 @@ group { name: "elm/hover/base/default";
       part { name: "elm.swallow.size"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            fixed: 1 1;
             rel1.to: "elm.swallow.offset";
             rel1.relative: 1.0 1.0;
             rel2.to: "elm.swallow.offset";
@@ -34,6 +40,7 @@ group { name: "elm/hover/base/default";
       part { name: "elm.swallow.slot.left"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 1.0 0.5;
+            fixed: 1 0;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 0.0 0.0;
             rel1.offset: -1 0;
@@ -45,6 +52,7 @@ group { name: "elm/hover/base/default";
       part { name: "elm.swallow.slot.top-left"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 1.0 1.0;
+            fixed: 1 1;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 0.0 0.0;
             rel1.offset: 0 0;
@@ -56,6 +64,7 @@ group { name: "elm/hover/base/default";
       part { name: "elm.swallow.slot.top"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.5 1.0;
+            fixed: 0 1;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 0.0 0.0;
             rel1.offset: 0 -1;
@@ -67,6 +76,7 @@ group { name: "elm/hover/base/default";
       part { name: "elm.swallow.slot.top-right"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.0 1.0;
+            fixed: 1 1;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 1.0 0.0;
             rel1.offset: 0 0;
@@ -78,6 +88,7 @@ group { name: "elm/hover/base/default";
       part { name: "elm.swallow.slot.right"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.0 0.5;
+            fixed: 1 0;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 1.0 0.0;
             rel1.offset: 0 0;
@@ -89,6 +100,7 @@ group { name: "elm/hover/base/default";
       part { name: "elm.swallow.slot.bottom-right"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            fixed: 1 1;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 1.0 1.0;
             rel1.offset: 0 0;
@@ -100,6 +112,7 @@ group { name: "elm/hover/base/default";
       part { name: "elm.swallow.slot.bottom"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.5 0.0;
+            fixed: 0 1;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 0.0 1.0;
             rel1.offset: 0 0;
@@ -111,6 +124,7 @@ group { name: "elm/hover/base/default";
       part { name: "elm.swallow.slot.bottom-left"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 1.0 0.0;
+            fixed: 1 1;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 0.0 1.0;
             rel1.offset: 0 0;
@@ -129,17 +143,37 @@ group { name: "elm/hover/base/default";
    programs {
       program { name: "end";
          signal: "mouse,up,*"; source: "base";
-         action: SIGNAL_EMIT "elm,action,dismiss" "elm";
+         script {
+            if (get_int(on_dismiss) == 0) {
+               emit("elm,action,dismiss", "elm");
+               set_int(on_dismiss, 1);
+            }
+         }
+      }
+      program { name: "hide";
+         signal: "elm,action,hide"; source: "elm";
+         after: "hidefinished";
+      }
+      program { name: "hidefinished";
+         script {
+            set_int(on_dismiss, 0);
+            emit("elm,action,hide,finished", "elm");
+         }
       }
    }
 }
 
 group { name: "elm/hover/base/popout";
+   data.item: "dismiss" "on";
    images.image: "button_normal.png" COMP;
+   script {
+      public on_dismiss = 0;
+   }
    parts {
       part { name: "elm.swallow.offset"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            fixed: 1 1;
             rel1.relative: 0.0 0.0;
             rel2.relative: 0.0 0.0;
          }
@@ -147,6 +181,7 @@ group { name: "elm/hover/base/popout";
       part { name: "elm.swallow.size"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            fixed: 1 1;
             rel1.to: "elm.swallow.offset";
             rel1.relative: 1.0 1.0;
             rel2.to: "elm.swallow.offset";
@@ -190,6 +225,7 @@ group { name: "elm/hover/base/popout";
          clip_to: "leftclip";
          description { state: "default" 0.0;
             align: 0.0 0.5;
+            fixed: 1 0;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 0.0 0.0;
             rel1.offset: -1 0;
@@ -232,6 +268,7 @@ group { name: "elm/hover/base/popout";
          clip_to: "rightclip";
          description { state: "default" 0.0;
             align: 1.0 0.5;
+            fixed: 1 0;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 1.0 0.0;
             rel1.offset: 0 0;
@@ -275,6 +312,7 @@ group { name: "elm/hover/base/popout";
          description { state: "default" 0.0;
             visible: 1;
             align: 0.5 0.0;
+            fixed: 0 1;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 0.0 0.0;
             rel1.offset: 0 -1;
@@ -317,6 +355,7 @@ group { name: "elm/hover/base/popout";
          clip_to: "bottomclip";
          description { state: "default" 0.0;
             align: 0.5 1.0;
+            fixed: 0 1;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 0.0 1.0;
             rel1.offset: 0 0;
@@ -352,7 +391,12 @@ group { name: "elm/hover/base/popout";
    programs {
       program { name: "end";
          signal: "mouse,up,*"; source: "base";
-         action: SIGNAL_EMIT "elm,action,dismiss" "elm";
+         script {
+            if (get_int(on_dismiss) == 0) {
+               emit("elm,action,dismiss", "elm");
+               set_int(on_dismiss, 1);
+            }
+         }
       }
       program { name: "show";
          signal: "elm,action,show"; source: "elm";
@@ -362,7 +406,15 @@ group { name: "elm/hover/base/popout";
       program { name: "hide";
          signal: "elm,action,hide"; source: "elm";
          action: STATE_SET "default" 0.0;
+         transition: DECELERATE 0.5;
          target: "base";
+         after: "hidefinished";
+      }
+      program { name: "hidefinished";
+         script {
+            set_int(on_dismiss, 0);
+            emit("elm,action,hide,finished", "elm");
+         }
       }
       program { name: "leftshow";
          signal: "elm,action,slot,left,show"; source: "elm";
@@ -425,12 +477,40 @@ group { name: "elm/hover/base/popout";
 
 group { name: "elm/hover/base/hoversel_vertical/default";
    alias: "elm/hover/base/hoversel_vertical/entry";
+   alias: "elm/hover/base/combobox_vertical/entry";
+   alias: "elm/hover/base/combobox_vertical/default";
    images.image: "button_normal.png" COMP;
    images.image: "vertical_separated_bar_glow.png" COMP;
+   data.item: "dismiss" "on";
+   // max_size limits the maximum size of expanded hoversel
+   // when it's scrollable.
+   //data.item: "max_size" "60";
+   script {
+      public visible = 0;
+      public right = 0;
+      public on_dismiss = 0;
+      public topshow2() {
+         if (get_int(right) == 0)
+            run_program(PROGRAM:"topshow_default");
+         else
+            run_program(PROGRAM:"topshow_right");
+         set_int(visible, 1);
+         set_int(on_dismiss, 0);
+      }
+      public bottomshow2() {
+         if (get_int(right) == 0)
+            run_program(PROGRAM:"bottomshow_default");
+         else
+            run_program(PROGRAM:"bottomshow_right");
+         set_int(visible, 1);
+         set_int(on_dismiss, 0);
+      }
+   }
    parts {
       part { name: "elm.swallow.offset"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            fixed: 1 1;
             rel1.relative: 0.0 0.0;
             rel2.relative: 0.0 0.0;
          }
@@ -438,6 +518,7 @@ group { name: "elm/hover/base/hoversel_vertical/default";
       part { name: "elm.swallow.size"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            fixed: 1 1;
             rel1.to: "elm.swallow.offset";
             rel1.relative: 1.0 1.0;
             rel2.to: "elm.swallow.offset";
@@ -448,11 +529,11 @@ group { name: "elm/hover/base/hoversel_vertical/default";
          description { state: "default" 0.0;
             rel1.to_x: "limit0";
             rel1.to_y: "elm.swallow.slot.top";
-            rel1.offset: -10 -6;
+            rel1.offset: -2 -4;
             rel2.to_x: "limit1";
             rel2.to_y: "elm.swallow.slot.middle";
             rel2.relative: 1.0 0.0;
-            rel2.offset: 9 5;
+            rel2.offset: 9 4;
             image {
                normal: "button_normal.png";
                border: 7 7 7 7;
@@ -463,10 +544,10 @@ group { name: "elm/hover/base/hoversel_vertical/default";
             rel1.to_x: "limit0";
             rel1.to_y: "elm.swallow.slot.middle";
             rel1.relative: 0.0 1.0;
-            rel1.offset: -10 -4;
+            rel1.offset: -2 -4;
             rel2.to_x: "limit1";
             rel2.to_y: "elm.swallow.slot.bottom";
-            rel2.offset: 9 5;
+            rel2.offset: 9 4;
             image {
                normal: "button_normal.png";
                border: 7 7 7 7;
@@ -540,17 +621,30 @@ group { name: "elm/hover/base/hoversel_vertical/default";
          clip_to: "topclip";
          description { state: "default" 0.0;
             visible: 1;
-            align: 0.5 0.0;
+            align: 0.0 0.0;
+            fixed: 0 1;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 0.0 0.0;
             rel1.offset: 0 -1;
             rel2.to: "elm.swallow.slot.middle";
             rel2.relative: 1.0 0.0;
-            rel2.offset: -1 -1;
+            /* set negative offset along x axis not to make
+               "select_line" part exceed parent's width */
+            rel2.offset: -9 -1;
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
-            align: 0.5 1.0;
+            align: 0.0 1.0;
+         }
+         description { state: "right" 0.0;
+            inherit: "default" 0.0;
+            align: 1.0 0.0;
+            rel2.offset: -9 0;
+         }
+         description { state: "right_visible" 0.0;
+            inherit: "default" 0.0;
+            align: 1.0 1.0;
+            rel2.offset: -9 0;
          }
       }
       part { name: "bottomclip"; type: RECT;
@@ -562,17 +656,30 @@ group { name: "elm/hover/base/hoversel_vertical/default";
       part { name: "elm.swallow.slot.bottom"; type: SWALLOW;
          clip_to: "bottomclip";
          description { state: "default" 0.0;
-            align: 0.5 1.0;
+            align: 0.0 1.0;
+            fixed: 0 1;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 0.0 1.0;
-            rel1.offset: 0 2;
+            rel1.offset: 0 0;
             rel2.to: "elm.swallow.slot.middle";
             rel2.relative: 1.0 1.0;
-            rel2.offset: -1 2;
+            /* set negative offset along x axis not to make
+               "select_line" part exceed parent's width */
+            rel2.offset: -9 2;
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
-            align: 0.5 0.0;
+            align: 0.0 0.0;
+         }
+         description { state: "right" 0.0;
+            inherit: "default" 0.0;
+            align: 1.0 1.0;
+            rel2.offset: -9 0;
+         }
+         description { state: "right_visible" 0.0;
+            inherit: "default" 0.0;
+            align: 1.0 0.0;
+            rel2.offset: -9 0;
          }
       }
       part { name: "elm.swallow.slot.middle";
@@ -586,7 +693,12 @@ group { name: "elm/hover/base/hoversel_vertical/default";
    programs {
       program { name: "end";
          signal: "mouse,up,*"; source: "base";
-         action: SIGNAL_EMIT "elm,action,dismiss" "elm";
+         script {
+            if (get_int(on_dismiss) == 0) {
+               emit("elm,action,dismiss", "elm");
+               set_int(on_dismiss, 1);
+            }
+         }
       }
       program { name: "show";
          signal: "elm,action,show"; source: "elm";
@@ -596,47 +708,130 @@ group { name: "elm/hover/base/hoversel_vertical/default";
       program { name: "hide";
          signal: "elm,action,hide"; source: "elm";
          action: STATE_SET "default" 0.0;
+         transition: DECELERATE 0.5;
          target: "base";
+         after: "hidefinished";
       }
-      
+      program { name: "hide_no_animate";
+         signal: "elm,action,hide,no_animate"; source: "elm";
+         action: STATE_SET "default" 0.0;
+         target: "base";
+         after: "hidefinished";
+      }
+      program { name: "hidefinished";
+         script {
+            set_int(on_dismiss, 0);
+            emit("elm,action,hide,finished", "elm");
+         }
+      }
       program { name: "topshow";
          signal: "elm,action,slot,top,show"; source: "elm";
-         action: STATE_SET "visible" 0.0;
-         transition: DECELERATE 0.5;
-         target: "elm.swallow.slot.top";
+         script {
+            set_state(PART:"limit0", "default", 0.0);
+            set_state(PART:"limit1", "default", 0.0);
+            set_state(PART:"button_image", "default", 0.0);
+            topshow2();
+         }
       }
-      program { name: "topshow3";
-         signal: "elm,action,slot,top,show"; source: "elm";
-         action: STATE_SET "default" 0.0;
-         target: "button_image";
-         target: "limit0";
-         target: "limit1";
+      program { name: "topshow_default";
+         action: STATE_SET "visible" 0.0;
+         target: "elm.swallow.slot.top";
+         transition: DECELERATE 0.5;
+      }
+      program { name: "topshow_right";
+         action: STATE_SET "right_visible" 0.0;
+         target: "elm.swallow.slot.top";
+         transition: DECELERATE 0.5;
       }
       program { name: "tophide";
-         signal: "elm,action,slot,top,hide"; source: "elm";
-         action: STATE_SET "default" 0.0;
-         transition: DECELERATE 0.5;
-         target: "elm.swallow.slot.top";
+         signal: "elm,action,slot,top,hide";
+         source: "elm";
+         script {
+            if (get_int(right) == 0)
+               run_program(PROGRAM:"tophide_default");
+            else
+               run_program(PROGRAM:"tophide_right");
+            set_int(visible, 0);
+         }
       }
-      
+      program { name: "tophide_default";
+         action: STATE_SET "default" 0.0;
+         target: "elm.swallow.slot.top";
+         transition: DECELERATE 0.5;
+      }
+      program { name: "tophide_right";
+         action: STATE_SET "right" 0.0;
+         target: "elm.swallow.slot.top";
+         transition: DECELERATE 0.5;
+      }
       program { name: "bottomshow";
          signal: "elm,action,slot,bottom,show"; source: "elm";
-         action: STATE_SET "visible" 0.0;
-         transition: DECELERATE 0.5;
-         target: "elm.swallow.slot.bottom";
+         script {
+            set_state(PART:"limit0", "bottom", 0.0);
+            set_state(PART:"limit1", "bottom", 0.0);
+            set_state(PART:"button_image", "bottom", 0.0);
+            bottomshow2();
+         }
       }
-      program { name: "bottomshow3";
-         signal: "elm,action,slot,bottom,show"; source: "elm";
-         action: STATE_SET "bottom" 0.0;
-         target: "button_image";
-         target: "limit0";
-         target: "limit1";
+      program { name: "bottomshow_default";
+         action: STATE_SET "visible" 0.0;
+         target: "elm.swallow.slot.bottom";
+         transition: DECELERATE 0.5;
+      }
+      program { name: "bottomshow_right";
+         action: STATE_SET "right_visible" 0.0;
+         target: "elm.swallow.slot.bottom";
+         transition: DECELERATE 0.5;
       }
       program { name: "bottomhide";
          signal: "elm,action,slot,bottom,hide"; source: "elm";
+         script {
+            if (get_int(right) == 0) {
+               run_program(PROGRAM:"bottomhide_default");
+            }
+            else {
+               run_program(PROGRAM:"bottomhide_right");
+            }
+            set_int(visible, 0);
+         }
+      }
+      program { name: "bottomhide_default";
          action: STATE_SET "default" 0.0;
-         transition: DECELERATE 0.5;
          target: "elm.swallow.slot.bottom";
+         transition: DECELERATE 0.5;
+      }
+      program { name: "bottomhide_right";
+         action: STATE_SET "right" 0.0;
+         target: "elm.swallow.slot.bottom";
+         transition: DECELERATE 0.5;
+      }
+      program { name: "align_right";
+         signal: "elm,state,align,right"; source: "elm";
+         script {
+            set_int(right, 1);
+            if (get_int(visible) == 0) {
+               set_state(PART:"elm.swallow.slot.top", "right", 0.0);
+               set_state(PART:"elm.swallow.slot.bottom", "right", 0.0);
+            }
+            else {
+               set_state(PART:"elm.swallow.slot.top", "right_visible", 0.0);
+               set_state(PART:"elm.swallow.slot.bottom", "right_visible", 0.0);
+            }
+         }
+      }
+      program { name: "align_default";
+         signal: "elm,state,align,default"; source: "elm";
+         script {
+            set_int(right, 0);
+            if (get_int(visible) == 0) {
+               set_state(PART:"elm.swallow.slot.top", "default", 0.0);
+               set_state(PART:"elm.swallow.slot.bottom", "default", 0.0);
+            }
+            else {
+               set_state(PART:"elm.swallow.slot.top", "visible", 0.0);
+               set_state(PART:"elm.swallow.slot.bottom", "visible", 0.0);
+            }
+         }
       }
    }
 }
@@ -644,10 +839,18 @@ group { name: "elm/hover/base/hoversel_vertical/default";
 group { name: "elm/hover/base/hoversel_horizontal/default";
    alias: "elm/hover/base/hoversel_horizontal/entry";
    images.image: "button_normal.png" COMP;
+   data.item: "dismiss" "on";
+   script {
+      public on_dismiss = 0;
+   }
+   // max_size limits the maximum size of expanded hoversel
+   // when it's scrollable.
+   //data.item: "max_size" "120";
    parts {
       part { name: "elm.swallow.offset"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            fixed: 1 1;
             rel1.relative: 0.0 0.0;
             rel2.relative: 0.0 0.0;
          }
@@ -655,6 +858,7 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
       part { name: "elm.swallow.size"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            fixed: 1 1;
             rel1.to: "elm.swallow.offset";
             rel1.relative: 1.0 1.0;
             rel2.to: "elm.swallow.offset";
@@ -673,12 +877,12 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
       part { name: "button_image"; mouse_events: 0;
          description { state: "default" 0.0;
             rel1.to_x: "elm.swallow.slot.left";
-            rel1.to_y: "elm.swallow.slot.middle";
-            rel1.offset: -6 0;
+            rel1.to_y: "elm.swallow.slot.left";
+            rel1.offset: -10 0;
             rel2.to_x: "elm.swallow.slot.middle";
-            rel2.to_y: "elm.swallow.slot.middle";
+            rel2.to_y: "elm.swallow.slot.left";
             rel2.relative: 0.0 1.0;
-            rel2.offset: 4 1;
+            rel2.offset: 4 9;
             image {
                normal: "button_normal.png";
                border: 7 7 7 7;
@@ -687,12 +891,12 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
          }
          description { state: "right" 0.0;
             rel1.to_x: "elm.swallow.slot.middle";
-            rel1.to_y: "elm.swallow.slot.middle";
+            rel1.to_y: "elm.swallow.slot.right";
             rel1.relative: 1.0 0.0;
             rel1.offset: -5 0;
             rel2.to_x: "elm.swallow.slot.right";
-            rel2.to_y: "elm.swallow.slot.middle";
-            rel2.offset: 5 1;
+            rel2.to_y: "elm.swallow.slot.right";
+            rel2.offset: 10 9;
             image {
                normal: "button_normal.png";
                border: 7 7 7 7;
@@ -710,7 +914,8 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
       part { name: "elm.swallow.slot.left"; type: SWALLOW;
          clip_to: "leftclip";
          description { state: "default" 0.0;
-            align: 0.0 0.5;
+            align: 0.0 0.0;
+            fixed: 1 0;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 0.0 0.0;
             rel1.offset: -1 0;
@@ -722,7 +927,7 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
             inherit: "default" 0.0;
             rel1.offset: -7 0;
             rel2.offset: -7 -1;
-            align: 1.0 0.5;
+            align: 1.0 0.0;
          }
       }
       part { name: "rightclip"; type: RECT;
@@ -734,7 +939,8 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
       part { name: "elm.swallow.slot.right"; type: SWALLOW;
          clip_to: "rightclip";
          description { state: "default" 0.0;
-            align: 1.0 0.5;
+            align: 1.0 0.0;
+            fixed: 1 0;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 1.0 0.0;
             rel1.offset: 0 0;
@@ -746,7 +952,7 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
             inherit: "default" 0.0;
             rel1.offset: 6 0;
             rel2.offset: -6 -1;
-            align: 0.0 0.5;
+            align: 0.0 0.0;
          }
       }
       part { name: "elm.swallow.slot.middle"; type: SWALLOW;
@@ -759,7 +965,12 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
    programs {
       program { name: "end";
          signal: "mouse,up,*"; source: "base";
-         action: SIGNAL_EMIT "elm,action,dismiss" "elm";
+         script {
+            if (get_int(on_dismiss) == 0) {
+               emit("elm,action,dismiss", "elm");
+               set_int(on_dismiss, 1);
+            }
+         }
       }
       program { name: "show";
          signal: "elm,action,show"; source: "elm";
@@ -772,6 +983,13 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
          action: STATE_SET "default" 0.0;
          transition: DECELERATE 0.5;
          target: "base";
+         after: "hidefinished";
+      }
+      program { name: "hidefinished";
+         script {
+            set_int(on_dismiss, 0);
+            emit("elm,action,hide,finished", "elm");
+         }
       }
 
       program { name: "leftshow";
