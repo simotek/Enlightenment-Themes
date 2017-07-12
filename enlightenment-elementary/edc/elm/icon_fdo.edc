@@ -28,11 +28,11 @@
 #define ICO1(Cat, Name, Size)                                     \
    group { name: "elm/icon/"##Name##"/default";                   \
       min: 16 16;                                                 \
-      images.image: ##Cat##"/"##Size##"/"##Name##".png" COMP;     \
+      images.image: "fdo/"##Cat##"/"##Size##"/"##Name##".png" COMP;     \
       parts {                                                     \
          part { name: "base";                                     \
             desc {                                                \
-               image.normal: ##Cat##"/"##Size##"/"##Name##".png"; \
+               image.normal: "fdo/"##Cat##"/"##Size##"/"##Name##".png"; \
                aspect: 1.0 1.0; aspect_preference: BOTH;          \
    }  }  }  }
 
@@ -44,11 +44,11 @@
       images {                                                  \
          set { name: ##Name##;                                  \
             image {                                             \
-               image: ##Cat##"/16/"##Name##".png" COMP;         \
+               image: "fdo/"##Cat##"/16/"##Name##".png" COMP;         \
                size: 0  0  22  22;                              \
             }                                                   \
             image {                                             \
-               image: ##Cat##"/128/"##Name##".png" COMP;        \
+               image: "fdo/"##Cat##"/128/"##Name##".png" COMP;        \
                size: 23  23  256  256;                          \
             }                                                   \
          }                                                      \
@@ -65,11 +65,11 @@
 #define FLAG(Cat, Name)                                     \
    group { name: "elm/icon/"##Name##"/default";             \
       min: 16 16;                                           \
-      images.image: ##Cat##"/128/"##Name##".png" COMP;      \
+      images.image: "fdo/"##Cat##"/128/"##Name##".png" COMP;      \
       parts {                                               \
          part { name: "base";                               \
             desc {                                          \
-               image.normal: ##Cat##"/128/"##Name##".png";  \
+               image.normal: "fdo/"##Cat##"/128/"##Name##".png";  \
                aspect_preference: SOURCE;                   \
    }  }  }  }
 

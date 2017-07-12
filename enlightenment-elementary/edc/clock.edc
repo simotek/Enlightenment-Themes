@@ -1,22 +1,7 @@
 group { name: "e/modules/clock/digital";
    min: 64 16;
    max: 512 128;
-<<<<<<< HEAD
-   images.image: "digit_na.png" COMP;
-   images.image: "digit_nm.png" COMP;
-   images.image: "digit_0.png" COMP;
-   images.image: "digit_1.png" COMP;
-   images.image: "digit_2.png" COMP;
-   images.image: "digit_3.png" COMP;
-   images.image: "digit_4.png" COMP;
-   images.image: "digit_5.png" COMP;
-   images.image: "digit_6.png" COMP;
-   images.image: "digit_7.png" COMP;
-   images.image: "digit_8.png" COMP;
-   images.image: "digit_9.png" COMP;
-   images.image: "digit_am.png" COMP;
-   images.image: "digit_pm.png" COMP;
-=======
+   
    images.image: "O/digit_na.png" COMP;
    images.image: "O/digit_nm.png" COMP;
    images.image: "O/digit_0.png" COMP;
@@ -31,7 +16,6 @@ group { name: "e/modules/clock/digital";
    images.image: "O/digit_9.png" COMP;
    images.image: "O/digit_am.png" COMP;
    images.image: "O/digit_pm.png" COMP;
->>>>>>> e08100d178fd4cc678efeb65c8e62cce5b019f94
    images.image: "hole_tiny.png" COMP;
    script {
       public do_seconds, do_24h, do_date, tick_timer;
