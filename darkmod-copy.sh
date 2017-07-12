@@ -3,7 +3,7 @@
 # This file is not intended to be used on its own it is             #
 # Intended to be sourced in build-darkmod.sh and clean-darkmod.sh   #
 #                                                                   #
-##################################################################### 
+#####################################################################
 #####################################################################
 #                                                                   #
 # This file is not intended to be used on its own it is             #
@@ -265,83 +265,83 @@ moveAllHighlightImages(){
 moveAllBackgroundImages(){
 # move background images
     mkdir $ELM_ENLIGHT_THEME_PATH/img-bgnd
-    
-    moveBackgroundImage home_inset.png 
-    moveBackgroundImage bevel_out.png 
-    moveBackgroundImage slider_run_base_light_vert.png 
-    moveBackgroundImage horiz_bar_inset.png 
-    moveBackgroundImage holes_vert.png 
-    moveBackgroundImage runner_vert.png 
-    moveBackgroundImage split_v_hilight.png 
-    moveBackgroundImage hole_pixel.png 
-    moveBackgroundImage vgrad_med_dark.png 
-    moveBackgroundImage mini_box_bevel_shadow.png 
-    moveBackgroundImage vgrad_med_darker.png 
-    moveBackgroundImage holes_tiny_vert.png 
-    moveBackgroundImage vgrad_tall.png 
-    moveBackgroundImage inset_round_shadow.png 
-    moveBackgroundImage slider_run_bevel_vert.png 
-    moveBackgroundImage led_square_shading.png 
-    moveBackgroundImage spanner_hilight.png 
-    moveBackgroundImage holes_horiz.png 
-    moveBackgroundImage bevel_dark_out.png 
-    moveBackgroundImage runner_horiz.png 
-    moveBackgroundImage spanner_inset.png 
-    moveBackgroundImage split_none_hilight.png 
-    moveBackgroundImage split_v_inset.png 
-    moveBackgroundImage hole_tiny.png 
-    moveBackgroundImage bg_radgrad.png 
-    moveBackgroundImage slider_run_base_vert.png 
-    moveBackgroundImage vgrad_med_curved.png 
-    moveBackgroundImage button_clicked.png 
-    moveBackgroundImage slot_horiz_bottom.png 
-    moveBackgroundImage bevel_horiz_out.png 
-    moveBackgroundImage vert_bar_inset.png 
-    moveBackgroundImage slider_run_base_light_horiz.png 
-    moveBackgroundImage inset_shadow_tiny.png 
-    moveBackgroundImage slider_run_bevel_horiz.png 
-    moveBackgroundImage button_normal.png 
-    moveBackgroundImage inset_shadow_circle_tiny.png 
-    moveBackgroundImage split_h_inset.png 
-    moveBackgroundImage bevel_in.png 
-    moveBackgroundImage kbd_inset.png 
-    moveBackgroundImage separator_horiz.png 
-    moveBackgroundImage inset_shadow.png 
-    moveBackgroundImage kbd_hilight.png 
-    moveBackgroundImage split_h_hilight.png 
-    moveBackgroundImage inset_round_shading.png 
-    moveBackgroundImage vgrad_med_lighter.png 
-    moveBackgroundImage vgrad_med.png 
-    moveBackgroundImage dot_pattern.png 
-    moveBackgroundImage inset_circle_tiny.png 
-    moveBackgroundImage slider_run_base_horiz.png 
-    moveBackgroundImage split_none_inset.png 
-    moveBackgroundImage inset_round_hilight.png 
-    moveBackgroundImage home_hilight.png 
-    moveBackgroundImage slot_horiz_top.png 
-    moveBackgroundImage holes_tiny_horiz.png 
-    moveBackgroundImage bub_base_b0.png 
-    moveBackgroundImage bub_base_b1.png 
-    moveBackgroundImage bub_base_b2.png 
-    moveBackgroundImage bub_base_bl.png 
-    moveBackgroundImage bub_base_br.png 
-    moveBackgroundImage bub_base_tl.png 
-    moveBackgroundImage bub_base_tr.png 
-    moveBackgroundImage day_left_normal.png 
-    moveBackgroundImage day_middle_normal.png 
-    moveBackgroundImage day_right_normal.png 
-    moveBackgroundImage day_single_normal.png 
-    moveBackgroundImage inset_bar_horiz_base.png 
-    moveBackgroundImage inset_bar_vert_base.png 
-    moveBackgroundImage tooltip-base.png 
-    moveBackgroundImage tooltip-corner-bottom-left-tip.png 
-    moveBackgroundImage tooltip-corner-bottom-right-tip.png 
-    moveBackgroundImage tooltip-corner-top-left-tip.png 
-    moveBackgroundImage tooltip-corner-top-right-tip.png 
-    moveBackgroundImage tooltip-edge-bottom-tip.png 
-    moveBackgroundImage tooltip-edge-left-tip.png 
-    moveBackgroundImage tooltip-edge-right-tip.png 
-    moveBackgroundImage tooltip-edge-top-tip.png 
+    moveBackgroundImage darken_square.png
+    moveBackgroundImage home_inset.png
+    moveBackgroundImage bevel_out.png
+    moveBackgroundImage slider_run_base_light_vert.png
+    moveBackgroundImage horiz_bar_inset.png
+    moveBackgroundImage holes_vert.png
+    moveBackgroundImage runner_vert.png
+    moveBackgroundImage split_v_hilight.png
+    moveBackgroundImage hole_pixel.png
+    moveBackgroundImage vgrad_med_dark.png
+    moveBackgroundImage mini_box_bevel_shadow.png
+    moveBackgroundImage vgrad_med_darker.png
+    moveBackgroundImage holes_tiny_vert.png
+    moveBackgroundImage vgrad_tall.png
+    moveBackgroundImage inset_round_shadow.png
+    moveBackgroundImage slider_run_bevel_vert.png
+    moveBackgroundImage led_square_shading.png
+    moveBackgroundImage spanner_hilight.png
+    moveBackgroundImage holes_horiz.png
+    moveBackgroundImage bevel_dark_out.png
+    moveBackgroundImage runner_horiz.png
+    moveBackgroundImage spanner_inset.png
+    moveBackgroundImage split_none_hilight.png
+    moveBackgroundImage split_v_inset.png
+    moveBackgroundImage hole_tiny.png
+    moveBackgroundImage bg_radgrad.png
+    moveBackgroundImage slider_run_base_vert.png
+    moveBackgroundImage vgrad_med_curved.png
+    moveBackgroundImage button_clicked.png
+    moveBackgroundImage slot_horiz_bottom.png
+    moveBackgroundImage bevel_horiz_out.png
+    moveBackgroundImage vert_bar_inset.png
+    moveBackgroundImage slider_run_base_light_horiz.png
+    moveBackgroundImage inset_shadow_tiny.png
+    moveBackgroundImage slider_run_bevel_horiz.png
+    moveBackgroundImage button_normal.png
+    moveBackgroundImage inset_shadow_circle_tiny.png
+    moveBackgroundImage split_h_inset.png
+    moveBackgroundImage bevel_in.png
+    moveBackgroundImage kbd_inset.png
+    moveBackgroundImage separator_horiz.png
+    moveBackgroundImage inset_shadow.png
+    moveBackgroundImage kbd_hilight.png
+    moveBackgroundImage split_h_hilight.png
+    moveBackgroundImage inset_round_shading.png
+    moveBackgroundImage vgrad_med_lighter.png
+    moveBackgroundImage vgrad_med.png
+    moveBackgroundImage dot_pattern.png
+    moveBackgroundImage inset_circle_tiny.png
+    moveBackgroundImage slider_run_base_horiz.png
+    moveBackgroundImage split_none_inset.png
+    moveBackgroundImage inset_round_hilight.png
+    moveBackgroundImage home_hilight.png
+    moveBackgroundImage slot_horiz_top.png
+    moveBackgroundImage holes_tiny_horiz.png
+    moveBackgroundImage bub_base_b0.png
+    moveBackgroundImage bub_base_b1.png
+    moveBackgroundImage bub_base_b2.png
+    moveBackgroundImage bub_base_bl.png
+    moveBackgroundImage bub_base_br.png
+    moveBackgroundImage bub_base_tl.png
+    moveBackgroundImage bub_base_tr.png
+    moveBackgroundImage day_left_normal.png
+    moveBackgroundImage day_middle_normal.png
+    moveBackgroundImage day_right_normal.png
+    moveBackgroundImage day_single_normal.png
+    moveBackgroundImage inset_bar_horiz_base.png
+    moveBackgroundImage inset_bar_vert_base.png
+    moveBackgroundImage tooltip-base.png
+    moveBackgroundImage tooltip-corner-bottom-left-tip.png
+    moveBackgroundImage tooltip-corner-bottom-right-tip.png
+    moveBackgroundImage tooltip-corner-top-left-tip.png
+    moveBackgroundImage tooltip-corner-top-right-tip.png
+    moveBackgroundImage tooltip-edge-bottom-tip.png
+    moveBackgroundImage tooltip-edge-left-tip.png
+    moveBackgroundImage tooltip-edge-right-tip.png
+    moveBackgroundImage tooltip-edge-top-tip.png
 }
 
 moveAllShadowImages(){
@@ -386,6 +386,9 @@ moveAllTerminologyHighlightImages(){
     moveTerminologyHighlightImage icon_paste.png
     moveTerminologyHighlightImage icon_split_h.png
     moveTerminologyHighlightImage icon_split_v.png
+
+    # Move in the color thats used for script generation
+    moveTerminologyHighlightImage bg_glow_in.png
 }
 
 moveAllTerminologyBackgroundImages(){
