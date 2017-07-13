@@ -1,7 +1,6 @@
 group { name: "e/modules/clock/digital";
    min: 64 16;
    max: 512 128;
-   
    images.image: "O/digit_na.png" COMP;
    images.image: "O/digit_nm.png" COMP;
    images.image: "O/digit_0.png" COMP;
