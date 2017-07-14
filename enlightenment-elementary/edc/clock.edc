@@ -375,7 +375,7 @@ group { name: "e/modules/clock/digital";
          rel1.to: _BASE; \
          rel2.to: _BASE; \
          image.normal: _IMG; \
-         color: 255 255 255 128; \
+         color: WIN_COL_CLOCK_BACKGROUND; \
       } \
    }
 #define BASEC(_NAME, _CLIP, _BASE, _IMG) \
@@ -385,7 +385,7 @@ group { name: "e/modules/clock/digital";
          rel1.to: _BASE; \
          rel2.to: _BASE; \
          image.normal: _IMG; \
-         color: 255 255 255 128; \
+         color: WIN_COL_CLOCK_BACKGROUND; \
       } \
    }
       

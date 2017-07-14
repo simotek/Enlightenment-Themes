@@ -265,7 +265,7 @@ group { name: "elm/clock/flipampm/default";
             rel1.to: "digit";
             rel2.to: "digit";
             image.normal: "digit_nm.png";
-            color: 255 255 255 128;
+            color: WIN_COL_CLOCK_BACKGROUND;
          }
       }
       part { name: "digit";
@@ -279,7 +279,7 @@ group { name: "elm/clock/flipampm/default";
    description { state: _DIGIT 0.0; \
       inherit: "default" 0.0; \
       image.normal: "digit_"_AMPM".png"; \
-      color:  51 153 255 255; \
+      color:  WIN_COL_HIGHLIGHT; \
    }
          DIGIT_DESC("0", "am")
          DIGIT_DESC("1", "pm")
