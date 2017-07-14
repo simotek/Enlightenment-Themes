@@ -1,4 +1,5 @@
 #define WIN_DEFAULT_BASIC 255 255 255 255
+#define WIN_COL_HIGHLIGHT 51 153 255 255
 
 color_classes {
 // comp
