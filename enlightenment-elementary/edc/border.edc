@@ -360,7 +360,7 @@ group { name: "e/widgets/border/default/border";
             max: 15 15;
             fixed: 1 1;
          }
-         description { state: "focused" 0.0;
+         description { state: "selected" 0.0;
             inherit: "default" 0.0;
             image.normal: "sym_close_dark_normal.png";
          }
@@ -375,7 +375,7 @@ group { name: "e/widgets/border/default/border";
             max: 15 15;
             fixed: 1 1;
          }
-         description { state: "focused" 0.0;
+         description { state: "selected" 0.0;
             inherit: "default" 0.0;
             image.normal: "sym_up_dark_normal.png";
          }
@@ -390,7 +390,7 @@ group { name: "e/widgets/border/default/border";
             max: 15 15;
             fixed: 1 1;
          }
-         description { state: "focused" 0.0;
+         description { state: "selected" 0.0;
             inherit: "default" 0.0;
             image.normal: "sym_down_dark_normal.png";
          }
