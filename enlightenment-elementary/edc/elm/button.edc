@@ -103,7 +103,7 @@ group { name: "elm/button/base/default";
       }
    }
    parts {
-      image { "base"; nomouse;
+      image { "base";
          desc { "default";
             image.normal: "surface.png";
             image.border: 8 8 8 8;
@@ -489,10 +489,9 @@ group { name: "elm/button/base/anchor";
       }
    }
    parts {
-      spacer { "base";
+      rect { "base";
          desc { "default";
-            rel1.offset: 0 0;
-            rel2.offset: 0 0;
+            color: 0 0 0 0;
          }
       }
       rect { "icon_clip";
@@ -692,7 +691,6 @@ group { name: "elm/button/base/anchor";
       }
       program { name: "button_click_anim";
          action: STATE_SET "clicked" 0.0;
-         target: "base";
          target: "bar2";
          target: "text2";
       }
@@ -703,14 +701,12 @@ group { name: "elm/button/base/anchor";
       }
       program { name: "button_unclick_anim";
          action: STATE_SET "default" 0.0;
-         target: "base";
          target: "bar2";
          target: "text2";
       }
       program {
          signal: "elm,anim,activate"; source: "elm";
          action: STATE_SET "clicked" 0.0;
-         target: "base";
          target: "bar2";
          target: "text2";
          after: "button_unpressed_anim";
@@ -718,7 +714,6 @@ group { name: "elm/button/base/anchor";
       program { name: "button_unpressed_anim";
          action: STATE_SET "default" 0.0;
          in: 0.5 0.0;
-         target: "base";
          target: "bar2";
          target: "text2";
       }

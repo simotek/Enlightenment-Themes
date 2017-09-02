@@ -36,17 +36,17 @@ group { name: "elm/clock/flipdigit/default";
             set_int(v0_cur, value);
             set_int(v0_lock, 1);
             snprintf(buf, 10, "%i", get_int(v0_cur));
-            set_state(PART:"O/digit", buf, 0.0);
+            set_state(PART:"digit", buf, 0.0);
             anim(1.0, "animator1", 1);
          }
       }
    }
    parts {
-      part { name: "O/digit_bg";
+      part { name: "digit_bg";
          scale: 1;
          description { state: "default" 0.0;
-            rel1.to: "O/digit";
-            rel2.to: "O/digit";
+            rel1.to: "digit";
+            rel2.to: "digit";
             image.normal: "digit_na.png";
             color: 255 255 255 128;
          }
@@ -79,7 +79,7 @@ group { name: "elm/clock/flipdigit/default";
             visible: 1;
          }
       }
-      part { name: "O/digit";
+      part { name: "digit";
          mouse_events: 0;
          scale: 1;
          description { state: "default" 0.0;
@@ -94,6 +94,7 @@ group { name: "elm/clock/flipdigit/default";
    description { state: _DIGIT 0.0; \
       inherit: "default" 0.0; \
       image.normal: "digit_"_DIGIT".png"; \
+      color: WIN_COL_HIGHLIGHT; \
    }
          DIGIT_DESC("0")
          DIGIT_DESC("1")
@@ -258,26 +259,27 @@ group { name: "elm/clock/flipampm/default";
    images.image: "digit_am.png" COMP;
    images.image: "digit_pm.png" COMP;
    parts {
-      part { name: "O/digit_bg";
+      part { name: "digit_bg";
          scale: 1;
          description { state: "default" 0.0;
-            rel1.to: "O/digit";
-            rel2.to: "O/digit";
+            rel1.to: "digit";
+            rel2.to: "digit";
             image.normal: "digit_nm.png";
-            color: 255 255 255 128;
+            color: WIN_COL_CLOCK_BACKGROUND;
          }
       }
-      part { name: "O/digit";
+      part { name: "digit";
          mouse_events: 0;
          scale: 1;
          description { state: "default" 0.0;	
             aspect: (48/31) (48/31); aspect_preference: BOTH;
-            image.normal: "digit_am.png";
+            image.normal: "O/digit_am.png";
          }
 #define DIGIT_DESC(_DIGIT, _AMPM) \
    description { state: _DIGIT 0.0; \
       inherit: "default" 0.0; \
       image.normal: "digit_"_AMPM".png"; \
+      color:  WIN_COL_HIGHLIGHT; \
    }
          DIGIT_DESC("0", "am")
          DIGIT_DESC("1", "pm")

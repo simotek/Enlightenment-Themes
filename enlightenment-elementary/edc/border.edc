@@ -567,6 +567,18 @@ group {
          target: "b4";
          target: "b5";
       }
+//      program {
+//         signal: "e,action,maximize"; source: "e";
+//      }
+//      program {
+//         signal: "e,action,unmaximize"; source: "e";
+//      }
+//      program {
+//         signal: "e,action,maximize,fullscreen"; source: "e";
+//      }
+//      program {
+//         signal: "e,action,unmaximize,fullscreen"; source: "e";
+//      }
       program {
          signal: "e,action,maximize*"; source: "e";
          action: STATE_SET "max" 0.0;
