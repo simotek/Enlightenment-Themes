@@ -273,7 +273,7 @@ group { name: "elm/clock/flipampm/default";
          scale: 1;
          description { state: "default" 0.0;	
             aspect: (48/31) (48/31); aspect_preference: BOTH;
-            image.normal: "O/digit_am.png";
+            image.normal: "digit_am.png";
          }
 #define DIGIT_DESC(_DIGIT, _AMPM) \
    description { state: _DIGIT 0.0; \

@@ -1,10 +1,10 @@
 group { name: "elm/ews/background/default";
-   images.image: "bg_radgrad.png" COMP;
+   images.image: "surface_no_border.png" COMP;
    images.image: "dot_pattern.png" COMP;
    parts {
       part { name: "bg";
          description { state: "default" 0.0;
-            image.normal: "bg_radgrad.png";
+            image.normal: "surface_no_border.png";
             image.scale_hint: STATIC;
             fill.smooth: 0;
             ASPECT_FILL((1024/653))

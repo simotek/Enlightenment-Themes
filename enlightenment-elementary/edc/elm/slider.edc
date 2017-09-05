@@ -821,7 +821,7 @@ group { name: "elm/slider/horizontal/indicator/default";
    alias: "elm/slider/horizontal/indicator/media_player/position/flush"; 
    alias: "elm/slider/horizontal/indicator/media_player/volume/default";
    alias: "elm/slider/horizontal/indicator/media_player/volume/flush"; 
-   images.image: "darken_rounded_square.png" COMP;
+   images.image: "surface.png" COMP;
    parts {
       part { name: "base"; type: SPACER;
          scale: 1;
@@ -854,8 +854,8 @@ group { name: "elm/slider/horizontal/indicator/default";
             rel1.to: "elm.indicator";
             rel2.offset: 11 11;
             rel2.to: "elm.indicator";
-            image.normal: "darken_rounded_square.png";
-            image.border: 15 15 15 15;
+            image.normal: "surface.png";
+            image.border: 16 16 16 16;
             fill.smooth: 0;
             visible: 0;
          }
@@ -1737,7 +1737,7 @@ group { name: "elm/slider/vertical/indicator/default";
    alias: "elm/slider/vertical/indicator/media_player/position/flush";
    alias: "elm/slider/vertical/indicator/media_player/volume/default";
    alias: "elm/slider/vertical/indicator/media_player/volume/flush";
-   images.image: "darken_rounded_square.png" COMP;
+   images.image: "surface.png" COMP;
    parts {
       part { name: "base"; type: SPACER;
          scale: 1;
@@ -1770,8 +1770,8 @@ group { name: "elm/slider/vertical/indicator/default";
             rel1.to: "elm.indicator";
             rel2.offset: 11 11;
             rel2.to: "elm.indicator";
-            image.normal: "darken_rounded_square.png";
-            image.border: 15 15 15 15;
+            image.normal: "surface.png";
+            image.border: 16 16 16 16;
             fill.smooth: 0;
             visible: 0;
          }
