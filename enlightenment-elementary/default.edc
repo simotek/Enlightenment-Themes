@@ -74,6 +74,8 @@ collections {
 #include "edc/elm/cursor.edc"
 #include "edc/elm/code.edc"
 #include "edc/elm/ews.edc"
+#include "edc/elm/textpath.edc"
+
 
 // desktop in general
 #include "edc/wallpaper.edc"
@@ -161,4 +163,7 @@ collections {
 // port unchanged stuff so this can work as a replacement
 #include "edc/O/efm_icons.edc"
 #include "edc/O/icons.edc"
+
+// New efl ui themes
+#include "edc/efl/button.edc"
 }
