@@ -94,7 +94,7 @@ group { name: "elm/clock/flipdigit/default";
    description { state: _DIGIT 0.0; \
       inherit: "default" 0.0; \
       image.normal: "digit_"_DIGIT".png"; \
-      color: 51 153 255 255; \
+      color: WIN_COL_HIGHLIGHT; \
    }
          DIGIT_DESC("0")
          DIGIT_DESC("1")
