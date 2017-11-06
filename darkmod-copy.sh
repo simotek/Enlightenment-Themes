@@ -333,6 +333,7 @@ moveAllBackgroundImages(){
     moveBackgroundImage day_single_normal.png 
     moveBackgroundImage inset_bar_horiz_base.png 
     moveBackgroundImage inset_bar_vert_base.png 
+    moveBackgroundImage rounded_square.png
     moveBackgroundImage tooltip-base.png 
     moveBackgroundImage tooltip-corner-bottom-left-tip.png 
     moveBackgroundImage tooltip-corner-bottom-right-tip.png 
@@ -351,7 +352,6 @@ moveAllShadowImages(){
     moveShadowImage darken_rounded_square_half_h.png
     moveShadowImage digit_na.png
     moveShadowImage digit_nm.png
-    moveShadowImage rounded_square.png
     moveShadowImage shadow_inset_bevels.png
     moveShadowImage shadow_angled_in_sides.png
 }
