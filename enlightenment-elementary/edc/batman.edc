@@ -226,7 +226,7 @@ group { name: "e/gadget/batman/main";
    }
 }
 
-group { name: "e/modules/batman/popup";
+group { name: "e/gadget/batman/popup";
    min: 240 60;
    parts {
       part { name: "e.swallow.batman"; type: SWALLOW;
