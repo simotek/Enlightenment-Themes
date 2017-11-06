@@ -1032,6 +1032,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
 #define DISABLE  4
    script {
       public btmode;
+      public is_selected;
       public eval_mode(m) {
          new m1 = m & MASK;
          new d = m & DISABLE;
@@ -1422,6 +1423,22 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
             new m = get_int(btmode);
             m &= ~DISABLE; set_int(btmode, m);
             eval_mode(m);
+         }
+      }
+      program { "selected";
+         signal: "elm,state,selected";
+         source: "elm";
+         script {
+            set_int(is_selected, 1);
+            set_state(PART:"label3", "clicked", 0.0);
+         }
+      }
+      program { "unselected";
+         signal: "elm,state,unselected";
+         source: "elm";
+         script {
+            set_int(is_selected, 0);
+            set_state(PART:"label3", "default", 0.0);
          }
       }
    }
