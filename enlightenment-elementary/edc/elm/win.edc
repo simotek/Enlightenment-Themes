@@ -1,5 +1,5 @@
 group { name: "elm/win/base/default";
-   data.item: "version" "119";
+   data.item: "version" "120";
    parts {
       rect { "client_clip"; nomouse; }
       swallow { "elm.swallow.menu";
