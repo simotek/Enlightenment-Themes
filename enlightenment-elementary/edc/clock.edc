@@ -114,7 +114,8 @@ group { name: "e/modules/clock/digital";
          date(year, month, day, yearday, weekday, hour, minute, second);
          dosec = get_int(do_seconds);
          if (dosec) {
-            v = round(second);
+            v = round(second, FLOOR);
+            v = v % 60;
             tim = timer(1.0 - (second - v), "clock_cb", 1);
             // set seconds to v
             valset("s0", v / 10);
@@ -332,7 +333,7 @@ group { name: "e/modules/clock/digital";
       description { state: "default" 0.0; \
          rel1.to: _TO; rel2.to: _TO; \
          aspect: (52/72) (52/72); aspect_preference: BOTH; \
-         image.normal: "digit_"_DIGIT".png"; \
+         image.normal: "O/digit_"_DIGIT".png"; \
          visible: 0; \
          color: 51 153 255 0; \
       } \
@@ -583,7 +584,7 @@ group { name: "e/modules/clock/main";
             date(year, month, day, yearday, weekday, hour, minute, second);
             dosec = get_int(do_seconds);
             if (dosec) {
-               v = round(second);
+               v = round(second, FLOOR);
                tim = timer(1.0 - (second - v), "clock_cb", 1);
                
                custom_state(PART:"seconds", "default", 0.0);
