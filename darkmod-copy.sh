@@ -14,21 +14,40 @@
 moveHighlightImage(){
     # if file is in img-manual don't copy
     if [ ! -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_DIR/$1 ]; then
-        report_on_error mv $ELM_ENLIGHT_THEME_PATH/img/$1 $ELM_ENLIGHT_THEME_PATH/img-color/
+        # check if its a manual image
+        if [ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]; then
+            report_on_error mv $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 $ELM_ENLIGHT_THEME_PATH/img-color/
+        else
+            report_on_error mv $ELM_ENLIGHT_THEME_PATH/img/$1 $ELM_ENLIGHT_THEME_PATH/img-color/
+        fi
     fi
 }
 
 moveBackgroundImage(){
     # if file is in img-manual don't copy
     if [ ! -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_DIR/$1 ]; then
-        report_on_error mv $ELM_ENLIGHT_THEME_PATH/img/$1 $ELM_ENLIGHT_THEME_PATH/img-bgnd/
+        # check if its a manual image
+        if [ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]; then
+            echo "bkgnd $1"
+            report_on_error mv $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 $ELM_ENLIGHT_THEME_PATH/img-bgnd/
+        else
+            report_on_error mv $ELM_ENLIGHT_THEME_PATH/img/$1 $ELM_ENLIGHT_THEME_PATH/img-bgnd/
+        fi
     fi
 }
 
 moveShadowImage(){
     # if file is in img-manual don't copy
     if [ ! -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_DIR/$1 ]; then
-        report_on_error mv $ELM_ENLIGHT_THEME_PATH/img/$1 $ELM_ENLIGHT_THEME_PATH/img-shadow/
+        # check if its a manual image
+        echo "cvd: $MANUAL_IMAGE_CONVD_DIR" 
+        echo "$ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1"
+        if [ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]; then
+            echo "Shadow $1"
+            report_on_error mv $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 $ELM_ENLIGHT_THEME_PATH/img-shadow/
+        else
+            report_on_error mv $ELM_ENLIGHT_THEME_PATH/img/$1 $ELM_ENLIGHT_THEME_PATH/img-shadow/
+        fi
     fi
 }
 
@@ -269,7 +288,6 @@ moveAllBackgroundImages(){
     moveBackgroundImage home_inset.png
     moveBackgroundImage bevel_out.png
     moveBackgroundImage slider_run_base_light_vert.png
-    moveBackgroundImage horiz_bar_inset.png
     moveBackgroundImage holes_vert.png
     moveBackgroundImage runner_vert.png
     moveBackgroundImage split_v_hilight.png
@@ -279,7 +297,7 @@ moveAllBackgroundImages(){
     moveBackgroundImage vgrad_med_darker.png
     moveBackgroundImage holes_tiny_vert.png
     moveBackgroundImage vgrad_tall.png
-    moveBackgroundImage inset_round_shadow.png
+    #moveBackgroundImage inset_round_shadow.png
     moveBackgroundImage slider_run_bevel_vert.png
     moveBackgroundImage led_square_shading.png
     moveBackgroundImage spanner_hilight.png
@@ -296,27 +314,23 @@ moveAllBackgroundImages(){
     moveBackgroundImage button_clicked.png
     moveBackgroundImage slot_horiz_bottom.png
     moveBackgroundImage bevel_horiz_out.png
-    moveBackgroundImage vert_bar_inset.png
     moveBackgroundImage slider_run_base_light_horiz.png
-    moveBackgroundImage inset_shadow_tiny.png
     moveBackgroundImage slider_run_bevel_horiz.png
     moveBackgroundImage button_normal.png
-    moveBackgroundImage inset_shadow_circle_tiny.png
     moveBackgroundImage split_h_inset.png
     moveBackgroundImage bevel_in.png
     moveBackgroundImage kbd_inset.png
     moveBackgroundImage separator_horiz.png
-    moveBackgroundImage inset_shadow.png
     moveBackgroundImage kbd_hilight.png
     moveBackgroundImage split_h_hilight.png
-    moveBackgroundImage inset_round_shading.png
+    #moveBackgroundImage inset_round_shading.png
     moveBackgroundImage vgrad_med_lighter.png
     moveBackgroundImage vgrad_med.png
     moveBackgroundImage dot_pattern.png
     moveBackgroundImage inset_circle_tiny.png
     moveBackgroundImage slider_run_base_horiz.png
     moveBackgroundImage split_none_inset.png
-    moveBackgroundImage inset_round_hilight.png
+    #moveBackgroundImage inset_round_hilight.png
     moveBackgroundImage home_hilight.png
     moveBackgroundImage slot_horiz_top.png
     moveBackgroundImage holes_tiny_horiz.png
@@ -347,14 +361,22 @@ moveAllBackgroundImages(){
 
 moveAllShadowImages(){
     mkdir $ELM_ENLIGHT_THEME_PATH/img-shadow
+    moveShadowImage button_shadow.png
     moveShadowImage darken_rounded_square.png
     moveShadowImage darken_rounded_square_half.png
     moveShadowImage darken_rounded_square_half_h.png
     moveShadowImage digit_na.png
     moveShadowImage digit_nm.png
+    moveShadowImage horiz_bar_inset.png
+    moveShadowImage inset_shadow.png
+    moveShadowImage inset_shadow_tiny.png
+    moveShadowImage inset_shadow_circle_tiny.png
     moveShadowImage rounded_square.png
-    moveShadowImage shadow_inset_bevels.png
     moveShadowImage shadow_angled_in_sides.png
+    moveShadowImage shadow_inset_bevels.png
+    moveShadowImage shadow_rounded_horiz.png
+    moveShadowImage shadow_rounded_vert.png
+    moveShadowImage vert_bar_inset.png
 }
 
 moveTerminologyHighlightImage(){

@@ -333,7 +333,7 @@ group { name: "e/modules/clock/digital";
       description { state: "default" 0.0; \
          rel1.to: _TO; rel2.to: _TO; \
          aspect: (52/72) (52/72); aspect_preference: BOTH; \
-         image.normal: "O/digit_"_DIGIT".png"; \
+         image.normal: "digit_"_DIGIT".png"; \
          visible: 0; \
          color: 51 153 255 0; \
       } \
