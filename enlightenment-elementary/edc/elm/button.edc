@@ -103,7 +103,7 @@ group { name: "elm/button/base/default";
       }
    }
    parts {
-      image { "base"; nomouse;
+      image { "base";
          desc { "default";
             image.normal: "button_normal.png";
             image.border: 4 4 3 5;
@@ -482,10 +482,9 @@ group { name: "elm/button/base/anchor";
       }
    }
    parts {
-      spacer { "base";
+      rect { "base";
          desc { "default";
-            rel1.offset: 0 0;
-            rel2.offset: 0 0;
+            color: 0 0 0 0;
          }
       }
       rect { "icon_clip";
@@ -685,7 +684,6 @@ group { name: "elm/button/base/anchor";
       }
       program { name: "button_click_anim";
          action: STATE_SET "clicked" 0.0;
-         target: "base";
          target: "bar2";
          target: "text2";
       }
@@ -696,14 +694,12 @@ group { name: "elm/button/base/anchor";
       }
       program { name: "button_unclick_anim";
          action: STATE_SET "default" 0.0;
-         target: "base";
          target: "bar2";
          target: "text2";
       }
       program {
          signal: "elm,anim,activate"; source: "elm";
          action: STATE_SET "clicked" 0.0;
-         target: "base";
          target: "bar2";
          target: "text2";
          after: "button_unpressed_anim";
@@ -711,7 +707,6 @@ group { name: "elm/button/base/anchor";
       program { name: "button_unpressed_anim";
          action: STATE_SET "default" 0.0;
          in: 0.5 0.0;
-         target: "base";
          target: "bar2";
          target: "text2";
       }
@@ -1037,6 +1032,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
 #define DISABLE  4
    script {
       public btmode;
+      public is_selected;
       public eval_mode(m) {
          new m1 = m & MASK;
          new d = m & DISABLE;
@@ -1427,6 +1423,22 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
             new m = get_int(btmode);
             m &= ~DISABLE; set_int(btmode, m);
             eval_mode(m);
+         }
+      }
+      program { "selected";
+         signal: "elm,state,selected";
+         source: "elm";
+         script {
+            set_int(is_selected, 1);
+            set_state(PART:"label3", "clicked", 0.0);
+         }
+      }
+      program { "unselected";
+         signal: "elm,state,unselected";
+         source: "elm";
+         script {
+            set_int(is_selected, 0);
+            set_state(PART:"label3", "default", 0.0);
          }
       }
    }

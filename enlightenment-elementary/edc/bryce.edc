@@ -118,7 +118,6 @@ group { name: "e/bryce/default/base"; nomouse;
          desc { hid;
             color: 255 255 255 0;
             text { font: "Sans:style=Bold"; size: 14;
-               min: 1 1;
                ellipsis: -1;
             }
          }
@@ -253,18 +252,6 @@ group { name: "e/bryce/default/inset"; nomouse;
             color: 0 0 0 0;
          }
       }
-      part { name: "clip"; type: RECT;
-         description { state: "default" 0.0;
-            rel1.offset: 3 1;
-            rel2.offset: -4 -2;
-            color: 255 255 255 255;
-         }
-         description { state: "vert" 0.0;
-            rel1.offset: 1 3;
-            rel2.offset: -2 -4;
-            color: 255 255 255 255;
-         }
-      }
       spacer { "sizer";
          description { state: "default" 0.0;
             rel1.offset: 4 1;
@@ -276,7 +263,6 @@ group { name: "e/bryce/default/inset"; nomouse;
          }
       }
       part { name: "e.swallow.content"; type: SWALLOW; mouse;
-         clip_to: "clip";
          desc {
             rel.to: "sizer";
             link.base: "e,state,visible" "e";
@@ -315,7 +301,6 @@ group { name: "e/bryce/default/inset"; nomouse;
             action: STATE_SET _STATE 0.0; \
             target: "sizer"; \
             target: "inset"; \
-            target: "clip"; \
          }
       ORIENT_SATE("horizontal", "default")
       ORIENT_SATE("vertical", "vert")
@@ -335,11 +320,6 @@ group { name: "e/bryce/default/plain"; nomouse;
             color: 0 0 0 0;
          }
       }
-      part { name: "clip"; type: RECT;
-         description { state: "default" 0.0;
-            color: 255 255 255 255;
-         }
-      }
       spacer { "sizer";
          desc {
             rel1.offset: 1 1;
@@ -347,7 +327,6 @@ group { name: "e/bryce/default/plain"; nomouse;
          }
       }
       part { name: "e.swallow.content"; type: SWALLOW; mouse;
-         clip_to: "clip";
          desc {
             rel.to: "sizer";
             link.base: "e,state,visible" "e";
@@ -365,7 +344,18 @@ group { name: "e/bryce/default/plain"; nomouse;
 
 group { "elm/scroller/base/bryce";
    parts {
-      rect { "clip"; }
+      rect { "clip";
+         desc {
+            rel1.offset: 0 -99999;
+            rel2.offset: -1 99999;
+            link.base: "e,state,orient,horizontal" "e";
+         }
+         desc { "vert";
+            rel1.offset: -99999 0;
+            rel2.offset: 99999 -1;
+            link.base: "e,state,orient,vertical" "e";
+         }
+      }
       swallow { "elm.swallow.content" clip: "clip"; }
    }
 }

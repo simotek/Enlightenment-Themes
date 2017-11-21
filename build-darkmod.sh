@@ -47,7 +47,9 @@ success "    Finished Cleaning Repository"
 if [[ $DKMD_TERMPKG != 1 ]]; then
 inform "Creating a backup of all images"
 mkdir $ELM_ENLIGHT_THEME_PATH/img-bak
+mkdir $ELM_ENLIGHT_THEME_PATH/img-manual-bak
 report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img/* $ELM_ENLIGHT_THEME_PATH/img-bak
+report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img-manual-convd/* $ELM_ENLIGHT_THEME_PATH/img-manual-bak
 success "    Finished Cleaning Repository"
 
 
@@ -98,12 +100,14 @@ if [ -z "$HIGH_HTML" ]; then
     error "Highlight Color could not be determined"
     # Move images back before exit
     report_on_error mv -v img-bak img
+    report_on_error mv -v img-manual-bak/* img-manual-convd
     exit 1
 fi
 if [ -z "$HIGH_RGB" ]; then
     error "Highlight Color could not be determined"
     # Move images back before exit
     report_on_error mv -v img-bak img
+    report_on_error mv -v img-manual-bak/* img-manual-convd
     exit 1
 fi
 
@@ -118,7 +122,7 @@ fi
 # Converting background images
 pushd $ELM_ENLIGHT_THEME_PATH/img-bgnd
 for F in `find -iname "*.png"`; do
-    convert $F -brightness-contrast $BGND_BRIGHTNESS,$BGND_SATURATION ../img-color-convd/$F
+    convert $F -channel rgb -brightness-contrast $BGND_BRIGHTNESS,$BGND_SATURATION +channel ../img-color-convd/$F
 done
 popd
 
@@ -126,6 +130,8 @@ popd
 pushd $ELM_ENLIGHT_THEME_PATH/img-shadow
 for F in `find -iname "*.png"`; do
     convert $F -channel A -evaluate Multiply $SHADOW_MULT ../img-color-convd/$F
+    # convert $F -channel A -evaluate set 20% ../img-color-convd/$F
+    # cp $F ../img-color-convd/$F
 done
 popd
 
@@ -252,6 +258,7 @@ inform "Creating theme"
 edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -fd fnt -sd snd default-dm.edc $ELM_ENLIGHT_AUTHORS $ELM_ENLIGHT_LICENSE $THEME_NAME.edj
 
 report_on_error mv -v img-bak img
+report_on_error mv -v img-manual-bak/* img-manual-convd
 if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
  report_on_error cp $THEME_NAME.edj ~/.elementary/themes
 fi
