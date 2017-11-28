@@ -1,5 +1,5 @@
 group { name: "e/modules/pager/popup";
-   alias: "e/gadget/pager/popup";
+        alias: "e/gadget/pager/popup";
    images.image: "vgrad_tall.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
