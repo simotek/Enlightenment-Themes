@@ -1,7 +1,7 @@
 group { name: "e/init/splash";
    images.image: "screen_circular_shadow.png" COMP;
    images.image: "bg_radgrad.png" COMP;
-   images.image: "1920x1080.jpg" COMP;
+   images.image: "7680x4800.png" COMP;
    images.image: "logo_blue_small.png" COMP;
    images.image: "logo_blue_small_glow.png" COMP;
    images.image: "led_square_base.png" COMP;
@@ -28,8 +28,8 @@ group { name: "e/init/splash";
       }
       part { name: "pat";
          description { state: "default" 0.0;
-            image.normal: "1920x1080.jpg";
-            ASPECT_FILL((1680/1050))
+            image.normal: "7680x4800.png";
+            ASPECT_FILL((7680/4800))
          }
       }
       part { name: "logo";
@@ -535,8 +535,8 @@ group { name: "e/init/extra_screen";
       }
       part { name: "pat";
          description { state: "default" 0.0;
-            image.normal: "1920x1080.jpg";
-            ASPECT_FILL((1680/1050))
+            image.normal: "7680x4800.png";
+            ASPECT_FILL((7680/4800))
          }
       }
       part { name: "shadow"; mouse_events: 0;
