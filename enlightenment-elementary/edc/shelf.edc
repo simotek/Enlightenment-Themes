@@ -1,5 +1,6 @@
 images {
    image: "surface.png" COMP;
+   image: "surface-dark.png" COMP;
 }
 
 group {
@@ -424,7 +425,7 @@ group {
 	 description {
 	    state:    "default" 0.0;
 	    image {
-	       normal: "surface.png";
+	       normal: "surface-dark.png";
 	       border: 8 8 8 8;
 	    }
 	    fill {

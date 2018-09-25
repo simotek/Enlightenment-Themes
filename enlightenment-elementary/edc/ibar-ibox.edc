@@ -426,7 +426,7 @@ group { name: "e/modules/ibar/menu/item";
 
 group { name: "e/modules/ibox/icon_overlay";
    alias: "e/modules/ibar/icon_overlay";
-   images.image: "surface.png" COMP;
+   images.image: "surface-dark.png" COMP;
    script_recursion: 1;
    script {
       public urgent;
@@ -501,7 +501,7 @@ group { name: "e/modules/ibox/icon_overlay";
             rel1.to: "e.text.label";
             rel2.offset: 8 4;
             rel2.to: "e.text.label";
-            image.normal: "surface.png";
+            image.normal: "surface-dark.png";
             image.border: 8 8 8 8;
             fill.smooth: 0;
             fixed: 1 1;

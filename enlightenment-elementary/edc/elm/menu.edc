@@ -9,10 +9,10 @@ group { name: "elm/menu/item/default";
 
             rel1.offset:  4 -1;
             rel2.offset: -4 1;
-            
-            image.normal: "surface_rot.png";
+
+            image.normal: "menu_selected.png";
             image.border: 8 8 8 8;
-         
+
             visible: 0;
          }
          description { state: "active" 0.0;
@@ -877,4 +877,3 @@ group { name: "elm/hover/base/main_menu_submenu/default";
       }
    }
 }
-
