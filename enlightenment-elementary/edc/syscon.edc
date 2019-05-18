@@ -16,7 +16,7 @@ group { name: "e/widgets/syscon/main";
          description { state: "default" 0.0;
             rel1.offset: 3 3;
             rel2.offset: -4 3;
-            rel2.relative: 1.0 0.0; 
+            rel2.relative: 1.0 0.0;
             align: 0.5 0.0;
             fixed: 0 1;
         }
@@ -36,7 +36,7 @@ group { name: "e/widgets/syscon/main";
             rel1.relative: 0.0 1.0;
             rel2.to: "e.swallow.secondary";
             align: 0.5 0.0;
-            fixed: 0 1; 
+            fixed: 0 1;
         }
       }
       part { name: "base";
@@ -76,10 +76,13 @@ group { name: "e/widgets/syscon/main";
             }
             fixed: 1 0;
          }
+         desc { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+         }
       }
    }
    programs {
-      program {      
+      program {
          signal: "mouse,down,1*"; source: "base";
          action: STATE_SET "clicked" 0.0;
          target: "base";
@@ -97,7 +100,7 @@ group { name: "e/widgets/syscon/main";
       }
    }
 }
-        
+
 group { name: "e/widgets/syscon/item/button";
    alias: "e/desklock/pin_button";
    images.image: "button_normal.png" COMP;

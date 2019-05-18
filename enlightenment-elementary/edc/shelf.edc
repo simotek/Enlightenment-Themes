@@ -13,7 +13,7 @@ group {
       // item: "instant_delay" "3.0";
    }
    parts {
-     
+
       part {
 	 name:          "base";
 	 mouse_events:  0;
@@ -518,7 +518,7 @@ group {
       item: "hidden_state_size" "1";
    }
    parts {
-    
+
       part {
 	 name:          "e.swallow.content";
 	 type:          SWALLOW;
@@ -531,17 +531,7 @@ group {
 	       to: "base";
 	    }
 	 }
-      }
-      part {
-	 name:          "base";
-	 mouse_events:  1;
-	 type:          RECT;
-	 repeat_events: 1;
-	 description {
-	    state:    "default" 0.0;
-	    color:    255 255 255 0;
-	 }
-	 description {
+   description {
 	    state:    "top_left" 0.0;
 	    inherit:  "default" 0.0;
 	 }
@@ -585,7 +575,62 @@ group {
 	    state:    "right_bottom" 0.0;
             inherit:  "default" 0.0;
 	 }
+
       }
+      part {
+	 name:          "base";
+	 mouse_events:  1;
+	 type:          RECT;
+	 repeat_events: 1;
+	 description {
+	    state:    "default" 0.0;
+	    color:    255 255 255 0;
+	 }
+   description {
+	    state:    "top_left" 0.0;
+	    inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "top_right" 0.0;
+	    inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "bottom" 0.0;
+	    inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "bottom_left" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "bottom_right" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "left" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "left_top" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "left_bottom" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "right" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "right_top" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "right_bottom" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	     }
    }
    programs {
      /* program {
@@ -741,7 +786,7 @@ group {
                 action: STATE_SET "default" 0.0;
                 transition: LINEAR 0.0;
                 target: "bg";
-            } 
+            }
             program {
                 name:   "go_vertical";
                 signal: "e,state,vertical";
@@ -755,7 +800,7 @@ group {
     group {
         name: "e/modules/itask-ng/separator";
         min: 1 1;
-        max: 128 128; 
+        max: 128 128;
         parts {
             part {
                 name: "separator";
@@ -792,7 +837,7 @@ group {
                 action: STATE_SET "default" 0.0;
                 transition: LINEAR 0.0;
                 target: "separator";
-            } 
+            }
             program {
                 name:   "go_vertical";
                 signal: "e,state,vertical";
@@ -806,10 +851,10 @@ group {
     group {
         name: "e/modules/itask-ng/label";     /* icon title */
         parts {
-            part {      
+            part {
                 name: "e.text.label";
                 type: TEXT;
-                effect: SOFT_SHADOW; 
+                effect: SOFT_SHADOW;
                 description {
                     state: "default" 0.0;
                     visible: 0;
@@ -853,9 +898,9 @@ group {
         }
     }
     group {
-        name: "e/modules/itask-ng/icon"; 
+        name: "e/modules/itask-ng/icon";
         min: 32 32;
-        max: 128 128;    
+        max: 128 128;
         parts {
             part {
                 name: "icon_clip";
@@ -877,7 +922,7 @@ group {
                     state:    "faded" 0.0;
                     inherit:  "default" 0.0;
                     color: 255 255 255 64;
-                } 
+                }
                 description {
                     state:    "iconic" 0.0;
                     inherit:  "default" 0.0;
@@ -887,8 +932,8 @@ group {
                     state:    "visible" 0.0;
                     inherit:  "default" 0.0;
                     color: 255 255 255 255;
-                } 
-            } 
+                }
+            }
             part {
                 name: "e.swallow.content";
                 type:  SWALLOW;
@@ -919,7 +964,7 @@ group {
                         offset:   -1   -1;
                     }
                 }
-                description {          
+                description {
                     state:    "focused" 0.0;
                     inherit:  "default" 0.0;
                     color: 190 190 190 190;
@@ -931,9 +976,9 @@ group {
                         relative: 1.0  1.0;
                         offset:   -1   -1;
                     }
-                } 
-            } 
-        }    
+                }
+            }
+        }
         programs {
             program {
                 name:   "go_show";
@@ -1093,4 +1138,3 @@ group {
             }
         }
     }
-

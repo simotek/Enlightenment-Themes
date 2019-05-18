@@ -821,6 +821,10 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
             rel2.to: "sb_vbar_base";
             color: 0 0 0 0;
          }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0;
+            // todo
+         }
       }
       part { name: "sb_vbar_a1"; type: RECT;
          clip_to: "sb_vbar";
@@ -834,6 +838,10 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
             rel2.relative: 1.0 0.0;
             rel2.offset: -1 0;
          }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0;
+            // todo
+         }
       }
       part { name: "sb_vbar_a2"; type: RECT;
          clip_to: "sb_vbar";
@@ -846,6 +854,10 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
             rel1.offset: 0 -1;
             rel1.relative: 0.0 1.0;
             rel2.to: "sb_vbar";
+         }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0;
+            // todo
          }
       }
       program {
@@ -904,7 +916,7 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
          action: DRAG_VAL_PAGE  0.0 1.0;
          target: "e.dragable.vbar";
       }
-      
+
       part { name: "runner_vbar"; mouse_events: 0;
          clip_to: "sb_vbar_show";
          description { state: "default" 0.0;
@@ -1229,7 +1241,7 @@ group { name: "e/modules/everything/thumbview/item/list";
             visible: 1;
          }
       }
-      part { name: "e.text.detail"; type: TEXT; mouse_events: 0; 
+      part { name: "e.text.detail"; type: TEXT; mouse_events: 0;
          clip_to: "detail_clip";
          effect: SHADOW BOTTOM;
          scale: 1;
@@ -1294,7 +1306,7 @@ group { name: "e/modules/everything/thumbview/item/list";
             color: FN_COL_DEFAULT;
             color_class: "ilist_item";
             text { font: FN; size: 10;
-               min: 0 1; 
+               min: 0 1;
                align: 0.0 0.5;
                text_class: "ilist_item";
             }
@@ -1315,7 +1327,7 @@ group { name: "e/modules/everything/thumbview/item/list";
             color: FN_COL_HIGHLIGHT;
             color_class: "ilist_item_selected";
             text { font: FN; size: 10;
-               min: 0 1; 
+               min: 0 1;
               text_source: "e.text.label";
               align: 0.0 0.5;
               text_class: "ilist_item";
@@ -1552,11 +1564,3 @@ group { name: "e/modules/everything/gadget";
       }
    }
 }
-
-
-
-
-
-
-   
-

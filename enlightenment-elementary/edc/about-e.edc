@@ -172,6 +172,9 @@ group { name: "e/widgets/about/main";
             }
             fixed: 1 1;
          }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+         }
       }
    }
    programs {

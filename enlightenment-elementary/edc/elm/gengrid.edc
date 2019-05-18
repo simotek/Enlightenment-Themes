@@ -28,7 +28,7 @@ group { name: "elm/gengrid/item/default/default";
             image.normal: "surface_no_border.png"; \
             color: 255 255 255 128; \
          } \
-         description { state: "odd" 0.0; \
+         description { state: "odd" 1.0; \
             color: 255 255 255 190; \
          } \
       } \
@@ -273,7 +273,7 @@ group { name: "elm/gengrid/item/default/default";
          }
       }
       //##//
-      
+
       TOPP()
    }
 }
@@ -307,7 +307,7 @@ group { name: "elm/gengrid/item/default_style/default";
       tag: "b" "+ font_weight=Bold";
       tag: "tab" "\t";
    }
-   
+
    IMGP()
    parts {
       BASEP()
@@ -457,7 +457,7 @@ group { name: "elm/gengrid/item/default_style/default";
          }
       }
       //##//
-      
+
       TOPP()
    }
 }
@@ -489,10 +489,10 @@ group { name: "elm/gengrid/item/album-preview/default";
    data.item: "texts" "elm.text";
    data.item: "contents" "elm.swallow.icon.1 elm.swallow.icon.2 elm.swallow.icon.3 elm.swallow.icon.4";
    data.item: "states" "have_files";
-   
+
    IMGP()
    images.image: "icon_folder.png" COMP;
-   
+
    parts {
       BASEP()
 
@@ -623,7 +623,7 @@ group { name: "elm/gengrid/item/album-preview/default";
             color: 255 255 255 64;
          }
       }
-      program {      
+      program {
          signal: "elm,state,have_files,active"; source: "elm";
          action: STATE_SET "visible" 0.0;
          target: "icon_area";
@@ -691,7 +691,7 @@ group { name: "elm/gengrid/item/album-preview/default";
          }
       }
       //##//
-      
+
       TOPP()
    }
 }
@@ -701,7 +701,7 @@ group { name: "elm/gengrid/item/thumb/default";
    data.item: "focusraise" "on";
    data.item: "texts" "elm.text";
    data.item: "contents" "elm.swallow.icon elm.swallow.end";
-   
+
    images.image: "win_shadow.png" COMP;
    images.image: "win_glow.png" COMP;
    parts {
@@ -778,7 +778,7 @@ group { name: "elm/gengrid/item/thumb/default";
          target: "base";
          target: "icon_area";
       }
-      
+
       //##//
       part { name: "elm.text"; type: TEXT; mouse_events: 0;
          effect: SHADOW BOTTOM;

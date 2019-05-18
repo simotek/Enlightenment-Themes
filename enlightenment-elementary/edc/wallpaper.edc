@@ -703,6 +703,16 @@
                rel2.relative: 1.0 1.0;
             }
             description {
+               state: "visible" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
+            }
+            description {
+               state: "visible" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
+            }
+            description {
                state: "min" 0.0;
                inherit: "default" 0.0;
                rel1.relative: 0.5 0.5;
@@ -736,6 +746,11 @@
                   relative: 1.0 1.0;
                   offset: -3  -3;
                }
+            }
+            description {
+               state: "visible" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
             }
          }
          part {
@@ -959,6 +974,11 @@
                rel2.relative: 1.0 1.0;
             }
             description {
+               state: "visible" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
+            }
+            description {
                state: "min" 0.0;
                inherit: "default" 0.0;
                rel1.relative: 0.5 0.5;
@@ -992,6 +1012,11 @@
                   relative: 1.0 1.0;
                   offset: -3  -3;
                }
+            }
+            description {
+               state: "visible" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
             }
          }
          part {
@@ -1213,6 +1238,11 @@
                rel2.relative: 1.0 1.0;
             }
             description {
+               state: "visible" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
+            }
+            description {
                state: "min" 0.0;
                inherit: "default" 0.0;
                rel1.relative: 0.5 0.5;
@@ -1246,6 +1276,11 @@
                   relative: 1.0 1.0;
                   offset: -3  -3;
                }
+            }
+            description {
+               state: "visible" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
             }
          }
          part {
@@ -1698,5 +1733,3 @@
          }
       }
    }
-
-

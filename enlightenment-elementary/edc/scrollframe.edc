@@ -85,6 +85,10 @@ group { name: "e/widgets/scrollframe";
             rel2.to: "sb_vbar_base";
             color: 0 0 0 0;
          }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+            // todo
+         }
       }
       part { name: "sb_vbar_a1"; type: RECT;
          clip_to: "sb_vbar";
@@ -98,6 +102,10 @@ group { name: "e/widgets/scrollframe";
             rel2.relative: 1.0 0.0;
             rel2.offset: -1 0;
          }
+         desc { state: "clicked" 0.0;
+            inherit: default;
+            // todo
+         }
       }
       part { name: "sb_vbar_a2"; type: RECT;
          clip_to: "sb_vbar";
@@ -110,6 +118,10 @@ group { name: "e/widgets/scrollframe";
             rel1.offset: 0 -1;
             rel1.relative: 0.0 1.0;
             rel2.to: "sb_vbar";
+         }
+         desc { state: "clicked" 0.0;
+            inherit: default;
+            // todo
          }
       }
       program {
@@ -241,6 +253,10 @@ group { name: "e/widgets/scrollframe";
             rel2.to: "sb_hbar_base";
             color: 0 0 0 0;
          }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+            // todo
+         }
       }
       part { name: "sb_hbar_a1"; type: RECT;
          clip_to: "sb_hbar";
@@ -254,6 +270,10 @@ group { name: "e/widgets/scrollframe";
             rel2.relative: 0.0 1.0;
             rel2.offset: 0 -1;
          }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+            // todo
+         }
       }
       part { name: "sb_hbar_a2"; type: RECT;
          clip_to: "sb_hbar";
@@ -266,6 +286,10 @@ group { name: "e/widgets/scrollframe";
             rel1.offset: -1 0;
             rel1.relative: 1.0 0.0;
             rel2.to: "sb_hbar";
+         }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+            // todo
          }
       }
       program {
@@ -329,13 +353,13 @@ group { name: "e/widgets/scrollframe";
          description { state: "default" 0.0;
             rel1.to: "e.swallow.content";
             rel2.to: "e.swallow.content";
-            
+
             rel1.offset: -2 -2;
             rel2.offset: 2 2;
-            
+
             image.normal: "surface.png";
             image.border: 8 8 8 8;
-            
+
             color: 255 255 255 90;
          }
       }

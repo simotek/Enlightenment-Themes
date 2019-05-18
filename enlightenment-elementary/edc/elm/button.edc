@@ -107,7 +107,7 @@ group { name: "elm/button/base/default";
          desc { "default";
             image.normal: "surface.png";
             image.border: 8 8 8 8;
-            
+
             rel1.offset: 2 2;
             rel2.offset: -2 -2;
             fill.smooth: 0;
@@ -839,7 +839,7 @@ group { name: "elm/button/base/media_player/prev/default";
    alias: "elm/button/base/media_player/eject/flush";
    alias: "elm/button/base/media_player/volume/flush";
    alias: "elm/button/base/media_player/mute/flush";
-   
+
    images.image: "shadow_inset_bevels.png" COMP;
    images.image: "shadow_angled_in_sides.png" COMP;
    parts {
@@ -859,6 +859,10 @@ group { name: "elm/button/base/media_player/prev/default";
             inherit: "default";
             visible: 1;
          }
+         desc { "clicked";
+            inherit: "default";
+            visible: 1;
+         }
       }
       image { "shadow2"; nomouse;
          clip_to: "clip";
@@ -871,6 +875,10 @@ group { name: "elm/button/base/media_player/prev/default";
             visible: 0;
          }
          desc { "selected";
+            inherit: "default";
+            visible: 1;
+         }
+         desc { "clicked";
             inherit: "default";
             visible: 1;
          }
@@ -936,7 +944,7 @@ group { name: "elm/button/base/hoversel_vertical/default";
    alias: "elm/button/base/hoversel_horizontal/entry";
 
    images.image: "vertical_separated_bar_glow.png" COMP;
-   
+
    parts {
       text { "elm.text";
          desc { "default";
