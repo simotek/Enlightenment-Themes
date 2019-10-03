@@ -1,0 +1,51 @@
+/* bg widget style information
+
+Group: efl/bg (@since 1.23)
+	 Part Swallow: efl.background (required)
+	 Part Swallow: efl.content (required)
+	 Part Swallow: efl.rectangle (required)
+
+   [SWALLOW]
+      efl.rectangle: Used for efl_gfx_color_color_set()
+      efl.background: Used for efl_file_set()
+      efl.content: Used for storing the main object for which this is the background
+*/
+
+group { "efl/bg";
+   data.item: "version" "123";
+   images.image: "bevel_dark_out.png" COMP;
+   parts {
+      part { name: "clipper"; type: RECT;
+         description { state: "default" 0.0;
+         }
+      }
+      part { name: "base"; type: RECT;
+         description { state: "default" 0.0;
+            color_class: "dialog_base";
+            color: 64 64 64 255;
+         }
+      }
+      part { name: "efl.rectangle"; type: SWALLOW; required;
+         description { state: "default" 0.0;
+         }
+      }
+      part { name: "efl.background"; type: SWALLOW; required;
+         clip_to: "clipper";
+         description { state: "default" 0.0;
+            fixed: 1 1;
+         }
+      }
+      part { name: "bevel";
+         description { state: "default" 0.0;
+            image.normal: "bevel_dark_out.png";
+            image.border: 1 1 1 1;
+            image.middle: 0;
+            fill.smooth: 0;
+         }
+      }
+      part { name: "efl.content"; type: SWALLOW; required;
+         description { state: "default" 0.0;
+         }
+      }
+   }
+}

@@ -1,0 +1,16 @@
+group { "efl/tab_page";
+   data.item: "version" "123";
+   parts {
+      spacer { "base";
+         scale;
+         desc { "default";
+         }
+      }
+      swallow { "efl.content";
+         scale;
+         desc { "default";
+            rel.to: "base";
+         }
+      }
+   }
+}
