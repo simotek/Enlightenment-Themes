@@ -39,7 +39,7 @@ group { name: "elm/button/base/default";
          if (m1 == (ICON | LABEL)) {
             if (!d) {
                set_state(PART:"elm.swallow.content", "visible", 0.0);
-               set_state(PART:"sizer.content", "visible", 0.0);
+               set_state(PART:"sizer_content", "visible", 0.0);
                set_state(PART:"event", "default", 0.0);
                if (!p) {
                   set_state(PART:"elm.text", "visible", 0.0);
@@ -50,7 +50,7 @@ group { name: "elm/button/base/default";
                }
             } else {
                set_state(PART:"elm.swallow.content", "visible", 0.0);
-               set_state(PART:"sizer.content", "visible", 0.0);
+               set_state(PART:"sizer_content", "visible", 0.0);
                set_state(PART:"elm.text", "disabled_visible", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
@@ -58,7 +58,7 @@ group { name: "elm/button/base/default";
          } else if (m1 == (ICON)) {
             if (!d) {
                set_state(PART:"elm.swallow.content", "icononly", 0.0);
-               set_state(PART:"sizer.content", "icononly", 0.0);
+               set_state(PART:"sizer_content", "icononly", 0.0);
                set_state(PART:"event", "default", 0.0);
                set_state(PART:"elm.text", "default", 0.0);
                if (!p)
@@ -67,7 +67,7 @@ group { name: "elm/button/base/default";
                   set_state(PART:"icon_clip", "pressed", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "icononly", 0.0);
-               set_state(PART:"sizer.content", "icononly", 0.0);
+               set_state(PART:"sizer_content", "icononly", 0.0);
                set_state(PART:"elm.text", "default", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
@@ -75,7 +75,7 @@ group { name: "elm/button/base/default";
          } else if (m1 == (LABEL)) {
             if (!d) {
                set_state(PART:"elm.swallow.content", "default", 0.0);
-               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"sizer_content", "default", 0.0);
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
                if (!p)
@@ -84,7 +84,7 @@ group { name: "elm/button/base/default";
                   set_state(PART:"elm.text", "pressed_textonly", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "default", 0.0);
-               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"sizer_content", "default", 0.0);
                set_state(PART:"elm.text", "disabled_textonly", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
@@ -92,12 +92,12 @@ group { name: "elm/button/base/default";
          } else {
             if (!d) {
                set_state(PART:"elm.swallow.content", "default", 0.0);
-               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"sizer_content", "default", 0.0);
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "default", 0.0);
-               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"sizer_content", "default", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
             }
@@ -191,7 +191,7 @@ group { name: "elm/button/base/default";
             visible: 1;
          }
       }
-      text { "sizer.content"; nomouse;
+      text { "sizer_content"; nomouse;
          scale: 1;
          desc { "default";
 //            fixed: 1 1;
@@ -431,14 +431,14 @@ group { name: "elm/button/base/anchor";
          if (m1 == (ICON | LABEL)) {
             if (!d) {
                set_state(PART:"elm.swallow.content", "visible", 0.0);
-               set_state(PART:"sizer.content", "visible", 0.0);
+               set_state(PART:"sizer_content", "visible", 0.0);
                set_state(PART:"elm.text", "visible", 0.0);
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"bar", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "visible", 0.0);
-               set_state(PART:"sizer.content", "visible", 0.0);
+               set_state(PART:"sizer_content", "visible", 0.0);
                set_state(PART:"elm.text", "disabled_visible", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"bar", "disabled", 0.0);
@@ -447,14 +447,14 @@ group { name: "elm/button/base/anchor";
          } else if (m1 == (ICON)) {
             if (!d) {
                set_state(PART:"elm.swallow.content", "icononly", 0.0);
-               set_state(PART:"sizer.content", "icononly", 0.0);
+               set_state(PART:"sizer_content", "icononly", 0.0);
                set_state(PART:"elm.text", "default", 0.0);
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"bar", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "icononly", 0.0);
-               set_state(PART:"sizer.content", "icononly", 0.0);
+               set_state(PART:"sizer_content", "icononly", 0.0);
                set_state(PART:"elm.text", "default", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"bar", "disabled", 0.0);
@@ -463,14 +463,14 @@ group { name: "elm/button/base/anchor";
          } else if (m1 == (LABEL)) {
             if (!d) {
                set_state(PART:"elm.swallow.content", "default", 0.0);
-               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"sizer_content", "default", 0.0);
                set_state(PART:"elm.text", "textonly", 0.0);
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"bar", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "default", 0.0);
-               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"sizer_content", "default", 0.0);
                set_state(PART:"elm.text", "disabled_textonly", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"bar", "disabled", 0.0);
@@ -479,13 +479,13 @@ group { name: "elm/button/base/anchor";
          } else {
             if (!d) {
                set_state(PART:"elm.swallow.content", "default", 0.0);
-               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"sizer_content", "default", 0.0);
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"bar", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "default", 0.0);
-               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"sizer_content", "default", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"bar", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
@@ -546,7 +546,7 @@ group { name: "elm/button/base/anchor";
             visible: 1;
          }
       }
-      text { "sizer.content"; nomouse;
+      text { "sizer_content"; nomouse;
          scale: 1;
          desc { "default";
             visible: 0;
@@ -1049,19 +1049,20 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
 #define DISABLE  4
    script {
       public btmode;
+      public is_selected;
       public eval_mode(m) {
          new m1 = m & MASK;
          new d = m & DISABLE;
          if (m1 == (ICON | LABEL)) {
             if (!d) {
                set_state(PART:"elm.swallow.content", "visible", 0.0);
-               set_state(PART:"sizer.content", "visible", 0.0);
+               set_state(PART:"sizer_content", "visible", 0.0);
                set_state(PART:"elm.text", "visible", 0.0);
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "visible", 0.0);
-               set_state(PART:"sizer.content", "visible", 0.0);
+               set_state(PART:"sizer_content", "visible", 0.0);
                set_state(PART:"elm.text", "disabled_visible", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
@@ -1069,13 +1070,13 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
          } else if (m1 == (ICON)) {
             if (!d) {
                set_state(PART:"elm.swallow.content", "icononly", 0.0);
-               set_state(PART:"sizer.content", "icononly", 0.0);
+               set_state(PART:"sizer_content", "icononly", 0.0);
                set_state(PART:"elm.text", "default", 0.0);
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "icononly", 0.0);
-               set_state(PART:"sizer.content", "icononly", 0.0);
+               set_state(PART:"sizer_content", "icononly", 0.0);
                set_state(PART:"elm.text", "default", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
@@ -1083,13 +1084,13 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
          } else if (m1 == (LABEL)) {
             if (!d) {
                set_state(PART:"elm.swallow.content", "default", 0.0);
-               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"sizer_content", "default", 0.0);
                set_state(PART:"elm.text", "textonly", 0.0);
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "default", 0.0);
-               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"sizer_content", "default", 0.0);
                set_state(PART:"elm.text", "disabled_textonly", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
@@ -1097,12 +1098,12 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
          } else {
             if (!d) {
                set_state(PART:"elm.swallow.content", "default", 0.0);
-               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"sizer_content", "default", 0.0);
                set_state(PART:"icon_clip", "default", 0.0);
                set_state(PART:"event", "default", 0.0);
             } else {
                set_state(PART:"elm.swallow.content", "default", 0.0);
-               set_state(PART:"sizer.content", "default", 0.0);
+               set_state(PART:"sizer_content", "default", 0.0);
                set_state(PART:"icon_clip", "disabled", 0.0);
                set_state(PART:"event", "disabled", 0.0);
             }
@@ -1176,7 +1177,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
             visible: 1;
          }
       }
-      text { "sizer.content"; nomouse;
+      text { "sizer_content"; nomouse;
          scale: 1;
          desc { "default";
             fixed: 1 1;
@@ -1466,6 +1467,10 @@ group { name: "elm/button/base/hoversel_horizontal_entry/default";
 
 /******************* SPINNER BUTTONS STYLES **********************/
    group { name: "elm/button/base/spinner/increase/default";
+      alias: "elm/button/base/spinner/increase/colorselector/default";
+      alias: "elm/button/base/spin_button/increase/default";
+      alias: "elm/button/base/calendar/increase/default";
+      alias: "elm/button/base/calendar/increase/double_spinners";
       images.image: "sym_right_light_normal.png" COMP;
       images.image: "sym_right_glow_normal.png" COMP;
       images.image: "sym_right_dark_normal.png" COMP;
@@ -1523,7 +1528,7 @@ group { name: "elm/button/base/hoversel_horizontal_entry/default";
             }
          }
          program { name: "button_press2";
-            action: SIGNAL_EMIT "elm,action,press" "";
+            action: SIGNAL_EMIT "elm,action,press" "elm";
             after: "button_press_anim";
          }
          program { name: "button_press_anim";
@@ -1542,7 +1547,7 @@ group { name: "elm/button/base/hoversel_horizontal_entry/default";
             }
          }
          program { name: "button_unpress2";
-            action: SIGNAL_EMIT "elm,action,unpress" "";
+            action: SIGNAL_EMIT "elm,action,unpress" "elm";
          }
          program { name: "button_unpress_anim";
             action: STATE_SET "default" 0.0;
@@ -1568,7 +1573,7 @@ group { name: "elm/button/base/hoversel_horizontal_entry/default";
             after: "button_press_anim";
          }
          program { name: "button_click2";
-            action: SIGNAL_EMIT "elm,action,click" "";
+            action: SIGNAL_EMIT "elm,action,click" "elm";
          }
          program { name: "access_pressed";
             signal: "elm,action,anim,activate";
@@ -1618,6 +1623,7 @@ group { name: "elm/button/base/hoversel_horizontal_entry/default";
    group { name: "elm/button/base/spinner/decrease/default";
       alias: "elm/button/base/spinner/decrease/colorselector/default";
       inherit: "elm/button/base/spinner/increase/default";
+      alias: "elm/button/base/spin_button/decrease/default";
       alias: "elm/button/base/calendar/decrease/default";
       alias: "elm/button/base/calendar/decrease/double_spinners";
       images.image: "sym_left_light_normal.png" COMP;
@@ -1646,6 +1652,8 @@ group { name: "elm/button/base/hoversel_horizontal_entry/default";
    group { name: "elm/button/base/spinner/default";
       alias: "elm/button/base/spinner/colorselector/default";
       alias: "elm/button/base/spinner/vertical";
+      alias: "elm/button/base/spin_button/default";
+      alias: "elm/button/base/spin_button/vertical";
       parts {
          part { name: "bg";
             type: SPACER;
@@ -1702,7 +1710,7 @@ group { name: "elm/button/base/hoversel_horizontal_entry/default";
             }
          }
          program { name: "button_click2";
-            action: SIGNAL_EMIT "elm,action,click" "";
+            action: SIGNAL_EMIT "elm,action,click" "elm";
          }
          program { name: "disable";
             signal: "elm,state,disabled";
@@ -1722,6 +1730,7 @@ group { name: "elm/button/base/hoversel_horizontal_entry/default";
    }
    group { name: "elm/button/base/spinner/increase/vertical";
       inherit: "elm/button/base/spinner/increase/default";
+      alias: "elm/button/base/spin_button/increase/vertical";
       images.image: "sym_up_light_normal.png" COMP;
       images.image: "sym_up_glow_normal.png" COMP;
       images.image: "sym_up_dark_normal.png" COMP;
@@ -1747,6 +1756,7 @@ group { name: "elm/button/base/hoversel_horizontal_entry/default";
 
    group { name: "elm/button/base/spinner/decrease/vertical";
       inherit: "elm/button/base/spinner/decrease/default";
+      alias: "elm/button/base/spin_button/decrease/vertical";
       images.image: "sym_down_light_normal.png" COMP;
       images.image: "sym_down_glow_normal.png" COMP;
       images.image: "sym_down_dark_normal.png" COMP;

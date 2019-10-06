@@ -776,6 +776,7 @@ group { name: "elm/hover/base/menu/default";
       part { name: "bottomclip"; type: RECT;
          description { state: "default" 0.0;
             color: 255 255 255 0;
+            rel1.offset: 0 -7;
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
@@ -1161,12 +1162,12 @@ group { name: "elm/hover/base/main_menu_submenu/default";
       program { name: "show";
          signal: "elm,action,show"; source: "elm";
          action: STATE_SET "visible" 0.0;
-         target: "base";
+         target: "top";
       }
       program { name: "hide";
          signal: "elm,action,hide"; source: "elm";
          action: STATE_SET "default" 0.0;
-         target: "base";
+         target: "top";
       }
       program { name: "bottomshow";
          signal: "elm,action,slot,bottom,show"; source: "elm";

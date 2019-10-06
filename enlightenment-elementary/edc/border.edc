@@ -1,3 +1,110 @@
+group { name: "e/widgets/border/volume";
+   parts {
+      part { name: "base";
+         type: RECT;
+         description { state: "default" 0.0;
+            color: 255 255 255 0;
+         }
+      }
+      part { name: "clip";
+         type: RECT;
+         description { state: "default" 0.0;
+            rel1.to: "e.swallow.volume";
+            rel1.relative: -1.0 0.0;
+            rel2.to: "e.swallow.volume";
+            rel2.relative: 0.0 1.0;
+            color: 255 255 255 255;
+         }
+         description { state: "show" 0.0;
+            rel1.to: "e.swallow.volume";
+            rel1.relative: 0.0 0.0;
+            rel2.to: "e.swallow.volume";
+            rel2.relative: 1.0 1.0;
+         }
+      }
+      part { name: "e.swallow.volume_icon";
+         type: SWALLOW;
+         description { state: "default" 0.0;
+            rel1.to: "base";
+            rel1.relative: 0.15 0.15;
+            rel2.to: "base";
+            rel2.relative: 0.85 0.85;
+         }
+      }
+      part { name: "e.swallow.volume";
+         type: SWALLOW;
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            fixed: 1 0;
+            rel1.relative: 1.0 0.0;
+            rel1.offset: 1 0;
+            rel1.to_x: "e.swallow.volume_icon";
+            rel2.relative: 1.0 1.0;
+            rel2.offset: 1 -1;
+            rel2.to: "e.swallow.volume_icon";
+            align: 0.0 0.5;
+         }
+      }
+      part { name: "event";
+         type: RECT;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            rel1.to: "base";
+            rel2.to: "base";
+            color: 255 255 255 0;
+         }
+         description { state: "large" 0.0;
+            inherit: "default" 0.0;
+            rel2.to: "e.swallow.volume";
+            rel2.offset: 0 0;
+         }
+      }
+      programs {
+         program {
+            signal: "mouse,in";
+            source: "event";
+            action: ACTION_STOP;
+            target: "hide_volume1";
+            target: "hide_volume2";
+            after: "show_volume1";
+         }
+         program {
+            name: "show_volume1";
+            action: STATE_SET "large" 0.0;
+            target: "event";
+            after: "show_volume2";
+         }
+         program {
+            name: "show_volume2";
+            action: STATE_SET "show" 0.0;
+            transition: SIN 0.25;
+            target: "clip";
+         }
+
+         program {
+            name: "hide_volume";
+            signal: "mouse,out";
+            source: "event";
+            action: ACTION_STOP;
+            target: "show_volume1";
+            target: "show_volume2";
+            after: "hide_volume1";
+         }
+         program {
+            name: "hide_volume1";
+            action: STATE_SET "default" 0.0;
+            transition: SIN 0.25;
+            target: "clip";
+            after: "hide_volume2";
+         }
+         program {
+            name: "hide_volume2";
+            action: STATE_SET "default" 0.0;
+            target: "event";
+         }
+      }
+   }
+}
 
 #define BORDER_BUTTON2(NAME, TYPE, REL1X, REL1Y, OFF1X, OFF1Y, TO1, REL2X, REL2Y, OFF2X, OFF2Y, TO2) \
 BORDER_BUTTON_ADV2(NAME,TYPE,REL1X,REL1Y,OFF1X,OFF1Y,TO1,TO1,REL2X,REL2Y,OFF2X,OFF2Y,TO2,TO2)
@@ -513,7 +620,7 @@ group {
      BORDER_BUTTON2("minimize","minimize",0.0,0.0,3,0,"maximize",0.0,1.0,3,-1,"maximize")
      BORDER_BUTTON2("close","close",0.0,0.0,50,1,"right",0.0,1.0,50,-1,"right")
 
-     
+
    }
    programs {
       program {
@@ -694,6 +801,11 @@ group { name: "e/widgets/border/dialog/border";
             min: 0 0;
             max: 0 0;
             visible: 0;
+         }
+      }
+      part { name: "e.event.titlebar";
+         description { state: "default" 0.0;
+            rel2.to_x: "e.event.close";
          }
       }
       part { name: "e.event.maximize";

@@ -14,21 +14,40 @@
 moveHighlightImage(){
     # if file is in img-manual don't copy
     if [ ! -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_DIR/$1 ]; then
-        report_on_error mv $ELM_ENLIGHT_THEME_PATH/img/$1 $ELM_ENLIGHT_THEME_PATH/img-color/
+        # check if its a manual image
+        if [ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]; then
+            report_on_error mv $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 $ELM_ENLIGHT_THEME_PATH/img-color/
+        else
+            report_on_error mv $ELM_ENLIGHT_THEME_PATH/img/$1 $ELM_ENLIGHT_THEME_PATH/img-color/
+        fi
     fi
 }
 
 moveBackgroundImage(){
     # if file is in img-manual don't copy
     if [ ! -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_DIR/$1 ]; then
-        report_on_error mv $ELM_ENLIGHT_THEME_PATH/img/$1 $ELM_ENLIGHT_THEME_PATH/img-bgnd/
+        # check if its a manual image
+        if [ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]; then
+            echo "bkgnd $1"
+            report_on_error mv $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 $ELM_ENLIGHT_THEME_PATH/img-bgnd/
+        else
+            report_on_error mv $ELM_ENLIGHT_THEME_PATH/img/$1 $ELM_ENLIGHT_THEME_PATH/img-bgnd/
+        fi
     fi
 }
 
 moveShadowImage(){
     # if file is in img-manual don't copy
     if [ ! -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_DIR/$1 ]; then
-        report_on_error mv $ELM_ENLIGHT_THEME_PATH/img/$1 $ELM_ENLIGHT_THEME_PATH/img-shadow/
+        # check if its a manual image
+        echo "cvd: $MANUAL_IMAGE_CONVD_DIR" 
+        echo "$ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1"
+        if [ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]; then
+            echo "Shadow $1"
+            report_on_error mv $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 $ELM_ENLIGHT_THEME_PATH/img-shadow/
+        else
+            report_on_error mv $ELM_ENLIGHT_THEME_PATH/img/$1 $ELM_ENLIGHT_THEME_PATH/img-shadow/
+        fi
     fi
 }
 
@@ -37,13 +56,11 @@ moveAllHighlightImages(){
 
     moveHighlightImage glow_lock_locked.png
     moveHighlightImage icon_border_close.png
-    moveHighlightImage digit_2.png
     moveHighlightImage diagonal_stripes.png
     moveHighlightImage mini_blue_glow_arrow_1.png
     moveHighlightImage glow_exclam.png
     moveHighlightImage logo_blue_bottom.png
     moveHighlightImage icon_system-lock-screen.png
-    moveHighlightImage digit_4.png
     moveHighlightImage wifi_sig_3.png
     moveHighlightImage split_h_glow.png
     moveHighlightImage cell_sig_1.png
@@ -54,7 +71,6 @@ moveAllHighlightImages(){
     moveHighlightImage cell_sig_3.png
     moveHighlightImage bulb_glow.png
     moveHighlightImage icon_border_pager.png
-    moveHighlightImage digit_1.png
     moveHighlightImage logo_blue_small.png
     moveHighlightImage horizontal_separated_bar_glow.png
     moveHighlightImage win_glow.png
@@ -62,15 +78,12 @@ moveAllHighlightImages(){
     moveHighlightImage sym_close_dark_selected.png
     moveHighlightImage icon_border_pin.png
     moveHighlightImage mini_blue_glow_arrow_2.png
-    moveHighlightImage digit_8.png
     moveHighlightImage icon_border_move.png
     moveHighlightImage kbd_glow.png
     moveHighlightImage icon_border_stack_bot.png
-    moveHighlightImage digit_9.png
     moveHighlightImage icon_border_maximize.png
     moveHighlightImage cell_sig_4.png
     moveHighlightImage icon_border_sendto.png
-    moveHighlightImage digit_6.png
     moveHighlightImage white_bar_vert_glow.png
     moveHighlightImage sym_icon_op_move.png
     moveHighlightImage outline_glow.png
@@ -94,7 +107,6 @@ moveAllHighlightImages(){
     moveHighlightImage col_sel_end_bottom.png
     moveHighlightImage mini_blue_glow_arrow_0.png
     moveHighlightImage icon_preferences-applications-personal.png
-    moveHighlightImage digit_3.png
     moveHighlightImage icon_preferences-variables.png
     moveHighlightImage vertical_separated_bar_glow.png
     moveHighlightImage horiz_glow_run.png
@@ -110,9 +122,7 @@ moveAllHighlightImages(){
     moveHighlightImage wifi_sig_2.png
     moveHighlightImage sym_icon_op_copy.png
     moveHighlightImage spanner_glow.png
-    moveHighlightImage digit_7.png
     moveHighlightImage sym_heart_glow_normal.png
-    moveHighlightImage digit_5.png
     moveHighlightImage sym_down_glow_normal.png
     moveHighlightImage icon_border_more.png
     moveHighlightImage icon_border_remember.png
@@ -129,17 +139,14 @@ moveAllHighlightImages(){
     moveHighlightImage icon_border_properties.png
     moveHighlightImage ic_win_resize.png
     moveHighlightImage sym_up_glow_normal.png
-    moveHighlightImage digit_pm.png
     moveHighlightImage holes_tiny_glow_horiz.png
     moveHighlightImage icon_system-suspend-hibernate.png
     moveHighlightImage split_none_glow.png
     moveHighlightImage icon_border_resize.png
     moveHighlightImage ball_small_glow_intense.png
-    moveHighlightImage digit_am.png
     moveHighlightImage glow_lock_unlocked.png
     moveHighlightImage icon_system-suspend.png
     moveHighlightImage wifi_base.png
-    moveHighlightImage digit_0.png
     moveHighlightImage icon_system-log-out.png
     moveHighlightImage sym_left_glow_normal.png
     moveHighlightImage icon_border_kill.png
@@ -265,95 +272,99 @@ moveAllHighlightImages(){
 moveAllBackgroundImages(){
 # move background images
     mkdir $ELM_ENLIGHT_THEME_PATH/img-bgnd
-    
-    moveBackgroundImage home_inset.png 
-    moveBackgroundImage bevel_out.png 
-    moveBackgroundImage slider_run_base_light_vert.png 
-    moveBackgroundImage horiz_bar_inset.png 
-    moveBackgroundImage holes_vert.png 
-    moveBackgroundImage runner_vert.png 
-    moveBackgroundImage split_v_hilight.png 
-    moveBackgroundImage hole_pixel.png 
-    moveBackgroundImage vgrad_med_dark.png 
-    moveBackgroundImage mini_box_bevel_shadow.png 
-    moveBackgroundImage vgrad_med_darker.png 
-    moveBackgroundImage holes_tiny_vert.png 
-    moveBackgroundImage vgrad_tall.png 
-    moveBackgroundImage inset_round_shadow.png 
-    moveBackgroundImage slider_run_bevel_vert.png 
-    moveBackgroundImage led_square_shading.png 
-    moveBackgroundImage spanner_hilight.png 
-    moveBackgroundImage holes_horiz.png 
-    moveBackgroundImage bevel_dark_out.png 
-    moveBackgroundImage runner_horiz.png 
-    moveBackgroundImage spanner_inset.png 
-    moveBackgroundImage split_none_hilight.png 
-    moveBackgroundImage split_v_inset.png 
-    moveBackgroundImage hole_tiny.png 
-    moveBackgroundImage bg_radgrad.png 
-    moveBackgroundImage slider_run_base_vert.png 
-    moveBackgroundImage vgrad_med_curved.png 
-    moveBackgroundImage button_clicked.png 
-    moveBackgroundImage slot_horiz_bottom.png 
-    moveBackgroundImage bevel_horiz_out.png 
-    moveBackgroundImage vert_bar_inset.png 
-    moveBackgroundImage slider_run_base_light_horiz.png 
-    moveBackgroundImage inset_shadow_tiny.png 
-    moveBackgroundImage slider_run_bevel_horiz.png 
-    moveBackgroundImage button_normal.png 
-    moveBackgroundImage inset_shadow_circle_tiny.png 
-    moveBackgroundImage split_h_inset.png 
-    moveBackgroundImage bevel_in.png 
-    moveBackgroundImage kbd_inset.png 
-    moveBackgroundImage separator_horiz.png 
-    moveBackgroundImage inset_shadow.png 
-    moveBackgroundImage kbd_hilight.png 
-    moveBackgroundImage split_h_hilight.png 
-    moveBackgroundImage inset_round_shading.png 
-    moveBackgroundImage vgrad_med_lighter.png 
-    moveBackgroundImage vgrad_med.png 
-    moveBackgroundImage dot_pattern.png 
-    moveBackgroundImage inset_circle_tiny.png 
-    moveBackgroundImage slider_run_base_horiz.png 
-    moveBackgroundImage split_none_inset.png 
-    moveBackgroundImage inset_round_hilight.png 
-    moveBackgroundImage home_hilight.png 
-    moveBackgroundImage slot_horiz_top.png 
-    moveBackgroundImage holes_tiny_horiz.png 
-    moveBackgroundImage bub_base_b0.png 
-    moveBackgroundImage bub_base_b1.png 
-    moveBackgroundImage bub_base_b2.png 
-    moveBackgroundImage bub_base_bl.png 
-    moveBackgroundImage bub_base_br.png 
-    moveBackgroundImage bub_base_tl.png 
-    moveBackgroundImage bub_base_tr.png 
-    moveBackgroundImage day_left_normal.png 
-    moveBackgroundImage day_middle_normal.png 
-    moveBackgroundImage day_right_normal.png 
-    moveBackgroundImage day_single_normal.png 
-    moveBackgroundImage inset_bar_horiz_base.png 
-    moveBackgroundImage inset_bar_vert_base.png 
-    moveBackgroundImage tooltip-base.png 
-    moveBackgroundImage tooltip-corner-bottom-left-tip.png 
-    moveBackgroundImage tooltip-corner-bottom-right-tip.png 
-    moveBackgroundImage tooltip-corner-top-left-tip.png 
-    moveBackgroundImage tooltip-corner-top-right-tip.png 
-    moveBackgroundImage tooltip-edge-bottom-tip.png 
-    moveBackgroundImage tooltip-edge-left-tip.png 
-    moveBackgroundImage tooltip-edge-right-tip.png 
-    moveBackgroundImage tooltip-edge-top-tip.png 
+    moveBackgroundImage darken_square.png
+    moveBackgroundImage home_inset.png
+    moveBackgroundImage bevel_out.png
+    moveBackgroundImage slider_run_base_light_vert.png
+    moveBackgroundImage holes_vert.png
+    moveBackgroundImage runner_vert.png
+    moveBackgroundImage split_v_hilight.png
+    moveBackgroundImage hole_pixel.png
+    moveBackgroundImage vgrad_med_dark.png
+    moveBackgroundImage mini_box_bevel_shadow.png
+    moveBackgroundImage vgrad_med_darker.png
+    moveBackgroundImage holes_tiny_vert.png
+    moveBackgroundImage vgrad_tall.png
+    moveBackgroundImage inset_round_shadow.png
+    moveBackgroundImage slider_run_bevel_vert.png
+    moveBackgroundImage led_square_shading.png
+    moveBackgroundImage spanner_hilight.png
+    moveBackgroundImage holes_horiz.png
+    moveBackgroundImage bevel_dark_out.png
+    moveBackgroundImage runner_horiz.png
+    moveBackgroundImage spanner_inset.png
+    moveBackgroundImage split_none_hilight.png
+    moveBackgroundImage split_v_inset.png
+    moveBackgroundImage hole_tiny.png
+    moveBackgroundImage bg_radgrad.png
+    moveBackgroundImage slider_run_base_vert.png
+    moveBackgroundImage vgrad_med_curved.png
+    moveBackgroundImage button_clicked.png
+    moveBackgroundImage slot_horiz_bottom.png
+    moveBackgroundImage bevel_horiz_out.png
+    moveBackgroundImage slider_run_base_light_horiz.png
+    moveBackgroundImage slider_run_bevel_horiz.png
+    moveBackgroundImage button_normal.png
+    moveBackgroundImage split_h_inset.png
+    moveBackgroundImage bevel_in.png
+    moveBackgroundImage kbd_inset.png
+    moveBackgroundImage separator_horiz.png
+    moveBackgroundImage kbd_hilight.png
+    moveBackgroundImage split_h_hilight.png
+    moveBackgroundImage inset_round_shading.png
+    moveBackgroundImage vgrad_med_lighter.png
+    moveBackgroundImage vgrad_med.png
+    moveBackgroundImage dot_pattern.png
+    moveBackgroundImage inset_circle_tiny.png
+    moveBackgroundImage slider_run_base_horiz.png
+    moveBackgroundImage split_none_inset.png
+    moveBackgroundImage inset_round_hilight.png
+    moveBackgroundImage home_hilight.png
+    moveBackgroundImage slot_horiz_top.png
+    moveBackgroundImage holes_tiny_horiz.png
+    moveBackgroundImage bub_base_b0.png
+    moveBackgroundImage bub_base_b1.png
+    moveBackgroundImage bub_base_b2.png
+    moveBackgroundImage bub_base_bl.png
+    moveBackgroundImage bub_base_br.png
+    moveBackgroundImage bub_base_tl.png
+    moveBackgroundImage bub_base_tr.png
+    moveBackgroundImage day_left_normal.png
+    moveBackgroundImage day_middle_normal.png
+    moveBackgroundImage day_right_normal.png
+    moveBackgroundImage day_single_normal.png
+    moveBackgroundImage inset_bar_horiz_base.png
+    moveBackgroundImage inset_bar_vert_base.png
+    moveBackgroundImage rounded_square.png
+    moveBackgroundImage tooltip-base.png
+    moveBackgroundImage tooltip-corner-bottom-left-tip.png
+    moveBackgroundImage tooltip-corner-bottom-right-tip.png
+    moveBackgroundImage tooltip-corner-top-left-tip.png
+    moveBackgroundImage tooltip-corner-top-right-tip.png
+    moveBackgroundImage tooltip-edge-bottom-tip.png
+    moveBackgroundImage tooltip-edge-left-tip.png
+    moveBackgroundImage tooltip-edge-right-tip.png
+    moveBackgroundImage tooltip-edge-top-tip.png
 }
 
 moveAllShadowImages(){
     mkdir $ELM_ENLIGHT_THEME_PATH/img-shadow
+    moveShadowImage button_shadow.png
     moveShadowImage darken_rounded_square.png
     moveShadowImage darken_rounded_square_half.png
     moveShadowImage darken_rounded_square_half_h.png
     moveShadowImage digit_na.png
     moveShadowImage digit_nm.png
+    moveShadowImage horiz_bar_inset.png
+    moveShadowImage inset_shadow.png
+    moveShadowImage inset_shadow_tiny.png
+    moveShadowImage inset_shadow_circle_tiny.png
     moveShadowImage rounded_square.png
-    moveShadowImage shadow_inset_bevels.png
     moveShadowImage shadow_angled_in_sides.png
+    moveShadowImage shadow_inset_bevels.png
+    moveShadowImage shadow_rounded_horiz.png
+    moveShadowImage shadow_rounded_vert.png
+    moveShadowImage vert_bar_inset.png
 }
 
 moveTerminologyHighlightImage(){
