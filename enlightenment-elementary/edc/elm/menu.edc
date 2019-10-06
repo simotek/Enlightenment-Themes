@@ -11,10 +11,10 @@ group { name: "elm/menu/item/default";
 
             rel1.offset:  4 -1;
             rel2.offset: -4 1;
-            
+
             image.normal: "frame_clicked.png";
             image.border: 10 10 10 10;
-         
+
             visible: 0;
          }
          description { state: "active" 0.0;
@@ -796,6 +796,7 @@ group { name: "elm/hover/base/main_menu_submenu/default";
          signal: "mouse,up,*"; source: "base";
          action: SIGNAL_EMIT "elm,action,dismiss" "elm";
       }
+      /* todo: should we need this
       program { name: "show";
          signal: "elm,action,show"; source: "elm";
          action: STATE_SET "visible" 0.0;
@@ -805,7 +806,7 @@ group { name: "elm/hover/base/main_menu_submenu/default";
          signal: "elm,action,hide"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "top";
-      }
+      } */
       program { name: "bottomshow";
          signal: "elm,action,slot,bottom,show"; source: "elm";
          action: STATE_SET "visible" 0.0;
