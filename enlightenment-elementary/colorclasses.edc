@@ -56,7 +56,7 @@ color_classes {
       desc: "Text of an inactive menu item";
    }
    color_class { name: "menu_item_active";
-      color: FN_COL_HIGHLIGHT;
+      color: FN_COL_HIGHLIGHT_SELECTED;
       desc: "Text of an active menu item";
    }
    color_class { name: "menu_item_disabled";
@@ -68,7 +68,7 @@ color_classes {
       desc: "Text of an inactive winlist item";
    }
    color_class { name: "winlist_item_active";
-      color: FN_COL_HIGHLIGHT;
+      color: FN_COL_HIGHLIGHT_SELECTED;
       desc: "Text of an active winlist item";
    }
    color_class { name: "winlist_label";
@@ -429,7 +429,7 @@ color_classes {
       color: 32 32 32 128;
       desc: "Overlay color for windows with modal children (blocked)";
    }
-   
+
 // modules
    color_class { name: "module_label";
       color: FN_COL_DEFAULT;
