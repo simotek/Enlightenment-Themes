@@ -244,7 +244,7 @@ color_classes {
       desc: "Background of a index widget";
    }
    color_class { name: "index_highlight_text";
-      color: FN_COL_HIGHLIGHT;
+      color: FN_COL_HIGHLIGHT_SELECTED;
       desc: "Text of a hlghlight item text";
    }
    color_class { name: "index_item_bg";
@@ -256,7 +256,7 @@ color_classes {
       desc: "Text of a index item";
    }
    color_class { name: "index_item_text_selected";
-      color: FN_COL_HIGHLIGHT;
+      color: FN_COL_HIGHLIGHT_SELECTED;
       desc: "Text of a selected index item";
    }
    color_class { name: "label_text";
@@ -300,7 +300,7 @@ color_classes {
       desc: "Text of a disabled slider widget's label";
    }
    color_class { name: "list_item_selected";
-      color: FN_COL_HIGHLIGHT;
+      color: FN_COL_HIGHLIGHT_SELECTED;
       desc: "Text of a selected ilist item";
    }
    color_class { name: "ilist_item";
