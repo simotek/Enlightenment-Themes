@@ -200,7 +200,7 @@ group { "efl/list_item"; data.item: "version" "123";
             rel1.to: "efl.text";
             rel2.offset: 1 1;
             rel2.to: "efl.text";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "efl.text";
