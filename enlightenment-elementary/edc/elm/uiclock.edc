@@ -1,6 +1,6 @@
 #define DATETIME_FIELD(_pos) \
    part { \
-      name: "field"#_pos; type: SWALLOW; \
+      name: "elm.field"#_pos; type: SWALLOW; \
       scale: 1; \
       clip_to: "clip"; \
       description { state: "default" 0.0; \
@@ -9,9 +9,9 @@
          align: 0.0 0.5; \
          fixed: 1 1; \
          rel1.relative: 1.0 0.0; \
-         rel1.to: "separator"#_pos; \
+         rel1.to: "elm.separator"#_pos; \
          rel2.relative: 1.0 1.0; \
-         rel2.to: "separator"#_pos; \
+         rel2.to: "elm.separator"#_pos; \
       } \
       description { state: "enable" 0.0; \
          inherit: "default" 0.0; \
@@ -23,17 +23,17 @@
       program { name: "field_"#_pos"enabled"; \
          signal: "field"#_pos",enable"; source: "elm"; \
          action: STATE_SET "enable" 0.0; \
-         target: "field"#_pos; \
+         target: "elm.field"#_pos; \
       } \
       program { name: "field_"#_pos"disabled"; \
          signal: "field"#_pos",disable"; source: "elm"; \
          action: STATE_SET "default" 0.0; \
-         target: "field"#_pos; \
+         target: "elm.field"#_pos; \
       } \
     }
 #define DATETIME_SEPARATOR(_pos, _after) \
    part { \
-      name: "separator"#_pos; type: TEXT; \
+      name: "elm.separator"#_pos; type: TEXT; \
       scale: 1; \
       effect: SHADOW BOTTOM; \
       clip_to: "disclip"; \
@@ -44,11 +44,11 @@
          fixed: 1 0; \
          rel1 { \
             relative: 1.0 0.0; \
-            to: "field"#_after; \
+            to: "elm.field"#_after; \
          } \
          rel2 { \
             relative: 1.0 1.0; \
-            to: "field"#_after; \
+            to: "elm.field"#_after; \
          } \
          color_class: "datetime_separator_text"; \
          text { \
@@ -72,11 +72,11 @@
       clip_to: "disclip2"; \
       description { state: "default" 0.0; \
          visible: 0; \
-         rel1.to: "separator"#_pos; \
-         rel2.to: "separator"#_pos; \
+         rel1.to: "elm.separator"#_pos; \
+         rel2.to: "elm.separator"#_pos; \
          color_class: "datetime_separator_text_disabled"; \
          text { \
-            text_source: "separator"#_pos; \
+            text_source: "elm.separator"#_pos; \
             font: "Sans"; size: 10; \
             text_class: "datetime_separator_text_disabled"; \
          } \
@@ -90,13 +90,13 @@
       program { \
          signal: "field"#_after",enable"; source: "elm"; \
          action: STATE_SET "enable" 0.0; \
-         target: "separator"#_pos; \
+         target: "elm.separator"#_pos; \
          target: "separator"#_pos"d"; \
       } \
       program { \
          signal: "field"#_after",disable"; source: "elm"; \
          action: STATE_SET "default" 0.0; \
-         target: "separator"#_pos; \
+         target: "elm.separator"#_pos; \
          target: "separator"#_pos"d"; \
       } \
    }
@@ -109,15 +109,15 @@ group { name: "elm/uiclock/base/default";
       }
       part { name: "clip"; type: RECT;
          description { state: "default" 0.0;
-            rel1.to: "separator0";
-            rel2.to: "separator7";
+            rel1.to: "elm.separator0";
+            rel2.to: "elm.separator7";
          }
       }
       part { name: "disclip"; type: RECT;
          clip_to: "clip";
          description { state: "default" 0.0;
-            rel1.to: "separator0";
-            rel2.to: "separator7";
+            rel1.to: "elm.separator0";
+            rel2.to: "elm.separator7";
          }
          description { state: "disabled" 0.0;
             inherit: "default" 0.0;
@@ -127,8 +127,8 @@ group { name: "elm/uiclock/base/default";
       part { name: "disclip2"; type: RECT;
          clip_to: "clip";
          description { state: "default" 0.0;
-            rel1.to: "separator0";
-            rel2.to: "separator7";
+            rel1.to: "elm.separator0";
+            rel2.to: "elm.separator7";
             visible: 0;
          }
          description { state: "disabled" 0.0;
@@ -136,7 +136,7 @@ group { name: "elm/uiclock/base/default";
             visible: 1;
          }
       }
-      part { name: "separator0"; type: SPACER;
+      part { name: "elm.separator0"; type: SPACER;
          scale: 1;
          description { state: "default" 0.0;
             min: 8 10;
@@ -161,17 +161,17 @@ group { name: "elm/uiclock/base/default";
       DATETIME_SEPARATOR(7,6)
       DATETIME_FIELD(7)
       DATETIME_SEPARATOR(8,7)
-      part { name: "separator9"; type: SPACER;
+      part { name: "elm.separator9"; type: SPACER;
          description { state: "default" 0.0;
-            rel1.to: "separator7";
+            rel1.to: "elm.separator7";
             rel1.relative: 1.0 0.0;
             min: 8 10;
          }
       }
       part { name: "discover"; type: RECT;
          description { state: "default" 0.0;
-            rel1.to: "separator0";
-            rel2.to: "separator7";
+            rel1.to: "elm.separator0";
+            rel2.to: "elm.separator7";
             visible: 0;
             color: 0 0 0 0;
          }
