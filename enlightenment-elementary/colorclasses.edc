@@ -21,7 +21,7 @@ color_classes {
       desc: "Title of an inactive window frame";
    }
    color_class { name: "border_title_active";
-      color: FN_COL_DEFAULT_SOFT_SHADOW;
+      color: FN_COL_HIGHLIGHT_SELECTED;
       desc: "Title of an active window frame";
    }
    color_class { name: "border_frame";
