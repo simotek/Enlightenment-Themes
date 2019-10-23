@@ -1,7 +1,7 @@
 group { name: "e/init/splash";
    images.image: "screen_circular_shadow.png" COMP;
    images.image: "bg_radgrad.png" COMP;
-   images.image: "1920x1080.png" COMP;
+   images.image: "1920x1080.jpg" COMP;
    images.image: "logo_blue_small.png" COMP;
    images.image: "logo_blue_small_glow.png" COMP;
    images.image: "led_square_base.png" COMP;
@@ -28,7 +28,7 @@ group { name: "e/init/splash";
       }
       part { name: "pat";
          description { state: "default" 0.0;
-            image.normal: "1920x1080.png";
+            image.normal: "1920x1080.jpg";
             ASPECT_FILL((1680/1050))
          }
       }
@@ -217,13 +217,13 @@ group { name: "e/init/splash";
       }
 
 #define WHITE  255 255 255 255
-#define RED    160  100  255 255
-#define GREEN   100 160 255 255
-#define BLUE    160  255  100 255
-#define ORANGE 120 255 200 255
-#define YELLOW 140 255 220  255
-#define PURPLE  120 255 180 255
-#define CYAN    180 120 255 255
+#define RED    255  40  20 255
+#define GREEN   80 255  20 255
+#define BLUE    51 153 255 255
+#define ORANGE 255 128  32 255
+#define YELLOW 255 220  64 255
+#define PURPLE 200  60 255 255
+#define CYAN    40 220 255 255
       
       LED("l0", "led0", 255,
           BLUE, WHITE,
@@ -534,7 +534,7 @@ group { name: "e/init/extra_screen";
       }
       part { name: "pat";
          description { state: "default" 0.0;
-            image.normal: "1920x1080.png";
+            image.normal: "1920x1080.jpg";
             ASPECT_FILL((1680/1050))
          }
       }
