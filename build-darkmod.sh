@@ -179,6 +179,12 @@ for F in `find edc-dm colorclasses-dm.edc macros-dm.edc -iname "*.edc"`; do
         sed -i "s/#323232/$FILEMGR_MID_GREY_HTML/g" $F
     fi
 
+    # Checkbox background (mostly for toggle)
+    if [[ "$TOGGLE_BKND_RGB" != "24 24 24" ]]; then
+        sed -i "s/24 24 24/$TOGGLE_BKND_RGB/g" $F
+        sed -i "s/#181818/$TOGGLE_BKND_HTML/g" $F
+    fi
+
     # modify html versions of text for textblock
     if [[ "$FNT_DEFAULT_HTML" != "#FFFFFF" ]]; then
         sed -i "s/#ffffff/$FNT_DEFAULT_HTML/gI" $F
