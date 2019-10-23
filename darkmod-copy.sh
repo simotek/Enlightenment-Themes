@@ -62,6 +62,8 @@ moveAllHighlightImages(){
     moveHighlightImage bt_base.png
     moveHighlightImage bt_sig_1.png
     moveHighlightImage bt_sig_2.png
+    moveHighlightImage btn_round_1.png
+    moveHighlightImage btn_round_2.png
     moveHighlightImage bulb_glow.png
     moveHighlightImage cell_base.png
     moveHighlightImage cell_sig_1.png
@@ -140,6 +142,7 @@ moveAllHighlightImages(){
     moveHighlightImage holes_tiny_glow_horiz.png
     moveHighlightImage holes_tiny_glow_vert.png
     moveHighlightImage home_glow.png
+    moveHighlightImage horiz_glow_range.png
     moveHighlightImage horiz_glow_run_big.png
     moveHighlightImage horiz_glow_run.png
     moveHighlightImage horiz_glow_run_rev.png
@@ -198,6 +201,7 @@ moveAllHighlightImages(){
     moveHighlightImage icon_prev.png
     moveHighlightImage icon_refresh.png
     moveHighlightImage icon_rewind.png
+    moveHighlightImage icon_search.png
     moveHighlightImage icon_spanner.png
     moveHighlightImage icon_splat_half.png
     moveHighlightImage icon_splat.png
@@ -223,14 +227,22 @@ moveAllHighlightImages(){
     moveHighlightImage led_light.png
     moveHighlightImage led_tiny_blue.png
     moveHighlightImage logo_blue_bottom.png
+    moveHighlightImage lock_insecure.png
+    moveHighlightImage lock_locked.png
     moveHighlightImage logo_blue_small_glow.png
     moveHighlightImage logo_blue_small.png
     moveHighlightImage media_busy_progress.png
+    moveHighlightImage mem_bar.png
+    moveHighlightImage mem_bar_vert.png
+    moveHighlightImage mem_on.png
+    moveHighlightImage mem_on_vert.png
     moveHighlightImage mini_blue_glow_arrow_0.png
     moveHighlightImage mini_blue_glow_arrow_1.png
     moveHighlightImage mini_blue_glow_arrow_2.png
     moveHighlightImage mini_blue_glow_arrow_3.png
     moveHighlightImage mini_box_glow.png
+    moveHighlightImage netstatus_rx.png
+    moveHighlightImage netstatus_tx.png
     moveHighlightImage outline_glow.png
     moveHighlightImage packagekit_base.png
     moveHighlightImage pointer_glow.png
@@ -258,6 +270,7 @@ moveAllHighlightImages(){
     moveHighlightImage sym_up_light_selected.png
     moveHighlightImage tacho_base.png
     moveHighlightImage therm_content.png
+    moveHighlightImage vert_glow_range.png
     moveHighlightImage vert_glow_run.png
     moveHighlightImage vert_glow_run_rev.png
     moveHighlightImage vertical_separated_bar_glow.png
@@ -355,6 +368,8 @@ moveAllShadowImages(){
     moveShadowImage darken_rounded_square_half_h.png
     moveShadowImage digit_na.png
     moveShadowImage digit_nm.png
+    moveShadowImage flip_base_shad.png
+    moveShadowImage flip_shad.png
     moveShadowImage horiz_bar_inset.png
     moveShadowImage inset_shadow.png
     moveShadowImage inset_shadow_tiny.png
