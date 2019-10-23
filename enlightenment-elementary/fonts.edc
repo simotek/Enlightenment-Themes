@@ -24,7 +24,7 @@
 #define FN_COL_HIGHLIGHT_DISABLE 201 201 201 64; color2: 51 153 255 16; color3: 51 153 255 8
 /* In some theme's the Highlight color might be used as a selection color
    in these cases the text needs to be a different color */
-#define FN_COL_HIGHLIGHT_SELECTED 201 201 201 255; color2: 51 153 255 24; color3: 51 153 255 18
+#define FN_COL_HIGHLIGHT_SELECTED 231 231 231 255; color2: 51 153 255 24; color3: 51 153 255 18
 #define FN_COL_MID_GREY 128 128 128 255
 #define FN_COL_MID_GREY_SHADOW 128 128 128 255; color3: 0 0 0 128
 #define FN_COL_DISABLE 21 21 21 255; color3: 255 255 255 25;
@@ -53,7 +53,7 @@
 
 #define ENABLED_TEXTBLOCK_TAGS                                             \
    tag: "em" "+ font_style=Oblique";                                       \
-   tag: "hilight" "+ font_weight=Bold style=glow glow_color=#3399ff80";    \
+   tag: "hilight" "+ color=#e7e7e7 font_weight=Bold style=glow glow_color=#3399ff80";    \
    tag: "link" "+ color=#3399ff underline=on underline_color=#3399ff";     \
    tag: "preedit" "+ underline=on underline_color=#3399ff";                \
    tag: "preedit_sel" "+ backing=on backing_color=#000000 color=#ffffff";  \
