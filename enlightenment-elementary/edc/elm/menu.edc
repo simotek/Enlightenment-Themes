@@ -130,7 +130,7 @@ group { name: "elm/menu/item/default";
             rel1.to: "elm.text";
             rel2.offset: 2 1;
             rel2.to: "elm.text";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_SELECTED;
             color_class: "menu_item_active";
             text { font: FN; size: 10;
                text_source: "elm.text";
@@ -309,7 +309,6 @@ group { name: "elm/menu/item_with_submenu/default";
    }
    parts {
       part { name: "arrow";
-         insert_after: "item_image_disabled";
          description { state: "default" 0.0;
             rel1.to: "arrowspace";
             rel2.to: "arrowspace";
@@ -324,6 +323,7 @@ group { name: "elm/menu/item_with_submenu/default";
          repeat_events: 1;
          description { state: "default" 0.0;
             visible: 0;
+            fixed: 1 0;
             rel1.relative: 1.0 0.0;
             rel1.offset: -10 -5;
             rel2.offset: 4 4;
@@ -509,7 +509,7 @@ group { name: "elm/menu/main_menu_submenu/default";
             rel1.to: "elm.text";
             rel2.offset: 2 1;
             rel2.to: "elm.text";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_SELECTED;
             color_class: "menu_item_active";
             text { font: FN; size: 10;
                text_source: "elm.text";
@@ -723,6 +723,7 @@ group { name: "elm/hover/base/menu/default";
       part { name: "elm.swallow.offset"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            fixed: 1 1;
             rel1.relative: 0.0 0.0;
             rel2.relative: 0.0 0.0;
          }
@@ -730,6 +731,7 @@ group { name: "elm/hover/base/menu/default";
       part { name: "elm.swallow.size"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            fixed: 1 1;
             rel1.to: "elm.swallow.offset";
             rel1.relative: 1.0 1.0;
             rel2.to: "elm.swallow.offset";
@@ -759,6 +761,7 @@ group { name: "elm/hover/base/menu/default";
       part { name: "bottomclip"; type: RECT;
          description { state: "default" 0.0;
             color: 255 255 255 0;
+            rel1.offset: 0 -7;
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
@@ -768,14 +771,9 @@ group { name: "elm/hover/base/menu/default";
       part { name: "shadow";
          clip_to: "bottomclip";
          description { state: "default" 0.0;
-            image.normal: "win_shadow.png";
-            image.border: 14 14 14 14;
-            image.middle: 0;
             rel1.to: "bottom";
-            rel1.offset: -7  -3;
             rel2.to: "bottom";
-            rel2.offset: 6 11;
-            fill.smooth: 0;
+            WIN_SHADOW;
          }
       }
       part { name: "top";
@@ -827,6 +825,7 @@ group { name: "elm/hover/base/menu/default";
          clip_to: "bottomclip";
          description { state: "default" 0.0;
             align: 0.5 0.0;
+            fixed: 0 1;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 0.0 1.0;
             rel1.offset: 0 0;
@@ -969,10 +968,10 @@ group { name: "elm/hover/base/main_menu/default";
          clip_to: "bottomclip";
          description { state: "default" 0.0;
             align: 0.5 0.0;
+            fixed: 0 1;
             rel1.to: "elm.swallow.size";
             rel1.relative: 0.0 1.0;
             rel2.to: "elm.swallow.size";
-            fixed: 1 0;
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
@@ -999,12 +998,14 @@ group { name: "elm/hover/base/main_menu_submenu/default";
          repeat_events:1;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            fixed: 1 1;
             rel2.relative: 0.0 0.0;
          }
       }
       part { name: "elm.swallow.size"; type: SWALLOW;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            fixed: 1 1;
             rel1.to: "elm.swallow.offset";
             rel1.relative: 1.0 1.0;
             rel2.to: "elm.swallow.offset";
@@ -1025,14 +1026,9 @@ group { name: "elm/hover/base/main_menu_submenu/default";
       part { name: "shadow";
          clip_to: "bottomclip";
          description { state: "default" 0.0;
-            image.normal: "win_shadow.png";
-            image.border: 14 14 14 14;
-            image.middle: 0;
             rel1.to: "bottom";
-            rel1.offset: -7  -3;
             rel2.to: "bottom";
-            rel2.offset: 6 11;
-            fill.smooth: 0;
+            WIN_SHADOW;
          }
       }
       part { name: "top";
@@ -1083,6 +1079,7 @@ group { name: "elm/hover/base/main_menu_submenu/default";
          clip_to: "bottomclip";
          description { state: "default" 0.0;
             align: 0.5 1.0;
+            fixed: 0 1;
             rel1.to: "elm.swallow.slot.middle";
             rel1.relative: 0.0 1.0;
             rel1.offset: 0 0;
@@ -1100,6 +1097,7 @@ group { name: "elm/hover/base/main_menu_submenu/default";
       part { name: "pop"; type: RECT; mouse_events: 1;
          repeat_events:1;
          description { state: "default" 0.0;
+            fixed: 0 1;
             rel1.to: "elm.swallow.slot.middle";
             rel1.offset: 0 0;
             rel2.to: "elm.swallow.slot.middle";
@@ -1136,12 +1134,12 @@ group { name: "elm/hover/base/main_menu_submenu/default";
       program { name: "show";
          signal: "elm,action,show"; source: "elm";
          action: STATE_SET "visible" 0.0;
-         target: "base";
+         target: "top";
       }
       program { name: "hide";
          signal: "elm,action,hide"; source: "elm";
          action: STATE_SET "default" 0.0;
-         target: "base";
+         target: "top";
       }
       program { name: "bottomshow";
          signal: "elm,action,slot,bottom,show"; source: "elm";
@@ -1159,4 +1157,3 @@ group { name: "elm/hover/base/main_menu_submenu/default";
       }
    }
 }
-

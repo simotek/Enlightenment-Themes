@@ -126,11 +126,11 @@ group { "elm/genlist/item/group_index/default"; nomouse; program_source: "elm";
    data.item: "texts" "elm.text";
    data.item: "contents" "elm.swallow.icon elm.swallow.end";
    data.item: "treesize" TREEPAD;
-   
+
    images.image: "shadow_square_tiny.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "horizontal_separated_bar_small_glow.png" COMP;
-   
+
    parts {
       image { "shadow_vbar";
          desc { "default";
@@ -162,7 +162,7 @@ group { "elm/genlist/item/group_index/default"; nomouse; program_source: "elm";
             min: 5 5;
          }
       }
-      
+
       text { "elm.text";
          effect: SHADOW BOTTOM;
          scale;
@@ -225,6 +225,7 @@ group { "elm/genlist/item/group_index/default"; nomouse; program_source: "elm";
             image.normal: "horizontal_separated_bar_small_glow.png";
             image.border: 4 4 4 4;
             fill.smooth: 0;
+            fixed: 0 1;
             rel1.relative: 0.0 1.0;
             rel1.offset: -3 -6;
             rel2.offset: 2 3;
@@ -380,6 +381,26 @@ group { "genlist_top"; inherit_only: 1; nomouse; program_source: "elm";
     }
 }
 
+group { "genlist_noarrow"; inherit_only: 1; program_source: "elm";
+   parts {
+      rect { "arrow"; mouse;
+         desc { "default";
+            fixed: 1 0;
+            min: 15 15;
+            aspect: 1.0 1.0;
+            align: 0.0 0.5;
+            rel1.to_x: "elm.swallow.pad";
+            rel1.relative: 1.0 0.0;
+            rel1.offset: -2 2;
+            rel2.to_x: "elm.swallow.pad";
+            rel2.relative: 1.0 1.0;
+            rel2.offset: -2 -3;
+            color: 0 0 0 0;
+         }
+      }
+   }
+}
+
 group { "elm/genlist/item/default/default"; nomouse;
    data.item: "selectraise" "on";
    data.item: "focusraise" "on";
@@ -455,7 +476,7 @@ group { "elm/genlist/item/default/default"; nomouse;
          desc { "default";
             rel1.offset: -2 -3;
             rel2.offset: -1 1;
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
          }
          desc { "selected";
@@ -599,10 +620,10 @@ group { "elm/genlist/item/default_style/default"; nomouse;
       tag: "b" "+ font_weight=Bold";
       tag: "tab" "\t";
    }
-   
+
    inherit: "genlist_base";
    parts {
-        
+
       //##//
       textblock { "elm.text";
          scale;
@@ -770,13 +791,38 @@ group { "elm/genlist/item/default_style/default"; nomouse;
          }
       }
       //##//
-      
+
    }
    inherit: "genlist_top";
 }
 ODD("elm/genlist/item_odd/default_style/default", "elm/genlist/item/default_style/default")
 COMPRESS("elm/genlist/item_compress/default_style/default", "elm/genlist/item/default_style/default")
 COMPRESS_ODD("elm/genlist/item_compress_odd/default_style/default", "elm/genlist/item/default_style/default")
+
+group { "elm/genlist/item/indent/default"; nomouse;
+   inherit: "elm/genlist/item/default/default";
+   parts {
+      swallow { "elm.swallow.icon";
+         desc { "default";
+            rel1.to_x: "arrow";
+            rel1.offset: 1 2;
+            rel2.to_x: "arrow";
+            rel2.offset: 1 -3;
+         }
+         desc { "flip_enabled";
+            rel1.to_x: "arrow";
+            rel1.offset: 1 2;
+            rel2.to_x: "arrow";
+            rel2.offset: 1 -3;
+         }
+      }
+   }
+   inherit: "genlist_noarrow";
+}
+
+ODD("elm/genlist/item_odd/indent/default", "elm/genlist/item/indent/default")
+COMPRESS("elm/genlist/item_compress/indent/default", "elm/genlist/item/indent/default")
+COMPRESS_ODD("elm/genlist/item_compress_odd/indent/default", "elm/genlist/item/indent/default")
 
 group { "elm/genlist/item/one_icon/default"; nomouse;
    data.item: "selectraise" "on";
@@ -851,7 +897,7 @@ group { "elm/genlist/item/one_icon/default"; nomouse;
          desc { "default";
             rel1.offset: -2 -3;
             rel2.offset: -1 1;
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
          }
          desc { "selected";
@@ -1028,7 +1074,7 @@ group { "elm/genlist/item/end_icon/default"; nomouse;
             rel1.to: "elm.text";
             rel2.offset: -1 1;
             rel2.to: "elm.text";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text";
@@ -1205,7 +1251,7 @@ group { "elm/genlist/item/no_icon/default"; nomouse;
             rel1.to: "elm.text";
             rel2.offset: -1 1;
             rel2.to: "elm.text";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text";
@@ -1345,7 +1391,7 @@ group { "genlist_arrow"; inherit_only: 1; program_source: "elm";
    images.image: "sym_down_dark_normal.png" COMP;
 
    parts {
-      image { "arrow_img_l"; insert_after: "sel_bevel";
+      image { "arrow_img_l";
          clip_to: "arrow_clip_l";
          scale;
          ignore_flags: ON_HOLD;
@@ -1411,7 +1457,7 @@ group { "genlist_arrow"; inherit_only: 1; program_source: "elm";
             image.normal: "sym_down_dark_normal.png";
          }
       }
-      rect { "arrow"; insert_before: "sel_shine"; mouse;
+      rect { "arrow"; mouse;
          desc { "default";
             fixed: 1 0;
             min: 15 15;
@@ -1699,6 +1745,7 @@ group { "elm/genlist/tree/tree_effect/default"; nomouse;
       rect { "point"; mouse;
          scale;
          desc { "default";
+            fixed: 1 1;
             color: 0 0 0 0;
             rel1.relative: 0.0 0.0;
             rel2.relative: 1.0 0.0;
@@ -1710,14 +1757,6 @@ group { "elm/genlist/tree/tree_effect/default"; nomouse;
       group { "group"; mouse;
          source: "elm/genlist/tree/default/default";
          desc { "default";
-            link.base: "elm,state,show";
-         }
-         desc { "hide";
-//            hid;
-            link.base: "elm,state,hide";
-         }
-         desc { "map_transition";
-            color: 50 50 50 255;
             map {
                perspective: "point";
                on: 1;
@@ -1726,18 +1765,27 @@ group { "elm/genlist/tree/tree_effect/default"; nomouse;
                backface_cull: 1;
                rotation {
                   center: "point";
-                  x: -90;
+                  x: 0;
                   y: 0;
                   z: 0;
                }
             }
+            link.base: "elm,state,show";
+         }
+         desc { "hide";
+//            hid;
+            link.base: "elm,state,hide";
+         }
+         desc { "map_transition";
+            inherit: "default";
+            color: 50 50 50 255;
+            map.rotation.x: -90;
             link { base: "elm,action,flip_item";
                after: "rot2";
             }
          }
          desc { "map_rotate";
-            inherit: "map_transition";
-            map.rotation.x: 0;
+            inherit: "default";
             link { base: "elm,state,contract_flip";
                after: "rotb2";
             }
@@ -1860,7 +1908,7 @@ group { "elm/genlist/item/icon_top_text_bottom/default"; nomouse;
             rel1.to: "elm.text";
             rel2.offset: -1 1;
             rel2.to: "elm.text";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text";
@@ -1927,7 +1975,7 @@ group { "elm/genlist/item/icon_top_text_bottom/default"; nomouse;
          target: "elm.text.flip";
       }
       //##//
-      text { "sizer.content";
+      text { "sizer_content";
          scale;
          desc { "default";
             fixed: 1 1;
@@ -1961,8 +2009,8 @@ group { "elm/genlist/item/icon_top_text_bottom/default"; nomouse;
          desc { "default";
             fixed: 1 1;
             aspect: 1.0 1.0;
-            rel1.to: "sizer.content";
-            rel2.to: "sizer.content";
+            rel1.to: "sizer_content";
+            rel2.to: "sizer_content";
             link.base: "elm,state,flip,disabled";
          }
          desc { "flip_enabled";
@@ -1983,7 +2031,7 @@ COMPRESS_ODD("elm/genlist/item_compress_odd/icon_top_text_bottom/default", "elm/
 group { "elm/genlist/tree/icon_top_text_bottom/default";
    inherit: "elm/genlist/item/icon_top_text_bottom/default";
    parts {
-      image { "sizer.content";
+      image { "sizer_content";
          desc { "default";
             rel1.to_x: "arrow";
             rel1.offset: 1 2;
@@ -2274,7 +2322,7 @@ group { "elm/genlist/item/double_label/default"; nomouse;
             rel1.to: "elm.text";
             rel2.offset: -1 1;
             rel2.to: "elm.text";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text";
@@ -2378,7 +2426,7 @@ group { "elm/genlist/item/double_label/default"; nomouse;
             rel1.to: "elm.text.sub";
             rel2.offset: -1 0;
             rel2.to: "elm.text.sub";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_sub_selected";
             text { font: FN; size: 8;
                text_source: "elm.text.sub";
@@ -2785,7 +2833,6 @@ group { "elm/genlist/item/message/default"; nomouse;
    data.item: "selectraise" "on";
    data.item: "focusraise" "on";
    data.item: "texts" "elm.text elm.title.1 elm.title.2";
-   data.item: "contents" "elm.swallow.icon";
    data.item: "treesize" TREEPAD;
    data.item: "flips" "elm.text.flip";
    inherit: "genlist_base";
@@ -2863,7 +2910,7 @@ group { "elm/genlist/item/message/default"; nomouse;
             rel1.to: "elm.text";
             rel2.offset: -1 1;
             rel2.to: "elm.text";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text";
@@ -2967,7 +3014,7 @@ group { "elm/genlist/item/message/default"; nomouse;
             rel1.to: "elm.title.1";
             rel2.offset: -1 1;
             rel2.to: "elm.title.1";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.title.1";
@@ -3058,7 +3105,7 @@ group { "elm/genlist/item/message/default"; nomouse;
             rel1.to: "elm.title.2";
             rel2.offset: -1 2;
             rel2.to: "elm.title.2";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.title.2";
@@ -3211,7 +3258,7 @@ group { "elm/genlist/item/media/default"; nomouse;
             rel1.to: "elm.text.title";
             rel2.offset: -1 1;
             rel2.to: "elm.text.title";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text.title";
@@ -3314,7 +3361,7 @@ group { "elm/genlist/item/media/default"; nomouse;
             rel1.to: "elm.text.album-artist";
             rel2.offset: -1 0;
             rel2.to: "elm.text.album-artist";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_sub_selected";
             text { font: FN; size: 8;
                text_source: "elm.text.album-artist";
@@ -3573,7 +3620,7 @@ group { "elm/genlist/item/media/default"; nomouse;
 ODD("elm/genlist/item_odd/media/default", "elm/genlist/item/media/default")
 COMPRESS_MEDIA("elm/genlist/item_compress/media/default", "elm/genlist/item/media/default")
 COMPRESS_MEDIA_ODD("elm/genlist/item_compress_odd/media/default", "elm/genlist/item/media/default")
-      
+
 group { "elm/genlist/item/media-album/default"; nomouse;
    data.item: "selectraise" "on";
    data.item: "focusraise" "on";
@@ -3655,7 +3702,7 @@ group { "elm/genlist/item/media-album/default"; nomouse;
             rel1.to: "elm.text.trackno";
             rel2.offset: -1 1;
             rel2.to: "elm.text.trackno";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text.trackno";
@@ -3781,7 +3828,7 @@ group { "elm/genlist/item/media-album/default"; nomouse;
             rel1.to: "elm.text.title";
             rel2.offset: -1 1;
             rel2.to: "elm.text.title";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text.title";
@@ -3803,7 +3850,7 @@ group { "elm/genlist/item/media-album/default"; nomouse;
             hid;
          }
       }
-      
+
       text { "elm.text.length";
          effect: SHADOW BOTTOM;
          scale;
@@ -3873,7 +3920,7 @@ group { "elm/genlist/item/media-album/default"; nomouse;
             rel1.to: "elm.text.length";
             rel2.offset: -1 0;
             rel2.to: "elm.text.length";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_sub_selected";
             text { font: FN; size: 8;
                text_source: "elm.text.length";
@@ -4203,7 +4250,7 @@ group { "elm/genlist/item/media-preview/default"; nomouse;
             rel1.to: "elm.text";
             rel2.offset: -1 1;
             rel2.to: "elm.text";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text";
@@ -4306,7 +4353,7 @@ group { "elm/genlist/item/media-preview/default"; nomouse;
             rel1.to: "elm.text.artist";
             rel2.offset: -1 0;
             rel2.to: "elm.text.artist";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_sub_selected";
             text { font: FN; size: 8;
                text_source: "elm.text.artist";
@@ -4754,7 +4801,7 @@ group { "elm/genlist/item/mode/default"; nomouse;
             rel1.to: "elm.text.mode";
             rel2.offset: -1 1;
             rel2.to: "elm.text.mode";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text.mode";
@@ -4845,6 +4892,7 @@ group { "elm/genlist/item/mode/default"; nomouse;
       }
       spacer { "pers";
          desc { "default";
+            fixed: 0 1;
             rel1.relative: 0.0 1.0;
          }
       }
@@ -4902,7 +4950,7 @@ group { "elm/genlist/item/mode/default"; nomouse;
       program { "slide_left_finished";
          action: SIGNAL_EMIT "elm,state,slide,passive,finished" "elm";
       }
-      program {      
+      program {
          signal: "elm,state,rotate,active";
          action: STATE_SET "rotate";
          target: "elm.swallow.original";
@@ -4934,7 +4982,7 @@ group { "elm/genlist/item/mode/default"; nomouse;
       program { "rotate_off_finished";
          action: SIGNAL_EMIT "elm,state,rotate,passive,finished" "elm";
       }
-      
+
    }
    inherit: "genlist_top";
 }
@@ -5018,7 +5066,7 @@ group { "elm/genlist/item/edit/default"; nomouse;
       }
       program {
          signal: "elm,state,odd";
-         action: STATE_SET "odd" 1.0;
+         action: STATE_SET "odd" 0.0;
          target: "base";
       }
       program {
@@ -5026,7 +5074,7 @@ group { "elm/genlist/item/edit/default"; nomouse;
          action: STATE_SET "default";
          target: "base";
       }
-      
+
       image { "sel_shadow1";
          desc { "default";
             image.normal: "shadow_horiz.png";
@@ -5134,7 +5182,7 @@ group { "elm/genlist/item/edit/default"; nomouse;
             hid;
          }
       }
-      
+
       swallow { "elm.swallow.decorate.content"; mouse;
          desc { "default";
          }

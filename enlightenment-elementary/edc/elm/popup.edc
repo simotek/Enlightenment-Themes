@@ -1,13 +1,8 @@
 group { name: "elm/notify/block_events/popup/default";
-   parts {
-      part { name: "base"; type: RECT;
-         description { state: "default" 0.0;
-            color: 0 0 0 128;
-         }
-      }
-      program {
-         signal: "mouse,clicked,1"; source: "base";
-         action: SIGNAL_EMIT "elm,action,click" "elm";
+   inherit: "elm/notify/block_events/default";
+   parts.part { "block_events";
+      desc { "visible";
+         color: 0 0 0 128; /* FIXME: color_class */
       }
    }
 }
@@ -139,7 +134,15 @@ group { name: "elm/label/base/popup/default";
    alias: "elm/label/base/popup/transparent";
    styles {
       style { name: "popup_desc_style";
-         base: "font="FN" font_size=10 text_class=label align=center color=#fff style=shadow,bottom shadow_color=#00000080 wrap=mixed";
+         base: "font="FN" font_size=10 text_class=label align=center color=#fff color_class=popup_text style=shadow,bottom shadow_color=#00000080 wrap=mixed";
+         tag: "br" "\n";
+         tag: "hilight" "+ font="FNBD" text_class=label_light";
+         tag: "b" "+ font="FNBD" text_class=label_light";
+         tag: "whitecolor" "+ color=#fff";
+         tag: "tab" "\t";
+      }
+      style { name: "popup_title_style_ellipsis";
+         base: "font="FNBD" font_size=10 text_class=label align=center color=#fff color_class=popup_title_text style=shadow,bottom shadow_color=#00000080 ellipsis=1.0 wrap=mixed";
          tag: "br" "\n";
          tag: "hilight" "+ font="FNBD" text_class=label_light";
          tag: "b" "+ font="FNBD" text_class=label_light";
@@ -175,7 +178,7 @@ group { name: "elm/popup/base/default";
    alias: "elm/popup/base/transparent";
    styles {
       style { name: "popup_title_style";
-         base: "font="FNBD" font_size=10 text_class=label align=center color=#fff style=shadow,bottom shadow_color=#00000080 wrap=mixed";
+         base: "font="FNBD" font_size=10 text_class=label align=center color=#fff color_class=popup_title_text style=shadow,bottom shadow_color=#00000080 wrap=mixed";
          tag: "br" "\n";
          tag: "hilight" "+ font="FNBD" text_class=label_light";
          tag: "b" "+ font="FNBD" text_class=label_light";
@@ -184,10 +187,19 @@ group { name: "elm/popup/base/default";
       }
    }
    parts {
-      part { name: "base"; type: SPACER;
+      part { name: "base"; type: RECT;
          scale: 1;
          description { state: "default" 0.0;
             min: 240 0;
+            color_class: "popup_bg";
+         }
+      }
+      part { name: "elm.swallow.background"; type: SWALLOW;
+         scale: 1;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.to: "base";
+            rel2.to: "base";
          }
       }
       part { name: "elm.bg.title"; type: RECT;
@@ -195,7 +207,7 @@ group { name: "elm/popup/base/default";
             fixed: 1 1;
             rel1.to: "elm.text.title";
             rel2.to: "elm.text.title";
-            visible: 0;
+            color_class: "popup_title_bg";
          }
       }
       part { name: "elm.text.title"; type: TEXTBLOCK;
@@ -478,7 +490,7 @@ group { name: "elm/popup/item/popup/default";
 group { name: "elm/popup/base/subpopup";
    inherit: "elm/popup/base/default";
    parts {
-      part { name: "pad.closebtn"; type: SPACER;
+      part { name: "pad_closebtn"; type: SPACER;
          description { state: "default" 0.0;
             rel1.to: "base";
             rel1.relative: 1 0;
@@ -493,9 +505,9 @@ group { name: "elm/popup/base/subpopup";
       part { name: "elm.swallow.closebtn"; type: SWALLOW;
          scale: 1;
          description { state: "default" 0.0;
-            rel1.to: "pad.closebtn";
+            rel1.to: "pad_closebtn";
             rel1.relative: 1 0;
-            rel2.to: "pad.closebtn";
+            rel2.to: "pad_closebtn";
             rel2.relative: 1 0;
             align: 0 1;
             fixed: 1 1;

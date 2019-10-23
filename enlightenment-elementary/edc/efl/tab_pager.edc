@@ -1,0 +1,35 @@
+group { "efl/tab_pager";
+   data.item: "version" "123";
+   parts {
+      spacer { "base";
+         scale;
+         desc { "default";
+         }
+      }
+      swallow { "efl.tab_root"; required;
+         scale;
+         desc { "default";
+            rel.to: "base";
+            align: 0 0;
+            min: 0 50;
+            max: -1 50;
+            fixed: 0 1;
+         }
+      }
+      swallow { "efl.page_root"; required;
+         scale;
+         desc { "default";
+            rel1.to: "efl.tab_root";
+            rel2.to: "base";
+            rel1.relative: 0 1;
+         }
+      }
+      swallow { "efl.event"; required;
+         scale;
+         repeat_events: 1;
+         desc { "default";
+            rel.to: "efl.page_root";
+         }
+      }
+   }
+}
