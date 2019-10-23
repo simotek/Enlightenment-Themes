@@ -66,12 +66,12 @@
    tag: "name" "+ color=#888888 font_weight=Bold";                         \
    tag: "val" "+ color=#ffffff";                                           \
    tag: "info" "+ color=#3399ff style=glow glow_color=#3399ff30";          \
-   tag: "success" "+ color=#00ff00 style=glow glow_color=#00ff0030";       \
-   tag: "warning" "+ color=#ff7c00 style=glow glow_color=#ff7c0030";       \
-   tag: "failure" "+ color=#ff0000 style=glow glow_color=#ff000030";       \
+   tag: "success" "+ color=#075800 style=glow glow_color=#00ff0030";       \
+   tag: "warning" "+ color=#582907 style=glow glow_color=#ff7c0030";       \
+   tag: "failure" "+ color=#580007 style=glow glow_color=#ff000030";       \
    tag: "code" "+ font=Mono style=plain color=#ffffff";                    \
-   tag: "comment" "+ color=#00B000";                                       \
-   tag: "string" "+ color=#ff3a35";                                        \
+   tag: "comment" "+ color=#075800";                                       \
+   tag: "string" "+ color=#580007";                                        \
    tag: "number" "+ color=#D4D42A font_weight=Bold";                       \
    tag: "brace" "+ color=#656565";                                         \
    tag: "type" "+ color=#3399ff";                                          \
@@ -80,8 +80,8 @@
    tag: "param" "+ color=#ffffff";                                         \
    tag: "keyword" "+ color=#ff9900 font_weight=Bold";                      \
    tag: "preprocessor" "+ color=#3399ff font_weight=Bold";                 \
-   tag: "line_added" "+ color=#00B000";                                    \
-   tag: "line_removed" "+ color=#ff3a35";                                  \
+   tag: "line_added" "+ color=#075800";                                    \
+   tag: "line_removed" "+ color=#580007";                                  \
    tag: "line_changed" "+ color=#ff9900";
 
 #define DISABLED_TEXTBLOCK_TAGS                                            \
