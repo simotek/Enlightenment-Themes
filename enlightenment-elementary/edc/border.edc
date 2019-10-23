@@ -194,7 +194,7 @@ group { name: "e/widgets/border/default/border";
          }
          description { state: "focused" 0.0;
             inherit: "default" 0.0;
-            image.normal: "vgrad_med_dark.png";
+            image.normal: "vgrad_med_curved_color.png";
             color_class: "border_frame_active";
          }
       }
