@@ -72,13 +72,13 @@ group { name: "e/modules/packagekit/main";
    images.image: "glow_round_corners_small.png" COMP;
    images.image: "knob_round_small_busy.png" COMP;
    parts {
-      part { name: "base"; 
+      part { name: "base";
          description { state: "default" 0.0;
             aspect: 1.0 1.0; aspect_preference: BOTH;
             image.normal: "packagekit_base.png";
          }
       }
-      part { name: "status"; 
+      part { name: "status";
          description { state: "default" 0.0;
             aspect: 1.0 1.0; aspect_preference: BOTH;
             visible: 0;
@@ -111,7 +111,7 @@ group { name: "e/modules/packagekit/main";
          description { state: "default" 0.0;
             rel1.relative: (36/160) (60/160);
             rel2.relative: ((36+88)/160) ((60+88)/160);
-            color: FN_COL_DISABLE;
+            color: FN_COL_HIGHLIGHT;
             text { font: FN; size: 10;
             }
          }
@@ -154,7 +154,7 @@ group { name: "e/modules/packagekit/main";
             map.rotation.z: 360;
          }
       }
-      
+
    }
    programs {
       program { name: "spin";
@@ -192,7 +192,7 @@ group { name: "e/modules/packagekit/main";
          action: STATE_SET "default" 0.0;
          target: "knob_spinner";
       }
-      
+
       program {
          signal: "packagekit,state,none"; source: "e";
          action: STATE_SET "default" 0.0;
