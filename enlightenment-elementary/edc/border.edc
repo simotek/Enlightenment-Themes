@@ -112,7 +112,6 @@ group { name: "e/widgets/border/default/border";
    alias: "e/widgets/border/shaped/border";
    images.image: "vgrad_med_lighter.png" COMP;
    images.image: "vgrad_med_dark.png" COMP;
-   images.image: "vgrad_med_curved_color.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    images.image: "bevel_dark_out.png" COMP;
@@ -956,7 +955,7 @@ group { name: "e/widgets/border/sparkle/border";
    programs {
       program { name: "in";
          signal: "mouse,in"; source: "events";
-         
+
          script {
             new mx, my;
 
