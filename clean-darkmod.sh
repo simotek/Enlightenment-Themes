@@ -11,13 +11,14 @@ clean-darkmod(){
     report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/img-color-convd
     report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/img-no-change
     report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/img-bak
+    report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/img-manual-bak
     report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/edc-dm
     report_on_error rm $ELM_ENLIGHT_THEME_PATH/colorclasses-dm.edc
     report_on_error rm $ELM_ENLIGHT_THEME_PATH/fonts-dm.edc
     report_on_error rm $ELM_ENLIGHT_THEME_PATH/macros-dm.edc
     report_on_error rm $ELM_ENLIGHT_THEME_PATH/default-dm.edc
-    report_on_error rm $ELM_ENLIGHT_THEME_PATH/$THEME_NAME.edj
-    report_on_error rm -r $ELM_ENLIGHT_THEME_PATH/$THEME_NAME-icons
+    report_on_error rm $ELM_ENLIGHT_THEME_PATH/*.edj
+    report_on_error rm -r $ELM_ENLIGHT_THEME_PATH/$*-icons
 
     if [ -n "$TERMINOLOGY_THEME_PATH" ]; then
         report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-color
@@ -27,7 +28,8 @@ clean-darkmod(){
         report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-no-change
         report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-bak
         report_on_error rm -rf $TERMINOLOGY_THEME_PATH/default-dm.edc
-                report_on_error rm -rf $TERMINOLOGY_THEME_PATH/default-dm_colors.in.edc
+        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/default-dm_colors.in.edc
+        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/*.edj
     fi
 
 }
