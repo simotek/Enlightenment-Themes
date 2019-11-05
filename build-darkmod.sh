@@ -355,6 +355,13 @@ if [ $DKMD_EPKG != 1 ]; then
 	HIGH_RGB=$(echo "$HIGH_RGB" | tr "," " ")
    fi
 
+   # Convert theme svg Images
+   pushd $TERMINOLOGY_THEME_PATH/img-color
+   for F in `find . -iname "*.svg"`; do
+     sed "s/#3399ff/$HIGH_HTML/g" $F > ../img-color-convd/$F
+   done
+   popd
+
     pushd $TERMINOLOGY_THEME_PATH
     report_on_error cp -a default.edc default-dm.edc
     report_on_error cp -a default_colors.in.edc default-dm_colors.in.edc
