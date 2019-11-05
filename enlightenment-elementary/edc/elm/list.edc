@@ -143,7 +143,7 @@ group { name: "elm/list/item/default";
       }
       program {
          signal: "elm,state,odd"; source: "elm";
-         action: STATE_SET "odd" 1.0;
+         action: STATE_SET "odd" 0.0;
          target: "base";
       }
       program {
@@ -284,7 +284,7 @@ group { name: "elm/list/item/default";
             rel1.to: "elm.text";
             rel2.offset: 1 1;
             rel2.to: "elm.text";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_SELECTED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text";
@@ -454,7 +454,7 @@ group { name: "elm/list/h_item/default";
       }
       program {
          signal: "elm,state,odd"; source: "elm";
-         action: STATE_SET "odd" 1.0;
+         action: STATE_SET "odd" 0.0;
          target: "base";
       }
       program {
@@ -595,7 +595,7 @@ group { name: "elm/list/h_item/default";
             rel1.to: "elm.text";
             rel2.offset: 1 1;
             rel2.to: "elm.text";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_SELECTED;
             color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text";
