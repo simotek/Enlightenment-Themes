@@ -150,7 +150,7 @@ done
 
 if [ -d "$THEME_NAME-icons" ]; then rm -Rf $THEME_NAME-icons; fi
 cp -r $ELM_ENLIGHT_THEME_PATH/fdo $THEME_NAME-icons
-sed -i "s/Enlightenment-X/$THEME_NAME-e-X/g" default-icons/index.theme
+sed -i "s/Enlightenment-X/$THEME_NAME-e-X/g" $THEME_NAME-icons/index.theme
 
 
 success "    Finished Converting Images"
