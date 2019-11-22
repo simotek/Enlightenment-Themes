@@ -1119,7 +1119,7 @@ group { name: "e/modules/pager/window";
          target: "base";
          after: "urg2";
       }
-      program { name: "urg2";a
+      program { name: "urg2";
          signal: "e,state,urgent"; source: "e";
          action: STATE_SET "default" 0.0;
          transition: ACCELERATE 0.2;
