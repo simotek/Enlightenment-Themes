@@ -846,7 +846,7 @@ group { name: "elm/button/base/media_player/prev/default";
    alias: "elm/button/base/media_player/eject/flush";
    alias: "elm/button/base/media_player/volume/flush";
    alias: "elm/button/base/media_player/mute/flush";
-   
+
    images.image: "shadow_inset_bevels.png" COMP;
    images.image: "shadow_angled_in_sides.png" COMP;
    parts {
@@ -918,7 +918,7 @@ group { name: "elm/button/base/media_player/prev/default";
       }
       program {
          signal: "elm,anim,activate"; source: "elm";
-         action: STATE_SET "clicked" 0.0;
+         action: STATE_SET "selected" 0.0;
          target: "shadow1";
          target: "shadow2";
          after: "button_unpressed_anim";
@@ -943,7 +943,7 @@ group { name: "elm/button/base/hoversel_vertical/default";
    alias: "elm/button/base/hoversel_horizontal/entry";
 
    images.image: "vertical_separated_bar_glow.png" COMP;
-   
+
    parts {
       text { "elm.text";
          desc { "default";
