@@ -22,7 +22,11 @@
 #define FN_COL_HIGHLIGHT 52 152 216 255; color2: 52 152 216 24; color3: 52 152 216 18
 #define FN_COL_HIGHLIGHT_CLICKED 255 255 255 255; color2: 52 152 216 64; color3: 52 152 216 32
 #define FN_COL_HIGHLIGHT_DISABLE 52 152 216 64; color2: 52 152 216 16; color3: 52 152 216 8
+/* In some theme's the Highlight color might be used as a selection color
+   in these cases the text needs to be a different color */
+#define FN_COL_HIGHLIGHT_SELECTED 51 153 255 255; color2: 51 153 255 24; color3: 51 153 255 18
 #define FN_COL_MID_GREY 128 128 128 255
+#define FN_COL_MID_GREY_SHADOW 128 128 128 255; color3: 0 0 0 128
 #define FN_COL_DISABLE 21 21 21 255; color3: 255 255 255 25;
 #define FN_COL_DISABLE_SHADOW 21 21 21 255; color3: 255 255 255 192
 #define FN_COL_TRANSPARENT 255 255 255 0; color3: 0 0 0 0

@@ -1,20 +1,20 @@
 group { name: "e/modules/clock/digital";
    min: 64 16;
    max: 512 128;
-   images.image: "O/digit_na.png" COMP;
-   images.image: "O/digit_nm.png" COMP;
-   images.image: "O/digit_0.png" COMP;
-   images.image: "O/digit_1.png" COMP;
-   images.image: "O/digit_2.png" COMP;
-   images.image: "O/digit_3.png" COMP;
-   images.image: "O/digit_4.png" COMP;
-   images.image: "O/digit_5.png" COMP;
-   images.image: "O/digit_6.png" COMP;
-   images.image: "O/digit_7.png" COMP;
-   images.image: "O/digit_8.png" COMP;
-   images.image: "O/digit_9.png" COMP;
-   images.image: "O/digit_am.png" COMP;
-   images.image: "O/digit_pm.png" COMP;
+   images.image: "digit_na.png" COMP;
+   images.image: "digit_nm.png" COMP;
+   images.image: "digit_0.png" COMP;
+   images.image: "digit_1.png" COMP;
+   images.image: "digit_2.png" COMP;
+   images.image: "digit_3.png" COMP;
+   images.image: "digit_4.png" COMP;
+   images.image: "digit_5.png" COMP;
+   images.image: "digit_6.png" COMP;
+   images.image: "digit_7.png" COMP;
+   images.image: "digit_8.png" COMP;
+   images.image: "digit_9.png" COMP;
+   images.image: "digit_am.png" COMP;
+   images.image: "digit_pm.png" COMP;
    images.image: "hole_tiny.png" COMP;
    script {
       public do_seconds, do_24h, do_date, tick_timer;
@@ -114,7 +114,8 @@ group { name: "e/modules/clock/digital";
          date(year, month, day, yearday, weekday, hour, minute, second);
          dosec = get_int(do_seconds);
          if (dosec) {
-            v = round(second);
+            v = round(second, FLOOR);
+            v = v % 60;
             tim = timer(1.0 - (second - v), "clock_cb", 1);
             // set seconds to v
             valset("s0", v / 10);
@@ -305,14 +306,14 @@ group { name: "e/modules/clock/digital";
       description { state: "default" 0.0; \
          rel1.to: _TO; rel2.to: _TO; \
          aspect: (52/72) (52/72); aspect_preference: BOTH; \
-         image.normal: "O/digit_"_DIGIT".png"; \
+         image.normal: "digit_"_DIGIT".png"; \
          visible: 0; \
          color: 255 255 255 0; \
       } \
       description { state: "active" 0.0; \
          inherit: "default" 0.0; \
          visible: 1; \
-         color: 255 255 255 255; \
+         color: WIN_COL_HIGHLIGHT; \
       } \
    }
 #define DIGIT(_NAME, _TO) \
@@ -332,14 +333,14 @@ group { name: "e/modules/clock/digital";
       description { state: "default" 0.0; \
          rel1.to: _TO; rel2.to: _TO; \
          aspect: (52/72) (52/72); aspect_preference: BOTH; \
-         image.normal: "O/digit_"_DIGIT".png"; \
+         image.normal: "digit_"_DIGIT".png"; \
          visible: 0; \
          color: 255 255 255 0; \
       } \
       description { state: "active" 0.0; \
          inherit: "default" 0.0; \
          visible: 1; \
-         color: 255 255 255 255; \
+         color: WIN_COL_HIGHLIGHT; \
       } \
    }
 #define DIGITC(_NAME, _TO, _CLIP) \
@@ -360,11 +361,13 @@ group { name: "e/modules/clock/digital";
       description { state: "default" 0.0; \
          rel1.to: _TO; rel2.to: _TO; \
          aspect: (48/31) (48/31); aspect_preference: BOTH; \
-         image.normal: "O/digit_am.png"; \
+         image.normal: "digit_am.png"; \
+         color: WIN_COL_HIGHLIGHT; \
       } \
       description { state: "active" 0.0; \
          inherit: "default" 0.0; \
-         image.normal: "O/digit_pm.png"; \
+         image.normal: "digit_pm.png"; \
+         color: WIN_COL_HIGHLIGHT; \
       } \
    }
 #define BASE(_NAME, _BASE, _IMG) \
@@ -373,7 +376,7 @@ group { name: "e/modules/clock/digital";
          rel1.to: _BASE; \
          rel2.to: _BASE; \
          image.normal: _IMG; \
-         color: 255 255 255 128; \
+         color: WIN_COL_CLOCK_BACKGROUND; \
       } \
    }
 #define BASEC(_NAME, _CLIP, _BASE, _IMG) \
@@ -383,18 +386,18 @@ group { name: "e/modules/clock/digital";
          rel1.to: _BASE; \
          rel2.to: _BASE; \
          image.normal: _IMG; \
-         color: 255 255 255 128; \
+         color: WIN_COL_CLOCK_BACKGROUND; \
       } \
    }
       
-      BASE ("ha", "h0-0", "O/digit_na.png")
-      BASE ("hb", "h1-0", "O/digit_na.png")
-      BASE ("ma", "m0-0", "O/digit_na.png")
-      BASE ("mb", "m1-0", "O/digit_na.png")
+      BASE ("ha", "h0-0", "digit_na.png")
+      BASE ("hb", "h1-0", "digit_na.png")
+      BASE ("ma", "m0-0", "digit_na.png")
+      BASE ("mb", "m1-0", "digit_na.png")
               
-      BASEC("sa", "secclip", "s0-0", "O/digit_na.png")
-      BASEC("sb", "secclip", "s1-0", "O/digit_na.png")
-      BASEC("aa", "ampmclip", "ap", "O/digit_nm.png")
+      BASEC("sa", "secclip", "s0-0", "digit_na.png")
+      BASEC("sb", "secclip", "s1-0", "digit_na.png")
+      BASEC("aa", "ampmclip", "ap", "digit_nm.png")
         
       DIGIT ("h0", "hours1")
       DIGIT ("h1", "hours2")
@@ -581,7 +584,7 @@ group { name: "e/modules/clock/main";
             date(year, month, day, yearday, weekday, hour, minute, second);
             dosec = get_int(do_seconds);
             if (dosec) {
-               v = round(second);
+               v = round(second, FLOOR);
                tim = timer(1.0 - (second - v), "clock_cb", 1);
                
                custom_state(PART:"seconds", "default", 0.0);

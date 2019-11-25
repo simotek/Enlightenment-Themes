@@ -170,7 +170,7 @@ group {
          description { state: "max" 0.0;
 	        image.normal: "darken_rounded_square_no_border.png";
             image.border: 5 5 5 5;
-            rel1.offset: -5 0; 
+            rel1.offset: -5 0;
             rel2.offset: 6 0;
          }
       }
@@ -325,7 +325,7 @@ group {
             rel2.offset: -1 -1;
             rel2.to_y: "b4";
             // image.normal: "e17_border4.png";
-            color: 255 255 255 0; 
+            color: 255 255 255 0;
             fill.smooth: 0;
          }
       }
@@ -338,7 +338,7 @@ group {
             rel2.relative: 1.0 1.0;
             rel2.offset: -1 -1;
             rel2.to: "t2";
-            
+
             color: 255 255 255 0;
          }
          description { state: "active" 0.0;
@@ -470,7 +470,7 @@ group {
             rel2.to: "b2";
          }
       }
-      
+
       part { name: "e.event.icon"; type: RECT;
          description { state: "default" 0.0;
             rel1.to: "e.swallow.icon";
@@ -485,7 +485,7 @@ group {
             color: 0 0 0 0;
         }
      }
-    
+
       /*part { "clip1";
          desc { "default";
             rel1.to: "";
@@ -513,7 +513,7 @@ group {
      BORDER_BUTTON2("minimize","minimize",0.0,0.0,3,0,"maximize",0.0,1.0,3,-1,"maximize")
      BORDER_BUTTON2("close","close",0.0,0.0,50,1,"right",0.0,1.0,50,-1,"right")
 
-     
+
    }
    programs {
       program {
@@ -902,7 +902,7 @@ group { name: "e/widgets/border/noresize_dialog/border";
 
 group { name: "e/widgets/border/modal/border";
    inherit: "e/widgets/border/dialog/border";
-   
+
 }
 
 group { name: "e/widgets/border/blur/border";

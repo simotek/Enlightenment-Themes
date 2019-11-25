@@ -21,7 +21,7 @@ group { name: "e/fileman/default/list/variable";
       part { name: "base"; type: RECT; mouse_events: 0;
          description { state: "default" 0.0;
             color: 64 64 64 255;
-            color_class: "ilist_item_base";
+            color_class: "list_item_base";
          }
       }
       part { name: "bevel"; mouse_events: 0;
@@ -135,7 +135,7 @@ group { name: "e/fileman/default/list/variable";
             rel2.to: "e.text.label";
             color2: 255 255 255 255;
             color3: 255 255 255 255;
-            color_class: "ilist_item_selected";
+            color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "e.text.label";
                align: 0.0 0.5;
@@ -1088,13 +1088,11 @@ group { name: "e/fileman/default/window/main";
       program {
          signal: "e,toolbar,left"; source: "e";
          action: STATE_SET "tb_left" 0.0;
-         target: "e.swallow.toolbar";
          target: "region";
       }
       program {
          signal: "e,toolbar,right"; source: "e";
          action: STATE_SET "tb_right" 0.0;
-         target: "e.swallow.toolbar";
          target: "region";
       }
       program {
@@ -1119,15 +1117,16 @@ group { name: "e/fileman/default/window/main";
 }
 
 group { name: "e/fileman/toolbar/default/base";
-   images.image: "frame_clicked.png" COMP;
+   images.image: "frame_clicked_4x.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
    parts {
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "frame_clicked.png";
-            image.border: 10 10 10 10;
+            image.normal: "frame_clicked_4x.png";
+            image.border: 32 32 32 32;
+            image.border_scale_by: 0.25; image.border_scale: 1;
             // rel1.offset: 2 2;
             // rel2.offset: -3 -3;
             fill.smooth: 0;
@@ -2032,7 +2031,8 @@ group { name: "e/fileman/default/progress";
    }
 }
 
-group { name: "modules/efm_navigation/main";
+group { name: "e/modules/efm_navigation/main";
+   alias: "modules/efm_navigation/main";
    images.image: "shadow_inset_light.png" COMP;
    images.image: "shadow_angled_in_light.png" COMP;
    images.image: "sym_left_light_normal.png" COMP;
@@ -2188,7 +2188,8 @@ group { name: "modules/efm_navigation/main";
    }
 }
 
-group { name: "modules/efm_navigation/pathbar_button";
+group { name: "e/modules/efm_navigation/pathbar_button";
+   alias: "modules/efm_navigation/pathbar_button";
    images.image: "top_bottom_glow.png" COMP;
    parts {
       part { name: "e.text.label"; type: TEXT; mouse_events: 0;
@@ -2275,7 +2276,8 @@ group { name: "modules/efm_navigation/pathbar_button";
    }
 }
 
-group { name: "modules/efm_navigation/pathbar_scrollframe";
+group { name: "e/modules/efm_navigation/pathbar_scrollframe";
+   alias: "modules/efm_navigation/pathbar_scrollframe";
    images.image: "sym_left_light_normal.png" COMP;
    images.image: "sym_right_light_normal.png" COMP;
    images.image: "sym_left_glow_normal.png" COMP;
