@@ -521,7 +521,6 @@ group {
          action: STATE_SET "active" 0.0;
          target: "title_bar";
          target: "e.text.title";
-         target: "b3";
          // after: "go_active3b";
       }
       program {
@@ -529,8 +528,6 @@ group {
          action: STATE_SET "default" 0.0;
          action: STATE_SET "hidden" 0.0;
          target:"b3";
-         target: "title_bar";
-         target: "e.text.title";
       }
       program {
          signal: "mouse,down,*"; source: "e.event.close";
