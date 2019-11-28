@@ -1,6 +1,7 @@
 *.edj
 *~
 *Makefile.am
+*-icons/
 enlightenment-elementary/*-dm*
 enlightenment-elementary/img-bgnd/
 enlightenment-elementary/img-color-convd/

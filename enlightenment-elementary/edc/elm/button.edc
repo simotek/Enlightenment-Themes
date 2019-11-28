@@ -105,7 +105,7 @@ group { name: "elm/button/base/default";
       }
    }
    parts {
-      image { "base"; nomouse;
+      image { "base";
          desc { "default";
             image.normal: "frame_fill.png";
             image.border: 10 10 10 10;

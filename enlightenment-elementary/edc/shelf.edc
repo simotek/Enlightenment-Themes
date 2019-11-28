@@ -1,4 +1,4 @@
-group { name: "e/shelf/default/base";
+group { name: "e/shelf/default/base"; nomouse;
    alias: "e/shelf/alternate/base";
    data {
       /* this tells e the shelf is shaped, not rectangular */

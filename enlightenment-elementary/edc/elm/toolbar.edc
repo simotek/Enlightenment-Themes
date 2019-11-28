@@ -515,7 +515,7 @@ group { name: "elm/toolbar/item/default";
             visible: 1;
          }
       }
-
+      
       part { name: "icon_clip"; type: RECT;
          description { state: "default" 0.0;
          }
