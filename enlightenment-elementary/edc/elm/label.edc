@@ -1,14 +1,26 @@
+#define HORIZONTAL_FIXED \
+   description { state: "horizontal_fixed" 0.0; \
+      inherit: "default" 0.0; \
+      fixed: 1 0; \
+      text.min: 0 1; \
+   }
+
 group { name: "elm/label/base/default";
    styles {
       style { name: "label_style";
          base: "font="FN" font_size=10 text_class=tb_plain align=center color=#ffffffff style=shadow,bottom shadow_color=#00000080";
          tag: "br" "\n";
-         tag: "hilight" "+ font="FNBD" text_class=tb_light";
          tag: "b" "+ font="FNBD" text_class=tb_light";
+         ENABLED_TEXTBLOCK_TAGS
       }
    }
    parts {
       part { name: "label.text.clip"; type: RECT;
+         description { state: "default" 0.0;
+         }
+      }
+      part { name: "elm.swallow.background"; type: SWALLOW;
+         clip_to: "label.text.clip";
          description { state: "default" 0.0;
          }
       }
@@ -20,14 +32,64 @@ group { name: "elm/label/base/default";
             rel2.relative: 1.0 1.0;
             text {
                style: "label_style";
-               min: 0 1;
+               min: 1 1;
             }
          }
+         HORIZONTAL_FIXED
+      }
+   }
+   programs {
+      program { name: "horizontal_expandable";
+         signal: "elm,state,horizontal,expandable"; source: "elm";
+         action: STATE_SET "default" 0.0;
+         target: "elm.text";
+      }
+      program { name: "horizontal_fixed";
+         signal: "elm,state,horizontal,fixed"; source: "elm";
+         action: STATE_SET "horizontal_fixed" 0.0;
+         target: "elm.text";
+      }
+   }
+}
+
+group { name: "elm/label/base/default/left";
+   inherit: "elm/label/base/default";
+   styles {
+      style { name: "label_style_left";
+         base: "font="FN" font_size=10 text_class=tb_plain align=left color=#ffffffff style=shadow,bottom shadow_color=#00000080";
+         tag: "br" "\n";
+         tag: "b" "+ font="FNBD" text_class=tb_light";
+         ENABLED_TEXTBLOCK_TAGS
+      }
+   }
+   parts {
+      textblock { "elm.text";
+         desc { "default"; text.style: "label_style_left"; }
+         HORIZONTAL_FIXED
+      }
+   }
+}
+
+group { name: "elm/label/base/default/right";
+   inherit: "elm/label/base/default";
+   styles {
+      style { name: "label_style_right";
+         base: "font="FN" font_size=10 text_class=tb_plain align=right color=#ffffffff style=shadow,bottom shadow_color=#00000080";
+         tag: "br" "\n";
+         tag: "b" "+ font="FNBD" text_class=tb_light";
+         ENABLED_TEXTBLOCK_TAGS
+      }
+   }
+   parts {
+      textblock { "elm.text";
+         desc { "default"; text.style: "label_style_right"; }
+         HORIZONTAL_FIXED
       }
    }
 }
 
 group { name: "elm/label/base/marker";
+   inherit: "elm/label/base/default";
    styles {
       style { name: "label_style2";
          base: "font="FNBD" font_size=10 text_class=tb_plain align=center color=#ffffffff style=shadow,bottom shadow_color=#00000080";
@@ -49,7 +111,54 @@ group { name: "elm/label/base/marker";
    }
 }
 
+group { "elm/label/base/marker/left";
+   inherit: "elm/label/base/default";
+   styles {
+      style { name: "label_style3";
+         base: "font="FNBD" font_size=10 text_class=tb_plain align=left color=#ffffffff style=shadow,bottom shadow_color=#00000080";
+         tag: "br" "\n";
+         tag: "hilight" "+ font="FNBD" color=#3399ff text_class=tb_light";
+         tag: "b" "+ font="FNBD" color=#3399ff text_class=tb_light";
+      }
+   }
+   parts {
+      part { name: "elm.text"; type: TEXTBLOCK;
+         scale: 1;
+         description { state: "default" 0.0;
+            text { style: "label_style3";
+               min: 1 1;
+               ellipsis: -1;
+            }
+         }
+      }
+   }
+}
+
+group { "elm/label/base/marker/right";
+   inherit: "elm/label/base/default";
+   styles {
+      style { name: "label_style4";
+         base: "font="FNBD" font_size=10 text_class=tb_plain align=right color=#ffffffff style=shadow,bottom shadow_color=#00000080";
+         tag: "br" "\n";
+         tag: "hilight" "+ font="FNBD" color=#3399ff text_class=tb_light";
+         tag: "b" "+ font="FNBD" color=#3399ff text_class=tb_light";
+      }
+   }
+   parts {
+      part { name: "elm.text"; type: TEXTBLOCK;
+         scale: 1;
+         description { state: "default" 0.0;
+            text { style: "label_style4";
+               min: 1 1;
+               ellipsis: -1;
+            }
+         }
+      }
+   }
+}
+
 group { name: "elm/label/base/slide_long";
+   inherit: "elm/label/base/default";
    script {
       public g_duration, g_stopslide, g_timer_id, g_anim_id;
 
@@ -69,6 +178,7 @@ group { name: "elm/label/base/slide_long";
          if (pos >= 1.0) {
             id = timer(0.5, "slide_to_begin", 1);
             set_int(g_timer_id, id);
+            emit("elm,state,slide,end","elm");
          }
       }
       public slide_to_end() {
@@ -132,6 +242,7 @@ group { name: "elm/label/base/slide_long";
                min: 1 1;
                ellipsis: -1;
             }
+            fixed: 1 0;
          }
          description { state: "slide_begin" 0.0;
             inherit: "default" 0.0;
@@ -143,12 +254,13 @@ group { name: "elm/label/base/slide_long";
                min: 1 1;
                ellipsis: -1;
             }
+            fixed: 1 0;
          }
       }
    }
    programs {
       program { name: "start_slide";
-         signal: "elm,state,slide,start"; source: "elm"; 
+         signal: "elm,state,slide,start"; source: "elm";
          script {
             start_slide();
          }
@@ -164,6 +276,7 @@ group { name: "elm/label/base/slide_long";
 
 
 group { name: "elm/label/base/slide_short";
+   inherit: "elm/label/base/default";
    script {
       public g_duration, g_stopslide, g_timer_id, g_anim_id;
 
@@ -183,6 +296,7 @@ group { name: "elm/label/base/slide_short";
          if (pos >= 1.0) {
             id = timer(0.5, "slide_to_begin", 1);
             set_int(g_timer_id, id);
+            emit("elm,state,slide,end","elm");
          }
       }
       public slide_to_end() {
@@ -244,6 +358,7 @@ group { name: "elm/label/base/slide_short";
                min: 1 1;
                ellipsis: -1;
             }
+            fixed: 1 0;
          }
          description { state: "slide_begin" 0.0;
             inherit: "default" 0.0;
@@ -254,6 +369,7 @@ group { name: "elm/label/base/slide_short";
                min: 1 1;
                ellipsis: -1;
             }
+            fixed: 1 0;
          }
       }
    }
@@ -274,6 +390,7 @@ group { name: "elm/label/base/slide_short";
 }
 
 group { name: "elm/label/base/slide_bounce";
+   inherit: "elm/label/base/default";
    script {
       public g_duration, g_stopslide, g_timer_id, g_anim_id;
 
@@ -314,6 +431,7 @@ group { name: "elm/label/base/slide_bounce";
          if (pos >= 1.0) {
             id = timer(0.5, "slide_to_end", 1);
             set_int(g_timer_id, id);
+            emit("elm,state,slide,end","elm");
          }
       }
       public slide_to_begin() {
@@ -366,6 +484,7 @@ group { name: "elm/label/base/slide_bounce";
                min: 1 1;
                ellipsis: -1;
             }
+            fixed: 1 0;
          }
          description { state: "slide_begin" 0.0;
             inherit: "default" 0.0;
@@ -376,6 +495,7 @@ group { name: "elm/label/base/slide_bounce";
                min: 1 1;
                ellipsis: -1;
             }
+            fixed: 1 0;
          }
       }
    }
@@ -394,3 +514,4 @@ group { name: "elm/label/base/slide_bounce";
       }
    }
 }
+#undef HORIZONTAL_FIXED

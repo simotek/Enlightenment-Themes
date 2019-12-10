@@ -1,4 +1,6 @@
 group { name: "e/modules/mixer/main";
+   alias: "e/gadget/mixer/main";
+   alias: "e/gadget/mixer/main_vert";
    images.image: "speaker.png" COMP;
    images.image: "inset_round_hilight.png" COMP;
    images.image: "inset_round_shadow.png" COMP;
@@ -141,6 +143,7 @@ group { name: "e/modules/mixer/main";
       part { name: _NAME; type: RECT; \
          clip_to: "state"; \
          description { state: "default" 0.0; \
+            fixed: 1 1; \
             rel1.relative: ((_BASE+(_X*8))/160) (80/160); \
             rel2.relative: ((_BASE+(_X*8))/160) (80/160); \
             min: 1 1; \

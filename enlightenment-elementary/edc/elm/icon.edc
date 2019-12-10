@@ -1,3 +1,13 @@
+
+/*
+ * All the icons below are not standard and are to be considered
+ * deprecated or at least just for internal usage only.
+ *
+ * We suggest to instead use the icons in icon_fdo.edc (at least if you
+ * want your app to be user customizable wrt icons)
+ * 
+ */
+
 #define IC(Name, Alias, File, Min, Max) \
    group { name: "elm/icon/"##Name##"/default"; min: Min Min; max: Max Max; \
    alias: "elm/icon/"##Alias##"/default"; \
@@ -16,9 +26,9 @@ IC("clock",       "toolbar/clock",       "icon_clock.png",       16, 0);
 IC("delete",      "toolbar/delete",      "icon_delete.png",      16, 0);
 IC("edit",        "toolbar/edit",        "icon_edit.png",        16, 0);
 IC("refresh",     "toolbar/refresh",     "icon_refresh.png",     16, 0);
-IC("folder",      "toolbar/folder",      "icon_folder.png",      16, 0);
 IC("file",        "toolbar/file",        "icon_file.png",        16, 0);
 IC("no_photo",    "photo/no_photo",      "icon_head.png",        16, 0);
+IC("search",      "toolbar/search",      "icon_search.png",      16, 0);
 #undef IC
 
 #define IC(Name, File, Min, Max) \
@@ -28,11 +38,27 @@ IC("no_photo",    "photo/no_photo",      "icon_head.png",        16, 0);
    image.normal: File; } } } }
 
 IC("toolbar/more_menu",    "icon_arrow_down.png", 16, 0);
+IC("toolbar/folder",       "icon_folder.png",     16, 0);
+
+IC("arrow-up",             "icon_arrow_up.png",         16, 0);
+IC("arrow-down",           "icon_arrow_down.png",       16, 0);
+IC("arrow-left",           "icon_arrow_left.png",       16, 0);
+IC("arrow-right",          "icon_arrow_right.png",      16, 0);
+IC("arrow-up-left",        "icon_arrow_up_left.png",    16, 0);
+IC("arrow-up-right",       "icon_arrow_up_right.png",   16, 0);
+IC("arrow-down-left",      "icon_arrow_down_left.png",  16, 0);
+IC("arrow-down-right",     "icon_arrow_down_right.png", 16, 0);
 
 IC("arrow_up_left",        "icon_arrow_up_left.png",    16, 0);
 IC("arrow_up_right",       "icon_arrow_up_right.png",   16, 0);
 IC("arrow_down_left",      "icon_arrow_down_left.png",  16, 0);
 IC("arrow_down_right",     "icon_arrow_down_right.png", 16, 0);
+
+IC("document-edit",        "icon_edit.png",        16, 0)
+IC("dialog-info",          "icon_info.png",        16, 0)
+IC("dialog-close",         "icon_close.png",       16, 0)
+IC("application-chat",     "icon_chat.png",        16, 0) /* */
+IC("application-clock",    "icon_clock.png",       16, 0) /* */
 
 IC("menu/home",            "icon_home.png",        16, 0);
 IC("menu/close",           "icon_close.png",       16, 0);

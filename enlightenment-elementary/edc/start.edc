@@ -1,4 +1,5 @@
 group { name: "e/modules/start/main";
+   alias: "e/gadget/start/main";
    images.image: "big_arrow_down.png" COMP;
    images.image: "big_arrow_down_shadow.png" COMP;
    images.image: "big_arrow_up.png" COMP;
@@ -49,7 +50,7 @@ group { name: "e/modules/start/main";
             max: 14 17;
          }
       }
-      part { name: "arrow";
+      part { name: "arrow"; clip: "arrow_base";
          description { state: "default" 0.0;
             image.normal: "big_arrow_up.png";
             aspect: (17/14) (17/14);
