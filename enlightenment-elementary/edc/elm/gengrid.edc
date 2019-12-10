@@ -38,7 +38,7 @@ group { name: "elm/gengrid/item/default/default";
       } \
       program { \
          signal: "elm,state,odd"; source: "elm"; \
-         action: STATE_SET "odd" 1.0; \
+         action: STATE_SET "odd" 0.0; \
          target: "base"; \
       } \
       program { \
@@ -172,6 +172,7 @@ group { name: "elm/gengrid/item/default/default";
          effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
+            fixed: 0 1;
             rel1.relative: 0.0 1.0;
             rel1.offset: 5 -5;
             rel2.relative: 1.0 1.0;
@@ -226,7 +227,7 @@ group { name: "elm/gengrid/item/default/default";
             rel1.to: "elm.text";
             rel2.offset: 1 0;
             rel2.to: "elm.text";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_SELECTED;
             color_class: "grid_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text";
@@ -307,7 +308,7 @@ group { name: "elm/gengrid/item/default/default";
       part { name: "elm.swallow.end"; type: SWALLOW;
          clip_to: "icon_area";
          description { state: "default" 0.0;
-            fixed: 1 0;
+            fixed: 1 1;
             align: 1.0 0.0;
             rel1.relative: 1.0 0.0;
             rel1.offset: -3 2;
@@ -316,7 +317,7 @@ group { name: "elm/gengrid/item/default/default";
          }
       }
       //##//
-      
+
       TOPP()
    }
 }
@@ -350,7 +351,7 @@ group { name: "elm/gengrid/item/default_style/default";
       tag: "b" "+ font_weight=Bold";
       tag: "tab" "\t";
    }
-   
+
    IMGP()
    parts {
       BASEP()
@@ -359,6 +360,7 @@ group { name: "elm/gengrid/item/default_style/default";
       part { name: "elm.text"; type: TEXTBLOCK; mouse_events: 0;
          scale: 1;
          description { state: "default" 0.0;
+            fixed: 0 1;
             rel1.relative: 0.0 1.0;
             rel1.offset: 5 -5;
             rel2.relative: 1.0 1.0;
@@ -490,7 +492,7 @@ group { name: "elm/gengrid/item/default_style/default";
       part { name: "elm.swallow.end"; type: SWALLOW;
          clip_to: "icon_area";
          description { state: "default" 0.0;
-            fixed: 1 0;
+            fixed: 1 1;
             align: 1.0 0.0;
             rel1.relative: 1.0 0.0;
             rel1.offset: -3 2;
@@ -499,7 +501,7 @@ group { name: "elm/gengrid/item/default_style/default";
          }
       }
       //##//
-      
+
       TOPP()
    }
 }
@@ -531,10 +533,10 @@ group { name: "elm/gengrid/item/album-preview/default";
    data.item: "texts" "elm.text";
    data.item: "contents" "elm.swallow.icon.1 elm.swallow.icon.2 elm.swallow.icon.3 elm.swallow.icon.4";
    data.item: "states" "have_files";
-   
+
    IMGP()
    images.image: "icon_folder.png" COMP;
-   
+
    parts {
       BASEP()
 
@@ -543,6 +545,7 @@ group { name: "elm/gengrid/item/album-preview/default";
          effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
+            fixed: 0 1;
             rel1.relative: 0.0 1.0;
             rel1.offset: 5 -5;
             rel2.relative: 1.0 1.0;
@@ -597,7 +600,7 @@ group { name: "elm/gengrid/item/album-preview/default";
             rel1.to: "elm.text";
             rel2.offset: 1 0;
             rel2.to: "elm.text";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_SELECTED;
             color_class: "grid_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text";
@@ -664,7 +667,7 @@ group { name: "elm/gengrid/item/album-preview/default";
             color: 255 255 255 64;
          }
       }
-      program {      
+      program {
          signal: "elm,state,have_files,active"; source: "elm";
          action: STATE_SET "visible" 0.0;
          target: "icon_area";
@@ -732,7 +735,7 @@ group { name: "elm/gengrid/item/album-preview/default";
          }
       }
       //##//
-      
+
       TOPP()
    }
 }
@@ -742,7 +745,7 @@ group { name: "elm/gengrid/item/thumb/default";
    data.item: "focusraise" "on";
    data.item: "texts" "elm.text";
    data.item: "contents" "elm.swallow.icon elm.swallow.end";
-   
+
    images.image: "win_shadow.png" COMP;
    images.image: "win_glow.png" COMP;
    parts {
@@ -799,14 +802,12 @@ group { name: "elm/gengrid/item/thumb/default";
          signal: "elm,state,selected"; source: "elm";
          action: STATE_SET "selected" 0.0;
          target: "base";
-         target: "icon_area";
          target: "glow";
       }
       program {
          signal: "elm,state,unselected"; source: "elm";
          action: STATE_SET "default" 0.0;
          target: "base";
-         target: "icon_area";
          target: "glow";
       }
       program {
@@ -821,12 +822,13 @@ group { name: "elm/gengrid/item/thumb/default";
          target: "base";
          target: "icon_area";
       }
-      
+
       //##//
       part { name: "elm.text"; type: TEXT; mouse_events: 0;
          effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
+            fixed: 0 1;
             rel1.relative: 0.0 1.0;
             rel1.offset: 5 -5;
             rel2.relative: 1.0 1.0;
@@ -881,7 +883,7 @@ group { name: "elm/gengrid/item/thumb/default";
             rel1.to: "elm.text";
             rel2.offset: 1 0;
             rel2.to: "elm.text";
-            color: FN_COL_HIGHLIGHT;
+            color: FN_COL_HIGHLIGHT_SELECTED;
             color_class: "grid_item_selected";
             text { font: FN; size: 10;
                text_source: "elm.text";
@@ -961,7 +963,7 @@ group { name: "elm/gengrid/item/thumb/default";
       part { name: "elm.swallow.end"; type: SWALLOW;
          clip_to: "icon_area";
          description { state: "default" 0.0;
-            fixed: 1 0;
+            fixed: 1 1;
             align: 1.0 0.0;
             rel1.relative: 1.0 0.0;
             rel1.offset: -3 2;

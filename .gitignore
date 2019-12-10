@@ -1,2 +1,16 @@
 *.edj
 *~
+*Makefile.am
+*-icons/
+enlightenment-elementary/*-dm*
+enlightenment-elementary/img-bgnd/
+enlightenment-elementary/img-color-convd/
+enlightenment-elementary/img-color/
+enlightenment-elementary/img-no-change/
+enlightenment-elementary/img-shadow/
+terminology/*-dm*
+terminology/img-bgnd/
+terminology/img-color-convd/
+terminology/img-color/
+terminology/img-no-change/
+terminology/img-shadow/

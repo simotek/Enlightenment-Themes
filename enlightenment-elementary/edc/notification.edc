@@ -11,8 +11,9 @@ group { name: "e/modules/notification/logo";
    }
 }
 
-group { name: "e/modules/notification/main";
-   images.image: "darken_rounded_square.png" COMP;
+group { name: "notification/main";
+   alias: "e/modules/notification/main";
+   images.image: "darken_square.png" COMP;
    images.image: "sym_close_light_normal.png" COMP;
    images.image: "sym_close_light_selected.png" COMP;
    data.item: "app_icon_max" "48 48";
@@ -45,10 +46,11 @@ group { name: "e/modules/notification/main";
    }
    
    parts {
+      alias: "e.event.close" "notification.event.close";
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "darken_rounded_square.png";
-            image.border: 15 15 15 15;
+            image.normal: "darken_square.png";
+            image.border: 6 6 6 6;
          }
       }
       part { name: "titleclip"; type: RECT;
@@ -72,37 +74,23 @@ group { name: "e/modules/notification/main";
             rel2.offset: 12 -13;
             rel2.relative: 0.0 1.0;
             min: 24 24;
+            fixed: 1 1;
          }
       }
       part { name: "notification.textblock.message"; type: TEXTBLOCK; mouse_events: 0;
          clip_to: "bodyclip";
+         scale;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            min: 260 40;
             rel1.to_x: "notification.swallow.app_icon";
             rel1.to_y: "notification.text.title";
             rel1.relative: 1.0 1.0;
             rel1.offset: 4 4;
-            rel2.offset: -27 -13;
+            rel2.offset: -27 -11;
             text { style: "notification_style";
                min: 0 1;
             }
-            fixed: 1 1;
-         }
-      }
-      part { name: "message"; type: TEXTBLOCK; mouse_events: 0;
-         description { state: "default" 0.0;
-            align: 0.0 0.0;
-            max: 500 99999;
-            rel1.to_x: "notification.swallow.app_icon";
-            rel1.to_y: "notification.text.title";
-            rel1.relative: 1.0 1.0;
-            rel1.offset: 4 4;
-            rel2.offset: -27 -13;
-            text { style: "notification_style_nowrap";
-               text_source: "notification.textblock.message";
-               min: 0 1;
-            }
-            visible: 0;
          }
       }
       part { name: "notification.text.title"; type: TEXT; mouse_events: 0;
@@ -142,7 +130,7 @@ group { name: "e/modules/notification/main";
             image.normal: "sym_close_light_selected.png";
          }
       }
-      part { name: "e.event.close"; type: RECT;
+      part { name: "notification.event.close"; type: RECT;
          scale: 1;
          description { state: "default" 0.0;
             rel1.relative: 1.0 0.0;

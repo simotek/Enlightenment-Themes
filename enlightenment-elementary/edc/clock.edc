@@ -114,7 +114,8 @@ group { name: "e/modules/clock/digital";
          date(year, month, day, yearday, weekday, hour, minute, second);
          dosec = get_int(do_seconds);
          if (dosec) {
-            v = round(second);
+            v = round(second, FLOOR);
+            v = v % 60;
             tim = timer(1.0 - (second - v), "clock_cb", 1);
             // set seconds to v
             valset("s0", v / 10);
@@ -312,7 +313,7 @@ group { name: "e/modules/clock/digital";
       description { state: "active" 0.0; \
          inherit: "default" 0.0; \
          visible: 1; \
-         color: 255 255 255 255; \
+         color: WIN_COL_HIGHLIGHT; \
       } \
    }
 #define DIGIT(_NAME, _TO) \
@@ -339,7 +340,7 @@ group { name: "e/modules/clock/digital";
       description { state: "active" 0.0; \
          inherit: "default" 0.0; \
          visible: 1; \
-         color: 255 255 255 255; \
+         color: WIN_COL_HIGHLIGHT; \
       } \
    }
 #define DIGITC(_NAME, _TO, _CLIP) \
@@ -361,10 +362,12 @@ group { name: "e/modules/clock/digital";
          rel1.to: _TO; rel2.to: _TO; \
          aspect: (48/31) (48/31); aspect_preference: BOTH; \
          image.normal: "digit_am.png"; \
+         color: WIN_COL_HIGHLIGHT; \
       } \
       description { state: "active" 0.0; \
          inherit: "default" 0.0; \
          image.normal: "digit_pm.png"; \
+         color: WIN_COL_HIGHLIGHT; \
       } \
    }
 #define BASE(_NAME, _BASE, _IMG) \
@@ -581,7 +584,7 @@ group { name: "e/modules/clock/main";
             date(year, month, day, yearday, weekday, hour, minute, second);
             dosec = get_int(do_seconds);
             if (dosec) {
-               v = round(second);
+               v = round(second, FLOOR);
                tim = timer(1.0 - (second - v), "clock_cb", 1);
                
                custom_state(PART:"seconds", "default", 0.0);

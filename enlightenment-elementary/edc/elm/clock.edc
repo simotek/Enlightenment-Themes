@@ -94,6 +94,7 @@ group { name: "elm/clock/flipdigit/default";
    description { state: _DIGIT 0.0; \
       inherit: "default" 0.0; \
       image.normal: "digit_"_DIGIT".png"; \
+      color: WIN_COL_HIGHLIGHT; \
    }
          DIGIT_DESC("0")
          DIGIT_DESC("1")
@@ -278,6 +279,7 @@ group { name: "elm/clock/flipampm/default";
    description { state: _DIGIT 0.0; \
       inherit: "default" 0.0; \
       image.normal: "digit_"_AMPM".png"; \
+      color: WIN_COL_HIGHLIGHT; \
    }
          DIGIT_DESC("0", "am")
          DIGIT_DESC("1", "pm")
@@ -287,7 +289,7 @@ group { name: "elm/clock/flipampm/default";
 }
 
 #define SWALLOW_PART(_NAME, _R1X, _R1Y, _R2X, _R2Y) \
-   part { name: _NAME; \
+   part { name: "elm."_NAME; \
       type: SWALLOW; \
       description { state: "default" 0.0; \
          rel1.relative: _R1X _R1Y; \

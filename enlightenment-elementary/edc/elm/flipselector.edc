@@ -1,4 +1,4 @@
-#define FLIP_PICKER_MAX_LEN (50)
+#define FLIP_PICKER_MAX_LEN (50 + 1)
 #define FLIP_PICKER_MAX_LEN_STR "50"
 
 group { name: "elm/flipselector/base/default";
@@ -10,14 +10,14 @@ group { name: "elm/flipselector/base/default";
    images.image: "shine.png" COMP;
    images.image: "win_shadow.png" COMP;
    images.image: "bevel_out.png" COMP;
-   
+
    data.item: "max_len" FLIP_PICKER_MAX_LEN_STR;
-   
+
    //FIXME: quick successive clicks on, say, up, lead to nastiness
    script {
       public cur, prev, next, lock;
 
-      flip_up(str[]) {
+      flip_up(str[]) {
          new tmp[FLIP_PICKER_MAX_LEN];
          if (get_int(lock) == 1) {
             replace_str(next, 0, str);
@@ -48,7 +48,7 @@ group { name: "elm/flipselector/base/default";
          set_state(PART:"bottom_shadow", "default", 0.0);
          anim(0.2, "animator_top_down", 1);
       }
-      flip_dn(str[]) {      
+      flip_dn(str[]) {
          new tmp[FLIP_PICKER_MAX_LEN];
          if (get_int(lock) == 1) {
             replace_str(next, 0, str);
@@ -154,14 +154,9 @@ group { name: "elm/flipselector/base/default";
    parts {
       part { name: "base_shadow"; mouse_events: 0;
          description { state: "default" 0.0;
-            image.normal: "win_shadow.png";
-            image.border: 14 14 14 14;
-            image.middle: 0;
             rel1.to: "base";
-            rel1.offset: -7  -3;
             rel2.to: "base";
-            rel2.offset: 6 11;
-            fill.smooth: 0;
+            WIN_SHADOW;
          }
       }
       part { name: "base"; type: RECT;
@@ -229,6 +224,7 @@ group { name: "elm/flipselector/base/default";
       part { name: "bottom_shadow"; mouse_events: 0;
          clip_to: "bottom_clipper";
          description { state: "default" 0.0;
+            fixed: 0 1;
             rel1.to: "bottom";
             rel2 { to: "bottom"; relative: 1.0 0.0; }
             image.normal: "flip_shad.png";
@@ -236,10 +232,12 @@ group { name: "elm/flipselector/base/default";
          }
          description { state: "half" 0.0;
             inherit: "default" 0.0;
+            fixed: 0 0;
             rel2.relative: 1.0 1.0;
          }
          description { state: "full" 0.0;
             inherit: "default" 0.0;
+            fixed: 0 0;
             rel2.relative: 1.0 2.0;
          }
       }
@@ -251,6 +249,7 @@ group { name: "elm/flipselector/base/default";
          }
          description { state: "shrink" 0.0;
             inherit: "default" 0.0;
+            fixed: 0 1;
             rel2.relative: 1.0 0.0;
          }
       }
@@ -351,6 +350,7 @@ group { name: "elm/flipselector/base/default";
          }
          description { state: "shrink" 0.0;
             inherit: "default" 0.0;
+            fixed: 0 1;
             rel1.relative: 0.0 1.0;
             color: 40 40 40 255;
          }
