@@ -1,5 +1,7 @@
 *.edj
 *~
+*Makefile.am
+*-icons/
 enlightenmnet-elementary/Cerium2/develop/
 enlightenment-elementary/*-dm*
 enlightenment-elementary/img-bgnd/

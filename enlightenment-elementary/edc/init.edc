@@ -348,14 +348,13 @@ group { name: "e/init/splash";
       }
    }
   programs {
-     program {     
-        signal: "load"; source: "";
+     program { signal: "load"; source: "";
         script {
            set_int(is_ready, 0);
            set_int(do_end, 0);
         }
      }
-     
+
 #define PROG(_NAME) \
      program { name: _NAME"0"; \
         signal: "show"; source: ""; \
@@ -423,8 +422,7 @@ group { name: "e/init/splash";
      PROG("l+3")
 #undef PROG     
      
-     program {
-        signal: "show"; source: "";
+     program { signal: "show"; source: "";
         action: STATE_SET "visible" 0.0;
         transition: DECELERATE 1.0;
         target: "blanker";
@@ -439,15 +437,13 @@ group { name: "e/init/splash";
              set_int(is_ready, 1);
         }
      }
-     program {
-        signal: "e,state,done"; source: "e";
+     program { signal: "e,state,done"; source: "e";
         script {
            new val;
+           set_int(do_end, 1);
            val = get_int(is_ready);
            if (val == 1)
              run_program(PROGRAM:"exit1");
-           else
-             set_int(do_end, 1);
         }
      }
      program { name: "exit1";

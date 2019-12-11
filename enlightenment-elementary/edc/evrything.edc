@@ -848,7 +848,7 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
             rel2.to: "sb_vbar";
          }
       }
-      program {
+      program {      
          signal: "e,action,show,vbar"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "sb_vbar";
@@ -987,7 +987,6 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
       }
    }
 }
-
 
 group { name: "e/modules/everything/thumbview/item/thumb";
    images.image: "vgrad_med_dark.png" COMP;
@@ -1265,7 +1264,7 @@ group { name: "e/modules/everything/thumbview/item/list";
             rel2.offset: 1 1;
             rel2.to: "e.text.detail";
             color: FN_COL_HIGHLIGHT;
-            color_class: "ilist_item_selected";
+            color_class: "list_item_selected";
             align: 1.0 0.5;
             max: 160 99999;
             text { font: FN; size: 8;
@@ -1313,7 +1312,7 @@ group { name: "e/modules/everything/thumbview/item/list";
             rel2.offset: 2 1;
             rel2.to: "e.text.label";
             color: FN_COL_HIGHLIGHT;
-            color_class: "ilist_item_selected";
+            color_class: "list_item_selected";
             text { font: FN; size: 10;
                min: 0 1; 
               text_source: "e.text.label";

@@ -1,5 +1,5 @@
-group { name: "e/modules/netstatus/main";
-   alias: "e/modules/netstatus/main_vert";
+group { name: "e/gadget/netstatus/main";
+   alias: "e/gadget/netstatus/main_vert";
    image: "netstatus_rx.png" COMP;
    image: "netstatus_tx.png" COMP;
    image: "netstatus_base.png" COMP;
@@ -16,7 +16,7 @@ group { name: "e/modules/netstatus/main";
 
             new Float:val = rxper / 100.0;
             custom_state(PART:"rx_clip", "default", 0.0);
-            set_state_val(PART:"rx_clip", STATE_REL1, 0.0, 1.0 - val);
+            set_state_val(PART:"rx_clip", STATE_REL2, 1.0, val);
             set_state(PART:"rx_clip", "custom", 0.0);
 
             val = txper / 100.0;
@@ -36,8 +36,8 @@ group { name: "e/modules/netstatus/main";
       }
       part { name: "rx_spacer"; type: SPACER;
          description { state: "default" 0.0;
-            rel1.relative: 0.32 0.33;
-            rel2.relative: 0.98 0.78;
+            rel1.relative: 0.0 0.09;
+            rel2.relative: 1.0 0.91;
          }
       }
       part { name: "rx_clip"; type: RECT;
@@ -47,17 +47,17 @@ group { name: "e/modules/netstatus/main";
          }
       }
       part { name: "rx"; type: IMAGE;
-          clip_to: "rx_clip";
-          description { state: "default" 0.0;
-             rel1.to: "base";
-             rel2.to: "base";
-             image.normal: "netstatus_rx.png";
-          }
+         clip_to: "rx_clip";
+         description { state: "default" 0.0;
+            rel1.to: "base";
+            rel2.to: "base";
+            image.normal: "netstatus_rx.png";
+         }
       }
       part { name: "tx_spacer"; type: SPACER;
          description { state: "default" 0.0;
-            rel1.relative: 0.04 0.08;
-            rel2.relative: 0.68 0.50;
+            rel1.relative: 0.0 0.09;
+            rel2.relative: 1.0 0.91;
          }
       }
       part { name: "tx_clip"; type: RECT;
@@ -67,12 +67,12 @@ group { name: "e/modules/netstatus/main";
          }
       }
       part { name: "tx"; type: IMAGE;
-          clip_to: "tx_clip";
-          description { state: "default" 0.0;
-             rel1.to: "base";
-             rel2.to: "base";
-             image.normal: "netstatus_tx.png";
-          }
+         clip_to: "tx_clip";
+         description { state: "default" 0.0;
+            rel1.to: "base";
+            rel2.to: "base";
+            image.normal: "netstatus_tx.png";
+         }
       }
       part { name: "over";
          description { state: "default" 0.0;

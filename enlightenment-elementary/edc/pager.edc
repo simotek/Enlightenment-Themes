@@ -357,6 +357,7 @@ group { name: "e/modules/pager/desk";
 }
 
 group { name: "e/modules/pager/window";
+   alias: "e/gadget/pager/plain/window";
    images.image: "mini_box_bevel_shadow.png" COMP;
    images.image: "mini_box_glow.png" COMP;
    parts {

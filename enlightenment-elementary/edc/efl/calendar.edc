@@ -1,0 +1,718 @@
+#define CIT_STYLE\
+      style { name: "efl_ui_calendar_date_style";\
+         base: "font="FN" font_size=10 color=#ffffff style=shadow,bottom shadow_color=#00000080 align=center text_class=calendar_day_text color_class=calendar_day_text";\
+      }\
+      style { name: "efl_ui_calendar_date_today_style";\
+         base: "font="FN" font_size=10 color=#3399ff style=glow glow_color=#3399ff18 align=center text_class=calendar_day_text_today color_class=calendar_day_text_today";\
+      }\
+      style { name: "efl_ui_calendar_date_disabled_style";\
+         base: "font="FN" font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffffc0 align=center text_class=calendar_day_text_disabled text_class=calendar_day_text_disabled";\
+      }\
+
+#define CAL_SPIN(_sufix, _text, _relative)\
+      part { name: "left_bt"#_sufix; type: SPACER;\
+         scale: 1;\
+         description { state: "default" 0.0;\
+            fixed: 1 1;\
+            rel1 { to: #_relative;\
+               offset: 0 0;\
+            }\
+            rel2 { to: #_relative;\
+               offset: 0 -1;\
+            }\
+            align: 0.0 0.5;\
+            min: 15 15;\
+            max: 15 15;\
+         }\
+      }\
+      part { name: "right_bt"#_sufix; type: RECT;\
+         scale: 1;\
+         description { state: "default" 0.0;\
+            fixed: 1 1;\
+            rel1 { to: #_relative;\
+               offset: -1 0;\
+            }\
+            rel2 { to: #_relative;\
+               offset: -1 -1;\
+            }\
+            align: 1.0 0.5;\
+            min: 15 15;\
+            max: 15 15;\
+            color: 0 0 0 0;\
+         }\
+      }\
+      part { name: "efl.calendar.button"#_sufix".left";\
+         type: SWALLOW;\
+         scale: 1;\
+         description { state: "default" 0.0;\
+            fixed: 1 1;\
+            rel1.to: "left_bt"#_sufix;\
+            rel2.to: "left_bt"#_sufix;\
+         }\
+         description { state: "rtl" 0.0;\
+            inherit: "default" 0.0;\
+            rel1.to: "right_bt"#_sufix;\
+            rel2.to: "right_bt"#_sufix;\
+         }\
+      }\
+      part { name: "efl.calendar.button"#_sufix".right";\
+         type: SWALLOW;\
+         scale: 1;\
+         description { state: "default" 0.0;\
+            fixed: 1 1;\
+            rel1.to: "right_bt"#_sufix;\
+            rel2.to: "right_bt"#_sufix;\
+         }\
+         description { state: "rtl" 0.0;\
+            inherit: "default" 0.0;\
+            rel1.to: "left_bt"#_sufix;\
+            rel2.to: "left_bt"#_sufix;\
+         }\
+      }\
+      part { name: #_text; type: TEXT; mouse_events: 0;\
+         effect: SHADOW BOTTOM; \
+         scale: 1;\
+         description { state: "default" 0.0;\
+            fixed: 1 1;\
+            rel1 { relative: 1.0 0.0;\
+               to: "left_bt"#_sufix;\
+            }\
+            rel2 { relative: 0.0 1.0;\
+               to: "right_bt"#_sufix;\
+            }\
+            text { font: FNBD; size: 10;\
+               min: 0 1;\
+               text_class: "calendar_"#_text; \
+            }\
+            color_class: "calendar_"#_text; \
+         }\
+      }
+
+#define CH(_pos) \
+   part { name: "ch_"#_pos"_base"; type: SPACER; \
+      description { state: "default" 0.0; \
+         rel1 { \
+            relative: (_pos % 7 / 7) 0.0; \
+            to: "header"; \
+         } \
+         rel2 { \
+            relative: (_pos % 7 / 7 + 1 / 7) 1.0; \
+            to: "header"; \
+         } \
+      } \
+   } \
+   part { name: "efl.ch_"#_pos".text"; type: TEXT; mouse_events: 0; \
+      effect: SHADOW BOTTOM; \
+      scale: 1; \
+      clip_to: "ch_"#_pos"_clipper"; \
+      description { state: "default" 0.0; \
+         rel1.to: "ch_"#_pos"_base"; \
+         rel2.to: "ch_"#_pos"_base"; \
+         text { font: FN; size: 8; \
+            min: 1 1; \
+            ellipsis: -1; \
+            text_class: "calendar_weekday_text"; \
+         } \
+         color_class: "calendar_weekday_text"; \
+      } \
+   } \
+   part { name: "ch_"#_pos"_clipper"; type: RECT; \
+      description { state: "default" 0.0; \
+         rel1.to: "ch_"#_pos"_base"; \
+         rel2.to: "ch_"#_pos"_base"; \
+      } \
+   }
+
+#define CIT(_pos) \
+   part { name: "cit_"#_pos"_rect"; type: SPACER; \
+      description { state: "default" 0.0; \
+         rel1 { \
+            relative: (_pos % 7 / 7) \
+            (_pos / 7 / 6 - _pos % 7 / 7 / 6); \
+            to: "base"; \
+         } \
+         rel2 { \
+            relative: (_pos % 7 / 7 + 1 / 7) \
+            (_pos / 7 / 6 + 1 / 6 - _pos % 7 / 7 / 6); \
+            to: "base"; \
+         } \
+      } \
+   } \
+   part { name: "cit_"#_pos"_event"; type: RECT; repeat_events: 1; \
+      description { state: "default" 0.0; \
+         rel1.to: "cit_"#_pos"_rect"; \
+         rel2.to: "cit_"#_pos"_rect"; \
+         color: 0 0 0 0; \
+      } \
+   } \
+   part { name: "cit_"#_pos"_pat"; mouse_events: 0; \
+      description { state: "default" 0.0; \
+         rel1.to: "cit_"#_pos"_selected"; \
+         rel1.offset: 1 1; \
+         rel2.to: "cit_"#_pos"_selected"; \
+         rel2.offset: -2 -2; \
+         image.normal: "diagonal_stripes.png"; \
+         color: 255 255 255 25; \
+         TILED_PATTERN(240, 240) \
+         color_class: "calendar_day_selected"; \
+         visible: 0; \
+      } \
+      description { state: "selected" 0.0; \
+         inherit: "default" 0.0; \
+         visible: 1; \
+      } \
+   } \
+   part { name: "cit_"#_pos"_selected"; mouse_events: 0; \
+      description { state: "default" 0.0; \
+         rel1.to: "cit_"#_pos"_rect"; \
+         rel2.to: "cit_"#_pos"_rect"; \
+         image.normal: "outline_glow.png"; \
+         image.border: 4 4 4 4; \
+         color_class: "calendar_day_selected"; \
+         visible: 0; \
+      } \
+      description { state: "selected" 0.0; \
+         inherit: "default" 0.0; \
+         visible: 1; \
+      } \
+   } \
+   part { name: "cit_"#_pos"_selected2"; mouse_events: 0; \
+      description { state: "default" 0.0; \
+         rel1.to: "cit_"#_pos"_rect"; \
+         rel2.to: "cit_"#_pos"_rect"; \
+         image.normal: "outline_glow.png"; \
+         image.border: 4 4 4 4; \
+         color: 255 255 255 128; \
+         color_class: "calendar_day_highlighted"; \
+         visible: 0; \
+      } \
+      description { state: "highlighted" 0.0; \
+         inherit: "default" 0.0; \
+         visible: 1; \
+      } \
+   } \
+   part { name: "cit_"#_pos"_glow"; mouse_events: 0; \
+      description { state: "default" 0.0; \
+         rel1.to: "cit_"#_pos"_rect"; \
+         rel2.to: "cit_"#_pos"_rect"; \
+         image.normal: "box_glow.png"; \
+         image.border: 12 12 12 12; \
+         image.middle: 0; \
+         fill.smooth: 0; \
+         visible: 0; \
+      } \
+      description { state: "focused" 0.0; \
+         inherit: "default" 0.0; \
+         visible: 1; \
+      } \
+   } \
+   part { name: "efl.cit_"#_pos".text"; type: TEXTBLOCK; mouse_events: 0; \
+      scale: 1; \
+      description { state: "default" 0.0; \
+         rel1.to: "cit_"#_pos"_rect"; \
+         rel2.to: "cit_"#_pos"_rect"; \
+         text.style: "efl_ui_calendar_date_style"; \
+         text.min: 1 1; \
+         text.ellipsis: -1; \
+      } \
+      description { state: "today" 0.0; \
+         inherit: "default" 0.0; \
+         text.style: "efl_ui_calendar_date_today_style"; \
+      } \
+      description { state: "disabled" 0.0; \
+         inherit: "default" 0.0; \
+         text.style: "efl_ui_calendar_date_disabled_style"; \
+      } \
+   } \
+   part { name: "cit_"#_pos"_check"; mouse_events: 0; \
+      scale: 1; \
+      description { state: "default" 0.0; \
+         fixed: 1 1; \
+         rel1 { \
+            to: "cit_"#_pos"_rect"; \
+            relative: 0.6 0.5; \
+         } \
+         rel2 { \
+            to: "cit_"#_pos"_rect"; \
+            relative: 0.6 0.5; \
+         } \
+         min: 16 16; \
+         max: 16 16; \
+         aspect: 1 1; \
+         align: 0.0 1.0;\
+         image.normal: "icon_border_remember.png"; \
+         color_class: "calendar_day_checked"; \
+         visible: 0; \
+      } \
+      description { state: "visible" 0.0; \
+         inherit: "default" 0.0; \
+         visible: 1; \
+      } \
+   } \
+   part { name: "efl.cit_"#_pos".access"; type: RECT; repeat_events: 1; \
+      description { state: "default" 0.0; \
+         rel1.to: "cit_"#_pos"_event"; \
+         rel2.to: "cit_"#_pos"_event"; \
+         color: 0 0 0 0; \
+      } \
+   } \
+   programs { \
+      program { \
+         name:    "cit_"#_pos"_go_active"; \
+         signal:  "cit_"#_pos",selected"; \
+         source:  "efl"; \
+         action:  STATE_SET "selected" 0.0; \
+         target:  "cit_"#_pos"_pat"; \
+         target:  "cit_"#_pos"_selected"; \
+      } \
+      program { \
+         name:    "cit_"#_pos"_go_passive"; \
+         signal:  "cit_"#_pos",unselected"; \
+         source:  "efl"; \
+         action:  STATE_SET "default" 0.0; \
+         target:  "cit_"#_pos"_pat"; \
+         target:  "cit_"#_pos"_selected"; \
+      } \
+      program { \
+         name:    "cit_"#_pos"_focus_highlighted"; \
+         signal:  "cit_"#_pos",focused"; \
+         source:  "efl"; \
+         script { \
+            set_int(item_focus_enabled, 1); \
+            set_int(last_focused_item, _pos); \
+            if (get_int(win_focus_enabled) == 1) \
+               set_state(PART:"cit_"#_pos"_glow", "focused", 0.0); \
+         } \
+      } \
+      program { \
+         name:    "cit_"#_pos"_focus_unhighlighed"; \
+         signal:  "cit_"#_pos",unfocused"; \
+         source:  "efl"; \
+         script { \
+            set_int(item_focus_enabled, 0); \
+            set_state(PART:"cit_"#_pos"_glow", "default", 0.0); \
+         } \
+      } \
+      program { \
+         name:    "cit_"#_pos"_is_today"; \
+         signal:  "cit_"#_pos",today"; \
+         source:  "efl"; \
+         action:  STATE_SET "today" 0.0; \
+         target:  "efl.cit_"#_pos".text"; \
+      } \
+      program { \
+         name:    "cit_"#_pos"_not_today"; \
+         signal:  "cit_"#_pos",not_today"; \
+         source:  "efl"; \
+         action:  STATE_SET "default" 0.0; \
+         target:  "efl.cit_"#_pos".text"; \
+      } \
+      program { \
+         name:    "cit_"#_pos"_enable"; \
+         signal:  "cit_"#_pos",enable"; \
+         source:  "efl"; \
+         script { \
+            new st[31]; \
+            new Float:vl; \
+            get_state(PART:"efl.cit_"#_pos".text", st, 30, vl); \
+            if (!strcmp(st, "disabled")) \
+              set_state(PART:"efl.cit_"#_pos".text", "default", 0.0); \
+         } \
+      } \
+      program { \
+         name:    "cit_"#_pos"_disable"; \
+         signal:  "cit_"#_pos",disable"; \
+         source:  "efl"; \
+         action:  STATE_SET "disabled" 0.0; \
+         target:  "efl.cit_"#_pos".text"; \
+      } \
+      program { \
+         source: "cit_"#_pos"_clicked"; \
+         signal: "mouse,down,1"; \
+         source: "cit_"#_pos"_event"; \
+         action:  STATE_SET "highlighted" 0.0; \
+         target:  "cit_"#_pos"_selected2"; \
+      } \
+      program { \
+         source: "cit_"#_pos"_clicked"; \
+         signal: "mouse,up,1"; \
+         source: "cit_"#_pos"_event"; \
+         action:  STATE_SET "default" 0.0; \
+         target:  "cit_"#_pos"_selected2"; \
+      } \
+      program { \
+         source: "cit_"#_pos"_clicked"; \
+         signal: "mouse,clicked,1"; \
+         source: "cit_"#_pos"_event"; \
+         action: SIGNAL_EMIT "efl,action,selected" #_pos; \
+      } \
+      program { \
+         name:    "cit_"#_pos"_clear"; \
+         signal:  "cit_"#_pos",clear"; \
+         source:  "efl"; \
+         action:  STATE_SET "default" 0.0; \
+         target:  "cit_"#_pos"_check"; \
+         after:   "cit_"#_pos"_weekends_clear"; \
+         after:   "cit_"#_pos"_holiday_clear"; \
+      } \
+      program { \
+         name:    "cit_"#_pos"_weekends_clear"; \
+         script { \
+            new st[31]; \
+            new Float:vl; \
+            get_state(PART:"efl.cit_"#_pos".text", st, 30, vl); \
+            if (!strcmp(st, "weekend/day1") || !strcmp(st, "weekend/day2")) \
+              set_state(PART:"efl.cit_"#_pos".text", "default", 0.0); \
+         } \
+      } \
+      program { \
+         name:    "cit_"#_pos"_holiday_clear"; \
+         script { \
+            new st[31]; \
+            new Float:vl; \
+            get_state(PART:"efl.cit_"#_pos".text", st, 30, vl); \
+            if (!strcmp(st, "holiday")) \
+              set_state(PART:"efl.cit_"#_pos".text", "default", 0.0); \
+         } \
+      } \
+      program { \
+         name:    "cit_"#_pos"_checked"; \
+         signal:  "cit_"#_pos",checked"; \
+         source:  "efl"; \
+         action:  STATE_SET "visible" 0.0; \
+         target:  "cit_"#_pos"_check"; \
+      } \
+      program { \
+         name:    "cit_"#_pos"_holiday"; \
+         signal:  "cit_"#_pos",holiday"; \
+         source:  "efl"; \
+         script { \
+            new st[31]; \
+            new Float:vl; \
+            get_state(PART:"efl.cit_"#_pos".text", st, 30, vl); \
+            if (strcmp(st, "today")) \
+              set_state(PART:"efl.cit_"#_pos".text", "holiday", 0.0); \
+         } \
+      } \
+      program { \
+         name:    "cit_"#_pos"_weekend/day1"; \
+         signal:  "cit_"#_pos",weekend/day1"; \
+         source:  "efl"; \
+         script { \
+            new st[31]; \
+            new Float:vl; \
+            get_state(PART:"efl.cit_"#_pos".text", st, 30, vl); \
+            if ((strcmp(st, "today")) && (strcmp(st, "holiday")) )\
+              set_state(PART:"efl.cit_"#_pos".text", "weekend/day1", 0.0); \
+         } \
+      } \
+      program { \
+         name:    "cit_"#_pos"_weekend/day2"; \
+         signal:  "cit_"#_pos",weekend/day2"; \
+         source:  "efl"; \
+         script { \
+            new st[31]; \
+            new Float:vl; \
+            get_state(PART:"efl.cit_"#_pos".text", st, 30, vl); \
+            if ((strcmp(st, "today")) && (strcmp(st, "holiday")) )\
+              set_state(PART:"efl.cit_"#_pos".text", "weekend/day2", 0.0); \
+         } \
+      } \
+   }
+
+group { "efl/calendar"; data.item: "version" "123";
+   images.image: "sym_left_light_normal.png" COMP;
+   images.image: "sym_right_light_normal.png" COMP;
+   images.image: "sym_left_glow_normal.png" COMP;
+   images.image: "sym_right_glow_normal.png" COMP;
+   images.image: "icon_border_remember.png" COMP;
+   images.image: "outline_glow.png" COMP;
+   images.image: "box_glow.png" COMP;
+   images.image: "diagonal_stripes.png" COMP;
+   data.item: "focus_highlight" "on";
+   script {
+      public rtl;
+      public win_focus_enabled;
+      public item_focus_enabled;
+      public last_focused_item;
+   }
+   styles {
+      CIT_STYLE
+   }
+   parts {
+      part { name: "bg"; type: SPACER;
+         description { state: "default" 0.0;
+            rel1.offset: 1 1;
+            rel2.offset: -2 -2;
+         }
+      }
+      part { name: "efl.background"; type: SWALLOW;
+         description { state: "default" 0.0;
+            rel1.to: "bg";
+            rel2.to: "bg";
+         }
+      }
+      part { name: "spinner-base1"; type: SPACER;
+         description { state: "default" 0.0;
+            min: 24 16;
+            max: 999999 16;
+            rel1.to: "bg";
+            rel2.to: "bg";
+            rel2.relative: 1.0 (1/8);
+            align: 0.5 0.0;
+         }
+      }
+      part { name: "table-base"; type: SPACER;
+         description { state: "default" 0.0;
+            min: 70 60;
+            rel1.to_x: "bg";
+            rel1.to_y: "spinner-base1";
+            rel1.offset: 3 0;
+            rel1.relative: 0.0 1.0;
+            rel2.to: "bg";
+            rel2.offset: -4 -4;
+         }
+      }
+      part { name: "header"; type: SPACER;
+         description { state: "default" 0.0;
+            rel1.to: "table-base";
+            rel2.to: "table-base";
+            rel2.relative: 1.0 (1/7);
+            align: 0.5 0.0;
+            min: 0 16;
+         }
+      }
+      part { name: "header_separator"; mouse_events:  0;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.to: "header";
+            rel1.relative: 0.0 1.0;
+            rel1.offset: 0 -2;
+            rel2.to: "header";
+            image.normal: "separator_horiz.png";
+            fill.smooth: 0;
+         }
+      }
+      part { name: "base"; type: SPACER;
+         description { state: "default" 0.0;
+            rel1.to_x: "table-base";
+            rel1.to_y: "header";
+            rel1.relative: 0.0 1.0;
+            rel1.offset: 3 0;
+            rel2.to: "table-base";
+            rel2.offset: -3 0;
+         }
+      }
+
+      CAL_SPIN(,month_text, spinner-base1)
+      CH(0)   CH(1)   CH(2)   CH(3)   CH(4)   CH(5)   CH(6)
+      CIT(0)  CIT(1)  CIT(2)  CIT(3)  CIT(4)  CIT(5)  CIT(6)
+      CIT(7)  CIT(8)  CIT(9)  CIT(10) CIT(11) CIT(12) CIT(13)
+      CIT(14) CIT(15) CIT(16) CIT(17) CIT(18) CIT(19) CIT(20)
+      CIT(21) CIT(22) CIT(23) CIT(24) CIT(25) CIT(26) CIT(27)
+      CIT(28) CIT(29) CIT(30) CIT(31) CIT(32) CIT(33) CIT(34)
+      CIT(35) CIT(36) CIT(37) CIT(38) CIT(39) CIT(40) CIT(41)
+
+   }
+   programs {
+      program {
+         signal: "efl,action,focus_highlight,show";
+         source: "efl";
+         script {
+            set_int(win_focus_enabled, 1);
+            if (get_int(item_focus_enabled) == 1) {
+               new value[32];
+               snprintf(value, 32, "cit_%d,focused", get_int(last_focused_item));
+               emit(value, "efl");
+            }
+         }
+      }
+      program {
+         signal: "efl,action,focus_highlight,hide";
+         source: "efl";
+         script {
+            set_int(win_focus_enabled, 0);
+         }
+      }
+   }
+}
+
+#undef CAL_SPIN
+#undef CIT
+#undef CH
+
+ group { name: "efl/calendar/inc_button"; data.item: "version" "123";
+      images.image: "sym_right_light_normal.png" COMP;
+      images.image: "sym_right_glow_normal.png" COMP;
+      images.image: "sym_right_dark_normal.png" COMP;
+      script {
+         public mouse_down = 0;
+         public multi_down = 0;
+      }
+      parts {
+         part { name: "arrow.image";
+            scale: 1;
+            description { state: "default" 0.0;
+               min: 15 15;
+               max: 15 15;
+               color_class: "F032L1";
+               image.normal: "sym_right_light_normal.png";
+            }
+            description { state: "pressed" 0.0;
+               inherit: "default" 0.0;
+               image.normal: "sym_right_glow_normal.png";
+            }
+            description { state: "disabled" 0.0;
+               inherit: "default" 0.0;
+               image.normal: "sym_right_dark_normal.png";
+            }
+         }
+         part { name: "over";
+            type: RECT;
+            repeat_events: 1;
+            description { state: "default" 0.0;
+               color: 0 0 0 0;
+            }
+         }
+         part { name: "disabler";
+            type: RECT;
+            description { state: "default" 0.0;
+               color: 0 0 0 0;
+               visible: 0;
+            }
+            description { state: "disabled" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
+            }
+         }
+      }
+      programs {
+         program { name: "button_press";
+            signal: "mouse,down,1";
+            source: "over";
+            script {
+               if ((get_int(multi_down) == 0) &&
+                   (get_int(mouse_down) == 0)) {
+                     set_int(mouse_down, 1);
+                     run_program(PROGRAM:"button_press2");
+               }
+            }
+         }
+         program { name: "button_press2";
+            action: SIGNAL_EMIT "efl,action,press" "";
+            after: "button_press_anim";
+         }
+         program { name: "button_press_anim";
+            action: STATE_SET "pressed" 0.0;
+            target: "arrow.image";
+         }
+         program { name: "button_unpress";
+            signal: "mouse,up,1";
+            source: "over";
+            script {
+               if (get_int(mouse_down) == 1) {
+                     set_int(mouse_down, 0);
+                     run_program(PROGRAM:"button_unpress2");
+                     run_program(PROGRAM:"button_unpress_anim");
+               }
+            }
+         }
+         program { name: "button_unpress2";
+            action: SIGNAL_EMIT "efl,action,unpress" "";
+         }
+         program { name: "button_unpress_anim";
+            action: STATE_SET "default" 0.0;
+            target: "arrow.image";
+         }
+         program { name: "button_click";
+            signal: "mouse,clicked,1";
+            source: "over";
+            script {
+               if (get_int(multi_down) == 0) {
+                 run_program(PROGRAM:"button_click2");
+               }
+            }
+         }
+         program { name: "action_unpressed";
+            signal: "efl,action,unpressed";
+            source: "efl";
+            after: "button_unpress_anim";
+         }
+         program { name: "action_pressed";
+            signal: "efl,action,pressed";
+            source: "efl";
+            after: "button_press_anim";
+         }
+         program { name: "button_click2";
+            action: SIGNAL_EMIT "efl,action,click" "";
+         }
+         program { name: "access_pressed";
+            signal: "efl,state,animation,activated";
+            source: "efl";
+            action: STATE_SET "pressed" 0.0;
+            target: "arrow.image";
+            after: "access_pressed_anim";
+         }
+         program { name: "access_pressed_anim";
+            action: STATE_SET "default" 0.0;
+            transition: DECELERATE 0.1;
+            target: "arrow.image";
+         }
+         program { name: "disable";
+            signal: "efl,state,disabled";
+            source: "efl";
+            action: STATE_SET "disabled" 0.0;
+            target: "arrow.image";
+            target: "disabler";
+         }
+         program { name: "enable";
+            signal: "efl,state,enabled";
+            source: "efl";
+            action: STATE_SET "default" 0.0;
+            target: "arrow.image";
+            target: "disabler";
+         }
+         program {
+            name: "multi_down";
+            signal: "efl,action,multi,down";
+            source: "efl";
+            script {
+               set_int(multi_down, 1);
+            }
+         }
+         program {
+            name: "multi_up";
+            signal: "efl,action,multi,up";
+            source: "efl";
+            script {
+               set_int(multi_down, 0);
+            }
+         }
+      }
+   }
+
+   group { name: "efl/calendar/dec_button";
+      inherit: "efl/calendar/inc_button";
+      data.item: "version" "123";
+      images.image: "sym_left_light_normal.png" COMP;
+      images.image: "sym_left_glow_normal.png" COMP;
+      images.image: "sym_left_dark_normal.png" COMP;
+      parts {
+         part { name: "arrow.image";
+            scale: 1;
+            description { state: "default" 0.0;
+               min: 15 15;
+               max: 15 15;
+               image.normal: "sym_left_light_normal.png";
+            }
+            description { state: "pressed" 0.0;
+               inherit: "default" 0.0;
+               image.normal: "sym_left_glow_normal.png";
+            }
+            description { state: "disabled" 0.0;
+               inherit: "default" 0.0;
+               image.normal: "sym_left_dark_normal.png";
+            }
+         }
+      }
+   }

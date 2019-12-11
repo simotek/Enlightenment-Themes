@@ -462,6 +462,7 @@ group { name: "e/widgets/scrollframe";
             visible: 1;
          }
       }
+
       part { name: "arrow1_hbar"; mouse_events: 0;
          clip_to: "sb_hbar_show";
          description { state: "default" 0.0;
