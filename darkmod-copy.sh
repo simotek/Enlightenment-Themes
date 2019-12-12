@@ -83,6 +83,18 @@ moveAllHighlightImages(){
     moveHighlightImage day_single_press.png
     moveHighlightImage day_single_selected.png
     moveHighlightImage diagonal_stripes.png
+    moveHighlightImage digit_0.png
+    moveHighlightImage digit_1.png
+    moveHighlightImage digit_2.png
+    moveHighlightImage digit_3.png
+    moveHighlightImage digit_4.png
+    moveHighlightImage digit_5.png
+    moveHighlightImage digit_6.png
+    moveHighlightImage digit_7.png
+    moveHighlightImage digit_8.png
+    moveHighlightImage digit_9.png
+    moveHighlightImage digit_am.png
+    moveHighlightImage digit_pm.png
     moveHighlightImage downlight_glow_left.png
     moveHighlightImage downlight_glow.png
     moveHighlightImage downlight_glow_right.png
