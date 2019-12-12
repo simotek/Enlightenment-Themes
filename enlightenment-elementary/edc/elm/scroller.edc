@@ -714,7 +714,7 @@ group { name: "elm/scroller/base/default";
             rel2.to_y: "sb_hbar";
          }
       }
-     
+
       part { name: "elm.swallow.overlay"; type: SWALLOW;
          clip_to: "clipper";
          description { state: "default" 0.0;
@@ -1054,7 +1054,6 @@ group { name: "elm/scroller/base/default";
          target: "elm.dragable.vbar";
          target: "shadow_vbar";
          target: "glow_vbar";
-         target: "center_glow_vbar";
       }
       program {
          signal: "mouse,down,*"; source: "elm.dragable.vbar";
@@ -1066,7 +1065,6 @@ group { name: "elm/scroller/base/default";
          target: "elm.dragable.vbar";
          target: "shadow_vbar";
          target: "glow_vbar";
-         target: "center_glow_vbar";
       }
       program {
          signal: "mouse,up,*"; source: "elm.dragable.vbar";
@@ -1078,7 +1076,6 @@ group { name: "elm/scroller/base/default";
          target: "elm.dragable.hbar";
          target: "shadow_hbar";
          target: "glow_hbar";
-         target: "center_glow_hbar";
       }
       program {
          signal: "mouse,down,*"; source: "elm.dragable.hbar";
@@ -1090,7 +1087,6 @@ group { name: "elm/scroller/base/default";
          target: "elm.dragable.hbar";
          target: "shadow_hbar";
          target: "glow_hbar";
-         target: "center_glow_hbar";
       }
       program {
          signal: "mouse,up,*"; source: "elm.dragable.hbar";

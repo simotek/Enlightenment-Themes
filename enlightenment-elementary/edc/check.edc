@@ -91,18 +91,14 @@ group { name: "e/widgets/check";
       program {
          signal: "e,state,disabled"; source: "e";
          action: STATE_SET "disabled" 0.0;
-         target: "base";
          target: "indicator";
-         target: "clip";
          target: "e.text.label";
          target: "event";
       }
       program {
          signal: "e,state,enabled"; source: "e";
          action: STATE_SET "default" 0.0;
-         target: "base";
          target: "indicator";
-         target: "clip";
          target: "e.text.label";
          target: "event";
       }
@@ -117,7 +113,7 @@ group { name: "e/widgets/check_icon";
          clip_to: "clip";
          description { state: "default" 0.0;
             rel1.offset: 2 2;
-            rel1.relative: 1.0 0.0; 
+            rel1.relative: 1.0 0.0;
             rel1.to_x: "base";
             rel2.offset: 2 -3;
             rel2.relative: 1.0 1.0;
