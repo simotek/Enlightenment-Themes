@@ -155,11 +155,11 @@ group { name: "e/modules/everything/selector_item";
             rel1.offset: 2 3;
             rel2.offset: -6 -7;
             color: FN_COL_DEFAULT;
-            color_class: "fileman_icon";
+            color_class: "list_item";
             text { font: FNBD; size: 10;
                min: 0 1;
                align: 0.0 1.0;
-               text_class: "fileman_icon";
+               text_class: "list_item";
             }
          }
          description { state: "selected" 0.0;
