@@ -81,7 +81,7 @@ group { name: "e/fileman/default/list/variable";
             rel2.to: "e.text.label";
             color2: 255 255 255 255;
             color3: 255 255 255 255;
-            color_class: "ilist_item_disabled";
+            color_class: "list_item_disabled";
             text { font: FN; size: 10;
                text_source: "e.text.label";
                align: 0.0 0.5;
@@ -109,7 +109,7 @@ group { name: "e/fileman/default/list/variable";
             rel2.to: "e.text.label";
             color2: 255 255 255 255;
             color3: 255 255 255 255;
-            color_class: "ilist_item_selected";
+            color_class: "list_item_selected";
             text { font: FN; size: 10;
                text_source: "e.text.label";
                align: 0.0 0.5;
@@ -918,19 +918,19 @@ group { name: "e/fileman/default/window/main";
          description { state: "default" 0.0;
             align: 0.0 1.0;
             rel1.offset: 4 4;
-            rel1.to: "region";
+            rel1.to: "region"; 
             rel2.offset: 4 -5;
             rel2.relative: 0.0 1.0;
-            rel2.to: "region";
+            rel2.to: "region"; 
             fixed: 1 0;
          }
       }
       part { name: "e.swallow.content"; type: SWALLOW;
          description { state: "default" 0.0;
             rel1.offset: 4 4;
-            rel1.to: "region";
+            rel1.to: "region"; 
             rel2.offset: -5 -5;
-            rel2.to: "region";
+            rel2.to: "region"; 
             align: 1.0 1.0;
          }
          description { state: "fav" 0.0;
@@ -973,22 +973,22 @@ group { name: "e/fileman/default/window/main";
          description { state: "tb_top" 0.0;
             inherit: "default" 0.0;
             rel1.relative: 0.0 1.0;
-            rel1.to_y: "e.swallow.toolbar";
+            rel1.to_y: "e.swallow.toolbar"; 
          }
          description { state: "tb_bottom" 0.0;
             inherit: "default" 0.0;
             rel2.relative: 1.0 0.0;
-            rel2.to_y: "e.swallow.toolbar";
+            rel2.to_y: "e.swallow.toolbar"; 
          }
          description { state: "tb_left" 0.0;
             inherit: "default" 0.0;
             rel1.relative: 1.0 0.0;
-            rel1.to_x: "e.swallow.toolbar";
+            rel1.to_x: "e.swallow.toolbar"; 
          }
          description { state: "tb_right" 0.0;
             inherit: "default" 0.0;
             rel2.relative: 0.0 1.0;
-            rel2.to_x: "e.swallow.toolbar";
+            rel2.to_x: "e.swallow.toolbar"; 
          }
       }
    }
@@ -1006,13 +1006,11 @@ group { name: "e/fileman/default/window/main";
       program {
          signal: "e,toolbar,left"; source: "e";
          action: STATE_SET "tb_left" 0.0;
-         target: "e.swallow.toolbar";
          target: "region";
       }
       program {
          signal: "e,toolbar,right"; source: "e";
          action: STATE_SET "tb_right" 0.0;
-         target: "e.swallow.toolbar";
          target: "region";
       }
       program {
@@ -1085,7 +1083,7 @@ group { name: "e/fileman/popup/default";
    images.image: "vgrad_med_lighter.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
-   parts {
+   parts {   
       part { name: "base"; type: RECT; mouse_events: 0;
          description { state: "default" 0.0;
             color: 64 64 64 255;
@@ -1951,7 +1949,8 @@ group { name: "e/fileman/default/progress";
    }
 }
 
-group { name: "modules/efm_navigation/main";
+group { name: "e/modules/efm_navigation/main";
+   alias: "modules/efm_navigation/main";
    images.image: "shadow_inset_light.png" COMP;
    images.image: "shadow_angled_in_light.png" COMP;
    images.image: "toolbar_nav_back.png" COMP;
@@ -1976,7 +1975,7 @@ group { name: "modules/efm_navigation/main";
             rel2.offset: -4 -4;
          }
       }
-
+      
 #define BUTTON(_NAME, _REL, _ICON, _ACTION) \
       part { name: _NAME"_shadow1"; \
          description { state: "default" 0.0; \
@@ -2037,12 +2036,12 @@ group { name: "modules/efm_navigation/main";
          action: SIGNAL_EMIT "e,action,"_ACTION",click" ""; \
       } \
 
-      BUTTON("go_back", "back", "back", "back")
-      BUTTON("go_forward", "forward", "forward", "forward")
+      BUTTON("go_back", "back", "left", "back")
+      BUTTON("go_forward", "forward", "right", "forward")
       BUTTON("go_parent", "parent", "up", "up")
-      BUTTON("go_reload", "reload", "refresh", "refresh")
-      BUTTON("go_fav", "favorite", "favorites", "favorites")
-
+      BUTTON("go_reload", "reload", "reload", "refresh")
+      BUTTON("go_fav", "favorite", "heart", "favorites")
+              
       part { name: "back"; type: RECT;
          description { state: "default" 0.0;
             rel1.offset: 6 0;
@@ -2101,7 +2100,8 @@ group { name: "modules/efm_navigation/main";
    }
 }
 
-group { name: "modules/efm_navigation/pathbar_button";
+group { name: "e/modules/efm_navigation/pathbar_button";
+   alias: "modules/efm_navigation/pathbar_button";
    images.image: "top_bottom_glow.png" COMP;
    parts {
       part { name: "e.text.label"; type: TEXT; mouse_events: 0;
@@ -2187,7 +2187,8 @@ group { name: "modules/efm_navigation/pathbar_button";
    }
 }
 
-group { name: "modules/efm_navigation/pathbar_scrollframe";
+group { name: "e/modules/efm_navigation/pathbar_scrollframe";
+   alias: "modules/efm_navigation/pathbar_scrollframe";
    images.image: "sym_left_light_normal.png" COMP;
    images.image: "sym_right_light_normal.png" COMP;
    images.image: "sym_left_glow_normal.png" COMP;
@@ -2307,7 +2308,7 @@ group { name: "modules/efm_navigation/pathbar_scrollframe";
          action: STATE_SET "clicked" 0.0;
          target: "arrow1";
       }
-
+      
       program {
          signal: "mouse,up,1"; source: "arrow1_ev";
          action: STATE_SET "default" 0.0;

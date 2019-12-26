@@ -11,7 +11,8 @@ group { name: "e/modules/notification/logo";
    }
 }
 
-group { name: "e/modules/notification/main";
+group { name: "notification/main";
+   alias: "e/modules/notification/main";
    images.image: "surface.png" COMP;
    images.image: "sym_close_normal.png" COMP;
    data.item: "app_icon_max" "48 48";
@@ -52,6 +53,7 @@ group { name: "e/modules/notification/main";
             filter.code: "blurbackground";
         }
       }
+      alias: "e.event.close" "notification.event.close";
       part { name: "base";
          description { state: "default" 0.0;
             image.normal: "surface.png";
@@ -84,8 +86,10 @@ group { name: "e/modules/notification/main";
       }
       part { name: "notification.textblock.message"; type: TEXTBLOCK; mouse_events: 0;
          clip_to: "bodyclip";
+         scale;
          description { state: "default" 0.0;
             align: 0.0 0.0;
+            min: 260 40;
             rel1.to_x: "notification.swallow.app_icon";
             rel1.to_y: "notification.text.title";
             rel1.relative: 1.0 1.0;
@@ -151,7 +155,7 @@ group { name: "e/modules/notification/main";
             color: 255 255 255 190;
          }
       }
-      part { name: "e.event.close"; type: RECT;
+      part { name: "notification.event.close"; type: RECT;
          scale: 1;
          description { state: "default" 0.0;
             rel1.relative: 1.0 0.0;

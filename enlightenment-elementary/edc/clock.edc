@@ -366,6 +366,7 @@ group { name: "e/modules/clock/digital";
       description { state: "active" 0.0; \
          inherit: "default" 0.0; \
          image.normal: "digit_pm.png"; \
+         color: WIN_COL_HIGHLIGHT; \
       } \
    }
 #define BASE(_NAME, _BASE, _IMG) \

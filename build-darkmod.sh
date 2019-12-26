@@ -47,7 +47,11 @@ success "    Finished Cleaning Repository"
 if [[ $DKMD_TERMPKG != 1 ]]; then
 inform "Creating a backup of all images"
 mkdir $ELM_ENLIGHT_THEME_PATH/img-bak
+mkdir $ELM_ENLIGHT_THEME_PATH/img-manual-bak
+mkdir $ELM_ENLIGHT_THEME_PATH/fdo-bak
 report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img/* $ELM_ENLIGHT_THEME_PATH/img-bak
+report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img-manual-convd/* $ELM_ENLIGHT_THEME_PATH/img-manual-bak
+report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/fdo/* $ELM_ENLIGHT_THEME_PATH/fdo-bak
 success "    Finished Cleaning Repository"
 
 
@@ -98,12 +102,14 @@ if [ -z "$HIGH_HTML" ]; then
     error "Highlight Color could not be determined"
     # Move images back before exit
     report_on_error mv -v img-bak img
+    report_on_error mv -v img-manual-bak/* img-manual-convd
     exit 1
 fi
 if [ -z "$HIGH_RGB" ]; then
     error "Highlight Color could not be determined"
     # Move images back before exit
     report_on_error mv -v img-bak img
+    report_on_error mv -v img-manual-bak/* img-manual-convd
     exit 1
 fi
 
@@ -118,7 +124,7 @@ fi
 # Converting background images
 pushd $ELM_ENLIGHT_THEME_PATH/img-bgnd
 for F in `find -iname "*.png"`; do
-    convert $F -brightness-contrast $BGND_BRIGHTNESS,$BGND_SATURATION ../img-color-convd/$F
+    convert $F -channel rgb -brightness-contrast $BGND_BRIGHTNESS,$BGND_SATURATION +channel ../img-color-convd/$F
 done
 popd
 
@@ -126,8 +132,26 @@ popd
 pushd $ELM_ENLIGHT_THEME_PATH/img-shadow
 for F in `find -iname "*.png"`; do
     convert $F -channel A -evaluate Multiply $SHADOW_MULT ../img-color-convd/$F
+    # convert $F -channel A -evaluate set 20% ../img-color-convd/$F
+    # cp $F ../img-color-convd/$F
 done
 popd
+
+inform "Recoloring FDO icons"
+# Recolor the fdo icon theme
+for icon in $(cat darkmod-fdo-icon-recolor.txt); do
+  for F in `find $ELM_ENLIGHT_THEME_PATH/fdo -name "$icon.svg"`; do
+    sed -i "s/#3399ff/$HIGH_HTML/g" $F
+  done
+  for F in `find $ELM_ENLIGHT_THEME_PATH/fdo -name "$icon.png"`; do
+    convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE $F
+  done
+done
+
+if [ -d "$THEME_NAME-icons" ]; then rm -Rf $THEME_NAME-icons; fi
+cp -r $ELM_ENLIGHT_THEME_PATH/fdo $THEME_NAME-icons
+sed -i "s/Enlightenment-X/$THEME_NAME-e-X/g" $THEME_NAME-icons/index.theme
+
 
 success "    Finished Converting Images"
 
@@ -171,6 +195,12 @@ for F in `find edc-dm colorclasses-dm.edc macros-dm.edc -iname "*.edc"`; do
     if [[ "$FILEMGR_MID_GREY_RGB" != "50 50 50" ]]; then
         sed -i "s/50 50 50/$FILEMGR_MID_GREY_RGB/g" $F
         sed -i "s/#323232/$FILEMGR_MID_GREY_HTML/g" $F
+    fi
+
+    # Checkbox background (mostly for toggle)
+    if [[ "$TOGGLE_BKND_RGB" != "24 24 24" ]]; then
+        sed -i "s/24 24 24/$TOGGLE_BKND_RGB/g" $F
+        sed -i "s/#181818/$TOGGLE_BKND_HTML/g" $F
     fi
 
     # modify html versions of text for textblock
@@ -252,6 +282,9 @@ inform "Creating theme"
 edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -fd fnt -sd snd default-dm.edc $ELM_ENLIGHT_AUTHORS $ELM_ENLIGHT_LICENSE $THEME_NAME.edj
 
 report_on_error mv -v img-bak img
+report_on_error mv -v img-manual-bak/* img-manual-convd
+report_on_error rm -r fdo
+report_on_error mv -v fdo-bak fdo
 if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
  report_on_error cp $THEME_NAME.edj ~/.elementary/themes
 fi
@@ -321,6 +354,13 @@ if [ $DKMD_EPKG != 1 ]; then
 	# Substitute , for " "
 	HIGH_RGB=$(echo "$HIGH_RGB" | tr "," " ")
    fi
+
+   # Convert theme svg Images
+   pushd $TERMINOLOGY_THEME_PATH/img-color
+   for F in `find . -iname "*.svg"`; do
+     sed "s/#3399ff/$HIGH_HTML/g" $F > ../img-color-convd/$F
+   done
+   popd
 
     pushd $TERMINOLOGY_THEME_PATH
     report_on_error cp -a default.edc default-dm.edc

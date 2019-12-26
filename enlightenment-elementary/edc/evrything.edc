@@ -155,11 +155,11 @@ group { name: "e/modules/everything/selector_item";
             rel1.offset: 2 3;
             rel2.offset: -6 -7;
             color: FN_COL_DEFAULT;
-            color_class: "menu_item";
+            color_class: "list_item";
             text { font: FNBD; size: 10;
                min: 0 1;
                align: 0.0 1.0;
-               text_class: "menu_item";
+               text_class: "list_item";
             }
          }
          description { state: "selected" 0.0;
@@ -1000,7 +1000,6 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
    }
 }
 
-
 group { name: "e/modules/everything/thumbview/item/thumb";
    images.image: "vgrad_med_dark.png" COMP;
    images.image: "bevel_out.png" COMP;
@@ -1066,12 +1065,12 @@ group { name: "e/modules/everything/thumbview/item/thumb";
             rel2.offset: -5 -5;
             color: 255 255 255 255;
             color3: 0 0 0 128;
-            color_class: "fileman_icon";
+            color_class: "menu_item";
             align: 0.5 1.0;
             text { font: FN; size: 10;
                min: 0 1;
                align: 0.5 1.0;
-               text_class: "fileman_icon";
+               text_class: "menu_item";
             }
          }
          description { state: "selected" 0.0;
@@ -1253,13 +1252,13 @@ group { name: "e/modules/everything/thumbview/item/list";
             rel2.relative: 0.0 1.0;
             rel2.to_x: "arrow";
             color: FN_COL_DEFAULT;
-            color_class: "ilist_item";
+            color_class: "list_item";
             align: 1.0 0.5;
             max: 160 99999;
             text { font: FN; size: 8;
                min: 0 1;
                align: 1.0 0.5;
-               text_class: "ilist_item";
+               text_class: "list_item";
             }
          }
          description { state: "selected" 0.0;
@@ -1277,14 +1276,14 @@ group { name: "e/modules/everything/thumbview/item/list";
             rel2.offset: 1 1;
             rel2.to: "e.text.detail";
             color: FN_COL_HIGHLIGHT;
-            color_class: "ilist_item_selected";
+            color_class: "list_item_selected";
             align: 1.0 0.5;
             max: 160 99999;
             text { font: FN; size: 8;
               text_source: "e.text.detail";
               min: 0 1;
               align: 1.0 0.5;
-              text_class: "ilist_item";
+              text_class: "list_item";
             }
             visible: 0;
          }
@@ -1304,11 +1303,11 @@ group { name: "e/modules/everything/thumbview/item/list";
             rel2.relative: 0.0 1.0;
             rel2.to_x: "e.text.detail";
             color: FN_COL_DEFAULT;
-            color_class: "ilist_item";
+            color_class: "list_item";
             text { font: FN; size: 10;
                min: 0 1;
                align: 0.0 0.5;
-               text_class: "ilist_item";
+               text_class: "list_item";
             }
          }
          description { state: "selected" 0.0;
@@ -1325,12 +1324,12 @@ group { name: "e/modules/everything/thumbview/item/list";
             rel2.offset: 2 1;
             rel2.to: "e.text.label";
             color: FN_COL_HIGHLIGHT;
-            color_class: "ilist_item_selected";
+            color_class: "list_item_selected";
             text { font: FN; size: 10;
                min: 0 1;
               text_source: "e.text.label";
               align: 0.0 0.5;
-              text_class: "ilist_item";
+              text_class: "list_item";
             }
             visible: 0;
          }

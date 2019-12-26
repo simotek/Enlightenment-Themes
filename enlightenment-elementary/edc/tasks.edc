@@ -39,7 +39,7 @@ group { name:"e/modules/tasks/item";
             rel1.to: "e.text.label";
             rel2.offset: 1 1;
             rel2.to: "e.text.label";
-            color_class: "ilist_item_selected";
+            color_class: "list_item_selected";
             color2: 255 255 255 255;
             color3: 255 255 255 255;
             text { font: FN; size: 10;
@@ -203,14 +203,12 @@ group { name:"e/modules/tasks/item";
          signal: "mouse,down,1"; source: "event";
          action: STATE_SET "clicked" 0.0;
          target: "base";
-         target: "e.text.label";
          target: "sel_label";
       }
       program {
          signal: "mouse,up,1"; source: "event";
          action: STATE_SET "default" 0.0;
          target: "base";
-         target: "e.text.label";
          target: "sel_label";
       }
       program {

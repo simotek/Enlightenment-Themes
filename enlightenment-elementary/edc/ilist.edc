@@ -142,7 +142,7 @@ group { name: "e/widgets/ilist";
             rel1.to: "e.text.label";
             rel2.to: "e.text.label";
             color: FN_COL_DISABLE;
-            color_class: "ilist_item_disabled";
+            color_class: "list_item_disabled";
             text { font: FN; size: 10;
                text_source: "e.text.label";
                align: 0.0 0.5;
@@ -167,7 +167,7 @@ group { name: "e/widgets/ilist";
             rel1.to: "e.text.label";
             rel2.offset: 2 1;
             rel2.to: "e.text.label";
-            color_class: "ilist_item_selected";
+            color_class: "list_item_selected";
             color2: 255 255 255 255;
             color3: 255 255 255 255;
             text { font: FN; size: 10;
@@ -251,13 +251,13 @@ group { name: "e/widgets/ilist_odd";
       }
       part { name: "e.text.label";
          description { state: "default" 0.0;
-            color_class: "ilist_item_odd";
+            color_class: "list_item_odd";
          }
          description { state: "selected" 0.0;
-            color_class: "ilist_item_odd";
+            color_class: "list_item_odd";
          }
          description { state: "disabled" 0.0;
-            color_class: "ilist_item_odd";
+            color_class: "list_item_odd";
          }
       }
    }
@@ -272,7 +272,7 @@ group { name: "e/widgets/ilist_header";
    parts {
       part { name: "base"; type: RECT; mouse_events: 0;
          description { state: "default" 0.0;
-            color_class: "ilist_item_base";
+            color_class: "list_item_base";
             color: 48 48 48 255;
          }
       }
@@ -307,7 +307,7 @@ group { name: "e/widgets/ilist_header";
             rel2.offset: -3 -7;
             rel2.relative: 0.0 1.0;
             rel2.to_x: "e.swallow.end";
-            color_class: "ilist_item_header";
+            color_class: "list_item_header";
             color3: 255 255 255 255;
             text { font: FNBD; size: 10;
                min: 0 1;
