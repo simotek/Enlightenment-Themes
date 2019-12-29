@@ -17,7 +17,7 @@ group { name: "notification/main";
    images.image: "sym_close_normal.png" COMP;
    data.item: "app_icon_max" "48 48";
    data.item: "shaped" "1";
-   styles {   
+   styles {
       style { name: "notification_style_nowrap";
          base: "font="FN" font_size=10 align=left color=#ffff style=shadow,bottom shadow_color=#00000080 wrap=none text_class=notification_body";
          tag:  "subject"  "+ text_class=module_large style=glow color=#3399ffff glow_color=#3399ff18 align=center glow2_color=#3399ff12";
@@ -43,16 +43,8 @@ group { name: "notification/main";
          tag:  "a" ""; // links not supported
       }
    }
-   
+
    parts {
-      part { name: "snap";
-        type: SNAPSHOT;
-        desc { "default";
-            rel1.offset: 10 10;
-            rel2.offset: -10 -10;
-            filter.code: "blurbackground";
-        }
-      }
       alias: "e.event.close" "notification.event.close";
       part { name: "base";
          description { state: "default" 0.0;
