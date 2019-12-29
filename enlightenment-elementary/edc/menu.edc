@@ -1,15 +1,6 @@
 group { name: "e/widgets/menu/default/background";
    images.image: "darken_rounded_square_no_border.png" COMP;
    parts {
-      part { name: "snap";
-        type: SNAPSHOT;
-        desc { "default";
-            rel.to: "base";
-            //rel1.relative: 0.25 0.25;
-            //rel2.relative: 0.75 0.75;
-            filter.code: "blurbackground";
-        }
-      }
       part { name: "base"; type: IMAGE; mouse_events: 0;
          description { state: "default" 0.0;
             image.normal: "darken_rounded_square_no_border.png";

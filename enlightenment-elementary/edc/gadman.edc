@@ -1,14 +1,6 @@
 group { name: "e/gadman/popup";
    images.image: "darken_rounded_square.png" COMP;
    parts {
-      part { name: "snap";
-        type: SNAPSHOT;
-        desc { "default";
-            rel1.offset: 10 10;
-            rel2.offset: -10 -10;
-            filter.code: "blurbackground";
-        }
-      }
       part { name: "bg"; mouse_events: 0;
          description { state: "default" 0.0;
             image.normal: "darken_rounded_square.png";
@@ -79,7 +71,7 @@ group { name: "e/gadman/full_bg";
          }
       }
    }
-   programs {   
+   programs {
       program {
          signal: "e,state,visibility,show"; source: "e";
          action: STATE_SET "visible" 0.0;
@@ -496,7 +488,7 @@ group { name: "e/gadman/control";
       ARROWPULSE("pulse2", "resizev2", "av20", "av21")
       ARROWPULSE("pulse3", "resizeh1", "ah10", "ah11")
       ARROWPULSE("pulse4", "resizeh2", "ah20", "ah21")
-#undef ARROWPULSE              
+#undef ARROWPULSE
 #define PROGSET(_SRC, _ACT) \
       program { \
          signal: "mouse,down,1"; source: _SRC; \
