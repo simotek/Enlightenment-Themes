@@ -423,13 +423,22 @@ moveTerminologyShadowImage(){
 
 moveAllTerminologyHighlightImages(){
     mkdir $TERMINOLOGY_THEME_PATH/img-color
+    moveTerminologyHighlightImage bg_glow_in.png
     moveTerminologyHighlightImage icon_about.png
     moveTerminologyHighlightImage icon_close.png
     moveTerminologyHighlightImage icon_copy.png
+    moveTerminologyHighlightImage icon_miniview.png
     moveTerminologyHighlightImage icon_new.png
     moveTerminologyHighlightImage icon_paste.png
     moveTerminologyHighlightImage icon_split_h.png
     moveTerminologyHighlightImage icon_split_v.png
+    moveTerminologyHighlightImage sl_stripe.png
+    moveTerminologyHighlightImage icon_about.svg
+    moveTerminologyHighlightImage icon_close.svg
+    moveTerminologyHighlightImage icon_copy.svg
+    moveTerminologyHighlightImage icon_paste.svg
+    moveTerminologyHighlightImage icon_split_h.svg
+    moveTerminologyHighlightImage icon_split_v.svg
 }
 
 moveAllTerminologyBackgroundImages(){
