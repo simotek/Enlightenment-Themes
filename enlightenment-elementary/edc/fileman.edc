@@ -900,7 +900,7 @@ group { name: "e/fileman/default/window/main";
    parts {
       part { name: "base"; type: RECT;
          description { state: "default" 0.0;
-            color_class: win_base";
+            color_class: "win_base";
             color: 0 0 0 0;
          }
       }
@@ -2133,7 +2133,8 @@ group { name: "e/modules/efm_navigation/pathbar_button";
             image.normal: "surface.png";
             image.border: 8 8 8 8;
             fill.smooth: 0;
-            rel1.offset: -2 -3;
+            // rel1.offset: -2 -3;
+            rel1.offset: 0 0;
             rel2.offset: 2 1;
             visible: 0;
          }
