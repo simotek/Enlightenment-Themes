@@ -900,7 +900,7 @@ group { name: "e/fileman/default/window/main";
    parts {
       part { name: "base"; type: RECT;
          description { state: "default" 0.0;
-            color_class: "fwin_base";
+            color_class: win_base";
             color: 0 0 0 0;
          }
       }
