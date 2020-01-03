@@ -621,7 +621,6 @@ group {
       program {
          signal: "e,state,unfocused"; source: "e";
          action: STATE_SET "default" 0.0;
-         action: STATE_SET "hidden" 0.0;
          target:"b3";
          target: "title_bar";
          target: "e.text.title";
