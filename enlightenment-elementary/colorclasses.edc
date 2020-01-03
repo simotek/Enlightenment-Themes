@@ -312,7 +312,7 @@ color_classes {
       color: FN_COL_HIGHLIGHT_SELECTED;
       desc: "Text of a selected ilist item";
    }
-   color_class { name: "ilist_item";
+   color_class { name: "list_item";
       color: FN_COL_DEFAULT;
       desc: "Text of an even-numbered, unselected ilist item";
    }

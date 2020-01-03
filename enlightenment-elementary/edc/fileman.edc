@@ -56,11 +56,11 @@ group { name: "e/fileman/default/list/variable";
             rel2.relative: 1.0 1.0;
             color2: 255 255 255 255;
             color3: 255 255 255 255;
-            color_class: "ilist_item";
+            color_class: "list_item";
             text { font: FN; size: 10;
                min: 0 1;
                align: 0.0 0.5;
-               text_class: "ilist_item";
+               text_class: "list_item";
                ellipsis: 0.0;
             }
          }
@@ -85,7 +85,7 @@ group { name: "e/fileman/default/list/variable";
             text { font: FN; size: 10;
                text_source: "e.text.label";
                align: 0.0 0.5;
-               text_class: "ilist_item";
+               text_class: "list_item";
                ellipsis: 0.0;
             }
             visible: 0;
@@ -113,7 +113,7 @@ group { name: "e/fileman/default/list/variable";
             text { font: FN; size: 10;
                text_source: "e.text.label";
                align: 0.0 0.5;
-               text_class: "ilist_item";
+               text_class: "list_item";
                ellipsis: 0.0;
             }
             visible: 0;
