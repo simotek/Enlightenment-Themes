@@ -1045,7 +1045,7 @@ group { name: "e/fileman/toolbar/default/base";
             image.normal: "surface.png";
             image.border: 8 8 8 8;
             color: 255 255 255 90;
-            rel1.offset: 2 2;
+            rel1.offset: 2 -4;
             rel2.offset: -3 -3;
             fill.smooth: 0;
          }
@@ -1058,7 +1058,7 @@ group { name: "e/fileman/toolbar/default/base";
       }
       part { name: "e.swallow.content"; type: SWALLOW;
          description { state: "default" 0.0;
-            rel1.offset: 2 2;
+            rel1.offset: 0 -4;
             rel2.offset: -3 -3;
          }
       }
@@ -1975,8 +1975,8 @@ group { name: "e/modules/efm_navigation/main";
             align: 0.0 0.5;
             rel1.to_x: "base";
             rel1.relative: 1.0 0.0;
-            rel1.offset: 3 4;
-            rel2.offset: -4 -4;
+            rel1.offset: 3 -2;
+            rel2.offset: -4 -1;
          }
       }
 
@@ -2135,7 +2135,7 @@ group { name: "e/modules/efm_navigation/pathbar_button";
             fill.smooth: 0;
             // rel1.offset: -2 -3;
             rel1.offset: 0 0;
-            rel2.offset: 2 1;
+            rel2.offset: -1 2;
             visible: 0;
          }
          description { state: "selected" 0.0;
