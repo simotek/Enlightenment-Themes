@@ -1,12 +1,11 @@
 group { name: "e/desktop/background";
-   images.image: "Wood_pattern_high_quality.jpg" COMP;
+   images.image: "office-building-speed-asphalt-sea-water-boy-1445391-pxhere.com.jpg" COMP;
    parts {
       part { name: "pat";
          description { state: "default" 0.0;
-            image.normal: "Wood_pattern_high_quality.jpg";
+            image.normal: "office-building-speed-asphalt-sea-water-boy-1445391-pxhere.com.jpg";
             ASPECT_FILL((1920/1080))
          }
       }
    }
 }
-
