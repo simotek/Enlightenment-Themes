@@ -1,4 +1,5 @@
 group { name: "elm/win/base/default";
+   data.item: "alpha" "1";
    data.item: "version" "120";
    parts {
       rect { "client_clip"; nomouse; }
