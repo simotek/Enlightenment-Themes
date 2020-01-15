@@ -97,7 +97,7 @@ part { name: NAME; type: TYPE;                           \
    }                                                     \
 }
 images {
-   image: "surface.png" COMP;
+   image: "e_surface.png" COMP;
    image: "e17_button_detail_close.png" COMP;
    image: "e17_button_detail_maximize.png" COMP;
    image: "e17_button_detail_minimize.png" COMP;
@@ -247,11 +247,11 @@ group {
    data.item: "shaped" "1";   parts {
       part { name: "whole";
          description { state: "default" 0.0;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
          }
          description { state: "max" 0.0;
-	        image.normal: "surface.png";
+	        image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             rel1.offset: -5 0;
             rel2.offset: 6 0;
@@ -302,7 +302,7 @@ group {
          description {
             state: "hidden" 0.0;
             inherit: "default" 0.0;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
          }
       }
       part { name: "b1"; mouse_events: 0;

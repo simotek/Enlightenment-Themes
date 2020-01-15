@@ -164,7 +164,7 @@ group { name: "e/modules/ibox/icon";
    }
 }
 group { name: "e/modules/ibar/menu";
-   images.image: "surface.png" COMP;
+   images.image: "e_surface.png" COMP;
    parts {
       part { name: "sizer"; type: SPACER;
          description { state: "default"; }
@@ -190,7 +190,7 @@ group { name: "e/modules/ibar/menu";
          description { state: "default" 0.0;
             rel1.to: "sizer";
             rel2.to: "sizer";
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
          }
       }

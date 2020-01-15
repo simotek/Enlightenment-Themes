@@ -1,5 +1,5 @@
 group { name: "elm/progressbar/horizontal/default";
-   images.image: "surface.png" COMP;
+   images.image: "e_surface.png" COMP;
    images.image: "inset_bar_horiz_light.png" COMP;
    images.image: "inset_bar_horiz_inside_base.png" COMP;
    images.image: "inset_bar_horiz_inside_light.png" COMP;
@@ -558,7 +558,7 @@ group { name: "elm/progressbar/horizontal/default";
 }
 
 group { name: "elm/progressbar/vertical/default";
-   images.image: "surface.png" COMP;
+   images.image: "e_surface.png" COMP;
    images.image: "inset_bar_vert_light.png" COMP;
    images.image: "inset_bar_vert_inside_base.png" COMP;
    images.image: "inset_bar_vert_inside_light.png" COMP;
@@ -727,7 +727,7 @@ group { name: "elm/progressbar/vertical/default";
             rel1.relative: 0.0 1.0;
             rel1.offset: 3 3;
             rel2.offset: -4 -4;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             color: 255 255 255 190;
          }

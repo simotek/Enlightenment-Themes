@@ -9,13 +9,13 @@ group { name: "elm/toolbar/base/default";
    images.image: "sym_up_glow_normal.png" COMP;
    images.image: "sym_down_light_normal.png" COMP;
    images.image: "sym_down_glow_normal.png" COMP;
-   images.image: "surface.png" COMP;
+   images.image: "e_surface.png" COMP;
    parts {
       part { name: "base";
          description { state: "default" 0.0;
             rel1.offset: -2 3;
             rel2.offset: 2 -3;
-	        image.normal: "surface.png";
+	        image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             color: 255 255 255 90;
             fill.smooth: 0;

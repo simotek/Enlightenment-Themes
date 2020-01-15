@@ -1,10 +1,10 @@
  group { name: "e/widgets/button";
-   images.image: "surface.png" COMP;
+   images.image: "e_surface.png" COMP;
    images.image: "win_glow.png" COMP;
    parts {
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             
             color: 255 255 255 90;
