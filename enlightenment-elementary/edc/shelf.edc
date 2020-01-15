@@ -1,5 +1,6 @@
 images {
-   image: "surface.png" COMP;
+   image: "e_surface.png" COMP;
+   image: "surface-dark.png" COMP;
 }
 
 group {
@@ -19,7 +20,7 @@ group {
 	 description {
 	    state:    "default" 0.0;
 	    image {
-	       normal: "surface.png";
+	       normal: "e_surface.png";
 	       border: 8 8 8 8;
 	    }
 	    color_class: "Background";
@@ -424,7 +425,7 @@ group {
 	 description {
 	    state:    "default" 0.0;
 	    image {
-	       normal: "surface.png";
+	       normal: "surface-dark.png";
 	       border: 8 8 8 8;
 	    }
 	    fill {
@@ -517,6 +518,7 @@ group {
       item: "hidden_state_size" "1";
    }
    parts {
+
       part {
 	 name:          "e.swallow.content";
 	 type:          SWALLOW;
@@ -529,17 +531,7 @@ group {
 	       to: "base";
 	    }
 	 }
-      }
-      part {
-	 name:          "base";
-	 mouse_events:  1;
-	 type:          RECT;
-	 repeat_events: 1;
-	 description {
-	    state:    "default" 0.0;
-	    color:    255 255 255 0;
-	 }
-	 description {
+   description {
 	    state:    "top_left" 0.0;
 	    inherit:  "default" 0.0;
 	 }
@@ -583,7 +575,62 @@ group {
 	    state:    "right_bottom" 0.0;
             inherit:  "default" 0.0;
 	 }
+
       }
+      part {
+	 name:          "base";
+	 mouse_events:  1;
+	 type:          RECT;
+	 repeat_events: 1;
+	 description {
+	    state:    "default" 0.0;
+	    color:    255 255 255 0;
+	 }
+   description {
+	    state:    "top_left" 0.0;
+	    inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "top_right" 0.0;
+	    inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "bottom" 0.0;
+	    inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "bottom_left" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "bottom_right" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "left" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "left_top" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "left_bottom" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "right" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "right_top" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	 description {
+	    state:    "right_bottom" 0.0;
+            inherit:  "default" 0.0;
+	 }
+	     }
    }
    programs {
      /* program {
@@ -614,6 +661,7 @@ group {
 	 source:  "e";
 	 action:  STATE_SET "default" 0.0;
 	 target:  "base";
+	 target:  "e.swallow.content";
       }
       program {
 	 name:    "orient2";
@@ -621,6 +669,7 @@ group {
 	 source:  "e";
 	 action:  STATE_SET "top_left" 0.0;
 	 target:  "base";
+	 target:  "e.swallow.content";
       }
       program {
 	 name:    "orient3";
@@ -628,6 +677,7 @@ group {
 	 source:  "e";
 	 action:  STATE_SET "top_right" 0.0;
 	 target:  "base";
+	 target:  "e.swallow.content";
       }
       program {
 	 name:    "orient4";
@@ -635,6 +685,7 @@ group {
 	 source:  "e";
 	 action:  STATE_SET "bottom" 0.0;
 	 target:  "base";
+	 target:  "e.swallow.content";
       }
       program {
 	 name:    "orient5";
@@ -642,6 +693,7 @@ group {
 	 source:  "e";
 	 action:  STATE_SET "bottom_left" 0.0;
 	 target:  "base";
+	 target:  "e.swallow.content";
       }
       program {
 	 name:    "orient6";
@@ -649,6 +701,7 @@ group {
 	 source:  "e";
 	 action:  STATE_SET "bottom_right" 0.0;
 	 target:  "base";
+	 target:  "e.swallow.content";
       }
       program {
 	 name:    "orient7";
@@ -656,6 +709,7 @@ group {
 	 source:  "e";
 	 action:  STATE_SET "left" 0.0;
 	 target:  "base";
+	 target:  "e.swallow.content";
       }
       program {
 	 name:    "orient8";
@@ -663,6 +717,7 @@ group {
 	 source:  "e";
 	 action:  STATE_SET "left_top" 0.0;
 	 target:  "base";
+	 target:  "e.swallow.content";
       }
       program {
 	 name:    "orient9";
@@ -670,6 +725,7 @@ group {
 	 source:  "e";
 	 action:  STATE_SET "left_bottom" 0.0;
 	 target:  "base";
+	 target:  "e.swallow.content";
       }
       program {
 	 name:    "orient10";
@@ -677,6 +733,7 @@ group {
 	 source:  "e";
 	 action:  STATE_SET "right" 0.0;
 	 target:  "base";
+	 target:  "e.swallow.content";
       }
       program {
 	 name:    "orient11";
@@ -684,6 +741,7 @@ group {
 	 source:  "e";
 	 action:  STATE_SET "right_top" 0.0;
 	 target:  "base";
+	 target:  "e.swallow.content";
       }
       program {
 	 name:    "orient12";
@@ -691,6 +749,7 @@ group {
 	 source:  "e";
 	 action:  STATE_SET "right_bottom" 0.0;
 	 target:  "base";
+	 target:  "e.swallow.content";
       }
    }
 }
@@ -704,7 +763,7 @@ group {
                 description {
                     state:    "default" 0.0;
                     image {
-                        normal: "surface.png";
+                        normal: "e_surface.png";
                         border: 8 8 8 8;
                     }
                     fill.smooth: 0;
@@ -713,7 +772,7 @@ group {
 		description {
                     state:    "vertical" 0.0;
                     image {
-                        normal: "surface.png";
+                        normal: "e_surface.png";
                         border: 8 8 8 8;
                     }
                     fill.smooth: 0;

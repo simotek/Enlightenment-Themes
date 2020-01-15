@@ -1,7 +1,7 @@
 group { name: "elm/button/base/default";
    alias: "elm/button/base/naviframe/back_btn/default";
    alias: "elm/button/base/naviframe/back_btn/pager";
-   images.image: "surface.png" COMP;
+   images.image: "e_surface.png" COMP;
 
 #define ICON     1
 #define LABEL    2
@@ -105,7 +105,7 @@ group { name: "elm/button/base/default";
    parts {
       image { "base";
          desc { "default";
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
 
             rel1.offset: 2 2;

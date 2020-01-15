@@ -160,7 +160,7 @@ group { name: "elm/list/item/default";
       }
       part { name: "sel_base"; mouse_events: 0;
          description { state: "default" 0.0;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             rel1.offset: 2 2;
             rel2.offset: -2 -4;

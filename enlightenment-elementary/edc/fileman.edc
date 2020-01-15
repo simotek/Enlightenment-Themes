@@ -36,7 +36,7 @@ group { name: "e/fileman/default/list/variable";
       }
       part { name: "sel_base"; mouse_events: 0;
          description { state: "default" 0.0;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             visible: 0;
          }
@@ -453,7 +453,7 @@ group { name: "e/fileman/default/icon/fixed";
          description { state: "default" 0.0;
             rel1.offset: 0 0;
             rel2.offset: 0 0;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             fill.smooth: 0;
 
@@ -785,7 +785,7 @@ group { name: "e/fileman/default/icon/fixed";
 group { name: "e/fileman/desktop/icon/fixed";
    inherit: "e/fileman/default/icon/fixed";
    alias: "e/fileman/desktop/icon/variable";
-   images.image: "surface.png" COMP;
+   images.image: "e_surface.png" COMP;
    styles {
       style { name: "fileman_icon_full";
          base: "font="FN" font_size=10 text_class=fileman_icon align=center color=#ff00ffff wrap=mixed style=shadow,bottom shadow_color=#00000080 align=center";
@@ -830,7 +830,7 @@ group { name: "e/fileman/desktop/icon/fixed";
             rel1.to: "e.text.label";
             rel2.offset: 0 4;
             rel2.to: "label_min";
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             fill.smooth: 0;
             fixed: 1 1;
@@ -1027,14 +1027,14 @@ group { name: "e/fileman/default/window/main";
 }
 
 group { name: "e/fileman/toolbar/default/base";
-   images.image: "surface.png" COMP;
+   images.image: "e_surface.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
    parts {
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             color: 255 255 255 90;
             rel1.offset: 2 -4;
@@ -1072,13 +1072,13 @@ group { name: "e/fileman/toolbar/default/base";
 }
 
 group { name: "e/fileman/popup/default";
-   images.image: "surface.png" COMP;
+   images.image: "e_surface.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    parts {
       part { name: "base"; mouse_events: 0;
          description { state: "default" 0.0;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             fill.smooth: 0;
          }
@@ -1142,7 +1142,7 @@ group { name: "e/fileman/desktop/scrollframe";
 
 group { name: "e/fileman/default/overlay";
    alias: "e/fileman/desktop/overlay";
-   images.image: "surface.png" COMP;
+   images.image: "e_surface.png" COMP;
    images.image: "knob_round_busy.png" COMP;
    images.image: "glow_round_corners.png" COMP;
    parts {
@@ -1173,7 +1173,7 @@ group { name: "e/fileman/default/overlay";
             rel1.to: "e.text.busy_label";
             rel2.offset: 11 -1;
             rel2.to: "e.text.busy_label";
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             fill.smooth: 0;
          }
@@ -1237,7 +1237,7 @@ group { name: "e/fileman/default/overlay";
             rel1.to: "e.text.typebuf_label";
             rel2.offset: 14 14;
             rel2.to: "e.text.typebuf_label";
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             color: 255 255 255 90;
             fill.smooth: 0;
@@ -1622,7 +1622,7 @@ group { name: "e/fileman/default/rubberband";
 }
 
 group { name: "e/fileman/default/progress";
-   images.image: "surface.png" COMP;
+   images.image: "e_surface.png" COMP;
    images.image: "glow_round_corners.png" COMP;
    images.image: "media_busy_progress.png" COMP;
    images.image: "sym_close_light_normal.png" COMP;
@@ -1641,7 +1641,7 @@ group { name: "e/fileman/default/progress";
          description { state: "default" 0.0;
             rel1.offset: -5 -5;
             rel2.offset: 4 4;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             fill.smooth: 0;
             fixed: 1 1;
@@ -2096,7 +2096,7 @@ group { name: "e/modules/efm_navigation/pathbar_button";
       }
       part { name: "bar"; mouse_events: 0;
          description { state: "default" 0.0;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             fill.smooth: 0;
             rel1.offset: 0 -1;

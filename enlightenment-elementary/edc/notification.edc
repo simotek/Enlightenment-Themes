@@ -13,7 +13,7 @@ group { name: "e/modules/notification/logo";
 
 group { name: "notification/main";
    alias: "e/modules/notification/main";
-   images.image: "surface.png" COMP;
+   images.image: "e_surface.png" COMP;
    images.image: "sym_close_normal.png" COMP;
    data.item: "app_icon_max" "48 48";
    data.item: "shaped" "1";
@@ -48,7 +48,7 @@ group { name: "notification/main";
       alias: "e.event.close" "notification.event.close";
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
          }
       }
