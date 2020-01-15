@@ -1,8 +1,8 @@
 group { name: "elm/frame/base/default";
    images.image: "shadow_square_tiny.png" COMP;
    images.image: "holes_tiny_vert.png" COMP;
-   images.image: "surface_top.png" COMP;
-   images.image: "surface_bottom.png" COMP;
+   images.image: "e_surface_top.png" COMP;
+   images.image: "e_surface_bottom.png" COMP;
    parts {
       part { name: "base";
          description { state: "default" 0.0;
@@ -11,13 +11,13 @@ group { name: "elm/frame/base/default";
             rel1.to_y: "top";
             rel2.offset: -3 -3;
 
-            image.normal: "surface_bottom.png";
+            image.normal: "e_surface_bottom.png";
             image.border: 8 8 0 8;
          }
       }
       part { name: "top";
          description { state: "default" 0.0;
-            image.normal: "surface_top.png";
+            image.normal: "e_surface_top.png";
             image.border: 8 8 8 2;
             rel1.offset: 2 2;
             rel2.to_y: "elm.text";

@@ -8,7 +8,7 @@ group { name: "e/widgets/toolbar";
          description { state: "default" 0.0;
             rel1.offset: -2 -2;
             rel2.offset: 0 0;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
 
             color: 255 255 255 90;

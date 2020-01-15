@@ -1,5 +1,5 @@
 group { name: "e/init/splash";
-   images.image: "surface_no_border.png" COMP;
+   images.image: "e_surface_no_border.png" COMP;
    images.image: "logo_blue_small.png" COMP;
    images.image: "led_square_base.png" COMP;
    images.image: "led_square_glow.png" COMP;
@@ -17,7 +17,7 @@ group { name: "e/init/splash";
       }
       part { name: "bg";
          description { state: "default" 0.0;
-            image.normal: "surface_no_border.png";
+            image.normal: "e_surface_no_border.png";
             image.scale_hint: STATIC;
             fill.smooth: 0;
             ASPECT_FILL((1024/653))
@@ -460,7 +460,7 @@ group { name: "e/init/splash";
 }
 
 group { name: "e/init/extra_screen";
-   images.image: "surface_no_border.png" COMP;
+   images.image: "e_surface_no_border.png" COMP;
    parts {
       part { name: "clip"; type: RECT; mouse_events: 0;
          description { state: "default" 0.0;
@@ -468,7 +468,7 @@ group { name: "e/init/extra_screen";
       }
       part { name: "bg";
          description { state: "default" 0.0;
-            image.normal: "surface_no_border.png";
+            image.normal: "e_surface_no_border.png";
             image.scale_hint: STATIC;
             fill.smooth: 0;
             ASPECT_FILL((1024/653))

@@ -53,7 +53,7 @@ group {
 	    rel1.offset:   -5    -20;
 	    rel2.offset:   5   5;
 	    image {
-	       normal: "surface.png";
+	       normal: "e_surface.png";
 	       border: 8 8 8 8;
 	    }
 	    fill {
@@ -125,7 +125,7 @@ group {
 	       offset:   -7    -6;
 	    }
 	    image {
-	       normal: "surface.png";
+	       normal: "e_surface.png";
 	       border: 8 8 8 8;
 	    }
 	    color_class: "Button";

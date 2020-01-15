@@ -38,7 +38,7 @@ group { name: "elm/notify/block_events/default";
 }
 
 group { name: "elm/notify/top/default";
-   images.image: "surface.png" COMP;
+   images.image: "e_surface.png" COMP;
    data.item: "hide_finished_signal" "on";
    parts {
       part { name: "clip"; type: RECT;
@@ -53,7 +53,7 @@ group { name: "elm/notify/top/default";
       part { name: "base";
          clip_to: "clip";
          description { state: "default" 0.0;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             rel1.offset: 10 10;
             rel2.offset: -10 -10;
