@@ -298,7 +298,7 @@ group { name: "elm/menu/main_menu_submenu/default";
    parts {
       part { name: "base"; mouse_events: 0;
          description { state: "default" 0.0;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             visible: 0;
          }
@@ -524,7 +524,7 @@ group { name: "elm/menu/main_menu_submenu/default";
 //In the hover used by the menu only the bottom part is used.
 group { name: "elm/hover/base/menu/default";
    images {
-      image: "surface.png" COMP;
+      image: "e_surface.png" COMP;
    }
    parts {
       part { name: "elm.swallow.offset"; type: SWALLOW;
@@ -582,7 +582,7 @@ group { name: "elm/hover/base/menu/default";
             rel2.to: "elm.swallow.slot.bottom";
             rel1.offset: 0 -5;
             rel2.offset: 0 5;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
          }
       }
@@ -654,7 +654,7 @@ group { name: "elm/hover/base/submenu/default";
 }
 
 group { name: "elm/hover/base/main_menu/default";
-   images.image: "surface.png" COMP;
+   images.image: "e_surface.png" COMP;
    parts {
       part { name: "elm.swallow.offset"; type: SWALLOW;
          description { state: "default" 0.0;
@@ -677,7 +677,7 @@ group { name: "elm/hover/base/main_menu/default";
       }
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "surface.png";
+            image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             rel1.to_y: "elm.swallow.slot.bottom";
             rel2.to_y: "elm.swallow.slot.bottom";

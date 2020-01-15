@@ -303,7 +303,7 @@ group { "genlist_base"; inherit_only: 1; nomouse; program_source: "elm";
        }
        image { "sel_base";
           desc { "default";
-             image.normal: "surface.png";
+             image.normal: "e_surface.png";
              image.border: 8 8 8 8;
              rel1.offset: 2 2;
              rel2.offset: -2 -4;
