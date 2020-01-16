@@ -1,6 +1,6 @@
 group { name: "e/modules/everything/main";
-   images.image: "everything_top.png" COMP;
-   images.image: "everything_bottom.png" COMP;
+   images.image: "e_everything_top.png" COMP;
+   images.image: "e_everything_bottom.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    parts {
@@ -16,7 +16,7 @@ group { name: "e/modules/everything/main";
       }
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "everything_top.png";
+            image.normal: "e_everything_top.png";
             image.border: 8 8 0 8;
             min: 320 64;
             rel2.relative: 1.0 0.0;
@@ -321,7 +321,7 @@ group { name: "e/modules/everything/list";
             rel1.relative: 0.0 1.0;
             align: 0.5 1.0;
             min: 32 28;
-            image.normal: "everything_bottom.png";
+            image.normal: "e_everything_bottom.png";
             image.border: 8 8 0 8;
          }
       }
