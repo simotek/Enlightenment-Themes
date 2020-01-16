@@ -7,4 +7,4 @@ Hacking Images
 | e_surface_sq.png | background surface no rounded corners
 | e_wallpaper.png | e's wallpaper
 
-| everything_bottom.png everything_top.png | Bottom parts of everything launcher window (can generally be e_surface_bottom)
+| e_everything_bottom.png e_everything_top.png | Bottom parts of everything launcher window (can generally be e_surface_bottom)
