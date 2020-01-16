@@ -1,11 +1,77 @@
-group { name: "e/desktop/background";
-   images.image: "e_wallpaper.jpg" COMP;
+images
+{
+ image: "e_fireball_wallpaper.png" COMP;
+ image: "e_fireball_wallpaper1.png" COMP;
+}
+
+
+group {
+   name: "e/desktop/background";
    parts {
-      part { name: "pat";
-         description { state: "default" 0.0;
-            image.normal: "e_wallpaper.jpg";
-            ASPECT_FILL((1920/1080))
-         }
+  	 part {
+	   name: "base";
+	   type: RECT;
+	   mouse_events: 0;
+	   description {
+	    state: "default" 0.0;
+	    color: 0 0 0 255;
+	  }
+	}
+      part {
+	 name: "warm";
+        mouse_events:  0;
+	 description {
+	    state: "default" 0.0;
+	    min: 800 600;
+	    max: 800 600;
+	    image.normal: "e_fireball_wallpaper.png";
+	 }
+      }
+
+      part {
+	 name:          "hot";
+	 mouse_events:  0;
+	 description {
+	    state:    "default" 0.0;
+	    min: 800 600;
+	    max: 800 600;
+	    image.normal: "e_fireball_wallpaper1.png";
+	    color: 255 255 255 0;
+	 }
+	 description {
+	    state:    "active" 0.0;
+	    inherit: "default" 0.0;
+	    color: 255 255 255 255;
+	 }
+      }
+      part {
+	 name:           "inout";
+	 type:           RECT;
+	 mouse_events:   1;
+	 description {
+	    min: 300 300;
+	    max: 300 300;
+	    state: "default" 0.0;
+	    color: 255 255 255 0;
+	 }
+      }
+   }
+   programs {
+      program {
+	 name:    "mouse_in";
+	 signal:  "mouse,in";
+	 source:  "inout";
+	 action: STATE_SET "active" 0.0;
+	 target: "hot";
+	 transition: SINUSOIDAL 0.5;
+      }
+      program {
+	 name:    "mouse_out";
+	 signal:  "mouse,out";
+	 source:  "inout";
+	 action: STATE_SET "default" 0.0;
+	 target: "hot";
+	 transition: SINUSOIDAL 0.5;
       }
    }
 }
