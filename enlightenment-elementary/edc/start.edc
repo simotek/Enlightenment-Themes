@@ -189,7 +189,7 @@ group { name: "e/modules/start/main";
         signal:  "";
         source:  "";
         action:  STATE_SET "default" 0.0;
-        target:  "logo_bright";
+        target:  "logo";
         transition: LINEAR 0.5;
      }
   }
