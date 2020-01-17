@@ -1,5 +1,5 @@
-#define HAVE_CLICKED_LOGO 0
-#define HAVE_HOVER_LOGO 0
+#define HAVE_CLICKED_LOGO 1
+#define HAVE_HOVER_LOGO 1
 
 group { name: "e/modules/start/main";
    alias: "e/gadget/start/main";
@@ -189,7 +189,7 @@ group { name: "e/modules/start/main";
         signal:  "";
         source:  "";
         action:  STATE_SET "default" 0.0;
-        target:  "logo_bright";
+        target:  "logo";
         transition: LINEAR 0.5;
      }
   }
