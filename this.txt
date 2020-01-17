@@ -500,7 +500,7 @@ enlightenment-elementary/
 │   ├── led_tiny_orange.png
 │   ├── logo_blue_bottom.png
 │   ├── logo_blue_small_glow.png
-│   ├── logo_blue_small.png
+│   ├── e_logo_large.png
 │   ├── map_circle.png
 │   ├── map_marker.png
 │   ├── map_scale.png

@@ -20,7 +20,7 @@ group { name: "e/desklock/login_box";
    images.image: "surface_rot.png" COMP;
    images.image: "bevel_in.png" COMP;
    images.image: "white_bar_vert_glow.png" COMP;
-   images.image: "logo_blue_small.png" COMP;
+   images.image: "e_logo_large.png" COMP;
    images.image: "knob_round_busy.png" COMP;
    images.image: "glow_round_corners.png" COMP;
    parts {
@@ -35,7 +35,7 @@ group { name: "e/desklock/login_box";
       }
       part { name: "logo"; clip_to: "logo_clip";
          description { state: "default" 0.0;
-            image.normal: "logo_blue_small.png";
+            image.normal: "e_logo_large.png";
             rel1.relative: 0.5 0.5;
             rel2.relative: 0.5 0.5;
             FIXED_SIZE(100, 100)

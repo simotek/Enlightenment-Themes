@@ -1,6 +1,6 @@
 group { name: "e/init/splash";
    images.image: "e_surface_no_border.png" COMP;
-   images.image: "logo_blue_small.png" COMP;
+   images.image: "e_logo_large.png" COMP;
    images.image: "led_square_base.png" COMP;
    images.image: "led_square_glow.png" COMP;
    images.image: "led_square_shading.png" COMP;
@@ -25,7 +25,7 @@ group { name: "e/init/splash";
       }
       part { name: "logo";
          description { state: "default" 0.0;
-            image.normal: "logo_blue_small.png";
+            image.normal: "e_logo_large.png";
             rel1.relative: 0.5 0.5;
             rel2.relative: 0.5 0.5;
             FIXED_SIZE(100, 100)
