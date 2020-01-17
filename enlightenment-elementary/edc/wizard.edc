@@ -243,11 +243,11 @@ group { name: "e/wizard/main";
 }
 
 group { name: "e/wizard/firstpage";
-   images.image: "logo_blue_small.png" COMP;
+   images.image: "e_logo_large.png" COMP;
    parts {
       part { name: "logo";
          description { state: "default" 0.0;
-            image.normal: "logo_blue_small.png";
+            image.normal: "e_logo_large.png";
             rel1.relative: 0.5 0.5;
             rel2.relative: 0.5 0.5;
             FIXED_SIZE(100, 100)

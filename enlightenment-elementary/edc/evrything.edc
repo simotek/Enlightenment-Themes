@@ -1501,14 +1501,14 @@ group { name: "e/modules/everything/textblock";
 }
 
 group { name: "e/modules/everything/gadget";
-   images.image: "logo_blue_small.png" COMP;
+   images.image: "e_logo_large.png" COMP;
    images.image: "logo_blue_small_glow.png" COMP;
    max: 127 127;
    parts {
       part { name: "icon";
          description { state: "default" 0.0;
             aspect: (100/127) (100/127); aspect_preference: BOTH;
-            image.normal: "logo_blue_small.png";
+            image.normal: "e_logo_large.png";
             max: 100 127;
          }
          description { state: "active" 0.0;
