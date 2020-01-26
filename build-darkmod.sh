@@ -71,7 +71,7 @@ mkdir $ELM_ENLIGHT_THEME_PATH/img-color-convd
 inform "Converting images"
 pushd $ELM_ENLIGHT_THEME_PATH/img-color
 for F in `find -iname "*.png"`; do
-        convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
+        convert -strip $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
 done
 popd
 
@@ -116,7 +116,7 @@ fi
 if [ -d "$ELM_ENLIGHT_THEME_PATH/img-color-manual" ]; then
     pushd $ELM_ENLIGHT_THEME_PATH/img-color-manual
     for F in `find -iname "*.png"`; do
-            convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
+            convert -strip $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
     done
     popd
 fi
@@ -124,14 +124,14 @@ fi
 # Converting background images
 pushd $ELM_ENLIGHT_THEME_PATH/img-bgnd
 for F in `find -iname "*.png"`; do
-    convert $F -channel rgb -brightness-contrast $BGND_BRIGHTNESS,$BGND_SATURATION +channel ../img-color-convd/$F
+    convert -strip $F -channel rgb -brightness-contrast $BGND_BRIGHTNESS,$BGND_SATURATION +channel ../img-color-convd/$F
 done
 popd
 
 #converting shadows
 pushd $ELM_ENLIGHT_THEME_PATH/img-shadow
 for F in `find -iname "*.png"`; do
-    convert $F -channel A -evaluate Multiply $SHADOW_MULT ../img-color-convd/$F
+    convert -strip $F -channel A -evaluate Multiply $SHADOW_MULT ../img-color-convd/$F
     # convert $F -channel A -evaluate set 20% ../img-color-convd/$F
     # cp $F ../img-color-convd/$F
 done
@@ -144,7 +144,7 @@ for icon in $(cat darkmod-fdo-icon-recolor.txt); do
     sed -i "s/#3399ff/$HIGH_HTML/g" $F
   done
   for F in `find $ELM_ENLIGHT_THEME_PATH/fdo -name "$icon.png"`; do
-    convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE $F
+    convert -strip $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE $F
   done
 done
 
@@ -311,14 +311,14 @@ if [ $DKMD_EPKG != 1 ]; then
 
     pushd $TERMINOLOGY_THEME_PATH/img-color
     for F in `find -iname "*.png"`; do
-            convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
+            convert -strip $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
     done
     popd
 
     if [ -d "$TERMINOLOGY_THEME_PATH/img-color-manual" ]; then
         pushd $TERMINOLOGY_THEME_PATH/img-color-manual
             for F in `find -iname "*.png"`; do
-                    convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
+                    convert -strip $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
             done
         popd
     fi
@@ -326,14 +326,14 @@ if [ $DKMD_EPKG != 1 ]; then
     # Converting background images
     pushd $TERMINOLOGY_THEME_PATH/img-bgnd
     for F in `find -iname "*.png"`; do
-        convert $F -brightness-contrast $BGND_BRIGHTNESS,$BGND_SATURATION ../img-color-convd/$F
+        convert -strip $F -brightness-contrast $BGND_BRIGHTNESS,$BGND_SATURATION ../img-color-convd/$F
     done
     popd
 
     #converting shadows
     pushd $TERMINOLOGY_THEME_PATH/img-shadow
     for F in `find -iname "*.png"`; do
-        convert $F -channel A -evaluate Multiply $SHADOW_MULT ../img-color-convd/$F
+        convert -strip $F -channel A -evaluate Multiply $SHADOW_MULT ../img-color-convd/$F
     done
     popd
 
