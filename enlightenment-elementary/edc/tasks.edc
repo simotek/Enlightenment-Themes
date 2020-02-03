@@ -47,7 +47,7 @@ group { name:"e/modules/tasks/item";
             text { font: FN; size: 10;
                text_source: "e.text.label";
                align: 0.0 0.5;
-               text_class: "ilist_item";
+               text_class: "list_item";
             }
          }
          description { state: "clicked" 0.0;
