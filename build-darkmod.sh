@@ -48,10 +48,8 @@ success "    Finished Cleaning Repository"
 if [[ $DKMD_TERMPKG != 1 ]]; then
 inform "Creating a backup of all images"
 mkdir $ELM_ENLIGHT_THEME_PATH/img-bak
-mkdir $ELM_ENLIGHT_THEME_PATH/img-manual-bak
 mkdir $ELM_ENLIGHT_THEME_PATH/fdo-bak
 report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img/* $ELM_ENLIGHT_THEME_PATH/img-bak
-report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img-manual-convd/* $ELM_ENLIGHT_THEME_PATH/img-manual-bak
 report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/fdo/* $ELM_ENLIGHT_THEME_PATH/fdo-bak
 success "    Finished Cleaning Repository"
 
@@ -103,14 +101,12 @@ if [ -z "$HIGH_HTML" ]; then
     error "Highlight Color could not be determined"
     # Move images back before exit
     report_on_error mv -v img-bak img
-    report_on_error mv -v img-manual-bak/* img-manual-convd
     exit 1
 fi
 if [ -z "$HIGH_RGB" ]; then
     error "Highlight Color could not be determined"
     # Move images back before exit
     report_on_error mv -v img-bak img
-    report_on_error mv -v img-manual-bak/* img-manual-convd
     exit 1
 fi
 
@@ -283,7 +279,6 @@ inform "Creating theme"
 edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -fd fnt -sd snd default-dm.edc $ELM_ENLIGHT_AUTHORS $ELM_ENLIGHT_LICENSE ../build/e/$THEME_NAME.edj
 
 report_on_error mv -v img-bak img
-report_on_error mv -v img-manual-bak/* img-manual-convd
 report_on_error rm -r fdo
 report_on_error mv -v fdo-bak fdo
 if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
