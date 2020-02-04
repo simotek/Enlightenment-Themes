@@ -17,8 +17,15 @@ clean-darkmod(){
     report_on_error rm $ELM_ENLIGHT_THEME_PATH/fonts-dm.edc
     report_on_error rm $ELM_ENLIGHT_THEME_PATH/macros-dm.edc
     report_on_error rm $ELM_ENLIGHT_THEME_PATH/default-dm.edc
-    report_on_error rm $ELM_ENLIGHT_THEME_PATH/*.edj
-    report_on_error rm -r $ELM_ENLIGHT_THEME_PATH/$*-icons
+    if [ -z "$1" ]; then
+      warn_on_error rm build/e/*.edj
+      warn_on_error rm -r build/icons/*-icons
+      warn_on_error rm build/pkg/*tar.xz
+    else
+      warn_on_error rm "build/e/$1.edj"
+      warn_on_error rm -r "build/icons/$1-icons"
+      warn_on_error rm build/pkg/enlightenment-theme-$1-*.tar.xz
+    fi
 
     if [ -n "$TERMINOLOGY_THEME_PATH" ]; then
         report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-color
@@ -29,7 +36,12 @@ clean-darkmod(){
         report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-bak
         report_on_error rm -rf $TERMINOLOGY_THEME_PATH/default-dm.edc
         report_on_error rm -rf $TERMINOLOGY_THEME_PATH/default-dm_colors.in.edc
-        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/*.edj
+        if [ -z "$1" ]; then
+          warn_on_error rm -f build/term/*.edj
+        else
+          warn_on_error rm -f "build/term/$1.edj"
+
+        fi
     fi
 
 }
