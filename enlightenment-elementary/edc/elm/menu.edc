@@ -10,7 +10,7 @@ group { name: "elm/menu/item/default";
             rel1.offset:  4 -1;
             rel2.offset: -4 1;
 
-            image.normal: "menu_selected.png";
+            image.normal: "e_item_selected.png";
             image.border: 8 8 8 8;
 
             visible: 0;
