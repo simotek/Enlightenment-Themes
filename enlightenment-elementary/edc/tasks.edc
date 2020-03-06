@@ -1,5 +1,5 @@
 group { name:"e/modules/tasks/item";
-   images.image: "surface-dark.png" COMP;
+   images.image: "tasks_selected.png" COMP;
    parts {
       part { name: "sel_base"; mouse_events: 0;
          clip_to: "sel_clip";
@@ -14,7 +14,7 @@ group { name:"e/modules/tasks/item";
             rel1.to: "sel_base";
             rel2.to: "sel_base";
 
-            image.normal: "surface-dark.png";
+            image.normal: "tasks_selected.png";
             image.border: 8 8 8 8;
 
             color: 255 255 255 255;

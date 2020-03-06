@@ -10,3 +10,5 @@ Hacking Images
 | e_logo_clicked.png | Logo used when shelf button is clicked, HAVE_CLICKED_LOGO at the top of start.edc must be set to 1
 | e_logo_hover.png | Logo used when mouse over shelf button, HAVE_HOVER_LOGO at the top of start.edc must be set to 1
 | e_everything_bottom.png e_everything_top.png | Bottom parts of everything launcher window (can generally be e_surface_bottom)
+| e_item_selected.png | Selected items (with exeption of ones below)
+| tasks_selected.png | Selected item in tasks, can be a copy of e_item_selected
