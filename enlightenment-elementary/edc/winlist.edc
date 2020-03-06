@@ -92,7 +92,7 @@ group { name: "e/widgets/winlist/main";
 }
 
 group { name: "e/widgets/winlist/item";
-   images.image: "e_surface.png" COMP;
+   images.image: "e_item_selected.png" COMP;
    parts {
       part { name: "e.text.label"; type: TEXT; mouse_events: 0;
          effect: SHADOW BOTTOM;
@@ -117,7 +117,7 @@ group { name: "e/widgets/winlist/item";
       }
       part { name: "sel_base"; mouse_events: 0;
          description { state: "default" 0.0;
-            image.normal: "e_surface.png";
+            image.normal: "e_item_selected.png";
             image.border: 8 8 8 8;
             rel1.offset: 2 3;
             rel2.offset: -3 -3;
