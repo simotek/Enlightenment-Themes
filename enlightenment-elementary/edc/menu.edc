@@ -103,7 +103,7 @@ group { name: "e/widgets/menu/default/separator";
 
 group { name: "e/widgets/menu/default/item_bg";
    alias: "e/widgets/menu/default/submenu_bg";
-   images.image: "e_item_selected.png" COMP;
+   images.image: "menu_selected.png" COMP;
    parts {
       part { name: "base"; mouse_events: 0;
          description { state: "default" 0.0;
@@ -120,7 +120,7 @@ group { name: "e/widgets/menu/default/item_bg";
          description { state: "default" 0.0;
             rel1.offset: 4 0;
             rel2.offset: -6 0;
-            image.normal: "e_item_selected.png";
+            image.normal: "menu_selected.png";
             image.border: 8 8 8 8;
 
             color: 255 255 255 255;
