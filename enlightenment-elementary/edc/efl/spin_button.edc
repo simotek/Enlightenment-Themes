@@ -1,0 +1,535 @@
+/**
+Group: efl/spin_button/vertical (@since 1.23)
+	 Part Swallow: efl.dec_button (required)
+	 Part Swallow: efl.entry (required)
+	 Part Swallow: efl.inc_button (required)
+	 Part Swallow: efl.text_button (required)
+	 Signal: efl,button,visible,off
+	 Signal: efl,button,visible,on
+	 Signal: efl,entry,visible,off
+	 Signal: efl,entry,visible,on
+	 Signal: efl,state,access,active
+	 Signal: efl,state,access,inactive
+	 Signal: efl,state,disabled
+	 Signal: efl,state,enabled
+Group: efl/spin_button/horizontal/dec_button (@since 1.23)
+	 Signal: efl,action,multi,down
+	 Signal: efl,action,multi,up
+	 Signal: efl,action,pressed
+	 Signal: efl,action,unpressed
+	 Signal: efl,state,animation,activated
+	 Signal: efl,state,disabled
+	 Signal: efl,state,enabled
+Group: efl/spin_button/horizontal (@since 1.23)
+	 Part Swallow: efl.dec_button (required)
+	 Part Swallow: efl.entry (required)
+	 Part Swallow: efl.inc_button (required)
+	 Part Swallow: efl.text_button (required)
+	 Signal: efl,button,visible,off
+	 Signal: efl,button,visible,on
+	 Signal: efl,entry,visible,off
+	 Signal: efl,entry,visible,on
+	 Signal: efl,state,access,active
+	 Signal: efl,state,access,inactive
+	 Signal: efl,state,disabled
+	 Signal: efl,state,enabled
+Group: efl/spin_button/vertical/text_button (@since 1.23)
+	 Part Text: efl.text
+	 Signal: efl,state,disabled
+	 Signal: efl,state,enabled
+Group: efl/spin (@since 1.23)
+	 Part Text: efl.text
+Group: efl/spin_button/horizontal/inc_button (@since 1.23)
+	 Signal: efl,action,multi,down
+	 Signal: efl,action,multi,up
+	 Signal: efl,action,pressed
+	 Signal: efl,action,unpressed
+	 Signal: efl,state,animation,activated
+	 Signal: efl,state,disabled
+	 Signal: efl,state,enabled
+Group: efl/spin_button/horizontal/text_button (@since 1.23)
+	 Part Text: efl.text
+	 Signal: efl,state,disabled
+	 Signal: efl,state,enabled
+Group: efl/spin_button/vertical/dec_button (@since 1.23)
+	 Signal: efl,action,multi,down
+	 Signal: efl,action,multi,up
+	 Signal: efl,action,pressed
+	 Signal: efl,action,unpressed
+	 Signal: efl,state,animation,activated
+	 Signal: efl,state,disabled
+	 Signal: efl,state,enabled
+Group: efl/spin_button/vertical/inc_button (@since 1.23)
+	 Signal: efl,action,multi,down
+	 Signal: efl,action,multi,up
+	 Signal: efl,action,pressed
+	 Signal: efl,action,unpressed
+	 Signal: efl,state,animation,activated
+	 Signal: efl,state,disabled
+	 Signal: efl,state,enabled
+*/
+group { "efl/spin_button/horizontal";
+   data.item: "version" "123";
+   images.image: "vert_bar_inset.png" COMP;
+   parts {
+      rect { "clip";
+         desc { "default";
+            rel.to: "efl.text_button";
+         }
+      }
+      rect { "bg";
+         scale;
+         desc { "default";
+            color_class: "spinner_bg";
+         }
+      }
+      image { "inset"; nomouse;
+         desc { "default";
+            rel1.offset: 0 1;
+            rel2.offset: -1 -2;
+            image.normal: "vert_bar_inset.png";
+            image.border: 1 1 8 6;
+            image.middle: 0;
+            fill.smooth: 0;
+         }
+      }
+      rect { "access";
+         repeat;
+         desc { "default";
+            fixed: 1 1;
+            color: 0 0 0 0;
+            rel1.to: "inset";
+            rel2.to: "inset";
+            hid;
+         }
+         desc { "active";
+            inherit: "default";
+            vis;
+         }
+      }
+      swallow { "efl.entry"; required;
+         clip: "clip";
+         desc { "default";
+            fixed: 1 1;
+            rel1.to: "efl.text_button";
+            rel2.to: "efl.text_button";
+            hid;
+         }
+         desc { "active";
+            inherit: "default";
+            vis;
+         }
+      }
+      swallow { "efl.dec_button"; required;
+         scale;
+         desc { "default";
+            fixed: 1 0;
+            align: 0.0 0.5;
+            min: 15 15;
+            aspect: 1.0 1.0; aspect_preference: VERTICAL;
+         }
+      }
+      swallow { "efl.inc_button"; required;
+         scale;
+         desc { "default";
+            fixed: 1 0;
+            align: 1.0 0.5;
+            min: 15 15;
+            aspect: 1.0 1.0; aspect_preference: VERTICAL;
+         }
+      }
+      swallow { "efl.text_button"; required;
+         scale;
+         desc { "default";
+            vis;
+            rel1.to_y: "inset";
+            rel1.to_x: "efl.dec_button";
+            rel1.relative: 1.0 0.0;
+            rel1.offset: 1 1;
+            rel2.to_y: "inset";
+            rel2.to_x: "efl.inc_button";
+            rel2.relative: 0.0 1.0;
+            rel2.offset: -2 -2;
+         }
+         desc { "inactive";
+            inherit: "default";
+            hid;
+         }
+      }
+      rect { "disabler";
+         norepeat;
+         nomouse;
+         desc { "default";
+            color: 0 0 0 0;
+            hid;
+         }
+         desc { "disabled";
+            inherit: "default";
+            vis;
+         }
+      }
+   }
+   programs {
+      program { "entry_active";
+         signal: "efl,entry,visible,on";
+         source: "efl";
+         action: STATE_SET "active";
+         target: "efl.entry";
+      }
+      program { "entry_inactive";
+         signal: "efl,entry,visible,off";
+         source: "efl";
+         action: STATE_SET "default";
+         target: "efl.entry";
+      }
+      program { "text_button_active";
+         signal: "efl,button,visible,on";
+         source: "efl";
+         action: STATE_SET "default";
+         target: "efl.text_button";
+      }
+      program { "text_button_inactive";
+         signal: "efl,button,visible,off";
+         source: "efl";
+         action: STATE_SET "inactive";
+         target: "efl.text_button";
+      }
+      program { "access_activate";
+         signal: "efl,state,access,active";
+         source: "efl";
+         action:  STATE_SET "active";
+         target: "access";
+      }
+      program { "access_inactivate";
+         signal: "efl,state,access,inactive";
+         source: "efl";
+         action:  STATE_SET "default";
+         target: "access";
+      }
+      program { "disable";
+         signal: "efl,state,disabled";
+         source: "efl";
+         action: STATE_SET "disabled";
+         target: "disabler";
+      }
+      program { "enable";
+         signal: "efl,state,enabled";
+         source: "efl";
+         action: STATE_SET "default";
+         target: "disabler";
+      }
+   }
+}
+
+group { "efl/spin_button/vertical";
+   inherit: "efl/spin_button/horizontal";
+   data.item: "version" "123";
+   parts {
+      image { "inset"; nomouse;
+         desc { "default";
+            min: 40 150;
+         }
+      }
+      swallow { "efl.inc_button"; required;
+         scale;
+         desc { "default";
+            rel.to: "inset";
+            align: 0.5 0.0;
+            min: 40 40;
+            max: 40 40;
+            fixed: 1 1;
+         }
+      }
+      swallow { "efl.dec_button"; required;
+         scale;
+         desc { "default";
+            rel.to: "inset";
+            align: 0.5 1.0;
+            min: 40 40;
+            max: 40 40;
+            fixed: 1 1;
+         }
+      }
+      swallow { "efl.text_button"; required;
+         scale;
+         desc { "default";
+            rel.to_x: "inset";
+            rel1 {
+               to_y: "efl.inc_button";
+               relative: 0.0 1.0;
+            }
+            rel2 {
+               to_y: "efl.dec_button";
+               relative: 1.0 0.0;
+            }
+            min: 0 70;
+            max: -1 70;
+            fixed: 0 1;
+         }
+         desc { "inactive";
+            inherit: "default";
+            hid;
+         }
+      }
+   }
+}
+
+group { "efl/spin_button/horizontal/inc_button";
+   data.item: "version" "123";
+   images.image: "sym_right_light_normal.png" COMP;
+   images.image: "sym_right_glow_normal.png" COMP;
+   images.image: "sym_right_dark_normal.png" COMP;
+   parts {
+      part { name: "arrow.image";
+         scale: 1;
+         description { state: "default" 0.0;
+            min: 15 15;
+            max: 15 15;
+            color_class: "F032L1";
+            image.normal: "sym_right_light_normal.png";
+         }
+         description { state: "pressed" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "sym_right_glow_normal.png";
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "sym_right_dark_normal.png";
+         }
+      }
+      part { name: "over";
+         type: RECT;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            color: 0 0 0 0;
+         }
+      }
+      part { name: "disabler";
+         type: RECT;
+         description { state: "default" 0.0;
+            color: 0 0 0 0;
+            visible: 0;
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+      }
+   }
+   programs {
+      EFL_UI_CLICKABLE_PART_BIND(over)
+      program { name: "button_press";
+         signal: "mouse,down,1";
+         source: "over";
+         action: STATE_SET "pressed" 0.0;
+         target: "arrow.image";
+      }
+      program { name: "button_unpress";
+         signal: "mouse,up,1";
+         source: "over";
+         action: STATE_SET "default" 0.0;
+         target: "arrow.image";
+      }
+      program { name: "action_unpressed";
+         signal: "efl,action,unpressed";
+         source: "efl";
+         action: STATE_SET "default" 0.0;
+         target: "arrow.image";
+
+      }
+      program { name: "action_pressed";
+         signal: "efl,action,pressed";
+         source: "efl";
+         action: STATE_SET "pressed" 0.0;
+         target: "arrow.image";
+      }
+      program { name: "access_pressed";
+         signal: "efl,state,animation,activated";
+         source: "efl";
+         action: STATE_SET "pressed" 0.0;
+         target: "arrow.image";
+         after: "access_pressed_anim";
+      }
+      program { name: "access_pressed_anim";
+         action: STATE_SET "default" 0.0;
+         transition: DECELERATE 0.1;
+         target: "arrow.image";
+      }
+      program { name: "disable";
+         signal: "efl,state,disabled";
+         source: "efl";
+         action: STATE_SET "disabled" 0.0;
+         target: "arrow.image";
+         target: "disabler";
+      }
+      program { name: "enable";
+         signal: "efl,state,enabled";
+         source: "efl";
+         action: STATE_SET "default" 0.0;
+         target: "arrow.image";
+         target: "disabler";
+      }
+   }
+}
+
+group { "efl/spin_button/horizontal/entry";
+   alias: "efl/spin_button/vertical/entry";
+   inherit: "efl/text";
+   data.item: "version" "123";
+}
+
+group { "efl/spin_button/horizontal/dec_button";
+   inherit: "efl/spin_button/horizontal/inc_button";
+   data.item: "version" "123";
+   images.image: "sym_left_light_normal.png" COMP;
+   images.image: "sym_left_glow_normal.png" COMP;
+   images.image: "sym_left_dark_normal.png" COMP;
+   parts {
+      part { name: "arrow.image";
+         scale: 1;
+         description { state: "default" 0.0;
+            min: 15 15;
+            max: 15 15;
+            image.normal: "sym_left_light_normal.png";
+         }
+         description { state: "pressed" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "sym_left_glow_normal.png";
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "sym_left_dark_normal.png";
+         }
+      }
+   }
+}
+
+group { "efl/spin_button/horizontal/text_button";
+   alias: "efl/spin_button/vertical/text_button";
+   data.item: "version" "123";
+   parts {
+      part { name: "bg";
+         type: SPACER;
+         scale: 1;
+         description { state: "default" 0.0;
+         }
+      }
+      part { name: "efl.text";
+         type: TEXT;
+         scale: 1;
+         effect: SHADOW BOTTOM;
+         description { state: "default" 0.0;
+            color: FN_COL_DEFAULT;
+            color_class: "spinner";
+            rel1.to: "bg";
+            rel2.to: "bg";
+            text { font: FN; size: 10;
+               min: 1 1;
+               text_class: "spinner";
+               ellipsis: -1;
+            }
+         }
+         description { state: "disabled" 0.0;
+           inherit: "default" 0.0 ;
+           color: FN_COL_DISABLE;
+           color_class: "spinner_disabled";
+         }
+      }
+      part { name: "over";
+         type: RECT;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            color: 0 0 0 0;
+         }
+      }
+      part { name: "disabler";
+         type: RECT;
+         description { state: "default" 0.0;
+            color: 0 0 0 0;
+            visible: 0;
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+      }
+   }
+   programs {
+      program { name: "button_click";
+         signal: "mouse,clicked,1";
+         source: "over";
+         script {
+            run_program(PROGRAM:"button_click2");
+         }
+      }
+      program { name: "button_click2";
+         action: SIGNAL_EMIT "efl,action,click" "";
+      }
+      program { name: "disable";
+         signal: "efl,state,disabled";
+         source: "efl";
+         action: STATE_SET "disabled" 0.0;
+         target: "disabler";
+         target: "efl.text";
+      }
+      program { name: "enable";
+         signal: "efl,state,enabled";
+         source: "efl";
+         action: STATE_SET "default" 0.0;
+         target: "disabler";
+         target: "efl.text";
+      }
+   }
+}
+
+group { "efl/spin_button/vertical/inc_button";
+   inherit: "efl/spin_button/horizontal/inc_button";
+   data.item: "version" "123";
+   images.image: "sym_up_light_normal.png" COMP;
+   images.image: "sym_up_glow_normal.png" COMP;
+   images.image: "sym_up_dark_normal.png" COMP;
+   parts {
+      part { name: "arrow.image";
+         scale: 1;
+         description { state: "default" 0.0;
+            min: 15 15;
+            max: 15 15;
+            image.normal: "sym_up_light_normal.png";
+         }
+         description { state: "pressed" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "sym_up_glow_normal.png";
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "sym_up_dark_normal.png";
+         }
+      }
+   }
+}
+
+group { "efl/spin_button/vertical/dec_button";
+   inherit: "efl/spin_button/horizontal/dec_button";
+   data.item: "version" "123";
+   images.image: "sym_down_light_normal.png" COMP;
+   images.image: "sym_down_glow_normal.png" COMP;
+   images.image: "sym_down_dark_normal.png" COMP;
+   parts {
+      part { name: "arrow.image";
+         scale: 1;
+         description { state: "default" 0.0;
+            min: 15 15;
+            max: 15 15;
+            image.normal: "sym_down_light_normal.png";
+         }
+         description { state: "pressed" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "sym_down_glow_normal.png";
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "sym_down_dark_normal.png";
+         }
+      }
+   }
+}

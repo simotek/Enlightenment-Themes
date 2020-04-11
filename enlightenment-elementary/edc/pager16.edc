@@ -1,5 +1,4 @@
 group { name: "e/modules/pager16/popup";
-   alias: "e/gadget/pager16/popup";
    images.image: "vgrad_tall.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
@@ -61,12 +60,11 @@ group { name: "e/modules/pager16/popup";
 }
 
 group { name: "e/modules/pager16/desk";
-   alias: "e/gadget/pager16/desk";
    images.image: "vgrad_med_darker.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "bevel_in.png" COMP;
+   images.image: "shine.png" COMP;
    images.image: "inset_shadow.png" COMP;
-   images.image: "downlight_glow.png" COMP;
    images.image: "mini_blue_glow_arrow_0.png" COMP;
    images.image: "mini_blue_glow_arrow_1.png" COMP;
    images.image: "mini_blue_glow_arrow_2.png" COMP;

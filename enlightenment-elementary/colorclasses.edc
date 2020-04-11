@@ -170,6 +170,16 @@ color_classes {
       color3: 255 255 255 192;
       desc: "Disabled Day Text";
    }
+   color_class { name: "calendar_day_text_weekend1";
+      color: 128 128 128 255;
+      color3: 0 0 0 128;
+      desc: "Weekend Day1 Text";
+   }
+   color_class { name: "calendar_day_text_weekend2";
+      color: 128 128 128 255;
+      color3: 0 0 0 128;
+      desc: "Weekend Day2 Text";
+   }
    color_class { name: "check_text";
       color: FN_COL_DEFAULT;
       desc: "Text of a checkbox's label";
@@ -197,6 +207,14 @@ color_classes {
    color_class { name: "datetime_bg";
       color: 0 0 0 0;
       desc: "Background of a datetime widget";
+   }
+   color_class { name: "datepicker_bg";
+      color: 0 0 0 0;
+      desc: "Background of a datepicker widget";
+   }
+   color_class { name: "timepicker_bg";
+      color: 0 0 0 0;
+      desc: "Background of a timepicker widget";
    }
    color_class { name: "datetime_separator_text";
       color: FN_COL_DEFAULT;
@@ -375,6 +393,30 @@ color_classes {
    color_class { name: "multibuttonentry_item_text_disabled";
       color: FN_COL_DISABLE;
       desc: "Text of a disabled multibuttonentry item";
+   }
+   color_class { name: "tags_bg";
+      color: 0 0 0 0;
+      desc: "Background of a tags widget";
+   }
+   color_class { name: "tags_item_bg";
+      color: 0 0 0 0;
+      desc: "Background of a tags item object";
+   }
+   color_class { name: "tags_item_bg_selected";
+      color: 0 0 0 0;
+      desc: "Background of a selected tags item object";
+   }
+   color_class { name: "tags_item_text";
+      color: FN_COL_DEFAULT;
+      desc: "Text of a tags item";
+   }
+   color_class { name: "tags_item_text_pressed";
+      color: FN_COL_HIGHLIGHT;
+      desc: "Text of a pressed tags item";
+   }
+   color_class { name: "tags_item_text_disabled";
+      color: FN_COL_DISABLE;
+      desc: "Text of a disabled tags item";
    }
    color_class { "elm/win/background";
       color: 64 64 64 255;
