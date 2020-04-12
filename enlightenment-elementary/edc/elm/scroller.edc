@@ -231,8 +231,6 @@ group { name: "elm/scroller/base/default";
          target: "y_vbar_up";
          target: "y_vbar_down_mapper";
          target: "y_vbar_down";
-         target: "arrow1_vbar_indent";
-         target: "arrow2_vbar_indent";
       }
       program {
          signal: "elm,action,hide,vbar"; source: "elm";
@@ -246,8 +244,6 @@ group { name: "elm/scroller/base/default";
          target: "y_vbar_up";
          target: "y_vbar_down_mapper";
          target: "y_vbar_down";
-         target: "arrow1_vbar_indent";
-         target: "arrow2_vbar_indent";
       }
       program {
          signal: "mouse,down,1*"; source: "sb_vbar_a1";//ok
@@ -521,8 +517,6 @@ group { name: "elm/scroller/base/default";
          target: "x_hbar_left";
          target: "x_hbar_right_mapper";
          target: "x_hbar_right";
-         target: "arrow1_hbar_indent";
-         target: "arrow2_hbar_indent";
       }
       program {
          signal: "elm,action,hide,hbar"; source: "elm";
@@ -536,8 +530,6 @@ group { name: "elm/scroller/base/default";
          target: "x_hbar_left";
          target: "x_hbar_right_mapper";
          target: "x_hbar_right";
-         target: "arrow1_hbar_indent";
-         target: "arrow2_hbar_indent";
       }
       program {
          signal: "mouse,down,1*"; source: "sb_hbar_a1";
