@@ -3,7 +3,7 @@
 *~
 *Makefile.am
 *-icons/
-enlightenmnet-elementary/Cerium2/develop/
+build/
 enlightenment-elementary/*-dm*
 enlightenment-elementary/img-bgnd/
 enlightenment-elementary/img-color-convd/
