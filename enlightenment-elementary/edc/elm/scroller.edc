@@ -513,9 +513,6 @@ group { name: "elm/scroller/base/default";
          target: "x_hbar_left";
          target: "x_hbar_right_mapper";
          target: "x_hbar_right";
-         target: "arrow1_hbar_indent";
-         target: "arrow2_hbar_indent";
-         after: "check_pos_hbar";
       }
       program {
          signal: "elm,action,hide,hbar"; source: "elm";
@@ -529,8 +526,6 @@ group { name: "elm/scroller/base/default";
          target: "x_hbar_left";
          target: "x_hbar_right_mapper";
          target: "x_hbar_right";
-         target: "arrow1_hbar_indent";
-         target: "arrow2_hbar_indent";
       }
       program {
          signal: "mouse,down,1*"; source: "sb_hbar_a1";
