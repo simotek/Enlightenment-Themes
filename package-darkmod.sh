@@ -22,8 +22,8 @@ cp darkmod-fdo-icon-recolor.txt "$E_THEME_PKG_DIR/darkmod-fdo-icon-recolor.txt"
 cp darkmod-util.sh "$E_THEME_PKG_DIR/darkmod-util.sh"
 cp README.md "$E_THEME_PKG_DIR/README.md"
 
-rm "$E_THEME_PKG_DIR.tar.xz"
-tar cfJ "$E_THEME_PKG_DIR.tar.xz" $E_THEME_PKG_DIR
+rm "build/pkg/$E_THEME_PKG_DIR.tar.xz"
+tar cfJ "build/pkg/$E_THEME_PKG_DIR.tar.xz" $E_THEME_PKG_DIR
 
 # Kill package dir once done
 rm -rf $E_THEME_PKG_DIR
@@ -44,8 +44,8 @@ cp darkmod-fdo-icon-recolor.txt "$TERM_THEME_PKG_DIR/darkmod-fdo-icon-recolor.tx
 cp darkmod-util.sh "$TERM_THEME_PKG_DIR/darkmod-util.sh"
 cp README.md "$TERM_THEME_PKG_DIR/README.md"
 
-rm "$TERM_THEME_PKG_DIR.tar.xz"
-tar cfJ "$TERM_THEME_PKG_DIR.tar.xz" $TERM_THEME_PKG_DIR
+rm "build/pkg/$TERM_THEME_PKG_DIR.tar.xz"
+tar cfJ "build/pkg/$TERM_THEME_PKG_DIR.tar.xz" $TERM_THEME_PKG_DIR
 
 # Kill package dir once done
 rm -rf $TERM_THEME_PKG_DIR

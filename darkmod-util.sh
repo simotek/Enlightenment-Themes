@@ -46,7 +46,7 @@ report_on_error() {
     fi
     OUTPUT="$("$@" 2>&1)"
     if [ $? -ne 0 ]; then
-        error "Failed command: " 
+        error "Failed command: "
         for i in "$@"; do
             (
                 set -- $i
@@ -60,6 +60,31 @@ report_on_error() {
         done
         echo
         error "$OUTPUT"
+        false
+    fi
+}
+
+warn_on_error() {
+    if [ "$DEBUG" ]; then
+        "$@"
+        return
+    fi
+    OUTPUT="$("$@" 2>&1)"
+    if [ $? -ne 0 ]; then
+        error "Failed command: "
+        for i in "$@"; do
+            (
+                set -- $i
+                [ "$2" ]
+            )
+            if [ $? -eq 0 ]; then
+                echo -n "'$i' "
+            else
+                echo -n "$i "
+            fi
+        done
+        echo
+        warn "$OUTPUT"
         false
     fi
 }

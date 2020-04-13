@@ -1,4 +1,4 @@
-efl_version: 1 22;
+efl_version: 1 24;
 
 #include "macros.edc"
 
@@ -6,7 +6,7 @@ externals.external: "elm";
 
 // theme api version. from 1.10 on we will check version to avoid
 // compat issues
-data.item: "version" "120";
+data.item: "version" "124";
 data.item: "efl_theme_base" "dark";
 
 collections {
@@ -204,9 +204,11 @@ collections {
 #include "edc/efl/win.edc"
 #include "edc/efl/uiclock.edc"
 #include "edc/efl/pager.edc"
+#include "edc/efl/spotlight.edc"
 #include "edc/efl/tab_pager.edc"
 #include "edc/efl/tab_bar.edc"
 #include "edc/efl/tab_page.edc"
 #include "edc/efl/collection.edc"
 #include "edc/efl/group_item.edc"
+#include "edc/efl/separator.edc"
 }
