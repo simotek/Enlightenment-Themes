@@ -141,13 +141,13 @@ group { name: "e/widgets/ilist";
             rel2.offset: -3 -3;
             rel2.relative: 0.0 1.0;
             rel2.to_x: "e.swallow.end";
-            color_class: "ilist_item";
+            color_class: "list_item";
             color3: 255 255 255 255;
             text { font: FN; size: 10;
                min: 1 1;
                ellipsis: -1;
                align: 0.0 0.5;
-               text_class: "ilist_item";
+               text_class: "list_item";
             }
          }
          description { state: "selected" 0.0;
@@ -170,7 +170,7 @@ group { name: "e/widgets/ilist";
             text { font: FN; size: 10;
                text_source: "e.text.label";
                align: 0.0 0.5;
-               text_class: "ilist_item";
+               text_class: "list_item";
             }
             visible: 0;
          }
@@ -197,7 +197,7 @@ group { name: "e/widgets/ilist";
             text { font: FN; size: 10;
                text_source: "e.text.label";
                align: 0.0 0.5;
-               text_class: "ilist_item";
+               text_class: "list_item";
             }
             visible: 0;
          }
@@ -359,7 +359,7 @@ group { name: "e/widgets/ilist_header";
             text { font: FNBD; size: 10;
                min: 0 1;
                align: 0.0 0.5;
-               text_class: "ilist_item";
+               text_class: "list_item";
             }
          }
       }
@@ -413,4 +413,3 @@ group { name: "e/widgets/ilist/toggle_end";
       }
    }
 }
-      
