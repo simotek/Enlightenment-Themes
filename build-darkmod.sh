@@ -41,7 +41,7 @@ source clean-darkmod.sh
 # everything shadows
 
 inform "Cleaning Repository"
-clean-darkmod
+clean-darkmod $THEME_NAME
 success "    Finished Cleaning Repository"
 
 if [[ $DKMD_TERMPKG != 1 ]]; then
@@ -148,9 +148,9 @@ for icon in $(cat darkmod-fdo-icon-recolor.txt); do
   done
 done
 
-if [ -d "$THEME_NAME-icons" ]; then rm -Rf $THEME_NAME-icons; fi
-cp -r $ELM_ENLIGHT_THEME_PATH/fdo $THEME_NAME-icons
-sed -i "s/Enlightenment-X/$THEME_NAME-e-X/g" $THEME_NAME-icons/index.theme
+if [ -d "build/icons/$THEME_NAME-icons" ]; then rm -Rf build/icons/$THEME_NAME-icons; fi
+cp -r $ELM_ENLIGHT_THEME_PATH/fdo build/icons/$THEME_NAME-icons
+sed -i "s/Enlightenment-X/$THEME_NAME-e-X/g" "build/icons/$THEME_NAME-icons/index.theme"
 
 
 success "    Finished Converting Images"
@@ -286,7 +286,12 @@ report_on_error mv -v img-manual-bak/* img-manual-convd
 report_on_error rm -r fdo
 report_on_error mv -v fdo-bak fdo
 if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
- report_on_error cp $THEME_NAME.edj ~/.elementary/themes
+  if [[ -f ../build/e/$THEME_NAME.edj ]]; then
+    report_on_error cp ../build/e/$THEME_NAME.edj ~/.elementary/themes
+  else
+    error "build probably failed exiting"
+    exit
+  fi
 fi
 popd
 
@@ -427,12 +432,12 @@ if [ $DKMD_EPKG != 1 ]; then
         fi
 
     done
-    edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -sd sounds default-dm.edc $TERMINOLOGY_LICENSE $TERMINOLOGY_AUTHORS $THEME_NAME.edj
+    edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -sd sounds default-dm.edc $TERMINOLOGY_LICENSE $TERMINOLOGY_AUTHORS ../build/term/$THEME_NAME.edj
 
     report_on_error mv -v img-bak images
 
     if [ $DKMD_TERMPKG != 1 ]; then
-	report_on_error cp $THEME_NAME.edj ~/.config/terminology/themes
+	    report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
     fi
 popd
 fi
