@@ -12,5 +12,5 @@ Hacking Images
 | e_everything_bottom.png e_everything_top.png | Bottom parts of everything launcher window (can generally be e_surface_bottom)
 | e_item_selected.png | Selected items (with exeption of ones below)
 | tasks_selected.png | Selected item in tasks, can be a copy of e_item_selected
-| menu_item.png | Selected item in menu, can be a copy of e_item_selected
+| menu_selected.png | Selected item in menu, can be a copy of e_item_selected
 | menu_background.png | Background of menu
