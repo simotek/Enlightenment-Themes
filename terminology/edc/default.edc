@@ -11,6 +11,7 @@ collections {
       images {
         image: "icon_close.png" COMP;
         image: "fn_shadow.png" COMP;
+        image: "e_surface_rot.png"
       }
       set { name: "bg_shadow";
         image { image: "bg_shadow.png"  COMP; size: 0 0 200 150; }
@@ -18,10 +19,11 @@ collections {
         image { image: "bg_shadow3.png" COMP; size: 400 300 99999 99999; }
       }
       parts {
-         part { name: "miniview.bg"; type: RECT;
+         part { name: "miniview.bg";
             //mouse_events: 1;
             description { state: "default" 0.0;
-               color: BG_COL;
+              image.normal: "e_surface_rot.png";
+              image.border: 8 8 8 8;
             }
          }
          part { name: "shadow";
@@ -200,12 +202,12 @@ collections {
    group { name: "terminology/background";
       images {
         image: "bg_bevel.png" COMP;
-        image: "bg_glint.png" COMP;
         image: "bg_glow_in.png" COMP;
         image: "bg_led_glow.png" COMP;
         image: "bg_led_base.png" COMP;
         image: "bg_led.png" COMP;
         image: "bg_led_strobe.png" COMP;
+        image: "e_surface_rot.png" COMP;
         image: "pm_shadow.png" COMP;
         image: "pm_overlay.png" COMP;
         image: "pm_fill.png" COMP;
@@ -231,13 +233,6 @@ collections {
         image { image: "bg_shadow.png"  COMP; size: 0 0 200 150; }
         image { image: "bg_shadow2.png" COMP; size: 200 150 400 300; }
         image { image: "bg_shadow3.png" COMP; size: 400 300 99999 99999; }
-      }
-      set { name: "bg_shine";
-        image { image: "bg_shine5.png" COMP; size: 0 0 256 120; }
-        image { image: "bg_shine4.png" COMP; size: 256 120 512 240; }
-        image { image: "bg_shine3.png" COMP; size: 512 240 1024 480; }
-        image { image: "bg_shine2.png" COMP; size: 1024 480 2048 960; }
-        image { image: "bg_shine.png"  COMP; size: 2048 960 99999 99999; }
       }
       sounds {
          sample { name: "bell" LOSSY 64;
@@ -273,10 +268,11 @@ collections {
                fill.smooth: 0;
             }
          }
-         part { name: "base"; type: RECT;
+         part { name: "base";
             mouse_events: 1;
             description { state: "default" 0.0;
-               color: BG_COL;
+              image.normal: "e_surface_rot.png";
+              image.border: 8 8 8 8;
             }
          }
 
@@ -666,23 +662,6 @@ collections {
                visible: 0;
             }
          }
-         part { name: "shine";
-            mouse_events: 0;
-            description { state: "default" 0.0;
-               rel1.offset: 0 0;
-               rel2.offset: -1 -1;
-               image.normal: "bg_shine";
-               fill.smooth: 0;
-               align: 0.5 0.0;
-               aspect: (256/120) (256/120);
-               aspect_preference: HORIZONTAL;
-               color: 255 255 255 64;
-            }
-            description { state: "focused" 0.0;
-               inherit: "default" 0.0;
-               color: 255 255 255 255;
-            }
-         }
          part { name: "glintclip"; type: RECT;
             description { state: "default" 0.0;
             }
@@ -690,30 +669,6 @@ collections {
                inherit: "default" 0.0;
             }
          }
-         part { name: "glint";
-            mouse_events: 0;
-            clip_to: "glintclip";
-            description { state: "default" 0.0;
-               fixed: 1 1;
-               min: 79 5;
-               max: 79 5;
-               rel1 {
-                  relative: 0.0 0.0;
-                  offset: 0 0;
-               }
-               rel2 {
-                  relative: 1.0 0.0;
-                  offset: -1 0;
-               }
-               image.normal: "bg_glint.png";
-               color: 255 255 255 128;
-            }
-            description { state: "focused" 0.0;
-               inherit: "default" 0.0;
-               color: 255 255 255 255;
-            }
-         }
-
          part { name: "tab_bevel_bottom";
             mouse_events: 0;
             description { state: "default" 0.0;
@@ -972,9 +927,7 @@ collections {
          program {
             signal: "focus,in"; source: "terminology";
             action: STATE_SET "focused" 0.0;
-            target: "glint";
             target: "glow";
-            target: "shine";
             after: "focus_in2";
          }
          program { name: "focus_in2";
@@ -985,9 +938,7 @@ collections {
          program {
             signal: "focus,out"; source: "terminology";
             action: STATE_SET "default" 0.0;
-            target: "glint";
             target: "glow";
-            target: "shine";
          }
 
          ////////////////////////////////////////////////////////////////////
@@ -1456,49 +1407,6 @@ collections {
                visible: 1;
             }
          }
-         part { name: "popmedia_glint";
-            mouse_events: 0;
-            clip_to: "popmedia_glintclip";
-            description { state: "default" 0.0;
-               fixed: 1 1;
-               min: 79 5;
-               max: 79 5;
-               rel1 {
-                  to: "terminology.popmedia";
-                  relative: 0.0 0.0;
-                  offset: 0 0;
-               }
-               rel2 {
-                  to: "terminology.popmedia";
-                  relative: 1.0 0.0;
-                  offset: -1 0;
-               }
-               image.normal: "bg_glint.png";
-               visible: 0;
-            }
-            description { state: "visible" 0.0;
-               inherit: "default" 0.0;
-               visible: 1;
-            }
-         }
-         part { name: "popmedia_shine";
-            mouse_events: 0;
-            description { state: "default" 0.0;
-               fixed: 1 1;
-               rel1.to: "terminology.popmedia";
-               rel2.to: "terminology.popmedia";
-               image.normal: "bg_shine";
-               fill.smooth: 0;
-               align: 0.5 0.0;
-               aspect: (256/120) (256/120);
-               aspect_preference: HORIZONTAL;
-               visible: 0;
-            }
-            description { state: "visible" 0.0;
-               inherit: "default" 0.0;
-               visible: 1;
-            }
-         }
          part { name: "popmedia_dismiss"; type: RECT;
             mouse_events: 1;
             description { state: "default" 0.0;
@@ -1524,7 +1432,6 @@ collections {
             target: "popmedia_bevel";
             target: "popmedia_glint";
             target: "popmedia_glintclip";
-            target: "popmedia_shine";
             after: "popmedia_dismiss2";
          }
          program { name: "popmedia_dismiss2";
@@ -1541,9 +1448,7 @@ collections {
             target: "popmedia_fill";
             target: "popmedia_overlay";
             target: "popmedia_bevel";
-            target: "popmedia_glint";
             target: "popmedia_glintclip";
-            target: "popmedia_shine";
             after: "popmedia_dismiss2";
          }
          program {
@@ -1582,7 +1487,6 @@ collections {
             target: "popmedia_bevel";
             target: "popmedia_glint";
             target: "popmedia_glintclip";
-            target: "popmedia_shine";
          }
          program {
             signal: "popmedia,scale"; source: "terminology";
@@ -1594,9 +1498,7 @@ collections {
             target: "popmedia_fill";
             target: "popmedia_overlay";
             target: "popmedia_bevel";
-            target: "popmedia_glint";
             target: "popmedia_glintclip";
-            target: "popmedia_shine";
          }
          program {
             signal: "popmedia,edje"; source: "terminology";
@@ -1610,7 +1512,6 @@ collections {
             target: "popmedia_bevel";
             target: "popmedia_glint";
             target: "popmedia_glintclip";
-            target: "popmedia_shine";
          }
          program {
             signal: "popmedia,movie"; source: "terminology";
@@ -1624,7 +1525,6 @@ collections {
             target: "popmedia_bevel";
             target: "popmedia_glint";
             target: "popmedia_glintclip";
-            target: "popmedia_shine";
          }
 
          /* media busy */
@@ -1842,7 +1742,6 @@ collections {
    group { name: "terminology/base";
       images.image: "pm_shadow.png" COMP;
       images.image: "bg_bevel.png" COMP;
-      images.image: "bg_glint.png" COMP;
       parts {
          part { name: "terminology.content"; type: SWALLOW;
             description { state: "default" 0.0;
@@ -1917,25 +1816,6 @@ collections {
                fill.smooth: 0;
             }
          }
-         part { name: "cmdglint"; mouse_events: 0;
-            clip_to: "cmdclip";
-            description { state: "default" 0.0;
-               fixed: 1 1;
-               min: 79 5;
-               max: 79 5;
-               rel1 {
-                  to: "cmdback";
-                  relative: 0.0 0.0;
-                  offset: 0 0;
-               }
-               rel2 {
-                  to: "cmdback";
-                  relative: 1.0 0.0;
-                  offset: -1 0;
-               }
-               image.normal: "bg_glint.png";
-            }
-         }
          program {
             signal: "cmdbox,show"; source: "terminology";
             action: STATE_SET "visible" 0.0;
@@ -1955,7 +1835,7 @@ collections {
             target: "terminology.cmdbox";
             target: "cmdclip";
          }
-         
+
          ////////////////////////////////////////////////////////////////////
          // overlayed options and controls
          part { name: "terminology.about"; type: SWALLOW;
@@ -1989,14 +1869,14 @@ collections {
             transition: DECELERATE 0.6;
             target: "terminology.about";
          }
-         
+
          ////////////////////////////////////////////////////////////////////
          // swallow to hold invisile rect to click on to dismiss things
          part { name: "terminology.dismiss"; type: SWALLOW;
             description { state: "default" 0.0;
             }
          }
-         
+
          ////////////////////////////////////////////////////////////////////
          // overlayed options and controls
          part { name: "terminology.optdetails"; type: SWALLOW;
@@ -2046,7 +1926,7 @@ collections {
          program { name: "opdt_hide2";
             action: SIGNAL_EMIT "optdetails,hide,done" "terminology";
          }
-         
+
          part { name: "terminology.options"; type: SWALLOW;
             scale: 1;
             description { state: "default" 0.0;
@@ -2086,7 +1966,7 @@ collections {
             transition: DECELERATE 0.6;
             target: "terminology.options";
          }
-         
+
          part { name: "terminology.controls"; type: SWALLOW;
             scale: 1;
             description { state: "default" 0.0;
@@ -2134,28 +2014,28 @@ collections {
    ///////////////////////////////////////////////////////////////////////////
    //// the selection
    // selections come in 5 modes:
-   // 
+   //
    // oneline (also multiple lines but all fill the row):
    // |  #########   |
-   // 
+   //
    // disjoint:
    // |       #######|
    // |##            |
-   // 
+   //
    // default:
    // |   ###########|
    // |#########     |
-   // 
+   //
    // topfull:
    // |##############|
    // |######        |
-   // 
+   //
    // bottomfull:
    // |        ######|
    // |##############|
 #define PATCOL   255 255 255 25
 #define OUTCOL   51 153 255 128
-   
+
    group { name: "terminology/selection";
       images {
          image: "sl_stripe.png" COMP;
@@ -2199,7 +2079,7 @@ collections {
                fill.size.offset: 240 240;
             }
          }
-         
+
          // clips that clip the above pattern images to occupy specific
          // regions of the object (or be invisible since clip is invisible)
          part { name: "top_clip"; type: RECT;
@@ -2241,12 +2121,12 @@ collections {
                visible: 0;
             }
          }
-         
+
          // the outline around the selection...
 #define TARGETS \
 target: "top_clip"; target: "middle_clip"; target: "bottom_clip"; \
 target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: "4.clip"
-         
+
          part { name: "0.clip"; type: RECT;
             mouse_events: 0;
             description { state: "default" 0.0;    visible: 0; rel1.offset: -100 -100; rel2.offset: 101 101; }
@@ -2287,7 +2167,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
             description { state: "topfull" 0.0;    visible: 0; rel1.offset: -100 -100; rel2.offset: 101 101; }
             description { state: "bottomfull" 0.0; visible: 1; rel1.offset: -100 -100; rel2.offset: 101 101; }
          }
-         
+
          // oneline (also multiple lines but all fill the row):
          // |  #########   |
          part { name: "0.left";
@@ -2380,7 +2260,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          // |##            |
          part { name: "1.left";
             mouse_events: 0;
-            clip_to: "1.clip"; 
+            clip_to: "1.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "terminology.top_left";
@@ -2400,7 +2280,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "1.right";
             mouse_events: 0;
-            clip_to: "1.clip"; 
+            clip_to: "1.clip";
             description { state: "default" 0.0;
                rel1 {
                   to_y: "terminology.top_left";
@@ -2420,7 +2300,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "1.top";
             mouse_events: 0;
-            clip_to: "1.clip"; 
+            clip_to: "1.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "1.left";
@@ -2439,7 +2319,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "1.bottom";
             mouse_events: 0;
-            clip_to: "1.clip"; 
+            clip_to: "1.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "1.left";
@@ -2458,7 +2338,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "1.left2";
             mouse_events: 0;
-            clip_to: "1.clip"; 
+            clip_to: "1.clip";
             description { state: "default" 0.0;
                rel1 {
                   to_y: "terminology.bottom_right";
@@ -2477,7 +2357,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "1.right2";
             mouse_events: 0;
-            clip_to: "1.clip"; 
+            clip_to: "1.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "terminology.bottom_right";
@@ -2497,7 +2377,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "1.top2";
             mouse_events: 0;
-            clip_to: "1.clip"; 
+            clip_to: "1.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "1.left2";
@@ -2516,7 +2396,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "1.bottom2";
             mouse_events: 0;
-            clip_to: "1.clip"; 
+            clip_to: "1.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "1.left2";
@@ -2545,7 +2425,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          // |#########     |
          part { name: "2.topkink";
             mouse_events: 0;
-            clip_to: "2.clip"; 
+            clip_to: "2.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "top_clip";
@@ -2564,7 +2444,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "2.bottomkink";
             mouse_events: 0;
-            clip_to: "2.clip"; 
+            clip_to: "2.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "bottom_clip";
@@ -2583,7 +2463,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "2.left";
             mouse_events: 0;
-            clip_to: "2.clip"; 
+            clip_to: "2.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "middle_clip";
@@ -2602,7 +2482,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "2.right";
             mouse_events: 0;
-            clip_to: "2.clip"; 
+            clip_to: "2.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "top_clip";
@@ -2621,7 +2501,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "2.top";
             mouse_events: 0;
-            clip_to: "2.clip"; 
+            clip_to: "2.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "2.topkink";
@@ -2640,7 +2520,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "2.top2";
             mouse_events: 0;
-            clip_to: "2.clip"; 
+            clip_to: "2.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "2.left";
@@ -2659,7 +2539,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "2.bottom";
             mouse_events: 0;
-            clip_to: "2.clip"; 
+            clip_to: "2.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "2.left";
@@ -2678,7 +2558,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "2.bottom2";
             mouse_events: 0;
-            clip_to: "2.clip"; 
+            clip_to: "2.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "2.bottomkink";
@@ -2707,7 +2587,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          // |######        |
          part { name: "3.bottomkink";
             mouse_events: 0;
-            clip_to: "3.clip"; 
+            clip_to: "3.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "bottom_clip";
@@ -2726,7 +2606,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "3.left";
             mouse_events: 0;
-            clip_to: "3.clip"; 
+            clip_to: "3.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "top_clip";
@@ -2745,7 +2625,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "3.right";
             mouse_events: 0;
-            clip_to: "3.clip"; 
+            clip_to: "3.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "top_clip";
@@ -2764,7 +2644,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "3.top";
             mouse_events: 0;
-            clip_to: "3.clip"; 
+            clip_to: "3.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "3.left";
@@ -2783,7 +2663,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "3.bottom";
             mouse_events: 0;
-            clip_to: "3.clip"; 
+            clip_to: "3.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "3.left";
@@ -2802,7 +2682,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "3.bottom2";
             mouse_events: 0;
-            clip_to: "3.clip"; 
+            clip_to: "3.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "3.bottomkink";
@@ -2831,7 +2711,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          // |##############|
          part { name: "4.topkink";
             mouse_events: 0;
-            clip_to: "4.clip"; 
+            clip_to: "4.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "top_clip";
@@ -2850,7 +2730,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "4.left";
             mouse_events: 0;
-            clip_to: "4.clip"; 
+            clip_to: "4.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "middle_clip";
@@ -2869,7 +2749,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "4.right";
             mouse_events: 0;
-            clip_to: "4.clip"; 
+            clip_to: "4.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "top_clip";
@@ -2887,7 +2767,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "4.top";
             mouse_events: 0;
-            clip_to: "4.clip"; 
+            clip_to: "4.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "4.topkink";
@@ -2906,7 +2786,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "4.top2";
             mouse_events: 0;
-            clip_to: "4.clip"; 
+            clip_to: "4.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "4.left";
@@ -2925,7 +2805,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
          part { name: "4.bottom";
             mouse_events: 0;
-            clip_to: "4.clip"; 
+            clip_to: "4.clip";
             description { state: "default" 0.0;
                rel1 {
                   to: "4.left";
@@ -2966,7 +2846,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
                visible: 0;
             }
          }
-         
+
          // blinky cursors indicating you can drag the ends of the selection
          part { name: "cursor.top_left"; type: RECT;
             mouse_events: 0;
@@ -3378,7 +3258,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
                visible: 0;
             }
          }
-         
+
          ////////////////////////////////////////////////////////////////////
          // content (where the grid of terms goes)
          part { name: "clip"; type: RECT;
@@ -3390,7 +3270,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
             description { state: "default" 0.0;
             }
          }
-         
+
          ////////////////////////////////////////////////////////////////////
          // fancy stuff on top
          part { name: "overlay";
@@ -3434,24 +3314,16 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
          }
       }
    }
-   
+
    group { name: "terminology/sel/item";
       images {
         image: "bg_bevel.png" COMP;
-        image: "bg_glint.png" COMP;
         image: "pm_shadow.png" COMP;
         image: "cr_glow.png" COMP;
         image: "bg_led_glow.png" COMP;
         image: "bg_led_base.png" COMP;
         image: "bg_led.png" COMP;
         image: "bg_led_strobe.png" COMP;
-      }
-      set { name: "bg_shine";
-        image { image: "bg_shine5.png" COMP; size: 0 0 256 120; }
-        image { image: "bg_shine4.png" COMP; size: 256 120 512 240; }
-        image { image: "bg_shine3.png" COMP; size: 512 240 1024 480; }
-        image { image: "bg_shine2.png" COMP; size: 1024 480 2048 960; }
-        image { image: "bg_shine.png"  COMP; size: 2048 960 99999 99999; }
       }
       parts {
          ////////////////////////////////////////////////////////////////////
@@ -3507,7 +3379,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
                color: 51 153 255 255;
             }
          }
-         
+
          ////////////////////////////////////////////////////////////////////
          // swallowed terminal content + bg inside it
          part { name: "base"; type: RECT;
@@ -3559,7 +3431,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
             target: "clip";
             target: "glow";
          }
-         
+
          ////////////////////////////////////////////////////////////////////
          // fancy stuff over the top of the terminal for shading and labelling
          part { name: "overlay";
@@ -3612,44 +3484,11 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
                rel2.to: "terminology.content";
             }
          }
-         
+
          ////////////////////////////////////////////////////////////////////
          // fancy stuff on top
-         part { name: "glint";
-            mouse_events: 0;
-            clip_to: "clip2";
-            description { state: "default" 0.0;
-               fixed: 1 1;
-               min: 79 5;
-               max: 79 5;
-               rel1 {
-                  to: "terminology.content";
-                  relative: 0.0 0.0;
-                  offset: 0 0;
-               }
-               rel2 {
-                  to: "terminology.content";
-                  relative: 1.0 0.0;
-                  offset: -1 0;
-               }
-               image.normal: "bg_glint.png";
-            }
-         }
-         part { name: "shine";
-            mouse_events: 0;
-            clip_to: "clip2";
-            description { state: "default" 0.0;
-               fixed: 1 1;
-               rel1.to: "terminology.content";
-               rel2.to: "terminology.content";
-               image.normal: "bg_shine";
-               fill.smooth: 0;
-               align: 0.5 0.0;
-               aspect: (256/120) (256/120);
-               aspect_preference: HORIZONTAL;
-            }
-         }
-         
+
+
          ////////////////////////////////////////////////////////////////////
          // visual bell - spinning red siren light
          part { name: "bell_glow";
@@ -4365,7 +4204,7 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
                aspect_preference: BOTH;
                image.normal: "ab_shell.png";
             }
-         }                                              
+         }
       }
       programs {
          program {
@@ -4420,10 +4259,11 @@ target: "0.clip"; target: "1.clip"; target: "2.clip"; target: "3.clip"; target: 
                fill.smooth: 0;
             }
          }
-         part { name: "base"; type: RECT;
+         part { name: "base";
             mouse_events: 1;
             description { state: "default" 0.0;
-               color: BG_COL;
+               image.normal: "e_surface_rot.png";
+               image.border: 8 8 8 8;
                rel1.offset: 2 2;
                rel2.offset: -3 -3;
             }
