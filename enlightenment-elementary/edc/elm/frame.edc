@@ -240,7 +240,7 @@ group { name: "elm/frame/base/outdent_top";
          description { state: "default" 0.0;
             image.normal: "separator_horiz.png";
             rel1.offset: 0 2;
-            rel2.offset: -1 3; 
+            rel2.offset: -1 3;
             rel2.relative: 1.0 0.0;
             min: 0 2;
             fill.smooth: 0;
@@ -272,15 +272,14 @@ group { name: "elm/frame/base/outdent_bottom";
 }
 
 group { name: "elm/frame/base/outline";
-   images.image: "shadow_square_tiny.png" COMP;
-   images.image: "bevel_out.png" COMP;
+   images.image: "e_surface.png" COMP;
       parts {
          part { name: "shadow"; mouse_events: 0;
             description { state: "default" 0.0;
                rel1.offset: -1 0;
                rel2.offset: 0 1;
-               image.normal: "shadow_square_tiny.png";
-               image.border: 6 6 6 6;
+               image.normal: "e_surface.png";
+               image.border: 8 8 8 8;
                fill.smooth: 0;
             }
          }
@@ -307,16 +306,6 @@ group { name: "elm/frame/base/outline";
             description { state: "collapsed" 0.0;
               inherit: "default" 0.0;
               minmul: 1.0 0.0;
-            }
-         }
-         part { name: "bevel"; mouse_events: 0;
-            description { state: "default" 0.0;
-               rel1.offset: 2 2;
-               rel2.offset: -3 -3;
-               image.normal: "bevel_out.png";
-               image.border: 1 1 1 1;
-               image.middle: 0;
-               fill.smooth: 0;
             }
          }
       }
