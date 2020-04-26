@@ -15,6 +15,13 @@
 #define FNIT   "Sans:style=Oblique"
 #define FNBDIT "Sans:style=Bold Italic"
 
+fonts {
+   font: "Megrim.ttf" "Megrim";
+}
+
+// Fancy font
+#define FAFN    "Megrim"
+
 #define FN_COL_DEFAULT_BASIC 255 255 255 255
 /* fonts.edc not sure if this one is neccesary */
 #define FN_COL_DEFAULT 255 255 255 255; color3: 0 0 0 128

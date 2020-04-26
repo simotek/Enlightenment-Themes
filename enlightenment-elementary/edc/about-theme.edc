@@ -5,6 +5,15 @@ group { name: "e/theme/about";
    images.image: "screen_circular_shadow.png" COMP;
    images.image: "button_normal.png" COMP;
    images.image: "button_clicked.png" COMP;
+   styles {
+      style { name: "about_theme_style";
+         base: "font=Megrim font_size=10 align=center text_class=tb_plain color=#ffff style=shadow,bottom shadow_color=#00000080 wrap=word";
+         tag: "hilight" "+ font=Megrim text_class=tb_light style=glow color=#3399ffff glow_color=#3399ff18 align=center glow2_color=#3399ff12";
+         tag: "title" "+ font_size=16 font=Megrim text_class=tb_big";
+         tag: "/title" "- \n \n";
+         tag: "br" "\n";
+      }
+   }
    min: 220 220;
    max: 220 220;
    parts {
@@ -23,36 +32,41 @@ group { name: "e/theme/about";
          }
       }
       part { name: "name"; type: TEXT; mouse_events: 0;
-         effect: GLOW;
-         scale: 1;
+         //effect: GLOW;
+         //scale: 1;
          description { state: "default" 0.0;
             fixed: 1 1;
             color: FN_COL_HIGHLIGHT;
-            rel1.relative: 0.5 0.5;
+            rel1.relative: 0.5 0.3;
             rel2.relative: 0.5 0.5;
-            text { font: FNBD; size: 30;
-               text: "openSUSE-E";
+            text { font: "Megrim"; size: 30;
+               text: "Ice";
                min: 1 1;
-               align: 0.5 0.5;
+               align: 0.8 0.1;
             }
          }
       }
-      part { name: "name2"; type: TEXT; mouse_events: 0;
-         effect: GLOW;
-         scale: 1;
+      part { name: "name2"; type: TEXTBLOCK; mouse_events: 0;
+         scale:1;
          description { state: "default" 0.0;
             fixed: 1 1;
-            color: FN_COL_HIGHLIGHT;
-            rel1.relative: 0.5 1.1;
+            max: 20000 20000;
+            min: 160 0;
+            rel1.relative: 0.0 1.1;
             rel1.to: "name";
-            rel2.relative: 0.5 1.1;
+            rel2.relative: 0.0 1.1;
             rel2.to: "name";
             align: 0.5 1.0;
-            text { font: FN; size: 8;
-               text: "The Enlightenment theme for openSUSE";
-               min: 1 1;
-               ellipsis: -1;
-               align: 0.5 1.0;
+            text {style: "about_theme_style";
+               min: 0 1;
+               align: 0.0 1.0;
+               text: "Beyond the Dark <br>"
+               "It Crests the oceans waves<br>"
+               "A majestic ark<br>"
+               "Drifting through the haze<br>"
+               "<br><br><br><br><br>"
+               "Wallpaper by SiriusLee https://wall.alphacoders.com/big.php?i=963675<br>"
+               "Soundtrack: https://www.youtube.com/watch?v=tlWGioCioCQ";
             }
          }
       }
