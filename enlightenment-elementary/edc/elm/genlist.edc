@@ -262,7 +262,7 @@ group { "elm/genlist/item_compress/group_index/default"; nomouse;
 group { "genlist_base"; inherit_only: 1; nomouse; program_source: "elm";
    images.image: "bevel_curved_horiz_out.png" COMP;
    images.image: "shadow_rounded_horiz.png" COMP;
-   images.image: "vgrad_med_dark.png" COMP;
+   images.image: "vgrad_med_dark_color.png" COMP;
    images.image: "bevel_horiz_out.png" COMP;
    target_group: "default" "elm.text" "label2" "label3";
    parts {
@@ -315,7 +315,7 @@ group { "genlist_base"; inherit_only: 1; nomouse; program_source: "elm";
        }
        image { "sel_base";
           desc { "default";
-             image.normal: "vgrad_med_dark.png";
+             image.normal: "vgrad_med_dark_color.png";
              fill.smooth: 0;
              hid;
              TILED_HORIZ(120)
@@ -5109,7 +5109,7 @@ group { "elm/genlist/item/edit/default"; nomouse;
       }
       image { "sel_base";
          desc { "default";
-            image.normal: "vgrad_med_dark.png";
+            image.normal: "vgrad_med_dark_color.png";
             fill.smooth: 0;
             hid;
             TILED_HORIZ(120)

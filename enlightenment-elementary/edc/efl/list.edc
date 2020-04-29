@@ -61,7 +61,7 @@ group { "efl/list_item"; data.item: "version" "124";
    data.item: "focusraise" "on";
    images.image: "bevel_curved_horiz_out.png" COMP;
    images.image: "shadow_rounded_horiz.png" COMP;
-   images.image: "vgrad_med_dark.png" COMP;
+   images.image: "vgrad_med_dark_color.png" COMP;
    images.image: "bevel_horiz_out.png" COMP;
    images.image: "shine.png" COMP;
    parts {
@@ -106,7 +106,7 @@ group { "efl/list_item"; data.item: "version" "124";
       }
       image { "sel_base"; nomouse;
          desc { "default";
-            image.normal: "vgrad_med_dark.png";
+            image.normal: "vgrad_med_dark_color.png";
             fill.smooth: 0;
             hid;
             TILED_HORIZ(120)
@@ -349,7 +349,7 @@ group { "efl/list_item:placeholder"; data.item: "version" "124";
    data.item: "focusraise" "on";
    images.image: "bevel_curved_horiz_out.png" COMP;
    images.image: "shadow_rounded_horiz.png" COMP;
-   images.image: "vgrad_med_dark.png" COMP;
+   images.image: "vgrad_med_dark_color.png" COMP;
    images.image: "bevel_horiz_out.png" COMP;
    images.image: "shine.png" COMP;
    parts {
@@ -394,7 +394,7 @@ group { "efl/list_item:placeholder"; data.item: "version" "124";
       }
       image { "sel_base"; nomouse;
          desc { "default";
-            image.normal: "vgrad_med_dark.png";
+            image.normal: "vgrad_med_dark_color.png";
             fill.smooth: 0;
             hid;
             TILED_HORIZ(120)

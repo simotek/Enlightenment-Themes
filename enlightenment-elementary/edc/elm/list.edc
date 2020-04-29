@@ -118,7 +118,7 @@ group { name: "elm/list/item/default";
    data.item: "focusraise" "on";
    images.image: "bevel_curved_horiz_out.png" COMP;
    images.image: "shadow_rounded_horiz.png" COMP;
-   images.image: "vgrad_med_dark.png" COMP;
+   images.image: "vgrad_med_dark_color.png" COMP;
    images.image: "bevel_horiz_out.png" COMP;
    images.image: "shine.png" COMP;
    parts {
@@ -175,7 +175,7 @@ group { name: "elm/list/item/default";
       }
       part { name: "sel_base"; mouse_events: 0;
          description { state: "default" 0.0;
-            image.normal: "vgrad_med_dark.png";
+            image.normal: "vgrad_med_dark_color.png";
             fill.smooth: 0;
             visible: 0;
             TILED_HORIZ(120)
@@ -429,7 +429,7 @@ group { name: "elm/list/h_item/default";
    data.item: "focusraise" "on";
    images.image: "bevel_curved_vert_out.png" COMP;
    images.image: "shadow_rounded_vert.png" COMP;
-   images.image: "vgrad_med_dark.png" COMP;
+   images.image: "vgrad_med_dark_color.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    parts {
@@ -486,7 +486,7 @@ group { name: "elm/list/h_item/default";
       }
       part { name: "sel_base"; mouse_events: 0;
          description { state: "default" 0.0;
-            image.normal: "vgrad_med_dark.png";
+            image.normal: "vgrad_med_dark_color.png";
             fill.smooth: 0;
             visible: 0;
             TILED_HORIZ(120)

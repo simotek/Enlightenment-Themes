@@ -5,7 +5,7 @@ group { name: "e/fileman/default/list/variable";
    data.item: "selectraise" "on";
    images.image: "bevel_curved_horiz_out.png" COMP;
    images.image: "shadow_rounded_horiz.png" COMP;
-   images.image: "vgrad_med_dark.png" COMP;
+   images.image: "vgrad_med_dark_color.png" COMP;
    images.image: "bevel_horiz_out.png" COMP;
    images.image: "shine.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
@@ -48,7 +48,7 @@ group { name: "e/fileman/default/list/variable";
       }
       part { name: "sel_base"; mouse_events: 0;
          description { state: "default" 0.0;
-            image.normal: "vgrad_med_dark.png";
+            image.normal: "vgrad_med_dark_color.png";
             fill.smooth: 0;
             TILED_HORIZ(120)
             visible: 0;

@@ -126,7 +126,7 @@ group { name: "e/widgets/winlist/main";
 
 group { name: "e/widgets/winlist/item";
    images.image: "shadow_rounded_horiz.png" COMP;
-   images.image: "vgrad_med_dark.png" COMP;
+   images.image: "vgrad_med_dark_color.png" COMP;
    images.image: "bevel_horiz_out.png" COMP;
    images.image: "shine.png" COMP;
    parts {
@@ -167,7 +167,7 @@ group { name: "e/widgets/winlist/item";
       }
       part { name: "sel_base"; mouse_events: 0;
          description { state: "default" 0.0;
-            image.normal: "vgrad_med_dark.png";
+            image.normal: "vgrad_med_dark_color.png";
             fill.smooth: 0;
             TILED_HORIZ(120)
             visible: 0;
@@ -208,7 +208,7 @@ group { name: "e/widgets/winlist/item";
          description { state: "iconified" 0.0;
             inherit: "default" 0.0;
             rel1.relative: 0.25 0.25;
-            rel2.relative: 0.75 0.75; 
+            rel2.relative: 0.75 0.75;
         }
       }
       part { name: "label3"; type: TEXT; mouse_events: 0;

@@ -9,7 +9,7 @@
 
 group { "efl/border"; data.item: "version" "123";
    images.image: "vgrad_med_lighter.png" COMP;
-   images.image: "vgrad_med_dark.png" COMP;
+   images.image: "vgrad_med_dark_color.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    images.image: "bevel_dark_out.png" COMP;
@@ -219,7 +219,7 @@ group { "efl/border"; data.item: "version" "123";
          }
          desc { "focused";
             inherit: "default";
-            image.normal: "vgrad_med_dark.png";
+            image.normal: "vgrad_med_dark_color.png";
             color_class: "border_frame_active";
          }
       }
