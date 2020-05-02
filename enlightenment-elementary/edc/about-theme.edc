@@ -2,13 +2,21 @@ group { name: "e/theme/about";
    // data.item: "borderless" "1";
    // data.item: "shaped" "1";
    images.image: "bevel_dark_out.png" COMP;
+   images.image: "e_about_background.jpg" COMP;
    images.image: "screen_circular_shadow.png" COMP;
    images.image: "button_normal.png" COMP;
    images.image: "button_clicked.png" COMP;
    styles {
       style { name: "about_theme_style";
-         base: "font=Megrim font_size=10 align=center text_class=tb_plain color=#ffff style=shadow,bottom shadow_color=#00000080 wrap=word";
-         tag: "hilight" "+ font=Megrim text_class=tb_light style=glow color=#3399ffff glow_color=#3399ff18 align=center glow2_color=#3399ff12";
+         base: "font=Megrim font_size=10 align=center text_class=tb_plain color=#7993a0af style=shadow,bottom shadow_color=#00000080 wrap=word";
+         tag: "hilight" "+ font=Megrim text_class=tb_light style=glow color=#244a57ff glow_color=#244a5718 align=center glow2_color=#244a5712";
+         tag: "title" "+ font_size=16 font=Megrim text_class=tb_big";
+         tag: "/title" "- \n \n";
+         tag: "br" "\n";
+      }
+      style { name: "about_theme_style_left";
+         base: "font=Megrim font_size=12 align=left text_class=tb_plain color=#7993a08f style=shadow,bottom shadow_color=#00000080 wrap=word";
+         tag: "hilight" "+ font=Megrim text_class=tb_light style=glow color=#244a57ff glow_color=#244a5718 align=left glow2_color=#244a5712";
          tag: "title" "+ font_size=16 font=Megrim text_class=tb_big";
          tag: "/title" "- \n \n";
          tag: "br" "\n";
@@ -23,26 +31,35 @@ group { name: "e/theme/about";
             min: 220 220;
          }
       }
-      part { name: "bg";
+      /*part { name: "bg";
          description { state: "default" 0.0;
             image.normal: "bg_radgrad.png";
             image.scale_hint: STATIC;
             fill.smooth: 0;
             ASPECT_FILL((1024/653))
-         }
+         }*/
+     part { name: "bg";
+        description { state: "default" 0.0;
+           image.normal: "e_about_background.jpg";
+           image.scale_hint: STATIC;
+           fill.smooth: 0;
+           ASPECT_FILL((1024/653))
+        }
       }
       part { name: "name"; type: TEXT; mouse_events: 0;
-         //effect: GLOW;
-         //scale: 1;
+         effect: GLOW;
+         scale: 1;
          description { state: "default" 0.0;
             fixed: 1 1;
-            color: FN_COL_HIGHLIGHT;
-            rel1.relative: 0.5 0.3;
-            rel2.relative: 0.5 0.5;
-            text { font: "Megrim"; size: 30;
+            color: 215 221 222 64;
+            color2: 255 255 255 12;
+            color3: 255 255 255 64;
+            rel1.relative: 0.55 0.20;
+            rel2.relative: 0.85 0.5;
+            text { font: "Megrim"; size: 32;
                text: "Ice";
-               min: 1 1;
-               align: 0.8 0.1;
+               align: 0.0 1.0;
+               text_class: "list_item";
             }
          }
       }
@@ -51,22 +68,34 @@ group { name: "e/theme/about";
          description { state: "default" 0.0;
             fixed: 1 1;
             max: 20000 20000;
-            min: 160 0;
-            rel1.relative: 0.0 1.1;
-            rel1.to: "name";
-            rel2.relative: 0.0 1.1;
-            rel2.to: "name";
-            align: 0.5 1.0;
+            min: 200 0;
+            rel1.relative: 0.0 0.6;
+            rel2.relative: 1.0 0.8;
+            align: 0.0 1.0;
             text {style: "about_theme_style";
                min: 0 1;
                align: 0.0 1.0;
-               text: "Beyond the Dark <br>"
+               text: "Wallpaper by <hilight>SiriusLee</> https://wall.alphacoders.com/big.php?i=963675<br>"
+               "Soundtrack: <hilight>https://www.youtube.com/watch?v=tlWGioCioCQ</>";
+            }
+         }
+      }
+      part { name: "name3"; type: TEXTBLOCK; mouse_events: 0;
+         scale:1;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            max: 20000 20000;
+            min: 160 0;
+            rel1.relative: 0.1 0.1;
+            rel2.relative: 0.1 0.2;
+            align: 0.1 0.2;
+            text {style: "about_theme_style_left";
+               min: 0 1;
+               align: 0.0 0.5;
+               text: "Beyond the dark <br>"
                "It Crests the oceans waves<br>"
                "A majestic ark<br>"
-               "Drifting through the haze<br>"
-               "<br><br><br><br><br>"
-               "Wallpaper by SiriusLee https://wall.alphacoders.com/big.php?i=963675<br>"
-               "Soundtrack: https://www.youtube.com/watch?v=tlWGioCioCQ";
+               "Drifting through the haze<br>";
             }
          }
       }
