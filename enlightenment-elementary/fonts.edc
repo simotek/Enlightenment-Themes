@@ -1,25 +1,25 @@
-/*fonts {
-   font: "PT_Sans-Web-Regular.ttf" "PTSans";
-   font: "PT_Sans-Web-Bold.ttf" "PTSans-Bold";
-   font: "PT_Sans-Web-Italic.ttf" "PTSans-Italic";
-   font: "PT_Sans-Web-BoldItalic.ttf" "PTSans-BoldItalic";
+fonts {
+   font: "Beon-Regular.otf" "Beon";
+   font: "Pinnacle-Regular.otf" "Pinnacle";
+   font: "Pinnacle-RegularOblique.otf" "Pinnacle-Italic";
 }
 
+/*
 #define FN     "PTSans"
 #define FNBD   "PTSans-Bold"
 #define FNIT   "PTSans-Italic"
 #define FNBDIT "PTSans-BoldItalic"
 */
-#define FN     "Sans"
-#define FNBD   "Sans:style=Bold"
-#define FNIT   "Sans:style=Oblique"
-#define FNBDIT "Sans:style=Bold Italic"
+#define FN     "Pinnacle:style=Regular"
+#define FNBD   "Beon:style=Regular"
+#define FNIT   "Pinnacle:style=Regular Oblique"
+#define FNBDIT "Beon:style=Regular"
 
 #define FN_COL_DEFAULT_BASIC 255 255 255 255
 /* fonts.edc not sure if this one is neccesary */
 #define FN_COL_DEFAULT 255 255 255 255; color3: 0 0 0 128
 #define FN_COL_DEFAULT_SOFT_SHADOW 255 255 255 255; color3: 0 0 0 18
-#define FN_COL_HIGHLIGHT 51 153 255 255; color2: 51 153 255 24; color3: 51 153 255 18
+#define FN_COL_HIGHLIGHT 160 242 66 255; color2: 51 153 255 64; color3: 51 153 255 32
 #define FN_COL_HIGHLIGHT_CLICKED 201 201 201 255; color2: 51 153 255 64; color3: 51 153 255 32
 #define FN_COL_HIGHLIGHT_DISABLE 201 201 201 64; color2: 51 153 255 16; color3: 51 153 255 8
 /* In some theme's the Highlight color might be used as a selection color

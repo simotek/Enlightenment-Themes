@@ -17,11 +17,11 @@ color_classes {
 
 // wm
    color_class { name: "border_title";
-      color: FN_COL_DISABLE;
+      color: FN_COL_DEFAULT;
       desc: "Title of an inactive window frame";
    }
    color_class { name: "border_title_active";
-      color: FN_COL_DEFAULT_SOFT_SHADOW;
+      color: FN_COL_HIGHLIGHT;
       desc: "Title of an active window frame";
    }
    color_class { name: "border_frame";
@@ -49,7 +49,7 @@ color_classes {
       desc: "Base color of a menu";
    }
    color_class { name: "menu_title";
-      color: FN_COL_DISABLE;
+      color: FN_COL_HIGHLIGHT;
       desc: "Title text of a menu";
    }
    color_class { name: "menu_item";

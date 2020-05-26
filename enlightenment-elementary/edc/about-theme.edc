@@ -30,7 +30,7 @@ group { name: "e/theme/about";
             color: FN_COL_HIGHLIGHT;
             rel1.relative: 0.5 0.5;
             rel2.relative: 0.5 0.5;
-            text { font: FNBD; size: 64;
+            text { font: "Beon"; size: 64;
                text: "Dark";
                min: 1 1;
                ellipsis: -1;
