@@ -148,6 +148,7 @@ for icon in $(cat darkmod-fdo-icon-recolor.txt); do
   done
 done
 
+mkdir -p "build/icons/"
 if [ -d "build/icons/$THEME_NAME-icons" ]; then rm -Rf build/icons/$THEME_NAME-icons; fi
 cp -r $ELM_ENLIGHT_THEME_PATH/fdo build/icons/$THEME_NAME-icons
 sed -i "s/Enlightenment-X/$THEME_NAME-e-X/g" "build/icons/$THEME_NAME-icons/index.theme"
@@ -279,7 +280,8 @@ success "    Finished Writing .edc"
 
 
 inform "Creating theme"
-edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -fd fnt -sd snd default-dm.edc $ELM_ENLIGHT_AUTHORS $ELM_ENLIGHT_LICENSE $THEME_NAME.edj
+../build/e
+edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -fd fnt -sd snd default-dm.edc $ELM_ENLIGHT_AUTHORS $ELM_ENLIGHT_LICENSE ../build/e/$THEME_NAME.edj
 
 report_on_error mv -v img-bak img
 report_on_error mv -v img-manual-bak/* img-manual-convd
@@ -432,6 +434,7 @@ if [ $DKMD_EPKG != 1 ]; then
         fi
 
     done
+    mkdir -p ../build/term
     edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -sd sounds default-dm.edc $TERMINOLOGY_LICENSE $TERMINOLOGY_AUTHORS ../build/term/$THEME_NAME.edj
 
     report_on_error mv -v img-bak images
