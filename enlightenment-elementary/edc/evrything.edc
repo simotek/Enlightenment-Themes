@@ -4,6 +4,17 @@ group { name: "e/modules/everything/main";
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    parts {
+      part { name: "foo";
+         scale: 1;
+         description { state: "default" 0.0;
+            min: 320 192;
+            rel1.to_y: "base";
+            rel1.offset: 0 0;
+            rel1.relative: 0.0 1.0;
+            image.normal: "e_everything_bottom.png";
+            image.border: 8 8 0 8;
+         }
+      }
       part { name: "list"; type: GROUP;
          source: "e/modules/everything/list";
          scale: 1;
@@ -17,7 +28,7 @@ group { name: "e/modules/everything/main";
       part { name: "base";
          description { state: "default" 0.0;
             image.normal: "e_everything_top.png";
-            image.border: 8 8 0 8;
+            image.border: 8 8 2 8;
             min: 320 64;
             rel2.relative: 1.0 0.0;
             align: 0.5 0.0;
@@ -323,6 +334,7 @@ group { name: "e/modules/everything/list";
             min: 32 28;
             image.normal: "e_everything_bottom.png";
             image.border: 8 8 0 8;
+            hid;
          }
       }
       part { name: "e.text.label"; type: TEXT;
@@ -594,7 +606,8 @@ group { name: "e/modules/everything/tab_item";
          scale: 1;
          description { state: "default" 0.0;
             min: 80 10;
-            rel2.offset: 0 1;
+            rel1.offset: 4 0;
+            rel2.offset: -4 -2;
             image.normal: "list_even_lr.png";
             image.border: 1 1 0 0;
             visible: 0;
