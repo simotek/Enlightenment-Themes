@@ -441,4 +441,4 @@ popd
 fi
 fi
 
-# TBD: copy back to current dir, and to .e file
+success "Completed at: " $(date)
