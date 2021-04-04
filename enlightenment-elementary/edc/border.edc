@@ -611,6 +611,18 @@ group {
    }
    programs {
       program {
+         signal: "e,version,22"; source: "e";
+         script {
+            set_pointer_mode(PART:"e.event.titlebar", 1);
+            set_pointer_mode(PART:"e.event.resize.tl", 1);
+            set_pointer_mode(PART:"e.event.resize.t", 1);
+            set_pointer_mode(PART:"e.event.resize.tr", 1);
+            set_pointer_mode(PART:"e.event.resize.bl", 1);
+            set_pointer_mode(PART:"e.event.resize.b", 1);
+            set_pointer_mode(PART:"e.event.resize.br", 1);
+         }
+      }
+      program {
          signal: "e,state,focused"; source: "e";
          action: STATE_SET "active" 0.0;
          target: "title_bar";
@@ -723,6 +735,8 @@ group { name: "e/widgets/border/dialog/border";
          insert_after: "top";
          description { state: "default";
             source: "top";
+            proxy.source_clip: 0;
+            proxy.source_visible: 0;
             rel1.to: "top";
             rel2.to: "top";
             fill.smooth: 0;
