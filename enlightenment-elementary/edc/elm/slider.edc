@@ -624,7 +624,6 @@ group { name: "elm/slider/horizontal/indicator/default";
    alias: "elm/slider/horizontal/indicator/media_player/position/flush";
    alias: "elm/slider/horizontal/indicator/media_player/volume/default";
    alias: "elm/slider/horizontal/indicator/media_player/volume/flush";
-   images.image: "darken_rounded_square.png" COMP;
    parts {
       part { name: "base"; type: SPACER;
          scale: 1;
@@ -1323,7 +1322,6 @@ group { name: "elm/slider/vertical/indicator/default";
    alias: "elm/slider/vertical/indicator/media_player/position/flush";
    alias: "elm/slider/vertical/indicator/media_player/volume/default";
    alias: "elm/slider/vertical/indicator/media_player/volume/flush";
-   images.image: "darken_rounded_square.png" COMP;
    parts {
       part { name: "base"; type: SPACER;
          scale: 1;
