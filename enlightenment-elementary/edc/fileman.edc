@@ -394,7 +394,7 @@ group { name: "e/fileman/default/icon/fixed";
    images.image: "sym_icon_op_ask.png" COMP;
    images.image: "sym_icon_op_copy.png" COMP;
    images.image: "sym_icon_op_move.png" COMP;
-   images.image: "suface.png" COMP;
+   images.image: "e_surface.png" COMP;
    styles {
       style { name: "fileman_icon_name";
          base: "font="FN" font_size=10 text_class=fileman_icon align=center color=#ffffffff wrap=mixed style=shadow,bottom shadow_color=#00000080 align=center ellipsis=1.0";
