@@ -98,8 +98,60 @@ part { name: NAME; type: TYPE;                           \
 }
 images {
    image: "e_surface.png" COMP;
+<<<<<<< HEAD
+   //image: "e17_button_detail_close.png" COMP;
+   //image: "e17_button_detail_maximize.png" COMP;
+   //image: "e17_button_detail_minimize.png" COMP;
+   //image: "e17_button_detail_close_over.png" COMP;
+   //image: "e17_button_detail_maximize_over.png" COMP;
+   //image: "e17_button_detail_minimize_over.png" COMP;
+   //image: "e17_button_detail_shade.png" COMP;
+   //image: "e17_button_detail_stick.png" COMP;
+   //image: "e17_button_detail_locks.png" COMP;
+   //image: "e17_button_detail_locks_user.png" COMP;
+   //image: "e17_button_detail_locks_application.png" COMP;
+   //image: "e17_button_detail_borderless.png" COMP;
+   //image: "e17_button_detail_remember.png" COMP;
+   //image: "e17_button_detail_skip_winlist.png" COMP;
+   //image: "e17_button_detail_fullscreen.png" COMP;
+   //image: "e17_button_detail_sendto.png" COMP;
+   //image: "e17_button_detail_kill.png" COMP;
+   //image: "e17_button_detail_stacking.png" COMP;
+   //image: "e17_button_detail_stack_below.png" COMP;
+   //image: "e17_button_detail_stack_normal.png" COMP;
+   //image: "e17_button_detail_stack_on_top.png" COMP;
+   //image: "e17_button_detail_properties.png" COMP;
+   //image: "e17_button_detail_skip.png" COMP;
+   //image: "e17_button_detail_skip_pager.png" COMP;
+   //imageyear te: "e17_mini_button.png" COMP;
+   image: "e17_border1b.png" COMP;
+   image: "e17_border6b.png" COMP;
+=======
+   image: "e_button_detail_close.png" COMP;
+   image: "e_button_detail_maximize.png" COMP;
+   image: "e_button_detail_minimize.png" COMP;
+   image: "e_button_detail_shade.png" COMP;
+   image: "e_button_detail_stick.png" COMP;
+   image: "e_button_detail_locks.png" COMP;
+   image: "e_button_detail_locks_user.png" COMP;
+   image: "e_button_detail_locks_application.png" COMP;
+   image: "e_button_detail_borderless.png" COMP;
+   image: "e_button_detail_remember.png" COMP;
+   image: "e_button_detail_skip_winlist.png" COMP;
+   image: "e_button_detail_fullscreen.png" COMP;
+   image: "e_button_detail_sendto.png" COMP;
+   image: "e_button_detail_kill.png" COMP;
+   image: "e_button_detail_stacking.png" COMP;
+   image: "e_button_detail_stack_below.png" COMP;
+   image: "e_button_detail_stack_normal.png" COMP;
+   image: "e_button_detail_stack_on_top.png" COMP;
+   image: "e_button_detail_properties.png" COMP;
+   image: "e_button_detail_skip.png" COMP;
+   image: "e_button_detail_skip_pager.png" COMP;
+   image: "e_mini_button.png" COMP;
    image: "e_border1b.png" COMP;
    image: "e_border6b.png" COMP;
+>>>>>>> vtx
    image: "sym_close_normal.png" COMP;
    image: "sym_minimize_normal.png" COMP;
    image: "sym_maximize_normal.png" COMP;
