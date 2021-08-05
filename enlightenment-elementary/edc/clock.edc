@@ -366,7 +366,7 @@ group { name: "e/modules/clock/digital";
       description { state: "active" 0.0; \
          inherit: "default" 0.0; \
          image.normal: "O/digit_pm.png"; \
-         color: WIN_COL_HIGHLIGHT;
+         color: WIN_COL_HIGHLIGHT; \
       } \
    }
 #define BASE(_NAME, _BASE, _IMG) \
@@ -783,8 +783,7 @@ group { name: "e/modules/clock/main";
       }
    }
    programs {
-      program {
-         program { signal: "load"; source: "";
+      program { signal: "load"; source: "";
          script {
             clock_cb(0);
          }
