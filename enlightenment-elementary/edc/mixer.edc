@@ -1,6 +1,4 @@
 group { name: "e/modules/mixer/main";
-   alias: "e/gadget/mixer/main";
-   alias: "e/gadget/mixer/main_vert";
    images.image: "speaker.png" COMP;
    images.image: "inset_round_hilight.png" COMP;
    images.image: "inset_round_shadow.png" COMP;
@@ -16,13 +14,13 @@ group { name: "e/modules/mixer/main";
             m = getarg(2);
             l = getarg(3);
             r = getarg(4);
-            
+
             if (m) {
                run_program(PROGRAM:"mute");
             } else {
                run_program(PROGRAM:"unmute");
             }
-            
+
             if (l <= 0) {
                run_program(PROGRAM:"l0-off");
                run_program(PROGRAM:"l1-off");
@@ -225,5 +223,3 @@ group { name: "e/modules/mixer/main";
 #undef PROG
    }
 }
-
-

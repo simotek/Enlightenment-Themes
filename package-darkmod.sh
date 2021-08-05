@@ -22,6 +22,8 @@ cp darkmod-fdo-icon-recolor.txt "$E_THEME_PKG_DIR/darkmod-fdo-icon-recolor.txt"
 cp darkmod-util.sh "$E_THEME_PKG_DIR/darkmod-util.sh"
 cp README.md "$E_THEME_PKG_DIR/README.md"
 
+
+
 rm "build/pkg/$E_THEME_PKG_DIR.tar.xz"
 tar cfJ "build/pkg/$E_THEME_PKG_DIR.tar.xz" $E_THEME_PKG_DIR
 

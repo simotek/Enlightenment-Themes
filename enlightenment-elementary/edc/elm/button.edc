@@ -1,6 +1,8 @@
 group { name: "elm/button/base/default";
    alias: "elm/button/base/naviframe/back_btn/default";
    alias: "elm/button/base/naviframe/back_btn/pager";
+   alias: "elm/button/base/blank";
+   alias: "elm/button/base/overlay";
    images.image: "button_normal.png" COMP;
    images.image: "button_clicked.png" COMP;
 #define ICON     1
@@ -832,7 +834,7 @@ group { name: "elm/button/base/media_player/prev/default";
    alias: "elm/button/base/media_player/eject/flush";
    alias: "elm/button/base/media_player/volume/flush";
    alias: "elm/button/base/media_player/mute/flush";
-   
+
    images.image: "shadow_inset_bevels.png" COMP;
    images.image: "shadow_angled_in_sides.png" COMP;
    parts {
@@ -906,7 +908,7 @@ group { name: "elm/button/base/hoversel_vertical/default";
    alias: "elm/button/base/hoversel_horizontal/entry";
 
    images.image: "vertical_separated_bar_glow.png" COMP;
-   
+
    parts {
       text { "elm.text";
          desc { "default";
