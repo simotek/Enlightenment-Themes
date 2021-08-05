@@ -75,7 +75,6 @@ collections {
 #include "edc/elm/hover.edc"
 #include "edc/elm/cursor.edc"
 #include "edc/elm/code.edc"
-#include "edc/elm/ews.edc"
 #include "edc/elm/textpath.edc"
 
 
@@ -85,8 +84,6 @@ collections {
 #include "edc/comp_compat.edc"
 #include "edc/comp_effects.edc"
 #include "edc/background.edc"
-#include "edc/bryce.edc"
-#include "edc/bryce_editor.edc"
 #include "edc/shelf.edc"
 #include "edc/border.edc"
 #include "edc/dialog.edc"
@@ -146,17 +143,10 @@ collections {
 #include "edc/backlight.edc"
 #include "edc/mixer.edc"
 #include "edc/battery.edc"
-#include "edc/batman.edc"
 #include "edc/evrything.edc"
 #include "edc/illume.edc"
 #include "edc/bluez4.edc"
 #include "edc/packagekit.edc"
-#include "edc/wireless.edc"
-#include "edc/time.edc"
-#include "edc/luncher.edc"
-#include "edc/memusage.edc"
-#include "edc/cpumonitor.edc"
-#include "edc/netstatus.edc"
 
 // icons
 #include "edc/icons.edc"

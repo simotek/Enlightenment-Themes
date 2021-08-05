@@ -1,6 +1,4 @@
 group { name: "e/modules/cpufreq/main";
-   alias: "e/gadget/cpuclock/main";
-   alias: "e/gadget/cpuclock/main_vert";
    images.image: "tacho_base.png" COMP;
    images.image: "inset_round_hilight.png" COMP;
    images.image: "inset_round_shadow.png" COMP;
@@ -35,30 +33,30 @@ group { name: "e/modules/cpufreq/main";
    script {
       public available_frequencies;
       public available_governors;
-      
+
       public cur_freq_old;
       public cur_freq_new;
       public cur_freq_now;
       public cur_freq_anim;
-      
+
       public min_freq_old;
       public min_freq_new;
       public min_freq_now;
-      
+
       public max_freq_old;
       public max_freq_new;
       public max_freq_now;
-      
+
       public slide_cur_freq(val, Float:v) {
          new Float:freq, Float:min_freq, Float:max_freq, Float:tf;
          new f, f0, f1;
-         
+
          v = (1.0 - cos(v * 3.141592654)) / 2.0;
-         
+
          min_freq = fetch_int(available_frequencies, 0);
          max_freq = fetch_int(available_frequencies,
                               count(available_frequencies) - 1);
-         
+
          f0 = get_int(cur_freq_old);
          f1 = get_int(cur_freq_new);
          f = f1 - f0;
@@ -66,7 +64,7 @@ group { name: "e/modules/cpufreq/main";
          f = round(freq);
          f = f + f0;
          set_int(cur_freq_now, f);
-         
+
          freq = (float(f) - min_freq) / (max_freq - min_freq);
          tf = (freq * 225.0) - 135.0;
          custom_state(PART:"meter", "default", 0.0);
@@ -75,7 +73,7 @@ group { name: "e/modules/cpufreq/main";
          custom_state(PART:"meter_sh", "default", 0.0);
          set_state_val(PART:"meter_sh", STATE_MAP_ROT_Z, tf);
          set_state(PART:"meter_sh", "custom", 0.0);
-         
+
          f0 = get_int(min_freq_old);
          f1 = get_int(min_freq_new);
          f = f1 - f0;
@@ -83,7 +81,7 @@ group { name: "e/modules/cpufreq/main";
          f = round(freq);
          f = f + f0;
          set_int(min_freq_now, f);
-         
+
          freq = (float(f) - min_freq) / (max_freq - min_freq);
          tf = (freq * 225.0) - 135.0;
          custom_state(PART:"meter_min", "default", 0.0);
@@ -92,7 +90,7 @@ group { name: "e/modules/cpufreq/main";
          custom_state(PART:"meter_min_sh", "default", 0.0);
          set_state_val(PART:"meter_min_sh", STATE_MAP_ROT_Z, tf);
          set_state(PART:"meter_min_sh", "custom", 0.0);
-         
+
          f0 = get_int(max_freq_old);
          f1 = get_int(max_freq_new);
          f = f1 - f0;
@@ -100,7 +98,7 @@ group { name: "e/modules/cpufreq/main";
          f = round(freq);
          f = f + f0;
          set_int(max_freq_now, f);
-         
+
          freq = (float(f) - min_freq) / (max_freq - min_freq);
          tf = (freq * 225.0) - 135.0;
          custom_state(PART:"meter_max", "default", 0.0);
@@ -109,14 +107,14 @@ group { name: "e/modules/cpufreq/main";
          custom_state(PART:"meter_max_sh", "default", 0.0);
          set_state_val(PART:"meter_max_sh", STATE_MAP_ROT_Z, tf);
          set_state(PART:"meter_max_sh", "custom", 0.0);
-         
+
          if (v >= 1.0) {
             set_int(cur_freq_anim, 0);
             return 0;
          }
          return 1;
       }
-      
+
       public message(Msg_Type:type, id, ...) {
          if ((type == MSG_INT_SET) && (id == 1)) { // add an available freq
             while (count(available_frequencies) > 0) {
@@ -125,7 +123,7 @@ group { name: "e/modules/cpufreq/main";
             for (new i = 2; i < numargs(); i++) {
                append_int(available_frequencies, getarg(i));
             }
-         } 
+         }
          else if ((type == MSG_STRING_SET) && (id == 2)) { // add a governor
             new text[100];
             while (count(available_governors) > 0) {
@@ -139,8 +137,8 @@ group { name: "e/modules/cpufreq/main";
             new f;
             new ani, curf, minf, maxf;
             new text[100];
-            
-            f = getarg(2);              
+
+            f = getarg(2);
             if (f < 1000000) {
                f += 500;
                snprintf(text, 100, "%i", f / 1000);
@@ -150,22 +148,22 @@ group { name: "e/modules/cpufreq/main";
                         (f % 1000000) / 100000);
             }
             set_text(PART:"readout", text);
-            
+
             ani = get_int(cur_freq_anim);
             if (ani > 0) cancel_anim(ani);
             ani = anim(0.25, "slide_cur_freq", 0);
             set_int(cur_freq_anim, ani);
-            
+
             f = getarg(2);
             curf = get_int(cur_freq_now);
             set_int(cur_freq_old, curf);
             set_int(cur_freq_new, f);
-            
+
             f = getarg(4);
             minf = get_int(min_freq_now);
             set_int(min_freq_old, minf);
             set_int(min_freq_new, f);
-            
+
             f = getarg(5);
             maxf = get_int(max_freq_now);
             set_int(max_freq_old, maxf);
@@ -351,19 +349,3 @@ group { name: "e/modules/cpufreq/main";
       }
    }
 }
-
-group { name: "e/gadget/cpuclock/main";
-   alias: "e/gadget/cpuclock/main_vert";
-   inherit: "e/modules/cpufreq/main";
-   parts {
-      part { name: "readout"; type: TEXT; mouse_events: 0;
-         scale: 1;
-         effect: SHADOW BOTTOM;
-         clip_to: "fade_clip";
-         description { state: "default" 0.0;
-            visible: 0;
-         }
-      }
-   }
-}
-
