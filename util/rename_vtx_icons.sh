@@ -1,0 +1,47 @@
+#!/bin/bash
+
+mv e17_border1b.png e_border1b.png
+mv e17_button_detail_maximize.png e_button_detail_maximize.png
+mv e17_button_detail_skip_winlist.png e_button_detail_skip_winlist.png
+mv e17_border6b.png e_border6b.png
+mv e17_button_detail_minimize.png e_button_detail_minimize.png
+mv e17_button_detail_stack_below.png e_button_detail_stack_below.png
+mv e17_button_detail_arrange_name.png e_button_detail_arrange_name.png
+mv e17_button_detail_new_dir.png e_button_detail_new_dir.png
+mv e17_button_detail_stacking.png e_button_detail_stacking.png
+mv e17_button_detail_arrange.png e_button_detail_arrange.png
+mv e17_button_detail_new.png e_button_detail_new.png
+mv e17_button_detail_stack_normal.png e_button_detail_stack_normal.png
+mv e17_button_detail_arrange_time.png e_button_detail_arrange_time.png
+mv e17_button_detail_open.png e_button_detail_open.png
+mv e17_button_detail_stack_on_top.png e_button_detail_stack_on_top.png
+mv e17_button_detail_borderless.png e_button_detail_borderless.png
+mv e17_button_detail_paste.png e_button_detail_paste.png
+mv e17_button_detail_stick.png e_button_detail_stick.png
+mv e17_button_detail_close.png e_button_detail_close.png
+mv e17_button_detail_properties.png e_button_detail_properties.png
+mv e17_button_detail_view_details.png e_button_detail_view_details.png
+mv e17_button_detail_copy.png e_button_detail_copy.png
+mv e17_button_detail_refresh.png e_button_detail_refresh.png
+mv e17_button_detail_view_name.png e_button_detail_view_name.png
+mv e17_button_detail_cut.png e_button_detail_cut.png
+mv e17_button_detail_remember.png e_button_detail_remember.png
+mv e17_button_detail_view.png e_button_detail_view.png
+mv e17_button_detail_delete.png e_button_detail_delete.png
+mv e17_button_detail_rename.png e_button_detail_rename.png
+mv e17_button_sm2.png e_button_sm2.png
+mv e17_button_detail_fullscreen.png e_button_detail_fullscreen.png
+mv e17_button_detail_select.png e_button_detail_select.png
+mv e17_button_sm2_urgent.png e_button_sm2_urgent.png
+mv e17_button_detail_kill.png e_button_detail_kill.png
+mv e17_button_detail_sendto.png e_button_detail_sendto.png
+mv e17_button_sm_disabled.png e_button_sm_disabled.png
+mv e17_button_detail_locks_application.png e_button_detail_locks_application.png
+mv e17_button_detail_shade.png e_button_detail_shade.png
+mv e17_button_sm.png e_button_sm.png
+mv e17_button_detail_locks.png e_button_detail_locks.png
+mv e17_button_detail_skip_pager.png e_button_detail_skip_pager.png
+mv e17_mini_button.png e_mini_button.png
+mv e17_button_detail_locks_user.png e_button_detail_locks_user.png
+mv e17_button_detail_skip.png e_button_detail_skip.png
+
