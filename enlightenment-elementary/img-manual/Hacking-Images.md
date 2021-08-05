@@ -14,3 +14,30 @@ Hacking Images
 | tasks_selected.png | Selected item in tasks, can be a copy of e_item_selected
 | menu_selected.png | Selected item in menu, can be a copy of e_item_selected
 | menu_background.png | Background of menu
+
+Various Icons
+-------------
+e_button_detail_close.png
+e_button_detail_maximize.png
+e_button_detail_minimize.png
+e_button_detail_shade.png
+e_button_detail_stick.png
+e_button_detail_locks.png
+e_button_detail_locks_user.png
+e_button_detail_locks_application.png
+e_button_detail_borderless.png
+e_button_detail_remember.png
+e_button_detail_skip_winlist.png
+e_button_detail_fullscreen.png
+e_button_detail_sendto.png
+e_button_detail_kill.png
+e_button_detail_stacking.png
+e_button_detail_stack_below.png
+e_button_detail_stack_normal.png
+e_button_detail_stack_on_top.png
+e_button_detail_properties.png
+e_button_detail_skip.png
+e_button_detail_skip_pager.png
+e_mini_button.png
+e_border1b.png
+e_border6b.png
