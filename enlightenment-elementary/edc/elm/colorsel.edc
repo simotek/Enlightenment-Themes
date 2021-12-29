@@ -88,7 +88,7 @@ group { name: "elm/colorselector/palette/default";
          action: STATE_SET "default" 0.0;
          target: "elm.palette";
       }
-      
+
       program {
          source: "elm"; signal: "elm,state,components";
          action: STATE_SET "off" 0.0;
@@ -96,7 +96,7 @@ group { name: "elm/colorselector/palette/default";
          target: "sep2";
          target: "elm.palette";
       }
-      
+
       program {
          source: "elm"; signal: "elm,state,both";
          action: STATE_SET "off" 0.0;
@@ -108,7 +108,7 @@ group { name: "elm/colorselector/palette/default";
          target: "elm.palette";
          target: "sep2";
       }
-      
+
       program {
          source: "elm"; signal: "elm,state,picker";
          action: STATE_SET "off" 0.0;
@@ -116,7 +116,7 @@ group { name: "elm/colorselector/palette/default";
          target: "sep2";
          target: "elm.palette";
       }
-      
+
       program {
          source: "elm"; signal: "elm,state,all";
          action: STATE_SET "default" 0.0;
@@ -497,6 +497,13 @@ group { name: "elm/colorselector/base/default";
             rel1.to: "elm.arrow_icon";
             rel2.to: "elm.arrow_icon";
          }
+      }
+      part { name: "arrow_event"; type: RECT;
+         description { state: "default" 0.0;
+            rel.to: "elm.arrow_icon";
+            color: 0 0 0 0; // no cc
+         }
+         dragable.events: "elm.arrow";
       }
       part { name: "cursor"; type: RECT;
          description { state: "default" 0.0;
