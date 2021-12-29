@@ -641,20 +641,6 @@ group { name: "e/widgets/border/default/border";
             FIXED_SIZE(69, 5)
          }
       }
-     part { name: "e.swallow.volume";
-         type: SWALLOW;
-         source: "e/widgets/border/volume";
-         description { state: "default" 0.0;
-            fixed: 1 0;
-            rel1.to: "e.event.icon";
-            rel1.relative: 1.0 0.0;
-            rel2.to: "e.event.icon";
-            rel2.relative: 1.0 1.0;
-            rel2.offset: 0 -1;
-            align: 0.0 0.5;
-            aspect: 1.0 1.0; aspect_preference: VERTICAL;
-         }
-      }
      part { name: "procstats";
          type: RECT;
          repeat_events: 1;
@@ -669,6 +655,20 @@ group { name: "e/widgets/border/default/border";
             align: 0.0 0.5;
             aspect: 1.0 1.0; aspect_preference: VERTICAL;
          }
+         part { name: "e.swallow.volume";
+             type: SWALLOW;
+             source: "e/widgets/border/volume";
+             description { state: "default" 0.0;
+                fixed: 1 0;
+                rel1.to: "e.event.icon";
+                rel1.relative: 1.0 0.0;
+                rel2.to: "e.event.icon";
+                rel2.relative: 1.0 1.0;
+                rel2.offset: 0 -1;
+                align: 0.0 0.5;
+                aspect: 1.0 1.0; aspect_preference: VERTICAL;
+             }
+          }
      }
      part { name: "e.procstats.swallow"; type: SWALLOW;
          scale: 1.0;
