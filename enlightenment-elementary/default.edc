@@ -147,6 +147,7 @@ collections {
 #include "edc/illume.edc"
 #include "edc/bluez4.edc"
 #include "edc/packagekit.edc"
+#include "edc/tiling.edc"
 #include "edc/procstats.edc"
 
 // icons
