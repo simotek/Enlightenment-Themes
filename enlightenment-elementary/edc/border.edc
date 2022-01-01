@@ -390,6 +390,60 @@ group {
             fill.smooth: 0;
          }
       }
+      part { name: "busy_clip"; type: RECT; mouse_events: 0;
+         description { state: "default" 0.0;
+            color: 255 255 255 0;
+            visible: 0;
+         }
+         description { state: "hung" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+            visible: 1;
+         }
+      }
+      part { name: "knob"; mouse_events: 0;
+         clip_to: "busy_clip";
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            image.normal: "knob_round_small_busy.png";
+            aspect: 1.0 1.0; aspect_preference: VERTICAL;
+            max: 20 20;
+            rel1.relative: 1.0 0.0;
+            rel1.offset: 2 -0;
+            rel1.to: "e.event.icon";
+            rel2.relative: 1.0 1.0;
+            rel2.offset: 2 -1;
+            rel2.to: "e.event.icon";
+            align: 0.0 0.5;
+            fixed: 1 1;
+         }
+      }
+      part { name: "knob_spinner"; mouse_events: 0;
+         clip_to: "busy_clip";
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.to: "knob";
+            rel2.to: "knob";
+            image.normal: "glow_round_corners_small.png";
+            map.on: 1;
+            map.smooth: 1;
+            map.rotation.center: "knob";
+         }
+         description { state: "spin" 0.0;
+            inherit: "default" 0.0;
+            map.rotation.z: 360;
+         }
+      }
+      part { name: "clip1"; type: RECT; mouse_events: 0;
+         description { state: "default" 0.0;
+            rel1.to: "top";
+            rel2.to: "top";
+         }
+         description { state: "focused" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
+      }
       part { name: "title_bar"; mouse_events: 0;
          description { state: "default" 0.0;
             visible: 0;
@@ -467,6 +521,22 @@ group {
             rel2.relative: 1.0 1.0;
             rel2.offset: -2 -3;
             rel2.to: "t1";
+         }
+      }
+      part { name: "icon"; type: SPACER;
+         description { state: "default" 0.0;
+            rel1.to: "e.event.icon";
+            rel2.to: "e.event.icon";
+         }
+         description { state: "bounce1" 0.0;
+            inherit: "default" 0.0;
+            rel1.relative: 0.5 0.5;
+            rel2.relative: 0.5 0.5;
+         }
+         description { state: "bounce2" 0.0;
+            inherit: "default" 0.0;
+            rel1.relative: -0.5 -0.5;
+            rel2.relative: 1.2 1.2;
          }
       }
    SIMPLE_RECT("right", RECT, 1.0, 0.0, -55, 0, "whole", "whole", 1.0, 1.0, 0, 0, "whole", "t1")
@@ -584,29 +654,57 @@ group {
             color: 0 0 0 0;
         }
      }
-
-      /*part { "clip1";
-         desc { "default";
-            rel1.to: "";
-            rel1.offset: -9999 -9999;
-            rel2.to: "";
-            rel2.offset: 9999 9999;
+     part { name: "e.swallow.volume";
+         type: SWALLOW;
+         source: "e/widgets/border/volume";
+         description { state: "default" 0.0;
+            fixed: 1 0;
+            rel1.to: "e.event.icon";
+            rel1.relative: 1.0 0.0;
+            rel2.to: "e.event.icon";
+            rel2.relative: 1.0 1.0;
+            rel2.offset: 0 -1;
+            align: 0.0 0.5;
+            aspect: 1.0 1.0; aspect_preference: VERTICAL;
          }
       }
-      part { "clip2";
-         desc { "default";
-            rel1.to: "";
-            rel1.offset: -9999 -9999;
-            rel2.to: "";
-            rel2.offset: 9999 9999;
+     part { name: "procstats";
+         type: RECT;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            fixed: 1 0;
+            rel1.to: "e.swallow.volume";
+            rel1.relative: 1.0 0.0;
+            rel2.to: "e.swallow.volume";
+            rel2.relative: 1.0 1.0;
+            rel2.offset: 0.0 -1;
+            color:  128 128 128 0;
+            align: 0.0 0.5;
+            aspect: 1.0 1.0; aspect_preference: VERTICAL;
          }
-         desc { "focused";
-            rel1.to: "";
-            rel1.offset: -9999 -9999;
-            rel2.to: "";
-            rel2.offset: 9999 9999;
+     }
+     part { name: "e.procstats.swallow"; type: SWALLOW;
+         scale: 1.0;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            fixed: 1 0;
+            rel1.to: "procstats";
+            rel2.to: "procstats";
+            rel2.relative: 1.0 1.0;
+            rel2.offset: 0.0 -1;
+            align: 0.0 0.5;
+            aspect: 1.0 1.0; aspect_preference: VERTICAL;
+            visible: 0;
          }
-     }*/
+         description { state: "hidden";
+            visible: 0;
+         }
+         description { state: "visible";
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+     }
+
      // BORDER_BUTTON_ADV("close","close",0.0,0.0, 0,0,"whole", "whole",1.0,1.0,-1,5,"whole", "title2")
      BORDER_BUTTON2("maximize","maximize",0.0,0.0,3,0,"close",0.0,1.0,3,-1,"close")
      BORDER_BUTTON2("minimize","minimize",0.0,0.0,3,0,"maximize",0.0,1.0,3,-1,"maximize")
@@ -694,6 +792,77 @@ group {
          target: "b4";
          target: "b5";
       }
+      program {
+         signal: "e,state,urgent"; source: "e";
+         action: STATE_SET "bounce1" 0.0;
+         target: "icon";
+         after: "urg1";
+      }
+      program { name: "urg1";
+         action: STATE_SET "bounce2" 0.0;
+         transition: DECELERATE 0.4 USE_DURATION_FACTOR 1;
+         target: "icon";
+         after: "urg2";
+      }
+      program { name: "urg2";
+         action: STATE_SET "bounce1" 0.0;
+         transition: ACCELERATE 0.3 USE_DURATION_FACTOR 1;
+         target: "icon";
+         after: "urg1";
+      }
+      program {
+         signal: "e,state,not_urgent"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "icon";
+      }
+      program { name: "spin";
+         signal: "e,state,hung"; source: "e";
+         action: STATE_SET "spin" 0.0;
+         transition: LINEAR 1.0;
+         target: "knob_spinner";
+         after: "spin2";
+      }
+      program { name: "spin2";
+         action: STATE_SET "default" 0.0;
+         target: "knob_spinner";
+         after: "spin";
+      }
+      program {
+         signal: "e,state,hung"; source: "e";
+         action: STATE_SET "hung" 0.0;
+         transition: SINUSOIDAL 0.25;
+         target: "busy_clip";
+      }
+      program {
+         signal: "e,state,unhung"; source: "e";
+         action: STATE_SET "default" 0.0;
+         transition: SINUSOIDAL 1.0;
+         target: "busy_clip";
+         after: "spin3";
+      }
+      program { name: "spin3";
+         action: ACTION_STOP;
+         target: "spin";
+         target: "spin2";
+         after: "spin4";
+      }
+      program { name: "spin4";
+         action: STATE_SET "default" 0.0;
+         target: "knob_spinner";
+      }
+      program { signal: "e,state,procstats,on"; source: "e";
+         action: STATE_SET "visible" 0.0;
+         target: "e.procstats.swallow";
+         target: "procstats";
+         target: "e.swallow.volume";
+      }
+      program { signal: "e,state,procstats,off"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "e.procstats.swallow";
+         target: "procstats";
+         target: "e.swallow.volume";
+      }
+
 //      program {
 //         signal: "e,action,maximize"; source: "e";
 //      }
