@@ -14,6 +14,7 @@ Hacking Images
 | tasks_selected.png | Selected item in tasks, can be a copy of e_item_selected
 | menu_selected.png | Selected item in menu, can be a copy of e_item_selected
 | menu_background.png | Background of menu
+| proc_background.png | Proc Background in border, Can be a copy of e_item_selected
 
 Various Icons
 -------------
