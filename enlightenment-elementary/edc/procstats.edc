@@ -54,11 +54,12 @@ group { name: "e/modules/procstats/border";
          }
       }
    }
+   images.image: "proc_background.png" COMP;
    parts {
       part { name: "base";
          description { state: "default" 0.0;
             aspect: 1.0 1.0; aspect_preference: BOTH;
-            image.normal: "tooltip-base.png";
+            image.normal: "proc_background.png";
          }
       }
       part { name: "area"; type: SPACER;
