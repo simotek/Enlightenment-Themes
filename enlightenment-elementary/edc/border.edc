@@ -115,7 +115,6 @@ group { name: "e/widgets/border/default/border";
    images.image: "bevel_out.png" COMP;
    images.image: "shine.png" COMP;
    images.image: "bevel_dark_out.png" COMP;
-   images.image: "icon_proc.png" COMP;
    images.image: "sym_close_dark_normal.png" COMP;
    images.image: "sym_close_dark_selected.png" COMP;
    images.image: "sym_close_light_normal.png" COMP;
