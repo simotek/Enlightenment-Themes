@@ -312,12 +312,12 @@ group { name: "e/widgets/winlist/large/bg";
       part { name: "bg_clip"; type: RECT;
          description { state: "default" 0.0;
             visible: 0;
-            color: 255 255 255 0; // no cc
+            color: 16 16 16 0; // no cc
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
             visible: 1;
-            color: 255 255 255 255; // no cc
+            color: 32 32 32 64; // no cc
          }
       }
 /*
@@ -348,14 +348,14 @@ group { name: "e/widgets/winlist/large/bg";
             rel2.relative: 2.0 2.0;
             image.normal: "screen_circular_shadow.png";
             fill.smooth: 0;
-            color: 255 255 255 0; // no cc
+            color: 16 16 16 0; // no cc
             visible: 0;
          }
          description { state: "visible" 0.0;
             inherit;
             rel1.relative: 0.0 0.0;
             rel2.relative: 1.0 1.0;
-            color: 255 255 255 255; // no cc
+            color: 32 32 32 64; // no cc
             visible: 1;
          }
       }
