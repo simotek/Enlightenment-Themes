@@ -641,6 +641,39 @@ group { name: "e/widgets/border/default/border";
             FIXED_SIZE(69, 5)
          }
       }
+           part { name: "procstats"; type: RECT;
+         mouse_events: 0;
+         description { state: "default" 0.0;
+            rel1.to_x: "e.procstats.swallow";
+            rel2.to_x: "e.procstats.swallow";
+            rel1.to_y: "top";
+            rel2.to_y: "top";
+            color:  0 0 0 0; // no cc
+            visible: 0;
+         }
+         description { state: "visible";
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+      }
+      part { name: "e.procstats.swallow"; type: SWALLOW;
+         scale: 1;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            fixed: 1 0;
+            rel1.to: "e.event.icon";
+            rel1.relative: 1.0 0.0;
+            rel2.to: "e.event.icon";
+            rel2.relative: 1.0 1.0;
+            rel2.offset: 0 -1;
+            align: 0.0 0.5;
+            visible: 0;
+         }
+         description { state: "visible";
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+      }
      part { name: "e.swallow.volume";
          type: SWALLOW;
          source: "e/widgets/border/volume";
@@ -654,8 +687,15 @@ group { name: "e/widgets/border/default/border";
             align: 0.0 0.5;
             aspect: 1.0 1.0; aspect_preference: VERTICAL;
          }
+         // These are the procstats states
+         description { state: "visible";
+            inherit: "default" 0.0;
+            rel1.to: "e.procstats.swallow";
+            rel1.relative: 1.0 0.0;
+            rel2.to: "e.procstats.swallow";
+            rel2.relative: 1.0 1.0;
+         }
       }
-
    }
    programs {
       program {
@@ -706,13 +746,13 @@ group { name: "e/widgets/border/default/border";
       }
       program { name: "urg1";
          action: STATE_SET "bounce2" 0.0;
-         transition: DECELERATE 0.4;
+         transition: DECELERATE 0.4 USE_DURATION_FACTOR 1;
          target: "icon";
          after: "urg2";
       }
       program { name: "urg2";
          action: STATE_SET "bounce1" 0.0;
-         transition: ACCELERATE 0.3;
+         transition: ACCELERATE 0.3 USE_DURATION_FACTOR 1;
          target: "icon";
          after: "urg1";
       }
@@ -790,6 +830,19 @@ group { name: "e/widgets/border/default/border";
          target: "shadow";
          target: "client_clip";
       }
+      program { signal: "e,state,procstats,on"; source: "e";
+         action: STATE_SET "visible" 0.0;
+         target: "e.procstats.swallow";
+         target: "procstats";
+         target: "e.swallow.volume";
+      }
+      program { signal: "e,state,procstats,off"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "e.procstats.swallow";
+         target: "procstats";
+         target: "e.swallow.volume";
+      }
+
 //      program {
 //         signal: "e,action,maximize"; source: "e";
 //      }
@@ -865,6 +918,7 @@ group { name: "e/widgets/border/sparkle/border";
    inherit: "e/widgets/border/default/border";
    images.image: "vgrad_med_lighter_sparkle.png" COMP;
    images.image: "vgrad_med_dark_sparkle.png" COMP;
+
    script {
       public in_x, in_y, locked = 0;
    }
