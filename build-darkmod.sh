@@ -290,6 +290,8 @@ report_on_error mv -v fdo-bak fdo
 if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
   if [[ -f ../build/e/$THEME_NAME.edj ]]; then
     report_on_error install ../build/e/$THEME_NAME.edj ~/.elementary/themes
+    mkdir -p "../artifacts/bin-e"
+    cp "../build/e/$THEME_NAME.edj" "../artifacts/bin-e/"
   else
     error "build probably failed exiting"
     exit
@@ -441,6 +443,8 @@ if [ $DKMD_EPKG != 1 ]; then
 
     if [ $DKMD_TERMPKG != 1 ]; then
 	    report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
+      mkdir -p "../artifacts/bin-term"
+      cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
     fi
 popd
 fi
