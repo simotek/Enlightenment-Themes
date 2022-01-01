@@ -49,5 +49,10 @@ cp README.md "$TERM_THEME_PKG_DIR/README.md"
 rm "build/pkg/$TERM_THEME_PKG_DIR.tar.xz"
 tar cfJ "build/pkg/$TERM_THEME_PKG_DIR.tar.xz" $TERM_THEME_PKG_DIR
 
+mkdir -p "artifacts/source"
+cp "build/pkg/$E_THEME_PKG_DIR.tar.xz" "artifacts/source/"
+cp "build/pkg/$TERM_THEME_PKG_DIR.tar.xz" "artifacts/source/"
+
+
 # Kill package dir once done
 rm -rf $TERM_THEME_PKG_DIR
