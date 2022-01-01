@@ -1,4 +1,4 @@
-efl_version: 1 24;
+efl_version: 1 25;
 
 #include "macros.edc"
 
@@ -6,7 +6,7 @@ externals.external: "elm";
 
 // theme api version. from 1.10 on we will check version to avoid
 // compat issues
-data.item: "version" "124";
+data.item: "version" "125";
 data.item: "efl_theme_base" "dark";
 
 collections {
@@ -148,6 +148,8 @@ collections {
 #include "edc/illume.edc"
 #include "edc/bluez4.edc"
 #include "edc/packagekit.edc"
+#include "edc/tiling.edc"
+#include "edc/procstats.edc"
 
 // icons
 #include "edc/icons.edc"
