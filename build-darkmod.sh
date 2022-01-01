@@ -280,7 +280,7 @@ success "    Finished Writing .edc"
 
 
 inform "Creating theme"
-../build/e
+mkdir -p ../build/e
 edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -fd fnt -sd snd default-dm.edc $ELM_ENLIGHT_AUTHORS $ELM_ENLIGHT_LICENSE ../build/e/$THEME_NAME.edj
 
 report_on_error mv -v img-bak img
@@ -289,7 +289,9 @@ report_on_error rm -r fdo
 report_on_error mv -v fdo-bak fdo
 if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
   if [[ -f ../build/e/$THEME_NAME.edj ]]; then
-    report_on_error cp ../build/e/$THEME_NAME.edj ~/.elementary/themes
+    report_on_error install ../build/e/$THEME_NAME.edj ~/.elementary/themes
+    mkdir -p "../artifacts/bin-e"
+    cp "../build/e/$THEME_NAME.edj" "../artifacts/bin-e/"
   else
     error "build probably failed exiting"
     exit
@@ -434,13 +436,14 @@ if [ $DKMD_EPKG != 1 ]; then
         fi
 
     done
-    mkdir -p ../build/term
     edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -sd sounds default-dm.edc $TERMINOLOGY_LICENSE $TERMINOLOGY_AUTHORS ../build/term/$THEME_NAME.edj
 
     report_on_error mv -v img-bak images
 
     if [ $DKMD_TERMPKG != 1 ]; then
 	    report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
+      mkdir -p "../artifacts/bin-term"
+      cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
     fi
 popd
 fi
