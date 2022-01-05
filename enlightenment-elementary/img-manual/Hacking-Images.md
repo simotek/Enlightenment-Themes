@@ -13,6 +13,7 @@ Hacking Images
 | e_item_selected.png | Selected items (with exeption of ones below)
 | tasks_selected.png | Selected item in tasks, can be a copy of e_item_selected
 | menu_selected.png | Selected item in menu, can be a copy of e_item_selected
+| border_maximised.png | Maximised borders look better without the left and right line.
 | menu_background.png | Background of menu
 | proc_background.png | Proc Background in border, Can be a copy of e_item_selected
 
