@@ -97,6 +97,7 @@ part { name: NAME; type: TYPE;                           \
    }                                                     \
 }
 images {
+   image: "border_maximised.png" COMP;
    image: "e_surface.png" COMP;
    image: "e_button_detail_close.png" COMP;
    image: "e_button_detail_maximize.png" COMP;
@@ -249,10 +250,8 @@ group {
             image.border: 8 8 8 8;
          }
          description { state: "max" 0.0;
-	        image.normal: "e_surface.png";
+	          image.normal: "border_maximised.png";
             image.border: 8 8 8 8;
-            rel1.offset: -5 0;
-            rel2.offset: 6 0;
          }
       }
       part { name: "t1";
@@ -262,9 +261,9 @@ group {
             rel1.relative: 0.0  0.0;
             rel1.offset: 0 0;
             rel2.relative: 0.0 1.0;
-            rel2.offset: 0    5;
+            rel2.offset: 0 12;
             rel2.to_y: "title2";
-            color: 255 255 255 0;
+            color: 255 0 0 255;
             fill.smooth: 0;
          }
          description {
@@ -501,10 +500,10 @@ group {
          effect: SHADOW BOTTOM;
          description { state: "default" 0.0;
             rel1.relative: 1.0  0.0;
-            rel1.offset: 9    2;
+            rel1.offset: 9    4;
             rel1.to_x: "t1";
             rel2.relative: 0.0  0.0;
-            rel2.offset: -10  5;
+            rel2.offset: -10  3;
             rel2.to_x: "t3";
             align: 0.5 0.0;
             color: FN_COL_DEFAULT;
@@ -529,10 +528,10 @@ group {
       part { name: "e.swallow.icon"; type: SWALLOW;
          description { state: "default" 0.0;
             rel1.relative: 0.0  0.0;
-            rel1.offset: 8    2;
+            rel1.offset: 8 1;
             rel1.to: "t1";
             rel2.relative: 1.0 1.0;
-            rel2.offset: -2 -3;
+            rel2.offset: -1 -2;
             rel2.to: "t1";
          }
       }
@@ -672,10 +671,11 @@ group {
          description { state: "default" 0.0;
             fixed: 1 0;
             rel1.to: "e.event.icon";
-            rel1.relative: 1.0 0.0;
+            rel1.relative: 1.0 0.2;
+            rel1.offset: 6 0;
             rel2.to: "e.event.icon";
-            rel2.relative: 1.0 1.0;
-            rel2.offset: 0.0 -1;
+            rel2.relative: 1.0 0.8;
+            rel2.offset: 0 0;
             color: 0 0 0 0;
             align: 0.0 0.5;
             aspect: 1.0 1.0; aspect_preference: VERTICAL;
@@ -693,7 +693,7 @@ group {
             rel1.to: "procstats";
             rel2.to: "procstats";
             rel2.relative: 1.0 1.0;
-            rel2.offset: 0.0 -1;
+            rel2.offset: 0 0;
             align: 0.0 0.5;
             aspect: 1.0 1.0; aspect_preference: VERTICAL;
             visible: 0;
@@ -708,10 +708,11 @@ group {
              description { state: "default" 0.0;
                 fixed: 1 0;
                 rel1.to: "e.event.icon";
-                rel1.relative: 1.0 0.0;
+                rel1.relative: 1.0 0.2;
+                rel1.offset: 6 0;
                 rel2.to: "e.event.icon";
-                rel2.relative: 1.0 1.0;
-                rel2.offset: 0 -1;
+                rel2.relative: 1.0 0.8;
+                rel2.offset: 6 0;
                 align: 0.0 0.5;
                 aspect: 1.0 1.0; aspect_preference: VERTICAL;
              }
@@ -966,7 +967,7 @@ group { name: "e/widgets/border/dialog/border";
          description { state: "default" 0.0;
             visible: 0;
          }
-     }*/
+     }
       part { name: "maximize_bg";
          description { state: "default" 0.0;
             min: 0 0;
@@ -990,7 +991,7 @@ group { name: "e/widgets/border/dialog/border";
             max: 0 0;
             visible: 0;
          }
-      }
+      }*/
       part { name: "minimize";
          description { state: "default" 0.0;
             min: 0 0;
