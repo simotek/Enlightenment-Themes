@@ -706,8 +706,8 @@ group {
      }
 
      // BORDER_BUTTON_ADV("close","close",0.0,0.0, 0,0,"whole", "whole",1.0,1.0,-1,5,"whole", "title2")
-     BORDER_BUTTON2("maximize","maximize",0.0,0.0,3,0,"close",0.0,1.0,3,-1,"close")
-     BORDER_BUTTON2("minimize","minimize",0.0,0.0,3,0,"maximize",0.0,1.0,3,-1,"maximize")
+     BORDER_BUTTON2("maximize","maximize",0.0,0.0,6,0,"close",0.0,1.0,6,-1,"close")
+     BORDER_BUTTON2("minimize","minimize",0.0,0.0,6,0,"maximize",0.0,1.0,6,-1,"maximize")
      BORDER_BUTTON2("close","close",0.0,0.0,50,1,"right",0.0,1.0,50,-1,"right")
 
 
