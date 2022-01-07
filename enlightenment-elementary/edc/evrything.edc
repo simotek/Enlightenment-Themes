@@ -1,5 +1,6 @@
 group { name: "e/modules/everything/main";
    images.image: "everything_top.png" COMP;
+   images.image: "everything_top_selected.png" COMP;
    parts {
       part { name: "list"; type: GROUP;
          source: "e/modules/everything/list";
@@ -98,10 +99,11 @@ group { name: "e/modules/everything/selector_item";
          description { state: "default" 0.0;
          }
       }
-      part { name: "base"; type: RECT; mouse_events: 0;
+      part { name: "base"; mouse_events: 0;
          description { state: "default" 0.0;
             //color_class: "/bg/selected/everything/selector/item";
-            color: 0 0 0 0;
+            image.normal: "everything_top_selected.png";
+            image.border: 8 8 8 0;
             visible: 0;
          }
          description { state: "selected" 0.0;
