@@ -1,8 +1,5 @@
 group { name: "e/modules/everything/main";
-   images.image: "e_everything_top.png" COMP;
-   images.image: "e_everything_bottom.png" COMP;
-   images.image: "bevel_out.png" COMP;
-   images.image: "shine.png" COMP;
+   images.image: "everything_top.png" COMP;
    parts {
       part { name: "list"; type: GROUP;
          source: "e/modules/everything/list";
@@ -15,31 +12,28 @@ group { name: "e/modules/everything/main";
          }
       }
       part { name: "base";
+         scale: 1;
          description { state: "default" 0.0;
-            image.normal: "e_everything_top.png";
-            image.border: 8 8 0 8;
             min: 320 64;
             rel2.relative: 1.0 0.0;
             align: 0.5 0.0;
-            fill.smooth: 0;
             fixed: 1 1;
+            // color_class: "/bg/normal/everything/selector";
+            image.normal: "everything_top.png";
+            image.border: 8 8 8 0;
          }
       }
       part { name: "clipper"; type: RECT;
          description { state: "default" 0.0;
-            rel1.to: "base";
-            rel2.to: "base";
-            rel2.offset: -1 16;
+            rel.to: "base";
          }
       }
       part { name: "subject_selector"; type: GROUP;
          source: "e/modules/everything/selector_item";
          clip_to: "clipper";
          description { state: "default" 0.0;
-            rel1.offset: 4 0;
             rel1.to: "base";
             rel2.relative: 0.5 1.0;
-            rel2.offset: -5 -1;
             rel2.to_y: "base";
          }
          description { state: "wide" 0;
@@ -53,12 +47,8 @@ group { name: "e/modules/everything/main";
          source: "e/modules/everything/selector_item";
          clip_to: "clipper";
          description { state: "default" 0.0;
-            // visible: 0;
             rel1.relative: 0.5 0.0;
-            rel1.offset: 4 0;
-            rel1.to: "base";
-            rel2.offset: -5 -1;
-            rel2.to: "base";
+            rel.to: "base";
          }
          description { state: "wide" 0;
             inherit: "default" 0.0;
@@ -72,11 +62,8 @@ group { name: "e/modules/everything/main";
          description { state: "default" 0.0;
             visible: 0;
             rel1.relative: 1.0 0.0;
-            rel1.offset: 4 0;
-            rel1.to: "base";
             rel2.relative: 1.5 1.0;
-            rel2.offset: -5 -1;
-            rel2.to: "base";
+            rel.to: "base";
          }
          description { state: "wide" 0;
             inherit: "default" 0.0;
@@ -87,16 +74,14 @@ group { name: "e/modules/everything/main";
       }
    }
    programs {
-      program {
-         signal: "e,state,object_selector_hide"; source: "e";
+      program { signal: "e,state,object_selector_hide"; source: "e";
          action: STATE_SET "default" 0.00;
          transition: SINUSOIDAL 0.15;
          target: "object_selector";
          target: "subject_selector";
          target: "action_selector";
       }
-      program {
-         signal: "e,state,object_selector_show"; source: "e";
+      program { signal: "e,state,object_selector_show"; source: "e";
          action: STATE_SET "wide" 0.00;
          transition: SINUSOIDAL 0.2;
          target: "object_selector";
@@ -107,44 +92,54 @@ group { name: "e/modules/everything/main";
 }
 
 group { name: "e/modules/everything/selector_item";
+   // This is the selected top rect
    parts {
       part { name: "clip"; type: RECT;
          description { state: "default" 0.0;
          }
       }
+      part { name: "base"; type: RECT; mouse_events: 0;
+         description { state: "default" 0.0;
+            //color_class: "/bg/selected/everything/selector/item";
+            color: 0 0 0 0;
+            visible: 0;
+         }
+         description { state: "selected" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
+         }
+      }
       part { name: "icon_clip"; type: RECT;
          clip_to: "clip";
          description { state: "default" 0.0;
-            color: 255 255 255 255;
+            color: 255 255 255 255; // no cc
          }
          description { state: "faded" 0.0;
-            color: 255 255 255 64;
+            color: 255 255 255 64; // no cc
          }
       }
       part { name: "e.swallow.icons"; type: SWALLOW;
+         scale : 1;
          clip_to: "icon_clip";
          description { state: "default" 0.0;
-            min: 48 48;
-            max: 48 48;
-            aspect: 1.0 1.0; aspect_preference: VERTICAL;
+            min: 40 40;
+            max: 40 40;
             align: 0.0 0.5;
             rel1.offset: 8 8;
             rel2.offset: 8 -9;
+            offscale;
          }
       }
       part { name: "e.swallow.thumb"; type: SWALLOW;
          clip_to: "icon_clip";
          description { state: "default" 0.0;
-            rel1.to: "e.swallow.icons";
-            rel2.to: "e.swallow.icons";
-            min: 48 48;
-            max: 48 48;
-            aspect: 1.0 1.0; aspect_preference: VERTICAL;
+            rel.to: "e.swallow.icons";
+            min: 40 40;
+            max: 40 40;
             align: 0.0 0.5;
          }
       }
       part { name: "e.text.label"; type: TEXT; mouse_events: 0;
-         effect: SHADOW BOTTOM;
          clip_to: "clip";
          scale: 1;
          description { state: "default" 0.0;
@@ -155,114 +150,65 @@ group { name: "e/modules/everything/selector_item";
             rel2.to: "clip";
             rel1.offset: 2 3;
             rel2.offset: -6 -7;
+            // color_class: "/fg/normal/everything/selector/text";
             color: FN_COL_DEFAULT;
-            color_class: "list_item";
             text { font: FNBD; size: 10;
-               min: 0 1;
-               align: 0.0 1.0;
-               text_class: "list_item";
-            }
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
-      part { name: "label2"; type: TEXT; mouse_events: 0;
-         effect: GLOW;
-         clip_to: "clip";
-         scale: 1;
-         description { state: "default" 0.0;
-            rel1.offset: -2 -3;
-            rel1.to: "e.text.label";
-            rel2.offset: 2 0;
-            rel2.to: "e.text.label";
-            color: FN_COL_HIGHLIGHT;
-            color_class: "menu_item_active";
-            text { font: FNBD; size: 10;
-               text_source: "e.text.label";
                min: 0 1;
                align: 0.0 1.0;
                text_class: "menu_item";
             }
-            visible: 0;
+            offscale;
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
-            visible: 1;
+            // color_class: "/fg/selected/everything/selector/text";
+            color: FN_COL_HIGHLIGHT;
          }
       }
       part { name: "e.text.plugin"; type: TEXT; mouse_events: 0;
-         effect: SHADOW BOTTOM;
          clip_to: "clip";
          scale: 1;
          description { state: "default" 0.0;
             align: 1.0 0.0;
             rel1.offset: 6 6;
             rel2.offset: -7 -1;
+            // color_class: "/fg/normal/everything/selector/text/plugin";
             color: FN_COL_DEFAULT;
-            color_class: "menu_item";
             text { font: FN; size: 10;
                min: 0 1;
                align: 1.0 0.0;
                text_class: "menu_item";
             }
+            offscale;
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
-      part { name: "label3"; type: TEXT; mouse_events: 0;
-         effect: GLOW;
-         clip_to: "clip";
-         scale: 1;
-         description { state: "default" 0.0;
-            rel1.offset: -3 -2;
-            rel1.to: "e.text.plugin";
-            rel2.offset: 1 1;
-            rel2.to: "e.text.plugin";
+            // color_class: "/fg/selected/everything/selector/text/plugin";
             color: FN_COL_HIGHLIGHT;
-            color_class: "menu_item_active";
-            text { font: FN; size: 10;
-               text_source: "e.text.plugin";
-               min: 0 1;
-               align: 1.0 0.0;
-               text_class: "menu_item";
-            }
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
+
          }
       }
       part { name: "event"; type: RECT;
          ignore_flags: ON_HOLD;
          description { state: "default" 0.0;
-            color: 0 0 0 0;
+            color: 0 0 0 0; // no cc
          }
       }
    }
    programs {
-      program {
-         signal: "e,state,selected"; source: "e";
+      program { signal: "e,state,selected"; source: "e";
          action: STATE_SET "selected" 0.0;
+         target: "base";
          target: "e.text.label";
          target: "e.text.plugin";
-         target: "label2";
-         target: "label3";
       }
-      program {
-         signal: "e,state,unselected"; source: "e";
+      program { signal: "e,state,unselected"; source: "e";
          action: STATE_SET "default" 0.0;
+         target: "base";
          target: "e.text.label";
          target: "e.text.plugin";
-         target: "label2";
-         target: "label3";
       }
-      program {
-         signal: "e,signal,update"; source: "e";
+      program { signal: "e,signal,update"; source: "e";
          action: STATE_SET "faded" 0.0;
          transition: DECELERATE 0.1;
          target: "icon_clip";
@@ -273,8 +219,7 @@ group { name: "e/modules/everything/selector_item";
          transition: ACCELERATE 0.3;
          target: "icon_clip";
       }
-      program {
-         signal: "e,action,thumb,show"; source: "e";
+      program { signal: "e,action,thumb,show"; source: "e";
          action: STATE_SET "faded" 0.0;
          target: "icon_clip";
          after: "thumb_show2";
@@ -288,20 +233,20 @@ group { name: "e/modules/everything/selector_item";
 }
 
 group { name: "e/modules/everything/list";
-   images.image: "bevel_dark_out.png" COMP;
-   images.image: "e_surface_lr.png" COMP;
-   images.image: "white_bar_vert_glow.png" COMP;
-   images.image: "vert_bar_inset.png" COMP;
-   images.image: "surface_sq.png" COMP;
+   images.image: "everything_entry.png" COMP;
+   images.image: "everything_main.png" COMP;
    parts {
       part { name: "input_base";
+         scale: 1;
          description { state: "default" 0.0;
             rel1.to_y: "e.text.label";
-            rel1.offset: 0 -4;
+            rel1.offset: 0 -8;
             rel2.to_y: "e.text.label";
-            rel2.offset: -1 3;
-            image.normal: "e_surface_lr.png";
+            rel2.offset: -1 7;
+            //color_class: "/bg/normal/everything/entry";
+            image.normal: "everything_entry.png";
             image.border: 8 8 0 0;
+            offscale;
          }
       }
       part { name: "list_base";
@@ -310,8 +255,10 @@ group { name: "e/modules/everything/list";
             rel1.relative: 0.0 1.0;
             rel2.to_y: "bar_base";
             rel2.relative: 1.0 0.0;
-            image.normal: "surface_sq.png";
-            image.border: 8 8 8 8;
+            //color_class: "/bg/normal/everything/list/base";
+            image.normal: "everything_main.png";
+            image.border: 8 8 0 0;
+            color: 255 255 255 255;
          }
       }
       part { name: "bar_base";
@@ -320,20 +267,22 @@ group { name: "e/modules/everything/list";
             fixed: 0 1;
             rel1.relative: 0.0 1.0;
             align: 0.5 1.0;
-            min: 32 28;
-            image.normal: "e_everything_bottom.png";
-            image.border: 8 8 0 8;
+            min: 64 32;
+            //color_class: "/bg/normal/everything/tabs";
+            image.normal: "everything_bottom.png";
+            image.border: 8 8 8 8;
+            color: 255 255 255 255;
          }
       }
       part { name: "e.text.label"; type: TEXT;
-         effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
             fixed: 0 1;
             align: 0.0 0.0;
-            rel1.offset: 4 4;
+            rel1.offset: 4 8;
             rel2.relative: 0.0 0.0;
-            rel2.offset: 4 4;
+            rel2.offset: 4 8;
+            // color_class: "/fg/normal/everything/entry/text";
             color: FN_COL_DEFAULT;
             text { font: FN; size: 10;
                align: 0.0 0.5;
@@ -342,38 +291,38 @@ group { name: "e/modules/everything/list";
                text_class: "fileman_typebuf";
                ellipsis: -1;
             }
+            offscale;
          }
       }
       part { name: "cursor"; mouse_events: 0;
+         scale: 1;
          description { state: "default" 0.0;
             fixed: 1 1;
-            min: 9 10;
-            rel1.offset: -4 -4;
+            min: 1 4;
+            rel.to: "e.text.label";
+            rel1.offset: 0 -2;
             rel1.relative: 1.0 0.0;
-            rel1.to: "e.text.label";
-            rel2.offset: 3 3;
-            rel2.to: "e.text.label";
+            rel2.offset: 0 1;
+            // color_class: "/fg/normal/everything/entry/cursor";
             image.normal: "white_bar_vert_glow.png";
             image.border: 4 4 4 4;
-            fill.smooth: 0;
          }
          description { state: "faded" 0.0;
             inherit: "default" 0.0;
-            color: 255 255 255 0;
+            visible: 0;
          }
       }
       part { name: "list_clip"; type: RECT;
          description { state: "default" 0.0;
-            rel1.to: "list_base";
-            rel2.to: "list_base";
+            rel.to: "list_base";
          }
       }
       part { name: "e.swallow.list"; type: SWALLOW;
+         scale: 1;
          clip_to: "list_clip";
          description { state: "default" 0.0;
-            min: 32 128;
-            rel1.to: "list_base";
-            rel2.to: "list_base";
+            min: 64 128;
+            rel.to: "list_base";
          }
          description { state: "alternate" 0.0;
             inherit: "default" 0.0;
@@ -382,13 +331,13 @@ group { name: "e/modules/everything/list";
          }
       }
       part { name: "e.swallow.list2"; type: SWALLOW;
+         scale: 1;
          clip_to: "list_clip";
          description { state: "default" 0.0;
             min: 32 128;
+            rel.to: "list_base";
             rel1.relative: 1.0 0.0;
-            rel1.to: "list_base";
             rel2.relative: 2.0 1.0;
-            rel2.to: "list_base";
          }
          description { state: "alternate" 0.0;
             inherit: "default" 0.0;
@@ -398,21 +347,17 @@ group { name: "e/modules/everything/list";
       }
       part { name: "bar_clip"; type: RECT;
          description { state: "default" 0.0;
-            rel1.to: "bar_base";
-            rel2.to: "bar_base";
+            rel.to: "bar_base";
          }
          description { state: "faded" 0.0;
             inherit: "default" 0.0;
-            color: 255 255 255 0;
+            color: 255 255 255 0; // no cc
          }
       }
       part { name: "e.swallow.bar"; type: SWALLOW;
          clip_to: "bar_clip";
          description { state: "default" 0.0;
-            rel1.to: "bar_clip";
-            rel1.offset: 4 0;
-            rel2.to: "bar_clip";
-            rel2.offset: -5 -1;
+            rel.to: "bar_clip";
          }
       }
    }
@@ -420,13 +365,13 @@ group { name: "e/modules/everything/list";
       program { name: "blink_off";
          signal: "show"; source: "";
          action: STATE_SET "faded" 0.0;
-         transition: SINUSOIDAL 0.6;
+         in: 0.5 0.0;
          target: "cursor";
          after: "blink_on";
       }
       program { name: "blink_on";
          action: STATE_SET "default" 0.0;
-         transition: SINUSOIDAL 0.35;
+         in: 0.5 0.0;
          target: "cursor";
          after: "blink_off";
       }
@@ -445,8 +390,7 @@ group { name: "e/modules/everything/list";
 //      program {
 //         signal: "e,signal,update"; source: "e";
 //      }
-      program {
-         signal: "e,action,slide,left"; source: "e";
+      program { signal: "e,action,slide,left"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "e.swallow.list";
          target: "e.swallow.list2";
@@ -454,7 +398,7 @@ group { name: "e/modules/everything/list";
       }
       program { name: "slide_left2";
          action: STATE_SET "alternate" 0.0;
-         transition: ACCELERATE 0.25;
+         transition: ACCELERATE 0.2 USE_DURATION_FACTOR 1;
          target: "e.swallow.list";
          target: "e.swallow.list2";
          after: "left_end";
@@ -462,8 +406,7 @@ group { name: "e/modules/everything/list";
       program { name: "left_end";
          action: SIGNAL_EMIT "e,action,slide,left,finished" "";
       }
-      program {
-         signal: "e,action,slide,right"; source: "e";
+      program { signal: "e,action,slide,right"; source: "e";
          action: STATE_SET "alternate" 0.0;
          target: "e.swallow.list";
          target: "e.swallow.list2";
@@ -471,7 +414,7 @@ group { name: "e/modules/everything/list";
       }
       program { name: "slide_right2";
          action: STATE_SET "default" 0.0;
-         transition: ACCELERATE 0.25;
+         transition: ACCELERATE 0.2 USE_DURATION_FACTOR 1;
          target: "e.swallow.list";
          target: "e.swallow.list2";
          after: "right_end";
@@ -479,8 +422,7 @@ group { name: "e/modules/everything/list";
       program { name: "right_end";
          action: SIGNAL_EMIT "e,action,slide,right,finished" "";
       }
-      program {
-         signal: "e,action,slide,default"; source: "e";
+      program { signal: "e,action,slide,default"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "e.swallow.list";
          target: "e.swallow.list2";
@@ -489,247 +431,96 @@ group { name: "e/modules/everything/list";
 }
 
 group { name: "e/modules/everything/thumbview/main/window";
-   images.image: "sym_left_glow_normal.png" COMP;
-   images.image: "sym_right_glow_normal.png" COMP;
    parts {
       part { name: "clip"; type: RECT;
          description { state: "default" 0.0;
-            color: 255 255 255 0;
+            color: 255 255 255 0; // no cc
          }
          description { state: "visible" 0.0;
-            color: 255 255 255 255;
+            color: 255 255 255 255; // no cc
          }
       }
       part { name: "e.swallow.list"; type: SWALLOW;
+         scale: 1;
          clip_to: "clip";
          description { state: "default" 0.0;
-            rel1.offset: 4 4;
-            rel2.offset: -5 -5;
+            rel1.offset: 0 4;
+            rel2.offset: -1 -5;
+            offscale;
          }
       }
       part { name: "left_arrow"; mouse_events: 0;
          scale: 1;
          description { state: "default" 0.0;
-            image.normal: "sym_left_glow_normal.png";
+            image.normal: "scrollbar_left.png";
             align: 0.0 0.5;
             min: 15 15;
             max: 15 15;
             visible: 0;
-            color: 255 255 255 0;
+            color: 255 255 255 0; // no cc
+            //color_class: "/fg/normal/everything/thumbview/arrow/left";
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
             visible: 1;
-            color: 255 255 255 255;
+            color: 51 153 255 255; // no cc
+            //color_class: "/fg/normal/everything/thumbview/arrow/left";
          }
       }
       part { name: "right_arrow"; mouse_events: 0;
          scale: 1;
          description { state: "default" 0.0;
-            image.normal: "sym_right_glow_normal.png";
+            image.normal: "scrollbar_right.png";
             align: 1.0 0.5;
             min: 15 15;
             max: 15 15;
             visible: 0;
-            color: 255 255 255 0;
+            color: 255 255 255 0; // no cc
+            //color_class: "/fg/normal/everything/thumbview/arrow/right";
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
             visible: 1;
-            color: 255 255 255 255;
+            color: 255 255 255 255; // no cc
+            //color_class: "/fg/normal/everything/thumbview/arrow/right";
          }
       }
       part { name: "event"; type: RECT; repeat_events: 1;
          description { state: "default" 0.0;
-            color: 0 0 0 0;
+            color: 0 0 0 0; // no cc
          }
       }
    }
    programs {
-      program {
-         signal: "e,action,show,into"; source: "e";
+      program { signal: "e,action,show,into"; source: "e";
          action: STATE_SET "visible" 0.0;
-         transition: LINEAR 0.5;
+         transition: DECELERATE 0.2 USE_DURATION_FACTOR 1;
          target: "right_arrow";
       }
-      program {
-         signal: "e,action,hide,into"; source: "e";
+      program { signal: "e,action,hide,into"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "right_arrow";
-         transition: LINEAR 0.5;
+         transition: ACCELERATE 0.4 USE_DURATION_FACTOR 1;
       }
-      program {
-         signal: "e,action,show,back"; source: "e";
+      program { signal: "e,action,show,back"; source: "e";
          action: STATE_SET "visible" 0.0;
-         transition: LINEAR 0.5;
+         transition: DECELERATE 0.2 USE_DURATION_FACTOR 1;
          target: "left_arrow";
       }
-      program {
-         signal: "e,action,hide,back"; source: "e";
+      program { signal: "e,action,hide,back"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "left_arrow";
-         transition: LINEAR 0.5;
+         transition: ACCELERATE 0.4 USE_DURATION_FACTOR 1;
       }
-      program {
-         signal: "e,action,hide,list"; source: "e";
+      program { signal: "e,action,hide,list"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "clip";
-         transition: LINEAR 0.5;
+         transition: ACCELERATE 0.4 USE_DURATION_FACTOR 1;
       }
-      program {
-         signal: "e,action,show,list"; source: "e";
+      program { signal: "e,action,show,list"; source: "e";
          action: STATE_SET "visible" 0.0;
          target: "clip";
-         transition: LINEAR 0.25;
-      }
-   }
-}
-
-group { name: "e/modules/everything/tab_item";
-   images.image: "list_even_lr.png" COMP;
-   images.image: "shadow_angled_in_sides.png" COMP;
-   images.image: "horizontal_separated_bar_small_glow.png" COMP;
-   parts {
-      part { name: "bg"; mouse_events: 0;
-         scale: 1;
-         description { state: "default" 0.0;
-            min: 80 10;
-            rel2.offset: 0 1;
-            image.normal: "list_even_lr.png";
-            image.border: 1 1 0 0;
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-      part { name: "e.text.label"; type: TEXT; mouse_events: 0;
-         effect: SHADOW BOTTOM;
-         scale: 1;
-         description { state: "default" 0.0;
-            rel1.offset: 4 2;
-            rel1.relative: 0.5 0.0;
-            rel2.offset: -5 -3;
-            rel2.relative: 0.5 1.0;
-            align: 0.5 0.5;
-            color: FN_COL_DEFAULT;
-            color_class: "menu_item";
-            text { font: FN; size: 10;
-               min: 1 1;
-               ellipsis: -1;
-               align: 0.5 0.5;
-               text_class: "menu_item";
-            }
-            fixed: 1 1;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
-      part { name: "label2"; type: TEXT; mouse_events: 0;
-         effect: GLOW;
-         scale: 1;
-         description { state: "default" 0.0;
-            rel1.offset: -3 -3;
-            rel1.to: "e.text.label";
-            rel2.offset: 2 1;
-            rel2.to: "e.text.label";
-            color: FN_COL_HIGHLIGHT;
-            color_class: "menu_item_active";
-            text { font: FN; size: 10;
-               text_source: "e.text.label";
-               align: 0.5 0.5;
-               text_class: "menu_item";
-            }
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-      part { name: "event"; type: RECT;
-         ignore_flags: ON_HOLD;
-         description { state: "default" 0.0;
-            color: 0 0 0 0;
-         }
-      }
-   }
-   programs {
-      program {
-         signal: "e,state,selected"; source: "e";
-         action: STATE_SET "selected" 0.0;
-         target: "e.text.label";
-         target: "label2";
-         target: "bg";
-      }
-      program {
-         signal: "e,state,unselected"; source: "e";
-         action: STATE_SET "default" 0.0;
-         target: "e.text.label";
-         target: "label2";
-         target: "bg";
-      }
-   }
-}
-
-group { name: "e/modules/everything/tab_item/back";
-   inherit: "e/modules/everything/tab_item";
-   images.image: "sym_left_light_normal.png" COMP;
-   images.image: "sym_left_glow_normal.png" COMP;
-   parts {
-      part { name: "arrow";
-         insert_after: "e.text.label";
-         description { state: "default" 0.0;
-            rel1.to: "e.text.label";
-            rel2.to: "e.text.label";
-            rel2.relative: 0.0 1.0;
-            align: 1.0 0.5;
-            image.normal: "sym_left_light_normal.png";
-            min: 15 15;
-            max: 15 15;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
-      part { name: "arrow2";
-         insert_after: "label2";
-         description { state: "default" 0.0;
-            rel1.to: "arrow";
-            rel2.to: "arrow";
-            image.normal: "sym_left_glow_normal.png";
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
-         }
-      }
-   }
-   programs {
-      program {
-         signal: "e,state,selected"; source: "e";
-         action: STATE_SET "selected" 0.0;
-         target: "arrow";
-         target: "arrow2";
-      }
-      program {
-         signal: "e,state,unselected"; source: "e";
-         action: STATE_SET "default" 0.0;
-         target: "arrow";
-         target: "arrow2";
-      }
-      program {
-         signal: "mouse,down,1"; source: "event";
-         action: SIGNAL_EMIT "e,state,selected" "e";
-      }
-      program {
-         signal: "mouse,up,1*"; source: "event";
-         action: SIGNAL_EMIT "e,state,unselected" "e";
+         transition: DECELERATE 0.2 USE_DURATION_FACTOR 1;
       }
    }
 }
@@ -1002,19 +793,14 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
 }
 
 group { name: "e/modules/everything/thumbview/item/thumb";
-   images.image: "vgrad_med_dark.png" COMP;
-   images.image: "bevel_out.png" COMP;
-   images.image: "shine.png" COMP;
-   images.image: "glow_small.png" COMP;
-   images.image: "shadow_square_tiny.png" COMP;
-   images.image: "sym_close_light_selected.png" COMP;
-   images.image: "sym_right_light_normal.png" COMP;
+   images.image: "everything_main_selected.png" COMP;
    parts {
       part { name: "sel_base"; mouse_events: 0;
          description { state: "default" 0.0;
-            rel1.offset: 2 2;
-            rel2.offset: -3 -3;
-            image.normal: "e_surface.png";
+            rel1.offset: 4 2;
+            rel2.offset: -5 -3;
+            //color_class: "/bg/selected/everything/list/item";
+            image.normal: "everything_main_selected.png";
             image.border: 8 8 8 8;
             visible: 0;
          }
@@ -1024,18 +810,19 @@ group { name: "e/modules/everything/thumbview/item/thumb";
          }
       }
       part { name: "icon0"; type: SPACER;
+         scale : 1;
          description { state: "default" 0.0;
             rel1.offset: 4 4;
             rel2.relative: 1.0 0.0;
             rel2.offset: -5 -1;
             rel2.to_y: "e.text.label";
+            offscale;
          }
       }
       part { name: "icon"; type: SPACER;
          description { state: "default" 0.0;
             aspect: 1.0 1.0; aspect_preference: BOTH;
-            rel1.to: "icon0";
-            rel2.to: "icon0";
+            rel.to: "icon0";
          }
          description { state: "start" 0.0;
             inherit: "default" 0.0;
@@ -1047,142 +834,111 @@ group { name: "e/modules/everything/thumbview/item/thumb";
       }
       part { name: "e.swallow.icon"; type: SWALLOW; mouse_events: 0;
          description { state: "default" 0.0;
-            rel1.to: "icon";
-            rel2.to: "icon";
+            rel.to: "icon";
          }
       }
       part { name: "e.swallow.thumb"; type: SWALLOW;
          description { state: "default" 0.0;
-            rel1.to: "e.swallow.icon";
-            rel2.to: "e.swallow.icon";
+            rel.to: "e.swallow.icon";
          }
       }
       part { name: "e.text.label"; type: TEXT;
-         effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
             rel1.offset: 4 -5;
             rel1.relative: 0.0 1.0;
             rel2.offset: -5 -5;
-            color: 255 255 255 255;
-            color3: 0 0 0 128;
-            color_class: "menu_item";
+            // color_class: "/fg/normal/everything/list/item/text";
+            color: FN_COL_DEFAULT;
             align: 0.5 1.0;
             text { font: FN; size: 10;
                min: 0 1;
                align: 0.5 1.0;
-               text_class: "menu_item";
+               text_class: "fileman_icon";
             }
+            offscale;
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
-      part { name: "label2"; type: TEXT; mouse_events: 0;
-         effect: GLOW;
-         scale: 1;
-         description { state: "default" 0.0;
-            rel1.offset: 1 -2;
-            rel1.to: "e.text.label";
-            rel2.offset: 0 2;
-            rel2.to: "e.text.label";
+            //color_class: "/fg/selected/everything/list/item/text";
             color: FN_COL_HIGHLIGHT;
-            color_class: "menu_item_active";
-            text { font: FN; size: 10;
-               text_source: "e.text.label";
-               align: 0.5 0.5;
-               text_class: "menu_item";
-            }
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
          }
       }
       part { name: "bg_mark";
+         scale: 1;
          description { state: "default" 0.0;
             visible: 0;
-            color: 255 255 255 0;
-            image.normal: "sym_close_light_selected.png";
+            //color_class: "/fg/selected/everything/list/item/mark";
+            image.normal: "sym_close_normal.png";
             min: 15 15;
             max: 15 15;
             rel1.offset: 4 4;
             rel2.offset: 4 4;
             rel2.relative: 0.0 0.0;
             align: 0.0 0.0;
+            offscale;
          }
          description { state: "marked" 0.0;
             inherit: "default" 0.0;
             visible: 1;
-            color: 255 255 255 60;
          }
       }
       part { name: "arrow";
+         scale: 1;
          description { state: "default" 0.0;
             visible: 0;
-            color: 255 255 255 0;
-            image.normal: "sym_right_light_normal.png";
+            //color_class: "/fg/selected/everything/list/item/arrow";
+            image.normal: "scrollbar_right.png";
             min: 15 15;
             max: 15 15;
             rel1.offset: -5 4;
-            rel1.relative: 1.0 0.0;
             rel2.offset: -5 4;
+            rel1.relative: 1.0 0.0;
             rel2.relative: 1.0 0.0;
             align: 1.0 0.0;
+            offscale;
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
             visible: 1;
-            color: 255 255 255 255;
          }
       }
       part { name: "event"; type: RECT;
          description { state: "default" 0.0;
-            color: 0 0 0 0;
+            color: 0 0 0 0; // no cc
          }
       }
    }
    programs {
-      program {
-         signal: "e,state,selected"; source: "e";
+      program { signal: "e,state,selected"; source: "e";
          action: STATE_SET "selected" 0.0;
          target: "e.text.label";
-         target: "label2";
          target: "sel_base";
       }
-      program {
-         signal: "e,state,unselected"; source: "e";
+      program { signal: "e,state,unselected"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "e.text.label";
-         target: "label2";
          target: "sel_base";
       }
-      program {
-         signal: "e,state,marked"; source: "e";
+      program { signal: "e,state,marked"; source: "e";
          action: STATE_SET "marked" 0.0;
          target: "bg_mark";
          transition: ACCELERATE 0.25;
       }
-      program {
-         signal: "e,state,unmarked"; source: "e";
+      program { signal: "e,state,unmarked"; source: "e";
          action: STATE_SET "default" 0.0;
          transition: LINEAR 0.2;
          target: "bg_mark";
       }
-      program {
-         signal: "e,state,browseable"; source: "e";
+      program { signal: "e,state,browseable"; source: "e";
          action: STATE_SET "visible" 0.0;
          target: "arrow";
       }
-      program {
-         signal: "e,action,thumb,show_delayed"; source: "e";
+      program { signal: "e,action,thumb,show_delayed"; source: "e";
          action: STATE_SET "visible" 0.0;
          target: "icon";
       }
-      program {
-         signal: "e,action,thumb,show_delayed"; source: "e";
+      program { signal: "e,action,thumb,show_delayed"; source: "e";
          action: STATE_SET "start" 0.0;
          target: "icon";
          after: "gen";
@@ -1201,49 +957,32 @@ group { name: "e/modules/everything/thumbview/item/thumb";
 group { name: "e/modules/everything/thumbview/item/list";
    data.item: "stacking" "below";
    data.item: "selectraise" "on";
-   images.image: "bevel_curved_horiz_out.png" COMP;
-   images.image: "shadow_rounded_horiz.png" COMP;
-   images.image: "vgrad_med_dark.png" COMP;
-   images.image: "bevel_horiz_out.png" COMP;
-   images.image: "shine.png" COMP;
-   images.image: "shadow_square_tiny.png" COMP;
-   images.image: "ball_small_glow.png" COMP;
-   images.image: "ball_small_glow_intense.png" COMP;
    parts {
-      part { name: "bevel"; mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "bevel_curved_horiz_out.png";
-            image.border: 0 0 2 2;
-            image.middle: 0;
-            fill.smooth: 0;
-         }
-      }
       part { name: "sel_base"; mouse_events: 0;
-          description { state: "default" 0.0;
-             image.normal: "e_surface.png";
-             image.border: 8 8 8 8;
-             rel1.offset: 2 2;
-             rel2.offset: -2 -4;
-             visible: 0;
-          }
-          description { state: "selected" 0.0;
-             inherit: "default" 0.0;
-             visible: 1;
-          }
+         description { state: "default" 0.0;
+            //color_class: "/bg/selected/everything/list/item";
+            image.normal: "everything_main_selected.png";
+            image.border: 8 8 8 8;
+            visible: 0;
+         }
+         description { state: "selected" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
+         }
       }
       part { name: "detail_clip"; type: RECT;
          description { state: "default" 0.0;
-            color: 255 255 255 0;
+            color: 255 255 255 0; // no cc
             visible: 0;
          }
          description { state: "visible" 0.0;
-            color: 255 255 255 255;
+            color: 255 255 255 255; // no cc
             visible: 1;
          }
       }
       part { name: "e.text.detail"; type: TEXT; mouse_events: 0;
+         scale: 1;
          clip_to: "detail_clip";
-         effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
             rel1.offset: 2 3;
@@ -1252,49 +991,24 @@ group { name: "e/modules/everything/thumbview/item/list";
             rel2.offset: -3 -3;
             rel2.relative: 0.0 1.0;
             rel2.to_x: "arrow";
+            // color_class: "/fg/normal/everything/list/item/text/detail";
             color: FN_COL_DEFAULT;
-            color_class: "list_item";
             align: 1.0 0.5;
             max: 160 99999;
             text { font: FN; size: 8;
                min: 0 1;
                align: 1.0 0.5;
-               text_class: "list_item";
+               text_class: "ilist_item";
             }
+            offscale;
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
-      part { name: "label3"; type: TEXT; mouse_events: 0;
-         clip_to: "detail_clip";
-         effect: GLOW;
-         scale: 1;
-         description { state: "default" 0.0;
-            rel1.offset: -2 -3;
-            rel1.to: "e.text.detail";
-            rel2.offset: 1 1;
-            rel2.to: "e.text.detail";
+            // color_class: "/fg/selected/everything/list/item/text/detail";
             color: FN_COL_HIGHLIGHT;
-            color_class: "list_item_selected";
-            align: 1.0 0.5;
-            max: 160 99999;
-            text { font: FN; size: 8;
-              text_source: "e.text.detail";
-              min: 0 1;
-              align: 1.0 0.5;
-              text_class: "list_item";
-            }
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
          }
       }
       part { name: "e.text.label"; type: TEXT; mouse_events: 0;
-         effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
             rel1.offset: 2 3;
@@ -1303,56 +1017,36 @@ group { name: "e/modules/everything/thumbview/item/list";
             rel2.offset: -3 -3;
             rel2.relative: 0.0 1.0;
             rel2.to_x: "e.text.detail";
+            // color_class: "/fg/normal/everything/list/item/text";
             color: FN_COL_DEFAULT;
-            color_class: "list_item";
             text { font: FN; size: 10;
                min: 0 1;
                align: 0.0 0.5;
-               text_class: "list_item";
+               text_class: "ilist_item";
             }
+            offscale;
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
-      part { name: "label2"; type: TEXT; mouse_events: 0;
-         effect: GLOW;
-         scale: 1;
-         description { state: "default" 0.0;
-            rel1.offset: -2 -3;
-            rel1.to: "e.text.label";
-            rel2.offset: 2 1;
-            rel2.to: "e.text.label";
+            // color_class: "/fg/selected/everything/list/item/text";
             color: FN_COL_HIGHLIGHT;
-            color_class: "list_item_selected";
-            text { font: FN; size: 10;
-               min: 0 1;
-              text_source: "e.text.label";
-              align: 0.0 0.5;
-              text_class: "list_item";
-            }
-            visible: 0;
-         }
-         description { state: "selected" 0.0;
-            inherit: "default" 0.0;
-            visible: 1;
          }
       }
       part { name: "icon0"; type: SPACER;
+         scale: 1;
          description { state: "default" 0.0;
             align: 0.0 0.5;
             aspect: 1.0 1.0; aspect_preference: VERTICAL;
             rel1.offset: 4 4;
             rel2.relative: 0.0 1.0;
             rel2.offset: 4 -5;
+            offscale;
          }
       }
       part { name: "icon"; type: SPACER;
          description { state: "default" 0.0;
             aspect: 1.0 1.0; aspect_preference: BOTH;
-            rel1.to: "icon0";
-            rel2.to: "icon0";
+            rel.to: "icon0";
          }
          description { state: "start" 0.0;
             inherit: "default" 0.0;
@@ -1364,91 +1058,86 @@ group { name: "e/modules/everything/thumbview/item/list";
       }
       part { name: "e.swallow.icon"; type: SWALLOW; mouse_events: 0;
          description { state: "default" 0.0;
-            rel1.to: "icon";
-            rel2.to: "icon";
+            rel.to: "icon";
             fixed: 1 1;
          }
       }
       part { name: "bg_mark";
+         scale: 1;
          description { state: "default" 0.0;
             visible: 0;
-            color: 255 255 255 0;
-            image.normal: "sym_close_light_selected.png";
+            //color_class: "/fg/selected/everything/list/item/mark";
+            image.normal: "sym_close_normal.png";
             min: 15 15;
             max: 15 15;
             rel1.offset: 4 4;
             rel2.offset: 4 4;
             rel2.relative: 0.0 0.0;
             align: 0.0 0.0;
+            offscale;
          }
          description { state: "marked" 0.0;
             inherit: "default" 0.0;
             visible: 1;
-            color: 255 255 255 60;
          }
       }
       part { name: "arrow";
+         scale: 1;
          description { state: "default" 0.0;
             visible: 0;
-            color: 255 255 255 0;
-            image.normal: "sym_right_light_normal.png";
+            // color_class: "/fg/selected/everything/list/item/arrow";
+            image.normal: "scrollbar_right.png";
             min: 15 15;
             max: 15 15;
             rel1.offset: -5 4;
-            rel1.relative: 1.0 0.0;
             rel2.offset: -5 -5;
+            rel1.relative: 1.0 0.0;
             align: 1.0 0.5;
+            offscale;
          }
          description { state: "visible" 0.0;
             inherit: "default" 0.0;
             visible: 1;
-            color: 255 255 255 255;
+         }
+      }
+      part { name: "event"; type: RECT;
+         description { state: "default" 0.0;
+            color: 0 0 0 0; // no cc
          }
       }
    }
    programs {
-      program {
-         signal: "e,state,selected"; source: "e";
+      program { signal: "e,state,selected"; source: "e";
          action: STATE_SET "selected" 0.0;
          target: "e.text.label";
          target: "e.text.detail";
-         target: "label2";
-         target: "label3";
          target: "sel_base";
       }
-      program {
-         signal: "e,state,unselected"; source: "e";
+      program { signal: "e,state,unselected"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "e.text.label";
          target: "e.text.detail";
-         target: "label2";
-         target: "label3";
          target: "sel_base";
       }
-      program {
-         signal: "e,state,marked"; source: "e";
+      program { signal: "e,state,marked"; source: "e";
          action: STATE_SET "marked" 0.0;
          target: "bg_mark";
          transition: ACCELERATE 0.25;
       }
-      program {
-         signal: "e,state,unmarked"; source: "e";
+      program { signal: "e,state,unmarked"; source: "e";
          action: STATE_SET "default" 0.0;
          transition: LINEAR 0.2;
          target: "bg_mark";
       }
-      program {
-         signal: "e,state,browseable"; source: "e";
+      program { signal: "e,state,browseable"; source: "e";
          action: STATE_SET "visible" 0.0;
          target: "arrow";
       }
-      program {
-         signal: "e,action,thumb,show_delayed"; source: "e";
+      program { signal: "e,action,thumb,show_delayed"; source: "e";
          action: STATE_SET "visible" 0.0;
          target: "icon";
       }
-      program {
-         signal: "e,action,thumb,show_delayed"; source: "e";
+      program { signal: "e,action,thumb,show_delayed"; source: "e";
          action: STATE_SET "start" 0.0;
          target: "icon";
          after: "gen";
@@ -1458,13 +1147,11 @@ group { name: "e/modules/everything/thumbview/item/list";
          transition: SPRING 0.7 2.0 4;
          target: "icon";
       }
-      program {
-         signal: "e,state,detail,show"; source: "e";
+      program { signal: "e,state,detail,show"; source: "e";
          action: STATE_SET "visible" 0.0;
          target: "detail_clip";
       }
-      program {
-         signal: "e,state,detail,hide"; source: "e";
+      program { signal: "e,state,detail,hide"; source: "e";
          action: STATE_SET "default" 0.0;
          target: "detail_clip";
       }
@@ -1477,12 +1164,12 @@ group { name: "e/modules/everything/thumbview/item/list";
 group { name: "e/modules/everything/textblock";
    styles {
       style { name: "everything_textblock_style";
-         base: "font="FN" font_size=10 text_class=tb_plain align=left color=#ffff style=shadow,bottom shadow_color=#00000080 wrap=word";
+         base: "font="FN" font_size=10 text_class=tb_plain align=left color=#FFFFFF wrap=word";
          tag: "br"      "\n";
          tag: "b"       "+ font="FNBD"";
          tag: "hilight" "+ font="FNBD" text_class=tb_light";
-         tag: "urgent"  "+ font="FNBD" color=#f40f style=outline outline_color=#ff000080";
-         tag: "title"   "+ font="FNBD" font_size=16 underline=on underline_color=#3399ff";
+         tag: "urgent"  "+ font="FNBD" color=#3399ff";
+         tag: "title"   "+ font="FNBD" color=#3399ff font_size=16 underline=on underline_color=#3399ff";
       }
    }
    parts {
@@ -1495,72 +1182,172 @@ group { name: "e/modules/everything/textblock";
                min: 1 1;
                ellipsis: -1;
             }
+            offscale;
          }
       }
    }
 }
 
-group { name: "e/modules/everything/gadget";
-   images.image: "e_logo_large.png" COMP;
-   images.image: "logo_blue_small_glow.png" COMP;
-   max: 127 127;
+group { name: "e/modules/everything/tab_item";
+   images.image: "everything_bottom_selected.png" COMP;
    parts {
-      part { name: "icon";
+      part { name: "base"; mouse_events: 0;
          description { state: "default" 0.0;
-            aspect: (100/127) (100/127); aspect_preference: BOTH;
-            image.normal: "e_logo_large.png";
-            max: 100 127;
-         }
-         description { state: "active" 0.0;
-            inherit: "default" 0.0;
-             visible: 0;
-             color: 255 255 255 0;
-         }
-      }
-      part { name: "icon2";
-         description { state: "default" 0.0;
-            rel1.to: "icon";
-            rel2.to: "icon";
-            image.normal: "logo_blue_small_glow.png";
-         }
-         description { state: "active" 0.0;
-            inherit: "default" 0.0;
-             visible: 0;
-             color: 255 255 255 0;
-         }
-      }
-      part { name: "e.swallow.icon"; type: SWALLOW;
-         description { state: "default" 0.0;
-            aspect: 1.0 1.0; aspect_preference: BOTH;
+            //color_class: "/bg/selected/everything/tab/item";
+            image.normal: "everything_bottom_selected.png";
+            image.border: 8 8 8 8;
             visible: 0;
-            max: 127 127;
          }
-         description { state: "active" 0.0;
+         description { state: "selected" 0.0;
             inherit: "default" 0.0;
             visible: 1;
-            color: 255 255 255 0;
+         }
+      }
+      part { name: "e.text.label"; type: TEXT; mouse_events: 0;
+         scale: 1;
+         description { state: "default" 0.0;
+            rel1.offset: 4 4;
+            rel1.relative: 0.5 0.0;
+            rel2.offset: -5 -5;
+            rel2.relative: 0.5 1.0;
+            align: 0.5 0.5;
+            // color_class: "/fg/normal/everything/tab/item/text";
+            color: FN_COL_DEFAULT;
+            text { font: FN; size: 10;
+               min: 1 1;
+               ellipsis: -1;
+               align: 0.5 0.5;
+               text_class: "menu_item";
+            }
+            fixed: 1 1;
+            offscale;
+         }
+         description { state: "selected" 0.0;
+            inherit: "default" 0.0;
+            // color_class: "/fg/selected/everything/tab/item/text";
+            color: FN_COL_HIGHLIGHT;
          }
       }
       part { name: "event"; type: RECT;
+         ignore_flags: ON_HOLD;
          description { state: "default" 0.0;
-            color: 0 0 0 0;
+            color: 0 0 0 0; // no cc
          }
       }
    }
    programs {
-      program {
-         signal: "e,state,icon,plugin"; source: "e";
-         action: STATE_SET "active" 0.0;
-         target: "e.swallow.icon";
-         target: "icon";
-         target: "icon2";
+      program { signal: "e,state,selected"; source: "e";
+         action: STATE_SET "selected" 0.0;
+         target: "base";
+         target: "e.text.label";
       }
-      program {
-         signal: "e,state,icon,default"; source: "e";
+      program { signal: "e,state,unselected"; source: "e";
          action: STATE_SET "default" 0.0;
-         target: "e.swallow.icon";
-         target: "icon";
-         target: "icon2";
+         target: "base";
+         target: "e.text.label";
+      }
+   }
+}
+
+group { name: "e/modules/everything/tab_item/back";
+   inherit: "e/modules/everything/tab_item";
+   parts {
+      part { name: "arrow";
+         insert_after: "e.text.label";
+         scale: 1;
+         description { state: "default" 0.0;
+            rel.to: "e.text.label";
+            rel2.relative: 0.0 1.0;
+            align: 1.0 0.5;
+            image.normal: "scrollbar_left.png";
+            min: 30 30;
+            max: 30 30;
+            // color_class: "/fg/normal/everything/tab/item/arrow";
+            hid;
+         }
+         description { state: "selected" 0.0;
+            inherit: "default" 0.0;
+            // color_class: "/fg/selected/everything/tab/item/arrow";
+            vis;
+         }
+      }
+   }
+   programs {
+      program { signal: "e,state,selected"; source: "e";
+         action: STATE_SET "selected" 0.0;
+         target: "arrow";
+      }
+      program { signal: "e,state,unselected"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "arrow";
+      }
+      program { signal: "mouse,down,1"; source: "event";
+         action: SIGNAL_EMIT "e,state,selected" "e";
+      }
+      program { signal: "mouse,up,1*"; source: "event";
+         action: SIGNAL_EMIT "e,state,unselected" "e";
+      }
+   }
+}
+
+group { name: "e/modules/everything/gadget";
+   images.image: "e_surface.png" COMP;
+   images.image: "everything_bottom.png" COMP;
+   max: 160 160;
+   parts {
+      part { name: "base";
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            aspect: 1.0 1.0; aspect_preference: BOTH;
+            image.normal: "e_surface.png";
+            // color_class: "/fg/normal/gadgets/everything";
+            color:255 255 255 255;
+         }
+      }
+      part { name: "base2";
+         clip_to: "clip";
+         description { state: "default" 0.0;
+            aspect: 1.0 1.0; aspect_preference: BOTH;
+            image.normal: "e_surface.png";
+            // color_class: "/fg/normal/gadgets/everything";
+            color:255 255 255 255;
+         }
+         description { state: "active" 0.0;
+            inherit: "default" 0.0;
+            color_class: "/fg/pressed/gadgets/everything";
+         }
+      }
+      part { name: "clip"; type: RECT;
+         description { state: "default" 0.0;
+            visible: 1;
+         }
+         description { state: "active" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
+      }
+      part { name: "event"; type: RECT;
+         description { state: "default" 0.0;
+            color: 0 0 0 0; // no cc
+         }
+      }
+   }
+   programs {
+      program { signal: "mouse,down,1"; source: "event";
+         action: STATE_SET "active" 0.0;
+         target: "base2";
+      }
+      program { signal: "mouse,up,1"; source: "event";
+         action: STATE_SET "default" 0.0;
+         target: "base2";
+      }
+      program { signal: "e,state,icon,plugin"; source: "e";
+         action: STATE_SET "active" 0.0;
+         target: "clip";
+      }
+      program { signal: "e,state,icon,default"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "clip";
       }
    }
 }
