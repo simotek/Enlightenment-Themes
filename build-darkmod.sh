@@ -98,14 +98,14 @@ HIGH_GREEN=$2
 HIGH_BLUE=$3
 
 #if we don't have a valid color error
-if [ -z "$HIGH_HTML" ]; then
+if [[ -z "$HIGH_HTML" ]]; then
     error "Highlight Color could not be determined"
     # Move images back before exit
     report_on_error mv -v img-bak img
     report_on_error mv -v img-manual-bak/* img-manual-convd
     exit 1
 fi
-if [ -z "$HIGH_RGB" ]; then
+if [[ -z "$HIGH_RGB" ]]; then
     error "Highlight Color could not be determined"
     # Move images back before exit
     report_on_error mv -v img-bak img
@@ -113,7 +113,7 @@ if [ -z "$HIGH_RGB" ]; then
     exit 1
 fi
 
-if [ -d "$ELM_ENLIGHT_THEME_PATH/img-color-manual" ]; then
+if [[ -d "$ELM_ENLIGHT_THEME_PATH/img-color-manual" ]]; then
     pushd $ELM_ENLIGHT_THEME_PATH/img-color-manual
     for F in `find -iname "*.png"`; do
             convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
@@ -149,7 +149,7 @@ for icon in $(cat darkmod-fdo-icon-recolor.txt); do
 done
 
 mkdir -p "build/icons/"
-if [ -d "build/icons/$THEME_NAME-icons" ]; then rm -Rf build/icons/$THEME_NAME-icons; fi
+if [[ -d "build/icons/$THEME_NAME-icons" ]]; then rm -Rf build/icons/$THEME_NAME-icons; fi
 cp -r $ELM_ENLIGHT_THEME_PATH/fdo build/icons/$THEME_NAME-icons
 sed -i "s/Enlightenment-X/$THEME_NAME-e-X/g" "build/icons/$THEME_NAME-icons/index.theme"
 
@@ -303,8 +303,8 @@ fi
 
 ##############################################################################################################################
 
-if [ -n "$TERMINOLOGY_THEME_PATH" ];then
-if [ $DKMD_EPKG != 1 ]; then
+if [[ -n "$TERMINOLOGY_THEME_PATH" ]];then
+if [[ $DKMD_EPKG != 1 ]]; then
 
     mkdir $TERMINOLOGY_THEME_PATH/img-bak
     report_on_error cp -vr $TERMINOLOGY_THEME_PATH/images/* $TERMINOLOGY_THEME_PATH/img-bak
@@ -324,7 +324,7 @@ if [ $DKMD_EPKG != 1 ]; then
     done
     popd
 
-    if [ -d "$TERMINOLOGY_THEME_PATH/img-color-manual" ]; then
+    if [[ -d "$TERMINOLOGY_THEME_PATH/img-color-manual" ]]; then
         pushd $TERMINOLOGY_THEME_PATH/img-color-manual
             for F in `find -iname "*.png"`; do
                     convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
@@ -346,7 +346,7 @@ if [ $DKMD_EPKG != 1 ]; then
     done
     popd
 
-  if [ $DKMD_TERMPKG == 1 ]; then
+  if [[ $DKMD_TERMPKG == 1 ]]; then
 	HIGH_RAW=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:-)
 	#HIGH_HTML=$HIGH_RAW | sed -n 's/.*\(*#[0-9][0-9][0-9][0-9][0-9][0-9]*\).*/\1/p'
 	#remove most of the variable content
@@ -441,11 +441,13 @@ if [ $DKMD_EPKG != 1 ]; then
 
     report_on_error mv -v img-bak images
 
-    if [ $DKMD_TERMPKG != 1 ]; then
+    if [[ $DKMD_TERMPKG != 1 ]]; then
 	    report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
+
       mkdir -p "../artifacts/bin-term"
       cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
     fi
+
 popd
 fi
 fi
