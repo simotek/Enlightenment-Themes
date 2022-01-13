@@ -50,7 +50,9 @@ mkdir $ELM_ENLIGHT_THEME_PATH/img-bak
 mkdir $ELM_ENLIGHT_THEME_PATH/img-manual-bak
 mkdir $ELM_ENLIGHT_THEME_PATH/fdo-bak
 report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img/* $ELM_ENLIGHT_THEME_PATH/img-bak
-report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img-manual-convd/* $ELM_ENLIGHT_THEME_PATH/img-manual-bak
+if [ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]; then
+  report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img-manual-convd/* $ELM_ENLIGHT_THEME_PATH/img-manual-bak
+fi
 report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/fdo/* $ELM_ENLIGHT_THEME_PATH/fdo-bak
 success "    Finished Cleaning Repository"
 
@@ -284,7 +286,9 @@ mkdir -p ../build/e
 edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -fd fnt -sd snd default-dm.edc $ELM_ENLIGHT_AUTHORS $ELM_ENLIGHT_LICENSE ../build/e/$THEME_NAME.edj
 
 report_on_error mv -v img-bak img
-report_on_error mv -v img-manual-bak/* img-manual-convd
+if [ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]; then
+  report_on_error mv -v img-manual-bak/* img-manual-convd
+fi
 report_on_error rm -r fdo
 report_on_error mv -v fdo-bak fdo
 if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
