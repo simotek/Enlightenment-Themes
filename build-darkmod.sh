@@ -54,7 +54,7 @@ if [ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]; then
   report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img-manual-convd/* $ELM_ENLIGHT_THEME_PATH/img-manual-bak
 fi
 report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/fdo/* $ELM_ENLIGHT_THEME_PATH/fdo-bak
-success "    Finished Cleaning Repository"
+success "    Finished Creating Backup"
 
 
 inform "Moving images to be converted"
@@ -151,7 +151,7 @@ for icon in $(cat darkmod-fdo-icon-recolor.txt); do
 done
 
 mkdir -p "build/icons/"
-if [[ -d "build/icons/$THEME_NAME-icons" ]]; then rm -Rf build/icons/$THEME_NAME-icons; fi
+clean_dir build/icons/$THEME_NAME-icons
 cp -r $ELM_ENLIGHT_THEME_PATH/fdo build/icons/$THEME_NAME-icons
 sed -i "s/Enlightenment-X/$THEME_NAME-e-X/g" "build/icons/$THEME_NAME-icons/index.theme"
 
@@ -289,7 +289,7 @@ report_on_error mv -v img-bak img
 if [ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]; then
   report_on_error mv -v img-manual-bak/* img-manual-convd
 fi
-report_on_error rm -r fdo
+clean_dir fdo
 report_on_error mv -v fdo-bak fdo
 if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
   if [[ -f ../build/e/$THEME_NAME.edj ]]; then
@@ -392,7 +392,6 @@ if [[ $DKMD_EPKG != 1 ]]; then
             sed -i "s/#3399ff/$HIGH_HTML/g" $F
             sed -i "s/r = 51, g = 153, b = 255/r = $HIGH_RED, g = $HIGH_GREEN, b = $HIGH_BLUE/g" $F
         fi
-
 
         # File manager background
         if [[ "$FILEMGR_BKND_RGB" != "64 64 64" ]]; then
