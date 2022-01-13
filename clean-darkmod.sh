@@ -35,7 +35,7 @@ clean-darkmod(){
         report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-no-change
         report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-bak
         report_on_error rm -rf $TERMINOLOGY_THEME_PATH/default-dm.edc
-        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/default-dm_colors.in.edc
+        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/default-dm
         if [ -z "$1" ]; then
           warn_on_error rm -f build/term/*.edj
         else

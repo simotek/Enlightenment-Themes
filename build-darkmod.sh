@@ -373,12 +373,12 @@ if [[ $DKMD_EPKG != 1 ]]; then
 
     pushd $TERMINOLOGY_THEME_PATH
     report_on_error cp -a default.edc default-dm.edc
-    report_on_error cp -a default_colors.in.edc default-dm_colors.in.edc
+    report_on_error sed -i 's/"edc/"edc-dm/' default-dm.edc
 
-    sed -i "s/default_colors.in.edc/default-dm_colors.in.edc/g" default-dm.edc
+    report_on_error cp -a default default-dm
 
     # Replace background and highlights in edc
-    for F in `find default-dm.edc default-dm_colors.in.edc -iname "*.edc"`; do
+    for F in `find default-dm default-dm.edc -iname "*.edc"`; do
         # Highlight color
         if [[ "$HIGH_RGB" != "51 153 255" ]]; then
             sed -i "s/51 153 255/$HIGH_RGB/g" $F
