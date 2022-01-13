@@ -296,6 +296,9 @@ if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
     report_on_error install ../build/e/$THEME_NAME.edj ~/.elementary/themes
     mkdir -p "../artifacts/bin-e"
     cp "../build/e/$THEME_NAME.edj" "../artifacts/bin-e/"
+    inform "" # Lazy new line
+    inform "Enlightenment Theme Complete"
+    inform "" # Lazy new line
   else
     error "build probably failed exiting"
     exit
@@ -458,4 +461,4 @@ fi
 
 # TBD: copy back to current dir, and to .e file
 
-success "Completed at: " $(date)
+inform "Completed at: " $(date)
