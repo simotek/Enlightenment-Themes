@@ -401,8 +401,16 @@ moveTerminologyShadowImage(){
     fi
 }
 
+moveTerminologyNoUse(){
+    # if file is in img-manual don't copy
+    if [ ! -f $TERMINOLOGY_THEME_PATH/$MANUAL_IMAGE_DIR/$1 ]; then
+        report_on_error mv $TERMINOLOGY_THEME_PATH/images/$1 $TERMINOLOGY_THEME_PATH/img-no-use/
+    fi
+}
+
 moveAllTerminologyHighlightImages(){
     mkdir $TERMINOLOGY_THEME_PATH/img-color
+    mkdir $TERMINOLOGY_THEME_PATH/img-no-use
     moveTerminologyHighlightImage bg_glow_in.png
     moveTerminologyHighlightImage icon_about.png
     moveTerminologyHighlightImage icon_close.png
@@ -413,12 +421,12 @@ moveAllTerminologyHighlightImages(){
     moveTerminologyHighlightImage icon_split_h.png
     moveTerminologyHighlightImage icon_split_v.png
     moveTerminologyHighlightImage sl_stripe.png
-    moveTerminologyHighlightImage icon_about.svg
-    moveTerminologyHighlightImage icon_close.svg
-    moveTerminologyHighlightImage icon_copy.svg
-    moveTerminologyHighlightImage icon_paste.svg
-    moveTerminologyHighlightImage icon_split_h.svg
-    moveTerminologyHighlightImage icon_split_v.svg
+    moveTerminologyNoUse icon_about.svg
+    moveTerminologyNoUse icon_close.svg
+    moveTerminologyNoUse icon_copy.svg
+    moveTerminologyNoUse icon_paste.svg
+    moveTerminologyNoUse icon_split_h.svg
+    moveTerminologyNoUse icon_split_v.svg
 }
 
 moveAllTerminologyBackgroundImages(){
