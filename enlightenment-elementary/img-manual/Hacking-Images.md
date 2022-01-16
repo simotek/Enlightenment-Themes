@@ -5,7 +5,7 @@ Hacking Images
 | e_surface_no_border.png | Inside of the surface without the border
 | e_surface_top.png e_surface_bottom.png | top and bottom of frames
 | e_surface_sq.png | background surface no rounded corners
-| e_wallpaper.png | e's wallpaper (Not used in this theme)
+| e_wallpaper.png | e's wallpaper
 | e_logo.png | Logo used in start on shelf
 | e_logo_clicked.png | Logo used when shelf button is clicked, HAVE_CLICKED_LOGO at the top of start.edc must be set to 1
 | e_logo_hover.png | Logo used when mouse over shelf button, HAVE_HOVER_LOGO at the top of start.edc must be set to 1
@@ -14,6 +14,7 @@ Hacking Images
 | tasks_selected.png | Selected item in tasks, can be a copy of e_item_selected
 | menu_selected.png | Selected item in menu, can be a copy of e_item_selected
 | menu_background.png | Background of menu
+| proc_background.png | Proc Background in border, Can be a copy of e_item_selected
 
 Various Icons
 -------------

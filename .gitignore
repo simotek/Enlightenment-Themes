@@ -3,6 +3,7 @@
 *~
 *Makefile.am
 *-icons/
+artifacts/
 build/
 enlightenmnet-elementary/Cerium2/develop/
 enlightenment-elementary/*-dm*
