@@ -385,12 +385,13 @@ if [[ $DKMD_EPKG != 1 ]]; then
 
     pushd $TERMINOLOGY_THEME_PATH
     report_on_error cp -a default.edc default-dm.edc
-    report_on_error sed -i 's/"edc/"edc-dm/' default-dm.edc
+    report_on_error cp -a Default.ini Default-dm.ini
+    report_on_error sed -i 's/"default/"default-dm/' default-dm.edc
 
     report_on_error cp -a default default-dm
 
     # Replace background and highlights in edc
-    for F in `find default-dm default-dm.edc -iname "*.edc"`; do
+    for F in `find default-dm default-dm.edc Default-dm.ini \( -iname "*.edc" -o -iname "*.ini" \)`; do
         # Highlight color
         if [[ "$HIGH_RGB" != "51 153 255" ]]; then
             sed -i "s/51 153 255/$HIGH_RGB/g" $F
@@ -442,22 +443,40 @@ if [[ $DKMD_EPKG != 1 ]]; then
         fi
 
         #terminology background
-        if [[ "$TERMINOLOGY_BACKGROUND" != "32 32 32" ]]; then
-            sed -i "s/32 32 32/$TERMINOLOGY_BACKGROUND/g" $F
+        if [[ "$TERMINOLOGY_BACKGROUND" != "#202020" ]]; then
+            sed -i "s/#202020/$TERMINOLOGY_BACKGROUND/g" $F
         fi
-
     done
+
+    # Some extra colorscheme
+    sed -i "s/Default/$THEME_NAME/g" Default-dm.ini
+    sed -i "s/Terminology's developers,/$THEME_AUTHOR/g" Default-dm.ini
+    sed -i "s/https:////www.enlightenment.org//about-terminology/$THEME_WEB/g" Default-dm.ini
+
     mkdir -p ../build/term
     edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -sd sounds default-dm.edc $TERMINOLOGY_LICENSE $TERMINOLOGY_AUTHORS ../build/term/$THEME_NAME.edj
 
     report_on_error mv -v img-bak images
 
-    if [[ $DKMD_TERMPKG != 1 ]]; then
-	    report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
-
-      mkdir -p "../artifacts/bin-term"
-      cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
+    # Use theme name if it exists otherwise fall back to the recolored default
+    if [[ -f $THEME_NAME.ini ]]; then
+      ./add_color_scheme.sh "eet" "../build/term/$THEME_NAME.eet" "$THEME_NAME.ini"
+    else
+      ./add_color_scheme.sh "eet" "../build/term/$THEME_NAME.eet" "Default-dm.ini"
     fi
+
+    if [[ $DKMD_TERMPKG != 1 ]]; then
+      if [[ ! -d ~/.config/terminology/colorschemes ]]; then
+        mkdir ~/.config/terminology/colorschemes
+      fi
+	    report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
+      report_on_error cp ../build/term/$THEME_NAME.eet ~/.config/terminology/
+      report_on_error cp ../build/term/$THEME_NAME.eet ~/.config/terminology/colorschemes
+    fi
+
+    mkdir -p "../artifacts/bin-term"
+    cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
+    cp "../build/term/$THEME_NAME.eet" "../artifacts/bin-term/"
 
 popd
 fi
