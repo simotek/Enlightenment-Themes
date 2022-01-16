@@ -34,8 +34,11 @@ clean-darkmod(){
         clean_dir $TERMINOLOGY_THEME_PATH/img-color-convd
         clean_dir $TERMINOLOGY_THEME_PATH/img-no-change
         clean_dir $TERMINOLOGY_THEME_PATH/img-bak
+        clean_dir $TERMINOLOGY_THEME_PATH/img-no-use/
         clean_file $TERMINOLOGY_THEME_PATH/default-dm.edc
         clean_dir $TERMINOLOGY_THEME_PATH/default-dm
+        clean_file $TERMINOLOGY_THEME_PATH/default-dm.ini
+        rm $TERMINOLOGY_THEME_PATH/*-EET-*
         if [ -z "$1" ]; then
           clean_file  build/term/*.edj
         else
