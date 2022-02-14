@@ -149,13 +149,19 @@ moveAllHighlightImages(){
     moveHighlightImage horizontal_separated_bar_glow.png
     moveHighlightImage horizontal_separated_bar_small_glow.png
     moveHighlightImage icon_apps.png
+    moveHighlightImage icon_arrow_bottom.png
     moveHighlightImage icon_arrow_down_left.png
     moveHighlightImage icon_arrow_down.png
     moveHighlightImage icon_arrow_down_right.png
+    moveHighlightImage icon_arrow_first.png
+    moveHighlightImage icon_arrow_last.png
     moveHighlightImage icon_arrow_left.png
+    moveHighlightImage icon_arrow_lr.png
     moveHighlightImage icon_arrow_right.png
+    moveHighlightImage icon_arrow_top.png
     moveHighlightImage icon_arrow_up_left.png
     moveHighlightImage icon_arrow_up.png
+    moveHighlightImage icon_arrow_ud.png
     moveHighlightImage icon_arrow_up_right.png
     moveHighlightImage icon_border_border.png
     moveHighlightImage icon_border_close.png
@@ -176,23 +182,59 @@ moveAllHighlightImages(){
     moveHighlightImage icon_border_stack_bot.png
     moveHighlightImage icon_border_stack_norm.png
     moveHighlightImage icon_border_stack_top.png
+    moveHighlightImage icon_call_start.png
+    moveHighlightImage icon_call_stop.png
     moveHighlightImage icon_chat.png
     moveHighlightImage icon_clock.png
     moveHighlightImage icon_close.png
     moveHighlightImage icon_delete.png
     moveHighlightImage icon_edit.png
+    moveHighlightImage icon_edit_paste.png
+    moveHighlightImage icon_edit_redo.png
+    moveHighlightImage icon_edit_undo.png
     moveHighlightImage icon_eject.png
     moveHighlightImage icon_enlightenment.png
     moveHighlightImage icon_file.png
+    moveHighlightImage icon_fingerprint.png
     moveHighlightImage icon_folder.png
     moveHighlightImage icon_forward.png
     moveHighlightImage icon_head.png
     moveHighlightImage icon_home.png
     moveHighlightImage icon_info.png
+    moveHighlightImage icon_minus.png
     moveHighlightImage icon_mute.png
+    moveHighlightImage icon_network_cellular_4g.png
+    moveHighlightImage icon_network_cellular_3g.png
+    moveHighlightImage icon_network_cellular_edge.png
+    moveHighlightImage icon_network_cellular_gprs.png
+    moveHighlightImage icon_network_cellular_umts.png
+    moveHighlightImage icon_network_cellular_antenna.png
+    moveHighlightImage icon_network_cellular_signal_excellent.png
+    moveHighlightImage icon_network_cellular_signal_good.png
+    moveHighlightImage icon_network_cellular_signal_ok.png
+    moveHighlightImage icon_network_cellular_signal_weak.png
+    moveHighlightImage icon_network_cellular_signal_none.png
+    moveHighlightImage icon_network_cellular_acquiring.png
+    moveHighlightImage icon_network_error.png
+    moveHighlightImage icon_network_offline.png
+    moveHighlightImage icon_network_receive.png
+    moveHighlightImage icon_network_transmit_receive.png
+    moveHighlightImage icon_network_transmit.png
+    moveHighlightImage icon_network_idle.png
+    moveHighlightImage icon_network_vpn.png
+    moveHighlightImage icon_network_vpn_acquiring.png
+    moveHighlightImage icon_network_wireless_acquiring.png
+    moveHighlightImage icon_network_wireless_encrypted.png
+    moveHighlightImage icon_network_wireless_signal_excellent.png
+    moveHighlightImage icon_network_wireless_signal_good.png
+    moveHighlightImage icon_network_wireless_signal_ok.png
+    moveHighlightImage icon_network_wireless_signal_weak.png
+    moveHighlightImage icon_network_wireless_signal_none.png
+    moveHighlightImage icon_non_starred.png
     moveHighlightImage icon_next.png
     moveHighlightImage icon_pause.png
     moveHighlightImage icon_play.png
+    moveHighlightImage icon_plus.png
     moveHighlightImage icon_preferences-applications-personal.png
     moveHighlightImage icon_preferences-desktop-environments.png
     moveHighlightImage icon_preferences-desktop-signal-bindings.png
@@ -200,11 +242,18 @@ moveAllHighlightImages(){
     moveHighlightImage icon_preferences-variables.png
     moveHighlightImage icon_prev.png
     moveHighlightImage icon_refresh.png
+    moveHighlightImage icon_repeat.png
     moveHighlightImage icon_rewind.png
     moveHighlightImage icon_search.png
+    moveHighlightImage icon_shield_up.png
+    moveHighlightImage icon_shuffle.png
     moveHighlightImage icon_spanner.png
     moveHighlightImage icon_splat_half.png
     moveHighlightImage icon_splat.png
+    moveHighlightImage icon_split_h.png
+    moveHighlightImage icon_split_v.png
+    moveHighlightImage icon_starred.png
+    moveHighlightImage icon_stick_man.png
     moveHighlightImage icon_stop.png
     moveHighlightImage icon_system-lock-screen.png
     moveHighlightImage icon_system-log-out.png
