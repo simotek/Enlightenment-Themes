@@ -1,0 +1,129 @@
+#####################################################################
+#                                                                   #
+# This file is not intended to be used on its own it is             #
+# Intended to be sourced in build-darkmod.sh and clean-darkmod.sh   #
+#                                                                   #
+#####################################################################
+
+# Theme name
+<<<<<<< HEAD
+THEME_NAME=darkmod
+THEME_DESC="A theme for enlightenment"
+THEME_VERSION=20220216.1.26
+
+=======
+THEME_NAME=vtx
+THEME_DESC="designed as a base for other themes not to use on its own."
+THEME_VERSION=20220101.1.26
+THEME_AUTHOR=Simotek
+THEME_WEB=https://github.com/simotek/Enlightenment-Themes
+>>>>>>> 211bdad (Massive Terminology Theme Update)
+
+# Path to enlightenment theme if running from the theme dir . is fine
+ELM_ENLIGHT_THEME_PATH=enlightenment-elementary
+
+# Path to terminology directory leave blank to not change the theme
+TERMINOLOGY_THEME_PATH=terminology
+
+ELM_ENLIGHT_LICENSE="-l COPYING -l licenses-authors/COPYING.bsd -l licenses-authors/COPYING.images -l licenses-authors/COPYING.lgpl"
+ELM_ENLIGHT_AUTHORS="-a licenses-authors/AUTHORS -a licenses-authors/AUTHORS.elementary -a licenses-authors/AUTHORS.enlightenment"
+
+
+TERMINOLOGY_LICENSE="-l COPYING -l licenses-authors/COPYING.terminology -l license-authors/README.icons"
+TERMINOLOGY_AUTHORS="-a licenses-authors/AUTHORS -a licenses-authors/AUTHORS.terminology"
+
+
+# Manual Image Directory, place images that you have modified in this directory
+# this way they won't get overwritten by the script and will be included
+MANUAL_IMAGE_DIR=img-manual
+
+# Manual Image's that you would still like to be converted via script
+MANUAL_IMAGE_CONVD_DIR=img-manual-convd
+
+# Change the Highlight/blue color
+# http://www.imagemagick.org/script/command-line-options.php#modulate
+#
+# convert -modulate $HIGH_BRIGHTNESS $HIGH_SATURATION $HIGH_HUE
+#
+# $HIGH_BRIGHTNESS 100 leave as is, 0 black 50 half bright 200 twice as bright
+# $HIGH_SATURATION 0 grey scale, 200 very colorful
+# $HIGH_HUE Rotates color in the image, 300 will keep image as it is
+#    50 will rotate a color by 90 ie red to purple You will probably want to read
+#    the full doco or trial and error here
+#
+HIGH_BRIGHTNESS=100
+HIGH_SATURATION=100
+HIGH_HUE=300
+
+# Change the background gradients
+# http://www.imagemagick.org/script/command-line-options.php#brightness-contrastX
+#
+# convert -brightness-contrast $BGND_BRIGHTNESS{x$BGND_CONTRAST}{%}}
+#
+# $BGND_BRIGHTNESS - relative brightness adjustment 0 does nothing range -100 to 100
+# $BGND_SATURATION - relative saturation adjustment 0 does nothing range -100 to 100
+BGND_BRIGHTNESS=0
+BGND_SATURATION=0
+
+# Change the shadows alpha (more alpha means less shadows)
+# convert in.png -channel A -evaluate Multiply $SHADOW_MULT out.png
+#
+# $SHADOW_MULT - 1 for no change, numbers less then 1 will make shadows lighter greater
+#    then 1 will make them darker
+SHADOW_MULT=1
+
+
+# Filemanger Background - default #404040
+FILEMGR_BKND_HTML="#404040"
+# Automatically convert to RGB
+FILEMGR_BKND_RGB=$(printf '%d %d %d\n' 0x${FILEMGR_BKND_HTML:1:2} 0x${FILEMGR_BKND_HTML:3:2} 0x${FILEMGR_BKND_HTML:5:2})
+
+# Filemanger Alt Background - default #383838
+FILEMGR_ALT_BKND_HTML="#383838"
+# Automatically convert to RGB
+FILEMGR_ALT_BKND_RGB=$(printf '%d %d %d\n' 0x${FILEMGR_ALT_BKND_HTML:1:2} 0x${FILEMGR_ALT_BKND_HTML:3:2} 0x${FILEMGR_ALT_BKND_HTML:5:2})
+
+# Filemanger Image Background - default #303030
+FILEMGR_IMG_BKND_HTML="#303030"
+# Automatically convert to RGB
+FILEMGR_IMG_BKND_RGB=$(printf '%d %d %d\n' 0x${FILEMGR_IMG_BKND_HTML:1:2} 0x${FILEMGR_IMG_BKND_HTML:3:2} 0x${FILEMGR_IMG_BKND_HTML:5:2})
+
+# yet another grey, apparently used in older parts of the pager
+# Filemanger Image Background - default #323232
+FILEMGR_MID_GREY_HTML="#323232"
+# Automatically convert to RGB
+FILEMGR_MID_GREY_RGB=$(printf '%d %d %d\n' 0x${FILEMGR_MID_GREY_HTML:1:2} 0x${FILEMGR_MID_GREY_HTML:3:2} 0x${FILEMGR_MID_GREY_HTML:5:2})
+
+# yet another grey, used by the toggle checkbox background
+# Checkbox / toggle Background - default #181818
+TOGGLE_BKND_HTML="#181818"
+# Automatically convert to RGB
+TOGGLE_BKND_RGB=$(printf '%d %d %d\n' 0x${TOGGLE_BKND_HTML:1:2} 0x${TOGGLE_BKND_HTML:3:2} 0x${TOGGLE_BKND_HTML:5:2})
+
+# Default font color #FFFFFF
+FNT_DEFAULT_HTML=#FFFFFF
+FNT_DEFAULT_RGB=$(printf '%d %d %d' 0x${FNT_DEFAULT_HTML:1:2} 0x${FNT_DEFAULT_HTML:3:2} 0x${FNT_DEFAULT_HTML:5:2})
+
+# Default text shadow colors - Default #00000080
+FNT_DEFAULT_SHADOW_HTML=#00000080
+FNT_DEFAULT_SHADOW_RGB=$(printf '%d %d %d %d' 0x${FNT_DEFAULT_SHADOW_HTML:1:2} 0x${FNT_DEFAULT_SHADOW_HTML:3:2} 0x${FNT_DEFAULT_SHADOW_HTML:5:2} 0x${FNT_DEFAULT_SHADOW_HTML:7:2})
+
+# Disabled Text Color #151515 default
+FNT_DISABLED_HTML=#151515
+FNT_DISABLED_RGB=$(printf '%d %d %d' 0x${FNT_DISABLED_HTML:1:2} 0x${FNT_DISABLED_HTML:3:2} 0x${FNT_DISABLED_HTML:5:2})
+
+# Disbled text shadow colors - Default #00000080
+FNT_DISABLED_SHADOW_HTML=#00000080
+FNT_DISABLED_SHADOW_RGB=$(printf '%d %d %d %d' 0x${FNT_DISABLED_SHADOW_HTML:1:2} 0x${FNT_DISABLED_SHADOW_HTML:3:2} 0x${FNT_DISABLED_SHADOW_HTML:5:2} 0x${FNT_DISABLED_SHADOW_HTML:7:2})
+
+
+# various greys used in elm C0 AC 98
+FNT_GREY_192_HTML=#C0C0C0
+FNT_GREY_192_RGB=$(printf '%d %d %d' 0x${FNT_GREY_192_HTML:1:2} 0x${FNT_GREY_192_HTML:3:2} 0x${FNT_GREY_192_HTML:5:2})
+FNT_GREY_172_HTML=#ACACAC
+FNT_GREY_172_RGB=$(printf '%d %d %d' 0x${FNT_GREY_172_HTML:1:2} 0x${FNT_GREY_172_HTML:3:2} 0x${FNT_GREY_172_HTML:5:2})
+FNT_GREY_152_HTML=#989898
+FNT_GREY_152_RGB=$(printf '%d %d %d' 0x${FNT_GREY_152_HTML:1:2} 0x${FNT_GREY_152_HTML:3:2} 0x${FNT_GREY_152_HTML:5:2})
+
+#default value is 32 32 32
+TERMINOLOGY_BACKGROUND="#9b9b9b"

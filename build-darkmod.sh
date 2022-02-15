@@ -470,7 +470,6 @@ if [[ $DKMD_EPKG != 1 ]]; then
         mkdir ~/.config/terminology/colorschemes
       fi
 	    report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
-      report_on_error cp ../build/term/$THEME_NAME.eet ~/.config/terminology/
       report_on_error cp ../build/term/$THEME_NAME.eet ~/.config/terminology/colorschemes
     fi
 
