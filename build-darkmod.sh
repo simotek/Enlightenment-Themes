@@ -296,6 +296,11 @@ if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
     report_on_error install ../build/e/$THEME_NAME.edj ~/.elementary/themes
     mkdir -p "../artifacts/bin-e"
     cp "../build/e/$THEME_NAME.edj" "../artifacts/bin-e/"
+    inform "Compressing Icon Theme"
+    mkdir -p ../artifacts/icons/
+    pushd ../build/icons/
+    report_on_error tar -cf "../../artifacts/icons/$THEME_NAME-$THEME_VERSION-icons.tar.xz" "$THEME_NAME-icons/"
+    popd
     inform "" # Lazy new line
     inform "Enlightenment Theme Complete"
     inform "" # Lazy new line
