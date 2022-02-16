@@ -14,24 +14,25 @@ Branch Structure
 
 |Branch Name   | Status   | Description
 |--------------|----------|------------------------------------------------------------------------------
-| **Development** 
+| **Development**
 | Upstream     | Dev Only | Current working upstream dark theme (from elementary.git
 | Master       | Dev Only | My base theme, Upstream + changes i have in all themes (color-paths.conf is just the default)
-| **vtx** 
+| **darkmod**
+| Dark | Done   | The old default enlightenment theme.
+| Extra Dark Green   | Done   | A darker theme then Dark with lots of green
+| Ice | Done | A light theme
+| Kitty | Semi Usable | A bit of fun
+| **vtx**
 | Vertex | Almost Done | A port of the Vertex GTK theme
 | Fireball2 | In Development | A port of Toma's Fireball theme
 | Iceball2 | In Development | A port of Toma's Iceball theme
 | Grunge2 | In Development | A port of Toma's Grunge theme
-| **darkmod** 
-| Extra Dark Green   | Done   | A darker theme then Dark with lots of green 
-| Ice | Done | A light theme 
-| Kitty | Semi Usable | A bit of fun
 | **Other**
 | Cerium2  | Almost Done | A light theme based off Toma's old Cerium theme.
 | Transiant  | In Development   | Something i'm slowly working on, Significantly different to dark eats lots of CPU
 | Transiant  | In Development   | Something i'm slowly working on, Significantly different to dark eats lots of CPU
 | transiant-color  | In Development   | Like Transiant but with more colors
 | anti-transiant-color  | In Development   | Like transiant-color but without the transparent bits that eat CPU
-| **openSUSE** 
+| **openSUSE**
 | openSUSE-e-42.1 | Release  | The current default theme used in openSUSE (Was blue-green)
 | openSUSE-e-ice | Release  | The Ice light theme with openSUSE Branding.
