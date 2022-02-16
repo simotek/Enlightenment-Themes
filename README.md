@@ -1,7 +1,10 @@
 Enlightenment-Themes
 ====================
 
-Various Enlightenment themes im working on, a branch per theme, development status for each theme is listed below
+Various Enlightenment and Terminology themes i'm working on, a branch per theme, development status for each theme is listed below.
+
+For released themes you can simply download the bundled tarball extract it with `tar -xf <ThemeName>-bundle.tar.xf` and then run `install.sh` to put the files
+in the appropriate spot in your home directory.
 
 Building a theme is as simple as running the `./build-darkmod.sh` script. The built theme should be automatically put in your theme directory.
 
