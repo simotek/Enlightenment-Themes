@@ -477,6 +477,17 @@ if [[ $DKMD_EPKG != 1 ]]; then
     cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
     cp "../build/term/$THEME_NAME.eet" "../artifacts/bin-term/"
 
+    inform "Creating Bundle"
+
+     # Create Bundle
+     pushd ../build
+     cp ../local-install.sh install.sh
+     sed -i "s/PLACEHOLDER/$THEME_NAME/g" install.sh
+     mkdir -p "../artifacts/bundle/"
+     report_on_error tar -cf "../artifacts/bundle/$THEME_NAME-$THEME_VERSION.tar.xz" "install.sh" "e/$THEME_NAME.edj" "term/$THEME_NAME.edj" "term/$THEME_NAME.eet" "icons/$THEME_NAME-icons/"
+     rm install.sh
+     popd
+
 popd
 fi
 fi

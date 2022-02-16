@@ -208,7 +208,6 @@ moveAllHighlightImages(){
     moveHighlightImage icon_network_cellular_edge.png
     moveHighlightImage icon_network_cellular_gprs.png
     moveHighlightImage icon_network_cellular_umts.png
-    moveHighlightImage icon_network_cellular_antenna.png
     moveHighlightImage icon_network_cellular_signal_excellent.png
     moveHighlightImage icon_network_cellular_signal_good.png
     moveHighlightImage icon_network_cellular_signal_ok.png
