@@ -484,7 +484,7 @@ if [[ $DKMD_EPKG != 1 ]]; then
      cp ../local-install.sh install.sh
      sed -i "s/PLACEHOLDER/$THEME_NAME/g" install.sh
      mkdir -p "../artifacts/bundle/"
-     report_on_error tar -cf "../artifacts/bundle/$THEME_NAME-$THEME_VERSION.tar.xz" "install.sh" "e/$THEME_NAME.edj" "term/$THEME_NAME.edj" "term/$THEME_NAME.eet" "icons/$THEME_NAME-icons/"
+     report_on_error tar -cf "../artifacts/bundle/$THEME_NAME-$THEME_VERSION-Bundle.tar.xz" "install.sh" "e/$THEME_NAME.edj" "term/$THEME_NAME.edj" "term/$THEME_NAME.eet" "icons/$THEME_NAME-icons/"
      rm install.sh
      popd
 
