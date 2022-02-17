@@ -23,8 +23,8 @@
 # A simple script to install all the build artifacts into one location
 THEME_NAME=PLACEHOLDER
 
-cp "bin-e/$THEME_NAME.edj" "$HOME/.e/e/themes"
-cp "bin-term/$THEME_NAME.edj" "$HOME/.config/terminology/themes"
-cp "bin-term/$THEME_NAME.eet" "$HOME/.config/terminology/colorschemes"
+cp "e/$THEME_NAME.edj" "$HOME/.e/e/themes"
+cp "term/$THEME_NAME.edj" "$HOME/.config/terminology/themes"
+cp "term/$THEME_NAME.eet" "$HOME/.config/terminology/colorschemes"
 mkdir -p "$HOME/.local/share/icons"
 cp -r "icons/$THEME_NAME-icons" "$HOME/.local/share/icons"
