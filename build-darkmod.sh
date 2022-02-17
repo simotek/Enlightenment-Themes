@@ -481,10 +481,11 @@ if [[ $DKMD_EPKG != 1 ]]; then
      # Create Bundle
      pushd ../build
      # Be Nice Copy Everything to a dir first.
-     mkdir -p "$THEME_NAME-$THEME_VERSION-Bundle"
+     mkdir -p "$THEME_NAME-$THEME_VERSION-Bundle/e"
+     mkdir -p "$THEME_NAME-$THEME_VERSION-Bundle/term"
      cp "../local-install.sh" "$THEME_NAME-$THEME_VERSION-Bundle/install.sh"
      sed -i "s/PLACEHOLDER/$THEME_NAME/g" "$THEME_NAME-$THEME_VERSION-Bundle/install.sh"
-     cp "e/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle"
+     cp "e/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle/e/"
      cp "term/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle"
      cp "term/$THEME_NAME.eet" "$THEME_NAME-$THEME_VERSION-Bundle"
      cp -r "icons/$THEME_NAME-icons/" "$THEME_NAME-$THEME_VERSION-Bundle"
