@@ -32,9 +32,10 @@ if [[ -f "artifacts/pkg/$E_THEME_PKG_DIR.tar.xz" ]]; then
   rm "artifacts/pkg/$E_THEME_PKG_DIR.tar.xz"
 fi
 
-pushd "build/pkg/"
+pushd "build/pkg/" &> /dev/null
+inform "Creating $E_THEME_PKG_DIR.tar.xz"
 report_on_error tar cfJ "../../artifacts/source/$E_THEME_PKG_DIR.tar.xz" $E_THEME_PKG_DIR
-popd
+popd &> /dev/null
 
 # Kill package dir once done
 rm -rf "build/pkg/$E_THEME_PKG_DIR"
@@ -61,10 +62,13 @@ cp README.md "build/pkg/$TERM_THEME_PKG_DIR/README.md"
 if [[ -f "artifacts/pkg/$TERM_THEME_PKG_DIR.tar.xz" ]]; then
   rm "artifacts/pkg/$TERM_THEME_PKG_DIR.tar.xz"
 fi
-pushd "build/pkg/"
+pushd "build/pkg/" &> /dev/null
+inform "Creating $TERM_THEME_PKG_DIR.tar.xz"
 report_on_error tar cfJ "../../artifacts/source/$TERM_THEME_PKG_DIR.tar.xz" $TERM_THEME_PKG_DIR
-popd
+popd &> /dev/null
 
 
 # Kill package dir once done
 rm -rf "build/pkg/$TERM_THEME_PKG_DIR"
+
+inform "Completed at: " $(date)
