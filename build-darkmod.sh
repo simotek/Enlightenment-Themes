@@ -296,6 +296,11 @@ if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
     report_on_error install ../build/e/$THEME_NAME.edj ~/.elementary/themes
     mkdir -p "../artifacts/bin-e"
     cp "../build/e/$THEME_NAME.edj" "../artifacts/bin-e/"
+    inform "Compressing Icon Theme"
+    mkdir -p ../artifacts/icons/
+    pushd ../build/icons/
+    report_on_error tar -cf "../../artifacts/icons/$THEME_NAME-$THEME_VERSION-icons.tar.xz" "$THEME_NAME-icons/"
+    popd
     inform "" # Lazy new line
     inform "Enlightenment Theme Complete"
     inform "" # Lazy new line
@@ -464,14 +469,30 @@ if [[ $DKMD_EPKG != 1 ]]; then
       if [[ ! -d ~/.config/terminology/colorschemes ]]; then
         mkdir ~/.config/terminology/colorschemes
       fi
-	    report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
-      report_on_error cp ../build/term/$THEME_NAME.eet ~/.config/terminology/
+      report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
       report_on_error cp ../build/term/$THEME_NAME.eet ~/.config/terminology/colorschemes
     fi
 
     mkdir -p "../artifacts/bin-term"
     cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
     cp "../build/term/$THEME_NAME.eet" "../artifacts/bin-term/"
+
+    inform "Creating Bundle"
+     # Create Bundle
+     pushd ../build
+     # Be Nice Copy Everything to a dir first.
+     mkdir -p "$THEME_NAME-$THEME_VERSION-Bundle/e"
+     mkdir -p "$THEME_NAME-$THEME_VERSION-Bundle/term"
+     cp "../local-install.sh" "$THEME_NAME-$THEME_VERSION-Bundle/install.sh"
+     sed -i "s/PLACEHOLDER/$THEME_NAME/g" "$THEME_NAME-$THEME_VERSION-Bundle/install.sh"
+     cp "e/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle/e/"
+     cp "term/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle/term/"
+     cp "term/$THEME_NAME.eet" "$THEME_NAME-$THEME_VERSION-Bundle/term/"
+     cp -r "icons/$THEME_NAME-icons/" "$THEME_NAME-$THEME_VERSION-Bundle"
+     mkdir -p "../artifacts/bundle/"
+     report_on_error tar -cf "../artifacts/bundle/$THEME_NAME-$THEME_VERSION-Bundle.tar.xz" "$THEME_NAME-$THEME_VERSION-Bundle"
+     rm -r "$THEME_NAME-$THEME_VERSION-Bundle"
+     popd
 
 popd
 fi
