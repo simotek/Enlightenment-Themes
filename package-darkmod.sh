@@ -7,52 +7,64 @@ source clean-darkmod.sh
 
 clean-darkmod
 
+mkdir -p "artifacts/source"
+
 E_THEME_PKG_DIR="enlightenment-theme-$THEME_NAME-$THEME_VERSION"
 
-mkdir $E_THEME_PKG_DIR
+if [[ -d "build/pkg/$E_THEME_PKG_DIR" ]]; then
+  rm -r "build/pkg/$E_THEME_PKG_DIR"
+fi
+mkdir -p "build/pkg/$E_THEME_PKG_DIR"
 
-cp -r $ELM_ENLIGHT_THEME_PATH "$E_THEME_PKG_DIR/$ELM_ENLIGHT_THEME_PATH"
-cp -r "licenses-authors" "$E_THEME_PKG_DIR/licenses-authors"
-cp build-darkmod.sh "$E_THEME_PKG_DIR/build-darkmod.sh"
-cp clean-darkmod.sh "$E_THEME_PKG_DIR/clean-darkmod.sh"
-cp COPYING "$E_THEME_PKG_DIR/COPYING"
-cp darkmod-color-paths.conf "$E_THEME_PKG_DIR/darkmod-color-paths.conf"
-cp darkmod-copy.sh "$E_THEME_PKG_DIR/darkmod-copy.sh"
-cp darkmod-fdo-icon-recolor.txt "$E_THEME_PKG_DIR/darkmod-fdo-icon-recolor.txt"
-cp darkmod-util.sh "$E_THEME_PKG_DIR/darkmod-util.sh"
-cp README.md "$E_THEME_PKG_DIR/README.md"
+cp -r $ELM_ENLIGHT_THEME_PATH "build/pkg/$E_THEME_PKG_DIR/$ELM_ENLIGHT_THEME_PATH"
+cp -r "licenses-authors" "build/pkg/$E_THEME_PKG_DIR/licenses-authors"
+cp build-darkmod.sh "build/pkg/$E_THEME_PKG_DIR/build-darkmod.sh"
+cp clean-darkmod.sh "build/pkg/$E_THEME_PKG_DIR/clean-darkmod.sh"
+cp COPYING "build/pkg/$E_THEME_PKG_DIR/COPYING"
+cp darkmod-color-paths.conf "build/pkg/$E_THEME_PKG_DIR/darkmod-color-paths.conf"
+cp darkmod-copy.sh "build/pkg/$E_THEME_PKG_DIR/darkmod-copy.sh"
+cp darkmod-fdo-icon-recolor.txt "build/pkg/$E_THEME_PKG_DIR/darkmod-fdo-icon-recolor.txt"
+cp darkmod-util.sh "build/pkg/$E_THEME_PKG_DIR/darkmod-util.sh"
+cp README.md "build/pkg/$E_THEME_PKG_DIR/README.md"
 
 
+if [[ -f "artifacts/pkg/$E_THEME_PKG_DIR.tar.xz" ]]; then
+  rm "artifacts/pkg/$E_THEME_PKG_DIR.tar.xz"
+fi
 
-rm "build/pkg/$E_THEME_PKG_DIR.tar.xz"
-tar cfJ "build/pkg/$E_THEME_PKG_DIR.tar.xz" $E_THEME_PKG_DIR
+pushd "build/pkg/"
+report_on_error tar cfJ "../../artifacts/source/$E_THEME_PKG_DIR.tar.xz" $E_THEME_PKG_DIR
+popd
 
 # Kill package dir once done
-rm -rf $E_THEME_PKG_DIR
+rm -rf "build/pkg/$E_THEME_PKG_DIR"
 
 
 TERM_THEME_PKG_DIR="terminology-theme-$THEME_NAME-$THEME_VERSION"
 
-mkdir $TERM_THEME_PKG_DIR
+if [[ -d "build/pkg/$TERM_THEME_PKG_DIR" ]]; then
+  rm -r "build/pkg/$TERM_THEME_PKG_DIR"
+fi
+mkdir -p "build/pkg/$TERM_THEME_PKG_DIR"
 
-cp -r $TERMINOLOGY_THEME_PATH "$TERM_THEME_PKG_DIR/$TERMINOLOGY_THEME_PATH"
-cp -r "licenses-authors" "$TERM_THEME_PKG_DIR/licenses-authors"
-cp build-darkmod.sh "$TERM_THEME_PKG_DIR/build-darkmod.sh"
-cp clean-darkmod.sh "$TERM_THEME_PKG_DIR/clean-darkmod.sh"
-cp COPYING "$TERM_THEME_PKG_DIR/COPYING"
-cp darkmod-color-paths.conf "$TERM_THEME_PKG_DIR/darkmod-color-paths.conf"
-cp darkmod-copy.sh "$TERM_THEME_PKG_DIR/darkmod-copy.sh"
-cp darkmod-fdo-icon-recolor.txt "$TERM_THEME_PKG_DIR/darkmod-fdo-icon-recolor.txt"
-cp darkmod-util.sh "$TERM_THEME_PKG_DIR/darkmod-util.sh"
-cp README.md "$TERM_THEME_PKG_DIR/README.md"
+cp -r $TERMINOLOGY_THEME_PATH "build/pkg/$TERM_THEME_PKG_DIR/$TERMINOLOGY_THEME_PATH"
+cp -r "licenses-authors" "build/pkg/$TERM_THEME_PKG_DIR/licenses-authors"
+cp build-darkmod.sh "build/pkg/$TERM_THEME_PKG_DIR/build-darkmod.sh"
+cp clean-darkmod.sh "build/pkg/$TERM_THEME_PKG_DIR/clean-darkmod.sh"
+cp COPYING "build/pkg/$TERM_THEME_PKG_DIR/COPYING"
+cp darkmod-color-paths.conf "build/pkg/$TERM_THEME_PKG_DIR/darkmod-color-paths.conf"
+cp darkmod-copy.sh "build/pkg/$TERM_THEME_PKG_DIR/darkmod-copy.sh"
+cp darkmod-fdo-icon-recolor.txt "build/pkg/$TERM_THEME_PKG_DIR/darkmod-fdo-icon-recolor.txt"
+cp darkmod-util.sh "build/pkg/$TERM_THEME_PKG_DIR/darkmod-util.sh"
+cp README.md "build/pkg/$TERM_THEME_PKG_DIR/README.md"
 
-rm "build/pkg/$TERM_THEME_PKG_DIR.tar.xz"
-tar cfJ "build/pkg/$TERM_THEME_PKG_DIR.tar.xz" $TERM_THEME_PKG_DIR
-
-mkdir -p "artifacts/source"
-cp "build/pkg/$E_THEME_PKG_DIR.tar.xz" "artifacts/source/"
-cp "build/pkg/$TERM_THEME_PKG_DIR.tar.xz" "artifacts/source/"
+if [[ -f "artifacts/pkg/$TERM_THEME_PKG_DIR.tar.xz" ]]; then
+  rm "artifacts/pkg/$TERM_THEME_PKG_DIR.tar.xz"
+fi
+pushd "build/pkg/"
+report_on_error tar cfJ "../../artifacts/source/$TERM_THEME_PKG_DIR.tar.xz" $TERM_THEME_PKG_DIR
+popd
 
 
 # Kill package dir once done
-rm -rf $TERM_THEME_PKG_DIR
+rm -rf "build/pkg/$TERM_THEME_PKG_DIR"
