@@ -188,6 +188,7 @@ moveAllHighlightImages(){
     moveHighlightImage icon_clock.png
     moveHighlightImage icon_close.png
     moveHighlightImage icon_delete.png
+    moveHighlightImage icon_dummy.png
     moveHighlightImage icon_edit.png
     moveHighlightImage icon_edit_paste.png
     moveHighlightImage icon_edit_redo.png
