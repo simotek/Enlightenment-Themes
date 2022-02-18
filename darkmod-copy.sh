@@ -40,8 +40,8 @@ moveShadowImage(){
     # if file is in img-manual don't copy
     if [ ! -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_DIR/$1 ]; then
         # check if its a manual image
-        echo "cvd: $MANUAL_IMAGE_CONVD_DIR"
-        echo "$ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1"
+        #echo "cvd: $MANUAL_IMAGE_CONVD_DIR"
+        #echo "$ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1"
         if [ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]; then
             echo "Shadow $1"
             report_on_error mv $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 $ELM_ENLIGHT_THEME_PATH/img-shadow/
