@@ -291,11 +291,11 @@ if [ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]; then
 fi
 clean_dir fdo
 report_on_error mv -v fdo-bak fdo
-if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
-  if [[ -f ../build/e/$THEME_NAME.edj ]]; then
+if [[ -f ../build/e/$THEME_NAME.edj ]]; then
+  mkdir -p "../artifacts/bin-e"
+  cp "../build/e/$THEME_NAME.edj" "../artifacts/bin-e/"
+  if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
     report_on_error install ../build/e/$THEME_NAME.edj ~/.elementary/themes
-    mkdir -p "../artifacts/bin-e"
-    cp "../build/e/$THEME_NAME.edj" "../artifacts/bin-e/"
     inform "Compressing Icon Theme"
     mkdir -p ../artifacts/icons/
     pushd ../build/icons/ &> /dev/null
@@ -304,10 +304,10 @@ if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
     inform "" # Lazy new line
     inform "Enlightenment Theme Complete"
     inform "" # Lazy new line
-  else
-    error "build probably failed exiting"
-    exit
   fi
+else
+  error "build probably failed exiting"
+  exit
 fi
 popd &> /dev/null
 
@@ -358,22 +358,22 @@ if [[ $DKMD_EPKG != 1 ]]; then
     done
     popd &> /dev/null
 
-  if [[ $DKMD_TERMPKG == 1 ]]; then
-	HIGH_RAW=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:-)
-	#HIGH_HTML=$HIGH_RAW | sed -n 's/.*\(*#[0-9][0-9][0-9][0-9][0-9][0-9]*\).*/\1/p'
-	#remove most of the variable content
-	TMP_MID=$(echo "$HIGH_RAW"| cut -d "#" -f2)
-	#remove the remaining fixed content
-	TMP_EXTRACTED=${TMP_MID#${TMP_MID:0:46}}
-	#form the html number
-	HIGH_HTML="#${TMP_EXTRACTED:0:6}"
+    if [[ $DKMD_TERMPKG == 1 ]]; then
+    	HIGH_RAW=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:-)
+    	#HIGH_HTML=$HIGH_RAW | sed -n 's/.*\(*#[0-9][0-9][0-9][0-9][0-9][0-9]*\).*/\1/p'
+    	#remove most of the variable content
+    	TMP_MID=$(echo "$HIGH_RAW"| cut -d "#" -f2)
+    	#remove the remaining fixed content
+    	TMP_EXTRACTED=${TMP_MID#${TMP_MID:0:46}}
+    	#form the html number
+    	HIGH_HTML="#${TMP_EXTRACTED:0:6}"
 
-	HIGH_HTML=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | awk 'match($0, /#[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]/) {print substr($0, RSTART, RLENGTH)}')
-	#form the rgb number
-	# Need the first bracket to match the right string so remove it after
-	HIGH_RGB=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | perl -e 'while(<STDIN>){if(/srgba\((\d+),(\d+),(\d+)/){print"$1,$2,$3\n"}}')
-	# Substitute , for " "
-	HIGH_RGB=$(echo "$HIGH_RGB" | tr "," " ")
+    	HIGH_HTML=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | awk 'match($0, /#[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]/) {print substr($0, RSTART, RLENGTH)}')
+    	#form the rgb number
+    	# Need the first bracket to match the right string so remove it after
+    	HIGH_RGB=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | perl -e 'while(<STDIN>){if(/srgba\((\d+),(\d+),(\d+)/){print"$1,$2,$3\n"}}')
+    	# Substitute , for " "
+    	HIGH_RGB=$(echo "$HIGH_RGB" | tr "," " ")
    fi
 
    # Convert theme svg Images
@@ -466,6 +466,10 @@ if [[ $DKMD_EPKG != 1 ]]; then
       ./add_color_scheme.sh "eet" "../build/term/$THEME_NAME.eet" "Default-dm.ini"
     fi
 
+    mkdir -p "../artifacts/bin-term"
+    cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
+    cp "../build/term/$THEME_NAME.eet" "../artifacts/bin-term/"
+
     if [[ $DKMD_TERMPKG != 1 ]]; then
       if [[ ! -d ~/.config/terminology/colorschemes ]]; then
         mkdir ~/.config/terminology/colorschemes
@@ -473,31 +477,28 @@ if [[ $DKMD_EPKG != 1 ]]; then
 	    report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
       report_on_error cp ../build/term/$THEME_NAME.eet ~/.config/terminology/colorschemes
     fi
-
-    mkdir -p "../artifacts/bin-term"
-    cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
-    cp "../build/term/$THEME_NAME.eet" "../artifacts/bin-term/"
-
-    inform "Creating Bundle"
-     # Create Bundle
-     pushd ../build &> /dev/null
-     # Be Nice Copy Everything to a dir first.
-     mkdir -p "$THEME_NAME-$THEME_VERSION-Bundle/e"
-     mkdir -p "$THEME_NAME-$THEME_VERSION-Bundle/term"
-     cp "../local-install.sh" "$THEME_NAME-$THEME_VERSION-Bundle/install.sh"
-     sed -i "s/PLACEHOLDER/$THEME_NAME/g" "$THEME_NAME-$THEME_VERSION-Bundle/install.sh"
-     cp "e/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle/e/"
-     cp "term/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle/term/"
-     cp "term/$THEME_NAME.eet" "$THEME_NAME-$THEME_VERSION-Bundle/term/"
-     cp -r "icons/$THEME_NAME-icons/" "$THEME_NAME-$THEME_VERSION-Bundle"
-     mkdir -p "../artifacts/bundle/"
-     report_on_error tar -cf "../artifacts/bundle/$THEME_NAME-$THEME_VERSION-Bundle.tar.xz" "$THEME_NAME-$THEME_VERSION-Bundle"
-     rm -r "$THEME_NAME-$THEME_VERSION-Bundle"
-     popd &> /dev/null
-popd &> /dev/null
+    popd &> /dev/null # Terminology theme dir
 fi
 fi
 
-# TBD: copy back to current dir, and to .e file
+if [[ $DKMD_EPKG = 0 && $DKMD_TERMPKG = 0 ]]; then
+  inform "Creating Bundle"
+   # Create Bundle
+   pushd build &> /dev/null
+   # Be Nice Copy Everything to a dir first.
+   mkdir -p "$THEME_NAME-$THEME_VERSION-Bundle/e"
+   mkdir -p "$THEME_NAME-$THEME_VERSION-Bundle/term"
+   cp "../local-install.sh" "$THEME_NAME-$THEME_VERSION-Bundle/install.sh"
+   sed -i "s/PLACEHOLDER/$THEME_NAME/g" "$THEME_NAME-$THEME_VERSION-Bundle/install.sh"
+   cp "e/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle/e/"
+   cp "term/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle/term/"
+   cp "term/$THEME_NAME.eet" "$THEME_NAME-$THEME_VERSION-Bundle/term/"
+   cp -r "icons/$THEME_NAME-icons/" "$THEME_NAME-$THEME_VERSION-Bundle"
+   mkdir -p "../artifacts/bundle/"
+   report_on_error tar -cf "../artifacts/bundle/$THEME_NAME-$THEME_VERSION-Bundle.tar.xz" "$THEME_NAME-$THEME_VERSION-Bundle"
+   rm -r "$THEME_NAME-$THEME_VERSION-Bundle"
+   popd &> /dev/null
 
+  # TBD: copy back to current dir, and to .e file
+fi
 inform "Completed at: " $(date)
