@@ -12,7 +12,7 @@ git tag -a -m "darkmod-release $VERSION" "$VERSION"
 for b in ${branches[@]}; do
   echo "Processing $b"
   git checkout $b
-  git merge master
+  git merge master -m "Merge branch 'master' into $b - Releasing"
   git tag -a -m "darkmod-release $VERSION" "$VERSION-$b"
   ./package-darkmod.sh
   ./build-darkmod.sh
