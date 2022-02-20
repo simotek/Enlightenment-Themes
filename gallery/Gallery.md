@@ -2,13 +2,17 @@ Gallery
 ====================
 
 **Dark**
-![](Dark-Plain.jpg)  |  ![](Dark-Apps.jpg)  |  ![](Dark-Terminology.jpg)
+
+|  ![](Dark-Plain.jpg)  |  ![](Dark-Apps.jpg)  |  ![](Dark-Terminology.jpg)  |
 
 **Ice**
-![](Ice-Plain.jpg)  |  ![](Ice-Apps.jpg)  |  ![](Ice-Terminology.jpg)
+
+|  ![](Ice-Plain.jpg)  |  ![](Ice-Apps.jpg)  |  ![](Ice-Terminology.jpg)  |
 
 **Neonz**
-![](Neonz-Plain.jpg)  |  ![](Neonz-Apps.jpg)  |  ![](Neonz-Terminology.jpg)
+
+|  ![](Neonz-Plain.jpg)  |  ![](Neonz-Apps.jpg)  |  ![](Neonz-Terminology.jpg)  |
 
 **openSUSE-e-Oliveleaf**
-![](Oliveleaf-Plain.jpg)  |  ![](Oliveleaf-Apps.jpg)  |  ![](Oliveleaf-Terminology.jpg)
+
+|  ![](Oliveleaf-Plain.jpg)  |  ![](Oliveleaf-Apps.jpg)  |  ![](Oliveleaf-Terminology.jpg)  |
