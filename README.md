@@ -12,6 +12,11 @@ If you would like to modify one of the themes or create a new theme with vtx or 
 
 Further info can be found at http://simotek.net/tech/projects/linux-themes/darkmod-enlightenment-theme-converter/
 
+![Gallery Preview](gallery/all-preview.jpg "Gallery Preview")
+
+Further screenshots can be found in the [Gallery](gallery/Gallery.md) or on my
+blog http://simotek.net/tech/projects/linux-themes/
+
 Branch Structure
 ----------------
 
