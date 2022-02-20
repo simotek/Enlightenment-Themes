@@ -1,11 +1,18 @@
 #ifndef NO_COLORS
 color_classes {
-#define BG_COLOR  32 32 32 255
-#include "default_colors.in.edc"
+#define BG_COLOR_NO_ALPHA  32 32 32
+#define BG_COLOR  BG_COLOR_NO_ALPHA 255
+#define FG_COLOR_NO_ALPHA  170 170 170
+#define FG_COLOR  FG_COLOR_NO_ALPHA 255
+#include "default/colors.edc"
 }
 #endif
-
-#define BG_COL  32 32 32 255
+#ifndef BG_COLOR_BELL_NO_ALPHA
+#define BG_COLOR_BELL_NO_ALPHA BG_COLOR_NO_ALPHA
+#endif
+#ifndef FG_COLOR_BELL_NO_ALPHA
+#define FG_COLOR_BELL_NO_ALPHA  255 153  51
+#endif
 
 efl_version: 1 20;
 
