@@ -307,7 +307,7 @@ if [[ -f ../build/e/$THEME_NAME.edj ]]; then
   fi
 else
   error "build probably failed exiting"
-  exit
+  exit 1
 fi
 popd &> /dev/null
 
@@ -466,6 +466,11 @@ if [[ $DKMD_EPKG != 1 ]]; then
       ./add_color_scheme.sh "eet" "../build/term/$THEME_NAME.eet" "Default-dm.ini"
     fi
 
+    if [[ ! -f ../build/term/$THEME_NAME.edj || ! -f ../build/term/$THEME_NAME.edj ]]; then
+      error "Terminology theme or colorscheme not found build probably failed exiting"
+      exit 1
+    fi
+
     mkdir -p "../artifacts/bin-term"
     cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
     cp "../build/term/$THEME_NAME.eet" "../artifacts/bin-term/"
@@ -474,7 +479,7 @@ if [[ $DKMD_EPKG != 1 ]]; then
       if [[ ! -d ~/.config/terminology/colorschemes ]]; then
         mkdir ~/.config/terminology/colorschemes
       fi
-      report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
+	    report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
       report_on_error cp ../build/term/$THEME_NAME.eet ~/.config/terminology/colorschemes
     fi
     popd &> /dev/null # Terminology theme dir
