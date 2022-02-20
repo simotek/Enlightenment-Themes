@@ -50,7 +50,7 @@ mkdir $ELM_ENLIGHT_THEME_PATH/img-bak
 mkdir $ELM_ENLIGHT_THEME_PATH/img-manual-bak
 mkdir $ELM_ENLIGHT_THEME_PATH/fdo-bak
 report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img/* $ELM_ENLIGHT_THEME_PATH/img-bak
-if [ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]; then
+if [[ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]]; then
   report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img-manual-convd/* $ELM_ENLIGHT_THEME_PATH/img-manual-bak
 fi
 report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/fdo/* $ELM_ENLIGHT_THEME_PATH/fdo-bak
@@ -71,11 +71,11 @@ success "    Finished Moving images that don't need converting"
 mkdir $ELM_ENLIGHT_THEME_PATH/img-color-convd
 
 inform "Converting images"
-pushd $ELM_ENLIGHT_THEME_PATH/img-color
+pushd $ELM_ENLIGHT_THEME_PATH/img-color &> /dev/null
 for F in `find -iname "*.png"`; do
         convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
 done
-popd
+popd &> /dev/null
 
 HIGH_RAW=$(convert $ELM_ENLIGHT_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:-)
 #HIGH_HTML=$HIGH_RAW | sed -n 's/.*\(*#[0-9][0-9][0-9][0-9][0-9][0-9]*\).*/\1/p'
@@ -116,28 +116,28 @@ if [[ -z "$HIGH_RGB" ]]; then
 fi
 
 if [[ -d "$ELM_ENLIGHT_THEME_PATH/img-color-manual" ]]; then
-    pushd $ELM_ENLIGHT_THEME_PATH/img-color-manual
+    pushd $ELM_ENLIGHT_THEME_PATH/img-color-manual &> /dev/null
     for F in `find -iname "*.png"`; do
             convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
     done
-    popd
+    popd &> /dev/null
 fi
 
 # Converting background images
-pushd $ELM_ENLIGHT_THEME_PATH/img-bgnd
+pushd $ELM_ENLIGHT_THEME_PATH/img-bgnd &> /dev/null
 for F in `find -iname "*.png"`; do
     convert $F -channel rgb -brightness-contrast $BGND_BRIGHTNESS,$BGND_SATURATION +channel ../img-color-convd/$F
 done
-popd
+popd &> /dev/null
 
 #converting shadows
-pushd $ELM_ENLIGHT_THEME_PATH/img-shadow
+pushd $ELM_ENLIGHT_THEME_PATH/img-shadow &> /dev/null
 for F in `find -iname "*.png"`; do
     convert $F -channel A -evaluate Multiply $SHADOW_MULT ../img-color-convd/$F
     # convert $F -channel A -evaluate set 20% ../img-color-convd/$F
     # cp $F ../img-color-convd/$F
 done
-popd
+popd &> /dev/null
 
 inform "Recoloring FDO icons"
 # Recolor the fdo icon theme
@@ -159,7 +159,7 @@ sed -i "s/Enlightenment-X/$THEME_NAME-e-X/g" "build/icons/$THEME_NAME-icons/inde
 success "    Finished Converting Images"
 
 inform "Rewriting .edc"
-pushd $ELM_ENLIGHT_THEME_PATH
+pushd $ELM_ENLIGHT_THEME_PATH &> /dev/null
 report_on_error cp -a edc edc-dm
 
 report_on_error cp -a colorclasses.edc colorclasses-dm.edc
@@ -291,25 +291,25 @@ if [ -f $ELM_ENLIGHT_THEME_PATH/$MANUAL_IMAGE_CONVD_DIR/$1 ]; then
 fi
 clean_dir fdo
 report_on_error mv -v fdo-bak fdo
-if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
-  if [[ -f ../build/e/$THEME_NAME.edj ]]; then
+if [[ -f ../build/e/$THEME_NAME.edj ]]; then
+  mkdir -p "../artifacts/bin-e"
+  cp "../build/e/$THEME_NAME.edj" "../artifacts/bin-e/"
+  if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
     report_on_error install ../build/e/$THEME_NAME.edj ~/.elementary/themes
-    mkdir -p "../artifacts/bin-e"
-    cp "../build/e/$THEME_NAME.edj" "../artifacts/bin-e/"
     inform "Compressing Icon Theme"
     mkdir -p ../artifacts/icons/
-    pushd ../build/icons/
+    pushd ../build/icons/ &> /dev/null
     report_on_error tar -cf "../../artifacts/icons/$THEME_NAME-$THEME_VERSION-icons.tar.xz" "$THEME_NAME-icons/"
-    popd
+    popd &> /dev/null
     inform "" # Lazy new line
     inform "Enlightenment Theme Complete"
     inform "" # Lazy new line
-  else
-    error "build probably failed exiting"
-    exit
   fi
+else
+  error "build probably failed exiting"
+  exit
 fi
-popd
+popd &> /dev/null
 
 fi
 
@@ -330,60 +330,60 @@ if [[ $DKMD_EPKG != 1 ]]; then
 
     mkdir $TERMINOLOGY_THEME_PATH/img-color-convd
 
-    pushd $TERMINOLOGY_THEME_PATH/img-color
+    pushd $TERMINOLOGY_THEME_PATH/img-color &> /dev/null
     for F in `find -iname "*.png"`; do
             convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
     done
-    popd
+    popd &> /dev/null
 
     if [[ -d "$TERMINOLOGY_THEME_PATH/img-color-manual" ]]; then
-        pushd $TERMINOLOGY_THEME_PATH/img-color-manual
+        pushd $TERMINOLOGY_THEME_PATH/img-color-manual &> /dev/null
             for F in `find -iname "*.png"`; do
                     convert $F -modulate $HIGH_BRIGHTNESS,$HIGH_SATURATION,$HIGH_HUE ../img-color-convd/$F
             done
-        popd
+        popd &> /dev/null
     fi
 
     # Converting background images
-    pushd $TERMINOLOGY_THEME_PATH/img-bgnd
+    pushd $TERMINOLOGY_THEME_PATH/img-bgnd &> /dev/null
     for F in `find -iname "*.png"`; do
         convert $F -brightness-contrast $BGND_BRIGHTNESS,$BGND_SATURATION ../img-color-convd/$F
     done
-    popd
+    popd &> /dev/null
 
     #converting shadows
-    pushd $TERMINOLOGY_THEME_PATH/img-shadow
+    pushd $TERMINOLOGY_THEME_PATH/img-shadow &> /dev/null
     for F in `find -iname "*.png"`; do
         convert $F -channel A -evaluate Multiply $SHADOW_MULT ../img-color-convd/$F
     done
-    popd
+    popd &> /dev/null
 
-  if [[ $DKMD_TERMPKG == 1 ]]; then
-	HIGH_RAW=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:-)
-	#HIGH_HTML=$HIGH_RAW | sed -n 's/.*\(*#[0-9][0-9][0-9][0-9][0-9][0-9]*\).*/\1/p'
-	#remove most of the variable content
-	TMP_MID=$(echo "$HIGH_RAW"| cut -d "#" -f2)
-	#remove the remaining fixed content
-	TMP_EXTRACTED=${TMP_MID#${TMP_MID:0:46}}
-	#form the html number
-	HIGH_HTML="#${TMP_EXTRACTED:0:6}"
+    if [[ $DKMD_TERMPKG == 1 ]]; then
+    	HIGH_RAW=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:-)
+    	#HIGH_HTML=$HIGH_RAW | sed -n 's/.*\(*#[0-9][0-9][0-9][0-9][0-9][0-9]*\).*/\1/p'
+    	#remove most of the variable content
+    	TMP_MID=$(echo "$HIGH_RAW"| cut -d "#" -f2)
+    	#remove the remaining fixed content
+    	TMP_EXTRACTED=${TMP_MID#${TMP_MID:0:46}}
+    	#form the html number
+    	HIGH_HTML="#${TMP_EXTRACTED:0:6}"
 
-	HIGH_HTML=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | awk 'match($0, /#[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]/) {print substr($0, RSTART, RLENGTH)}')
-	#form the rgb number
-	# Need the first bracket to match the right string so remove it after
-	HIGH_RGB=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | perl -e 'while(<STDIN>){if(/srgba\((\d+),(\d+),(\d+)/){print"$1,$2,$3\n"}}')
-	# Substitute , for " "
-	HIGH_RGB=$(echo "$HIGH_RGB" | tr "," " ")
+    	HIGH_HTML=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | awk 'match($0, /#[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]/) {print substr($0, RSTART, RLENGTH)}')
+    	#form the rgb number
+    	# Need the first bracket to match the right string so remove it after
+    	HIGH_RGB=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | perl -e 'while(<STDIN>){if(/srgba\((\d+),(\d+),(\d+)/){print"$1,$2,$3\n"}}')
+    	# Substitute , for " "
+    	HIGH_RGB=$(echo "$HIGH_RGB" | tr "," " ")
    fi
 
    # Convert theme svg Images
-   pushd $TERMINOLOGY_THEME_PATH/img-color
+   pushd $TERMINOLOGY_THEME_PATH/img-color &> /dev/null
    for F in `find . -iname "*.svg"`; do
      sed "s/#3399ff/$HIGH_HTML/g" $F > ../img-color-convd/$F
    done
-   popd
+   popd &> /dev/null
 
-    pushd $TERMINOLOGY_THEME_PATH
+    pushd $TERMINOLOGY_THEME_PATH &> /dev/null
     report_on_error cp -a default.edc default-dm.edc
     report_on_error cp -a Default.ini Default-dm.ini
     report_on_error sed -i 's/"default/"default-dm/' default-dm.edc
@@ -458,12 +458,17 @@ if [[ $DKMD_EPKG != 1 ]]; then
 
     report_on_error mv -v img-bak images
 
+    inform "Creating Color Scheme"
     # Use theme name if it exists otherwise fall back to the recolored default
     if [[ -f $THEME_NAME.ini ]]; then
       ./add_color_scheme.sh "eet" "../build/term/$THEME_NAME.eet" "$THEME_NAME.ini"
     else
       ./add_color_scheme.sh "eet" "../build/term/$THEME_NAME.eet" "Default-dm.ini"
     fi
+
+    mkdir -p "../artifacts/bin-term"
+    cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
+    cp "../build/term/$THEME_NAME.eet" "../artifacts/bin-term/"
 
     if [[ $DKMD_TERMPKG != 1 ]]; then
       if [[ ! -d ~/.config/terminology/colorschemes ]]; then
@@ -472,32 +477,28 @@ if [[ $DKMD_EPKG != 1 ]]; then
 	    report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
       report_on_error cp ../build/term/$THEME_NAME.eet ~/.config/terminology/colorschemes
     fi
-
-    mkdir -p "../artifacts/bin-term"
-    cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
-    cp "../build/term/$THEME_NAME.eet" "../artifacts/bin-term/"
-
-    inform "Creating Bundle"
-     # Create Bundle
-     pushd ../build
-     # Be Nice Copy Everything to a dir first.
-     mkdir -p "$THEME_NAME-$THEME_VERSION-Bundle/e"
-     mkdir -p "$THEME_NAME-$THEME_VERSION-Bundle/term"
-     cp "../local-install.sh" "$THEME_NAME-$THEME_VERSION-Bundle/install.sh"
-     sed -i "s/PLACEHOLDER/$THEME_NAME/g" "$THEME_NAME-$THEME_VERSION-Bundle/install.sh"
-     cp "e/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle/e/"
-     cp "term/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle/term/"
-     cp "term/$THEME_NAME.eet" "$THEME_NAME-$THEME_VERSION-Bundle/term/"
-     cp -r "icons/$THEME_NAME-icons/" "$THEME_NAME-$THEME_VERSION-Bundle"
-     mkdir -p "../artifacts/bundle/"
-     report_on_error tar -cf "../artifacts/bundle/$THEME_NAME-$THEME_VERSION-Bundle.tar.xz" "$THEME_NAME-$THEME_VERSION-Bundle"
-     rm -r "$THEME_NAME-$THEME_VERSION-Bundle"
-     popd
-
-popd
+    popd &> /dev/null # Terminology theme dir
 fi
 fi
 
-# TBD: copy back to current dir, and to .e file
+if [[ $DKMD_EPKG = 0 && $DKMD_TERMPKG = 0 ]]; then
+  inform "Creating Bundle"
+   # Create Bundle
+   pushd build &> /dev/null
+   # Be Nice Copy Everything to a dir first.
+   mkdir -p "$THEME_NAME-$THEME_VERSION-Bundle/e"
+   mkdir -p "$THEME_NAME-$THEME_VERSION-Bundle/term"
+   cp "../local-install.sh" "$THEME_NAME-$THEME_VERSION-Bundle/install.sh"
+   sed -i "s/PLACEHOLDER/$THEME_NAME/g" "$THEME_NAME-$THEME_VERSION-Bundle/install.sh"
+   cp "e/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle/e/"
+   cp "term/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle/term/"
+   cp "term/$THEME_NAME.eet" "$THEME_NAME-$THEME_VERSION-Bundle/term/"
+   cp -r "icons/$THEME_NAME-icons/" "$THEME_NAME-$THEME_VERSION-Bundle"
+   mkdir -p "../artifacts/bundle/"
+   report_on_error tar -cf "../artifacts/bundle/$THEME_NAME-$THEME_VERSION-Bundle.tar.xz" "$THEME_NAME-$THEME_VERSION-Bundle"
+   rm -r "$THEME_NAME-$THEME_VERSION-Bundle"
+   popd &> /dev/null
 
+  # TBD: copy back to current dir, and to .e file
+fi
 inform "Completed at: " $(date)
