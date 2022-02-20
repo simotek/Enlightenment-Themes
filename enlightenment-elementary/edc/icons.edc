@@ -86,8 +86,8 @@ ELMICO("network-website", "icon_globe.png", 64)
 //Standard Status Icons
 ELMICO("dialog-warning","icon_warning.png",128)                   // "enlightenment/warning"
 ELMICO("dialog-error","icon_warning.png",128)                     // "enlightenment/error"
-ELMICO("dialog-ask","icon_dummy.png",64)                          // "enlightenment/unknown"
-ELMICO("unknown","icon_dummy.png",64)                      // *** // "enlightenment/unknown"
+ELMIC("dialog-ask","icon_dummy.png")                          // "enlightenment/unknown"
+ELMIC("unknown","icon_dummy.png")                      // *** // "enlightenment/unknown"
 
 //Standard Application Icons
 // These could come from FDO but keeping them within e for consistency with old
@@ -138,7 +138,7 @@ ELMICO("preferences-windows-lost","icon_lost_windows.png",64)                  /
 ELMICO("preferences-gradient","icon_gradient.png",64)           // *** // "enlightenment/gradient"
 ELMICO("preferences-focus","icon_window_focus.png",64)          // *** // "enlightenment/focus"
 ELMICO("preferences-engine","icon_engine.png",64)               // *** // "enlightenment/engine"
-ELMICO("preferences-dialogs","icon_dummy.png",64)               // *** // "enlightenment/dialogs"
+ELMIC("preferences-dialogs","icon_dummy.png")               // *** // "enlightenment/dialogs"
 ELMICO("preferences-imc","icon_imc.png",64)                     // *** // "enlightenment/imc"
 ELMICO("preferences-system-lock-screen","icon_desklock.png",64) // *** // "enlightenment/desklock"
 ELMICO("preferences-icon-theme","icon_icon_theme.png",64)       // *** // "enlightenment/icon_theme"
@@ -237,7 +237,7 @@ ELMIC("sub", "icon_minus.png")
 ELMICO("view-sort","icon_efm_sort.png",16)                 // *** // EFMBUTTON("sort",
 ELMICO("view-order","icon_efm_sort.png",16)                // *** // EFMBUTTON("ordering"
 ELMICO("view-hidden-files","icon_efm_view.png",16)         // *** // EFMBUTTON("hidden_file
-ELMICO("view-inherit","icon_dummy.png",64)                 // *** // EFMBUTTON("inherit"
+ELMIC("view-inherit","icon_dummy.png")                 // *** // EFMBUTTON("inherit"
 ELMIC("access", "icon_stick_man.png")
 //ELMICO("window-close","icon_close.png",64)                        // "widget/close"ELMICO("bookmark-new","icon_add_fav.png",64)                      // "widget/add_fav"
 ELMICO("dialog-ok-apply","icon_check.png",64)                     // "enlightenment/check"

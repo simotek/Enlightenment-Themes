@@ -36,7 +36,7 @@ error() {
 inform() {
     local COLOR="$BLUE"
     colorize "$@"
-    return 1
+    return 0
 }
 
 report_on_error() {
