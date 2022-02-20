@@ -5,41 +5,48 @@ source darkmod-util.sh
 
 clean-darkmod(){
     # TBD: These should check if the file exists
-    report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/img-color
-    report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/img-bgnd
-    report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/img-shadow
-    report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/img-color-convd
-    report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/img-no-change
-    report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/img-bak
-    report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/img-manual-bak
-    report_on_error rm -rf $ELM_ENLIGHT_THEME_PATH/edc-dm
-    report_on_error rm $ELM_ENLIGHT_THEME_PATH/colorclasses-dm.edc
-    report_on_error rm $ELM_ENLIGHT_THEME_PATH/fonts-dm.edc
-    report_on_error rm $ELM_ENLIGHT_THEME_PATH/macros-dm.edc
-    report_on_error rm $ELM_ENLIGHT_THEME_PATH/default-dm.edc
+    clean_dir $ELM_ENLIGHT_THEME_PATH/img-color
+    clean_dir $ELM_ENLIGHT_THEME_PATH/img-bgnd
+    clean_dir $ELM_ENLIGHT_THEME_PATH/img-shadow
+    clean_dir $ELM_ENLIGHT_THEME_PATH/img-color-convd
+    clean_dir $ELM_ENLIGHT_THEME_PATH/img-no-change
+    clean_dir $ELM_ENLIGHT_THEME_PATH/img-bak
+    clean_dir $ELM_ENLIGHT_THEME_PATH/img-manual-bak
+    clean_dir $ELM_ENLIGHT_THEME_PATH/edc-dm
+    clean_file $ELM_ENLIGHT_THEME_PATH/colorclasses-dm.edc
+    clean_file $ELM_ENLIGHT_THEME_PATH/fonts-dm.edc
+    clean_file $ELM_ENLIGHT_THEME_PATH/macros-dm.edc
+    clean_file $ELM_ENLIGHT_THEME_PATH/default-dm.edc
     if [ -z "$1" ]; then
-      warn_on_error rm build/e/*.edj
-      warn_on_error rm -r build/icons/*-icons
-      warn_on_error rm build/pkg/*tar.xz
+      clean_file build/e/*.edj
+      clean_file build/icons/*-icons
+      clean_file build/pkg/*tar.xz
     else
-      warn_on_error rm "build/e/$1.edj"
-      warn_on_error rm -r "build/icons/$1-icons"
-      warn_on_error rm build/pkg/enlightenment-theme-$1-*.tar.xz
+      clean_file "build/e/$1.edj"
+      clean_file "build/icons/$1-icons"
+      clean_file build/pkg/enlightenment-theme-$1-*.tar.xz
     fi
 
     if [ -n "$TERMINOLOGY_THEME_PATH" ]; then
-        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-color
-        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-bgnd
-        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-shadow
-        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-color-convd
-        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-no-change
-        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/img-bak
-        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/default-dm.edc
-        report_on_error rm -rf $TERMINOLOGY_THEME_PATH/default-dm_colors.in.edc
+        clean_dir $TERMINOLOGY_THEME_PATH/img-color
+        clean_dir $TERMINOLOGY_THEME_PATH/img-bgnd
+        clean_dir $TERMINOLOGY_THEME_PATH/img-shadow
+        clean_dir $TERMINOLOGY_THEME_PATH/img-color-convd
+        clean_dir $TERMINOLOGY_THEME_PATH/img-no-change
+        clean_dir $TERMINOLOGY_THEME_PATH/img-bak
+        clean_dir $TERMINOLOGY_THEME_PATH/img-no-use/
+        clean_file $TERMINOLOGY_THEME_PATH/default-dm.edc
+        clean_dir $TERMINOLOGY_THEME_PATH/default-dm
+        clean_file $TERMINOLOGY_THEME_PATH/default-dm.ini
+        for d in $(ls $TERMINOLOGY_THEME_PATH/*-EET-* &> /dev/null); do
+          echo "Pants: $d"
+          rm -r "$d"
+        done
+
         if [ -z "$1" ]; then
-          warn_on_error rm -f build/term/*.edj
+          clean_file  build/term/*.edj
         else
-          warn_on_error rm -f "build/term/$1.edj"
+          clean_file "build/term/$1.edj"
 
         fi
     fi
