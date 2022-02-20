@@ -475,6 +475,8 @@ if [[ $DKMD_EPKG != 1 ]]; then
     cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
     cp "../build/term/$THEME_NAME.eet" "../artifacts/bin-term/"
 
+    rm *-EET-*
+
     if [[ $DKMD_TERMPKG != 1 ]]; then
       if [[ ! -d ~/.config/terminology/colorschemes ]]; then
         mkdir ~/.config/terminology/colorschemes

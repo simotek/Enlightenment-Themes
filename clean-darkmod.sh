@@ -39,7 +39,6 @@ clean-darkmod(){
         clean_dir $TERMINOLOGY_THEME_PATH/default-dm
         clean_file $TERMINOLOGY_THEME_PATH/default-dm.ini
         for d in $(ls $TERMINOLOGY_THEME_PATH/*-EET-* &> /dev/null); do
-          echo "Pants: $d"
           rm -r "$d"
         done
 
