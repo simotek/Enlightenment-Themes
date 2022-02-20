@@ -21,3 +21,4 @@ done
 
 git checkout master
 git push
+git push --tags
