@@ -36,7 +36,7 @@ error() {
 inform() {
     local COLOR="$BLUE"
     colorize "$@"
-    return 1
+    return 0
 }
 
 report_on_error() {
@@ -87,4 +87,16 @@ warn_on_error() {
         warn "$OUTPUT"
         false
     fi
+}
+
+clean_dir() {
+  if [[ -d "$@" ]]; then
+    report_on_error rm -rf "$@"
+  fi
+}
+
+clean_file() {
+  if [[ -f "$@" ]]; then
+    report_on_error rm -f "$@"
+  fi
 }

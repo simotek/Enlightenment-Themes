@@ -3,8 +3,8 @@
 *~
 *Makefile.am
 *-icons/
+artifacts/
 build/
-enlightenmnet-elementary/Cerium2/develop/
 enlightenment-elementary/*-dm*
 enlightenment-elementary/img-bgnd/
 enlightenment-elementary/img-color-convd/
@@ -13,8 +13,10 @@ enlightenment-elementary/img-no-change/
 enlightenment-elementary/img-shadow/
 scratch.txt
 terminology/*-dm*
+terminology/*-EET-*
 terminology/img-bgnd/
 terminology/img-color-convd/
 terminology/img-color/
 terminology/img-no-change/
+terminology/img-no-use/
 terminology/img-shadow/
