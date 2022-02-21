@@ -38,7 +38,10 @@ clean-darkmod(){
         clean_file $TERMINOLOGY_THEME_PATH/default-dm.edc
         clean_dir $TERMINOLOGY_THEME_PATH/default-dm
         clean_file $TERMINOLOGY_THEME_PATH/default-dm.ini
-        rm $TERMINOLOGY_THEME_PATH/*-EET-*
+        for d in $(ls $TERMINOLOGY_THEME_PATH/*-EET-* &> /dev/null); do
+          rm -r "$d"
+        done
+
         if [ -z "$1" ]; then
           clean_file  build/term/*.edj
         else
