@@ -49,6 +49,7 @@ group { name: "efl/scroller";
    images.image: "vgrad_med_lighter.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
    images.image: "glow_small.png" COMP;
+	 images.image: "scrollframe_background.png" COMP;
    images.image: "sym_left_light_normal.png" COMP;
    images.image: "sym_right_light_normal.png" COMP;
    images.image: "sym_up_light_normal.png" COMP;
@@ -680,13 +681,12 @@ group { name: "efl/scroller";
             action_on_pos_hbar(10);
          }
       }
-      part { name: "bg"; type: RECT;
+      part { name: "bg";
          description { state: "default" 0.0;
             rel1.to: "efl.background";
             rel2.to: "efl.background";
-//            color: 64 64 64 200;
-            color: 0 0 0 0;
-            color_class: "scroller_bg";
+            image.normal: "scrollframe_background.png";
+						image.border: 8 8 8 8;
          }
       }
       part { name: "clipper"; type: RECT;

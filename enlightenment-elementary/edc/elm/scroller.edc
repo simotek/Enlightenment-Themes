@@ -22,6 +22,7 @@ group { name: "elm/scroller/base/default";
    images.image: "vgrad_med_lighter.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
    images.image: "glow_small.png" COMP;
+   images.image: "scrollframe_background.png" COMP;
    images.image: "scrollbar_up.png" COMP;
    images.image: "scrollbar_down.png" COMP;
    images.image: "scrollbar_left.png" COMP;
@@ -607,10 +608,8 @@ group { name: "elm/scroller/base/default";
          description { state: "default" 0.0;
             rel1.to: "elm.swallow.background";
             rel2.to: "elm.swallow.background";
-            image.normal: e_surface.png;
+            image.normal: scrollframe_background.png;
             image.border: 8 8 8 8;
-            color: 255 255 255 90;
-            color_class: "scroller_bg";
          }
       }
       part { name: "clipper"; type: RECT;

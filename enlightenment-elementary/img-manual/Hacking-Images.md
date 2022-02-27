@@ -17,8 +17,11 @@ Hacking Images
 | tasks_selected.png | Selected item in tasks, can be a copy of e_item_selected
 | menu_selected.png | Selected item in menu, can be a copy of e_item_selected
 | border_maximised.png | Maximised borders look better without the left and right line.
+| fileman_background.png | Background of left bar and main area scrollframe backgrounds. Can be scrollframe_background
 | menu_background.png | Background of menu
 | proc_background.png | Proc Background in border, Can be a copy of e_item_selected
+| scrollframe_background.png | Background of most scroll areas
+
 
 Various Icons
 -------------

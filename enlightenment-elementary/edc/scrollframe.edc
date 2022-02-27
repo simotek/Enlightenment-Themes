@@ -8,6 +8,7 @@ group { name: "e/widgets/scrollframe";
    images.image: "holes_tiny_vert.png" COMP;
    images.image: "vgrad_med_lighter.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
+   images.image: "scrollframe_background.png" COMP;
    images.image: "scrollbar_left.png" COMP;
    images.image: "scrollbar_right.png" COMP;
    images.image: "scrollbar_up.png" COMP;
@@ -357,10 +358,8 @@ group { name: "e/widgets/scrollframe";
             rel1.offset: -2 -2;
             rel2.offset: 2 2;
 
-            image.normal: "e_surface.png";
+            image.normal: "scrollframe_background.png";
             image.border: 8 8 8 8;
-
-            color: 255 255 255 90;
          }
       }
       part { name: "clipper"; type: RECT;
