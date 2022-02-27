@@ -854,16 +854,18 @@ group { name: "e/fileman/desktop/icon/fixed";
       }
    }
 }
-
+images.image: "fileman_background.png" COMP;
 group { name: "e/fileman/default/scrollframe";
    inherit: "e/widgets/scrollframe";
    parts {
       part { name: "bg";
          description { state: "default" 0.0;
-            color_class: "fileman_base";
+            //color_class: "fileman_base";
+            image.normal: "fileman_background.png";
+            image.border: 8 8 8 8;
          }
       }
-      part { name: "e.swallow.bg"; type: SWALLOW; insert_before: "e.swallow.content";
+      part { name: "e/.swallow.bg"; type: SWALLOW; insert_before: "e.swallow.content";
          clip_to: "clipper";
          description { state: "default" 0.0;
             rel1.to: "bg";
