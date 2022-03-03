@@ -15,19 +15,19 @@ BORDER_BUTTON_ADV2(NAME,TYPE,REL1X,REL1Y,OFF1X,OFF1Y,TO1,TO1,REL2X,REL2Y,OFF2X,O
    }                                                     \
    part { name: NAME"_detail"; mouse_events: 0;          \
       description { state: "default" 0.0;                \
-        max: 16 16;                                      \
+        max: 18 18;                                      \
         rel1.relative: 0.0  0.0;                         \
-        rel1.offset: 4    4;                             \
+        rel1.offset: 0    0;                             \
         rel1.to: NAME"_bg";                              \
         rel2.relative: 1.0 1.0;                          \
-        rel2.offset: -5 -5;                              \
+        rel2.offset: 0 0;                              \
         rel2.to: NAME"_bg";                              \
-        image.normal: "sym_"TYPE"_normal.png";           \
+        image.normal: "border_button_"TYPE"_normal.png"; \
         color: 255 255 255 255;                          \
      }                                                   \
      description { state: "active" 0.0;                  \
 	inherit: "default" 0.0;                          \
-        color: 255 255 255 190;                          \
+  image.normal: "border_button_"TYPE"_active.png";       \
       }                                                  \
    }                                                     \
    part { name: NAME; type: RECT;            /* a rect for positioning */ \
@@ -102,9 +102,12 @@ images {
    image: "e_border1b.png" COMP;
    image: "e_border6b.png" COMP;
    image: "proc_background.png" COMP;
-   image: "sym_close_normal.png" COMP;
-   image: "sym_minimize_normal.png" COMP;
-   image: "sym_maximize_normal.png" COMP;
+   image: "border_button_close_normal.png" COMP;
+   image: "border_button_minimize_normal.png" COMP;
+   image: "border_button_maximize_normal.png" COMP;
+   image: "border_button_close_active.png" COMP;
+   image: "border_button_minimize_active.png" COMP;
+   image: "border_button_maximize_active.png" COMP;
 }
 
 group { name: "e/widgets/border/volume";
@@ -706,8 +709,8 @@ group {
      }
 
      // BORDER_BUTTON_ADV("close","close",0.0,0.0, 0,0,"whole", "whole",1.0,1.0,-1,5,"whole", "title2")
-     BORDER_BUTTON2("maximize","maximize",0.0,0.0,6,0,"close",0.0,1.0,6,-1,"close")
-     BORDER_BUTTON2("minimize","minimize",0.0,0.0,6,0,"maximize",0.0,1.0,6,-1,"maximize")
+     BORDER_BUTTON2("maximize","maximize",0.0,0.0,3,0,"close",0.0,1.0,3,-1,"close")
+     BORDER_BUTTON2("minimize","minimize",0.0,0.0,3,0,"maximize",0.0,1.0,3,-1,"maximize")
      BORDER_BUTTON2("close","close",0.0,0.0,50,1,"right",0.0,1.0,50,-1,"right")
 
 
