@@ -5,6 +5,7 @@ Hacking Images
 | e_surface_no_border.png | Inside of the surface without the border
 | e_surface_top.png e_surface_bottom.png | top and bottom of frames
 | e_surface_sq.png | background surface no rounded corners
+| e_button_arrow.png | Arrows for everything other then scrollbar
 | e_wallpaper.png | e's wallpaper
 | e_logo.png | Logo used in start on shelf
 | e_logo_clicked.png | Logo used when shelf button is clicked, HAVE_CLICKED_LOGO at the top of start.edc must be set to 1
