@@ -14,7 +14,7 @@ group { name: "e/modules/notification/logo";
 group { name: "notification/main";
    alias: "e/modules/notification/main";
    images.image: "e_surface.png" COMP;
-   images.image: "sym_close_normal.png" COMP;
+   images.image: "border_button_close_normal.png" COMP;
    data.item: "app_icon_max" "48 48";
    data.item: "shaped" "1";
    styles {
@@ -134,7 +134,7 @@ group { name: "notification/main";
       }
       part { name: "close";
          description { state: "default" 0.0;
-            image.normal: "sym_close_normal.png";
+            image.normal: "border_button_close_normal.png";
             color: 255 255 255 255;
             rel1.to: "e.event.close";
             rel2.to: "e.event.close";
