@@ -8,6 +8,7 @@ group { name: "e/widgets/scrollframe";
    images.image: "holes_tiny_vert.png" COMP;
    images.image: "vgrad_med_lighter.png" COMP;
    images.image: "shadow_square_tiny.png" COMP;
+   images.image: "scrollframe_background.png" COMP;
    images.image: "scrollbar_left.png" COMP;
    images.image: "scrollbar_right.png" COMP;
    images.image: "scrollbar_up.png" COMP;
@@ -357,10 +358,8 @@ group { name: "e/widgets/scrollframe";
             rel1.offset: -2 -2;
             rel2.offset: 2 2;
 
-            image.normal: "e_surface.png";
+            image.normal: "scrollframe_background.png";
             image.border: 8 8 8 8;
-
-            color: 255 255 255 90;
          }
       }
       part { name: "clipper"; type: RECT;
@@ -382,30 +381,28 @@ group { name: "e/widgets/scrollframe";
       part { name: "runner_vbar"; mouse_events: 0;
          clip_to: "sb_vbar_show";
          description { state: "default" 0.0;
-            image.normal: "e_surface.png";
+            image.normal: "scrollbar_background.png";
             image.border: 8 8 8 8;
-            color: 255 255 255 90;
             rel1.to: "sb_vbar_base";
             rel2.to: "sb_vbar_base";
             rel1.offset: 1 0;
             rel2.offset: -1 0;
             fill.smooth: 0;
-            min: 12 12;
-            max: 12 -1;
+            min: 17 17;
+            max: 17 -1;
             fixed: 1 1;
          }
       }
       part { name: "runner_hbar"; mouse_events: 0;
          clip_to: "sb_hbar_show";
          description { state: "default" 0.0;
-            image.normal: "e_surface.png";
+            image.normal: "scrollbar_background.png";
             image.border: 8 8 8 8;
-            color: 255 255 255 90;
             rel1.to: "sb_hbar_base";
             rel2.to: "sb_hbar_base";
               fill.smooth: 0;
-            min: 12 12;
-            max: -1 12;
+            min: 17 17;
+            max: -1 17;
             fixed: 1 1;
          }
       }
@@ -439,8 +436,10 @@ group { name: "e/widgets/scrollframe";
          description { state: "default" 0.0;
             rel1.to: "sb_vbar_a1";
             rel2.to: "sb_vbar_a1";
+            rel1.offset: 1 0;
+            rel2.offset: 0 0;
             image.normal: "scrollbar_up.png";
-            FIXED_SIZE(15, 15)
+            FIXED_SIZE(19, 19)
             color: 255 255 255 190;
          }
          description { state: "clicked" 0.0;
@@ -454,7 +453,7 @@ group { name: "e/widgets/scrollframe";
             rel1.to: "sb_vbar_a2";
             rel2.to: "sb_vbar_a2";
             image.normal: "scrollbar_down.png";
-            FIXED_SIZE(15, 15)
+            FIXED_SIZE(19, 19)
             color: 255 255 255 190;
          }
          description { state: "clicked" 0.0;
@@ -472,7 +471,7 @@ group { name: "e/widgets/scrollframe";
             image.normal: "e_surface.png";
             image.border:8 8 8 8;
             fill.smooth: 0;
-            min: 12 12;
+            min: 15 15;
          }
       }
       part { name: "center_vbar"; mouse_events: 0;
@@ -493,7 +492,7 @@ group { name: "e/widgets/scrollframe";
             rel1.to: "sb_hbar_a1";
             rel2.to: "sb_hbar_a1";
             image.normal: "scrollbar_left.png";
-            FIXED_SIZE(15, 15)
+            FIXED_SIZE(19, 19)
             color: 255 255 255 190;
          }
          description { state: "clicked" 0.0;
@@ -507,7 +506,7 @@ group { name: "e/widgets/scrollframe";
             rel1.to: "sb_hbar_a2";
             rel2.to: "sb_hbar_a2";
             image.normal: "scrollbar_right.png";
-            FIXED_SIZE(15, 15)
+            FIXED_SIZE(19, 19)
             color: 255 255 255 190;
          }
          description { state: "clicked" 0.0;
@@ -518,14 +517,14 @@ group { name: "e/widgets/scrollframe";
       part { name: "base_hbar"; mouse_events: 0;
          clip_to: "sb_hbar_show";
          description { state: "default" 0.0;
-            rel1.offset: 0 1;
+            rel1.offset: 0 2;
             rel1.to: "e.dragable.hbar";
-            rel2.offset: -1 -1;
+            rel2.offset: -1 -2;
             rel2.to: "e.dragable.hbar";
             image.normal: "e_surface.png";
             image.border: 8 8 8 8;
             fill.smooth: 0;
-            min: 12 12;
+            min: 15 15;
             visible: 0;
          }
       }
