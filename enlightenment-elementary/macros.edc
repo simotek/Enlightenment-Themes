@@ -7,6 +7,9 @@
 #define FIXED_SIZE(_WIDTH, _HEIGHT) \
    min: _WIDTH _HEIGHT; max: _WIDTH _HEIGHT; fixed: 1 1;
 
+// For rect parts that are intentionally not visible.
+#define invis color: 0 0 0 0
+
 #define DARK_GREY_BG_COLOR 48 48 48 255
 #define DARK_GREY_BG_DISABLED_COLOR 64 64 64 255
 
