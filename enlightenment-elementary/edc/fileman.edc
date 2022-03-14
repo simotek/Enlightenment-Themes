@@ -2117,7 +2117,7 @@ group { name: "e/modules/efm_navigation/pathbar_button";
             image.border: 8 8 8 8;
             fill.smooth: 0;
             // rel1.offset: -2 -3;
-            rel1.offset: 0 0;
+            rel1.offset: 0 -1;
             rel2.offset: -1 2;
             visible: 0;
          }
