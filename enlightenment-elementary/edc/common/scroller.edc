@@ -1,0 +1,1137 @@
+group {
+#ifdef ENTK
+#warning "C Preprocessor got here!"
+name: "e/widgets/scrollframe";
+#endif
+#ifdef ELMTK
+#warning "And here!"
+name: "elm/scroller/base/default";
+   alias: "elm/list/base/default";
+   alias: "elm/genlist/base/default";
+   alias: "elm/gengrid/base/default";
+   alias: "elm/scroller/base/map_bubble";
+   alias: "elm/genscroller/base/default";
+   alias: "elm/scroller/base/popup/default";
+   alias: "elm/scroller/base/popup/transparent";
+#endif
+#ifdef PANTS
+#warning "Pants Pants Pants!"
+#endif
+   images.image: "inset_shadow.png" COMP;
+   images.image: "bevel_in.png" COMP;
+   images.image: "bevel_out.png" COMP;
+   images.image: "inset_bar_horiz_glow_mid_base.png" COMP;
+   images.image: "inset_bar_vert_glow_mid_base.png" COMP;
+   images.image: "runner_glow_horiz.png" COMP;
+   images.image: "runner_glow_vert.png" COMP;
+   images.image: "holes_tiny_horiz.png" COMP;
+   images.image: "scrollbar_vdrag_thumb.png" COMP;
+   images.image: "scrollbar_hdrag_thumb.png" COMP;
+   images.image: "holes_tiny_glow_horiz.png" COMP;
+   images.image: "holes_tiny_glow_vert.png" COMP;
+   images.image: "vgrad_med_lighter.png" COMP;
+   images.image: "shadow_square_tiny.png" COMP;
+   images.image: "glow_small.png" COMP;
+   images.image: "scrollframe_background.png" COMP;
+   images.image: "scrollbar_up.png" COMP;
+   images.image: "scrollbar_down.png" COMP;
+   images.image: "scrollbar_left.png" COMP;
+   images.image: "scrollbar_right.png" COMP;
+
+
+   data.item: "focus_highlight" "on";
+
+   parts {
+// vert bar ////////////////////////////////////////////////////////////////
+      part { name: "sb_vbar_show"; type: RECT;
+         description { state: "default" 0.0;
+            // TodoSL: Check this
+#ifdef ENTK
+            rel1.offset: -11 -11;
+            rel2.offset: 10 10;
+#endif
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
+      }
+      part { name: "sb_vbar"; type: RECT;
+         scale: 1;
+         description { state: "default" 0.0;
+            min: 15 1;
+            fixed: 1 1;
+            align: 1.0 0.0;
+            rel1.relative: 1.0 0.0;
+            rel1.offset: -1 0;
+            rel2.relative: 1.0 0.0;
+            rel2.to_y: "sb_hbar";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+            max: 0 99999;
+         }
+      }
+      part { name: "sb_vbar_base"; type: RECT;
+         clip_to: "sb_vbar";
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.relative: 0.0 1.0;
+            rel1.to: "sb_vbar_a1";
+            rel2.relative: 1.0 0.0;
+            rel2.to: "sb_vbar_a2";
+            invis;
+         }
+      }
+      part { name: "sb_vbar_p1"; type: RECT;
+         clip_to: "sb_vbar";
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.relative: 0.0 1.0;
+            rel1.to: "sb_vbar_a1";
+            rel2.relative: 1.0 0.0;
+            rel2.to: "elm.dragable.vbar";
+            invis;
+         }
+      }
+      part { name: "sb_vbar_p2"; type: RECT;
+         clip_to: "sb_vbar";
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.relative: 0.0 1.0;
+            rel1.to: "TK.dragable.vbar";
+            rel2.relative: 1.0 0.0;
+            rel2.to: "sb_vbar_a2";
+            invis;
+         }
+      }
+      part { name: "TK.dragable.vbar"; type: RECT;
+         clip_to: "sb_vbar";
+         scale: 1;
+         dragable.x: 0 0 0;
+         dragable.y: 1 1 0;
+         dragable.confine: "sb_vbar_base";
+         description { state: "default" 0.0;
+            min: 15 13;
+            fixed: 1 1;
+            rel1.relative: 0.5  0.5;
+            rel1.to: "sb_vbar_base";
+            rel2.relative: 0.5  0.5;
+            rel2.to: "sb_vbar_base";
+            invis;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+         }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+         }
+      }
+      part { name: "y_vbar_up_mapper"; type: SPACER;
+         scale: 1;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            min: 4 2;
+            max: 4 2;
+            fixed: 1 1;
+            align: 0.0 0.0;
+            rel1.to: "sb_vbar_base";
+            rel2.to: "sb_vbar_base";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+            max: 0 0;
+         }
+      }
+      part { name: "y_vbar_up"; type: SPACER;
+         scale: 1;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            min: 4 2;
+            max: 4 2;
+            fixed: 1 1;
+            align: 0.0 0.0;
+            rel1.to: "TK.dragable.vbar";
+            rel2.to: "TK.dragable.vbar";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+            max: 0 0;
+         }
+      }
+      part { name: "y_vbar_down_mapper"; type: SPACER;
+         scale: 1;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            min: 4 2;
+            max: 4 2;
+            fixed: 1 1;
+            align: 0.0 1.0;
+            rel1.to: "sb_vbar_base";
+            rel2.to: "sb_vbar_base";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+            max: 0 0;
+         }
+      }
+      part { name: "y_vbar_down"; type: SPACER;
+         scale: 1;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            min: 4 2;
+            max: 4 2;
+            fixed: 1 1;
+            align: 0.0 1.0;
+            rel1.to: "TK.dragable.vbar";
+            rel2.to: "TK.dragable.vbar";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+            max: 0 0;
+         }
+      }
+      part { name: "sb_vbar_a1"; type: RECT;
+         clip_to: "sb_vbar";
+         description { state: "default" 0.0;
+            min: 15 15;
+            fixed: 1 1;
+            align: 0.5 0.0;
+            aspect: 1.0 1.0; aspect_preference: HORIZONTAL;
+            rel1.to: "sb_vbar";
+            rel2.to: "sb_vbar";
+            rel2.relative: 1.0 0.0;
+            rel2.offset: -1 0;
+            invis;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+            hid;
+         }
+      }
+      part { name: "sb_vbar_a2"; type: RECT;
+         clip_to: "sb_vbar";
+         description { state: "default" 0.0;
+            min: 15 15;
+            fixed: 1 1;
+            align: 0.5 1.0;
+            aspect: 1.0 1.0; aspect_preference: HORIZONTAL;
+            color: 0 0 0 0;
+            rel1.to: "sb_vbar";
+            rel1.offset: 0 -1;
+            rel1.relative: 0.0 1.0;
+            rel2.to: "sb_vbar";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+            hid;
+         }
+      }
+      program {
+         signal: "TK,action,show,vbar"; source: "TK";
+         action: STATE_SET "default" 0.0;
+         target: "sb_vbar";
+         target: "sb_vbar_show";
+         target: "TK.dragable.vbar";
+         target: "sb_vbar_a1";
+         target: "sb_vbar_a2";
+         target: "y_vbar_up_mapper";
+         target: "y_vbar_up";
+         target: "y_vbar_down_mapper";
+         target: "y_vbar_down";
+      }
+      program {
+         signal: "TK,action,hide,vbar"; source: "TK";
+         action: STATE_SET "hidden" 0.0;
+         target: "sb_vbar";
+         target: "sb_vbar_show";
+         target: "TK.dragable.vbar";
+         target: "sb_vbar_a1";
+         target: "sb_vbar_a2";
+         target: "y_vbar_up_mapper";
+         target: "y_vbar_up";
+         target: "y_vbar_down_mapper";
+         target: "y_vbar_down";
+      }
+      program {
+         signal: "mouse,down,1*"; source: "sb_vbar_a1";//ok
+         filter: "sb_vbar_a1" "default";
+         action: STATE_SET "clicked" 0.0;
+         target: "arrow1_vbar";
+         after: "anim1_up";
+      }
+      program { name: "anim1_up";
+         filter: "sb_vbar_a1" "default";
+         action: STATE_SET "default" 0.0;
+         transition: LINEAR 0.1;
+         target: "arrow1_vbar";
+         after: "drag_up";
+      }
+      program { name: "drag_up";
+         action: DRAG_VAL_STEP 0.0 -1.0;
+         target: "TK.dragable.vbar";
+      }
+      program {
+         signal: "mouse,down,1*"; source: "sb_vbar_a2";//ok
+         filter: "sb_vbar_a2" "default";
+         action: STATE_SET "clicked" 0.0;
+         target: "arrow2_vbar";
+         after: "anim1_down";
+      }
+      program { name: "anim1_down";
+         filter: "sb_vbar_a2" "default";
+         action: STATE_SET "default" 0.0;
+         transition: LINEAR 0.1;
+         target: "arrow2_vbar";
+         after: "drag_down";
+      }
+      program { name: "drag_down";
+         action: DRAG_VAL_STEP 0.0 1.0;
+         target: "TK.dragable.vbar";
+      }
+      program {
+         signal: "mouse,down,1*"; source: "sb_vbar_p1";
+         filter: "sb_vbar_a1" "default";
+         action: DRAG_VAL_PAGE 0.0 -1.0;
+         target: "TK.dragable.vbar";
+      }
+      program {
+         signal: "mouse,down,1*"; source: "sb_vbar_p2";
+         filter: "sb_vbar_a2" "default";
+         action: DRAG_VAL_PAGE  0.0 1.0;
+         target: "TK.dragable.vbar";
+      }
+      program {
+         signal: "TK,action,show,up"; source: "TK";
+         action: STATE_SET "default" 0.0;
+         target: "arrow1_vbar";
+         target: "sb_vbar_a1";
+      }
+      program {
+         signal: "TK,action,hide,up"; source: "TK";
+         action: STATE_SET "hidden" 0.0;
+         target: "arrow1_vbar";
+         target: "sb_vbar_a1";
+      }
+      program {
+         signal: "TK,action,show,down"; source: "TK";
+         action: STATE_SET "default" 0.0;
+         target: "arrow2_vbar";
+         target: "sb_vbar_a2";
+      }
+      program {
+         signal: "TK,action,hide,down"; source: "TK";
+         action: STATE_SET "hidden" 0.0;
+         target: "arrow2_vbar";
+         target: "sb_vbar_a2";
+      }
+// horiz bar /////////////////////////////////////////////////////////////
+      part { name: "sb_hbar_show"; type: RECT;
+         description { state: "default" 0.0;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            visible: 0;
+         }
+      }
+      part { name: "sb_hbar"; type: RECT; mouse_events: 0;
+         scale: 1;
+         description { state: "default" 0.0;
+            min: 1 15;
+            fixed: 1 1;
+            align: 0.0 1.0;
+            rel1.relative: 0.0 1.0;
+            rel1.offset: 0 -1;
+            rel2.relative: 0.0 1.0;
+            rel2.to_x: "sb_vbar";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+            max: 99999 0;
+         }
+      }
+      part { name: "sb_hbar_base"; type: RECT;
+         clip_to: "sb_hbar";
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.relative: 1.0 0.0;
+            rel1.to: "sb_hbar_a1";
+            rel2.relative: 0.0 1.0;
+            rel2.to: "sb_hbar_a2";
+            invis;
+         }
+      }
+      part { name: "sb_hbar_p1"; type: RECT;
+         clip_to: "sb_hbar";
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.relative: 1.0 0.0;
+            rel1.to: "sb_hbar_a1";
+            rel2.relative: 0.0 1.0;
+            rel2.to: "TK.dragable.hbar";
+            invis;
+         }
+      }
+      part { name: "sb_hbar_p2"; type: RECT;
+         clip_to: "sb_hbar";
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.relative: 1.0 0.0;
+            rel1.to: "TK.dragable.hbar";
+            rel2.relative: 0.0 1.0;
+            rel2.to: "sb_hbar_a2";
+            invis;
+         }
+      }
+      part { name: "TK.dragable.hbar"; type: RECT;
+         clip_to: "sb_hbar";
+         scale: 1;
+         dragable.x: 1 1 0;
+         dragable.y: 0 0 0;
+         dragable.confine: "sb_hbar_base";
+         description { state: "default" 0.0;
+            min: 13 15;
+            fixed: 1 1;
+            rel1.relative: 0.5  0.5;
+            rel1.to: "sb_hbar_base";
+            rel2.relative: 0.5  0.5;
+            rel2.to: "sb_hbar_base";
+            invis;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+         }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+         }
+      }
+      part { name: "x_hbar_left_mapper"; type: SPACER;
+         scale: 1;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            min: 2 4;
+            max: 2 4;
+            fixed: 1 1;
+            align: 0.0 1.0;
+            rel1.to: "sb_hbar_base";
+            rel2.to: "sb_hbar_base";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+            max: 0 0;
+         }
+      }
+      part { name: "x_hbar_left"; type: SPACER;
+         scale: 1;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            min: 2 4;
+            max: 2 4;
+            fixed: 1 1;
+            align: 0.0 1.0;
+            rel1.to: "TK.dragable.hbar";
+            rel2.to: "TK.dragable.hbar";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+            max: 0 0;
+         }
+      }
+      part { name: "x_hbar_right_mapper"; type: SPACER;
+         scale: 1;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            min: 2 4;
+            max: 2 4;
+            fixed: 1 1;
+            align: 1.0 1.0;
+            rel1.to: "sb_hbar_base";
+            rel2.to: "sb_hbar_base";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+            max: 0 0;
+         }
+      }
+      part { name: "x_hbar_right"; type: SPACER;
+         scale: 1;
+         repeat_events: 1;
+         description { state: "default" 0.0;
+            min: 2 4;
+            max: 2 4;
+            fixed: 1 1;
+            align: 1.0 1.0;
+            rel1.to: "TK.dragable.hbar";
+            rel2.to: "TK.dragable.hbar";
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+            max: 0 0;
+         }
+      }
+      part { name: "sb_hbar_a1"; type: RECT;
+         clip_to: "sb_hbar";
+         description { state: "default" 0.0;
+            min: 15 15;
+            fixed: 1 1;
+            align: 0.0 0.5;
+            aspect: 1.0 1.0; aspect_preference: VERTICAL;
+            color: 0 0 0 0;
+            rel1.to: "sb_hbar";
+            rel2.to: "sb_hbar";
+            rel2.relative: 0.0 1.0;
+            rel2.offset: 0 -1;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+            visible: 0;
+         }
+      }
+      part { name: "sb_hbar_a2"; type: RECT;
+         clip_to: "sb_hbar";
+         description { state: "default" 0.0;
+            min: 15 15;
+            fixed: 1 1;
+            align: 1.0 0.5;
+            aspect: 1.0 1.0; aspect_preference: VERTICAL;
+            rel1.to: "sb_hbar";
+            rel1.offset: -1 0;
+            rel1.relative: 1.0 0.0;
+            rel2.to: "sb_hbar";
+            invis;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            min: 0 0;
+            hid;
+         }
+      }
+      program {
+         signal: "TK,action,show,hbar"; source: "TK";
+         action: STATE_SET "default" 0.0;
+         target: "sb_hbar";
+         target: "sb_hbar_show";
+         target: "TK.dragable.hbar";
+         target: "sb_hbar_a1";
+         target: "sb_hbar_a2";
+         target: "x_hbar_left_mapper";
+         target: "x_hbar_left";
+         target: "x_hbar_right_mapper";
+         target: "x_hbar_right";
+      }
+      program {
+         signal: "TK,action,hide,hbar"; source: "TK";
+         action: STATE_SET "hidden" 0.0;
+         target: "sb_hbar";
+         target: "sb_hbar_show";
+         target: "TK.dragable.hbar";
+         target: "sb_hbar_a1";
+         target: "sb_hbar_a2";
+         target: "x_hbar_left_mapper";
+         target: "x_hbar_left";
+         target: "x_hbar_right_mapper";
+         target: "x_hbar_right";
+      }
+      program {
+         signal: "mouse,down,1*"; source: "sb_hbar_a1";
+         filter: "sb_hbar_a1" "default";
+         action: STATE_SET "clicked" 0.0;
+         target: "arrow1_hbar";
+         after: "anim1_left";
+      }
+      program { name: "anim1_left";
+         filter: "sb_hbar_a1" "default";
+         action: STATE_SET "default" 0.0;
+         transition: LINEAR 0.1;
+         target: "arrow1_hbar";
+         after: "drag_left";
+      }
+      program { name: "drag_left";
+         action: DRAG_VAL_STEP -1.0 0.0;
+         target: "TK.dragable.hbar";
+      }
+      program {
+         signal: "mouse,down,1*"; source: "sb_hbar_a2";
+         filter: "sb_hbar_a2" "default";
+         action: STATE_SET "clicked" 0.0;
+         target: "arrow2_hbar";
+         after: "anim2_left";
+      }
+      program { name: "anim2_left";
+         filter: "sb_hbar_a2" "default";
+         action: STATE_SET "default" 0.0;
+         transition: LINEAR 0.1;
+         target: "arrow2_hbar";
+         after: "drag_right";
+      }
+      program { name: "drag_right";
+         action: DRAG_VAL_STEP 1.0 0.0;
+         target: "TK.dragable.hbar";
+      }
+      program {
+         signal: "mouse,down,1*"; source: "sb_hbar_p1";
+         filter: "sb_hbar_a1" "default";
+         action: DRAG_VAL_PAGE -1.0 0.0;
+         target: "TK.dragable.hbar";
+      }
+      program {
+         signal: "mouse,down,1*"; source: "sb_hbar_p2";
+         filter: "sb_hbar_a2" "default";
+         action: DRAG_VAL_PAGE  1.0 0.0;
+         target: "TK.dragable.hbar";
+      }
+      program {
+         signal: "TK,action,show,left"; source: "TK";
+         action: STATE_SET "default" 0.0;
+         target: "arrow1_hbar";
+         target: "sb_hbar_a1";
+      }
+      program {
+         signal: "TK,action,hide,left"; source: "TK";
+         action: STATE_SET "hidden" 0.0;
+         target: "arrow1_hbar";
+         target: "sb_hbar_a1";
+      }
+      program {
+         signal: "TK,action,show,right"; source: "TK";
+         action: STATE_SET "default" 0.0;
+         target: "arrow2_hbar";
+         target: "sb_hbar_a2";
+      }
+      program {
+         signal: "TK,action,hide,right"; source: "TK";
+         action: STATE_SET "hidden" 0.0;
+         target: "arrow2_hbar";
+         target: "sb_hbar_a2";
+      }
+      part { name: "bg"; type: IMAGE;
+         description { state: "default" 0.0;
+#ifdef ENTK
+            rel1.to: "e.swallow.content";
+            rel2.to: "e.swallow.content";
+#endif
+#ifdef ELMTK
+            rel1.to: "elm.swallow.background";
+            rel2.to: "elm.swallow.background";
+#endif
+            image.normal: scrollframe_background.png;
+            image.border: 8 8 8 8;
+         }
+      }
+      part { name: "clipper"; type: RECT;
+         description { state: "default" 0.0;
+#ifdef ENTK
+            rel1.to: "e.swallow.content";
+            rel2.to: "e.swallow.content";
+#endif
+#ifdef ELMTK
+            rel1.to: "elm.swallow.background";
+            rel2.to: "elm.swallow.background";
+#endif
+         }
+      }
+#ifdef ELMTK
+      part { name: "elm.swallow.background"; type: SWALLOW;
+         clip_to: "clipper";
+         description { state: "default" 0.0;
+            rel1.offset: 1 1;
+            rel2.relative: 0.0 0.0;
+            rel2.offset: -2 -2;
+
+            rel2.to_x: "sb_vbar";
+            rel2.to_y: "sb_hbar";
+         }
+      }
+#endif
+#warning "TK.swallow.content"
+      part { name: "TK.swallow.content"; type: SWALLOW;
+         clip_to: "clipper";
+         description { state: "default" 0.0;
+#ifdef ENTK
+            rel1.offset: 4 4;
+            rel2.relative: 0.0 0.0;
+            rel2.offset: -6 -5;
+#endif
+#ifdef ELMTK
+            rel1.offset: 1 1;
+            rel2.relative: 0.0 0.0;
+            rel2.offset: -2 -2;
+#endif
+            rel2.to_x: "sb_vbar";
+            rel2.to_y: "sb_hbar";
+         }
+      }
+#ifdef ELMTK
+      part { name: "elm.swallow.overlay"; type: SWALLOW;
+         clip_to: "clipper";
+         description { state: "default" 0.0;
+            rel1.to: "elm.swallow.content";
+            rel2.to: "elm.swallow.content";
+         }
+      }
+#endif
+      part { name: "runner_vbar"; mouse_events: 0;
+         clip_to: "sb_vbar_show";
+         description { state: "default" 0.0;
+            image.normal: "scrollbar_background.png";
+            image.border: 8 8 8 8;
+            rel1.to: "sb_vbar_base";
+            rel2.to: "sb_vbar_base";
+            rel1.offset: 1 0;
+            rel2.offset: -1 0;
+            fill.smooth: 0;
+            min: 17 17;
+            max: 17 -1;
+            fixed: 1 1;
+         }
+      }
+      part { name: "runner_hbar"; mouse_events: 0;
+         clip_to: "sb_hbar_show";
+         description { state: "default" 0.0;
+            image.normal: "scrollbar_background.png";
+            image.border: 8 8 8 8;
+            rel1.to: "sb_hbar_base";
+            rel2.to: "sb_hbar_base";
+              fill.smooth: 0;
+            min: 17 17;
+            max: -1 17;
+            fixed: 1 1;
+         }
+      }
+      part { name: "runner_vbar_clip"; type: RECT;
+         clip_to: "sb_vbar_show";
+         description { state: "default" 0.0;
+            min: 1 1;
+            max: 1 99999;
+            rel1.to: "runner_vbar";
+            rel1.offset: 0 1;
+            rel2.to: "runner_vbar";
+            rel2.offset: -1 -2;
+#ifdef ENTK
+           hid;
+#endif
+#ifdef ELMTK
+            fixed: 1 1;
+#endif
+         }
+      }
+      part { name: "runner_hbar_clip"; type: RECT;
+         clip_to: "sb_hbar_show";
+         description { state: "default" 0.0;
+            min: 1 1;
+            max: 99999 1;
+            rel1.to: "runner_hbar";
+            rel1.offset: 1 0;
+            rel2.to: "runner_hbar";
+            rel2.offset: -2 -1;
+#ifdef ENTK
+           hid;
+#endif
+#ifdef ELMTK
+            fixed: 1 1;
+#endif
+         }
+      }
+      part { name: "arrow1_vbar"; mouse_events: 0;
+         clip_to: "sb_vbar_show";
+         description { state: "default" 0.0;
+            rel1.to: "sb_vbar_a1";
+            rel2.to: "sb_vbar_a1";
+            rel1.offset: 1 0;
+            rel2.offset: 0 0;
+            image.normal: "scrollbar_up.png";
+            FIXED_SIZE(19, 19)
+            color:  255 255 255 190;
+         }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+            color:  255 255 255 255;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            color:  255 255 255 90;
+         }
+      }
+      part { name: "arrow2_vbar"; mouse_events: 0;
+         clip_to: "sb_vbar_show";
+         description { state: "default" 0.0;
+            rel1.to: "sb_vbar_a2";
+            rel2.to: "sb_vbar_a2";
+            image.normal: "scrollbar_down.png";
+            FIXED_SIZE(19, 19)
+            color: 255 255 255 190;
+         }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            color:  255 255 255 90;
+         }
+      }
+      part { name: "base_vbar"; mouse_events: 0;
+         clip_to: "sb_vbar_show";
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.offset: 3 0;
+            rel1.to: "TK.dragable.vbar";
+            rel2.offset: -3 -1;
+            rel2.to: "TK.dragable.vbar";
+            image.normal: "e_surface.png";
+            image.border: 8 8 8 8;
+            fill.smooth: 0;
+            min: 15 15;
+        }
+     }
+     part { name: "center_vbar"; mouse_events: 0;
+         clip_to: "sb_vbar_show";
+         description { state: "default" 0.0;
+            rel1.to: "base_vbar";
+            rel1.offset: 0 0;
+            rel2.to: "base_vbar";
+            rel2.offset: 0 -1;
+            image.normal: "scrollbar_vdrag_thumb.png";
+            FIXED_SIZE(4, 7)
+            color: 255 255 255 190;
+            visible:1;
+         }
+      }
+      part { name: "center_glow_vbar"; mouse_events: 0;
+         clip_to: "sb_vbar_show";
+         description { state: "default" 0.0;
+            rel1.to: "center_vbar";
+            rel1.offset: 0 0;
+            rel2.to: "center_vbar";
+            rel2.offset: 0 -1;
+            image.normal: "scrollbar_vdrag_thumb.png";
+            FIXED_SIZE(4, 7)
+            color: 255 255 255 255;
+            visible: 0;
+         }
+         desc { "clicked";
+            inherit: "default";
+            color: 255 255 255 255;
+            visible: 1;
+         }
+      }
+      part { name: "arrow1_hbar"; mouse_events: 0;
+         clip_to: "sb_hbar_show";
+         description { state: "default" 0.0;
+            rel1.to: "sb_hbar_a1";
+            rel2.to: "sb_hbar_a1";
+            image.normal: "scrollbar_left.png";
+            FIXED_SIZE(19, 19)
+            color: 255 255 255 190;
+         }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            color:  255 255 255 90;
+         }
+      }
+      part { name: "arrow2_hbar"; mouse_events: 0;
+         clip_to: "sb_hbar_show";
+         description { state: "default" 0.0;
+            rel1.to: "sb_hbar_a2";
+            rel2.to: "sb_hbar_a2";
+            image.normal: "scrollbar_right.png";
+            FIXED_SIZE(19, 19)
+            color: 255 255 255 190;
+         }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+         }
+         description { state: "hidden" 0.0;
+            inherit: "default" 0.0;
+            color:  255 255 255 90;
+         }
+      }
+      part { name: "base_hbar"; mouse_events: 0;
+         clip_to: "sb_hbar_show";
+         description { state: "default" 0.0;
+            min: 15 15;
+            fixed: 1 1;
+            rel1.offset: 0 2;
+            rel1.to: "TK.dragable.hbar";
+            rel2.offset: -1 -2;
+            rel2.to: "TK.dragable.hbar";
+            image.normal: "e_surface.png";
+            image.border: 8 8 8 8;
+            fill.smooth: 0;
+         }
+      }
+      part { name: "center_hbar"; mouse_events: 0;
+         clip_to: "sb_hbar_show";
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1.to: "base_hbar";
+            rel2.to: "base_hbar";
+            image.normal: "scrollbar_hdrag_thumb.png";
+            FIXED_SIZE(8, 4)
+            color: 255 255 255 190;
+            visible: 1;
+         }
+      }
+      part { name: "center_glow_hbar"; mouse_events: 0;
+         clip_to: "sb_hbar_show";
+         description { state: "default" 0.0;
+            rel1.to: "center_hbar";
+            rel2.to: "center_hbar";
+            image.normal: "scrollbar_hdrag_thumb.png";
+            FIXED_SIZE(8, 4)
+            color: 255 255 255 255;
+            visible: 0;
+         }
+         desc { "clicked";
+            inherit: "default";
+            color: 255 255 255 255;
+            visible: 1;
+         }
+      }
+      part { name: "dim_effect"; type: RECT; mouse_events: 0;
+         description { state: "default" 0.0;
+            color: 0 0 0 0;
+         }
+         description { state: "effect" 0.0;
+            color: 50 50 50 255;
+         }
+      }
+   }
+   programs {
+      program {
+         signal: "mouse,down,1*"; source: "TK.dragable.vbar";
+         action: STATE_SET "clicked" 0.0;
+         target: "TK.dragable.vbar";
+         target: "center_glow_vbar";
+      }
+      program {
+         signal: "mouse,down,*"; source: "TK.dragable.vbar";
+         action: SIGNAL_EMIT "TK,vbar,press" "TK";
+      }
+      program {
+         signal: "mouse,up,1"; source: "TK.dragable.vbar";
+         action: STATE_SET "default" 0.0;
+         target: "elm.dragable.vbar";
+         target: "center_glow_vbar";
+      }
+      program {
+         signal: "mouse,up,*"; source: "TK.dragable.vbar";
+         action: SIGNAL_EMIT "elm,vbar,unpress" "TK";
+      }
+      program {
+         signal: "mouse,down,1*"; source: "TK.dragable.hbar";
+         action: STATE_SET "clicked" 0.0;
+         target: "TK.dragable.hbar";
+         target: "center_glow_hbar";
+      }
+      program {
+         signal: "mouse,down,*"; source: "TK.dragable.hbar";
+         action: SIGNAL_EMIT "elm,hbar,press" "TK";
+      }
+      program {
+         signal: "mouse,up,1"; source: "TK.dragable.hbar";
+         action: STATE_SET "default" 0.0;
+         target: "elm.dragable.hbar";
+         target: "center_glow_hbar";
+      }
+      program {
+         signal: "mouse,up,*"; source: "TK.dragable.hbar";
+         action: SIGNAL_EMIT "TK,hbar,unpress" "TK";
+      }
+      program {
+         signal: "TK,action,looping,left"; source: "TK";
+         action: STATE_SET "effect" 0.0;
+         transition: LINEAR 0.3;
+         target: "dim_effect";
+         after: "looping,left,done";
+      }
+      program { name: "looping,left,done";
+         action: SIGNAL_EMIT "TK,looping,left,done" "TK";
+      }
+      program {
+         signal: "TK,action,looping,left,end"; source: "TK";
+         action: STATE_SET "default" 0.0;
+         transition: LINEAR 0.3;
+         target: "dim_effect";
+      }
+      program {
+         signal: "TK,action,looping,right"; source: "TK";
+         action: STATE_SET "effect" 0.0;
+         transition: LINEAR 0.3;
+         target: "dim_effect";
+         after: "looping,right,done";
+      }
+      program { name: "looping,right,done";
+         action: SIGNAL_EMIT "TK,looping,right,done" "TK";
+      }
+      program {
+         signal: "TK,action,looping,right,end"; source: "TK";
+         action: STATE_SET "default" 0.0;
+         transition: LINEAR 0.3;
+         target: "dim_effect";
+      }
+      program {
+         signal: "TK,action,looping,up"; source: "TK";
+         action: STATE_SET "effect" 0.0;
+         transition: LINEAR 0.3;
+         target: "dim_effect";
+         after: "looping,up,done";
+      }
+      program { name: "looping,up,done";
+         action: SIGNAL_EMIT "TK,looping,up,done" "TK";
+      }
+      program {
+         signal: "TK,action,looping,up,end"; source: "TK";
+         action: STATE_SET "default" 0.0;
+         transition: LINEAR 0.3;
+         target: "dim_effect";
+      }
+      program {
+         signal: "TK,action,looping,down"; source: "TK";
+         action: STATE_SET "effect" 0.0;
+         transition: LINEAR 0.3;
+         target: "dim_effect";
+         after: "looping,down,done";
+      }
+      program { name: "looping,down,done";
+         action: SIGNAL_EMIT "TK,looping,down,done" "TK";
+      }
+      program {
+         signal: "TK,action,looping,down,end"; source: "TK";
+         action: STATE_SET "default" 0.0;
+         transition: LINEAR 0.3;
+         target: "dim_effect";
+      }
+   }
+}
+#ifdef ELMTK
+group { name: "elm/scroller/base/noclip";
+   inherit: "elm/scroller/base/default";
+   parts {
+      part { name: "clipper";
+         description { state: "default" 0.0;
+            rel1.offset: -999999 -999999;
+            rel2.offset: 999999 999999;
+         }
+      }
+      part { name: "elm.swallow.background";
+         description { state: "default" 0.0;
+            rel1.offset: 0 0;
+            rel2.offset: -1 -1;
+         }
+      }
+      part { name: "elm.swallow.content";
+         description { state: "default" 0.0;
+            rel1.offset: 0 1;
+            rel2.offset: -1 -1;
+         }
+      }
+      part { name: "inset";
+         description { state: "default" 0.0;
+            visible: 0;
+         }
+      }
+      part { name: "shadow";
+         description { state: "default" 0.0;
+            visible: 0;
+         }
+      }
+   }
+}
+
+group { name: "elm/scroller/contents/default";
+   parts {
+      part { name: "elm.swallow.content";
+         type: SWALLOW;
+         description { state: "default" 0.0;
+         }
+      }
+      part { name: "elm.swallow.content_r";
+         type: SWALLOW;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1 {
+                relative: 1.0 0.0;
+                to: "elm.swallow.content";
+            }
+            rel2 {
+                relative: 2.0 1.0;
+                to: "elm.swallow.content";
+            }
+         }
+      }
+      part { name: "elm.swallow.content_b";
+         type: SWALLOW;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1 {
+                relative: 0.0 1.0;
+                to: "elm.swallow.content";
+            }
+            rel2 {
+                relative: 1.0 2.0;
+                to: "elm.swallow.content";
+            }
+         }
+      }
+      part { name: "elm.swallow.content_rb";
+         type: SWALLOW;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            rel1 {
+                relative: 1.0 1.0;
+                to: "elm.swallow.content";
+            }
+            rel2 {
+                relative: 2.0 2.0;
+                to: "elm.swallow.content";
+            }
+         }
+      }
+   }
+}
+
+group { name: "elm/scroller/base/popup/no_inset_shadow";
+   inherit: "elm/scroller/base/default";
+   alias: "elm/scroller/base/no_inset_shadow";
+   alias: "elm/gengrid/base/no_inset_shadow";
+   parts {
+      part { name: "elm.swallow.content"; type: SWALLOW;
+         description { state: "default" 0.0;
+            rel1.offset: 0 0;
+            rel2.offset: 0 0;
+         }
+      }
+      part { name: "inset";
+         description { state: "default" 0.0;
+            visible: 0;
+         }
+      }
+      part { name: "shadow";
+         description { state: "default" 0.0;
+            visible: 0;
+         }
+      }
+   }
+}
+#endif
