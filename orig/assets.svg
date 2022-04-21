@@ -19,6 +19,25 @@
   <defs
      id="defs4114">
     <linearGradient
+       id="linearGradient40936">
+      <stop
+         id="stop40928"
+         offset="0"
+         style="stop-color:#0f0f0f;stop-opacity:1;" />
+      <stop
+         style="stop-color:#171717;stop-opacity:1;"
+         offset="0.32420468"
+         id="stop40930" />
+      <stop
+         id="stop40932"
+         offset="0.63877487"
+         style="stop-color:#0f0f0f;stop-opacity:1" />
+      <stop
+         id="stop40934"
+         offset="1"
+         style="stop-color:#1b1b1b;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
        id="linearGradient54036">
       <stop
          id="stop54153"
@@ -9859,6 +9878,17 @@
        y1="2.5641682"
        x2="7.9999971"
        y2="12.619155" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient40936"
+       id="radialGradient40798"
+       cx="-357.68622"
+       cy="893.22925"
+       fx="-357.68622"
+       fy="893.22925"
+       r="123.55994"
+       gradientTransform="matrix(1,0,0,0.12463586,-439.54749,-495.47363)"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -9867,16 +9897,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="-603.33886"
-     inkscape:cy="303.70236"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="-333.40085"
+     inkscape:cy="383.25188"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      showguides="false"
      inkscape:guide-bbox="true"
      inkscape:window-width="1919"
-     inkscape:window-height="1004"
+     inkscape:window-height="1012"
      inkscape:window-x="1920"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -31086,6 +31116,18 @@
          d="m 445.21741,429.02417 c -23.27985,-26.07643 -36.39185,-44.71326 -31.0876,-58.7279 -8.37993,11.193 -9.32058,12.21831 -14.0232,17.34452 -4.70277,5.12622 -5.64318,6.15153 -16.0738,15.46339 13.50638,-6.49023 33.20205,4.96986 61.1846,25.91999 z"
          style="font-size:12px;fill:url(#radialGradient30697-2);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00572;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.997361" />
     </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.75;font-family:sans-serif;opacity:0.864198;fill:url(#radialGradient40798);fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="-923.11353"
+       y="-368.74524"
+       id="text8130"
+       transform="rotate(-89.71981)"><tspan
+         sodipodi:role="line"
+         id="tspan8128"
+         x="-923.11353"
+         y="-368.74524"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:Orbitron;-inkscape-font-specification:'Orbitron Heavy';fill:url(#radialGradient40798);fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Dimensions</tspan></text>
   </g>
 </svg>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Created with Inkscape (http://www.inkscape.org/) -->
