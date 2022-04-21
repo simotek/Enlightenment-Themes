@@ -50,10 +50,12 @@ group {
 	 mouse_events:  0;
 	 description {
 	    state:    "default" 0.0;
-	    rel1.offset:   -5    -20;
-	    rel2.offset:   5   5;
+	    rel1.offset:   0    0;
+	    rel2.offset:   0   0;
+      min: 543 544;
+      max: 543 544;
 	    image {
-	       normal: "e_surface.png";
+	       normal: "fileman_background.png";
 	       border: 8 8 8 8;
 	    }
 	    fill {
@@ -66,11 +68,11 @@ group {
 	 mouse_events:  1;
 	 description {
 	    state:    "default" 0.0;
-	    min: 56 410;
-	    max: 56 410;
+	    min: 257 543;
+	    max: 257 543;
 	    align: 1.0 1.0;
 	    rel1.relative:   1.0  0.0;
-	    rel2.relative:   1.0  0.92;
+	    rel2.relative:   1.0  1.0;
 	    image.normal: "e_theme_title.png";
 	    color: 255 255 255 255;
 	 }
@@ -99,11 +101,7 @@ group {
 	       style:    "theme_about_style";
 	       min:      0 1;
 	       text:
-"Welcome to Cerium. It is a fairly dynamic theme. There is a minimal amount "
-"of base textures so you can re-theme it very easily. This is a e21 remake of"
-"Toma's original Cerium e17 theme, its not a 100% recreation but all of the"
-"artwork and concept credit goes to him."
-"<br><br>Enjoy the look and feel of Cerium!<br><br>Simotek.";
+"";
 	    }
 	 }
       }
@@ -128,7 +126,6 @@ group {
 	       normal: "e_surface.png";
 	       border: 8 8 8 8;
 	    }
-	    color_class: "Button";
 	 }
 	 description {
 	    state:    "clicked" 0.0;
@@ -154,7 +151,7 @@ group {
 	       offset:   -7   -7;
 	       to:     "button";
 	    }
-	    color:    0   0   0 255;
+	    color:  255 255 255 255;
 	    color3: 255 255 255 128;
 	    color_class: "button_text";
 	    text {
