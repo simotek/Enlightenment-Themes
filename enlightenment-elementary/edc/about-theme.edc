@@ -66,11 +66,11 @@ group {
 	 mouse_events:  1;
 	 description {
 	    state:    "default" 0.0;
-	    min: 420 100;
-	    max: 420 100;
-	    align: 0.5 0.0;
-	    rel1.relative:   0.5  0.0;
-	    rel2.relative:   0.5  1.0;
+	    min: 56 410;
+	    max: 56 410;
+	    align: 1.0 1.0;
+	    rel1.relative:   1.0  0.0;
+	    rel2.relative:   1.0  0.92;
 	    image.normal: "e_theme_title.png";
 	    color: 255 255 255 255;
 	 }
