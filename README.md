@@ -1,6 +1,8 @@
 Enlightenment-Themes
 ====================
 
+**Note Vertex has been renamed to Dimensions, you can find it in the Dimensions Branch**  
+
 Various Enlightenment and Terminology themes i'm working on, a branch per theme, development status for each theme is listed below.
 
 For released themes you can simply download the bundled tarball extract it with `tar -xf <ThemeName>-bundle.tar.xf` and then run `install.sh` to put the files
