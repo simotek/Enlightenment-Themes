@@ -466,7 +466,7 @@ if [[ $DKMD_EPKG != 1 ]]; then
       fi
     fi
 
-    inform "Creating Color Scheme"theme
+    inform "Creating Color Scheme"
     mkdir -p "../artifacts/bin-term"
     # Use any name thats not the default if it exists otherwise fall back to the recolored default
     INI_COUNT=$(ls -l *ini | grep -v "Default" | wc -l)
