@@ -31,7 +31,7 @@ Branch Structure
 | Ice | Done | A light theme
 | Kitty | Semi Usable | A bit of fun
 | **vtx**
-| Vertex | Almost Done | A port of the Vertex GTK theme
+| Dimensions | Done | A theme designed to work with and based on the Vertex GTK theme.
 | Fireball2 | In Development | A port of Toma's Fireball theme
 | Iceball2 | In Development | A port of Toma's Iceball theme
 | Grunge2 | In Development | A port of Toma's Grunge theme
