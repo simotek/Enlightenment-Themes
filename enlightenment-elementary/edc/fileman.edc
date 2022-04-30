@@ -878,7 +878,7 @@ group { name: "e/fileman/default/scrollframe";
             hid;
          }
       }
-      part { name: "e/.swallow.bg"; type: SWALLOW; insert_before: "e.swallow.content";
+      part { name: "e.swallow.bg"; type: SWALLOW; insert_before: "e.swallow.content";
          clip_to: "clipper";
          description { state: "default" 0.0;
             rel1.to: "bg";
