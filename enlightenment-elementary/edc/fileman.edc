@@ -855,6 +855,7 @@ group { name: "e/fileman/desktop/icon/fixed";
    }
 }
 images.image: "fileman_background.png" COMP;
+images.image: "fileman_flair.png" COMP;
 group { name: "e/fileman/default/scrollframe";
    inherit: "e/widgets/scrollframe";
    parts {
@@ -865,7 +866,19 @@ group { name: "e/fileman/default/scrollframe";
             image.border: 8 8 8 8;
          }
       }
-      part { name: "e/.swallow.bg"; type: SWALLOW; insert_before: "e.swallow.content";
+      part { name: "flair";
+         description { state: "default" 0.0;
+            min: 257 543;
+            max: 257 543;
+            rel1.to: "bg";
+            rel2.to: "bg";
+            align: 1.0 0.0;
+            image.normal: "fileman_flair.png";
+            // Can't make this work just for main background so hid for now.
+            hid;
+         }
+      }
+      part { name: "e.swallow.bg"; type: SWALLOW; insert_before: "e.swallow.content";
          clip_to: "clipper";
          description { state: "default" 0.0;
             rel1.to: "bg";
@@ -2119,7 +2132,7 @@ group { name: "e/modules/efm_navigation/pathbar_button";
             image.border: 8 8 8 8;
             fill.smooth: 0;
             // rel1.offset: -2 -3;
-            rel1.offset: 0 -1;
+            rel1.offset: 0 0;
             rel2.offset: -1 2;
             visible: 0;
          }
