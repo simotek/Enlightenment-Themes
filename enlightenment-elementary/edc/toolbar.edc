@@ -235,7 +235,7 @@ group { name: "e/widgets/toolbar/item";
             rel2.to: "e.text.label";
             color: FN_COL_HIGHLIGHT_CLICKED;
             color_class: "menu_item_active";
-            text { font: FN; size: 10;
+            text { font: FNBD; size: 10;
               text_source: "e.text.label";
               align: 0.5 0.5;
               text_class: "menu_item";
