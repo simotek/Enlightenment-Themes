@@ -526,7 +526,7 @@ group {
          effect: SHADOW BOTTOM;
          description { state: "default" 0.0;
             rel1.relative: 1.0  0.0;
-            rel1.offset: 9    4;
+            rel1.offset: 9    7;
             rel1.to_x: "t1";
             rel2.relative: 0.0  0.0;
             rel2.offset: -10  3;
