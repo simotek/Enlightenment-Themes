@@ -31,6 +31,7 @@ group { name: "terminology/background";
       image: "media_busy_spinner.png" COMP;
       image: "icon_split_h.png" COMP;
       image: "icon_split_v.png" COMP;
+      image: "fileman_flair.png" COMP;
    }
    set { name: "bg_shadow";
       image { image: "bg_shadow.png"  COMP; size: 0 0 200 150; }
@@ -105,6 +106,16 @@ group { name: "terminology/background";
          mouse_events: 1;
          description { state: "default" 0.0;
             color_class: "BG";
+         }
+      }
+      part { name: "flair";
+         description { state: "default" 0.0;
+            max: 257 543;
+            rel1.to: "base";
+            rel2.to: "base";
+            align: 1.0 0.0;
+            aspect: (257/543) (257/543);
+            image.normal: "fileman_flair.png";
          }
       }
 
@@ -719,7 +730,9 @@ group { name: "terminology/background";
             aspect: (256/120) (256/120);
             aspect_preference: HORIZONTAL;
             color: 255 255 255 0;
+            //color: 255 255 255 0;
             color_class: "HIGHLIGHT";
+            hid;
          }
          description { state: "focused" 0.0;
             inherit: "default" 0.0;
@@ -738,13 +751,14 @@ group { name: "terminology/background";
             align: 0.5 0.0;
             aspect: (256/120) (256/120);
             aspect_preference: HORIZONTAL;
-            color: 255 255 255 64;
-            color_class: "HIGHLIGHT";
+            color: 255 255 255 255;
+            // color: 255 255 255 0;
+            //color_class: "HIGHLIGHT";
          }
          description { state: "focused" 0.0;
             inherit: "default" 0.0;
             color: 255 255 255 0;
-            color_class: "HIGHLIGHT";
+            //color_class: "HIGHLIGHT";
          }
       }
       part { name: "glintclip"; type: RECT;
@@ -770,12 +784,12 @@ group { name: "terminology/background";
                offset: -1 0;
             }
             image.normal: "bg_glint.png";
-            color: 255 255 255 128;
+            color: 255 255 255 0;
             color_class: "HIGHLIGHT";
          }
          description { state: "focused" 0.0;
             inherit: "default" 0.0;
-            color: 255 255 255 255;
+            color: 255 255 255 0;
             color_class: "HIGHLIGHT";
          }
       }
@@ -2492,4 +2506,3 @@ group { name: "terminology/background";
       // }}}
    }
 }
-
