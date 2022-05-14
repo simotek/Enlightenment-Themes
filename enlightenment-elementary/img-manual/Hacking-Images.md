@@ -9,8 +9,9 @@ Hacking Images
 | e_logo.png | Logo used in start on shelf
 | e_logo_clicked.png | Logo used when shelf button is clicked, HAVE_CLICKED_LOGO at the top of start.edc must be set to 1
 | e_logo_hover.png | Logo used when mouse over shelf button, HAVE_HOVER_LOGO at the top of start.edc must be set to 1
-| e_theme_title.png | Theme Logo, shown in about Theme.
+| e_theme_title.png | Theme Logo, shown in About Theme and on welcome screen.
 | e_wallpaper.png | The wallpaper
+| about_theme_background.png | Background for about theme dialog.
 | everything_bottom.png everything_top.png | Bottom parts of everything launcher window (can generally be e_surface_bottom)
 | everything_entry.png | Area behind search text, can be e_surface_lr
 | everything_main.png | Area behind main section, can be e_surface_lr
