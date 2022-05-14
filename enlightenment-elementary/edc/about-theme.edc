@@ -1,4 +1,5 @@
 images.image: "e_theme_title.png" COMP;
+images.image: "about_theme_background.png" COMP;
 
 styles
 {
@@ -25,8 +26,8 @@ color_classes {
 
 group {
    name: "e/theme/about";
-   min: 420 350;
-   max: 420 350;
+   min: 468 428;
+   max: 468 428;
    script {
 	public color1() {
 		const a = 255;
@@ -50,11 +51,12 @@ group {
 	 mouse_events:  0;
 	 description {
 	    state:    "default" 0.0;
-	    rel1.offset:   -5    -20;
-	    rel2.offset:   5   5;
+      min: 468 428;
+      max: 468 428;
+      rel1.offset: -2 -2;
+      rel2.offset: -2 -2;
 	    image {
-	       normal: "e_surface.png";
-	       border: 8 8 8 8;
+	       normal: "about_theme_background.png";
 	    }
 	    fill {
 	       smooth: 0;
@@ -66,11 +68,11 @@ group {
 	 mouse_events:  1;
 	 description {
 	    state:    "default" 0.0;
-	    min: 56 410;
-	    max: 56 410;
-	    align: 1.0 1.0;
-	    rel1.relative:   1.0  0.0;
-	    rel2.relative:   1.0  0.92;
+	    min: 459 83;
+	    max: 459 83;
+	    align: 0.5 0.0;
+	    rel1.relative:   0.0  0.00;
+	    rel2.relative:   1.0  1.0;
 	    image.normal: "e_theme_title.png";
 	    color: 255 255 255 255;
 	 }
@@ -91,14 +93,14 @@ group {
 	 mouse_events:  0;
 	 description {
 	    state:    "default" 0.0;
-	    rel1 { 
+	    rel1 {
 	       relative: 0.1 0.35;
 	    }
 	    rel2.relative: 0.9 0.95;
 	    text {
 	       style:    "theme_about_style";
 	       min:      0 1;
-	       text: 
+	       text:
 "Welcome to Cerium. It is a fairly dynamic theme. There is a minimal amount "
 "of base textures so you can re-theme it very easily. This is a e21 remake of"
 "Toma's original Cerium e17 theme, its not a 100% recreation but all of the"
@@ -122,7 +124,7 @@ group {
 	    }
 	    rel2 {
 	       relative: 1.0  1.0;
-	       offset:   -7    -6;
+	       offset:   -13    -12;
 	    }
 	    image {
 	       normal: "e_surface.png";
@@ -142,30 +144,22 @@ group {
 	 type:          TEXT;
 	 effect:        SHADOW;
 	 mouse_events:  0;
-	 description {
-	    state:    "default" 0.0;
-	    rel1 {
-	       relative: 0.0  0.0;
-	       offset:   6    6;
-	       to:     "button";
-	    }
-	    rel2 {
-	       relative: 1.0  1.0;
-	       offset:   -7   -7;
-	       to:     "button";
-	    }
-	    color:    0   0   0 255;
-	    color3: 255 255 255 128;
-	    color_class: "button_text";
-	    text {
-	       text:     "OK";
-	       font:     "Edje-Vera";
-	       size:     10;
-	       min:      1 1;
-	       align:    0.5 0.5;
-               text_class: "button_text";	       
-	    }
-	 }
+   description { state: "default" 0.0;
+      //rel1.offset: 6 9;
+      rel1.to_x: "button";
+      rel1.to_y: "button";
+      //rel2.offset: -7 -7;
+      rel2.to: "button";
+      // color: FN_COL_DEFAULT;
+      color: 255 255 255 255;
+      text { font: FN; size: 10;
+         min: 1 1;
+         ellipsis: -1;
+         align: 0.5 0.5;
+         text_class: "button";
+         text: "Ok";
+      }
+   }
       }
    }
    programs {
