@@ -1,4 +1,5 @@
 images.image: "e_theme_title.png" COMP;
+images.image: "about_theme_background.png" COMP;
 
 styles
 {
@@ -56,6 +57,7 @@ group {
       rel2.offset: -2 -2;
 	    image {
 	       normal: "about_theme_background.png";
+         border: 8 8 8 8;
 	    }
 	    fill {
 	       smooth: 0;
@@ -100,11 +102,7 @@ group {
 	       style:    "theme_about_style";
 	       min:      0 1;
 	       text:
-"Welcome to Cerium. It is a fairly dynamic theme. There is a minimal amount "
-"of base textures so you can re-theme it very easily. This is a e21 remake of"
-"Toma's original Cerium e17 theme, its not a 100% recreation but all of the"
-"artwork and concept credit goes to him."
-"<br><br>Enjoy the look and feel of Cerium!<br><br>Simotek.";
+"The default theme for Enlightenment";
 	    }
 	 }
       }
