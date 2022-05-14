@@ -5,11 +5,11 @@ styles
 {
    style {
       name: "theme_about_style";
-      base: "font=Edje-Vera font_size=10 style=none color=#000 align=center wrap=word";
+      base: "font=FN font_size=12 style=none color=#ffff align=center wrap=word";
 
       tag:  "br" "\n";
-      tag:  "hilight" "+ font=Edje-Vera-Bold";
-      tag:  "syntax" "+ font=Edje-Vera style=glow color=#fff glow2_color=#fe87 glow_color=#fa14 font_size=10 align=center wrap=word";
+      tag:  "hilight" "+ font=FNBD";
+      tag:  "syntax" "+ font=FN style=glow color=#fff glow2_color=#fe87 glow_color=#fa14 font_size=12 align=center wrap=word";
    }
 }
 
@@ -98,7 +98,9 @@ group {
 	       relative: 0.1 0.35;
 	    }
 	    rel2.relative: 0.9 0.95;
+      color: FN_COL_DEFAULT;
 	    text {
+         font: FNBD; size: 10;
 	       style:    "theme_about_style";
 	       min:      0 1;
 	       text:
