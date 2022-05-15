@@ -5,11 +5,19 @@ styles
 {
    style {
       name: "theme_about_style";
-      base: "font=FN font_size=12 style=none color=#ffff align=center wrap=word";
+      base: "font=Pinnacle:style=Regular font_size=16 style=glow color=#3d3465ff glow_color=#6756ae20 glow2_color=#2c225a10 align=center wrap=word";
 
       tag:  "br" "\n";
-      tag:  "hilight" "+ font=FNBD";
-      tag:  "syntax" "+ font=FN style=glow color=#fff glow2_color=#fe87 glow_color=#fa14 font_size=12 align=center wrap=word";
+      tag:  "hilight" "+ font=Pinnacle:style=Regular";
+      tag:  "link" "+ font=Pinnacle:style=Light style=glow color=#17416a glow2_color=#fe87 glow_color=#fa14 font_size=12 align=center wrap=word";
+   }
+   style {
+      name: "theme_about2_style";
+      base: "font=Pinnacle:style=Light font_size=12 style=glow color=#17416aff glow_color=#1e6a9610 glow2_color=#1e6a9610 align=center wrap=word";
+
+      tag:  "br" "\n";
+      tag:  "hilight" "+ font=Pinnacle:style=Regular";
+      tag:  "link" "+ font=Pinnacle:style=Light style=glow color=#17416a glow2_color=#fe87 glow_color=#fa14 font_size=12 align=center wrap=word";
    }
 }
 
@@ -94,17 +102,37 @@ group {
 	 mouse_events:  0;
 	 description {
 	    state:    "default" 0.0;
-	    rel1 {
-	       relative: 0.1 0.35;
-	    }
-	    rel2.relative: 0.9 0.95;
+      rel1.to: "base";
+      rel2.to: "base";
+	    rel1.relative: 0.0 0.22;
+	    rel2.relative: 1.0 0.65;
+      align: 0.5 1.0;
       color: FN_COL_DEFAULT;
 	    text {
-         font: FNBD; size: 10;
 	       style:    "theme_about_style";
 	       min:      0 1;
 	       text:
-"The default theme for Enlightenment";
+         "Vertex - A point where higher dimensional geometric objects meet.</br></br>";
+      }
+	 }
+      }
+      part {
+	 name:          "about2";
+	 type:          TEXTBLOCK;
+	 mouse_events:  0;
+	 description {
+	    state:    "default" 0.0;
+	    rel1.relative: 0.0 0.4;
+	    rel2.relative: 1.0 1.0;
+      align: 0.5 0.5;
+      color: FN_COL_DEFAULT;
+	    text {
+	       style:    "theme_about2_style";
+	       min:      0 1;
+	       text:
+         "This is a theme inspired by and designed to be used with the Vertex gtk theme.</br> <a href=\"https://github.com/horst3180/vertex-theme\">https://github.com/horst3180/vertex-theme</a></br></br>"
+         "Theme Design by <a href=\"https://simotek.net/tech/\">@Simotek</a></br></br>"
+         "Wallpaper by @dymokotov <a href=\"https://pxhere.com/en/photo/1445391\">https://pxhere.com/en/photo/1445391</a>";
 	    }
 	 }
       }
