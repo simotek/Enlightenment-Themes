@@ -4,7 +4,7 @@ group { name: "e/desktop/background";
       part { name: "pat";
          description { state: "default" 0.0;
             image.normal: "e_wallpaper.jpg";
-            ASPECT_FILL((1920/1080))
+            ASPECT_FILL((3508/2335))
          }
       }
    }
