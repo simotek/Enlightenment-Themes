@@ -1,5 +1,5 @@
 #!/bin/bash
-source darkmond-util.sh
+source darkmod-util.sh
 
 if [ -n "$1" ]; then
   VERSION=$1
@@ -8,9 +8,9 @@ else
   exit 1
 fi
 
+# branches=("Dark" "Ice" "Neonz" "Dimensions" "openSUSE-e-Dimensions" "openSUSE-e-Ice" "openSUSE-e-Neon" "openSUSE-e-OliveLeaf")
+branches=("Dimensions" "openSUSE-e-Dimensions")
 
-
-branches=("Dark" "Ice" "Neonz" "Dimensions" "openSUSE-e-Dimensions" "openSUSE-e-Ice" "openSUSE-e-Neon" "openSUSE-e-OliveLeaf")
 
 rm -r artifacts
 
@@ -23,11 +23,12 @@ for b in ${branches[@]}; do
     warn "Bundle exists skipping"
   else
     git checkout $b
+    test $? -eq 0 || error "Checkout Failed, Exiting"; exit 1
     git merge master -m "Merge branch 'master' into $b - Releasing"
-    test $? -eq 0 || error "Merge Failed, Exiting"
+    test $? -eq 0 || error "Merge Failed, Exiting"; exit 1
     ./package-darkmod.sh
     ./build-darkmod.sh
-    test $? -eq 0 || error "Build Failed, Exiting"
+    test $? -eq 0 || error "Build Failed, Exiting"; exit 1
     git tag -a -m "darkmod-release $VERSION" "$VERSION-$b"
     git push
   fi
