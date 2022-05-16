@@ -15,7 +15,6 @@ branches=("Dimensions" "openSUSE-e-Dimensions")
 rm -r artifacts
 
 git checkout master
-git tag -a -m "darkmod-release $VERSION" "$VERSION"
 
 for b in ${branches[@]}; do
   echo "Processing $b"
@@ -35,5 +34,6 @@ for b in ${branches[@]}; do
 done
 
 git checkout master
+git tag -a -m "darkmod-release $VERSION" "$VERSION"
 git push
 git push --tags
