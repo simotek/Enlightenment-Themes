@@ -6,7 +6,8 @@ group { name: "elm/notify/block_events/default";
             color: 0 0 0 0;
          }
          desc { "visible";
-            color: 0 0 0 64; /* FIXME: color_class */
+            inherit: "default" 0.0;
+            color: 255 255 255 255; /* FIXME: color_class */
          }
       }
       program {
@@ -215,4 +216,3 @@ group { name: "elm/notify/center/default";
       }
    }
 }
-

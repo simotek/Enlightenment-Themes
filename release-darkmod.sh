@@ -2,7 +2,7 @@
 
 VERSION=20220219.1.26
 
-branches=("Dark" "Ice" "Neonz" "openSUSE-e-Ice" "openSUSE-e-Neon" "openSUSE-e-OliveLeaf")
+branches=("Dark" "Ice" "Neonz" "Dimensions" "openSUSE-e-Dimensions" "openSUSE-e-Ice" "openSUSE-e-Neon" "openSUSE-e-OliveLeaf")
 
 rm -r artifacts
 
@@ -21,3 +21,4 @@ done
 
 git checkout master
 git push
+git push --tags

@@ -12,6 +12,13 @@ If you would like to modify one of the themes or create a new theme with vtx or 
 
 Further info can be found at http://simotek.net/tech/projects/linux-themes/darkmod-enlightenment-theme-converter/
 
+![Gallery Preview](gallery/all-preview.jpg "Gallery Preview")
+
+![Dimensions](gallery/Dimensions-Plain.jpg)
+
+Further screenshots can be found in the [Gallery](gallery/Gallery.md) or on my
+blog http://simotek.net/tech/projects/linux-themes/
+
 Branch Structure
 ----------------
 
@@ -26,7 +33,7 @@ Branch Structure
 | Ice | Done | A light theme
 | Kitty | Semi Usable | A bit of fun
 | **vtx**
-| Vertex | Almost Done | A port of the Vertex GTK theme
+| Dimensions | Done | A theme designed to work with and based on the Vertex GTK theme.
 | Fireball2 | In Development | A port of Toma's Fireball theme
 | Iceball2 | In Development | A port of Toma's Iceball theme
 | Grunge2 | In Development | A port of Toma's Grunge theme

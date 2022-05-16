@@ -315,6 +315,8 @@ fi
 
 ##############################################################################################################################
 
+termColorschemes=("$THEME_NAME.eet")
+
 if [[ -n "$TERMINOLOGY_THEME_PATH" ]];then
 if [[ $DKMD_EPKG != 1 ]]; then
 
@@ -386,7 +388,7 @@ if [[ $DKMD_EPKG != 1 ]]; then
     pushd $TERMINOLOGY_THEME_PATH &> /dev/null
     report_on_error cp -a default.edc default-dm.edc
     report_on_error cp -a Default.ini Default-dm.ini
-    report_on_error sed -i 's/"default/"default-dm/' default-dm.edc
+    report_on_error sed -i "s/"default/"default-dm/" default-dm.edc
 
     report_on_error cp -a default default-dm
 
@@ -458,31 +460,44 @@ if [[ $DKMD_EPKG != 1 ]]; then
 
     report_on_error mv -v img-bak images
 
-    inform "Creating Color Scheme"
-    # Use theme name if it exists otherwise fall back to the recolored default
-    if [[ -f $THEME_NAME.ini ]]; then
-      ./add_color_scheme.sh "eet" "../build/term/$THEME_NAME.eet" "$THEME_NAME.ini"
-    else
-      ./add_color_scheme.sh "eet" "../build/term/$THEME_NAME.eet" "Default-dm.ini"
-    fi
-
-    if [[ ! -f ../build/term/$THEME_NAME.edj || ! -f ../build/term/$THEME_NAME.edj ]]; then
-      error "Terminology theme or colorscheme not found build probably failed exiting"
-      exit 1
-    fi
-
-    mkdir -p "../artifacts/bin-term"
-    cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
-    cp "../build/term/$THEME_NAME.eet" "../artifacts/bin-term/"
-
-    rm *-EET-*
-
     if [[ $DKMD_TERMPKG != 1 ]]; then
       if [[ ! -d ~/.config/terminology/colorschemes ]]; then
         mkdir ~/.config/terminology/colorschemes
       fi
+    fi
+
+    inform "Creating Color Scheme"theme
+    mkdir -p "../artifacts/bin-term"
+    # Use any name thats not the default if it exists otherwise fall back to the recolored default
+    INI_COUNT=$(ls -l *ini | grep -v "Default" | wc -l)
+    if [[ $INI_COUNT > 0 ]]; then
+    	for f in $(ls *.ini); do
+    	  if [[ $f != "Default-dm.ini" && $f != "Default.ini" ]]; then
+          ./add_color_scheme.sh "eet" "../build/term/${f%.*}.eet" "$f"
+          cp "../build/term/${f%.*}.eet" "../artifacts/bin-term/"
+          if [[ $f != "$THEME_NAME.eet" ]]; then
+            termColorschemes+=("${f%.*}.eet")
+          fi
+    	  fi
+    	done
+    else
+      ./add_color_scheme.sh "eet" "../build/term/$THEME_NAME.eet" "Default-dm.ini"
+    fi
+
+    if [[ ! -f ../build/term/$THEME_NAME.edj || ! -f ../build/term/$THEME_NAME.eet ]]; then
+      error "Terminology theme or colorscheme not found build probably failed exiting"
+      exit 1
+    fi
+
+    cp "../build/term/$THEME_NAME.edj" "../artifacts/bin-term/"
+
+    rm *-EET-*
+
+    if [[ $DKMD_TERMPKG != 1 ]]; then
 	    report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
-      report_on_error cp ../build/term/$THEME_NAME.eet ~/.config/terminology/colorschemes
+      for c in "${termColorschemes[@]}"; do
+        report_on_error cp "../build/term/$c" ~/.config/terminology/colorschemes/
+      done
     fi
     popd &> /dev/null # Terminology theme dir
 fi
@@ -499,7 +514,9 @@ if [[ $DKMD_EPKG = 0 && $DKMD_TERMPKG = 0 ]]; then
    sed -i "s/PLACEHOLDER/$THEME_NAME/g" "$THEME_NAME-$THEME_VERSION-Bundle/install.sh"
    cp "e/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle/e/"
    cp "term/$THEME_NAME.edj" "$THEME_NAME-$THEME_VERSION-Bundle/term/"
-   cp "term/$THEME_NAME.eet" "$THEME_NAME-$THEME_VERSION-Bundle/term/"
+   for c in "${termColorschemes[@]}"; do
+     cp "term/$c" "$THEME_NAME-$THEME_VERSION-Bundle/term/"
+   done
    cp -r "icons/$THEME_NAME-icons/" "$THEME_NAME-$THEME_VERSION-Bundle"
    mkdir -p "../artifacts/bundle/"
    report_on_error tar -cf "../artifacts/bundle/$THEME_NAME-$THEME_VERSION-Bundle.tar.xz" "$THEME_NAME-$THEME_VERSION-Bundle"
