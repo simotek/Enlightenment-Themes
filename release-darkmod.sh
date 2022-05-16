@@ -22,12 +22,12 @@ for b in ${branches[@]}; do
     warn "Bundle exists skipping"
   else
     git checkout $b
-    test $? -eq 0 || error "Checkout Failed, Exiting"; exit 1
+    test $? -eq 0 || { error "Checkout Failed, Exiting"; exit 2; };
     git merge master -m "Merge branch 'master' into $b - Releasing"
-    test $? -eq 0 || error "Merge Failed, Exiting"; exit 1
+    test $? -eq 0 || { error "Merge Failed, Exiting"; exit 3; };
     ./package-darkmod.sh
     ./build-darkmod.sh
-    test $? -eq 0 || error "Build Failed, Exiting"; exit 1
+    test $? -eq 0 || { error "Build Failed, Exiting"; exit 4; };
     git tag -a -m "darkmod-release $VERSION" "$VERSION-$b"
     git push
   fi
