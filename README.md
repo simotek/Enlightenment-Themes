@@ -14,6 +14,8 @@ Further info can be found at http://simotek.net/tech/projects/linux-themes/darkm
 
 ![Gallery Preview](gallery/all-preview.jpg "Gallery Preview")
 
+![Dimensions](gallery/Dimensions-Plain.jpg)
+
 Further screenshots can be found in the [Gallery](gallery/Gallery.md) or on my
 blog http://simotek.net/tech/projects/linux-themes/
 

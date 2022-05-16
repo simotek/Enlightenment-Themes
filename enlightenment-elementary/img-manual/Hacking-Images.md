@@ -6,15 +6,17 @@ Hacking Images
 | e_surface_top.png e_surface_bottom.png | top and bottom of frames
 | e_surface_sq.png | background surface no rounded corners
 | e_button_arrow.png | Arrows for everything other then scrollbar
+| e_button_close.png | Close button for notifications and everything.
 | e_wallpaper.png | e's wallpaper
 | e_logo.png | Logo used in start on shelf
 | e_logo_clicked.png | Logo used when shelf button is clicked, HAVE_CLICKED_LOGO at the top of start.edc must be set to 1
 | e_logo_hover.png | Logo used when mouse over shelf button, HAVE_HOVER_LOGO at the top of start.edc must be set to 1
-| e_theme_title.png | Theme Logo, shown in about Theme.
+| e_theme_title.png | Theme Logo, shown in About Theme and on welcome screen.
 | e_wallpaper.png | The wallpaper
+| about_theme_background.png | Background for about theme dialog.
 | everything_bottom.png everything_top.png | Bottom parts of everything launcher window (can generally be e_surface_bottom)
 | everything_entry.png | Area behind search text, can be e_surface_lr
-| everything_main.png | Area behind main section, can be e_surface_lr
+| everything_main.png | Area behind main section, can be e_suace_lr
 | everything_main_selected.png | Main selected area in Everything can be e_item_selected
 | e_item_selected.png | Selected items (with exeption of ones below)
 | tasks_selected.png | Selected item in tasks, can be a copy of e_item_selected
