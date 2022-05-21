@@ -1,5 +1,7 @@
 Hacking Images
 ==============
+| Image | Description |
+| --- | ----------- |
 | e_surface.png | the back ground for everything else
 | e_surface_lr.png | surface without the top and bottom
 | e_surface_no_border.png | Inside of the surface without the border
