@@ -248,6 +248,12 @@ group {
             rel2.to: "e.swallow.client";
          }
       }
+      part { name: "snap";
+        type: SNAPSHOT;
+        desc { "default";
+            filter.code: "blurhighperf";
+        }
+      }
       part { name: "whole";
          description { state: "default" 0.0;
             image.normal: "e_surface.png";
@@ -267,7 +273,7 @@ group {
             rel2.relative: 0.0 1.0;
             rel2.offset: 0 12;
             rel2.to_y: "title2";
-            color: 255 0 0 255;
+            color: 255 255 255 0;
             fill.smooth: 0;
          }
          description {
