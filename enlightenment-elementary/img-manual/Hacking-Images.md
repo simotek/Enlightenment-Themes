@@ -14,6 +14,9 @@ Hacking Images
 | e_theme_title.png | Theme Logo, shown in About Theme and on welcome screen.
 | e_wallpaper.png | The wallpaper
 | about_theme_background.png | Background for about theme dialog.
+| button_normal.png | The Normal button image
+| button_active.png | A button when pressed
+| button_diabled.png | A disabled button
 | everything_bottom.png everything_top.png | Bottom parts of everything launcher window (can generally be e_surface_bottom)
 | everything_entry.png | Area behind search text, can be e_surface_lr
 | everything_main.png | Area behind main section, can be e_suace_lr
