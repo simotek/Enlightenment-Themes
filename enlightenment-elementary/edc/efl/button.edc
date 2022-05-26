@@ -28,7 +28,8 @@ Group: efl/button:anchor (@since 1.23)
 */
 group { name: "efl/button"; data.item: "version" "123";
    images.image: "button_normal.png" COMP;
-   images.image: "button_clicked.png" COMP;
+   images.image: "button_active.png" COMP;
+	 images.image: "button_disabled.png" COMP;
 
 #undef ICON
 #define ICON     1
@@ -134,22 +135,21 @@ group { name: "efl/button"; data.item: "version" "123";
       image { "base";
          desc { "default";
             image.normal: "button_normal.png";
-            image.border: 4 4 3 5;
-            image.middle: SOLID;
-            rel1.offset: -1 0;
-            rel2.offset: 0 1;
+            image.border: 8 8 8 8;
+						rel1.offset: 2 2;
+						rel2.offset: -2 -2;
             fill.smooth: 0;
-            color_class: "button_bg";
+						color: 255 255 255 255;
          }
          desc { "pressed";
             inherit: "default";
-            image.normal: "button_clicked.png";
-            image.border: 5 5 4 6;
-            color_class: "button_bg_pressed";
+            image.normal: "button_active.png";
+            image.border: 8 8 8 8;
          }
          desc { "disabled";
             inherit: "default";
-            color_class: "button_bg_disabled";
+						image.normal: "button_disabled.png";
+            image.border: 8 8 8 8;
          }
          desc { "hidden";
             inherit: "default";
