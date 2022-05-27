@@ -1,2 +1,20 @@
+Frame
+Menu
+entry
+everything
+fileman
+ilist
+index_item_text
+pager
+scrollframe
+shelf
+start
+terminology
+tasks
+-----
+
 about-e
 about-theme
+Desklock login
+gadman
+notifications
