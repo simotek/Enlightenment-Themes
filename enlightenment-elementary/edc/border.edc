@@ -98,7 +98,7 @@ part { name: NAME; type: TYPE;                           \
 }
 images {
    image: "border_maximised.png" COMP;
-   image: "e_surface.png" COMP;
+   image: "border_full.png" COMP;
    //image: "e_border1b.png" COMP;
    //image: "e_border6b.png" COMP;
    image: "proc_background.png" COMP;
@@ -256,7 +256,7 @@ group {
       }
       part { name: "whole";
          description { state: "default" 0.0;
-            image.normal: "e_surface.png";
+            image.normal: "border_full.png";
             image.border: 8 8 8 8;
          }
          description { state: "max" 0.0;
