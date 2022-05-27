@@ -11,9 +11,18 @@ group { name: "e/widgets/check";
             color: 255 255 255 0;
             fixed: 1 1;
          }
+         description { state: "disabled" 0.0;
+            inherit: "default";
+            // todo: implement disabled better
+            color: 255 255 255 128;
+        }
       }
       part { name: "clip"; type: RECT;
          description { state: "default" 0.0;
+         }
+         description { state: "disabled" 0.0;
+            inherit: "default";
+            // todo: do we need to implement this
          }
       }
       part { name: "indicator"; mouse_events: 0;

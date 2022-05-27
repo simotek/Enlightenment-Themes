@@ -14,6 +14,10 @@
                color: 56 56 56 255; \
                color_class: "list_item_base_odd"; \
             } \
+            desc { "odd"; \
+               color: 56 56 56 255; \
+               color_class: "list_item_base_odd"; \
+            } \
          } \
       } \
    }
@@ -126,11 +130,11 @@ group { "elm/genlist/item/group_index/default"; nomouse; program_source: "elm";
    data.item: "texts" "elm.text";
    data.item: "contents" "elm.swallow.icon elm.swallow.end";
    data.item: "treesize" TREEPAD;
-
+   
    images.image: "shadow_square_tiny.png" COMP;
    images.image: "bevel_out.png" COMP;
    images.image: "horizontal_separated_bar_small_glow.png" COMP;
-
+   
    parts {
       image { "shadow_vbar";
          desc { "default";
@@ -162,7 +166,7 @@ group { "elm/genlist/item/group_index/default"; nomouse; program_source: "elm";
             min: 5 5;
          }
       }
-
+      
       text { "elm.text";
          effect: SHADOW BOTTOM;
          scale;
@@ -5044,15 +5048,15 @@ group { "elm/genlist/item/edit/default"; nomouse;
             color: 64 64 64 255;
             color_class: "list_item_base";
          }
-         desc { "odd";
+         desc { "odd" 1.0;
             color: 56 56 56 255;
             color_class: "list_item_base_odd";
          }
       }
       program {
-         signal: "elm,state,odd";
-         action: STATE_SET "odd" 0.0;
-         target: "base";
+        signal: "elm,state,odd";
+        action: STATE_SET "odd" 1.0;
+        target: "base";
       }
       program {
          signal: "elm,state,even";

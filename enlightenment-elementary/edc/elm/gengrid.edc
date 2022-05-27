@@ -28,13 +28,13 @@ group { name: "elm/gengrid/item/default/default";
             image.normal: "e_surface_no_border.png"; \
             color: 255 255 255 128; \
          } \
-         description { state: "odd" 0.0; \
+         description { state: "odd" 1.0; \
             color: 255 255 255 190; \
          } \
       } \
       program { \
          signal: "elm,state,odd"; source: "elm"; \
-         action: STATE_SET "odd" 0.0; \
+         action: STATE_SET "odd" 1.0; \
          target: "base"; \
       } \
       program { \

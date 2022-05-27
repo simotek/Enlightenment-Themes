@@ -85,6 +85,10 @@ group { name: "e/widgets/scrollframe";
             rel2.to: "sb_vbar_base";
             color: 0 0 0 0;
          }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+            // todo
+         }
       }
       part { name: "sb_vbar_a1"; type: RECT;
          clip_to: "sb_vbar";
@@ -98,6 +102,10 @@ group { name: "e/widgets/scrollframe";
             rel2.relative: 1.0 0.0;
             rel2.offset: -1 0;
          }
+         desc { state: "clicked" 0.0;
+            inherit: default;
+            // todo
+         }
       }
       part { name: "sb_vbar_a2"; type: RECT;
          clip_to: "sb_vbar";
@@ -110,6 +118,10 @@ group { name: "e/widgets/scrollframe";
             rel1.offset: 0 -1;
             rel1.relative: 0.0 1.0;
             rel2.to: "sb_vbar";
+         }
+         desc { state: "clicked" 0.0;
+            inherit: default;
+            // todo
          }
       }
       program {
@@ -127,6 +139,7 @@ group { name: "e/widgets/scrollframe";
       program {
          signal: "mouse,down,1*"; source: "sb_vbar_a1";
          action: STATE_SET "clicked" 0.0;
+         target: "sb_vbar_a1";
          target: "arrow1_vbar";
       }
       program {
@@ -137,11 +150,13 @@ group { name: "e/widgets/scrollframe";
       program {
          signal: "mouse,up,1"; source: "sb_vbar_a1";
          action: STATE_SET "default" 0.0;
+         target: "sb_vbar_a1";
          target: "arrow1_vbar";
       }
       program {
          signal: "mouse,down,1*"; source: "sb_vbar_a2";
          action: STATE_SET "clicked" 0.0;
+         target: "sb_vbar_a2";
          target: "arrow2_vbar";
       }
       program {
@@ -152,6 +167,7 @@ group { name: "e/widgets/scrollframe";
       program {
          signal: "mouse,up,1"; source: "sb_vbar_a2";
          action: STATE_SET "default" 0.0;
+         target: "sb_vbar_a2";
          target: "arrow2_vbar";
       }
       program {
@@ -237,6 +253,10 @@ group { name: "e/widgets/scrollframe";
             rel2.to: "sb_hbar_base";
             color: 0 0 0 0;
          }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+            // todo
+         }
       }
       part { name: "sb_hbar_a1"; type: RECT;
          clip_to: "sb_hbar";
@@ -250,6 +270,10 @@ group { name: "e/widgets/scrollframe";
             rel2.relative: 0.0 1.0;
             rel2.offset: 0 -1;
          }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+            // todo
+         }
       }
       part { name: "sb_hbar_a2"; type: RECT;
          clip_to: "sb_hbar";
@@ -262,6 +286,10 @@ group { name: "e/widgets/scrollframe";
             rel1.offset: -1 0;
             rel1.relative: 1.0 0.0;
             rel2.to: "sb_hbar";
+         }
+         description { state: "clicked" 0.0;
+            inherit: "default" 0.0;
+            // todo
          }
       }
       program {
@@ -279,6 +307,7 @@ group { name: "e/widgets/scrollframe";
       program {
          signal: "mouse,down,1*"; source: "sb_hbar_a1";
          action: STATE_SET "clicked" 0.0;
+         target: "sb_hbar_a1";
          target: "arrow1_hbar";
       }
       program {
@@ -289,11 +318,13 @@ group { name: "e/widgets/scrollframe";
       program {
          signal: "mouse,up,1"; source: "sb_hbar_a1";
          action: STATE_SET "default" 0.0;
+         target: "sb_hbar_a1";
          target: "arrow1_hbar";
       }
       program {
          signal: "mouse,down,1*"; source: "sb_hbar_a2";
          action: STATE_SET "clicked" 0.0;
+         target: "sb_hbar_a2";
          target: "arrow2_hbar";
       }
       program {
@@ -304,6 +335,7 @@ group { name: "e/widgets/scrollframe";
       program {
          signal: "mouse,up,1"; source: "sb_hbar_a2";
          action: STATE_SET "default" 0.0;
+         target: "sb_hbar_a2";
          target: "arrow2_hbar";
       }
       program {
@@ -386,7 +418,7 @@ group { name: "e/widgets/scrollframe";
             rel1.offset: 0 1;
             rel2.to: "runner_vbar";
             rel2.offset: -1 -2;
-            visible: 0;
+            hid;
          }
       }
       part { name: "runner_hbar_clip"; type: RECT;
@@ -398,7 +430,7 @@ group { name: "e/widgets/scrollframe";
             rel1.offset: 1 0;
             rel2.to: "runner_hbar";
             rel2.offset: -2 -1;
-            visible: 0;
+            hid;
          }
       }
 
@@ -507,6 +539,28 @@ group { name: "e/widgets/scrollframe";
             color: 255 255 255 190;
             visible: 1;
          }
+      }
+   }
+   programs {
+      program {
+         signal: "mouse,down,1*"; source: "e.dragable.vbar";
+         action: STATE_SET "clicked" 0.0;
+         target: "e.dragable.vbar";
+      }
+      program {
+         signal: "mouse,up,1"; source: "e.dragable.vbar";
+         action: STATE_SET "default" 0.0;
+         target: "e.dragable.vbar";
+      }
+      program {
+         signal: "mouse,down,1*"; source: "e.dragable.hbar";
+         action: STATE_SET "clicked" 0.0;
+         target: "e.dragable.hbar";
+      }
+      program {
+         signal: "mouse,up,1"; source: "e.dragable.hbar";
+         action: STATE_SET "default" 0.0;
+         target: "e.dragable.hbar";
       }
    }
 }

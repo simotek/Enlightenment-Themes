@@ -7,6 +7,10 @@
                color: 56 56 56 255; \
                color_class: "list_item_base_odd"; \
             } \
+            desc { "odd"; \
+               color: 56 56 56 255; \
+               color_class: "list_item_base_odd"; \
+            } \
          } \
       } \
    }
@@ -136,13 +140,13 @@ group { name: "elm/list/item/default";
             color: 255 255 255 96;
             image.normal: "list_even.png";
          }
-         description { state: "odd" 0.0;
+         description { state: "odd" 1.0;
             image.normal: "list_odd.png";
          }
       }
       program {
          signal: "elm,state,odd"; source: "elm";
-         action: STATE_SET "odd" 0.0;
+         action: STATE_SET "odd" 1.0;
          target: "base";
       }
       program {
@@ -431,14 +435,14 @@ group { name: "elm/list/h_item/default";
             color: 64 64 64 255;
             color_class: "list_item_base";
          }
-         description { state: "odd" 0.0;
+         description { state: "odd" 1.0;
             color: 56 56 56 255;
             color_class: "list_item_base_odd";
          }
       }
       program {
          signal: "elm,state,odd"; source: "elm";
-         action: STATE_SET "odd" 0.0;
+         action: STATE_SET "odd" 1.0;
          target: "base";
       }
       program {

@@ -9,10 +9,10 @@ group { name: "elm/menu/item/default";
 
             rel1.offset:  4 -1;
             rel2.offset: -4 1;
-            
-            image.normal: "surface_rot.png";
+
+            image.normal: "menu_selected.png";
             image.border: 8 8 8 8;
-         
+
             visible: 0;
          }
          description { state: "active" 0.0;
@@ -851,6 +851,7 @@ group { name: "elm/hover/base/main_menu_submenu/default";
          signal: "mouse,up,*"; source: "base";
          action: SIGNAL_EMIT "elm,action,dismiss" "elm";
       }
+      // todo: is this actually right
       program { name: "show";
          signal: "elm,action,show"; source: "elm";
          action: STATE_SET "visible" 0.0;

@@ -14,7 +14,7 @@ group { name: "e/modules/notification/logo";
 group { name: "notification/main";
    alias: "e/modules/notification/main";
    images.image: "e_surface.png" COMP;
-   images.image: "sym_close_normal.png" COMP;
+   images.image: "e_button_close_normal.png" COMP;
    data.item: "app_icon_max" "48 48";
    data.item: "shaped" "1";
    styles {
@@ -90,6 +90,23 @@ group { name: "notification/main";
             text { style: "notification_style";
                min: 0 1;
             }
+            fixed: 1 1;
+         }
+      }
+      part { name: "message"; type: TEXTBLOCK; mouse_events: 0;
+         description { state: "default" 0.0;
+            align: 0.0 0.0;
+            max: 500 99999;
+            rel1.to_x: "notification.swallow.app_icon";
+            rel1.to_y: "notification.text.title";
+            rel1.relative: 1.0 1.0;
+            rel1.offset: 4 4;
+            rel2.offset: -27 -11;
+            text { style: "notification_style_nowrap";
+               text_source: "notification.textblock.message";
+               min: 0 1;
+            }
+            visible: 0;
          }
       }
       part { name: "notification.text.title"; type: TEXT; mouse_events: 0;
@@ -117,7 +134,7 @@ group { name: "notification/main";
       }
       part { name: "close";
          description { state: "default" 0.0;
-            image.normal: "sym_close_normal.png";
+            image.normal: "e_button_close_normal.png";
             color: 255 255 255 255;
             rel1.to: "e.event.close";
             rel2.to: "e.event.close";

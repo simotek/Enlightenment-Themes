@@ -23,6 +23,7 @@ group { name: "e/ilist";
             fill.smooth: 0;
          }
       }
+      alias: "e.text.typebuf_label" "e.text.label";
       part { name: "e.text.label"; type: TEXT; mouse_events: 0;
          clip_to: "typebuf_clip";
          effect: SHADOW BOTTOM;
@@ -32,12 +33,13 @@ group { name: "e/ilist";
             rel1.offset: -8 -8;
             rel2.relative: 0.5 0.5;
             rel2.offset: 7 7;
-            color_class: "list_typebuf";
+            color: FN_COL_DEFAULT;
+            color_class: "ilist_typebuf";
             text { font: FNBD; size: 10;
                min: 1 1;
                ellipsis: -1;
                align: 0.5 0.5;
-               text_class: "list_typebuf";
+               text_class: "ilist_typebuf";
             }
          }
       }
@@ -73,6 +75,7 @@ group { name: "e/widgets/ilist";
       part { name: "base"; mouse_events: 0;
          description { state: "default" 0.0;
             image.normal: "list_even.png";
+            color: 255 255 255 96;
          }
       }
       part { name: "bevel"; mouse_events: 0;
@@ -116,6 +119,7 @@ group { name: "e/widgets/ilist";
             rel2.relative: 0.0 1.0;
             rel2.to_x: "e.swallow.end";
             color_class: "list_item";
+            color3: 255 255 255 255;
             text { font: FN; size: 10;
                min: 1 1;
                ellipsis: -1;
@@ -138,6 +142,7 @@ group { name: "e/widgets/ilist";
          description { state: "default" 0.0;
             rel1.to: "e.text.label";
             rel2.to: "e.text.label";
+            color: FN_COL_DISABLE;
             color_class: "list_item_disabled";
             text { font: FN; size: 10;
                text_source: "e.text.label";
@@ -164,6 +169,8 @@ group { name: "e/widgets/ilist";
             rel2.offset: 2 1;
             rel2.to: "e.text.label";
             color_class: "list_item_selected";
+            color2: 255 255 255 255;
+            color3: 255 255 255 255;
             text { font: FN; size: 10;
                text_source: "e.text.label";
                align: 0.0 0.5;
@@ -302,6 +309,7 @@ group { name: "e/widgets/ilist_header";
             rel2.relative: 0.0 1.0;
             rel2.to_x: "e.swallow.end";
             color_class: "list_item_header";
+            color3: 255 255 255 255;
             text { font: FNBD; size: 10;
                min: 0 1;
                align: 0.0 0.5;
