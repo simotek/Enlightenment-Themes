@@ -26,6 +26,7 @@ Hacking Images
 | e_item_selected.png | Selected items (with exeption of ones below)
 | tasks_selected.png | Selected item in tasks, can be a copy of e_item_selected
 | menu_selected.png | Selected item in menu, can be a copy of e_item_selected
+| border_full.png | Full Border contents drawn behind window
 | border_maximised.png | Maximised borders look better without the left and right line.
 | border_button_[close|maximize|minimze]_[active|normal].png | Close / Min / Max buttons.
 | fileman_background.png | Background of left bar and main area scrollframe backgrounds. Can be scrollframe_background
