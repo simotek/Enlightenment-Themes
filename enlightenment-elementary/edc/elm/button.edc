@@ -3,8 +3,9 @@ group { name: "elm/button/base/default";
    alias: "elm/button/base/naviframe/back_btn/pager";
    alias: "elm/button/base/blank";
    alias: "elm/button/base/overlay";
-   images.image: "button_normal.png" COMP;
-   images.image: "button_active.png" COMP;
+   images.image: "button_normal_4x.png" COMP;
+   images.image: "button_active_4x.png" COMP;
+   images.image: "button_disabled_4x.png" COMP;
 
 #define ICON     1
 #define LABEL    2
@@ -108,8 +109,10 @@ group { name: "elm/button/base/default";
    parts {
       image { "base";
          desc { "default";
-            image.normal: "button_normal.png";
-            image.border: 8 8 8 8;
+           image.normal: "button_normal_4x.png";
+           image.border: 32 32 32 32;
+           image.border_scale_by: 0.25; image.border_scale: 1;
+           image.middle: SOLID;
 
             rel1.offset: 2 2;
             rel2.offset: -2 -2;
@@ -118,14 +121,14 @@ group { name: "elm/button/base/default";
          }
          desc { "pressed";
             inherit: "default";
-            image.normal: "button_active.png";
-            image.border: 8 8 8 8;
+            image.normal: "button_active_4x.png";
             color: 255 255 255 255;
          }
          desc { "disabled";
             inherit: "default";
-            image.normal: "button_disabled.png";
-            image.border: 8 8 8 8;
+            image.normal: "button_disabled_4x.png";
+            // Intentional change here rather then changing image
+            color: 255 255 255 90;
          }
          desc { "hidden";
             inherit: "default";

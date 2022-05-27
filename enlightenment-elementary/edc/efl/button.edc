@@ -27,9 +27,9 @@ Group: efl/button:anchor (@since 1.23)
 	 Signal: efl,text,unset
 */
 group { name: "efl/button"; data.item: "version" "123";
-   images.image: "button_normal.png" COMP;
-   images.image: "button_active.png" COMP;
-	 images.image: "button_disabled.png" COMP;
+   images.image: "button_normal_4x.png" COMP;
+   images.image: "button_active_4x.png" COMP;
+	 images.image: "button_disabled_4x.png" COMP;
 
 #undef ICON
 #define ICON     1
@@ -134,22 +134,23 @@ group { name: "efl/button"; data.item: "version" "123";
    parts {
       image { "base";
          desc { "default";
-            image.normal: "button_normal.png";
-            image.border: 8 8 8 8;
-						rel1.offset: 2 2;
+					 image.normal: "button_normal_4x.png";
+					 image.border: 32 32 32 32;
+					 image.border_scale_by: 0.25; image.border_scale: 1;
+					 image.middle: SOLID;
 						rel2.offset: -2 -2;
             fill.smooth: 0;
 						color: 255 255 255 255;
          }
          desc { "pressed";
             inherit: "default";
-            image.normal: "button_active.png";
-            image.border: 8 8 8 8;
+            image.normal: "button_active_4x.png";
          }
          desc { "disabled";
             inherit: "default";
-						image.normal: "button_disabled.png";
-            image.border: 8 8 8 8;
+						image.normal: "button_disabled_4x.png";
+						// Intentional change here rather then changing image
+            color: 255 255 255 90;
          }
          desc { "hidden";
             inherit: "default";
