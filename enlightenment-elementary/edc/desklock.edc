@@ -1,9 +1,9 @@
 group { name: "e/desklock/background";
-   images.image: "e_surface_no_border.png" COMP;
+   images.image: "desklock_background.png" COMP;
    parts {
       part { name: "bg";
          description { state: "default" 0.0;
-            image.normal: "e_surface_no_border.png";
+            image.normal: "desklock_background.png";
             image.scale_hint: STATIC;
             fill.smooth: 0;
             ASPECT_FILL((1024/653))

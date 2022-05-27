@@ -1,21 +1,22 @@
  group { name: "e/widgets/button";
-   images.image: "e_surface.png" COMP;
+   images.image: "button_normal.png" COMP;
+   images.image: "button_active.png" COMP;
    images.image: "win_glow.png" COMP;
    parts {
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "e_surface.png";
+            image.normal: "button_normal.png";
             image.border: 8 8 8 8;
-            
-            color: 255 255 255 90;
-            
+
+            color: 255 255 255 255;
+
             rel1.offset: 2 2;
             rel2.offset: -2 -4;
             fill.smooth: 0;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            color: 255 255 255 255;
+            image.normal: "button_active.png";
          }
       }
       part { name: "icon_clip"; type: RECT;
@@ -125,9 +126,9 @@
       }
       part { name: "glow"; mouse_events: 0;
          description { state: "default" 0.0;
-            //image.normal: "win_glow.png";
-            //image.border: 9 9 9 9;
-            //image.middle: 0;
+            image.normal: "win_glow.png";
+            image.border: 9 9 9 9;
+            image.middle: 0;
             rel1.to: "base2";
             rel1.offset: -2 -3;
             rel2.to: "base2";

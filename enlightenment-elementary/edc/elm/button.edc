@@ -3,7 +3,8 @@ group { name: "elm/button/base/default";
    alias: "elm/button/base/naviframe/back_btn/pager";
    alias: "elm/button/base/blank";
    alias: "elm/button/base/overlay";
-   images.image: "e_surface.png" COMP;
+   images.image: "button_normal.png" COMP;
+   images.image: "button_active.png" COMP;
 
 #define ICON     1
 #define LABEL    2
@@ -107,21 +108,24 @@ group { name: "elm/button/base/default";
    parts {
       image { "base";
          desc { "default";
-            image.normal: "e_surface.png";
+            image.normal: "button_normal.png";
             image.border: 8 8 8 8;
 
             rel1.offset: 2 2;
             rel2.offset: -2 -2;
             fill.smooth: 0;
-            color: 255 255 255 90;
+            color: 255 255 255 255;
          }
          desc { "pressed";
             inherit: "default";
-            color: 255 255 255 180;
+            image.normal: "button_active.png";
+            image.border: 8 8 8 8;
+            color: 255 255 255 255;
          }
          desc { "disabled";
             inherit: "default";
-            color: 255 255 255 30;
+            image.normal: "button_disabled.png";
+            image.border: 8 8 8 8;
          }
          desc { "hidden";
             inherit: "default";
