@@ -5,18 +5,18 @@
    parts {
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "e_surface.png";
+            image.normal: "button_normal.png";
             image.border: 8 8 8 8;
-            
-            color: 255 255 255 90;
-            
+
+            color: 255 255 255 255;
+
             rel1.offset: 2 2;
             rel2.offset: -2 -4;
             fill.smooth: 0;
          }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
-            color: 255 255 255 255;
+            image.normal: "button_active.png";
          }
       }
       part { name: "icon_clip"; type: RECT;
