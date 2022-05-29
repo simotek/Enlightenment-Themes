@@ -1,11 +1,141 @@
-group { name: "e/desktop/background";
-   images.image: "e_wallpaper.jpg" COMP;
-   parts {
-      part { name: "pat";
-         description { state: "default" 0.0;
-            image.normal: "e_wallpaper.jpg";
-            ASPECT_FILL((1920/1080))
-         }
-      }
-   }
+images {
+	 image: "grunge-logo.png" COMP;
+	 image: "grunge-logo-effect.png" COMP;
+	 image: "grunge-effect.png" COMP;
+	 image: "topleft.png" COMP;
+	 image: "topright.png" COMP;
+	 image: "bottomleft.png" COMP;
+	 image: "bottomright.png" COMP;
+       }
+	  group { name: "e/desktop/background";
+	   data { item: "style" "2";
+	        }
+    parts {
+	part {
+	       name: "base";
+	       type: RECT;
+	       description {
+	       state: "default" 0.0;
+	       min: 800 600;
+	       color: 241 239 236 255;
+		    }
+	         }
+	part {
+	      name: "effect";
+	      description {
+	      state: "default" 0.0;
+	      min: 230 800;
+	      max: 230 800;
+	      align:    0.5 0.0;
+	      rel1 {
+		 to: "cause";
+		 offset:   -40     179;
+	      }
+	      rel2 {
+		 to: "cause";
+		 offset:   0     140;
+	      }
+	      image {
+	      normal: "grunge-logo-effect.png";
+                    }
+		 }
+	      }
+	part {
+	      name: "cause";
+	      description {
+	      state: "default" 0.0;
+	      min: 400 400;
+	      max: 400 400;
+	      image {
+	      normal: "grunge-logo.png";
+                    }
+		 }
+	      }
+	part {
+	      name: "baseeffect";
+	      description {
+	      state: "default" 0.0;
+	      min: 1680 1050;
+	      image {
+	      normal: "grunge-effect.png";
+                    }
+		 }
+	      }
+	part {
+	      name: "topleft";
+	      description {
+	      state: "default" 0.0;
+	      max: 150 150;
+	      align: 0.0 0.0;
+	      rel1 {
+		 relative: 0.0  0.0;
+		 offset:   0     -1;
+	      }
+	      rel2 {
+		 relative: 1.0  1.0;
+		 offset:   0     -1;
+	      }
+	      image {
+	      normal: "topleft.png";
+                    }
+		 }
+	      }
+	part {
+	      name: "topright";
+	      description {
+	      state: "default" 0.0;
+	      max: 150 150;
+	      align: 1.0 0.0;
+	      rel1 {
+		 relative: 0.0  0.0;
+		 offset:   -0     -1;
+	      }
+	      rel2 {
+		 relative: 1.0  1.0;
+		 offset:   -0     -1;
+	      }
+	      image {
+	      normal: "topright.png";
+                    }
+		 }
+	      }
+	part {
+	      name: "bottomleft";
+	      description {
+	      state: "default" 0.0;
+	      max: 150 150;
+	      align: 0.0 1.0;
+	      rel1 {
+		 relative: 0.0  0.0;
+		 offset:   0     0;
+	      }
+	      rel2 {
+		 relative: 1.0  1.0;
+		 offset:   0     0;
+	      }
+	      image {
+	      normal: "bottomleft.png";
+                    }
+		 }
+	      }
+	part {
+	      name: "bottomright";
+	      description {
+	      state: "default" 0.0;
+	      max: 150 150;
+	      align: 1.0 1.0;
+	      rel1 {
+		 relative: 0.0  0.0;
+		 offset:   -0     0;
+	      }
+	      rel2 {
+		 relative: 1.0  1.0;
+		 offset:   -0     0;
+	      }
+	      image {
+	      normal: "bottomright.png";
+                    }
+		 }
+	      }
+	   }
 }
