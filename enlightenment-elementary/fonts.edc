@@ -19,12 +19,12 @@
 /* fonts.edc not sure if this one is neccesary */
 #define FN_COL_DEFAULT 255 255 255 255; color3: 0 0 0 128
 #define FN_COL_DEFAULT_SOFT_SHADOW 255 255 255 255; color3: 0 0 0 18
-#define FN_COL_HIGHLIGHT 51 153 255 255; color2: 51 153 255 24; color3: 51 153 255 18
+#define FN_COL_HIGHLIGHT 48 48 48 192; color2: 51 153 255 40; color3: 51 153 255 24
 #define FN_COL_HIGHLIGHT_CLICKED 201 201 201 255; color2: 51 153 255 64; color3: 51 153 255 32
 #define FN_COL_HIGHLIGHT_DISABLE 201 201 201 64; color2: 51 153 255 16; color3: 51 153 255 8
 /* In some theme's the Highlight color might be used as a selection color
    in these cases the text needs to be a different color */
-#define FN_COL_HIGHLIGHT_SELECTED 51 153 255 255; color2: 51 153 255 24; color3: 51 153 255 18
+#define FN_COL_HIGHLIGHT_SELECTED 48 48 48 192; color2: 51 153 255 40; color3: 51 153 255 24
 #define FN_COL_MID_GREY 128 128 128 255
 #define FN_COL_MID_GREY_SHADOW 128 128 128 255; color3: 0 0 0 128
 #define FN_COL_DISABLE 187 187 187 255; color3: 255 255 255 25;
