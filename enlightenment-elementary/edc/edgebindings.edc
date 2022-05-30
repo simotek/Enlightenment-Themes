@@ -51,7 +51,7 @@ group { name: "e/modules/conf_edgebindings/selection";
             rel2.offset: 9 5;
             rel2.to: "e.text.selection";
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             fill.smooth: 0;
             fixed: 1 1;
          }

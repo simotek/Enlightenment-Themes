@@ -358,7 +358,7 @@ group { name: "e/widgets/scrollframe";
             rel2.offset: 2 2;
 
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
 
             color: 255 255 255 90;
          }
@@ -383,7 +383,7 @@ group { name: "e/widgets/scrollframe";
          clip_to: "sb_vbar_show";
          description { state: "default" 0.0;
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             color: 255 255 255 90;
             rel1.to: "sb_vbar_base";
             rel2.to: "sb_vbar_base";
@@ -399,7 +399,7 @@ group { name: "e/widgets/scrollframe";
          clip_to: "sb_hbar_show";
          description { state: "default" 0.0;
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             color: 255 255 255 90;
             rel1.to: "sb_hbar_base";
             rel2.to: "sb_hbar_base";
@@ -523,7 +523,7 @@ group { name: "e/widgets/scrollframe";
             rel2.offset: -1 -1;
             rel2.to: "e.dragable.hbar";
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             fill.smooth: 0;
             min: 12 12;
             visible: 0;

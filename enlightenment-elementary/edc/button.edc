@@ -6,7 +6,7 @@
       part { name: "base";
          description { state: "default" 0.0;
             image.normal: "button_normal.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
 
             color: 255 255 255 255;
 

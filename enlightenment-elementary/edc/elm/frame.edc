@@ -278,7 +278,7 @@ group { name: "elm/frame/base/outline";
                rel1.offset: -1 0;
                rel2.offset: 0 1;
                image.normal: "e_surface.png";
-               image.border: 8 8 8 8;
+               image.border: VTX_IMG_BORDER;
                fill.smooth: 0;
             }
          }

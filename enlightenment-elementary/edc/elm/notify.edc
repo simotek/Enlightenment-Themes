@@ -55,7 +55,7 @@ group { name: "elm/notify/top/default";
          clip_to: "clip";
          description { state: "default" 0.0;
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             rel1.offset: 10 10;
             rel2.offset: -10 -10;
             rel1.relative: 0.0 -1.0;
