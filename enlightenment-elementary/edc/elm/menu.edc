@@ -11,7 +11,7 @@ group { name: "elm/menu/item/default";
             rel2.offset: -4 1;
 
             image.normal: "menu_selected.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
 
             visible: 0;
          }
@@ -299,7 +299,7 @@ group { name: "elm/menu/main_menu_submenu/default";
       part { name: "base"; mouse_events: 0;
          description { state: "default" 0.0;
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             visible: 0;
          }
          description { state: "active" 0.0;
@@ -583,7 +583,7 @@ group { name: "elm/hover/base/menu/default";
             rel1.offset: 0 -5;
             rel2.offset: 0 5;
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
          }
       }
       part { name: "elm.swallow.slot.bottom"; type: SWALLOW;
@@ -678,7 +678,7 @@ group { name: "elm/hover/base/main_menu/default";
       part { name: "base";
          description { state: "default" 0.0;
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             rel1.to_y: "elm.swallow.slot.bottom";
             rel2.to_y: "elm.swallow.slot.bottom";
             fill.smooth: 0;

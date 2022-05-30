@@ -729,7 +729,7 @@ group { name: "elm/progressbar/vertical/default";
             rel1.offset: 3 3;
             rel2.offset: -4 -4;
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             color: 255 255 255 190;
          }
       }

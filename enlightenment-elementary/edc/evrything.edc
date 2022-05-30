@@ -272,7 +272,7 @@ group { name: "e/modules/everything/list";
             min: 64 32;
             //color_class: "/bg/normal/everything/tabs";
             image.normal: "everything_bottom.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             color: 255 255 255 255;
          }
       }
@@ -715,7 +715,7 @@ group { name: "e/modules/everything/thumbview/main/scrollframe";
          clip_to: "sb_vbar_show";
          description { state: "default" 0.0;
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             color: 255 255 255 90;
             rel1.to: "sb_vbar_base";
             rel2.to: "sb_vbar_base";
@@ -803,7 +803,7 @@ group { name: "e/modules/everything/thumbview/item/thumb";
             rel2.offset: -5 -3;
             //color_class: "/bg/selected/everything/list/item";
             image.normal: "everything_main_selected.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             visible: 0;
          }
          description { state: "selected" 0.0;
@@ -964,7 +964,7 @@ group { name: "e/modules/everything/thumbview/item/list";
          description { state: "default" 0.0;
             //color_class: "/bg/selected/everything/list/item";
             image.normal: "everything_main_selected.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             visible: 0;
          }
          description { state: "selected" 0.0;
@@ -1197,7 +1197,7 @@ group { name: "e/modules/everything/tab_item";
          description { state: "default" 0.0;
             //color_class: "/bg/selected/everything/tab/item";
             image.normal: "everything_bottom_selected.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             visible: 0;
          }
          description { state: "selected" 0.0;

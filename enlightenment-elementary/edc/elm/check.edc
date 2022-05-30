@@ -444,7 +444,7 @@ group { name: "elm/check/base/toggle";
             rel2.relative: 1.0 1.0;
             rel2.offset: 0.0 0.0;
             image.normal: "surface_rot.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             color: 255 255 255 190;
          }
          description { state: "disabled" 0.0;
@@ -463,7 +463,7 @@ group { name: "elm/check/base/toggle";
             rel2.relative: 6.0 1.0;
             rel2.offset: 0.0 0.0;
             image.normal: "surface_rot.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             color: 255 255 255 190;
          }
          description { state: "disabled" 0.0;

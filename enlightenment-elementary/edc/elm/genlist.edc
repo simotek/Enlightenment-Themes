@@ -304,7 +304,7 @@ group { "genlist_base"; inherit_only: 1; nomouse; program_source: "elm";
        image { "sel_base";
           desc { "default";
              image.normal: "e_surface.png";
-             image.border: 8 8 8 8;
+             image.border: VTX_IMG_BORDER;
              rel1.offset: 2 2;
              rel2.offset: -2 -4;
              hid;

@@ -15,7 +15,7 @@ group { name:"e/modules/tasks/item";
             rel2.to: "sel_base";
 
             image.normal: "tasks_selected.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
 
             color: 255 255 255 255;
 
@@ -57,7 +57,7 @@ group { name:"e/modules/tasks/item";
          clip_to: "clip";
          description { state: "default" 0.0;
             image.normal: "surface-dark.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
 
             color: 255 255 255 90;
 

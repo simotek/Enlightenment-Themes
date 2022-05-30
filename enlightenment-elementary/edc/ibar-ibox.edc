@@ -217,7 +217,7 @@ group { name: "e/modules/ibar/menu";
             rel1.to: "sizer";
             rel2.to: "sizer";
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
          }
       }
       part { name: "e.box"; type: BOX;
@@ -536,7 +536,7 @@ group { name: "e/modules/ibox/icon_overlay";
             rel2.offset: 8 4;
             rel2.to: "e.text.label";
             image.normal: "surface-dark.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             fill.smooth: 0;
             fixed: 1 1;
             color: 255 255 255 0;
