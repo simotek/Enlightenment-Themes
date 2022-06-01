@@ -34,7 +34,7 @@ group {
 	    state:    "default" 0.0;
 	    image {
 #ifdef VTX_SHELF_MULIT
-	       normal: "shelf_backround_top.png";
+	       normal: "shelf_background_top.png";
 #endif
 #ifdef VTX_SHELF_SINGLE
          normal: "shelf_background.png";
@@ -58,7 +58,7 @@ group {
 	    inherit:  "default" 0.0;
 	    image {
 #ifdef VTX_SHELF_MULIT
-	       normal: "shelf_backround_top.png";
+	       normal: "shelf_background_top.png";
 #endif
 	    }
 	    fill {
@@ -75,7 +75,7 @@ group {
 	    inherit:  "default" 0.0;
 	    image {
 #ifdef VTX_SHELF_MULIT
-	       normal: "shelf_backround_top.png";
+	       normal: "shelf_background_top.png";
 #endif
 	    }
 	    fill {
@@ -92,7 +92,7 @@ group {
 	    inherit:  "default" 0.0;
 	    image {
 #ifdef VTX_SHELF_MULIT
-	       normal: "shelf_backround_bottom.png";
+	       normal: "shelf_background_bottom.png";
 #endif
 	    }
 	    fill {
@@ -109,7 +109,7 @@ group {
             inherit:  "default" 0.0;
 	    image {
 #ifdef VTX_SHELF_MULIT
-	       normal: "shelf_backround_bottom.png";
+	       normal: "shelf_background_bottom.png";
 #endif
 	    }
 	    fill {
@@ -126,7 +126,7 @@ group {
             inherit:  "default" 0.0;
 	    image {
 #ifdef VTX_SHELF_MULIT
-	       normal: "shelf_backround_bottom.png";
+	       normal: "shelf_background_bottom.png";
 #endif
 	    }
 	    fill {
@@ -143,7 +143,7 @@ group {
             inherit:  "default" 0.0;
 	    image {
 #ifdef VTX_SHELF_MULIT
-	       normal: "shelf_backround_left.png";
+	       normal: "shelf_background_left.png";
 #endif
 	    }
 	    fill {
@@ -160,7 +160,7 @@ group {
             inherit:  "default" 0.0;
 	    image {
 #ifdef VTX_SHELF_MULIT
-	       normal: "shelf_backround_left.png";
+	       normal: "shelf_background_left.png";
 #endif
 	    }
 	    fill {
@@ -177,7 +177,7 @@ group {
             inherit:  "default" 0.0;
 	    image {
 #ifdef VTX_SHELF_MULIT
-	       normal: "shelf_backround_left.png";
+	       normal: "shelf_background_left.png";
 #endif
 	    }
 	    fill {
@@ -194,7 +194,7 @@ group {
             inherit:  "default" 0.0;
 	    image {
 #ifdef VTX_SHELF_MULIT
-	       normal: "shelf_backround_right.png";
+	       normal: "shelf_background_right.png";
 #endif
 	    }
 	    fill {
@@ -211,7 +211,7 @@ group {
             inherit:  "default" 0.0;
 	    image {
 #ifdef VTX_SHELF_MULIT
-	       normal: "shelf_backround_right.png";
+	       normal: "shelf_background_right.png";
 #endif
 	    }
 	    fill {
@@ -228,7 +228,7 @@ group {
             inherit:  "default" 0.0;
 	    image {
 #ifdef VTX_SHELF_MULIT
-	       normal: "shelf_backround_right.png";
+	       normal: "shelf_background_right.png";
 #endif
 	    }
 	    fill {
