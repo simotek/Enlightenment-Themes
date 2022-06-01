@@ -500,8 +500,12 @@ group {
 	 description {
 	    state:    "default" 0.0;
 	    image {
-	       normal: "surface-dark.png";
-	       border: 8 8 8 8;
+#ifdef VTX_SHELF_ENTRY
+	       normal: "shelf_entry.png";
+#else
+         normal: "e_surface.png";
+ #endif
+ 	       border: VTX_IMG_BORDER;
 	    }
 	    fill {
 	       smooth: 0;
