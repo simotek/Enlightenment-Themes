@@ -1,6 +1,19 @@
 images {
+#ifdef VTX_SHELF_MULIT
+   image: "shelf_background_bottom.png" COMP;
+   image: "shelf_background_left.png" COMP;
+   image: "shelf_background_right.png" COMP;
+   image: "shelf_background_top.png" COMP;
+#endif
+#ifdef VTX_SHELF_SINGLE
+  images: "shelf_background.png" COMP;
+#endif
+#if ! defined(VTX_SHELF_SINGLE) && ! defined(VTX_SHELF_MULIT)
    image: "e_surface.png" COMP;
-   image: "surface-dark.png" COMP;
+#endif
+#ifdef VTX_SHELF_ENTRY
+   image: "shelf_entry.png" COMP;
+#endif
 }
 
 group {
@@ -20,10 +33,17 @@ group {
 	 description {
 	    state:    "default" 0.0;
 	    image {
-	       normal: "e_surface.png";
-	       border: 8 8 8 8;
+#ifdef VTX_SHELF_MULIT
+	       normal: "shelf_backround_top.png";
+#endif
+#ifdef VTX_SHELF_SINGLE
+         normal: "shelf_background.png";
+#endif
+#if ! defined(VTX_SHELF_SINGLE) && ! defined(VTX_SHELF_MULIT)
+         normal: "e_surface.png";
+#endif
+	       border: VTX_IMG_BORDER;
 	    }
-	    color_class: "Background";
 	    fill {
 	       origin {
 		  offset: 0 -6;
@@ -36,6 +56,11 @@ group {
 	 description {
 	    state:    "top_left" 0.0;
 	    inherit:  "default" 0.0;
+	    image {
+#ifdef VTX_SHELF_MULIT
+	       normal: "shelf_backround_top.png";
+#endif
+	    }
 	    fill {
 	       origin {
 		  offset: -16 -6;
@@ -48,6 +73,11 @@ group {
 	 description {
 	    state:    "top_right" 0.0;
 	    inherit:  "default" 0.0;
+	    image {
+#ifdef VTX_SHELF_MULIT
+	       normal: "shelf_backround_top.png";
+#endif
+	    }
 	    fill {
 	       origin {
 		  offset: 0 -6;
@@ -60,6 +90,11 @@ group {
 	 description {
 	    state:    "bottom" 0.0;
 	    inherit:  "default" 0.0;
+	    image {
+#ifdef VTX_SHELF_MULIT
+	       normal: "shelf_backround_bottom.png";
+#endif
+	    }
 	    fill {
 	       origin {
 		  offset: 0 0;
@@ -72,6 +107,11 @@ group {
 	 description {
 	    state:    "bottom_left" 0.0;
             inherit:  "default" 0.0;
+	    image {
+#ifdef VTX_SHELF_MULIT
+	       normal: "shelf_backround_bottom.png";
+#endif
+	    }
 	    fill {
 	       origin {
 		  offset: -16 0;
@@ -84,6 +124,11 @@ group {
 	 description {
 	    state:    "bottom_right" 0.0;
             inherit:  "default" 0.0;
+	    image {
+#ifdef VTX_SHELF_MULIT
+	       normal: "shelf_backround_bottom.png";
+#endif
+	    }
 	    fill {
 	       origin {
 		  offset: 0 0;
@@ -96,6 +141,11 @@ group {
 	 description {
 	    state:    "left" 0.0;
             inherit:  "default" 0.0;
+	    image {
+#ifdef VTX_SHELF_MULIT
+	       normal: "shelf_backround_left.png";
+#endif
+	    }
 	    fill {
 	       origin {
 		  offset: -6 0;
@@ -108,6 +158,11 @@ group {
 	 description {
 	    state:    "left_top" 0.0;
             inherit:  "default" 0.0;
+	    image {
+#ifdef VTX_SHELF_MULIT
+	       normal: "shelf_backround_left.png";
+#endif
+	    }
 	    fill {
 	       origin {
 		  offset: -6 -16;
@@ -120,6 +175,11 @@ group {
 	 description {
 	    state:    "left_bottom" 0.0;
             inherit:  "default" 0.0;
+	    image {
+#ifdef VTX_SHELF_MULIT
+	       normal: "shelf_backround_left.png";
+#endif
+	    }
 	    fill {
 	       origin {
 		  offset: -6 0;
@@ -132,6 +192,11 @@ group {
 	 description {
 	    state:    "right" 0.0;
             inherit:  "default" 0.0;
+	    image {
+#ifdef VTX_SHELF_MULIT
+	       normal: "shelf_backround_right.png";
+#endif
+	    }
 	    fill {
 	       origin {
 		  offset: 0 0;
@@ -144,6 +209,11 @@ group {
 	 description {
 	    state:    "right_top" 0.0;
             inherit:  "default" 0.0;
+	    image {
+#ifdef VTX_SHELF_MULIT
+	       normal: "shelf_backround_right.png";
+#endif
+	    }
 	    fill {
 	       origin {
 		  offset: 0 -16;
@@ -156,6 +226,11 @@ group {
 	 description {
 	    state:    "right_bottom" 0.0;
             inherit:  "default" 0.0;
+	    image {
+#ifdef VTX_SHELF_MULIT
+	       normal: "shelf_backround_right.png";
+#endif
+	    }
 	    fill {
 	       origin {
 		  offset: 0 0;
@@ -306,7 +381,7 @@ group {
 	    inherit:  "default" 0.0;
 	    rel1 {
 	       relative: 0.0  0.0;
-	       offset:   2    8;
+	       offset:   2    18;
 	    }
 	    rel2 {
 	       relative: 1.0  1.0;
@@ -630,7 +705,7 @@ group {
 	    state:    "right_bottom" 0.0;
             inherit:  "default" 0.0;
 	 }
-	     }
+      }
    }
    programs {
      /* program {
@@ -754,387 +829,98 @@ group {
    }
 }
 
-// Itask-ng stuff //
-    group {
-        name: "e/modules/itask-ng/bg";
-        parts {
-            part {
-                name: "bg";
-                description {
-                    state:    "default" 0.0;
-                    image {
-                        normal: "e_surface.png";
-                        border: 8 8 8 8;
-                    }
-                    fill.smooth: 0;
-                    color: 255 255 255 255;;
-                }
-		description {
-                    state:    "vertical" 0.0;
-                    image {
-                        normal: "e_surface.png";
-                        border: 8 8 8 8;
-                    }
-                    fill.smooth: 0;
-                    color: 255 255 255 255;;
-                }
-            }
-	    program {
-                name:   "go_horizontal";
-                signal: "e,state,horizontal";
-                source: "e";
-                action: STATE_SET "default" 0.0;
-                transition: LINEAR 0.0;
-                target: "bg";
-            }
-            program {
-                name:   "go_vertical";
-                signal: "e,state,vertical";
-                source: "e";
-                action: STATE_SET "vertical" 0.0;
-                transition: LINEAR 0.0;
-                target: "bg";
-            }
-        }
-    }
-    group {
-        name: "e/modules/itask-ng/separator";
-        min: 1 1;
-        max: 128 128;
-        parts {
-            part {
-                name: "separator";
-                type: RECT;
-                description {
-                    state: "default" 0.0;
-                    color: 255 255 255 50;
-                    rel1 {
-                        relative: 0 0;
-                        offset: 0 5;
-                    }
-                    rel2 {
-                        offset: 0 -6;
-                        relative: 1 1;
-                    }
-                }
-                description {
-                    state: "vertical" 0.0;
-                    color: 255 255 255 50;
-                    rel1 {
-                        relative: 0 0;
-                        offset: 5 0;
-                    }
-                    rel2 {
-                        offset: -6 0;
-                        relative: 1 1;
-                    }
-                }
-            }
-            program {
-                name:   "go_horizontal";
-                signal: "e,state,horizontal";
-                source: "e";
-                action: STATE_SET "default" 0.0;
-                transition: LINEAR 0.0;
-                target: "separator";
-            }
-            program {
-                name:   "go_vertical";
-                signal: "e,state,vertical";
-                source: "e";
-                action: STATE_SET "vertical" 0.0;
-                transition: LINEAR 0.0;
-                target: "separator";
-            }
-        }
-    }
-    group {
-        name: "e/modules/itask-ng/label";     /* icon title */
-        parts {
-            part {
-                name: "e.text.label";
-                type: TEXT;
-                effect: SOFT_SHADOW;
-                description {
-                    state: "default" 0.0;
-                    visible: 0;
-                    color: 255 255 255 0;
-                    color3: 255 255 255 0;
-                    text {
-                        text: "Icon Name";
-                        font: "Edje-Vera-Bold";
-                        size: 14;
-                        min:  1 1;
-                        align: 0.5 0.5;
-                    }
-                }
-                description {
-                    state:   "visible" 0.0;
-                    inherit: "default" 0.0;
-                    visible: 1;
-                    color:   255 255 255 255;
-                    color2:  0 0 60 110;
-                    color3:  0 0 0 70;
-                }
-            }
-        }
-        programs {
-            program {
-                name:   "go_label_show";
-                signal: "e,state,label_show";
-                source: "e";
-                action: STATE_SET "visible" 0.0;
-                transition: DECELERATE 0.4;
-                target: "e.text.label";
-            }
-            program {
-                name:   "go_label_hide";
-                signal: "e,state,label_hide";
-                source: "e";
-                action: STATE_SET "default" 0.0;
-                transition: ACCELERATE 0.2;
-                target: "e.text.label";
-            }
-        }
-    }
-    group {
-        name: "e/modules/itask-ng/icon";
-        min: 32 32;
-        max: 128 128;
-        parts {
-            part {
-                name: "icon_clip";
-                type: RECT;
-                mouse_events: 0;
-                description {
-                    state:    "default" 0.0;
-                    color: 255 255 255 0;
-                    rel1 {
-                        relative: 0.0  0.0;
-                        offset:   -10   -10;
-                    }
-                    rel2 {
-                        relative: 1.0  1.0;
-                        offset:   5   5;
-                    }
-                }
-                description {
-                    state:    "faded" 0.0;
-                    inherit:  "default" 0.0;
-                    color: 255 255 255 64;
-                }
-                description {
-                    state:    "iconic" 0.0;
-                    inherit:  "default" 0.0;
-                    color: 255 255 255 200;
-                }
-                description {
-                    state:    "visible" 0.0;
-                    inherit:  "default" 0.0;
-                    color: 255 255 255 255;
-                }
-            }
-            part {
-                name: "e.swallow.content";
-                type:  SWALLOW;
-                mouse_events:  0;
-                clip_to:       "icon_clip";
-                description {
-                    state:    "default" 0.0;
-                    aspect: 1.0 1.0;
-                    aspect_preference: BOTH;
-                    rel1 {
-                        relative: 0.0  0.0;
-                        offset:   0   0;
-                    }
-                    rel2 {
-                        relative: 1.0  1.0;
-                        offset:   -1   -1;
-                    }
-                }
-                description {
-                    state:    "active" 0.0;
-                    inherit:  "default" 0.0;
-                    rel1 {
-                        relative: 0.0  0.0;
-                        offset:   0   0;
-                    }
-                    rel2 {
-                        relative: 1.0  1.0;
-                        offset:   -1   -1;
-                    }
-                }
-                description {
-                    state:    "focused" 0.0;
-                    inherit:  "default" 0.0;
-                    color: 190 190 190 190;
-                    rel1 {
-                        relative: 0.0  0.0;
-                        offset:   0   0;
-                    }
-                    rel2 {
-                        relative: 1.0  1.0;
-                        offset:   -1   -1;
-                    }
-                }
-            }
-        }
-        programs {
-            program {
-                name:   "go_show";
-                signal: "e,state,item_show";
-                source: "e";
-                action: STATE_SET "visible" 0.0;
-                transition: SINUSOIDAL 0.3;
-                target: "icon_clip";
-            }
-            program {
-                name:   "go_hide";
-                signal: "e,state,item_hide";
-                source: "e";
-                action: STATE_SET "default" 0.0;
-                transition: SINUSOIDAL 0.1;
-                target: "icon_clip";
-            }
-            program {
-                name:   "go_iconic";
-                signal: "e,state,item_iconify";
-                source: "e";
-                action: STATE_SET "iconic" 0.0;
-                transition: LINEAR 0.5;
-                target: "icon_clip";
-            }
-            program {
-                name:   "go_uniconic";
-                signal: "e,state,item_uniconify";
-                source: "e";
-                action: STATE_SET "visible" 0.0;
-                transition: LINEAR 0.5;
-                target: "icon_clip";
-            }
-        }
-    }
+group {
+   name: "e/shelf/invisible/inset";
+   parts {
+      part {
+	 name:          "background";
+	 mouse_events:  0;
+	 description {
+	    state:    "default" 0.0;
+	    rel1 {
+	       offset:   0    1;
+	    }
+	    rel2 {
+	       offset:   -0    -0;
+	    }
+	    image {
+#ifdef VTX_SHELF_ENTRY
+	       normal: "shelf_entry.png";
+#else
+         normal: "e_surface.png";
+ #endif
+	       border: VTX_IMG_BORDER;
+	    }
+	    fill {
+	       smooth: 0;
+	    }
+	 }
+      }
+      part {
+	 name:          "items_clip";
+	 type:          RECT;
+	 mouse_events:  0;
+	 description {
+	    state:    "default" 0.0;
+	    rel1 {
+	       to:       "background";
+	       offset:   4    4;
+	    }
+	    rel2 {
+	       to:       "background";
+	       offset:   -5    -5;
+	    }
+	    color: 255 255 255 255;
+	 }
+      }
+      part {
+	 name:          "e.swallow.content";
+	 type:          SWALLOW;
+	 clip_to:       "items_clip";
+	 description {
+	    state:    "default" 0.0;
+	    rel1 {
+	       offset:   4    4;
+	    }
+	    rel2 {
+	       offset:   -5    -5;
+	    }
+	 }
+      }
+   }
+}
 
-    /* These are the pulsing animation overlays taken from ibar */
-    group {
-        name: "e/modules/itask-ng/icon_overlay";
-        parts {
-            part {
-                name: "background";
-                type: RECT;
-                description {
-                    state:   "default" 0.0;
-                    visible: 0;
-                    color:   255 255 255 0;
-                }
-                description {
-                    state:   "visible" 0.0;
-                    inherit: "default" 0.0;
-                    visible: 1;
-                    color:   255 255 255 255;
-                }
-                description {
-                    state:   "hidden" 0.0;
-                    inherit: "default" 0.0;
-                    visible: 1;
-                    rel1.relative: -0.5  -0.5;
-                    rel2.relative: 1.5  1.5;
-                }
-                description {
-                    state:   "huge" 0.0;
-                    inherit: "default" 0.0;
-                    visible: 1;
-                    rel1.relative: -1.0  -1.0;
-                    rel2.relative: 2.0  2.0;
-                }
-            }
-            part {
-                name: "e.swallow.content";
-                type: SWALLOW;
-                clip_to:  "background";
-                description {
-                    state:    "default" 0.0;
-                    rel1.to: "background";
-                    rel2.to: "background";
-                }
-            }
-        }
-        programs {
-            program {
-                name:    "go_active2_in";
-                signal:  "";
-                source:  "";
-                action:  STATE_SET "hidden" 0.0;
-                transition: LINEAR 0.3;
-                target:  "background";
-                after:   "go_active3_in";
-            }
-            program {
-                name:    "go_active3_in";
-                signal:  "";
-                source:  "";
-                action:  STATE_SET "visible" 0.0;
-                transition: LINEAR 0.3;
-                target:  "background";
-                after:   "go_active";
-            }
-            program {
-                name:    "go_active";
-                signal:  "e,state,item_focused";
-                source:  "e";
-                action:  STATE_SET "visible" 0.0;
-                target:  "background";
-                after:   "go_active2";
-            }
-            program {
-                name:    "go_active2";
-                signal:  "";
-                source:  "";
-                action:  STATE_SET "hidden" 0.0;
-                transition: LINEAR 0.5;
-                target:  "background";
-                after:   "go_active";
-            }
-            program {
-                name:    "go_passive";
-                signal:  "e,state,item_unfocused";
-                source:  "e";
-                action:  ACTION_STOP;
-                target:  "go_active";
-                target:  "go_active2";
-                after:   "go_passive2";
-            }
-            program {
-                name:    "go_passive2";
-                signal:  "";
-                source:  "";
-                action:  STATE_SET "default" 0.0;
-                target:  "background";
-            }
-            program {
-                name:    "go_big";
-                action:  STATE_SET "visible" 0.0;
-                target:  "background";
-                after:   "go_big2";
-            }
-            program {
-                name:    "go_big2";
-                action:  STATE_SET "huge" 0.0;
-                transition: LINEAR 0.5;
-                target:  "background";
-            }
-            program {
-                name:    "exec_start";
-                signal:  "e,action,start";
-                source:  "e";
-                action:  ACTION_STOP;
-                target:  "go_active";
-                target:  "go_active2";
-                target:  "go_passive";
-                target:  "go_passive2";
-                target:  "go_big";
-                target:  "go_big2";
-                after:   "go_big";
-            }
-        }
-    }
+group {
+   name: "e/shelf/invisible/plain";
+   parts {
+      part {
+	 name:          "items_clip";
+	 type:          RECT;
+	 mouse_events:  0;
+	 description {
+	    state:    "default" 0.0;
+	    rel1 {
+	       offset:   0    0;
+	    }
+	    rel2 {
+	       offset:   -1    -1;
+	    }
+	    color: 255 255 255 255;
+	 }
+      }
+      part {
+	 name:          "e.swallow.content";
+	 type:          SWALLOW;
+	 clip_to:       "items_clip";
+	 description {
+	    state:    "default" 0.0;
+	    rel1 {
+	       offset:   0 0;
+	    }
+	    rel2 {
+	       offset:   -1    -1;
+	    }
+	 }
+      }
+   }
+}

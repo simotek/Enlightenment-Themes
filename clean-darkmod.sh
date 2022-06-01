@@ -16,6 +16,7 @@ clean-darkmod(){
     clean_file $ELM_ENLIGHT_THEME_PATH/colorclasses-dm.edc
     clean_file $ELM_ENLIGHT_THEME_PATH/fonts-dm.edc
     clean_file $ELM_ENLIGHT_THEME_PATH/macros-dm.edc
+    clean_file $ELM_ENLIGHT_THEME_PATH/generated-defns-dm.edc
     clean_file $ELM_ENLIGHT_THEME_PATH/default-dm.edc
     if [ -z "$1" ]; then
       clean_file build/e/*.edj
