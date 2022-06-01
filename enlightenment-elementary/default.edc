@@ -1,5 +1,6 @@
 efl_version: 1 25;
 
+#include "generated-defns-dm.edc"
 #include "macros.edc"
 
 externals.external: "elm";
