@@ -7,6 +7,8 @@
 #define FIXED_SIZE(_WIDTH, _HEIGHT) \
    min: _WIDTH _HEIGHT; max: _WIDTH _HEIGHT; fixed: 1 1;
 
+#define VTX_IMG_BORDER 8 8 8 8;
+
 #define DARK_GREY_BG_COLOR 48 48 48 255
 #define DARK_GREY_BG_DISABLED_COLOR 64 64 64 255
 

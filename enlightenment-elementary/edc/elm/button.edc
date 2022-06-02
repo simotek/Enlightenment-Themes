@@ -109,7 +109,7 @@ group { name: "elm/button/base/default";
       image { "base";
          desc { "default";
             image.normal: "button_normal.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
 
             rel1.offset: 2 2;
             rel2.offset: -2 -2;
@@ -119,13 +119,13 @@ group { name: "elm/button/base/default";
          desc { "pressed";
             inherit: "default";
             image.normal: "button_active.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             color: 255 255 255 255;
          }
          desc { "disabled";
             inherit: "default";
             image.normal: "button_disabled.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
          }
          desc { "hidden";
             inherit: "default";

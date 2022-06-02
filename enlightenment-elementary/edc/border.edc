@@ -251,11 +251,11 @@ group {
       part { name: "whole";
          description { state: "default" 0.0;
             image.normal: "border_full.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
          }
          description { state: "max" 0.0;
 	          image.normal: "border_maximised.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
          }
       }
       part { name: "t1";

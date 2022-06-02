@@ -149,7 +149,7 @@ group { name: "e/widgets/about/main";
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             color: 255 255 255 90;
          }
       }

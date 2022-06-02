@@ -6,7 +6,7 @@ group { name: "e/widgets/entry/scrollframe";
             rel1.offset: 1 1;
             rel2.offset: -3 -3;
             image.normal: "surface_rot.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             color: 255 255 255 96;
          }
       }
