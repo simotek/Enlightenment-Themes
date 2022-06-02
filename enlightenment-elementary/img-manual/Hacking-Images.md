@@ -38,6 +38,7 @@ Hacking Images
 | scrollframe_background.png | Background of most scroll areas |
 | shelf_background.png | Use this image if you want one single image for all shelf instances, if not present then e_surface.png will be used. If shelf_[top\|bottom\|left\|right].png are present they will be prefered | ✓
 | shelf_background_[top\|bottom\|left\|right].png | Use this image if you want one single image for all shelf instances, if not present then e_surface.png will be used. If shelf_[top\|bottom\|left\|right].png are present they will be prefered | ✓
+| shelf_entry.png | Entry area of the shelf | ✓
 
 
 Various Icons
