@@ -29,15 +29,15 @@ Hacking Images
 | menu_selected.png | Selected item in menu, can be a copy of e_item_selected |
 | border_full.png | Full Border contents drawn behind window |
 | border_maximised.png | Maximised borders look better without the left and right line.  |
-| border_button_[close|maximize|minimze]_[active|normal].png | Close / Min / Max buttons. |
+| border_button_[close\|maximize\|minimze]_[active\|normal].png | Close / Min / Max buttons. |
 | fileman_background.png | Background of left bar and main area scrollframe backgrounds. Can be scrollframe_background |
 | menu_background.png | Background of menu |
 | proc_background.png | Proc Background in border, Can be a copy of e_item_selected |
 | scrollbar_buttons.png | scrollbar buttons (Up Down Left Right) |
 | scrollbar_background.png | I'm using the same as the scrollframe background |
 | scrollframe_background.png | Background of most scroll areas |
-| shelf_background.png | Use this image if you want one single image for all shelf instances, if not present then e_surface.png will be used. If shelf_[top|bottom|left|right].png are present they will be prefered | ✓
-| shelf_background_[top|bottom|left|right].png | Use this image if you want one single image for all shelf instances, if not present then e_surface.png will be used. If shelf_[top|bottom|left|right].png are present they will be prefered | ✓
+| shelf_background.png | Use this image if you want one single image for all shelf instances, if not present then e_surface.png will be used. If shelf_[top\|bottom\|left\|right].png are present they will be prefered | ✓
+| shelf_background_[top\|bottom\|left\|right].png | Use this image if you want one single image for all shelf instances, if not present then e_surface.png will be used. If shelf_[top\|bottom\|left\|right].png are present they will be prefered | ✓
 
 
 Various Icons
