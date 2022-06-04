@@ -220,7 +220,7 @@ group { name: "elm/scroller/entry_single/default";
             rel1.to: "elm.swallow.background";
             rel2.to: "elm.swallow.background";
             image.normal: "surface_rot.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
             color: 255 255 255 96;
          }
       }

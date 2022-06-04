@@ -135,7 +135,7 @@ group { name: "efl/button"; data.item: "version" "123";
       image { "base";
          desc { "default";
             image.normal: "button_normal.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
 						rel1.offset: 2 2;
 						rel2.offset: -2 -2;
             fill.smooth: 0;
@@ -144,12 +144,12 @@ group { name: "efl/button"; data.item: "version" "123";
          desc { "pressed";
             inherit: "default";
             image.normal: "button_active.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
          }
          desc { "disabled";
             inherit: "default";
 						image.normal: "button_disabled.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
          }
          desc { "hidden";
             inherit: "default";

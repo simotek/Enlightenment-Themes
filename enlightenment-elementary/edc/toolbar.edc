@@ -9,7 +9,7 @@ group { name: "e/widgets/toolbar";
             rel1.offset: -2 -2;
             rel2.offset: 0 0;
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
 
             color: 255 255 255 90;
 
@@ -174,7 +174,7 @@ group { name: "e/widgets/toolbar/item";
 
             image.normal: "e_item_selected.png";
 
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
 
             visible: 0;
          }

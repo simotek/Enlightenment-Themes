@@ -1,10 +1,18 @@
 group { name: "e/widgets/menu/default/background";
+#ifdef VTX_MENU_BACKGROUND
    images.image: "menu_background.png" COMP;
+#else
+   images.image: "e_surface.png" COMP;
+#endif
    parts {
       part { name: "base"; type: IMAGE; mouse_events: 0;
          description { state: "default" 0.0;
+#ifdef VTX_MENU_BACKGROUND
             image.normal: "menu_background.png";
-            image.border: 8 8 8 8;
+#else
+            image.normal: "e_surface.png";
+#endif
+            image.border: VTX_IMG_BORDER;
          }
       }
       part { name: "top"; mouse_events: 0;
@@ -85,7 +93,7 @@ group { name: "e/widgets/menu/default/background";
 }
 
 group { name: "e/widgets/menu/default/separator";
-   images.image: "bevel_dark_in.png" COMP;
+   images.image: "menu_separator.png" COMP;
    parts {
       part { name: "base";
          description { state: "default" 0.0;
@@ -93,7 +101,7 @@ group { name: "e/widgets/menu/default/separator";
          max: 9999 2;
          rel1.offset: 6 4;
          rel2.offset: -7 -3;
-         image.normal: "bevel_dark_in.png";
+         image.normal: "menu_separator.png";
          image.border: 2 2 2 2;
          fill.smooth: 0;
          }
@@ -103,7 +111,11 @@ group { name: "e/widgets/menu/default/separator";
 
 group { name: "e/widgets/menu/default/item_bg";
    alias: "e/widgets/menu/default/submenu_bg";
+#ifdef VTX_MENU_SELECTED
    images.image: "menu_selected.png" COMP;
+#else
+   images.image: "e_item_selected.png" COMP;
+#endif
    parts {
       part { name: "base"; mouse_events: 0;
          description { state: "default" 0.0;
@@ -120,8 +132,12 @@ group { name: "e/widgets/menu/default/item_bg";
          description { state: "default" 0.0;
             rel1.offset: 4 0;
             rel2.offset: -6 0;
+#ifdef VTX_MENU_SELECTED
             image.normal: "menu_selected.png";
-            image.border: 8 8 8 8;
+#else
+            image.normal: "e_item_selected.png";
+#endif
+            image.border: VTX_IMG_BORDER;
 
             color: 255 255 255 255;
             visible: 0;
@@ -201,7 +217,7 @@ group { name: "e/widgets/menu/default/label";
          }
       }
       part { name: "e.text.label"; type: TEXT; mouse_events: 0;
-         effect: SHADOW BOTTOM;
+         effect: VTX_TEXT_EFFECT_NORMAL;
          scale: 1;
          description { state: "default" 0.0;
             rel1.offset: 5 2;
@@ -225,7 +241,7 @@ group { name: "e/widgets/menu/default/label";
          }
       }
       part { name: "label2"; type: TEXT; mouse_events: 0;
-         effect: SHADOW BOTTOM;
+         effect: VTX_TEXT_EFFECT_NORMAL;
          scale: 1;
          description { state: "default" 0.0;
             rel1.to: "e.text.label";
@@ -249,7 +265,7 @@ group { name: "e/widgets/menu/default/label";
          }
       }
       part { name: "label3"; type: TEXT; mouse_events: 0;
-         effect: GLOW;
+         effect: VTX_TEXT_EFFECT_SELECTED;
          scale: 1;
          description { state: "default" 0.0;
             rel1.offset: -2 -3;

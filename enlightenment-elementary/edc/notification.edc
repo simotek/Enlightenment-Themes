@@ -49,7 +49,7 @@ group { name: "notification/main";
       part { name: "base";
          description { state: "default" 0.0;
             image.normal: "e_surface.png";
-            image.border: 8 8 8 8;
+            image.border: VTX_IMG_BORDER;
          }
       }
       part { name: "titleclip"; type: RECT;

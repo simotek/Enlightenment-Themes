@@ -166,6 +166,27 @@ report_on_error cp -a colorclasses.edc colorclasses-dm.edc
 report_on_error cp -a fonts.edc fonts-dm.edc
 report_on_error cp -a macros.edc macros-dm.edc
 
+# Figure out which images exist (todo separate this)
+echo "/* This is a generated file do not edit */" > generated-defns-dm.edc
+
+if [[ -f "img-manual/menu_background.png" ]]; then
+    echo "#define VTX_MENU_BACKGROUND 1" >> generated-defns-dm.edc
+fi
+if [[ -f "img-manual/menu_selected.png" ]]; then
+    echo "#define VTX_MENU_SELECTED 1" >> generated-defns-dm.edc
+fi
+if [[ -f "img-manual/shelf_background_bottom.png" &&
+      -f "img-manual/shelf_background_left.png" &&
+      -f "img-manual/shelf_background_right.png" &&
+      -f "img-manual/shelf_background_top.png" ]]; then
+    echo "#define VTX_SHELF_MULIT 1" >> generated-defns-dm.edc
+elif [[ -f "img-manual/shelf_background.png" ]]; then
+    echo "#define VTX_SHELF_SINGLE 1" >> generated-defns-dm.edc
+fi
+if [[ -f "img-manual/shelf_entry.png" ]]; then
+    echo "#define VTX_SHELF_ENTRY 1" >> generated-defns-dm.edc
+fi
+
 # Replace background and highlights in edc
 for F in `find edc-dm colorclasses-dm.edc macros-dm.edc -iname "*.edc"`; do
     # Highlight color
