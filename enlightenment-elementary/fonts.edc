@@ -23,8 +23,8 @@ fonts {
 // This doesn't work I don't know why
 #define FAFN   "SoulMission; size: 22"
 
-#define VTX_TEXT_EFFECT OUTLINE_SOFT_SHADOW
-
+#define VTX_TEXT_EFFECT_NORMAL OUTLINE_SOFT_SHADOW
+#define VTX_TEXT_EFFECT_SELECTED OUTLINE_SOFT_SHADOW
 
 #define FN_COL_DEFAULT_BASIC 255 255 255 255
 /* fonts.edc not sure if this one is neccesary */
