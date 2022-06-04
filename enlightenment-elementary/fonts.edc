@@ -15,6 +15,9 @@
 #define FNIT   "Sans:style=Oblique"
 #define FNBDIT "Sans:style=Bold Italic"
 
+#define VTX_TEXT_EFFECT_NORMAL SHADOW BOTTOM
+#define VTX_TEXT_EFFECT_SELECTED GLOW
+
 #define FN_COL_DEFAULT_BASIC 255 255 255 255
 /* fonts.edc not sure if this one is neccesary */
 #define FN_COL_DEFAULT 255 255 255 255; color3: 0 0 0 128

@@ -217,7 +217,7 @@ group { name: "e/widgets/menu/default/label";
          }
       }
       part { name: "e.text.label"; type: TEXT; mouse_events: 0;
-         effect: SHADOW BOTTOM;
+         effect: VTX_TEXT_EFFECT_NORMAL;
          scale: 1;
          description { state: "default" 0.0;
             rel1.offset: 5 2;
@@ -241,7 +241,7 @@ group { name: "e/widgets/menu/default/label";
          }
       }
       part { name: "label2"; type: TEXT; mouse_events: 0;
-         effect: SHADOW BOTTOM;
+         effect: VTX_TEXT_EFFECT_NORMAL;
          scale: 1;
          description { state: "default" 0.0;
             rel1.to: "e.text.label";
@@ -265,7 +265,7 @@ group { name: "e/widgets/menu/default/label";
          }
       }
       part { name: "label3"; type: TEXT; mouse_events: 0;
-         effect: GLOW;
+         effect: VTX_TEXT_EFFECT_SELECTED;
          scale: 1;
          description { state: "default" 0.0;
             rel1.offset: -2 -3;
