@@ -10,10 +10,17 @@
 #define FNIT   "PTSans-Italic"
 #define FNBDIT "PTSans-BoldItalic"
 */
+
+fonts {
+   font: "SoulMission.ttf" "SoulMission";
+}
+
+
 #define FN     "Sans"
 #define FNBD   "Sans:style=Bold"
 #define FNIT   "Sans:style=Oblique"
 #define FNBDIT "Sans:style=Bold Italic"
+#define FAFN   "SoulMission; size: 22"
 
 #define FN_COL_DEFAULT_BASIC 255 255 255 255
 /* fonts.edc not sure if this one is neccesary */
