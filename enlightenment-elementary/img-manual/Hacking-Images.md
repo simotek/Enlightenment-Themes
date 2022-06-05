@@ -32,7 +32,9 @@ Hacking Images
 | fileman_background.png | Background of left bar and main area scrollframe backgrounds. Can be scrollframe_background |
 | menu_background.png | Background of menu will be e_surface.png if not present | ✓
 | menu_selected.png | Selected item in menu, Falls back to e_item_selected | ✓
-| menu_separator.png | The Separator for menus, bevel_dark_in.png works well | 
+| menu_separator.png | The Separator for menus, bevel_dark_in.png works well |
+| menu_arrow_normal.png | The arrow for submenu's |
+| menu_arrow_selected.png | The selected arrow for submenu's could be the same as the normal menu, this hides in img-color-manual
 | proc_background.png | Proc Background in border, Can be a copy of e_item_selected |
 | scrollbar_buttons.png | scrollbar buttons (Up Down Left Right) |
 | scrollbar_background.png | I'm using the same as the scrollframe background |

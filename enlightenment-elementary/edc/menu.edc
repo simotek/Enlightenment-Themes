@@ -325,20 +325,20 @@ group { name: "e/widgets/menu/default/label";
 }
 
 group { name: "e/widgets/menu/default/submenu";
-   images.image: "sym_right_light_normal.png" COMP;
-   images.image: "sym_right_glow_normal.png" COMP;
+   images.image: "menu_arrow_normal.png" COMP;
+   images.image: "menu_arrow_selected.png" COMP;
    images.image: "vertical_separated_bar_glow.png" COMP;
    parts {
       part { name: "base";
          description { state: "default" 0.0;
-            image.normal: "sym_right_light_normal.png";
+            image.normal: "menu_arrow_normal.png";
             rel2.offset: -2 -1;
             min: 15 15;
             max: 15 15;
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;
-            image.normal: "sym_right_glow_normal.png";
+            image.normal: "menu_arrow_selected.png";
          }
       }
    }
