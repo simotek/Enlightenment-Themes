@@ -332,9 +332,10 @@ group { name: "e/widgets/menu/default/submenu";
       part { name: "base";
          description { state: "default" 0.0;
             image.normal: "menu_arrow_normal.png";
-            rel2.offset: -2 -1;
-            min: 15 15;
-            max: 15 15;
+            rel1.offset: 3 0;
+            rel2.offset: -8 -1;
+            min:      8 8;
+            max:      8 8;
          }
          description { state: "selected" 0.0;
             inherit: "default" 0.0;

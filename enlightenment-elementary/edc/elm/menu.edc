@@ -249,6 +249,8 @@ group { name: "elm/menu/item_with_submenu/default";
    parts {
       part { name: "arrow";
          description { state: "default" 0.0;
+            min:      8 8;
+            max:      8 8;
             rel1.to: "arrowspace";
             rel2.to: "arrowspace";
             image.normal: "menu_arrow_normal.png";
