@@ -244,6 +244,8 @@ group { name: "e/modules/clock/digital";
             rel2.relative: (16/16) 1.0;
             rel1.to: "timearea";
             rel2.to: "timearea";
+            rel1.offset: 0 5;
+            rel2.offset: 0 5;
             visible: 0;
          }
       }
