@@ -248,7 +248,7 @@ group {
             rel2.to: "e.swallow.client";
          }
       }
-      part { name: "whole";
+      part { name: "whole"; mouse_events: 0;
          description { state: "default" 0.0;
             image.normal: "border_full.png";
             image.border: VTX_IMG_BORDER;
